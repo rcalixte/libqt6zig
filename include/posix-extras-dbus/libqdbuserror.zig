@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qdbuserror_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qdbuserror.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html)
 pub const qdbuserror = struct {
     /// New constructs a new QDBusError object.
-    ///
     ///
     pub fn New() QtC.QDBusError {
         return qtc.QDBusError_new();
@@ -14,14 +13,22 @@ pub const qdbuserror = struct {
 
     /// New2 constructs a new QDBusError object.
     ///
-    /// ``` msg: QtC.QDBusMessage ```
+    /// ## Parameter(s):
+    ///
+    /// ` msg: QtC.QDBusMessage `
+    ///
     pub fn New2(msg: ?*anyopaque) QtC.QDBusError {
         return qtc.QDBusError_new2(@ptrCast(msg));
     }
 
     /// New3 constructs a new QDBusError object.
     ///
-    /// ``` errorVal: qdbuserror_enums.ErrorType, message: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` errorVal: qdbuserror_enums.ErrorType `
+    ///
+    /// ` message: []const u8 `
+    ///
     pub fn New3(errorVal: i32, message: []const u8) QtC.QDBusError {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -33,44 +40,72 @@ pub const qdbuserror = struct {
 
     /// New4 constructs a new QDBusError object.
     ///
-    /// ``` other: QtC.QDBusError ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QDBusError `
+    ///
     pub fn New4(other: ?*anyopaque) QtC.QDBusError {
         return qtc.QDBusError_new4(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
-    /// ``` self: QtC.QDBusError, other: QtC.QDBusError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusError `
+    ///
+    /// ` other: QtC.QDBusError `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
-    /// ``` self: QtC.QDBusError, msg: QtC.QDBusMessage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusError `
+    ///
+    /// ` msg: QtC.QDBusMessage `
+    ///
     pub fn OperatorAssign2(self: ?*anyopaque, msg: ?*anyopaque) void {
         qtc.QDBusError_OperatorAssign2(@ptrCast(self), @ptrCast(msg));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#swap)
     ///
-    /// ``` self: QtC.QDBusError, other: QtC.QDBusError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusError `
+    ///
+    /// ` other: QtC.QDBusError `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusError_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#type)
     ///
-    /// ``` self: QtC.QDBusError ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdbuserror_enums.ErrorType ```
+    /// ` self: QtC.QDBusError `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdbuserror_enums.ErrorType `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QDBusError_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#name)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#name)
     ///
-    /// ``` self: QtC.QDBusError, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusError `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDBusError_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -79,9 +114,14 @@ pub const qdbuserror = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#message)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#message)
     ///
-    /// ``` self: QtC.QDBusError, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusError `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDBusError_Message(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -90,16 +130,24 @@ pub const qdbuserror = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#isValid)
     ///
-    /// ``` self: QtC.QDBusError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusError `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QDBusError_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#errorString)
     ///
-    /// ``` errorVal: qdbuserror_enums.ErrorType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` errorVal: qdbuserror_enums.ErrorType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(errorVal: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDBusError_ErrorString(@intCast(errorVal));
         defer qtc.libqt_string_free(&_str);
@@ -108,17 +156,20 @@ pub const qdbuserror = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#dtor.QDBusError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#dtor.QDBusError)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDBusError ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDBusError `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDBusError_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qdbuserror.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#public-types)
 pub const enums = struct {
     pub const ErrorType = enum {
         pub const NoError: i32 = 0;

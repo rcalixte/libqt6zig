@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const std = @import("std");
 const theme_enums = enums;
 
-/// https://api.kde.org/ksyntaxhighlighting-theme.html
+/// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html)
 pub const ksyntaxhighlighting__theme = struct {
     /// New constructs a new KSyntaxHighlighting::Theme object.
-    ///
     ///
     pub fn New() QtC.KSyntaxHighlighting__Theme {
         return qtc.KSyntaxHighlighting__Theme_new();
@@ -14,28 +13,44 @@ pub const ksyntaxhighlighting__theme = struct {
 
     /// New2 constructs a new KSyntaxHighlighting::Theme object.
     ///
-    /// ``` copyVal: QtC.KSyntaxHighlighting__Theme ```
+    /// ## Parameter(s):
+    ///
+    /// ` copyVal: QtC.KSyntaxHighlighting__Theme `
+    ///
     pub fn New2(copyVal: ?*anyopaque) QtC.KSyntaxHighlighting__Theme {
         return qtc.KSyntaxHighlighting__Theme_new2(@ptrCast(copyVal));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#operator-eq)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, other: QtC.KSyntaxHighlighting__Theme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` other: QtC.KSyntaxHighlighting__Theme `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__Theme_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isValid)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Theme_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#name)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#name)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSyntaxHighlighting__Theme_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -44,9 +59,14 @@ pub const ksyntaxhighlighting__theme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#translatedName)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#translatedName)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TranslatedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSyntaxHighlighting__Theme_TranslatedName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -55,16 +75,24 @@ pub const ksyntaxhighlighting__theme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isReadOnly)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isReadOnly)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Theme_IsReadOnly(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#filePath)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#filePath)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSyntaxHighlighting__Theme_FilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -73,78 +101,126 @@ pub const ksyntaxhighlighting__theme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#textColor)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#textColor)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn TextColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_TextColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedTextColor)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedTextColor)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn SelectedTextColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_SelectedTextColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#backgroundColor)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#backgroundColor)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn BackgroundColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_BackgroundColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedBackgroundColor)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedBackgroundColor)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn SelectedBackgroundColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_SelectedBackgroundColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isBold)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isBold)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn IsBold(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsBold(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isItalic)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isItalic)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn IsItalic(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsItalic(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isUnderline)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isUnderline)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn IsUnderline(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsUnderline(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isStrikeThrough)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isStrikeThrough)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` style: theme_enums.TextStyle `
+    ///
     pub fn IsStrikeThrough(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsStrikeThrough(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#editorColor)
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#editorColor)
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme, role: theme_enums.EditorColorRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
+    /// ` role: theme_enums.EditorColorRole `
+    ///
     pub fn EditorColor(self: ?*anyopaque, role: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_EditorColor(@ptrCast(self), @intCast(role));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KSyntaxHighlighting__Theme ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Theme `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__Theme_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/ksyntaxhighlighting-theme.html#types
+/// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#public-types)
 pub const enums = struct {
     pub const TextStyle = enum {
         pub const Normal: i32 = 0;

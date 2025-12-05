@@ -3,11 +3,14 @@ const qtc = @import("qt6c");
 const kuitsetup_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kuit.html
+/// ### [Upstream resources](https://api.kde.org/kuit.html)
 pub const kuit = struct {
-    /// [Upstream resources](https://api.kde.org/kuit.html#setupForDomain)
+    /// ### [Upstream resources](https://api.kde.org/kuit.html#setupForDomain)
     ///
-    /// ``` param1: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []u8 `
+    ///
     pub fn SetupForDomain(param1: []u8) QtC.KuitSetup {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -17,11 +20,24 @@ pub const kuit = struct {
     }
 };
 
-/// https://api.kde.org/kuitsetup.html
+/// ### [Upstream resources](https://api.kde.org/kuitsetup.html)
 pub const kuitsetup = struct {
-    /// [Upstream resources](https://api.kde.org/kuitsetup.html#setTagPattern)
+    /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#setTagPattern)
     ///
-    /// ``` self: QtC.KuitSetup, tagName: []const u8, attribNames: [][]const u8, format: kuitsetup_enums.VisualFormat, pattern: QtC.KLocalizedString, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KuitSetup `
+    ///
+    /// ` tagName: []const u8 `
+    ///
+    /// ` attribNames: [][]const u8 `
+    ///
+    /// ` format: kuitsetup_enums.VisualFormat `
+    ///
+    /// ` pattern: QtC.KLocalizedString `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetTagPattern(self: ?*anyopaque, tagName: []const u8, attribNames: [][]const u8, format: i32, pattern: ?*anyopaque, allocator: std.mem.Allocator) void {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
@@ -42,9 +58,16 @@ pub const kuitsetup = struct {
         qtc.KuitSetup_SetTagPattern(@ptrCast(self), tagName_str, attribNames_list, @intCast(format), @ptrCast(pattern));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuitsetup.html#setTagClass)
+    /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#setTagClass)
     ///
-    /// ``` self: QtC.KuitSetup, tagName: []const u8, aClass: kuitsetup_enums.TagClass ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KuitSetup `
+    ///
+    /// ` tagName: []const u8 `
+    ///
+    /// ` aClass: kuitsetup_enums.TagClass `
+    ///
     pub fn SetTagClass(self: ?*anyopaque, tagName: []const u8, aClass: i32) void {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
@@ -53,9 +76,16 @@ pub const kuitsetup = struct {
         qtc.KuitSetup_SetTagClass(@ptrCast(self), tagName_str, @intCast(aClass));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuitsetup.html#setFormatForMarker)
+    /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#setFormatForMarker)
     ///
-    /// ``` self: QtC.KuitSetup, marker: []const u8, format: kuitsetup_enums.VisualFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KuitSetup `
+    ///
+    /// ` marker: []const u8 `
+    ///
+    /// ` format: kuitsetup_enums.VisualFormat `
+    ///
     pub fn SetFormatForMarker(self: ?*anyopaque, marker: []const u8, format: i32) void {
         const marker_str = qtc.libqt_string{
             .len = marker.len,
@@ -64,17 +94,20 @@ pub const kuitsetup = struct {
         qtc.KuitSetup_SetFormatForMarker(@ptrCast(self), marker_str, @intCast(format));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuitsetup.html#dtor.KuitSetup)
+    /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#dtor.KuitSetup)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KuitSetup ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KuitSetup `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KuitSetup_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kuitsetup.html#types
+/// ### [Upstream resources](https://api.kde.org/kuitsetup.html#public-types)
 pub const enums = struct {
     pub const VisualFormat = enum {
         pub const UndefinedFormat: i32 = 0;

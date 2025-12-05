@@ -6,10 +6,9 @@ const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qhttppart.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html)
 pub const qhttppart = struct {
     /// New constructs a new QHttpPart object.
-    ///
     ///
     pub fn New() QtC.QHttpPart {
         return qtc.QHttpPart_new();
@@ -17,49 +16,86 @@ pub const qhttppart = struct {
 
     /// New2 constructs a new QHttpPart object.
     ///
-    /// ``` other: QtC.QHttpPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QHttpPart `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QHttpPart {
         return qtc.QHttpPart_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#operator-eq)
     ///
-    /// ``` self: QtC.QHttpPart, other: QtC.QHttpPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` other: QtC.QHttpPart `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QHttpPart_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#swap)
     ///
-    /// ``` self: QtC.QHttpPart, other: QtC.QHttpPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` other: QtC.QHttpPart `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QHttpPart_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QHttpPart, other: QtC.QHttpPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` other: QtC.QHttpPart `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QHttpPart_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QHttpPart, other: QtC.QHttpPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` other: QtC.QHttpPart `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QHttpPart_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setHeader)
     ///
-    /// ``` self: QtC.QHttpPart, header: qnetworkrequest_enums.KnownHeaders, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` header: qnetworkrequest_enums.KnownHeaders `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetHeader(self: ?*anyopaque, header: i32, value: ?*anyopaque) void {
         qtc.QHttpPart_SetHeader(@ptrCast(self), @intCast(header), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setRawHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setRawHeader)
     ///
-    /// ``` self: QtC.QHttpPart, headerName: []u8, headerValue: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` headerName: []u8 `
+    ///
+    /// ` headerValue: []u8 `
+    ///
     pub fn SetRawHeader(self: ?*anyopaque, headerName: []u8, headerValue: []u8) void {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
@@ -72,9 +108,14 @@ pub const qhttppart = struct {
         qtc.QHttpPart_SetRawHeader(@ptrCast(self), headerName_str, headerValue_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setBody)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setBody)
     ///
-    /// ``` self: QtC.QHttpPart, body: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` body: []u8 `
+    ///
     pub fn SetBody(self: ?*anyopaque, body: []u8) void {
         const body_str = qtc.libqt_string{
             .len = body.len,
@@ -83,27 +124,34 @@ pub const qhttppart = struct {
         qtc.QHttpPart_SetBody(@ptrCast(self), body_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setBodyDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#setBodyDevice)
     ///
-    /// ``` self: QtC.QHttpPart, device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn SetBodyDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QHttpPart_SetBodyDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#dtor.QHttpPart)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttppart.html#dtor.QHttpPart)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QHttpPart ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QHttpPart `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QHttpPart_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qhttpmultipart.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html)
 pub const qhttpmultipart = struct {
     /// New constructs a new QHttpMultiPart object.
-    ///
     ///
     pub fn New() QtC.QHttpMultiPart {
         return qtc.QHttpMultiPart_new();
@@ -111,60 +159,107 @@ pub const qhttpmultipart = struct {
 
     /// New2 constructs a new QHttpMultiPart object.
     ///
-    /// ``` contentType: qhttpmultipart_enums.ContentType ```
+    /// ## Parameter(s):
+    ///
+    /// ` contentType: qhttpmultipart_enums.ContentType `
+    ///
     pub fn New2(contentType: i32) QtC.QHttpMultiPart {
         return qtc.QHttpMultiPart_new2(@intCast(contentType));
     }
 
     /// New3 constructs a new QHttpMultiPart object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New3(parent: ?*anyopaque) QtC.QHttpMultiPart {
         return qtc.QHttpMultiPart_new3(@ptrCast(parent));
     }
 
     /// New4 constructs a new QHttpMultiPart object.
     ///
-    /// ``` contentType: qhttpmultipart_enums.ContentType, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` contentType: qhttpmultipart_enums.ContentType `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New4(contentType: i32, parent: ?*anyopaque) QtC.QHttpMultiPart {
         return qtc.QHttpMultiPart_new4(@intCast(contentType), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QHttpMultiPart_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QHttpMultiPart, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QHttpMultiPart_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QHttpMultiPart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QHttpMultiPart_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QHttpMultiPart_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QHttpMultiPart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QHttpMultiPart_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -174,23 +269,38 @@ pub const qhttpmultipart = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#append)
     ///
-    /// ``` self: QtC.QHttpMultiPart, httpPart: QtC.QHttpPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` httpPart: QtC.QHttpPart `
+    ///
     pub fn Append(self: ?*anyopaque, httpPart: ?*anyopaque) void {
         qtc.QHttpMultiPart_Append(@ptrCast(self), @ptrCast(httpPart));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#setContentType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#setContentType)
     ///
-    /// ``` self: QtC.QHttpMultiPart, contentType: qhttpmultipart_enums.ContentType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` contentType: qhttpmultipart_enums.ContentType `
+    ///
     pub fn SetContentType(self: ?*anyopaque, contentType: i32) void {
         qtc.QHttpMultiPart_SetContentType(@ptrCast(self), @intCast(contentType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#boundary)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#boundary)
     ///
-    /// ``` self: QtC.QHttpMultiPart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Boundary(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QHttpMultiPart_Boundary(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -199,9 +309,14 @@ pub const qhttpmultipart = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#setBoundary)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#setBoundary)
     ///
-    /// ``` self: QtC.QHttpMultiPart, boundary: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` boundary: []u8 `
+    ///
     pub fn SetBoundary(self: ?*anyopaque, boundary: []u8) void {
         const boundary_str = qtc.libqt_string{
             .len = boundary.len,
@@ -210,9 +325,16 @@ pub const qhttpmultipart = struct {
         qtc.QHttpMultiPart_SetBoundary(@ptrCast(self), boundary_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -223,9 +345,18 @@ pub const qhttpmultipart = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -238,9 +369,14 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QHttpMultiPart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -251,9 +387,14 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QHttpMultiPart, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -264,99 +405,144 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QHttpMultiPart, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QHttpMultiPart, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QHttpMultiPart, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QHttpMultiPart, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QHttpMultiPart, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QHttpMultiPart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -368,45 +554,78 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QHttpMultiPart, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QHttpMultiPart, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QHttpMultiPart, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QHttpMultiPart, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -415,45 +634,70 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QHttpMultiPart, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -461,9 +705,14 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QHttpMultiPart, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -471,9 +720,14 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QHttpMultiPart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -495,54 +749,76 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QHttpMultiPart, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -550,45 +826,84 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QHttpMultiPart, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QHttpMultiPart, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QHttpMultiPart, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -597,326 +912,472 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHttpMultiPart, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPartparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHttpMultiPart_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHttpMultiPart_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QHttpMultiPart_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHttpMultiPart_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHttpMultiPart_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QHttpMultiPart_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHttpMultiPart_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHttpMultiPart_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHttpMultiPart_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHttpMultiPart_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHttpMultiPart_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHttpMultiPart_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHttpMultiPart_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHttpMultiPart_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHttpMultiPart_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHttpMultiPart_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHttpMultiPart_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHttpMultiPart_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHttpMultiPart_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHttpMultiPart_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHttpMultiPart_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QHttpMultiPart_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QHttpMultiPart_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QHttpMultiPart_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QHttpMultiPart_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QHttpMultiPart_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QHttpMultiPart_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHttpMultiPart_Receivers(@ptrCast(self), signal_Cstring);
@@ -924,11 +1385,16 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHttpMultiPart_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -936,70 +1402,98 @@ pub const qhttpmultipart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QHttpMultiPart_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QHttpMultiPart_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QHttpMultiPart_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart`
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPart, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QHttpMultiPart_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QHttpMultiPart, callback: *const fn (self: QtC.QHttpMultiPart, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
+    /// ` callback: *const fn (self: QtC.QHttpMultiPartobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#dtor.QHttpMultiPart)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#dtor.QHttpMultiPart)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QHttpMultiPart ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QHttpMultiPart `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QHttpMultiPart_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qhttpmultipart.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#public-types)
 pub const enums = struct {
     pub const ContentType = enum {
         pub const MixedType: i32 = 0;

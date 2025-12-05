@@ -3,36 +3,46 @@ const qtc = @import("qt6c");
 const qtsqlglobal_enums = @import("libqtsqlglobal.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qsqldrivercreatorbase.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html)
 pub const qsqldrivercreatorbase = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#createObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#createObject)
     ///
-    /// ``` self: QtC.QSqlDriverCreatorBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDriverCreatorBase `
+    ///
     pub fn CreateObject(self: ?*anyopaque) QtC.QSqlDriver {
         return qtc.QSqlDriverCreatorBase_CreateObject(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#operator-eq)
     ///
-    /// ``` self: QtC.QSqlDriverCreatorBase, param1: QtC.QSqlDriverCreatorBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDriverCreatorBase `
+    ///
+    /// ` param1: QtC.QSqlDriverCreatorBase `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QSqlDriverCreatorBase_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#dtor.QSqlDriverCreatorBase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#dtor.QSqlDriverCreatorBase)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSqlDriverCreatorBase ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSqlDriverCreatorBase `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSqlDriverCreatorBase_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qsqldatabase.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html)
 pub const qsqldatabase = struct {
     /// New constructs a new QSqlDatabase object.
-    ///
     ///
     pub fn New() QtC.QSqlDatabase {
         return qtc.QSqlDatabase_new();
@@ -40,28 +50,46 @@ pub const qsqldatabase = struct {
 
     /// New2 constructs a new QSqlDatabase object.
     ///
-    /// ``` other: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSqlDatabase `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QSqlDatabase {
         return qtc.QSqlDatabase_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#operator-eq)
     ///
-    /// ``` self: QtC.QSqlDatabase, other: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` other: QtC.QSqlDatabase `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSqlDatabase_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#open)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Open(self: ?*anyopaque) bool {
         return qtc.QSqlDatabase_Open(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#open)
     ///
-    /// ``` self: QtC.QSqlDatabase, user: []const u8, password: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` user: []const u8 `
+    ///
+    /// ` password: []const u8 `
+    ///
     pub fn Open2(self: ?*anyopaque, user: []const u8, password: []const u8) bool {
         const user_str = qtc.libqt_string{
             .len = user.len,
@@ -74,30 +102,44 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_Open2(@ptrCast(self), user_str, password_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#close)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Close(self: ?*anyopaque) void {
         qtc.QSqlDatabase_Close(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isOpen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isOpen)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn IsOpen(self: ?*anyopaque) bool {
         return qtc.QSqlDatabase_IsOpen(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isOpenError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isOpenError)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn IsOpenError(self: ?*anyopaque) bool {
         return qtc.QSqlDatabase_IsOpenError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#tables)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#tables)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tables(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_Tables(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -117,9 +159,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#primaryIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#primaryIndex)
     ///
-    /// ``` self: QtC.QSqlDatabase, tablename: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` tablename: []const u8 `
+    ///
     pub fn PrimaryIndex(self: ?*anyopaque, tablename: []const u8) QtC.QSqlIndex {
         const tablename_str = qtc.libqt_string{
             .len = tablename.len,
@@ -128,9 +175,14 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_PrimaryIndex(@ptrCast(self), tablename_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#record)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#record)
     ///
-    /// ``` self: QtC.QSqlDatabase, tablename: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` tablename: []const u8 `
+    ///
     pub fn Record(self: ?*anyopaque, tablename: []const u8) QtC.QSqlRecord {
         const tablename_str = qtc.libqt_string{
             .len = tablename.len,
@@ -139,51 +191,74 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_Record(@ptrCast(self), tablename_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#exec)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#exec)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Exec(self: ?*anyopaque) QtC.QSqlQuery {
         return qtc.QSqlDatabase_Exec(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#lastError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#lastError)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn LastError(self: ?*anyopaque) QtC.QSqlError {
         return qtc.QSqlDatabase_LastError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isValid)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QSqlDatabase_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#transaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#transaction)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Transaction(self: ?*anyopaque) bool {
         return qtc.QSqlDatabase_Transaction(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#commit)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#commit)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Commit(self: ?*anyopaque) bool {
         return qtc.QSqlDatabase_Commit(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#rollback)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#rollback)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Rollback(self: ?*anyopaque) bool {
         return qtc.QSqlDatabase_Rollback(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setDatabaseName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setDatabaseName)
     ///
-    /// ``` self: QtC.QSqlDatabase, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetDatabaseName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -192,9 +267,14 @@ pub const qsqldatabase = struct {
         qtc.QSqlDatabase_SetDatabaseName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setUserName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setUserName)
     ///
-    /// ``` self: QtC.QSqlDatabase, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetUserName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -203,9 +283,14 @@ pub const qsqldatabase = struct {
         qtc.QSqlDatabase_SetUserName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setPassword)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setPassword)
     ///
-    /// ``` self: QtC.QSqlDatabase, password: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` password: []const u8 `
+    ///
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
         const password_str = qtc.libqt_string{
             .len = password.len,
@@ -214,9 +299,14 @@ pub const qsqldatabase = struct {
         qtc.QSqlDatabase_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setHostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setHostName)
     ///
-    /// ``` self: QtC.QSqlDatabase, host: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` host: []const u8 `
+    ///
     pub fn SetHostName(self: ?*anyopaque, host: []const u8) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
@@ -225,23 +315,36 @@ pub const qsqldatabase = struct {
         qtc.QSqlDatabase_SetHostName(@ptrCast(self), host_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setPort)
     ///
-    /// ``` self: QtC.QSqlDatabase, p: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` p: i32 `
+    ///
     pub fn SetPort(self: ?*anyopaque, p: i32) void {
         qtc.QSqlDatabase_SetPort(@ptrCast(self), @intCast(p));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setConnectOptions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setConnectOptions)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn SetConnectOptions(self: ?*anyopaque) void {
         qtc.QSqlDatabase_SetConnectOptions(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#databaseName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#databaseName)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DatabaseName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSqlDatabase_DatabaseName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -250,9 +353,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#userName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#userName)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSqlDatabase_UserName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -261,9 +369,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#password)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#password)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSqlDatabase_Password(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -272,9 +385,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#hostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#hostName)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSqlDatabase_HostName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -283,9 +401,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#driverName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#driverName)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DriverName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSqlDatabase_DriverName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -294,16 +417,24 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#port)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#port)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Port(self: ?*anyopaque) i32 {
         return qtc.QSqlDatabase_Port(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#connectOptions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#connectOptions)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ConnectOptions(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSqlDatabase_ConnectOptions(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -312,9 +443,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#connectionName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#connectionName)
     ///
-    /// ``` self: QtC.QSqlDatabase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ConnectionName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSqlDatabase_ConnectionName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -323,46 +459,70 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setNumericalPrecisionPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setNumericalPrecisionPolicy)
     ///
-    /// ``` self: QtC.QSqlDatabase, precisionPolicy: qtsqlglobal_enums.NumericalPrecisionPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` precisionPolicy: qtsqlglobal_enums.NumericalPrecisionPolicy `
+    ///
     pub fn SetNumericalPrecisionPolicy(self: ?*anyopaque, precisionPolicy: i32) void {
         qtc.QSqlDatabase_SetNumericalPrecisionPolicy(@ptrCast(self), @intCast(precisionPolicy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#numericalPrecisionPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#numericalPrecisionPolicy)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qtsqlglobal_enums.NumericalPrecisionPolicy ```
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qtsqlglobal_enums.NumericalPrecisionPolicy `
+    ///
     pub fn NumericalPrecisionPolicy(self: ?*anyopaque) i32 {
         return qtc.QSqlDatabase_NumericalPrecisionPolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#moveToThread)
     ///
-    /// ``` self: QtC.QSqlDatabase, targetThread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` targetThread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, targetThread: ?*anyopaque) bool {
         return qtc.QSqlDatabase_MoveToThread(@ptrCast(self), @ptrCast(targetThread));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#thread)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QSqlDatabase_Thread(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#driver)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#driver)
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn Driver(self: ?*anyopaque) QtC.QSqlDriver {
         return qtc.QSqlDatabase_Driver(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
     ///
-    /// ``` typeVal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: []const u8 `
+    ///
     pub fn AddDatabase(typeVal: []const u8) QtC.QSqlDatabase {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
@@ -371,16 +531,24 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_AddDatabase(typeVal_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
     ///
-    /// ``` driver: QtC.QSqlDriver ```
+    /// ## Parameter(s):
+    ///
+    /// ` driver: QtC.QSqlDriver `
+    ///
     pub fn AddDatabase2(driver: ?*anyopaque) QtC.QSqlDatabase {
         return qtc.QSqlDatabase_AddDatabase2(@ptrCast(driver));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#cloneDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#cloneDatabase)
     ///
-    /// ``` other: QtC.QSqlDatabase, connectionName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSqlDatabase `
+    ///
+    /// ` connectionName: []const u8 `
+    ///
     pub fn CloneDatabase(other: ?*anyopaque, connectionName: []const u8) QtC.QSqlDatabase {
         const connectionName_str = qtc.libqt_string{
             .len = connectionName.len,
@@ -389,9 +557,14 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_CloneDatabase(@ptrCast(other), connectionName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#cloneDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#cloneDatabase)
     ///
-    /// ``` other: []const u8, connectionName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: []const u8 `
+    ///
+    /// ` connectionName: []const u8 `
+    ///
     pub fn CloneDatabase2(other: []const u8, connectionName: []const u8) QtC.QSqlDatabase {
         const other_str = qtc.libqt_string{
             .len = other.len,
@@ -404,16 +577,18 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_CloneDatabase2(other_str, connectionName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#database)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#database)
     ///
     pub fn Database() QtC.QSqlDatabase {
         return qtc.QSqlDatabase_Database();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#removeDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#removeDatabase)
     ///
-    /// ``` connectionName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` connectionName: []const u8 `
+    ///
     pub fn RemoveDatabase(connectionName: []const u8) void {
         const connectionName_str = qtc.libqt_string{
             .len = connectionName.len,
@@ -422,16 +597,18 @@ pub const qsqldatabase = struct {
         qtc.QSqlDatabase_RemoveDatabase(connectionName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#contains)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#contains)
     ///
     pub fn Contains() bool {
         return qtc.QSqlDatabase_Contains();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#drivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#drivers)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Drivers(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_Drivers();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -451,9 +628,12 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#connectionNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#connectionNames)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ConnectionNames(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_ConnectionNames();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -473,9 +653,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#registerSqlDriver)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#registerSqlDriver)
     ///
-    /// ``` name: []const u8, creator: QtC.QSqlDriverCreatorBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` creator: QtC.QSqlDriverCreatorBase `
+    ///
     pub fn RegisterSqlDriver(name: []const u8, creator: ?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -484,9 +669,12 @@ pub const qsqldatabase = struct {
         qtc.QSqlDatabase_RegisterSqlDriver(name_str, @ptrCast(creator));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isDriverAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#isDriverAvailable)
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn IsDriverAvailable(name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -495,9 +683,16 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_IsDriverAvailable(name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#tables)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#tables)
     ///
-    /// ``` self: QtC.QSqlDatabase, typeVal: qtsqlglobal_enums.TableType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` typeVal: qtsqlglobal_enums.TableType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tables1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_Tables1(@ptrCast(self), @intCast(typeVal));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -517,9 +712,14 @@ pub const qsqldatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#exec)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#exec)
     ///
-    /// ``` self: QtC.QSqlDatabase, query: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` query: []const u8 `
+    ///
     pub fn Exec1(self: ?*anyopaque, query: []const u8) QtC.QSqlQuery {
         const query_str = qtc.libqt_string{
             .len = query.len,
@@ -528,9 +728,14 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_Exec1(@ptrCast(self), query_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setConnectOptions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setConnectOptions)
     ///
-    /// ``` self: QtC.QSqlDatabase, options: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
+    /// ` options: []const u8 `
+    ///
     pub fn SetConnectOptions1(self: ?*anyopaque, options: []const u8) void {
         const options_str = qtc.libqt_string{
             .len = options.len,
@@ -539,9 +744,14 @@ pub const qsqldatabase = struct {
         qtc.QSqlDatabase_SetConnectOptions1(@ptrCast(self), options_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
     ///
-    /// ``` typeVal: []const u8, connectionName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: []const u8 `
+    ///
+    /// ` connectionName: []const u8 `
+    ///
     pub fn AddDatabase22(typeVal: []const u8, connectionName: []const u8) QtC.QSqlDatabase {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
@@ -554,9 +764,14 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_AddDatabase22(typeVal_str, connectionName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#addDatabase)
     ///
-    /// ``` driver: QtC.QSqlDriver, connectionName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` driver: QtC.QSqlDriver `
+    ///
+    /// ` connectionName: []const u8 `
+    ///
     pub fn AddDatabase23(driver: ?*anyopaque, connectionName: []const u8) QtC.QSqlDatabase {
         const connectionName_str = qtc.libqt_string{
             .len = connectionName.len,
@@ -565,9 +780,12 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_AddDatabase23(@ptrCast(driver), connectionName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#database)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#database)
     ///
-    /// ``` connectionName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` connectionName: []const u8 `
+    ///
     pub fn Database1(connectionName: []const u8) QtC.QSqlDatabase {
         const connectionName_str = qtc.libqt_string{
             .len = connectionName.len,
@@ -576,9 +794,14 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_Database1(connectionName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#database)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#database)
     ///
-    /// ``` connectionName: []const u8, open: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` connectionName: []const u8 `
+    ///
+    /// ` open: bool `
+    ///
     pub fn Database2(connectionName: []const u8, open: bool) QtC.QSqlDatabase {
         const connectionName_str = qtc.libqt_string{
             .len = connectionName.len,
@@ -587,9 +810,12 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_Database2(connectionName_str, open);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#contains)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#contains)
     ///
-    /// ``` connectionName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` connectionName: []const u8 `
+    ///
     pub fn Contains1(connectionName: []const u8) bool {
         const connectionName_str = qtc.libqt_string{
             .len = connectionName.len,
@@ -598,11 +824,14 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_Contains1(connectionName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#dtor.QSqlDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#dtor.QSqlDatabase)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSqlDatabase ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSqlDatabase `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSqlDatabase_Delete(@ptrCast(self));
     }

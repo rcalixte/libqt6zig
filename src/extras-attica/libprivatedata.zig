@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/attica-privatedata.html
+/// ### [Upstream resources](https://api.kde.org/attica-privatedata.html)
 pub const attica__privatedata = struct {
     /// New constructs a new Attica::PrivateData object.
-    ///
     ///
     pub fn New() QtC.Attica__PrivateData {
         return qtc.Attica__PrivateData_new();
@@ -13,21 +12,36 @@ pub const attica__privatedata = struct {
 
     /// New2 constructs a new Attica::PrivateData object.
     ///
-    /// ``` other: QtC.Attica__PrivateData ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__PrivateData `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__PrivateData {
         return qtc.Attica__PrivateData_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-privatedata.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__PrivateData, other: QtC.Attica__PrivateData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__PrivateData `
+    ///
+    /// ` other: QtC.Attica__PrivateData `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__PrivateData_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#setAttribute)
+    /// ### [Upstream resources](https://api.kde.org/attica-privatedata.html#setAttribute)
     ///
-    /// ``` self: QtC.Attica__PrivateData, key: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__PrivateData `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn SetAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -40,9 +54,16 @@ pub const attica__privatedata = struct {
         qtc.Attica__PrivateData_SetAttribute(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#attribute)
+    /// ### [Upstream resources](https://api.kde.org/attica-privatedata.html#attribute)
     ///
-    /// ``` self: QtC.Attica__PrivateData, key: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__PrivateData `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Attribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -55,9 +76,16 @@ pub const attica__privatedata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#setTimestamp)
+    /// ### [Upstream resources](https://api.kde.org/attica-privatedata.html#setTimestamp)
     ///
-    /// ``` self: QtC.Attica__PrivateData, key: []const u8, when: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__PrivateData `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` when: QtC.QDateTime `
+    ///
     pub fn SetTimestamp(self: ?*anyopaque, key: []const u8, when: ?*anyopaque) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -66,9 +94,14 @@ pub const attica__privatedata = struct {
         qtc.Attica__PrivateData_SetTimestamp(@ptrCast(self), key_str, @ptrCast(when));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#timestamp)
+    /// ### [Upstream resources](https://api.kde.org/attica-privatedata.html#timestamp)
     ///
-    /// ``` self: QtC.Attica__PrivateData, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__PrivateData `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn Timestamp(self: ?*anyopaque, key: []const u8) QtC.QDateTime {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -77,9 +110,14 @@ pub const attica__privatedata = struct {
         return qtc.Attica__PrivateData_Timestamp(@ptrCast(self), key_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#keys)
+    /// ### [Upstream resources](https://api.kde.org/attica-privatedata.html#keys)
     ///
-    /// ``` self: QtC.Attica__PrivateData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__PrivateData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__PrivateData_Keys(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -101,7 +139,10 @@ pub const attica__privatedata = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__PrivateData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__PrivateData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__PrivateData_Delete(@ptrCast(self));
     }

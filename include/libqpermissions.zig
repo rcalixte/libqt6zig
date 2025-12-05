@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qpermissions_enums = enums;
 
-/// https://doc.qt.io/qt-6/qpermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html)
 pub const qpermission = struct {
     /// New constructs a new QPermission object.
-    ///
     ///
     pub fn New() QtC.QPermission {
         return qtc.QPermission_new();
@@ -14,41 +13,54 @@ pub const qpermission = struct {
 
     /// New2 constructs a new QPermission object.
     ///
-    /// ``` param1: QtC.QPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QPermission `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.QPermission {
         return qtc.QPermission_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#status)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#status)
     ///
-    /// ``` self: QtC.QPermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.PermissionStatus ```
+    /// ` self: QtC.QPermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.PermissionStatus `
+    ///
     pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QPermission_Status(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#type)
     ///
-    /// ``` self: QtC.QPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPermission `
+    ///
     pub fn Type(self: ?*anyopaque) QtC.QMetaType {
         return qtc.QPermission_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#dtor.QPermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#dtor.QPermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QPermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QPermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QPermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qlocationpermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html)
 pub const qlocationpermission = struct {
     /// New constructs a new QLocationPermission object.
-    ///
     ///
     pub fn New() QtC.QLocationPermission {
         return qtc.QLocationPermission_new();
@@ -56,71 +68,106 @@ pub const qlocationpermission = struct {
 
     /// New2 constructs a new QLocationPermission object.
     ///
-    /// ``` other: QtC.QLocationPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QLocationPermission `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QLocationPermission {
         return qtc.QLocationPermission_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#setAccuracy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#setAccuracy)
     ///
-    /// ``` self: QtC.QLocationPermission, accuracy: qpermissions_enums.Accuracy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLocationPermission `
+    ///
+    /// ` accuracy: qpermissions_enums.Accuracy `
+    ///
     pub fn SetAccuracy(self: ?*anyopaque, accuracy: u8) void {
         qtc.QLocationPermission_SetAccuracy(@ptrCast(self), @intCast(accuracy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#accuracy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#accuracy)
     ///
-    /// ``` self: QtC.QLocationPermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpermissions_enums.Accuracy ```
+    /// ` self: QtC.QLocationPermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpermissions_enums.Accuracy `
+    ///
     pub fn Accuracy(self: ?*anyopaque) u8 {
         return qtc.QLocationPermission_Accuracy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#setAvailability)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#setAvailability)
     ///
-    /// ``` self: QtC.QLocationPermission, availability: qpermissions_enums.Availability ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLocationPermission `
+    ///
+    /// ` availability: qpermissions_enums.Availability `
+    ///
     pub fn SetAvailability(self: ?*anyopaque, availability: u8) void {
         qtc.QLocationPermission_SetAvailability(@ptrCast(self), @intCast(availability));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#availability)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#availability)
     ///
-    /// ``` self: QtC.QLocationPermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpermissions_enums.Availability ```
+    /// ` self: QtC.QLocationPermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpermissions_enums.Availability `
+    ///
     pub fn Availability(self: ?*anyopaque) u8 {
         return qtc.QLocationPermission_Availability(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#operator-eq)
     ///
-    /// ``` self: QtC.QLocationPermission, other: QtC.QLocationPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLocationPermission `
+    ///
+    /// ` other: QtC.QLocationPermission `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QLocationPermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#swap)
     ///
-    /// ``` self: QtC.QLocationPermission, other: QtC.QLocationPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLocationPermission `
+    ///
+    /// ` other: QtC.QLocationPermission `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QLocationPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#dtor.QLocationPermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#dtor.QLocationPermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QLocationPermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QLocationPermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QLocationPermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qcalendarpermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html)
 pub const qcalendarpermission = struct {
     /// New constructs a new QCalendarPermission object.
-    ///
     ///
     pub fn New() QtC.QCalendarPermission {
         return qtc.QCalendarPermission_new();
@@ -128,55 +175,80 @@ pub const qcalendarpermission = struct {
 
     /// New2 constructs a new QCalendarPermission object.
     ///
-    /// ``` other: QtC.QCalendarPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QCalendarPermission `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QCalendarPermission {
         return qtc.QCalendarPermission_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#setAccessMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#setAccessMode)
     ///
-    /// ``` self: QtC.QCalendarPermission, mode: qpermissions_enums.AccessMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCalendarPermission `
+    ///
+    /// ` mode: qpermissions_enums.AccessMode `
+    ///
     pub fn SetAccessMode(self: ?*anyopaque, mode: u8) void {
         qtc.QCalendarPermission_SetAccessMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#accessMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#accessMode)
     ///
-    /// ``` self: QtC.QCalendarPermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpermissions_enums.AccessMode ```
+    /// ` self: QtC.QCalendarPermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpermissions_enums.AccessMode `
+    ///
     pub fn AccessMode(self: ?*anyopaque) u8 {
         return qtc.QCalendarPermission_AccessMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#operator-eq)
     ///
-    /// ``` self: QtC.QCalendarPermission, other: QtC.QCalendarPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCalendarPermission `
+    ///
+    /// ` other: QtC.QCalendarPermission `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCalendarPermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#swap)
     ///
-    /// ``` self: QtC.QCalendarPermission, other: QtC.QCalendarPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCalendarPermission `
+    ///
+    /// ` other: QtC.QCalendarPermission `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCalendarPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#dtor.QCalendarPermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#dtor.QCalendarPermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QCalendarPermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QCalendarPermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QCalendarPermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qcontactspermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html)
 pub const qcontactspermission = struct {
     /// New constructs a new QContactsPermission object.
-    ///
     ///
     pub fn New() QtC.QContactsPermission {
         return qtc.QContactsPermission_new();
@@ -184,55 +256,80 @@ pub const qcontactspermission = struct {
 
     /// New2 constructs a new QContactsPermission object.
     ///
-    /// ``` other: QtC.QContactsPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QContactsPermission `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QContactsPermission {
         return qtc.QContactsPermission_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#setAccessMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#setAccessMode)
     ///
-    /// ``` self: QtC.QContactsPermission, mode: qpermissions_enums.AccessMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QContactsPermission `
+    ///
+    /// ` mode: qpermissions_enums.AccessMode `
+    ///
     pub fn SetAccessMode(self: ?*anyopaque, mode: u8) void {
         qtc.QContactsPermission_SetAccessMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#accessMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#accessMode)
     ///
-    /// ``` self: QtC.QContactsPermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpermissions_enums.AccessMode ```
+    /// ` self: QtC.QContactsPermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpermissions_enums.AccessMode `
+    ///
     pub fn AccessMode(self: ?*anyopaque) u8 {
         return qtc.QContactsPermission_AccessMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#operator-eq)
     ///
-    /// ``` self: QtC.QContactsPermission, other: QtC.QContactsPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QContactsPermission `
+    ///
+    /// ` other: QtC.QContactsPermission `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QContactsPermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#swap)
     ///
-    /// ``` self: QtC.QContactsPermission, other: QtC.QContactsPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QContactsPermission `
+    ///
+    /// ` other: QtC.QContactsPermission `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QContactsPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#dtor.QContactsPermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#dtor.QContactsPermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QContactsPermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QContactsPermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QContactsPermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qbluetoothpermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html)
 pub const qbluetoothpermission = struct {
     /// New constructs a new QBluetoothPermission object.
-    ///
     ///
     pub fn New() QtC.QBluetoothPermission {
         return qtc.QBluetoothPermission_new();
@@ -240,55 +337,80 @@ pub const qbluetoothpermission = struct {
 
     /// New2 constructs a new QBluetoothPermission object.
     ///
-    /// ``` other: QtC.QBluetoothPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QBluetoothPermission `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QBluetoothPermission {
         return qtc.QBluetoothPermission_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#setCommunicationModes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#setCommunicationModes)
     ///
-    /// ``` self: QtC.QBluetoothPermission, modes: flag of qpermissions_enums.CommunicationMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBluetoothPermission `
+    ///
+    /// ` modes: flag of qpermissions_enums.CommunicationMode `
+    ///
     pub fn SetCommunicationModes(self: ?*anyopaque, modes: u8) void {
         qtc.QBluetoothPermission_SetCommunicationModes(@ptrCast(self), @intCast(modes));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#communicationModes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#communicationModes)
     ///
-    /// ``` self: QtC.QBluetoothPermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qpermissions_enums.CommunicationMode ```
+    /// ` self: QtC.QBluetoothPermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qpermissions_enums.CommunicationMode `
+    ///
     pub fn CommunicationModes(self: ?*anyopaque) u8 {
         return qtc.QBluetoothPermission_CommunicationModes(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#operator-eq)
     ///
-    /// ``` self: QtC.QBluetoothPermission, other: QtC.QBluetoothPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBluetoothPermission `
+    ///
+    /// ` other: QtC.QBluetoothPermission `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QBluetoothPermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#swap)
     ///
-    /// ``` self: QtC.QBluetoothPermission, other: QtC.QBluetoothPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBluetoothPermission `
+    ///
+    /// ` other: QtC.QBluetoothPermission `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QBluetoothPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#dtor.QBluetoothPermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#dtor.QBluetoothPermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QBluetoothPermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QBluetoothPermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QBluetoothPermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qcamerapermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html)
 pub const qcamerapermission = struct {
     /// New constructs a new QCameraPermission object.
-    ///
     ///
     pub fn New() QtC.QCameraPermission {
         return qtc.QCameraPermission_new();
@@ -296,39 +418,54 @@ pub const qcamerapermission = struct {
 
     /// New2 constructs a new QCameraPermission object.
     ///
-    /// ``` other: QtC.QCameraPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QCameraPermission `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QCameraPermission {
         return qtc.QCameraPermission_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#operator-eq)
     ///
-    /// ``` self: QtC.QCameraPermission, other: QtC.QCameraPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCameraPermission `
+    ///
+    /// ` other: QtC.QCameraPermission `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCameraPermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#swap)
     ///
-    /// ``` self: QtC.QCameraPermission, other: QtC.QCameraPermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCameraPermission `
+    ///
+    /// ` other: QtC.QCameraPermission `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCameraPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#dtor.QCameraPermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#dtor.QCameraPermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QCameraPermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QCameraPermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QCameraPermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qmicrophonepermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html)
 pub const qmicrophonepermission = struct {
     /// New constructs a new QMicrophonePermission object.
-    ///
     ///
     pub fn New() QtC.QMicrophonePermission {
         return qtc.QMicrophonePermission_new();
@@ -336,36 +473,52 @@ pub const qmicrophonepermission = struct {
 
     /// New2 constructs a new QMicrophonePermission object.
     ///
-    /// ``` other: QtC.QMicrophonePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QMicrophonePermission `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QMicrophonePermission {
         return qtc.QMicrophonePermission_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#operator-eq)
     ///
-    /// ``` self: QtC.QMicrophonePermission, other: QtC.QMicrophonePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMicrophonePermission `
+    ///
+    /// ` other: QtC.QMicrophonePermission `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMicrophonePermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#swap)
     ///
-    /// ``` self: QtC.QMicrophonePermission, other: QtC.QMicrophonePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMicrophonePermission `
+    ///
+    /// ` other: QtC.QMicrophonePermission `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMicrophonePermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#dtor.QMicrophonePermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#dtor.QMicrophonePermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QMicrophonePermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QMicrophonePermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QMicrophonePermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qpermissions.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpermissions.html#public-types)
 pub const enums = struct {
     pub const Accuracy = enum {
         pub const Approximate: u8 = 0;

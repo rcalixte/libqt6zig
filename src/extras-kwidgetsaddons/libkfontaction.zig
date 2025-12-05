@@ -8,25 +8,38 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kfontaction.html
+/// ### [Upstream resources](https://api.kde.org/kfontaction.html)
 pub const kfontaction = struct {
     /// New constructs a new KFontAction object.
     ///
-    /// ``` fontListCriteria: u32, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` fontListCriteria: u32 `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New(fontListCriteria: u32, parent: ?*anyopaque) QtC.KFontAction {
         return qtc.KFontAction_new(@intCast(fontListCriteria), @ptrCast(parent));
     }
 
     /// New2 constructs a new KFontAction object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.KFontAction {
         return qtc.KFontAction_new2(@ptrCast(parent));
     }
 
     /// New3 constructs a new KFontAction object.
     ///
-    /// ``` text: []const u8, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New3(text: []const u8, parent: ?*anyopaque) QtC.KFontAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -38,7 +51,14 @@ pub const kfontaction = struct {
 
     /// New4 constructs a new KFontAction object.
     ///
-    /// ``` icon: QtC.QIcon, text: []const u8, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New4(icon: ?*anyopaque, text: []const u8, parent: ?*anyopaque) QtC.KFontAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -48,41 +68,77 @@ pub const kfontaction = struct {
         return qtc.KFontAction_new4(@ptrCast(icon), text_str, @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KFontAction_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KFontAction, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFontAction_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KFontAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KFontAction_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KFontAction_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFontAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KFontAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -92,9 +148,14 @@ pub const kfontaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfontaction.html#font)
+    /// ### [Upstream resources](https://api.kde.org/kfontaction.html#font)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Font(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KFontAction_Font(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -103,9 +164,14 @@ pub const kfontaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfontaction.html#setFont)
+    /// ### [Upstream resources](https://api.kde.org/kfontaction.html#setFont)
     ///
-    /// ``` self: QtC.KFontAction, family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn SetFont(self: ?*anyopaque, family: []const u8) void {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -114,34 +180,56 @@ pub const kfontaction = struct {
         qtc.KFontAction_SetFont(@ptrCast(self), family_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kfontaction.html#createWidget)
+    /// ### [Upstream resources](https://api.kde.org/kfontaction.html#createWidget)
     ///
-    /// ``` self: QtC.KFontAction, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KFontAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfontaction.html#createWidget)
+    /// ### [Upstream resources](https://api.kde.org/kfontaction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget `
+    ///
     pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
         qtc.KFontAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfontaction.html#createWidget)
+    /// ### [Upstream resources](https://api.kde.org/kfontaction.html#createWidget)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFontAction, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn QBaseCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KFontAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -152,9 +240,18 @@ pub const kfontaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -167,76 +264,110 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#toolBarMode)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#toolBarMode)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kselectaction_enums.ToolBarMode ```
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kselectaction_enums.ToolBarMode `
+    ///
     pub fn ToolBarMode(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_ToolBarMode(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setToolBarMode)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setToolBarMode)
     ///
-    /// ``` self: QtC.KFontAction, mode: kselectaction_enums.ToolBarMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` mode: kselectaction_enums.ToolBarMode `
+    ///
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
         qtc.KSelectAction_SetToolBarMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qtoolbutton_enums.ToolButtonPopupMode ```
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qtoolbutton_enums.ToolButtonPopupMode `
+    ///
     pub fn ToolButtonPopupMode(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_ToolButtonPopupMode(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
     ///
-    /// ``` self: QtC.KFontAction, mode: qtoolbutton_enums.ToolButtonPopupMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` mode: qtoolbutton_enums.ToolButtonPopupMode `
+    ///
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
         qtc.KSelectAction_SetToolButtonPopupMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#selectableActionGroup)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#selectableActionGroup)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn SelectableActionGroup(self: ?*anyopaque) QtC.QActionGroup {
         return qtc.KSelectAction_SelectableActionGroup(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#currentAction)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn CurrentAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KSelectAction_CurrentAction(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentItem)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#currentItem)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn CurrentItem(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_CurrentItem(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentText)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#currentText)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSelectAction_CurrentText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -247,9 +378,14 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#actions)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#actions)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.KSelectAction_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -261,18 +397,28 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
-    /// ``` self: QtC.KFontAction, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
         return qtc.KSelectAction_Action(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn Action2(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -283,27 +429,42 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
-    /// ``` self: QtC.KFontAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn SetCurrentAction(self: ?*anyopaque, action: ?*anyopaque) bool {
         return qtc.KSelectAction_SetCurrentAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentItem)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentItem)
     ///
-    /// ``` self: QtC.KFontAction, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
         return qtc.KSelectAction_SetCurrentItem(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetCurrentAction2(self: ?*anyopaque, text: []const u8) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -314,18 +475,28 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
-    /// ``` self: QtC.KFontAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -336,9 +507,16 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
-    /// ``` self: QtC.KFontAction, icon: QtC.QIcon, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -349,9 +527,16 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setItems)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setItems)
     ///
-    /// ``` self: QtC.KFontAction, lst: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` lst: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetItems(self: ?*anyopaque, lst: [][]const u8, allocator: std.mem.Allocator) void {
         var lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("kfontaction.SetItems: Memory allocation failed");
         defer allocator.free(lst_arr);
@@ -370,9 +555,14 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#items)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#items)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KSelectAction_Items(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -394,90 +584,132 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#isEditable)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#isEditable)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsEditable(self: ?*anyopaque) bool {
         return qtc.KSelectAction_IsEditable(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setEditable)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setEditable)
     ///
-    /// ``` self: QtC.KFontAction, editable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` editable: bool `
+    ///
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
         qtc.KSelectAction_SetEditable(@ptrCast(self), editable);
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#comboWidth)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#comboWidth)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn ComboWidth(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_ComboWidth(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setComboWidth)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setComboWidth)
     ///
-    /// ``` self: QtC.KFontAction, width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` width: i32 `
+    ///
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
         qtc.KSelectAction_SetComboWidth(@ptrCast(self), @intCast(width));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
     ///
-    /// ``` self: QtC.KFontAction, n: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` n: i32 `
+    ///
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
         qtc.KSelectAction_SetMaxComboViewCount(@ptrCast(self), @intCast(n));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#clear)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#clear)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KSelectAction_Clear(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAllActions)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#removeAllActions)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn RemoveAllActions(self: ?*anyopaque) void {
         qtc.KSelectAction_RemoveAllActions(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
     ///
-    /// ``` self: QtC.KFontAction, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` b: bool `
+    ///
     pub fn SetMenuAccelsEnabled(self: ?*anyopaque, b: bool) void {
         qtc.KSelectAction_SetMenuAccelsEnabled(@ptrCast(self), b);
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn MenuAccelsEnabled(self: ?*anyopaque) bool {
         return qtc.KSelectAction_MenuAccelsEnabled(@ptrCast(self));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#changeItem)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#changeItem)
     ///
-    /// ``` self: QtC.KFontAction, index: i32, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn ChangeItem(self: ?*anyopaque, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -488,45 +720,70 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
-    /// ``` self: QtC.KFontAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_ActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, action: QtC.QAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActionaction: QtC.QAction) callconv(.c) void `
+    ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
-    /// ``` self: QtC.KFontAction, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
         qtc.KSelectAction_IndexTriggered(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, index: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActionindex: i32) callconv(.c) void `
+    ///
     pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn TextTriggered(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -537,18 +794,30 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActiontext: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
     pub fn Action22(self: ?*anyopaque, text: []const u8, cs: i32) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -559,9 +828,16 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
     pub fn SetCurrentAction22(self: ?*anyopaque, text: []const u8, cs: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -572,45 +848,68 @@ pub const kfontaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
     ///
-    /// ``` self: QtC.KFontAction, w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn SetDefaultWidget(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QWidgetAction_SetDefaultWidget(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QWidgetAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn DefaultWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidgetAction_DefaultWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidgetAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
     ///
-    /// ``` self: QtC.KFontAction, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn RequestWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.QWidgetAction_RequestWidget(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QWidgetAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
     ///
-    /// ``` self: QtC.KFontAction, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn ReleaseWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QWidgetAction_ReleaseWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -622,45 +921,66 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
     ///
-    /// ``` self: QtC.KFontAction, group: QtC.QActionGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` group: QtC.QActionGroup `
+    ///
     pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
         qtc.QAction_SetActionGroup(@ptrCast(self), @ptrCast(group));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
         return qtc.QAction_ActionGroup(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
     ///
-    /// ``` self: QtC.KFontAction, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QAction_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QAction_Icon(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -671,9 +991,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAction_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -684,9 +1009,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
     ///
-    /// ``` self: QtC.KFontAction, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -697,9 +1027,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAction_IconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -710,9 +1045,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
     ///
-    /// ``` self: QtC.KFontAction, tip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` tip: []const u8 `
+    ///
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
@@ -723,9 +1063,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAction_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -736,9 +1081,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
     ///
-    /// ``` self: QtC.KFontAction, statusTip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` statusTip: []const u8 `
+    ///
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
@@ -749,9 +1099,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAction_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -762,9 +1117,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
     ///
-    /// ``` self: QtC.KFontAction, what: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` what: []const u8 `
+    ///
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
         const what_str = qtc.libqt_string{
             .len = what.len,
@@ -775,9 +1135,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAction_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -788,65 +1153,96 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
-    /// ``` self: QtC.KFontAction, priority: qaction_enums.Priority ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` priority: qaction_enums.Priority `
+    ///
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
         qtc.QAction_SetPriority(@ptrCast(self), @intCast(priority));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qaction_enums.Priority ```
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qaction_enums.Priority `
+    ///
     pub fn Priority(self: ?*anyopaque) i32 {
         return qtc.QAction_Priority(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
     ///
-    /// ``` self: QtC.KFontAction, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` b: bool `
+    ///
     pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
         qtc.QAction_SetSeparator(@ptrCast(self), b);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsSeparator(self: ?*anyopaque) bool {
         return qtc.QAction_IsSeparator(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
     ///
-    /// ``` self: QtC.KFontAction, shortcut: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` shortcut: QtC.QKeySequence `
+    ///
     pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
         qtc.QAction_SetShortcut(@ptrCast(self), @ptrCast(shortcut));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
         return qtc.QAction_Shortcut(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
-    /// ``` self: QtC.KFontAction, shortcuts: []QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` shortcuts: []QtC.QKeySequence `
+    ///
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
         const shortcuts_list = qtc.libqt_list{
             .len = shortcuts.len,
@@ -857,18 +1253,28 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
-    /// ``` self: QtC.KFontAction, shortcuts: qkeysequence_enums.StandardKey ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` shortcuts: qkeysequence_enums.StandardKey `
+    ///
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
         qtc.QAction_SetShortcuts2(@ptrCast(self), @intCast(shortcuts));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -880,409 +1286,600 @@ pub const kfontaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
-    /// ``` self: QtC.KFontAction, context: qnamespace_enums.ShortcutContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` context: qnamespace_enums.ShortcutContext `
+    ///
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
         qtc.QAction_SetShortcutContext(@ptrCast(self), @intCast(context));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ShortcutContext ```
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ShortcutContext `
+    ///
     pub fn ShortcutContext(self: ?*anyopaque) i32 {
         return qtc.QAction_ShortcutContext(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
     ///
-    /// ``` self: QtC.KFontAction, autoRepeat: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` autoRepeat: bool `
+    ///
     pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
         qtc.QAction_SetAutoRepeat(@ptrCast(self), autoRepeat);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn AutoRepeat(self: ?*anyopaque) bool {
         return qtc.QAction_AutoRepeat(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
     ///
-    /// ``` self: QtC.KFontAction, checkable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` checkable: bool `
+    ///
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
         qtc.QAction_SetCheckable(@ptrCast(self), checkable);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsCheckable(self: ?*anyopaque) bool {
         return qtc.QAction_IsCheckable(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
         return qtc.QAction_Data(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
     ///
-    /// ``` self: QtC.KFontAction, varVal: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` varVal: QtC.QVariant `
+    ///
     pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
         qtc.QAction_SetData(@ptrCast(self), @ptrCast(varVal));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsChecked(self: ?*anyopaque) bool {
         return qtc.QAction_IsChecked(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QAction_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QAction_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
-    /// ``` self: QtC.KFontAction, event: qaction_enums.ActionEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: qaction_enums.ActionEvent `
+    ///
     pub fn Activate(self: ?*anyopaque, event: i32) void {
         qtc.QAction_Activate(@ptrCast(self), @intCast(event));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
-    /// ``` self: QtC.KFontAction, menuRole: qaction_enums.MenuRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` menuRole: qaction_enums.MenuRole `
+    ///
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
         qtc.QAction_SetMenuRole(@ptrCast(self), @intCast(menuRole));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qaction_enums.MenuRole ```
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qaction_enums.MenuRole `
+    ///
     pub fn MenuRole(self: ?*anyopaque) i32 {
         return qtc.QAction_MenuRole(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
     ///
-    /// ``` self: QtC.KFontAction, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
         qtc.QAction_SetIconVisibleInMenu(@ptrCast(self), visible);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
         return qtc.QAction_IsIconVisibleInMenu(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
     ///
-    /// ``` self: QtC.KFontAction, show: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` show: bool `
+    ///
     pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
         qtc.QAction_SetShortcutVisibleInContextMenu(@ptrCast(self), show);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
         return qtc.QAction_IsShortcutVisibleInContextMenu(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn ShowStatusText(self: ?*anyopaque) bool {
         return qtc.QAction_ShowStatusText(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Trigger(self: ?*anyopaque) void {
         qtc.QAction_Trigger(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Hover(self: ?*anyopaque) void {
         qtc.QAction_Hover(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
     ///
-    /// ``` self: QtC.KFontAction, checked: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` checked: bool `
+    ///
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
         qtc.QAction_SetChecked(@ptrCast(self), checked);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Toggle(self: ?*anyopaque) void {
         qtc.QAction_Toggle(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
     ///
-    /// ``` self: QtC.KFontAction, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QAction_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn ResetEnabled(self: ?*anyopaque) void {
         qtc.QAction_ResetEnabled(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
     ///
-    /// ``` self: QtC.KFontAction, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` b: bool `
+    ///
     pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
         qtc.QAction_SetDisabled(@ptrCast(self), b);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
     ///
-    /// ``` self: QtC.KFontAction, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QAction_SetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Changed(self: ?*anyopaque) void {
         qtc.QAction_Changed(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction) callconv(.c) void `
+    ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
-    /// ``` self: QtC.KFontAction, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
         qtc.QAction_EnabledChanged(@ptrCast(self), enabled);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, enabled: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActionenabled: bool) callconv(.c) void `
+    ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
-    /// ``` self: QtC.KFontAction, checkable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` checkable: bool `
+    ///
     pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
         qtc.QAction_CheckableChanged(@ptrCast(self), checkable);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, checkable: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActioncheckable: bool) callconv(.c) void `
+    ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn VisibleChanged(self: ?*anyopaque) void {
         qtc.QAction_VisibleChanged(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction) callconv(.c) void `
+    ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Triggered(self: ?*anyopaque) void {
         qtc.QAction_Triggered(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction) callconv(.c) void `
+    ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Hovered(self: ?*anyopaque) void {
         qtc.QAction_Hovered(@ptrCast(self));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction) callconv(.c) void `
+    ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
-    /// ``` self: QtC.KFontAction, param1: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` param1: bool `
+    ///
     pub fn Toggled(self: ?*anyopaque, param1: bool) void {
         qtc.QAction_Toggled(@ptrCast(self), param1);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, param1: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActionparam1: bool) callconv(.c) void `
+    ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
-    /// ``` self: QtC.KFontAction, object: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` object: QtC.QObject `
+    ///
     pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
         return qtc.QAction_ShowStatusText1(@ptrCast(self), @ptrCast(object));
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KFontAction, checked: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` checked: bool `
+    ///
     pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
         qtc.QAction_Triggered1(@ptrCast(self), checked);
     }
 
     /// Inherited from QAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, checked: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActionchecked: bool) callconv(.c) void `
+    ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1293,9 +1890,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KFontAction, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1306,99 +1908,144 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KFontAction, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KFontAction, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KFontAction, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KFontAction, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KFontAction, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1410,45 +2057,78 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KFontAction, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KFontAction, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KFontAction, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KFontAction, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1457,45 +2137,70 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KFontAction, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1503,9 +2208,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KFontAction, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1513,9 +2223,14 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1537,54 +2252,76 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KFontAction, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1592,45 +2329,84 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KFontAction, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KFontAction, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KFontAction, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1639,425 +2415,628 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFontAction, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActionparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
         return qtc.KFontAction_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn QBaseRemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
         return qtc.KFontAction_QBaseRemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, action: QtC.QAction) callconv(.c) QtC.QAction ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, action: QtC.QAction) callconv(.c) QtC.QAction `
+    ///
     pub fn OnRemoveAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
         qtc.KFontAction_OnRemoveAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, before: QtC.QAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KFontAction_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, before: QtC.QAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn QBaseInsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KFontAction_QBaseInsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void `
+    ///
     pub fn OnInsertAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnInsertAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn SlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KFontAction_SlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn QBaseSlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KFontAction_QBaseSlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, action: QtC.QAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, action: QtC.QAction) callconv(.c) void `
+    ///
     pub fn OnSlotActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnSlotActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn DeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KFontAction_DeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn QBaseDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KFontAction_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, widget: QtC.QWidget) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, widget: QtC.QWidget) callconv(.c) void `
+    ///
     pub fn OnDeleteWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnDeleteWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFontAction_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFontAction_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFontAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFontAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFontAction_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFontAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFontAction_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFontAction_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFontAction_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFontAction_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFontAction_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFontAction_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFontAction_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFontAction_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFontAction_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFontAction_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontAction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, param1: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` param1: bool `
+    ///
     pub fn SlotToggled(self: ?*anyopaque, param1: bool) void {
         qtc.KFontAction_SlotToggled(@ptrCast(self), param1);
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, param1: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` param1: bool `
+    ///
     pub fn QBaseSlotToggled(self: ?*anyopaque, param1: bool) void {
         qtc.KFontAction_QBaseSlotToggled(@ptrCast(self), param1);
     }
 
     /// Inherited from KSelectAction
     ///
-    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
+    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, param1: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, param1: bool) callconv(.c) void `
+    ///
     pub fn OnSlotToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KFontAction_OnSlotToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.KFontAction_CreatedWidgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -2069,11 +3048,16 @@ pub const kfontaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.KFontAction_QBaseCreatedWidgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -2085,88 +3069,120 @@ pub const kfontaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn () callconv(.c) [*:null]QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QWidget `
+    ///
     pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
         qtc.KFontAction_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KFontAction_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KFontAction_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KFontAction_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KFontAction_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KFontAction_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KFontAction_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFontAction_Receivers(@ptrCast(self), signal_Cstring);
@@ -2174,11 +3190,16 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFontAction_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2186,64 +3207,92 @@ pub const kfontaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KFontAction_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KFontAction_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KFontAction_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction`
+    ///
+    /// ` callback: *const fn (self: QtC.KFontAction, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFontAction_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KFontAction, callback: *const fn (self: QtC.KFontAction, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KFontActionobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfontaction.html#dtor.KFontAction)
+    /// ### [Upstream resources](https://api.kde.org/kfontaction.html#dtor.KFontAction)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KFontAction ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KFontAction `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KFontAction_Delete(@ptrCast(self));
     }

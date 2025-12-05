@@ -3,123 +3,172 @@ const qtc = @import("qt6c");
 const qaccessible_base_enums = enums;
 pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
-/// https://doc.qt.io/qt-6/qaccessible.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html)
 pub const qaccessible = struct {
     /// New constructs a new QAccessible object.
     ///
-    /// ``` other: QtC.QAccessible ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QAccessible `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QAccessible {
         return qtc.QAccessible_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QAccessible object and invalidates the source QAccessible object.
     ///
-    /// ``` other: QtC.QAccessible ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QAccessible `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QAccessible {
         return qtc.QAccessible_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QAccessible, other: QtC.QAccessible ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessible `
+    ///
+    /// ` other: QtC.QAccessible `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAccessible_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QAccessible, other: QtC.QAccessible ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessible `
+    ///
+    /// ` other: QtC.QAccessible `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAccessible_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installActivationObserver)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installActivationObserver)
     ///
-    /// ``` param1: QtC.QAccessible__ActivationObserver ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QAccessible__ActivationObserver `
+    ///
     pub fn InstallActivationObserver(param1: ?*anyopaque) void {
         qtc.QAccessible_InstallActivationObserver(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#removeActivationObserver)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#removeActivationObserver)
     ///
-    /// ``` param1: QtC.QAccessible__ActivationObserver ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QAccessible__ActivationObserver `
+    ///
     pub fn RemoveActivationObserver(param1: ?*anyopaque) void {
         qtc.QAccessible_RemoveActivationObserver(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#queryAccessibleInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#queryAccessibleInterface)
     ///
-    /// ``` param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn QueryAccessibleInterface(param1: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessible_QueryAccessibleInterface(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#uniqueId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#uniqueId)
     ///
-    /// ``` iface: QtC.QAccessibleInterface ```
+    /// ## Parameter(s):
+    ///
+    /// ` iface: QtC.QAccessibleInterface `
+    ///
     pub fn UniqueId(iface: ?*anyopaque) u32 {
         return qtc.QAccessible_UniqueId(@ptrCast(iface));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#accessibleInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#accessibleInterface)
     ///
-    /// ``` uniqueId: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` uniqueId: u32 `
+    ///
     pub fn AccessibleInterface(uniqueId: u32) QtC.QAccessibleInterface {
         return qtc.QAccessible_AccessibleInterface(@intCast(uniqueId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#registerAccessibleInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#registerAccessibleInterface)
     ///
-    /// ``` iface: QtC.QAccessibleInterface ```
+    /// ## Parameter(s):
+    ///
+    /// ` iface: QtC.QAccessibleInterface `
+    ///
     pub fn RegisterAccessibleInterface(iface: ?*anyopaque) u32 {
         return qtc.QAccessible_RegisterAccessibleInterface(@ptrCast(iface));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#deleteAccessibleInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#deleteAccessibleInterface)
     ///
-    /// ``` uniqueId: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` uniqueId: u32 `
+    ///
     pub fn DeleteAccessibleInterface(uniqueId: u32) void {
         qtc.QAccessible_DeleteAccessibleInterface(@intCast(uniqueId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#updateAccessibility)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#updateAccessibility)
     ///
-    /// ``` event: QtC.QAccessibleEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` event: QtC.QAccessibleEvent `
+    ///
     pub fn UpdateAccessibility(event: ?*anyopaque) void {
         qtc.QAccessible_UpdateAccessibility(@ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#isActive)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#isActive)
     ///
     pub fn IsActive() bool {
         return qtc.QAccessible_IsActive();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#setActive)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#setActive)
     ///
-    /// ``` active: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` active: bool `
+    ///
     pub fn SetActive(active: bool) void {
         qtc.QAccessible_SetActive(active);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#setRootObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#setRootObject)
     ///
-    /// ``` object: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` object: QtC.QObject `
+    ///
     pub fn SetRootObject(object: ?*anyopaque) void {
         qtc.QAccessible_SetRootObject(@ptrCast(object));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#cleanup)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#cleanup)
     ///
     pub fn Cleanup() void {
         qtc.QAccessible_Cleanup();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#qAccessibleTextBoundaryHelper)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#qAccessibleTextBoundaryHelper)
     ///
-    /// ``` cursor: QtC.QTextCursor, boundaryType: qaccessible_base_enums.TextBoundaryType ```
+    /// ## Parameter(s):
+    ///
+    /// ` cursor: QtC.QTextCursor `
+    ///
+    /// ` boundaryType: qaccessible_base_enums.TextBoundaryType `
+    ///
     pub fn QAccessibleTextBoundaryHelper(cursor: ?*anyopaque, boundaryType: i32) struct_i32_i32 {
         const _pair: qtc.libqt_pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
         return struct_i32_i32{
@@ -128,34 +177,42 @@ pub const qaccessible = struct {
         };
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#dtor.QAccessible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#dtor.QAccessible)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAccessible ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAccessible `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAccessible_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qaccessible-state.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html)
 pub const qaccessible__state = struct {
     /// New constructs a new QAccessible::State object.
     ///
-    /// ``` other: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QAccessible__State `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QAccessible__State {
         return qtc.QAccessible__State_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QAccessible::State object and invalidates the source QAccessible::State object.
     ///
-    /// ``` other: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QAccessible__State `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QAccessible__State {
         return qtc.QAccessible__State_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QAccessible::State object.
-    ///
     ///
     pub fn New3() QtC.QAccessible__State {
         return qtc.QAccessible__State_new3();
@@ -163,569 +220,891 @@ pub const qaccessible__state = struct {
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QAccessible__State, other: QtC.QAccessible__State ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` other: QtC.QAccessible__State `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAccessible__State_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QAccessible__State, other: QtC.QAccessible__State ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` other: QtC.QAccessible__State `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAccessible__State_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#disabled-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#disabled-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Disabled(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Disabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#disabled-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#disabled-var)
     ///
-    /// ``` self: QtC.QAccessible__State, disabled: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` disabled: u64 `
+    ///
     pub fn SetDisabled(self: ?*anyopaque, disabled: u64) void {
         qtc.QAccessible__State_SetDisabled(@ptrCast(self), @intCast(disabled));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selected-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selected-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Selected(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Selected(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selected-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selected-var)
     ///
-    /// ``` self: QtC.QAccessible__State, selected: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` selected: u64 `
+    ///
     pub fn SetSelected(self: ?*anyopaque, selected: u64) void {
         qtc.QAccessible__State_SetSelected(@ptrCast(self), @intCast(selected));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focusable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focusable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Focusable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Focusable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focusable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focusable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, focusable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` focusable: u64 `
+    ///
     pub fn SetFocusable(self: ?*anyopaque, focusable: u64) void {
         qtc.QAccessible__State_SetFocusable(@ptrCast(self), @intCast(focusable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focused-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focused-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Focused(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Focused(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focused-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focused-var)
     ///
-    /// ``` self: QtC.QAccessible__State, focused: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` focused: u64 `
+    ///
     pub fn SetFocused(self: ?*anyopaque, focused: u64) void {
         qtc.QAccessible__State_SetFocused(@ptrCast(self), @intCast(focused));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#pressed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#pressed-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Pressed(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Pressed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#pressed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#pressed-var)
     ///
-    /// ``` self: QtC.QAccessible__State, pressed: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` pressed: u64 `
+    ///
     pub fn SetPressed(self: ?*anyopaque, pressed: u64) void {
         qtc.QAccessible__State_SetPressed(@ptrCast(self), @intCast(pressed));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Checkable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Checkable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, checkable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` checkable: u64 `
+    ///
     pub fn SetCheckable(self: ?*anyopaque, checkable: u64) void {
         qtc.QAccessible__State_SetCheckable(@ptrCast(self), @intCast(checkable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checked-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checked-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Checked(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Checked(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checked-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checked-var)
     ///
-    /// ``` self: QtC.QAccessible__State, checked: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` checked: u64 `
+    ///
     pub fn SetChecked(self: ?*anyopaque, checked: u64) void {
         qtc.QAccessible__State_SetChecked(@ptrCast(self), @intCast(checked));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkStateMixed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkStateMixed-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn CheckStateMixed(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_CheckStateMixed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkStateMixed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkStateMixed-var)
     ///
-    /// ``` self: QtC.QAccessible__State, checkStateMixed: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` checkStateMixed: u64 `
+    ///
     pub fn SetCheckStateMixed(self: ?*anyopaque, checkStateMixed: u64) void {
         qtc.QAccessible__State_SetCheckStateMixed(@ptrCast(self), @intCast(checkStateMixed));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#readOnly-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#readOnly-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn ReadOnly(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_ReadOnly(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#readOnly-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#readOnly-var)
     ///
-    /// ``` self: QtC.QAccessible__State, readOnly: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` readOnly: u64 `
+    ///
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: u64) void {
         qtc.QAccessible__State_SetReadOnly(@ptrCast(self), @intCast(readOnly));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hotTracked-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hotTracked-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn HotTracked(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_HotTracked(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hotTracked-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hotTracked-var)
     ///
-    /// ``` self: QtC.QAccessible__State, hotTracked: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` hotTracked: u64 `
+    ///
     pub fn SetHotTracked(self: ?*anyopaque, hotTracked: u64) void {
         qtc.QAccessible__State_SetHotTracked(@ptrCast(self), @intCast(hotTracked));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#defaultButton-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#defaultButton-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn DefaultButton(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_DefaultButton(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#defaultButton-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#defaultButton-var)
     ///
-    /// ``` self: QtC.QAccessible__State, defaultButton: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` defaultButton: u64 `
+    ///
     pub fn SetDefaultButton(self: ?*anyopaque, defaultButton: u64) void {
         qtc.QAccessible__State_SetDefaultButton(@ptrCast(self), @intCast(defaultButton));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expanded-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expanded-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Expanded(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Expanded(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expanded-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expanded-var)
     ///
-    /// ``` self: QtC.QAccessible__State, expanded: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` expanded: u64 `
+    ///
     pub fn SetExpanded(self: ?*anyopaque, expanded: u64) void {
         qtc.QAccessible__State_SetExpanded(@ptrCast(self), @intCast(expanded));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#collapsed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#collapsed-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Collapsed(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Collapsed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#collapsed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#collapsed-var)
     ///
-    /// ``` self: QtC.QAccessible__State, collapsed: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` collapsed: u64 `
+    ///
     pub fn SetCollapsed(self: ?*anyopaque, collapsed: u64) void {
         qtc.QAccessible__State_SetCollapsed(@ptrCast(self), @intCast(collapsed));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#busy-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#busy-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Busy(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Busy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#busy-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#busy-var)
     ///
-    /// ``` self: QtC.QAccessible__State, busy: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` busy: u64 `
+    ///
     pub fn SetBusy(self: ?*anyopaque, busy: u64) void {
         qtc.QAccessible__State_SetBusy(@ptrCast(self), @intCast(busy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expandable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expandable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Expandable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Expandable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expandable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expandable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, expandable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` expandable: u64 `
+    ///
     pub fn SetExpandable(self: ?*anyopaque, expandable: u64) void {
         qtc.QAccessible__State_SetExpandable(@ptrCast(self), @intCast(expandable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#marqueed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#marqueed-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Marqueed(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Marqueed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#marqueed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#marqueed-var)
     ///
-    /// ``` self: QtC.QAccessible__State, marqueed: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` marqueed: u64 `
+    ///
     pub fn SetMarqueed(self: ?*anyopaque, marqueed: u64) void {
         qtc.QAccessible__State_SetMarqueed(@ptrCast(self), @intCast(marqueed));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#animated-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#animated-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Animated(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Animated(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#animated-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#animated-var)
     ///
-    /// ``` self: QtC.QAccessible__State, animated: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` animated: u64 `
+    ///
     pub fn SetAnimated(self: ?*anyopaque, animated: u64) void {
         qtc.QAccessible__State_SetAnimated(@ptrCast(self), @intCast(animated));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invisible-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invisible-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Invisible(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Invisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invisible-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invisible-var)
     ///
-    /// ``` self: QtC.QAccessible__State, invisible: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` invisible: u64 `
+    ///
     pub fn SetInvisible(self: ?*anyopaque, invisible: u64) void {
         qtc.QAccessible__State_SetInvisible(@ptrCast(self), @intCast(invisible));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#offscreen-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#offscreen-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Offscreen(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Offscreen(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#offscreen-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#offscreen-var)
     ///
-    /// ``` self: QtC.QAccessible__State, offscreen: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` offscreen: u64 `
+    ///
     pub fn SetOffscreen(self: ?*anyopaque, offscreen: u64) void {
         qtc.QAccessible__State_SetOffscreen(@ptrCast(self), @intCast(offscreen));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#sizeable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#sizeable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Sizeable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Sizeable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#sizeable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#sizeable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, sizeable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` sizeable: u64 `
+    ///
     pub fn SetSizeable(self: ?*anyopaque, sizeable: u64) void {
         qtc.QAccessible__State_SetSizeable(@ptrCast(self), @intCast(sizeable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#movable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#movable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Movable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Movable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#movable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#movable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, movable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` movable: u64 `
+    ///
     pub fn SetMovable(self: ?*anyopaque, movable: u64) void {
         qtc.QAccessible__State_SetMovable(@ptrCast(self), @intCast(movable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selfVoicing-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selfVoicing-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn SelfVoicing(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_SelfVoicing(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selfVoicing-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selfVoicing-var)
     ///
-    /// ``` self: QtC.QAccessible__State, selfVoicing: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` selfVoicing: u64 `
+    ///
     pub fn SetSelfVoicing(self: ?*anyopaque, selfVoicing: u64) void {
         qtc.QAccessible__State_SetSelfVoicing(@ptrCast(self), @intCast(selfVoicing));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Selectable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Selectable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, selectable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` selectable: u64 `
+    ///
     pub fn SetSelectable(self: ?*anyopaque, selectable: u64) void {
         qtc.QAccessible__State_SetSelectable(@ptrCast(self), @intCast(selectable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#linked-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#linked-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Linked(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Linked(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#linked-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#linked-var)
     ///
-    /// ``` self: QtC.QAccessible__State, linked: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` linked: u64 `
+    ///
     pub fn SetLinked(self: ?*anyopaque, linked: u64) void {
         qtc.QAccessible__State_SetLinked(@ptrCast(self), @intCast(linked));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#traversed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#traversed-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Traversed(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Traversed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#traversed-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#traversed-var)
     ///
-    /// ``` self: QtC.QAccessible__State, traversed: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` traversed: u64 `
+    ///
     pub fn SetTraversed(self: ?*anyopaque, traversed: u64) void {
         qtc.QAccessible__State_SetTraversed(@ptrCast(self), @intCast(traversed));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiSelectable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiSelectable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn MultiSelectable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_MultiSelectable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiSelectable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiSelectable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, multiSelectable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` multiSelectable: u64 `
+    ///
     pub fn SetMultiSelectable(self: ?*anyopaque, multiSelectable: u64) void {
         qtc.QAccessible__State_SetMultiSelectable(@ptrCast(self), @intCast(multiSelectable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#extSelectable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#extSelectable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn ExtSelectable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_ExtSelectable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#extSelectable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#extSelectable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, extSelectable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` extSelectable: u64 `
+    ///
     pub fn SetExtSelectable(self: ?*anyopaque, extSelectable: u64) void {
         qtc.QAccessible__State_SetExtSelectable(@ptrCast(self), @intCast(extSelectable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#passwordEdit-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#passwordEdit-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn PasswordEdit(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_PasswordEdit(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#passwordEdit-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#passwordEdit-var)
     ///
-    /// ``` self: QtC.QAccessible__State, passwordEdit: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` passwordEdit: u64 `
+    ///
     pub fn SetPasswordEdit(self: ?*anyopaque, passwordEdit: u64) void {
         qtc.QAccessible__State_SetPasswordEdit(@ptrCast(self), @intCast(passwordEdit));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hasPopup-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hasPopup-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn HasPopup(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_HasPopup(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hasPopup-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hasPopup-var)
     ///
-    /// ``` self: QtC.QAccessible__State, hasPopup: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` hasPopup: u64 `
+    ///
     pub fn SetHasPopup(self: ?*anyopaque, hasPopup: u64) void {
         qtc.QAccessible__State_SetHasPopup(@ptrCast(self), @intCast(hasPopup));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#modal-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#modal-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Modal(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Modal(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#modal-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#modal-var)
     ///
-    /// ``` self: QtC.QAccessible__State, modal: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` modal: u64 `
+    ///
     pub fn SetModal(self: ?*anyopaque, modal: u64) void {
         qtc.QAccessible__State_SetModal(@ptrCast(self), @intCast(modal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#active-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#active-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Active(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Active(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#active-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#active-var)
     ///
-    /// ``` self: QtC.QAccessible__State, active: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` active: u64 `
+    ///
     pub fn SetActive(self: ?*anyopaque, active: u64) void {
         qtc.QAccessible__State_SetActive(@ptrCast(self), @intCast(active));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invalid-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invalid-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Invalid(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Invalid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invalid-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invalid-var)
     ///
-    /// ``` self: QtC.QAccessible__State, invalid: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` invalid: u64 `
+    ///
     pub fn SetInvalid(self: ?*anyopaque, invalid: u64) void {
         qtc.QAccessible__State_SetInvalid(@ptrCast(self), @intCast(invalid));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#editable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#editable-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn Editable(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_Editable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#editable-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#editable-var)
     ///
-    /// ``` self: QtC.QAccessible__State, editable: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` editable: u64 `
+    ///
     pub fn SetEditable(self: ?*anyopaque, editable: u64) void {
         qtc.QAccessible__State_SetEditable(@ptrCast(self), @intCast(editable));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiLine-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiLine-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn MultiLine(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_MultiLine(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiLine-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiLine-var)
     ///
-    /// ``` self: QtC.QAccessible__State, multiLine: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` multiLine: u64 `
+    ///
     pub fn SetMultiLine(self: ?*anyopaque, multiLine: u64) void {
         qtc.QAccessible__State_SetMultiLine(@ptrCast(self), @intCast(multiLine));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectableText-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectableText-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn SelectableText(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_SelectableText(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectableText-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectableText-var)
     ///
-    /// ``` self: QtC.QAccessible__State, selectableText: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` selectableText: u64 `
+    ///
     pub fn SetSelectableText(self: ?*anyopaque, selectableText: u64) void {
         qtc.QAccessible__State_SetSelectableText(@ptrCast(self), @intCast(selectableText));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#supportsAutoCompletion-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#supportsAutoCompletion-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn SupportsAutoCompletion(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_SupportsAutoCompletion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#supportsAutoCompletion-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#supportsAutoCompletion-var)
     ///
-    /// ``` self: QtC.QAccessible__State, supportsAutoCompletion: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` supportsAutoCompletion: u64 `
+    ///
     pub fn SetSupportsAutoCompletion(self: ?*anyopaque, supportsAutoCompletion: u64) void {
         qtc.QAccessible__State_SetSupportsAutoCompletion(@ptrCast(self), @intCast(supportsAutoCompletion));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#searchEdit-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#searchEdit-var)
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn SearchEdit(self: ?*anyopaque) u64 {
         return qtc.QAccessible__State_SearchEdit(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#searchEdit-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#searchEdit-var)
     ///
-    /// ``` self: QtC.QAccessible__State, searchEdit: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
+    /// ` searchEdit: u64 `
+    ///
     pub fn SetSearchEdit(self: ?*anyopaque, searchEdit: u64) void {
         qtc.QAccessible__State_SetSearchEdit(@ptrCast(self), @intCast(searchEdit));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAccessible__State ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAccessible__State `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAccessible__State_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qaccessible-activationobserver.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html)
 pub const qaccessible__activationobserver = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#accessibilityActiveChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#accessibilityActiveChanged)
     ///
-    /// ``` self: QtC.QAccessible__ActivationObserver, active: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__ActivationObserver `
+    ///
+    /// ` active: bool `
+    ///
     pub fn AccessibilityActiveChanged(self: ?*anyopaque, active: bool) void {
         qtc.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self), active);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#operator-eq)
     ///
-    /// ``` self: QtC.QAccessible__ActivationObserver, param1: QtC.QAccessible__ActivationObserver ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessible__ActivationObserver `
+    ///
+    /// ` param1: QtC.QAccessible__ActivationObserver `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QAccessible__ActivationObserver_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAccessible__ActivationObserver ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAccessible__ActivationObserver `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAccessible__ActivationObserver_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qaccessible-base.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-base.html#public-types)
 pub const enums = struct {
     pub const Event = enum {
         pub const SoundPlayed: i32 = 1;

@@ -4,10 +4,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qstatictext_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qstatictext.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html)
 pub const qstatictext = struct {
     /// New constructs a new QStaticText object.
-    ///
     ///
     pub fn New() QtC.QStaticText {
         return qtc.QStaticText_new();
@@ -15,7 +14,10 @@ pub const qstatictext = struct {
 
     /// New2 constructs a new QStaticText object.
     ///
-    /// ``` text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn New2(text: []const u8) QtC.QStaticText {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -27,28 +29,46 @@ pub const qstatictext = struct {
 
     /// New3 constructs a new QStaticText object.
     ///
-    /// ``` other: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QStaticText `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QStaticText {
         return qtc.QStaticText_new3(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-eq)
     ///
-    /// ``` self: QtC.QStaticText, param1: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` param1: QtC.QStaticText `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QStaticText_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#swap)
     ///
-    /// ``` self: QtC.QStaticText, other: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` other: QtC.QStaticText `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QStaticText_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setText)
     ///
-    /// ``` self: QtC.QStaticText, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -57,9 +77,14 @@ pub const qstatictext = struct {
         qtc.QStaticText_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#text)
     ///
-    /// ``` self: QtC.QStaticText, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStaticText_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -68,119 +93,186 @@ pub const qstatictext = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextFormat)
     ///
-    /// ``` self: QtC.QStaticText, textFormat: qnamespace_enums.TextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` textFormat: qnamespace_enums.TextFormat `
+    ///
     pub fn SetTextFormat(self: ?*anyopaque, textFormat: i32) void {
         qtc.QStaticText_SetTextFormat(@ptrCast(self), @intCast(textFormat));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textFormat)
     ///
-    /// ``` self: QtC.QStaticText ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.TextFormat ```
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.TextFormat `
+    ///
     pub fn TextFormat(self: ?*anyopaque) i32 {
         return qtc.QStaticText_TextFormat(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextWidth)
     ///
-    /// ``` self: QtC.QStaticText, textWidth: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` textWidth: f64 `
+    ///
     pub fn SetTextWidth(self: ?*anyopaque, textWidth: f64) void {
         qtc.QStaticText_SetTextWidth(@ptrCast(self), @floatCast(textWidth));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textWidth)
     ///
-    /// ``` self: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
     pub fn TextWidth(self: ?*anyopaque) f64 {
         return qtc.QStaticText_TextWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextOption)
     ///
-    /// ``` self: QtC.QStaticText, textOption: QtC.QTextOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` textOption: QtC.QTextOption `
+    ///
     pub fn SetTextOption(self: ?*anyopaque, textOption: ?*anyopaque) void {
         qtc.QStaticText_SetTextOption(@ptrCast(self), @ptrCast(textOption));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textOption)
     ///
-    /// ``` self: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
     pub fn TextOption(self: ?*anyopaque) QtC.QTextOption {
         return qtc.QStaticText_TextOption(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#size)
     ///
-    /// ``` self: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QStaticText_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
     ///
-    /// ``` self: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
     pub fn Prepare(self: ?*anyopaque) void {
         qtc.QStaticText_Prepare(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setPerformanceHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setPerformanceHint)
     ///
-    /// ``` self: QtC.QStaticText, performanceHint: qstatictext_enums.PerformanceHint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` performanceHint: qstatictext_enums.PerformanceHint `
+    ///
     pub fn SetPerformanceHint(self: ?*anyopaque, performanceHint: i32) void {
         qtc.QStaticText_SetPerformanceHint(@ptrCast(self), @intCast(performanceHint));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#performanceHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#performanceHint)
     ///
-    /// ``` self: QtC.QStaticText ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qstatictext_enums.PerformanceHint ```
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qstatictext_enums.PerformanceHint `
+    ///
     pub fn PerformanceHint(self: ?*anyopaque) i32 {
         return qtc.QStaticText_PerformanceHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QStaticText, param1: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` param1: QtC.QStaticText `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QStaticText_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QStaticText, param1: QtC.QStaticText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` param1: QtC.QStaticText `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QStaticText_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
     ///
-    /// ``` self: QtC.QStaticText, matrix: QtC.QTransform ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` matrix: QtC.QTransform `
+    ///
     pub fn Prepare1(self: ?*anyopaque, matrix: ?*anyopaque) void {
         qtc.QStaticText_Prepare1(@ptrCast(self), @ptrCast(matrix));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
     ///
-    /// ``` self: QtC.QStaticText, matrix: QtC.QTransform, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
+    /// ` matrix: QtC.QTransform `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn Prepare2(self: ?*anyopaque, matrix: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QStaticText_Prepare2(@ptrCast(self), @ptrCast(matrix), @ptrCast(font));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#dtor.QStaticText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#dtor.QStaticText)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QStaticText ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QStaticText `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QStaticText_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qstatictext.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#public-types)
 pub const enums = struct {
     pub const PerformanceHint = enum {
         pub const ModerateCaching: i32 = 0;

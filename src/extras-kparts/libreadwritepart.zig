@@ -5,10 +5,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kparts-readwritepart.html
+/// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html)
 pub const kparts__readwritepart = struct {
     /// New constructs a new KParts::ReadWritePart object.
-    ///
     ///
     pub fn New() QtC.KParts__ReadWritePart {
         return qtc.KParts__ReadWritePart_new();
@@ -16,53 +15,97 @@ pub const kparts__readwritepart = struct {
 
     /// New2 constructs a new KParts::ReadWritePart object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.KParts__ReadWritePart {
         return qtc.KParts__ReadWritePart_new2(@ptrCast(parent));
     }
 
     /// New3 constructs a new KParts::ReadWritePart object.
     ///
-    /// ``` parent: QtC.QObject, data: QtC.KPluginMetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
+    /// ` data: QtC.KPluginMetaData `
+    ///
     pub fn New3(parent: ?*anyopaque, data: ?*anyopaque) QtC.KParts__ReadWritePart {
         return qtc.KParts__ReadWritePart_new3(@ptrCast(parent), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KParts__ReadWritePart_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KParts__ReadWritePart, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KParts__ReadWritePart_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KParts__ReadWritePart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KParts__ReadWritePart_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KParts__ReadWritePart_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KParts__ReadWritePart_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -72,276 +115,422 @@ pub const kparts__readwritepart = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isReadWrite)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isReadWrite)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn IsReadWrite(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_IsReadWrite(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, readwrite: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` readwrite: bool `
+    ///
     pub fn SetReadWrite(self: ?*anyopaque, readwrite: bool) void {
         qtc.KParts__ReadWritePart_SetReadWrite(@ptrCast(self), readwrite);
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, readwrite: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, readwrite: bool) callconv(.c) void `
+    ///
     pub fn OnSetReadWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetReadWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, readwrite: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` readwrite: bool `
+    ///
     pub fn QBaseSetReadWrite(self: ?*anyopaque, readwrite: bool) void {
         qtc.KParts__ReadWritePart_QBaseSetReadWrite(@ptrCast(self), readwrite);
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isModified)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn IsModified(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_IsModified(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QueryClose(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QueryClose(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnQueryClose(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnQueryClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseQueryClose(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseQueryClose(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn CloseUrl(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_CloseUrl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnCloseUrl(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnCloseUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseCloseUrl(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseCloseUrl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, promptToSave: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` promptToSave: bool `
+    ///
     pub fn CloseUrl2(self: ?*anyopaque, promptToSave: bool) bool {
         return qtc.KParts__ReadWritePart_CloseUrl2(@ptrCast(self), promptToSave);
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, promptToSave: bool) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, promptToSave: bool) callconv(.c) bool `
+    ///
     pub fn OnCloseUrl2(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnCloseUrl2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, promptToSave: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` promptToSave: bool `
+    ///
     pub fn QBaseCloseUrl2(self: ?*anyopaque, promptToSave: bool) bool {
         return qtc.KParts__ReadWritePart_QBaseCloseUrl2(@ptrCast(self), promptToSave);
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SaveAs(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_SaveAs(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) bool `
+    ///
     pub fn OnSaveAs(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnSaveAs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn QBaseSaveAs(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseSaveAs(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, modified: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` modified: bool `
+    ///
     pub fn SetModified(self: ?*anyopaque, modified: bool) void {
         qtc.KParts__ReadWritePart_SetModified(@ptrCast(self), modified);
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, modified: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, modified: bool) callconv(.c) void `
+    ///
     pub fn OnSetModified(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetModified(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, modified: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` modified: bool `
+    ///
     pub fn QBaseSetModified(self: ?*anyopaque, modified: bool) void {
         qtc.KParts__ReadWritePart_QBaseSetModified(@ptrCast(self), modified);
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, handled: *bool, abortClosing: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` handled: *bool `
+    ///
+    /// ` abortClosing: *bool `
+    ///
     pub fn SigQueryClose(self: ?*anyopaque, handled: *bool, abortClosing: *bool) void {
         qtc.KParts__ReadWritePart_SigQueryClose(@ptrCast(self), @ptrCast(handled), @ptrCast(abortClosing));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, handled: *bool, abortClosing: *bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParthandled: *bool, abortClosing: *bool) callconv(.c) void `
+    ///
     pub fn OnSigQueryClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, *bool, *bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_Connect_SigQueryClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn SetModified2(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_SetModified2(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Save(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_Save(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSave(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnSave(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseSave(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseSave(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#waitSaveComplete)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#waitSaveComplete)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn WaitSaveComplete(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_WaitSaveComplete(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveFile)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveFile)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn SaveFile(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_SaveFile(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveFile)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveFile)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSaveFile(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnSaveFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveFile)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveFile)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseSaveFile(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseSaveFile(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn SaveToUrl(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_SaveToUrl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSaveToUrl(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnSaveToUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseSaveToUrl(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseSaveToUrl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -352,9 +541,18 @@ pub const kparts__readwritepart = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -367,63 +565,92 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setProgressInfoEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setProgressInfoEnabled)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, show: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` show: bool `
+    ///
     pub fn SetProgressInfoEnabled(self: ?*anyopaque, show: bool) void {
         qtc.KParts__ReadOnlyPart_SetProgressInfoEnabled(@ptrCast(self), show);
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#isProgressInfoEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#isProgressInfoEnabled)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn IsProgressInfoEnabled(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_IsProgressInfoEnabled(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#url)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#url)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KParts__ReadOnlyPart_Url(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#navigationExtension)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#navigationExtension)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn NavigationExtension(self: ?*anyopaque) QtC.KParts__NavigationExtension {
         return qtc.KParts__ReadOnlyPart_NavigationExtension(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setArguments)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setArguments)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, arguments: QtC.KParts__OpenUrlArguments ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` arguments: QtC.KParts__OpenUrlArguments `
+    ///
     pub fn SetArguments(self: ?*anyopaque, arguments: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_SetArguments(@ptrCast(self), @ptrCast(arguments));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#arguments)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#arguments)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Arguments(self: ?*anyopaque) QtC.KParts__OpenUrlArguments {
         return qtc.KParts__ReadOnlyPart_Arguments(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openStream)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openStream)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, mimeType: []const u8, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` mimeType: []const u8 `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn OpenStream(self: ?*anyopaque, mimeType: []const u8, url: ?*anyopaque) bool {
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
@@ -434,9 +661,14 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#writeStream)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#writeStream)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, data: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` data: []u8 `
+    ///
     pub fn WriteStream(self: ?*anyopaque, data: []u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -447,72 +679,106 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeStream)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeStream)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn CloseStream(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_CloseStream(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, job: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` job: QtC.KIO__Job `
+    ///
     pub fn Started(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_Started(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, job: QtC.KIO__Job) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartjob: QtC.KIO__Job) callconv(.c) void `
+    ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Completed(self: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_Completed(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart) callconv(.c) void `
+    ///
     pub fn OnCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Completed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn CompletedWithPendingAction(self: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_CompletedWithPendingAction(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart) callconv(.c) void `
+    ///
     pub fn OnCompletedWithPendingAction(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_CompletedWithPendingAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, errMsg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` errMsg: []const u8 `
+    ///
     pub fn Canceled(self: ?*anyopaque, errMsg: []const u8) void {
         const errMsg_str = qtc.libqt_string{
             .len = errMsg.len,
@@ -523,72 +789,108 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, errMsg: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParterrMsg: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn UrlChanged(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_UrlChanged(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParturl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#manager)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#manager)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Manager(self: ?*anyopaque) QtC.KParts__PartManager {
         return qtc.KParts__Part_Manager(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeleteWidget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeleteWidget)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, autoDeleteWidget: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` autoDeleteWidget: bool `
+    ///
     pub fn SetAutoDeleteWidget(self: ?*anyopaque, autoDeleteWidget: bool) void {
         qtc.KParts__Part_SetAutoDeleteWidget(@ptrCast(self), autoDeleteWidget);
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeletePart)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeletePart)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, autoDeletePart: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` autoDeletePart: bool `
+    ///
     pub fn SetAutoDeletePart(self: ?*anyopaque, autoDeletePart: bool) void {
         qtc.KParts__Part_SetAutoDeletePart(@ptrCast(self), autoDeletePart);
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#metaData)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#metaData)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn MetaData(self: ?*anyopaque) QtC.KPluginMetaData {
         return qtc.KParts__Part_MetaData(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, caption: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` caption: []const u8 `
+    ///
     pub fn SetWindowCaption(self: ?*anyopaque, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
@@ -599,18 +901,28 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, caption: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartcaption: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetWindowCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetStatusBarText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -621,18 +933,28 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParttext: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -643,9 +965,14 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -656,99 +983,144 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -760,45 +1132,78 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -807,45 +1212,70 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -853,9 +1283,14 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -863,9 +1298,14 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -887,54 +1327,76 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -942,45 +1404,84 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -989,45 +1490,68 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#setPartObject)
+    /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html#setPartObject)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, object: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` object: QtC.QObject `
+    ///
     pub fn SetPartObject(self: ?*anyopaque, object: ?*anyopaque) void {
         qtc.KParts__PartBase_SetPartObject(@ptrCast(self), @ptrCast(object));
     }
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#partObject)
+    /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html#partObject)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn PartObject(self: ?*anyopaque) QtC.QObject {
         return qtc.KParts__PartBase_PartObject(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1038,72 +1562,106 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, doc: QtC.QDomDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` doc: QtC.QDomDocument `
+    ///
     pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, factory: QtC.KXMLGUIFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` factory: QtC.KXMLGUIFactory `
+    ///
     pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
         return qtc.KXMLGUIClient_Factory(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1115,36 +1673,54 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, builder: QtC.KXMLGUIBuilder ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` builder: QtC.KXMLGUIBuilder `
+    ///
     pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
         return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn ReloadXML(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, name: []const u8, actionList: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` actionList: []QtC.QAction `
+    ///
     pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1159,9 +1735,14 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1172,9 +1753,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
     ///
-    /// ``` files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` files: [][]const u8 `
+    ///
+    /// ` doc: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts::readwritepart.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
@@ -1201,9 +1789,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -1218,9 +1813,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -1235,9 +1837,14 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, state: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` state: []const u8 `
+    ///
     pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -1248,36 +1855,56 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn EndXMLPlug(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, xmlfile: []const u8, localxmlfile: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
     pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -1292,9 +1919,14 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
     ///
-    /// ``` xml: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` xml: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
@@ -1309,9 +1941,18 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, xmlfile: []const u8, localxmlfile: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -1326,572 +1967,828 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn OpenUrl(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_OpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn QBaseOpenUrl(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseOpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) bool `
+    ///
     pub fn OnOpenUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnOpenUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn OpenFile(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_OpenFile(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseOpenFile(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseOpenFile(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnOpenFile(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnOpenFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.KParts__GUIActivateEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.KParts__GUIActivateEvent `
+    ///
     pub fn GuiActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_GuiActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.KParts__GUIActivateEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.KParts__GUIActivateEvent `
+    ///
     pub fn QBaseGuiActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseGuiActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.KParts__GUIActivateEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.KParts__GUIActivateEvent) callconv(.c) void `
+    ///
     pub fn OnGuiActivateEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnGuiActivateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#widget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KParts__ReadWritePart_Widget(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#widget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KParts__ReadWritePart_QBaseWidget(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#widget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
         qtc.KParts__ReadWritePart_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, manager: QtC.KParts__PartManager ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` manager: QtC.KParts__PartManager `
+    ///
     pub fn SetManager(self: ?*anyopaque, manager: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_SetManager(@ptrCast(self), @ptrCast(manager));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, manager: QtC.KParts__PartManager ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` manager: QtC.KParts__PartManager `
+    ///
     pub fn QBaseSetManager(self: ?*anyopaque, manager: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseSetManager(@ptrCast(self), @ptrCast(manager));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, manager: QtC.KParts__PartManager) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, manager: QtC.KParts__PartManager) callconv(.c) void `
+    ///
     pub fn OnSetManager(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetManager(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, widget: QtC.QWidget, globalPos: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` globalPos: QtC.QPoint `
+    ///
     pub fn HitTest(self: ?*anyopaque, widget: ?*anyopaque, globalPos: ?*anyopaque) QtC.KParts__Part {
         return qtc.KParts__ReadWritePart_HitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, widget: QtC.QWidget, globalPos: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` globalPos: QtC.QPoint `
+    ///
     pub fn QBaseHitTest(self: ?*anyopaque, widget: ?*anyopaque, globalPos: ?*anyopaque) QtC.KParts__Part {
         return qtc.KParts__ReadWritePart_QBaseHitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, widget: QtC.QWidget, globalPos: QtC.QPoint) callconv(.c) QtC.KParts__Part ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, widget: QtC.QWidget, globalPos: QtC.QPoint) callconv(.c) QtC.KParts__Part `
+    ///
     pub fn OnHitTest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KParts__Part) void {
         qtc.KParts__ReadWritePart_OnHitTest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn QBaseSetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseSetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, widget: QtC.QWidget) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, widget: QtC.QWidget) callconv(.c) void `
+    ///
     pub fn OnSetWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.KParts__PartActivateEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.KParts__PartActivateEvent `
+    ///
     pub fn PartActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_PartActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.KParts__PartActivateEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.KParts__PartActivateEvent `
+    ///
     pub fn QBasePartActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBasePartActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.KParts__PartActivateEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.KParts__PartActivateEvent) callconv(.c) void `
+    ///
     pub fn OnPartActivateEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnPartActivateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, element: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` element: QtC.QDomElement `
+    ///
     pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
         return qtc.KParts__ReadWritePart_Action2(@ptrCast(self), @ptrCast(element));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, element: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` element: QtC.QDomElement `
+    ///
     pub fn QBaseAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
         return qtc.KParts__ReadWritePart_QBaseAction2(@ptrCast(self), @ptrCast(element));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, element: QtC.QDomElement) callconv(.c) QtC.QAction `
+    ///
     pub fn OnAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
         qtc.KParts__ReadWritePart_OnAction2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KParts__ReadWritePart_ActionCollection(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseActionCollection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KParts__ReadWritePart_QBaseActionCollection(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) QtC.KActionCollection ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.KActionCollection `
+    ///
     pub fn OnActionCollection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KActionCollection) void {
         qtc.KParts__ReadWritePart_OnActionCollection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1902,11 +2799,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_QBaseComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1917,55 +2819,76 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnComponentName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadWritePart_OnComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KParts__ReadWritePart_DomDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseDomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KParts__ReadWritePart_QBaseDomDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) QtC.QDomDocument ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QDomDocument `
+    ///
     pub fn OnDomDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDomDocument) void {
         qtc.KParts__ReadWritePart_OnDomDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1976,11 +2899,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_QBaseXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1991,22 +2919,32 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadWritePart_OnXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2017,11 +2955,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_QBaseLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2032,22 +2975,34 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnLocalXMLFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadWritePart_OnLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, componentName: []const u8, componentDisplayName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` componentName: []const u8 `
+    ///
+    /// ` componentDisplayName: []const u8 `
+    ///
     pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
@@ -2062,11 +3017,18 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, componentName: []const u8, componentDisplayName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` componentName: []const u8 `
+    ///
+    /// ` componentDisplayName: []const u8 `
+    ///
     pub fn QBaseSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
@@ -2081,22 +3043,36 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetComponentName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, file: []const u8, merge: bool, setXMLDoc: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` file: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
+    /// ` setXMLDoc: bool `
+    ///
     pub fn SetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -2107,11 +3083,20 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, file: []const u8, merge: bool, setXMLDoc: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` file: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
+    /// ` setXMLDoc: bool `
+    ///
     pub fn QBaseSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -2122,22 +3107,32 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
+    ///
     pub fn OnSetXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, file: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` file: []const u8 `
+    ///
     pub fn SetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -2148,11 +3143,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, file: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` file: []const u8 `
+    ///
     pub fn QBaseSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -2163,22 +3163,34 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, file: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, file: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetLocalXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, document: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` document: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn SetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
@@ -2189,11 +3201,18 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, document: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` document: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn QBaseSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
@@ -2204,55 +3223,86 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, document: [*:0]const u8, merge: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, document: [*:0]const u8, merge: bool) callconv(.c) void `
+    ///
     pub fn OnSetXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetXML(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, document: QtC.QDomDocument, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` document: QtC.QDomDocument `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn SetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
         qtc.KParts__ReadWritePart_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, document: QtC.QDomDocument, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` document: QtC.QDomDocument `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn QBaseSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
         qtc.KParts__ReadWritePart_QBaseSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, document: QtC.QDomDocument, merge: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, document: QtC.QDomDocument, merge: bool) callconv(.c) void `
+    ///
     pub fn OnSetDOMDocument(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetDOMDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, newstate: []const u8, reverse: kxmlguiclient_enums.ReverseStateChange ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` newstate: []const u8 `
+    ///
+    /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
+    ///
     pub fn StateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
@@ -2263,11 +3313,18 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, newstate: []const u8, reverse: kxmlguiclient_enums.ReverseStateChange ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` newstate: []const u8 `
+    ///
+    /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
+    ///
     pub fn QBaseStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
@@ -2278,88 +3335,124 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
+    ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn AbortLoad(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_AbortLoad(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseAbortLoad(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseAbortLoad(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnAbortLoad(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnAbortLoad(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn QBaseSetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseSetUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnSetUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LocalFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_LocalFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2370,11 +3463,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseLocalFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_QBaseLocalFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2385,22 +3483,32 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnLocalFilePath(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadWritePart_OnLocalFilePath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, localFilePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` localFilePath: []const u8 `
+    ///
     pub fn SetLocalFilePath(self: ?*anyopaque, localFilePath: []const u8) void {
         const localFilePath_str = qtc.libqt_string{
             .len = localFilePath.len,
@@ -2411,11 +3519,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, localFilePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` localFilePath: []const u8 `
+    ///
     pub fn QBaseSetLocalFilePath(self: ?*anyopaque, localFilePath: []const u8) void {
         const localFilePath_str = qtc.libqt_string{
             .len = localFilePath.len,
@@ -2426,22 +3539,32 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, localFilePath: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, localFilePath: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetLocalFilePath(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSetLocalFilePath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, containerName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` containerName: []const u8 `
+    ///
     pub fn HostContainer(self: ?*anyopaque, containerName: []const u8) QtC.QWidget {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
@@ -2452,11 +3575,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, containerName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` containerName: []const u8 `
+    ///
     pub fn QBaseHostContainer(self: ?*anyopaque, containerName: []const u8) QtC.QWidget {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
@@ -2467,121 +3595,164 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, containerName: [*:0]const u8) callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, containerName: [*:0]const u8) callconv(.c) QtC.QWidget `
+    ///
     pub fn OnHostContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QWidget) void {
         qtc.KParts__ReadWritePart_OnHostContainer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn SlotWidgetDestroyed(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_SlotWidgetDestroyed(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseSlotWidgetDestroyed(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseSlotWidgetDestroyed(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotWidgetDestroyed(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnSlotWidgetDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KParts__ReadWritePart_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KParts__ReadWritePart_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KParts__ReadWritePart_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KParts__ReadWritePart_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KParts__ReadWritePart_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KParts__ReadWritePart_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KParts__ReadWritePart_Receivers(@ptrCast(self), signal_Cstring);
@@ -2589,11 +3760,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KParts__ReadWritePart_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2601,55 +3777,80 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KParts__ReadWritePart_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KParts__ReadWritePart_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_StandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2660,11 +3861,16 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KParts__ReadWritePart_QBaseStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2675,62 +3881,86 @@ pub const kparts__readwritepart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadWritePart_OnStandardsXmlFileLocation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn LoadStandardsXmlFile(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_LoadStandardsXmlFile(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QBaseLoadStandardsXmlFile(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_QBaseLoadStandardsXmlFile(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KParts__ReadWritePart_OnLoadStandardsXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KParts__ReadWritePart, callback: *const fn (self: QtC.KParts__ReadWritePart, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KParts__ReadWritePart ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KParts__ReadWritePart `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_Delete(@ptrCast(self));
     }

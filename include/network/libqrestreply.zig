@@ -3,32 +3,48 @@ const qtc = @import("qt6c");
 const qnetworkreply_enums = @import("libqnetworkreply.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qrestreply.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html)
 pub const qrestreply = struct {
     /// New constructs a new QRestReply object.
     ///
-    /// ``` reply: QtC.QNetworkReply ```
+    /// ## Parameter(s):
+    ///
+    /// ` reply: QtC.QNetworkReply `
+    ///
     pub fn New(reply: ?*anyopaque) QtC.QRestReply {
         return qtc.QRestReply_new(@ptrCast(reply));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#swap)
     ///
-    /// ``` self: QtC.QRestReply, other: QtC.QRestReply ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
+    /// ` other: QtC.QRestReply `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QRestReply_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#networkReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#networkReply)
     ///
-    /// ``` self: QtC.QRestReply ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
     pub fn NetworkReply(self: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QRestReply_NetworkReply(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readBody)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readBody)
     ///
-    /// ``` self: QtC.QRestReply, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadBody(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QRestReply_ReadBody(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -37,9 +53,14 @@ pub const qrestreply = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readText)
     ///
-    /// ``` self: QtC.QRestReply, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QRestReply_ReadText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -48,46 +69,68 @@ pub const qrestreply = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#isSuccess)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#isSuccess)
     ///
-    /// ``` self: QtC.QRestReply ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
     pub fn IsSuccess(self: ?*anyopaque) bool {
         return qtc.QRestReply_IsSuccess(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#httpStatus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#httpStatus)
     ///
-    /// ``` self: QtC.QRestReply ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
     pub fn HttpStatus(self: ?*anyopaque) i32 {
         return qtc.QRestReply_HttpStatus(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#isHttpStatusSuccess)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#isHttpStatusSuccess)
     ///
-    /// ``` self: QtC.QRestReply ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
     pub fn IsHttpStatusSuccess(self: ?*anyopaque) bool {
         return qtc.QRestReply_IsHttpStatusSuccess(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#hasError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#hasError)
     ///
-    /// ``` self: QtC.QRestReply ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
     pub fn HasError(self: ?*anyopaque) bool {
         return qtc.QRestReply_HasError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#error)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#error)
     ///
-    /// ``` self: QtC.QRestReply ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnetworkreply_enums.NetworkError ```
+    /// ` self: QtC.QRestReply `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnetworkreply_enums.NetworkError `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QRestReply_Error(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#errorString)
     ///
-    /// ``` self: QtC.QRestReply, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QRestReply_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -96,11 +139,14 @@ pub const qrestreply = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#dtor.QRestReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#dtor.QRestReply)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QRestReply ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QRestReply `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QRestReply_Delete(@ptrCast(self));
     }

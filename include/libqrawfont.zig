@@ -5,10 +5,9 @@ const qfontdatabase_enums = @import("libqfontdatabase.zig").enums;
 const qrawfont_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qrawfont.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html)
 pub const qrawfont = struct {
     /// New constructs a new QRawFont object.
-    ///
     ///
     pub fn New() QtC.QRawFont {
         return qtc.QRawFont_new();
@@ -16,7 +15,12 @@ pub const qrawfont = struct {
 
     /// New2 constructs a new QRawFont object.
     ///
-    /// ``` fileName: []const u8, pixelSize: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` pixelSize: f64 `
+    ///
     pub fn New2(fileName: []const u8, pixelSize: f64) QtC.QRawFont {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -28,7 +32,12 @@ pub const qrawfont = struct {
 
     /// New3 constructs a new QRawFont object.
     ///
-    /// ``` fontData: []u8, pixelSize: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fontData: []u8 `
+    ///
+    /// ` pixelSize: f64 `
+    ///
     pub fn New3(fontData: []u8, pixelSize: f64) QtC.QRawFont {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
@@ -40,14 +49,24 @@ pub const qrawfont = struct {
 
     /// New4 constructs a new QRawFont object.
     ///
-    /// ``` other: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QRawFont `
+    ///
     pub fn New4(other: ?*anyopaque) QtC.QRawFont {
         return qtc.QRawFont_new4(@ptrCast(other));
     }
 
     /// New5 constructs a new QRawFont object.
     ///
-    /// ``` fileName: []const u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` pixelSize: f64 `
+    ///
+    /// ` hintingPreference: qfont_enums.HintingPreference `
+    ///
     pub fn New5(fileName: []const u8, pixelSize: f64, hintingPreference: i32) QtC.QRawFont {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -59,7 +78,14 @@ pub const qrawfont = struct {
 
     /// New6 constructs a new QRawFont object.
     ///
-    /// ``` fontData: []u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
+    /// ## Parameter(s):
+    ///
+    /// ` fontData: []u8 `
+    ///
+    /// ` pixelSize: f64 `
+    ///
+    /// ` hintingPreference: qfont_enums.HintingPreference `
+    ///
     pub fn New6(fontData: []u8, pixelSize: f64, hintingPreference: i32) QtC.QRawFont {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
@@ -69,44 +95,72 @@ pub const qrawfont = struct {
         return qtc.QRawFont_new6(fontData_str, @floatCast(pixelSize), @intCast(hintingPreference));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#operator-eq)
     ///
-    /// ``` self: QtC.QRawFont, other: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` other: QtC.QRawFont `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QRawFont_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#swap)
     ///
-    /// ``` self: QtC.QRawFont, other: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` other: QtC.QRawFont `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QRawFont_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#isValid)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QRawFont_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QRawFont, other: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` other: QtC.QRawFont `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QRawFont_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QRawFont, other: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` other: QtC.QRawFont `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QRawFont_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#familyName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#familyName)
     ///
-    /// ``` self: QtC.QRawFont, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FamilyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QRawFont_FamilyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -115,9 +169,14 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#styleName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#styleName)
     ///
-    /// ``` self: QtC.QRawFont, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StyleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QRawFont_StyleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -126,25 +185,40 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#style)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#style)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qfont_enums.Style ```
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qfont_enums.Style `
+    ///
     pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QRawFont_Style(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#weight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#weight)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn Weight(self: ?*anyopaque) i32 {
         return qtc.QRawFont_Weight(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#glyphIndexesForString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#glyphIndexesForString)
     ///
-    /// ``` self: QtC.QRawFont, text: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn GlyphIndexesForString(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -158,9 +232,16 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: []u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndexes: []u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AdvancesForGlyphIndexes(self: ?*anyopaque, glyphIndexes: []u32, allocator: std.mem.Allocator) []QtC.QPointF {
         const glyphIndexes_list = qtc.libqt_list{
             .len = glyphIndexes.len,
@@ -174,9 +255,18 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: []u32, layoutFlags: flag of qrawfont_enums.LayoutFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndexes: []u32 `
+    ///
+    /// ` layoutFlags: flag of qrawfont_enums.LayoutFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AdvancesForGlyphIndexes2(self: ?*anyopaque, glyphIndexes: []u32, layoutFlags: i32, allocator: std.mem.Allocator) []QtC.QPointF {
         const glyphIndexes_list = qtc.libqt_list{
             .len = glyphIndexes.len,
@@ -190,144 +280,242 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#glyphIndexesForChars)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#glyphIndexesForChars)
     ///
-    /// ``` self: QtC.QRawFont, chars: QtC.QChar, numChars: i32, glyphIndexes: *u32, numGlyphs: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` chars: QtC.QChar `
+    ///
+    /// ` numChars: i32 `
+    ///
+    /// ` glyphIndexes: *u32 `
+    ///
+    /// ` numGlyphs: *i32 `
+    ///
     pub fn GlyphIndexesForChars(self: ?*anyopaque, chars: ?*anyopaque, numChars: i32, glyphIndexes: *u32, numGlyphs: *i32) bool {
         return qtc.QRawFont_GlyphIndexesForChars(@ptrCast(self), @ptrCast(chars), @intCast(numChars), @ptrCast(glyphIndexes), @ptrCast(numGlyphs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: *const u32, advances: QtC.QPointF, numGlyphs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndexes: *const u32 `
+    ///
+    /// ` advances: QtC.QPointF `
+    ///
+    /// ` numGlyphs: i32 `
+    ///
     pub fn AdvancesForGlyphIndexes3(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32) bool {
         return qtc.QRawFont_AdvancesForGlyphIndexes3(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: *const u32, advances: QtC.QPointF, numGlyphs: i32, layoutFlags: flag of qrawfont_enums.LayoutFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndexes: *const u32 `
+    ///
+    /// ` advances: QtC.QPointF `
+    ///
+    /// ` numGlyphs: i32 `
+    ///
+    /// ` layoutFlags: flag of qrawfont_enums.LayoutFlag `
+    ///
     pub fn AdvancesForGlyphIndexes4(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32, layoutFlags: i32) bool {
         return qtc.QRawFont_AdvancesForGlyphIndexes4(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs), @intCast(layoutFlags));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndex: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndex: u32 `
+    ///
     pub fn AlphaMapForGlyph(self: ?*anyopaque, glyphIndex: u32) QtC.QImage {
         return qtc.QRawFont_AlphaMapForGlyph(@ptrCast(self), @intCast(glyphIndex));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#pathForGlyph)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#pathForGlyph)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndex: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndex: u32 `
+    ///
     pub fn PathForGlyph(self: ?*anyopaque, glyphIndex: u32) QtC.QPainterPath {
         return qtc.QRawFont_PathForGlyph(@ptrCast(self), @intCast(glyphIndex));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#boundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#boundingRect)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndex: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndex: u32 `
+    ///
     pub fn BoundingRect(self: ?*anyopaque, glyphIndex: u32) QtC.QRectF {
         return qtc.QRawFont_BoundingRect(@ptrCast(self), @intCast(glyphIndex));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#setPixelSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#setPixelSize)
     ///
-    /// ``` self: QtC.QRawFont, pixelSize: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` pixelSize: f64 `
+    ///
     pub fn SetPixelSize(self: ?*anyopaque, pixelSize: f64) void {
         qtc.QRawFont_SetPixelSize(@ptrCast(self), @floatCast(pixelSize));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#pixelSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#pixelSize)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn PixelSize(self: ?*anyopaque) f64 {
         return qtc.QRawFont_PixelSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#hintingPreference)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#hintingPreference)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qfont_enums.HintingPreference ```
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qfont_enums.HintingPreference `
+    ///
     pub fn HintingPreference(self: ?*anyopaque) i32 {
         return qtc.QRawFont_HintingPreference(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#ascent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#ascent)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn Ascent(self: ?*anyopaque) f64 {
         return qtc.QRawFont_Ascent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#capHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#capHeight)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn CapHeight(self: ?*anyopaque) f64 {
         return qtc.QRawFont_CapHeight(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#descent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#descent)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn Descent(self: ?*anyopaque) f64 {
         return qtc.QRawFont_Descent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#leading)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#leading)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn Leading(self: ?*anyopaque) f64 {
         return qtc.QRawFont_Leading(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#xHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#xHeight)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn XHeight(self: ?*anyopaque) f64 {
         return qtc.QRawFont_XHeight(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#averageCharWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#averageCharWidth)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn AverageCharWidth(self: ?*anyopaque) f64 {
         return qtc.QRawFont_AverageCharWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#maxCharWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#maxCharWidth)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn MaxCharWidth(self: ?*anyopaque) f64 {
         return qtc.QRawFont_MaxCharWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#lineThickness)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#lineThickness)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn LineThickness(self: ?*anyopaque) f64 {
         return qtc.QRawFont_LineThickness(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#underlinePosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#underlinePosition)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn UnderlinePosition(self: ?*anyopaque) f64 {
         return qtc.QRawFont_UnderlinePosition(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#unitsPerEm)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#unitsPerEm)
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn UnitsPerEm(self: ?*anyopaque) f64 {
         return qtc.QRawFont_UnitsPerEm(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#loadFromFile)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#loadFromFile)
     ///
-    /// ``` self: QtC.QRawFont, fileName: []const u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` pixelSize: f64 `
+    ///
+    /// ` hintingPreference: qfont_enums.HintingPreference `
+    ///
     pub fn LoadFromFile(self: ?*anyopaque, fileName: []const u8, pixelSize: f64, hintingPreference: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -336,9 +524,18 @@ pub const qrawfont = struct {
         qtc.QRawFont_LoadFromFile(@ptrCast(self), fileName_str, @floatCast(pixelSize), @intCast(hintingPreference));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#loadFromData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#loadFromData)
     ///
-    /// ``` self: QtC.QRawFont, fontData: []u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` fontData: []u8 `
+    ///
+    /// ` pixelSize: f64 `
+    ///
+    /// ` hintingPreference: qfont_enums.HintingPreference `
+    ///
     pub fn LoadFromData(self: ?*anyopaque, fontData: []u8, pixelSize: f64, hintingPreference: i32) void {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
@@ -347,25 +544,42 @@ pub const qrawfont = struct {
         qtc.QRawFont_LoadFromData(@ptrCast(self), fontData_str, @floatCast(pixelSize), @intCast(hintingPreference));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportsCharacter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportsCharacter)
     ///
-    /// ``` self: QtC.QRawFont, ucs4: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` ucs4: u32 `
+    ///
     pub fn SupportsCharacter(self: ?*anyopaque, ucs4: u32) bool {
         return qtc.QRawFont_SupportsCharacter(@ptrCast(self), @intCast(ucs4));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportsCharacter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportsCharacter)
     ///
-    /// ``` self: QtC.QRawFont, character: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` character: QtC.QChar `
+    ///
     pub fn SupportsCharacter2(self: ?*anyopaque, character: QtC.QChar) bool {
         return qtc.QRawFont_SupportsCharacter2(@ptrCast(self), @ptrCast(character));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportedWritingSystems)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportedWritingSystems)
     ///
-    /// ``` self: QtC.QRawFont, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` []qfontdatabase_enums.WritingSystem ```
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` []qfontdatabase_enums.WritingSystem `
+    ///
     pub fn SupportedWritingSystems(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QRawFont_SupportedWritingSystems(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -375,9 +589,16 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fontTable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fontTable)
     ///
-    /// ``` self: QtC.QRawFont, tagName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` tagName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FontTable(self: ?*anyopaque, tagName: []const u8, allocator: std.mem.Allocator) []u8 {
         const tagName_Cstring = tagName.ptr;
         const _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable(@ptrCast(self), tagName_Cstring);
@@ -387,9 +608,16 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fontTable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fontTable)
     ///
-    /// ``` self: QtC.QRawFont, tag: QtC.QFont__Tag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` tag: QtC.QFont__Tag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FontTable2(self: ?*anyopaque, tag: QtC.QFont__Tag, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self), @ptrCast(tag));
         defer qtc.libqt_string_free(&_bytearray);
@@ -398,45 +626,72 @@ pub const qrawfont = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fromFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fromFont)
     ///
-    /// ``` font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn FromFont(font: ?*anyopaque) QtC.QRawFont {
         return qtc.QRawFont_FromFont(@ptrCast(font));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndex: u32, antialiasingType: qrawfont_enums.AntialiasingType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndex: u32 `
+    ///
+    /// ` antialiasingType: qrawfont_enums.AntialiasingType `
+    ///
     pub fn AlphaMapForGlyph2(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i32) QtC.QImage {
         return qtc.QRawFont_AlphaMapForGlyph2(@ptrCast(self), @intCast(glyphIndex), @intCast(antialiasingType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndex: u32, antialiasingType: qrawfont_enums.AntialiasingType, transform: QtC.QTransform ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
+    /// ` glyphIndex: u32 `
+    ///
+    /// ` antialiasingType: qrawfont_enums.AntialiasingType `
+    ///
+    /// ` transform: QtC.QTransform `
+    ///
     pub fn AlphaMapForGlyph3(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i32, transform: ?*anyopaque) QtC.QImage {
         return qtc.QRawFont_AlphaMapForGlyph3(@ptrCast(self), @intCast(glyphIndex), @intCast(antialiasingType), @ptrCast(transform));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fromFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fromFont)
     ///
-    /// ``` font: QtC.QFont, writingSystem: qfontdatabase_enums.WritingSystem ```
+    /// ## Parameter(s):
+    ///
+    /// ` font: QtC.QFont `
+    ///
+    /// ` writingSystem: qfontdatabase_enums.WritingSystem `
+    ///
     pub fn FromFont2(font: ?*anyopaque, writingSystem: i32) QtC.QRawFont {
         return qtc.QRawFont_FromFont2(@ptrCast(font), @intCast(writingSystem));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#dtor.QRawFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#dtor.QRawFont)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QRawFont ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QRawFont `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QRawFont_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qrawfont.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#public-types)
 pub const enums = struct {
     pub const AntialiasingType = enum {
         pub const PixelAntialiasing: i32 = 0;

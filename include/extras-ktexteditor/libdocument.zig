@@ -10,67 +10,108 @@ const theme_enums = @import("../extras-ksyntaxhighlighting/libtheme.zig").enums;
 const set_constu8 = std.StringHashMapUnmanaged(void);
 pub const map_i32_qtcktexteditormark = std.AutoHashMapUnmanaged(i32, QtC.KTextEditor__Mark);
 
-/// https://api.kde.org/ktexteditor-mark.html
+/// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html)
 pub const ktexteditor__mark = struct {
-    /// [Upstream resources](https://api.kde.org/ktexteditor-mark.html#line-var)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#line-var)
     ///
-    /// ``` self: QtC.KTextEditor__Mark ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Mark `
+    ///
     pub fn Line(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__Mark_Line(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-mark.html#line-var)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#line-var)
     ///
-    /// ``` self: QtC.KTextEditor__Mark, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Mark `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn SetLine(self: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__Mark_SetLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-mark.html#type-var)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#type-var)
     ///
-    /// ``` self: QtC.KTextEditor__Mark ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Mark `
+    ///
     pub fn Type(self: ?*anyopaque) u32 {
         return qtc.KTextEditor__Mark_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-mark.html#type-var)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#type-var)
     ///
-    /// ``` self: QtC.KTextEditor__Mark, type: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Mark `
+    ///
+    /// ` type: u32 `
+    ///
     pub fn SetType(self: ?*anyopaque, _type: u32) void {
         qtc.KTextEditor__Mark_SetType(@ptrCast(self), @intCast(_type));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KTextEditor__Mark ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KTextEditor__Mark `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KTextEditor__Mark_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/ktexteditor-document.html
+/// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html)
 pub const ktexteditor__document = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KTextEditor__Document_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KTextEditor__Document, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__Document_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KTextEditor__Document, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KTextEditor__Document_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -80,16 +121,28 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#createView)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#createView)
     ///
-    /// ``` self: QtC.KTextEditor__Document, parent: QtC.QWidget, mainWindow: QtC.KTextEditor__MainWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` mainWindow: QtC.KTextEditor__MainWindow `
+    ///
     pub fn CreateView(self: ?*anyopaque, parent: ?*anyopaque, mainWindow: ?*anyopaque) QtC.KTextEditor__View {
         return qtc.KTextEditor__Document_CreateView(@ptrCast(self), @ptrCast(parent), @ptrCast(mainWindow));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#views)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#views)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Views(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__View {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_Views(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -99,23 +152,40 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#viewCreated)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#viewCreated)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, view: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
     pub fn ViewCreated(self: ?*anyopaque, document: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__Document_ViewCreated(@ptrCast(self), @ptrCast(document), @ptrCast(view));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#viewCreated)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#viewCreated)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, view: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, view: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnViewCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ViewCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentName)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentName)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DocumentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_DocumentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -124,9 +194,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#mimeType)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#mimeType)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_MimeType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -135,9 +210,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#checksum)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#checksum)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Checksum(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.KTextEditor__Document_Checksum(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -146,65 +226,110 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentNameChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentNameChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn DocumentNameChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_DocumentNameChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentNameChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentNameChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnDocumentNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentUrlChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentUrlChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn DocumentUrlChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_DocumentUrlChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentUrlChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentUrlChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnDocumentUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn ModifiedChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_ModifiedChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnModifiedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModifiedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#readWriteChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#readWriteChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn ReadWriteChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_ReadWriteChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#readWriteChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#readWriteChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnReadWriteChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ReadWriteChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setEncoding)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setEncoding)
     ///
-    /// ``` self: QtC.KTextEditor__Document, encoding: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` encoding: []const u8 `
+    ///
     pub fn SetEncoding(self: ?*anyopaque, encoding: []const u8) bool {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
@@ -213,9 +338,14 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_SetEncoding(@ptrCast(self), encoding_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#encoding)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#encoding)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Encoding(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_Encoding(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -224,114 +354,186 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentReload)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentReload)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DocumentReload(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_DocumentReload(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSave)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSave)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DocumentSave(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_DocumentSave(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSaveAs)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSaveAs)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DocumentSaveAs(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_DocumentSaveAs(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#openingError)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#openingError)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn OpeningError(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_OpeningError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSavedOrUploaded)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSavedOrUploaded)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, saveAs: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` saveAs: bool `
+    ///
     pub fn DocumentSavedOrUploaded(self: ?*anyopaque, document: ?*anyopaque, saveAs: bool) void {
         qtc.KTextEditor__Document_DocumentSavedOrUploaded(@ptrCast(self), @ptrCast(document), saveAs);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSavedOrUploaded)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSavedOrUploaded)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, saveAs: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, saveAs: bool) callconv(.c) void `
+    ///
     pub fn OnDocumentSavedOrUploaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentSavedOrUploaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToClose)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToClose)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn AboutToClose(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_AboutToClose(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToClose)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToClose)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToReload)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToReload)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn AboutToReload(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_AboutToReload(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToReload)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToReload)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnAboutToReload(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToReload(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#reloaded)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#reloaded)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn Reloaded(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_Reloaded(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#reloaded)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#reloaded)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnReloaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_Reloaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToSave)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToSave)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn AboutToSave(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_AboutToSave(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToSave)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToSave)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnAboutToSave(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToSave(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#isEditingTransactionRunning)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isEditingTransactionRunning)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsEditingTransactionRunning(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_IsEditingTransactionRunning(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#text)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#text)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -340,9 +542,18 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#text)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#text)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, block: bool, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` block: bool `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text2(self: ?*anyopaque, range: QtC.KTextEditor__Range, block: bool, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_Text2(@ptrCast(self), @ptrCast(range), block);
         defer qtc.libqt_string_free(&_str);
@@ -351,16 +562,28 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#characterAt)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#characterAt)
     ///
-    /// ``` self: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
     pub fn CharacterAt(self: ?*anyopaque, position: QtC.KTextEditor__Cursor) QtC.QChar {
         return qtc.KTextEditor__Document_CharacterAt(@ptrCast(self), @ptrCast(position));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#wordAt)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#wordAt)
     ///
-    /// ``` self: QtC.KTextEditor__Document, cursor: QtC.KTextEditor__Cursor, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` cursor: QtC.KTextEditor__Cursor `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WordAt(self: ?*anyopaque, cursor: QtC.KTextEditor__Cursor, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_WordAt(@ptrCast(self), @ptrCast(cursor));
         defer qtc.libqt_string_free(&_str);
@@ -369,23 +592,42 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#wordRangeAt)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#wordRangeAt)
     ///
-    /// ``` self: QtC.KTextEditor__Document, cursor: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` cursor: QtC.KTextEditor__Cursor `
+    ///
     pub fn WordRangeAt(self: ?*anyopaque, cursor: QtC.KTextEditor__Cursor) QtC.KTextEditor__Range {
         return qtc.KTextEditor__Document_WordRangeAt(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#isValidTextPosition)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isValidTextPosition)
     ///
-    /// ``` self: QtC.KTextEditor__Document, cursor: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` cursor: QtC.KTextEditor__Cursor `
+    ///
     pub fn IsValidTextPosition(self: ?*anyopaque, cursor: QtC.KTextEditor__Cursor) bool {
         return qtc.KTextEditor__Document_IsValidTextPosition(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#textLines)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textLines)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, block: bool, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` block: bool `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TextLines(self: ?*anyopaque, range: QtC.KTextEditor__Range, block: bool, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_TextLines(@ptrCast(self), @ptrCast(range), block);
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -405,9 +647,16 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#line)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#line)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Line(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_Line(@ptrCast(self), @intCast(line));
         defer qtc.libqt_string_free(&_str);
@@ -416,79 +665,124 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lines)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lines)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Lines(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__Document_Lines(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineModified)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineModified)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn IsLineModified(self: ?*anyopaque, line: i32) bool {
         return qtc.KTextEditor__Document_IsLineModified(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineSaved)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineSaved)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn IsLineSaved(self: ?*anyopaque, line: i32) bool {
         return qtc.KTextEditor__Document_IsLineSaved(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineTouched)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineTouched)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn IsLineTouched(self: ?*anyopaque, line: i32) bool {
         return qtc.KTextEditor__Document_IsLineTouched(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentEnd)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentEnd)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DocumentEnd(self: ?*anyopaque) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__Document_DocumentEnd(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentRange)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentRange)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DocumentRange(self: ?*anyopaque) QtC.KTextEditor__Range {
         return qtc.KTextEditor__Document_DocumentRange(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#totalCharacters)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#totalCharacters)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn TotalCharacters(self: ?*anyopaque) i64 {
         return qtc.KTextEditor__Document_TotalCharacters(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#isEmpty)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isEmpty)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineLength)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineLength)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn LineLength(self: ?*anyopaque, line: i32) i32 {
         return qtc.KTextEditor__Document_LineLength(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#endOfLine)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#endOfLine)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn EndOfLine(self: ?*anyopaque, line: i32) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__Document_EndOfLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetText(self: ?*anyopaque, text: []const u8) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -497,9 +791,16 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, text: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` text: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetText2(self: ?*anyopaque, text: [][]const u8, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor::document.SetText2: Memory allocation failed");
         defer allocator.free(text_arr);
@@ -516,16 +817,28 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_SetText2(@ptrCast(self), text_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#clear)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#clear)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Clear(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, text: []const u8, block: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` block: bool `
+    ///
     pub fn InsertText(self: ?*anyopaque, position: QtC.KTextEditor__Cursor, text: []const u8, block: bool) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -534,9 +847,20 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_InsertText(@ptrCast(self), @ptrCast(position), text_str, block);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, text: [][]const u8, block: bool, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
+    /// ` text: [][]const u8 `
+    ///
+    /// ` block: bool `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn InsertText2(self: ?*anyopaque, position: QtC.KTextEditor__Cursor, text: [][]const u8, block: bool, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor::document.InsertText2: Memory allocation failed");
         defer allocator.free(text_arr);
@@ -553,9 +877,18 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_InsertText2(@ptrCast(self), @ptrCast(position), text_list, block);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#replaceText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#replaceText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, text: []const u8, block: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` block: bool `
+    ///
     pub fn ReplaceText(self: ?*anyopaque, range: QtC.KTextEditor__Range, text: []const u8, block: bool) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -564,9 +897,20 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_ReplaceText(@ptrCast(self), @ptrCast(range), text_str, block);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#replaceText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#replaceText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, text: [][]const u8, block: bool, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` text: [][]const u8 `
+    ///
+    /// ` block: bool `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReplaceText2(self: ?*anyopaque, range: QtC.KTextEditor__Range, text: [][]const u8, block: bool, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor::document.ReplaceText2: Memory allocation failed");
         defer allocator.free(text_arr);
@@ -583,16 +927,30 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_ReplaceText2(@ptrCast(self), @ptrCast(range), text_list, block);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, block: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` block: bool `
+    ///
     pub fn RemoveText(self: ?*anyopaque, range: QtC.KTextEditor__Range, block: bool) bool {
         return qtc.KTextEditor__Document_RemoveText(@ptrCast(self), @ptrCast(range), block);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertLine)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertLine)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn InsertLine(self: ?*anyopaque, line: i32, text: []const u8) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -601,9 +959,18 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_InsertLine(@ptrCast(self), @intCast(line), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertLines)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertLines)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32, text: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` text: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn InsertLines(self: ?*anyopaque, line: i32, text: [][]const u8, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor::document.InsertLines: Memory allocation failed");
         defer allocator.free(text_arr);
@@ -620,16 +987,30 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_InsertLines(@ptrCast(self), @intCast(line), text_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeLine)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeLine)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn RemoveLine(self: ?*anyopaque, line: i32) bool {
         return qtc.KTextEditor__Document_RemoveLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#searchText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#searchText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, pattern: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` pattern: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SearchText(self: ?*anyopaque, range: QtC.KTextEditor__Range, pattern: []const u8, allocator: std.mem.Allocator) []QtC.KTextEditor__Range {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
@@ -643,79 +1024,142 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#cursorToOffset)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#cursorToOffset)
     ///
-    /// ``` self: QtC.KTextEditor__Document, c: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` c: QtC.KTextEditor__Cursor `
+    ///
     pub fn CursorToOffset(self: ?*anyopaque, c: QtC.KTextEditor__Cursor) i64 {
         return qtc.KTextEditor__Document_CursorToOffset(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#offsetToCursor)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#offsetToCursor)
     ///
-    /// ``` self: QtC.KTextEditor__Document, offset: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` offset: i64 `
+    ///
     pub fn OffsetToCursor(self: ?*anyopaque, offset: i64) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__Document_OffsetToCursor(@ptrCast(self), @intCast(offset));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingStarted)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingStarted)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn EditingStarted(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_EditingStarted(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingStarted)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingStarted)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnEditingStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_EditingStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingFinished)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingFinished)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn EditingFinished(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_EditingFinished(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingFinished)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingFinished)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnEditingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_EditingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineWrapped)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineWrapped)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
     pub fn LineWrapped(self: ?*anyopaque, document: ?*anyopaque, position: QtC.KTextEditor__Cursor) void {
         qtc.KTextEditor__Document_LineWrapped(@ptrCast(self), @ptrCast(document), @ptrCast(position));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineWrapped)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineWrapped)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor) callconv(.c) void `
+    ///
     pub fn OnLineWrapped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_LineWrapped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineUnwrapped)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineUnwrapped)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn LineUnwrapped(self: ?*anyopaque, document: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__Document_LineUnwrapped(@ptrCast(self), @ptrCast(document), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineUnwrapped)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineUnwrapped)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, line: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, line: i32) callconv(.c) void `
+    ///
     pub fn OnLineUnwrapped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_LineUnwrapped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#textInserted)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textInserted)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn TextInserted(self: ?*anyopaque, document: ?*anyopaque, position: QtC.KTextEditor__Cursor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -724,16 +1168,30 @@ pub const ktexteditor__document = struct {
         qtc.KTextEditor__Document_TextInserted(@ptrCast(self), @ptrCast(document), @ptrCast(position), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#textInserted)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textInserted)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, text: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnTextInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#textRemoved)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textRemoved)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn TextRemoved(self: ?*anyopaque, document: ?*anyopaque, range: QtC.KTextEditor__Range, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -742,39 +1200,66 @@ pub const ktexteditor__document = struct {
         qtc.KTextEditor__Document_TextRemoved(@ptrCast(self), @ptrCast(document), @ptrCast(range), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#textRemoved)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textRemoved)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, text: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnTextRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Range, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#textChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn TextChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_TextChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#textChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#defaultStyleAt)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#defaultStyleAt)
     ///
-    /// ``` self: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` theme_enums.TextStyle ```
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
+    /// ## Returns:
+    ///
+    /// ` theme_enums.TextStyle `
+    ///
     pub fn DefaultStyleAt(self: ?*anyopaque, position: QtC.KTextEditor__Cursor) i32 {
         return qtc.KTextEditor__Document_DefaultStyleAt(@ptrCast(self), @ptrCast(position));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#mode)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#mode)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Mode(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_Mode(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -783,9 +1268,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingMode)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingMode)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HighlightingMode(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_HighlightingMode(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -794,9 +1284,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#embeddedHighlightingModes)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#embeddedHighlightingModes)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn EmbeddedHighlightingModes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_EmbeddedHighlightingModes(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -816,9 +1311,16 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeAt)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeAt)
     ///
-    /// ``` self: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HighlightingModeAt(self: ?*anyopaque, position: QtC.KTextEditor__Cursor, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_HighlightingModeAt(@ptrCast(self), @ptrCast(position));
         defer qtc.libqt_string_free(&_str);
@@ -827,9 +1329,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modes)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modes)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Modes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_Modes(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -849,9 +1356,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModes)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModes)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HighlightingModes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_HighlightingModes(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -871,9 +1383,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMode)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMode)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetMode(self: ?*anyopaque, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -882,9 +1399,14 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_SetMode(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setHighlightingMode)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setHighlightingMode)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetHighlightingMode(self: ?*anyopaque, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -893,9 +1415,16 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_SetHighlightingMode(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeSection)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeSection)
     ///
-    /// ``` self: QtC.KTextEditor__Document, index: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HighlightingModeSection(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_HighlightingModeSection(@ptrCast(self), @intCast(index));
         defer qtc.libqt_string_free(&_str);
@@ -904,9 +1433,16 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeSection)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeSection)
     ///
-    /// ``` self: QtC.KTextEditor__Document, index: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ModeSection(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_ModeSection(@ptrCast(self), @intCast(index));
         defer qtc.libqt_string_free(&_str);
@@ -915,58 +1451,98 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn ModeChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_ModeChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn HighlightingModeChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_HighlightingModeChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnHighlightingModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_HighlightingModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#print)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#print)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Print(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_Print(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#printPreview)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#printPreview)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn PrintPreview(self: ?*anyopaque) void {
         qtc.KTextEditor__Document_PrintPreview(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#postMessage)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#postMessage)
     ///
-    /// ``` self: QtC.KTextEditor__Document, message: QtC.KTextEditor__Message ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` message: QtC.KTextEditor__Message `
+    ///
     pub fn PostMessage(self: ?*anyopaque, message: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_PostMessage(@ptrCast(self), @ptrCast(message));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#readSessionConfig)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#readSessionConfig)
     ///
-    /// ``` self: QtC.KTextEditor__Document, config: QtC.KConfigGroup, flags: set_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` config: QtC.KConfigGroup `
+    ///
+    /// ` flags: set_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadSessionConfig(self: ?*anyopaque, config: ?*anyopaque, flags: set_constu8, allocator: std.mem.Allocator) void {
         var flags_arr = allocator.alloc(qtc.libqt_string, flags.count()) catch @panic("ktexteditor::document.ReadSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
@@ -985,9 +1561,18 @@ pub const ktexteditor__document = struct {
         qtc.KTextEditor__Document_ReadSessionConfig(@ptrCast(self), @ptrCast(config), flags_set);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#writeSessionConfig)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#writeSessionConfig)
     ///
-    /// ``` self: QtC.KTextEditor__Document, config: QtC.KConfigGroup, flags: set_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` config: QtC.KConfigGroup `
+    ///
+    /// ` flags: set_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque, flags: set_constu8, allocator: std.mem.Allocator) void {
         var flags_arr = allocator.alloc(qtc.libqt_string, flags.count()) catch @panic("ktexteditor::document.WriteSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
@@ -1006,135 +1591,248 @@ pub const ktexteditor__document = struct {
         qtc.KTextEditor__Document_WriteSessionConfig(@ptrCast(self), @ptrCast(config), flags_set);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#isDataRecoveryAvailable)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isDataRecoveryAvailable)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsDataRecoveryAvailable(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Document_IsDataRecoveryAvailable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#recoverData)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#recoverData)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn RecoverData(self: ?*anyopaque) void {
         qtc.KTextEditor__Document_RecoverData(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#discardDataRecovery)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#discardDataRecovery)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DiscardDataRecovery(self: ?*anyopaque) void {
         qtc.KTextEditor__Document_DiscardDataRecovery(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#configChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn ConfigChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_ConfigChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#configChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#newMovingCursor)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#newMovingCursor)
     ///
-    /// ``` self: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, insertBehavior: movingcursor_enums.InsertBehavior ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
+    /// ` insertBehavior: movingcursor_enums.InsertBehavior `
+    ///
     pub fn NewMovingCursor(self: ?*anyopaque, position: QtC.KTextEditor__Cursor, insertBehavior: i32) QtC.KTextEditor__MovingCursor {
         return qtc.KTextEditor__Document_NewMovingCursor(@ptrCast(self), @ptrCast(position), @intCast(insertBehavior));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#newMovingRange)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#newMovingRange)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, insertBehaviors: flag of movingrange_enums.InsertBehavior, emptyBehavior: movingrange_enums.EmptyBehavior ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` insertBehaviors: flag of movingrange_enums.InsertBehavior `
+    ///
+    /// ` emptyBehavior: movingrange_enums.EmptyBehavior `
+    ///
     pub fn NewMovingRange(self: ?*anyopaque, range: QtC.KTextEditor__Range, insertBehaviors: i32, emptyBehavior: i32) QtC.KTextEditor__MovingRange {
         return qtc.KTextEditor__Document_NewMovingRange(@ptrCast(self), @ptrCast(range), @intCast(insertBehaviors), @intCast(emptyBehavior));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#revision)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#revision)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Revision(self: ?*anyopaque) i64 {
         return qtc.KTextEditor__Document_Revision(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lastSavedRevision)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lastSavedRevision)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn LastSavedRevision(self: ?*anyopaque) i64 {
         return qtc.KTextEditor__Document_LastSavedRevision(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#lockRevision)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lockRevision)
     ///
-    /// ``` self: QtC.KTextEditor__Document, revision: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` revision: i64 `
+    ///
     pub fn LockRevision(self: ?*anyopaque, revision: i64) void {
         qtc.KTextEditor__Document_LockRevision(@ptrCast(self), @intCast(revision));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#unlockRevision)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#unlockRevision)
     ///
-    /// ``` self: QtC.KTextEditor__Document, revision: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` revision: i64 `
+    ///
     pub fn UnlockRevision(self: ?*anyopaque, revision: i64) void {
         qtc.KTextEditor__Document_UnlockRevision(@ptrCast(self), @intCast(revision));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformCursor)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformCursor)
     ///
-    /// ``` self: QtC.KTextEditor__Document, cursor: QtC.KTextEditor__Cursor, insertBehavior: movingcursor_enums.InsertBehavior, fromRevision: i64, toRevision: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` cursor: QtC.KTextEditor__Cursor `
+    ///
+    /// ` insertBehavior: movingcursor_enums.InsertBehavior `
+    ///
+    /// ` fromRevision: i64 `
+    ///
+    /// ` toRevision: i64 `
+    ///
     pub fn TransformCursor(self: ?*anyopaque, cursor: ?*anyopaque, insertBehavior: i32, fromRevision: i64, toRevision: i64) void {
         qtc.KTextEditor__Document_TransformCursor(@ptrCast(self), @ptrCast(cursor), @intCast(insertBehavior), @intCast(fromRevision), @intCast(toRevision));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformCursor)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformCursor)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: *i32, column: *i32, insertBehavior: movingcursor_enums.InsertBehavior, fromRevision: i64, toRevision: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: *i32 `
+    ///
+    /// ` column: *i32 `
+    ///
+    /// ` insertBehavior: movingcursor_enums.InsertBehavior `
+    ///
+    /// ` fromRevision: i64 `
+    ///
+    /// ` toRevision: i64 `
+    ///
     pub fn TransformCursor2(self: ?*anyopaque, line: *i32, column: *i32, insertBehavior: i32, fromRevision: i64, toRevision: i64) void {
         qtc.KTextEditor__Document_TransformCursor2(@ptrCast(self), @ptrCast(line), @ptrCast(column), @intCast(insertBehavior), @intCast(fromRevision), @intCast(toRevision));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformRange)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformRange)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, insertBehaviors: flag of movingrange_enums.InsertBehavior, emptyBehavior: movingrange_enums.EmptyBehavior, fromRevision: i64, toRevision: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` insertBehaviors: flag of movingrange_enums.InsertBehavior `
+    ///
+    /// ` emptyBehavior: movingrange_enums.EmptyBehavior `
+    ///
+    /// ` fromRevision: i64 `
+    ///
+    /// ` toRevision: i64 `
+    ///
     pub fn TransformRange(self: ?*anyopaque, range: ?*anyopaque, insertBehaviors: i32, emptyBehavior: i32, fromRevision: i64, toRevision: i64) void {
         qtc.KTextEditor__Document_TransformRange(@ptrCast(self), @ptrCast(range), @intCast(insertBehaviors), @intCast(emptyBehavior), @intCast(fromRevision), @intCast(toRevision));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToDeleteMovingInterfaceContent)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToDeleteMovingInterfaceContent)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn AboutToDeleteMovingInterfaceContent(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_AboutToDeleteMovingInterfaceContent(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToDeleteMovingInterfaceContent)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToDeleteMovingInterfaceContent)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnAboutToDeleteMovingInterfaceContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToDeleteMovingInterfaceContent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToInvalidateMovingInterfaceContent)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToInvalidateMovingInterfaceContent)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn AboutToInvalidateMovingInterfaceContent(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_AboutToInvalidateMovingInterfaceContent(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToInvalidateMovingInterfaceContent)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToInvalidateMovingInterfaceContent)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnAboutToInvalidateMovingInterfaceContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToInvalidateMovingInterfaceContent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#configKeys)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configKeys)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ConfigKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_ConfigKeys(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1154,9 +1852,14 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#configValue)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configValue)
     ///
-    /// ``` self: QtC.KTextEditor__Document, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn ConfigValue(self: ?*anyopaque, key: []const u8) QtC.QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -1165,9 +1868,16 @@ pub const ktexteditor__document = struct {
         return qtc.KTextEditor__Document_ConfigValue(@ptrCast(self), key_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setConfigValue)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setConfigValue)
     ///
-    /// ``` self: QtC.KTextEditor__Document, key: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetConfigValue(self: ?*anyopaque, key: []const u8, value: ?*anyopaque) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -1176,72 +1886,132 @@ pub const ktexteditor__document = struct {
         qtc.KTextEditor__Document_SetConfigValue(@ptrCast(self), key_str, @ptrCast(value));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setModifiedOnDisk)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setModifiedOnDisk)
     ///
-    /// ``` self: QtC.KTextEditor__Document, reason: document_enums.ModifiedOnDiskReason ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` reason: document_enums.ModifiedOnDiskReason `
+    ///
     pub fn SetModifiedOnDisk(self: ?*anyopaque, reason: i32) void {
         qtc.KTextEditor__Document_SetModifiedOnDisk(@ptrCast(self), @intCast(reason));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setModifiedOnDiskWarning)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setModifiedOnDiskWarning)
     ///
-    /// ``` self: QtC.KTextEditor__Document, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetModifiedOnDiskWarning(self: ?*anyopaque, on: bool) void {
         qtc.KTextEditor__Document_SetModifiedOnDiskWarning(@ptrCast(self), on);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedOnDisk)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedOnDisk)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, isModified: bool, reason: document_enums.ModifiedOnDiskReason ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` isModified: bool `
+    ///
+    /// ` reason: document_enums.ModifiedOnDiskReason `
+    ///
     pub fn ModifiedOnDisk(self: ?*anyopaque, document: ?*anyopaque, isModified: bool, reason: i32) void {
         qtc.KTextEditor__Document_ModifiedOnDisk(@ptrCast(self), @ptrCast(document), isModified, @intCast(reason));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedOnDisk)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedOnDisk)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, isModified: bool, reason: document_enums.ModifiedOnDiskReason) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, isModified: bool, reason: document_enums.ModifiedOnDiskReason) callconv(.c) void `
+    ///
     pub fn OnModifiedOnDisk(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModifiedOnDisk(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#mark)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#mark)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn Mark(self: ?*anyopaque, line: i32) u32 {
         return qtc.KTextEditor__Document_Mark(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMark)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMark)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32, markType: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` markType: u32 `
+    ///
     pub fn SetMark(self: ?*anyopaque, line: i32, markType: u32) void {
         qtc.KTextEditor__Document_SetMark(@ptrCast(self), @intCast(line), @intCast(markType));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#clearMark)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#clearMark)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn ClearMark(self: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__Document_ClearMark(@ptrCast(self), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#addMark)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#addMark)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32, markType: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` markType: u32 `
+    ///
     pub fn AddMark(self: ?*anyopaque, line: i32, markType: u32) void {
         qtc.KTextEditor__Document_AddMark(@ptrCast(self), @intCast(line), @intCast(markType));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeMark)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeMark)
     ///
-    /// ``` self: QtC.KTextEditor__Document, line: i32, markType: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` markType: u32 `
+    ///
     pub fn RemoveMark(self: ?*anyopaque, line: i32, markType: u32) void {
         qtc.KTextEditor__Document_RemoveMark(@ptrCast(self), @intCast(line), @intCast(markType));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#marks)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#marks)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Marks(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcktexteditormark {
         const _map: qtc.libqt_map = qtc.KTextEditor__Document_Marks(@ptrCast(self));
         var _ret: map_i32_qtcktexteditormark = .empty;
@@ -1260,23 +2030,32 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#clearMarks)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#clearMarks)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn ClearMarks(self: ?*anyopaque) void {
         qtc.KTextEditor__Document_ClearMarks(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#reservedMarkersCount)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#reservedMarkersCount)
     ///
     pub fn ReservedMarkersCount() i32 {
         return qtc.KTextEditor__Document_ReservedMarkersCount();
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMarkDescription)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMarkDescription)
     ///
-    /// ``` self: QtC.KTextEditor__Document, mark: document_enums.MarkTypes, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` mark: document_enums.MarkTypes `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetMarkDescription(self: ?*anyopaque, mark: i64, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1285,9 +2064,16 @@ pub const ktexteditor__document = struct {
         qtc.KTextEditor__Document_SetMarkDescription(@ptrCast(self), @intCast(mark), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markDescription)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markDescription)
     ///
-    /// ``` self: QtC.KTextEditor__Document, mark: document_enums.MarkTypes, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` mark: document_enums.MarkTypes `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MarkDescription(self: ?*anyopaque, mark: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__Document_MarkDescription(@ptrCast(self), @intCast(mark));
         defer qtc.libqt_string_free(&_str);
@@ -1296,121 +2082,226 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setEditableMarks)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setEditableMarks)
     ///
-    /// ``` self: QtC.KTextEditor__Document, markMask: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` markMask: u32 `
+    ///
     pub fn SetEditableMarks(self: ?*anyopaque, markMask: u32) void {
         qtc.KTextEditor__Document_SetEditableMarks(@ptrCast(self), @intCast(markMask));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#editableMarks)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editableMarks)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn EditableMarks(self: ?*anyopaque) u32 {
         return qtc.KTextEditor__Document_EditableMarks(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMarkIcon)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMarkIcon)
     ///
-    /// ``` self: QtC.KTextEditor__Document, markType: document_enums.MarkTypes, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` markType: document_enums.MarkTypes `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn SetMarkIcon(self: ?*anyopaque, markType: i64, icon: ?*anyopaque) void {
         qtc.KTextEditor__Document_SetMarkIcon(@ptrCast(self), @intCast(markType), @ptrCast(icon));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markIcon)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markIcon)
     ///
-    /// ``` self: QtC.KTextEditor__Document, markType: document_enums.MarkTypes ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` markType: document_enums.MarkTypes `
+    ///
     pub fn MarkIcon(self: ?*anyopaque, markType: i64) QtC.QIcon {
         return qtc.KTextEditor__Document_MarkIcon(@ptrCast(self), @intCast(markType));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#marksChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#marksChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn MarksChanged(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.KTextEditor__Document_MarksChanged(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#marksChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#marksChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnMarksChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarksChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, action: document_enums.MarkChangeAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` mark: QtC.KTextEditor__Mark `
+    ///
+    /// ` action: document_enums.MarkChangeAction `
+    ///
     pub fn MarkChanged(self: ?*anyopaque, document: ?*anyopaque, mark: QtC.KTextEditor__Mark, action: i32) void {
         qtc.KTextEditor__Document_MarkChanged(@ptrCast(self), @ptrCast(document), @ptrCast(mark), @intCast(action));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, action: document_enums.MarkChangeAction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, action: document_enums.MarkChangeAction) callconv(.c) void `
+    ///
     pub fn OnMarkChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markToolTipRequested)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markToolTipRequested)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, position: QtC.QPoint, handled: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` mark: QtC.KTextEditor__Mark `
+    ///
+    /// ` position: QtC.QPoint `
+    ///
+    /// ` handled: *bool `
+    ///
     pub fn MarkToolTipRequested(self: ?*anyopaque, document: ?*anyopaque, mark: QtC.KTextEditor__Mark, position: QtC.QPoint, handled: *bool) void {
         qtc.KTextEditor__Document_MarkToolTipRequested(@ptrCast(self), @ptrCast(document), @ptrCast(mark), @ptrCast(position), @ptrCast(handled));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markToolTipRequested)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markToolTipRequested)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, position: QtC.QPoint, handled: *bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, position: QtC.QPoint, handled: *bool) callconv(.c) void `
+    ///
     pub fn OnMarkToolTipRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, QtC.QPoint, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkToolTipRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markContextMenuRequested)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markContextMenuRequested)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, pos: QtC.QPoint, handled: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` mark: QtC.KTextEditor__Mark `
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
+    /// ` handled: *bool `
+    ///
     pub fn MarkContextMenuRequested(self: ?*anyopaque, document: ?*anyopaque, mark: QtC.KTextEditor__Mark, pos: QtC.QPoint, handled: *bool) void {
         qtc.KTextEditor__Document_MarkContextMenuRequested(@ptrCast(self), @ptrCast(document), @ptrCast(mark), @ptrCast(pos), @ptrCast(handled));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markContextMenuRequested)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markContextMenuRequested)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, pos: QtC.QPoint, handled: *bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, pos: QtC.QPoint, handled: *bool) callconv(.c) void `
+    ///
     pub fn OnMarkContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, QtC.QPoint, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markClicked)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markClicked)
     ///
-    /// ``` self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, handled: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
+    /// ` mark: QtC.KTextEditor__Mark `
+    ///
+    /// ` handled: *bool `
+    ///
     pub fn MarkClicked(self: ?*anyopaque, document: ?*anyopaque, mark: QtC.KTextEditor__Mark, handled: *bool) void {
         qtc.KTextEditor__Document_MarkClicked(@ptrCast(self), @ptrCast(document), @ptrCast(mark), @ptrCast(handled));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#markClicked)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markClicked)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, handled: *bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, handled: *bool) callconv(.c) void `
+    ///
     pub fn OnMarkClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#setAnnotationModel)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setAnnotationModel)
     ///
-    /// ``` self: QtC.KTextEditor__Document, model: QtC.KTextEditor__AnnotationModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` model: QtC.KTextEditor__AnnotationModel `
+    ///
     pub fn SetAnnotationModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.KTextEditor__Document_SetAnnotationModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#annotationModel)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#annotationModel)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn AnnotationModel(self: ?*anyopaque) QtC.KTextEditor__AnnotationModel {
         return qtc.KTextEditor__Document_AnnotationModel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1421,9 +2312,18 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1434,9 +2334,20 @@ pub const ktexteditor__document = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document.html#searchText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#searchText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, pattern: []const u8, options: flag of document_enums.SearchOption, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
+    /// ` pattern: []const u8 `
+    ///
+    /// ` options: flag of document_enums.SearchOption `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SearchText3(self: ?*anyopaque, range: QtC.KTextEditor__Range, pattern: []const u8, options: i64, allocator: std.mem.Allocator) []QtC.KTextEditor__Range {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
@@ -1452,189 +2363,276 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isReadWrite)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isReadWrite)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsReadWrite(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_IsReadWrite(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
     ///
-    /// ``` self: QtC.KTextEditor__Document, readwrite: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` readwrite: bool `
+    ///
     pub fn SetReadWrite(self: ?*anyopaque, readwrite: bool) void {
         qtc.KParts__ReadWritePart_SetReadWrite(@ptrCast(self), readwrite);
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isModified)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsModified(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_IsModified(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn QueryClose(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_QueryClose(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn CloseUrl(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_CloseUrl(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
-    /// ``` self: QtC.KTextEditor__Document, promptToSave: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` promptToSave: bool `
+    ///
     pub fn CloseUrl2(self: ?*anyopaque, promptToSave: bool) bool {
         return qtc.KParts__ReadWritePart_CloseUrl2(@ptrCast(self), promptToSave);
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
     ///
-    /// ``` self: QtC.KTextEditor__Document, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SaveAs(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_SaveAs(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
     ///
-    /// ``` self: QtC.KTextEditor__Document, modified: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` modified: bool `
+    ///
     pub fn SetModified(self: ?*anyopaque, modified: bool) void {
         qtc.KParts__ReadWritePart_SetModified(@ptrCast(self), modified);
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
     ///
-    /// ``` self: QtC.KTextEditor__Document, handled: *bool, abortClosing: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` handled: *bool `
+    ///
+    /// ` abortClosing: *bool `
+    ///
     pub fn SigQueryClose(self: ?*anyopaque, handled: *bool, abortClosing: *bool) void {
         qtc.KParts__ReadWritePart_SigQueryClose(@ptrCast(self), @ptrCast(handled), @ptrCast(abortClosing));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, handled: *bool, abortClosing: *bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documenthandled: *bool, abortClosing: *bool) callconv(.c) void `
+    ///
     pub fn OnSigQueryClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, *bool, *bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_Connect_SigQueryClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn SetModified2(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_SetModified2(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Save(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_Save(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadWritePart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readwritepart.html#waitSaveComplete)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#waitSaveComplete)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn WaitSaveComplete(self: ?*anyopaque) bool {
         return qtc.KParts__ReadWritePart_WaitSaveComplete(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setProgressInfoEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setProgressInfoEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__Document, show: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` show: bool `
+    ///
     pub fn SetProgressInfoEnabled(self: ?*anyopaque, show: bool) void {
         qtc.KParts__ReadOnlyPart_SetProgressInfoEnabled(@ptrCast(self), show);
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#isProgressInfoEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#isProgressInfoEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsProgressInfoEnabled(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_IsProgressInfoEnabled(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
     ///
-    /// ``` self: QtC.KTextEditor__Document, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn OpenUrl(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_OpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#url)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#url)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KParts__ReadOnlyPart_Url(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#navigationExtension)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#navigationExtension)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn NavigationExtension(self: ?*anyopaque) QtC.KParts__NavigationExtension {
         return qtc.KParts__ReadOnlyPart_NavigationExtension(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setArguments)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setArguments)
     ///
-    /// ``` self: QtC.KTextEditor__Document, arguments: QtC.KParts__OpenUrlArguments ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` arguments: QtC.KParts__OpenUrlArguments `
+    ///
     pub fn SetArguments(self: ?*anyopaque, arguments: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_SetArguments(@ptrCast(self), @ptrCast(arguments));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#arguments)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#arguments)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Arguments(self: ?*anyopaque) QtC.KParts__OpenUrlArguments {
         return qtc.KParts__ReadOnlyPart_Arguments(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openStream)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openStream)
     ///
-    /// ``` self: QtC.KTextEditor__Document, mimeType: []const u8, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` mimeType: []const u8 `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn OpenStream(self: ?*anyopaque, mimeType: []const u8, url: ?*anyopaque) bool {
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
@@ -1645,9 +2643,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#writeStream)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#writeStream)
     ///
-    /// ``` self: QtC.KTextEditor__Document, data: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` data: []u8 `
+    ///
     pub fn WriteStream(self: ?*anyopaque, data: []u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -1658,72 +2661,106 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeStream)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeStream)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn CloseStream(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_CloseStream(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
     ///
-    /// ``` self: QtC.KTextEditor__Document, job: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` job: QtC.KIO__Job `
+    ///
     pub fn Started(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_Started(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, job: QtC.KIO__Job) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentjob: QtC.KIO__Job) callconv(.c) void `
+    ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Completed(self: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_Completed(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Completed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn CompletedWithPendingAction(self: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_CompletedWithPendingAction(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnCompletedWithPendingAction(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_CompletedWithPendingAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
     ///
-    /// ``` self: QtC.KTextEditor__Document, errMsg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` errMsg: []const u8 `
+    ///
     pub fn Canceled(self: ?*anyopaque, errMsg: []const u8) void {
         const errMsg_str = qtc.libqt_string{
             .len = errMsg.len,
@@ -1734,99 +2771,150 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, errMsg: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__DocumenterrMsg: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn UrlChanged(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_UrlChanged(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
+    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, url: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documenturl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#widget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#widget)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KParts__Part_Widget(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
-    /// ``` self: QtC.KTextEditor__Document, manager: QtC.KParts__PartManager ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` manager: QtC.KParts__PartManager `
+    ///
     pub fn SetManager(self: ?*anyopaque, manager: ?*anyopaque) void {
         qtc.KParts__Part_SetManager(@ptrCast(self), @ptrCast(manager));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#manager)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#manager)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Manager(self: ?*anyopaque) QtC.KParts__PartManager {
         return qtc.KParts__Part_Manager(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeleteWidget)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeleteWidget)
     ///
-    /// ``` self: QtC.KTextEditor__Document, autoDeleteWidget: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` autoDeleteWidget: bool `
+    ///
     pub fn SetAutoDeleteWidget(self: ?*anyopaque, autoDeleteWidget: bool) void {
         qtc.KParts__Part_SetAutoDeleteWidget(@ptrCast(self), autoDeleteWidget);
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeletePart)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeletePart)
     ///
-    /// ``` self: QtC.KTextEditor__Document, autoDeletePart: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` autoDeletePart: bool `
+    ///
     pub fn SetAutoDeletePart(self: ?*anyopaque, autoDeletePart: bool) void {
         qtc.KParts__Part_SetAutoDeletePart(@ptrCast(self), autoDeletePart);
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
-    /// ``` self: QtC.KTextEditor__Document, widget: QtC.QWidget, globalPos: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` globalPos: QtC.QPoint `
+    ///
     pub fn HitTest(self: ?*anyopaque, widget: ?*anyopaque, globalPos: ?*anyopaque) QtC.KParts__Part {
         return qtc.KParts__Part_HitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#metaData)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#metaData)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn MetaData(self: ?*anyopaque) QtC.KPluginMetaData {
         return qtc.KParts__Part_MetaData(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
-    /// ``` self: QtC.KTextEditor__Document, caption: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` caption: []const u8 `
+    ///
     pub fn SetWindowCaption(self: ?*anyopaque, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
@@ -1837,18 +2925,28 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, caption: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentcaption: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetWindowCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetStatusBarText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1859,36 +2957,58 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documenttext: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
-    /// ``` self: QtC.KTextEditor__Document, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
-    /// ``` self: QtC.KTextEditor__Document, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1899,9 +3019,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1912,99 +3037,144 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KTextEditor__Document, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KTextEditor__Document, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KTextEditor__Document, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KTextEditor__Document, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KTextEditor__Document, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -2016,45 +3186,78 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KTextEditor__Document, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KTextEditor__Document, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KTextEditor__Document, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KTextEditor__Document, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -2063,45 +3266,70 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -2109,9 +3337,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -2119,9 +3352,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -2143,54 +3381,76 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KTextEditor__Document, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -2198,45 +3458,84 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KTextEditor__Document, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KTextEditor__Document, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KTextEditor__Document, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -2245,45 +3544,68 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__Document, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Documentparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#setPartObject)
+    /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html#setPartObject)
     ///
-    /// ``` self: QtC.KTextEditor__Document, object: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` object: QtC.QObject `
+    ///
     pub fn SetPartObject(self: ?*anyopaque, object: ?*anyopaque) void {
         qtc.KParts__PartBase_SetPartObject(@ptrCast(self), @ptrCast(object));
     }
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#partObject)
+    /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html#partObject)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn PartObject(self: ?*anyopaque) QtC.QObject {
         return qtc.KParts__PartBase_PartObject(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2294,27 +3616,40 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
-    /// ``` self: QtC.KTextEditor__Document, element: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` element: QtC.QDomElement `
+    ///
     pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
         return qtc.KXMLGUIClient_Action2(@ptrCast(self), @ptrCast(element));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KXMLGUIClient_ActionCollection(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2325,18 +3660,26 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_DomDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2347,9 +3690,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2360,72 +3708,106 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
     ///
-    /// ``` self: QtC.KTextEditor__Document, doc: QtC.QDomDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` doc: QtC.QDomDocument `
+    ///
     pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
     ///
-    /// ``` self: QtC.KTextEditor__Document, factory: QtC.KXMLGUIFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` factory: QtC.KXMLGUIFactory `
+    ///
     pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
         return qtc.KXMLGUIClient_Factory(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
     ///
-    /// ``` self: QtC.KTextEditor__Document, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
     ///
-    /// ``` self: QtC.KTextEditor__Document, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
     ///
-    /// ``` self: QtC.KTextEditor__Document, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -2437,36 +3819,54 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
     ///
-    /// ``` self: QtC.KTextEditor__Document, builder: QtC.KXMLGUIBuilder ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` builder: QtC.KXMLGUIBuilder `
+    ///
     pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
         return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn ReloadXML(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8, actionList: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` actionList: []QtC.QAction `
+    ///
     pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2481,9 +3881,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
     ///
-    /// ``` self: QtC.KTextEditor__Document, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2494,9 +3899,16 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
     ///
-    /// ``` files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` files: [][]const u8 `
+    ///
+    /// ` doc: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("ktexteditor::document.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
@@ -2523,9 +3935,16 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__Document, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -2540,9 +3959,16 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
     ///
-    /// ``` self: QtC.KTextEditor__Document, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -2557,9 +3983,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
     ///
-    /// ``` self: QtC.KTextEditor__Document, state: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` state: []const u8 `
+    ///
     pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -2570,36 +4001,56 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
     ///
-    /// ``` self: QtC.KTextEditor__Document, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn EndXMLPlug(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
     ///
-    /// ``` self: QtC.KTextEditor__Document, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KTextEditor__Document, xmlfile: []const u8, localxmlfile: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
     pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -2614,9 +4065,14 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
     ///
-    /// ``` xml: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` xml: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
@@ -2631,9 +4087,18 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KTextEditor__Document, xmlfile: []const u8, localxmlfile: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -2648,55 +4113,75 @@ pub const ktexteditor__document = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTextEditor__Document, callback: *const fn (self: QtC.KTextEditor__Document, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__DocumentobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KTextEditor__Document ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KTextEditor__Document `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KTextEditor__Document_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/ktexteditor-document-editingtransaction.html
+/// ### [Upstream resources](https://api.kde.org/ktexteditor-document-editingtransaction.html)
 pub const ktexteditor__document__editingtransaction = struct {
     /// New constructs a new KTextEditor::Document::EditingTransaction object.
     ///
-    /// ``` document: QtC.KTextEditor__Document ```
+    /// ## Parameter(s):
+    ///
+    /// ` document: QtC.KTextEditor__Document `
+    ///
     pub fn New(document: ?*anyopaque) QtC.KTextEditor__Document__EditingTransaction {
         return qtc.KTextEditor__Document__EditingTransaction_new(@ptrCast(document));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document-editingtransaction.html#start)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document-editingtransaction.html#start)
     ///
-    /// ``` self: QtC.KTextEditor__Document__EditingTransaction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document__EditingTransaction `
+    ///
     pub fn Start(self: ?*anyopaque) void {
         qtc.KTextEditor__Document__EditingTransaction_Start(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-document-editingtransaction.html#finish)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-document-editingtransaction.html#finish)
     ///
-    /// ``` self: QtC.KTextEditor__Document__EditingTransaction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__Document__EditingTransaction `
+    ///
     pub fn Finish(self: ?*anyopaque) void {
         qtc.KTextEditor__Document__EditingTransaction_Finish(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KTextEditor__Document__EditingTransaction ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KTextEditor__Document__EditingTransaction `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KTextEditor__Document__EditingTransaction_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/document.html#types
+/// ### [Upstream resources](https://api.kde.org/document.html#public-types)
 pub const enums = struct {
     pub const SearchOption = enum {
         pub const Default: i32 = 0;

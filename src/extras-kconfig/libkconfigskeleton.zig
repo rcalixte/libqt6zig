@@ -4,10 +4,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kconfigskeleton.html
+/// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html)
 pub const kconfigskeleton = struct {
     /// New constructs a new KConfigSkeleton object.
-    ///
     ///
     pub fn New() QtC.KConfigSkeleton {
         return qtc.KConfigSkeleton_new();
@@ -15,7 +14,10 @@ pub const kconfigskeleton = struct {
 
     /// New2 constructs a new KConfigSkeleton object.
     ///
-    /// ``` configname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` configname: []const u8 `
+    ///
     pub fn New2(configname: []const u8) QtC.KConfigSkeleton {
         const configname_str = qtc.libqt_string{
             .len = configname.len,
@@ -27,7 +29,12 @@ pub const kconfigskeleton = struct {
 
     /// New3 constructs a new KConfigSkeleton object.
     ///
-    /// ``` configname: []const u8, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` configname: []const u8 `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New3(configname: []const u8, parent: ?*anyopaque) QtC.KConfigSkeleton {
         const configname_str = qtc.libqt_string{
             .len = configname.len,
@@ -37,41 +44,77 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_new3(configname_str, @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KConfigSkeleton_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KConfigSkeleton, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KConfigSkeleton_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KConfigSkeleton_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KConfigSkeleton_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KConfigSkeleton_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -81,9 +124,16 @@ pub const kconfigskeleton = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemColor)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemColor)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QColor `
+    ///
     pub fn AddItemColor(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KConfigSkeleton__ItemColor {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -92,9 +142,16 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_AddItemColor(@ptrCast(self), name_str, @ptrCast(reference));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemFont)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemFont)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QFont `
+    ///
     pub fn AddItemFont(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KConfigSkeleton__ItemFont {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -103,9 +160,16 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_AddItemFont(@ptrCast(self), name_str, @ptrCast(reference));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -116,9 +180,18 @@ pub const kconfigskeleton = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -129,9 +202,18 @@ pub const kconfigskeleton = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemColor)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemColor)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QColor, defaultValue: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QColor `
+    ///
+    /// ` defaultValue: QtC.QColor `
+    ///
     pub fn AddItemColor3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KConfigSkeleton__ItemColor {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -140,9 +222,20 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_AddItemColor3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemColor)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemColor)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QColor, defaultValue: QtC.QColor, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QColor `
+    ///
+    /// ` defaultValue: QtC.QColor `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemColor4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KConfigSkeleton__ItemColor {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -155,9 +248,18 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_AddItemColor4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemFont)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemFont)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QFont, defaultValue: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QFont `
+    ///
+    /// ` defaultValue: QtC.QFont `
+    ///
     pub fn AddItemFont3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KConfigSkeleton__ItemFont {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -166,9 +268,20 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_AddItemFont3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemFont)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemFont)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QFont, defaultValue: QtC.QFont, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QFont `
+    ///
+    /// ` defaultValue: QtC.QFont `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemFont4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KConfigSkeleton__ItemFont {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -183,45 +296,62 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#load)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#load)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Load(self: ?*anyopaque) void {
         qtc.KCoreConfigSkeleton_Load(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#read)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#read)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Read(self: ?*anyopaque) void {
         qtc.KCoreConfigSkeleton_Read(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#isDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#isDefaults)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn IsDefaults(self: ?*anyopaque) bool {
         return qtc.KCoreConfigSkeleton_IsDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#isSaveNeeded)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#isSaveNeeded)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn IsSaveNeeded(self: ?*anyopaque) bool {
         return qtc.KCoreConfigSkeleton_IsSaveNeeded(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setCurrentGroup)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setCurrentGroup)
     ///
-    /// ``` self: QtC.KConfigSkeleton, group: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` group: []const u8 `
+    ///
     pub fn SetCurrentGroup(self: ?*anyopaque, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
@@ -232,9 +362,14 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#currentGroup)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#currentGroup)
     ///
-    /// ``` self: QtC.KConfigSkeleton, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CurrentGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KCoreConfigSkeleton_CurrentGroup(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -245,18 +380,30 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItem)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItem)
     ///
-    /// ``` self: QtC.KConfigSkeleton, item: QtC.KConfigSkeletonItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` item: QtC.KConfigSkeletonItem `
+    ///
     pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KCoreConfigSkeleton_AddItem(@ptrCast(self), @ptrCast(item));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
     pub fn AddItemString(self: ?*anyopaque, name: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemString {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -271,9 +418,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
     pub fn AddItemPassword(self: ?*anyopaque, name: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemPassword {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -288,9 +442,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
     pub fn AddItemPath(self: ?*anyopaque, name: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemPath {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -305,9 +466,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QVariant `
+    ///
     pub fn AddItemProperty(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -318,9 +486,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *bool `
+    ///
     pub fn AddItemBool(self: ?*anyopaque, name: []const u8, reference: *bool) QtC.KCoreConfigSkeleton__ItemBool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -331,9 +506,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *i32 `
+    ///
     pub fn AddItemInt(self: ?*anyopaque, name: []const u8, reference: *i32) QtC.KCoreConfigSkeleton__ItemInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -344,9 +526,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *u32 `
+    ///
     pub fn AddItemUInt(self: ?*anyopaque, name: []const u8, reference: *u32) QtC.KCoreConfigSkeleton__ItemUInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -357,9 +546,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *i64 `
+    ///
     pub fn AddItemLongLong(self: ?*anyopaque, name: []const u8, reference: *i64) QtC.KCoreConfigSkeleton__ItemLongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -370,9 +566,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *u64 `
+    ///
     pub fn AddItemULongLong(self: ?*anyopaque, name: []const u8, reference: *u64) QtC.KCoreConfigSkeleton__ItemULongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -383,9 +586,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *f64 `
+    ///
     pub fn AddItemDouble(self: ?*anyopaque, name: []const u8, reference: *f64) QtC.KCoreConfigSkeleton__ItemDouble {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -396,9 +606,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QRect `
+    ///
     pub fn AddItemRect(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -409,9 +626,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QRectF `
+    ///
     pub fn AddItemRectF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -422,9 +646,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QPoint `
+    ///
     pub fn AddItemPoint(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -435,9 +666,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QPointF `
+    ///
     pub fn AddItemPointF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -448,9 +686,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QSize `
+    ///
     pub fn AddItemSize(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -461,9 +706,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QSizeF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QSizeF `
+    ///
     pub fn AddItemSizeF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -474,9 +726,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QDateTime `
+    ///
     pub fn AddItemDateTime(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -487,9 +746,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddItemStringList(self: ?*anyopaque, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -512,9 +780,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []i32 `
+    ///
     pub fn AddItemIntList(self: ?*anyopaque, name: []const u8, reference: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -529,27 +804,38 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#config)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#config)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Config(self: ?*anyopaque) QtC.KConfig {
         return qtc.KCoreConfigSkeleton_Config(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#config)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#config)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Config2(self: ?*anyopaque) QtC.KConfig {
         return qtc.KCoreConfigSkeleton_Config2(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#items)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#items)
     ///
-    /// ``` self: QtC.KConfigSkeleton, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KConfigSkeletonItem {
         const _arr: qtc.libqt_list = qtc.KCoreConfigSkeleton_Items(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -561,9 +847,14 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#removeItem)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#removeItem)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn RemoveItem(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -574,18 +865,26 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#clearItems)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#clearItems)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn ClearItems(self: ?*anyopaque) void {
         qtc.KCoreConfigSkeleton_ClearItems(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#isImmutable)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#isImmutable)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn IsImmutable(self: ?*anyopaque, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -596,9 +895,14 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#findItem)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#findItem)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn FindItem(self: ?*anyopaque, name: []const u8) QtC.KConfigSkeletonItem {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -609,36 +913,54 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#save)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#save)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Save(self: ?*anyopaque) bool {
         return qtc.KCoreConfigSkeleton_Save(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#configChanged)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#configChanged)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn ConfigChanged(self: ?*anyopaque) void {
         qtc.KCoreConfigSkeleton_ConfigChanged(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#configChanged)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#configChanged)
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton) callconv(.c) void `
+    ///
     pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCoreConfigSkeleton_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItem)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItem)
     ///
-    /// ``` self: QtC.KConfigSkeleton, item: QtC.KConfigSkeletonItem, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` item: QtC.KConfigSkeletonItem `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn AddItem2(self: ?*anyopaque, item: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -649,9 +971,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
     pub fn AddItemString3(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemString {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -670,9 +1001,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemString4(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) QtC.KCoreConfigSkeleton__ItemString {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -695,9 +1037,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
     pub fn AddItemPassword3(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemPassword {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -716,9 +1067,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemPassword4(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) QtC.KCoreConfigSkeleton__ItemPassword {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -741,9 +1103,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
     pub fn AddItemPath3(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemPath {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -762,9 +1133,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemPath4(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) QtC.KCoreConfigSkeleton__ItemPath {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -787,9 +1169,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QVariant, defaultValue: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QVariant `
+    ///
+    /// ` defaultValue: QtC.QVariant `
+    ///
     pub fn AddItemProperty3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -800,9 +1191,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QVariant, defaultValue: QtC.QVariant, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QVariant `
+    ///
+    /// ` defaultValue: QtC.QVariant `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemProperty4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemProperty {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -817,9 +1219,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *bool, defaultValue: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *bool `
+    ///
+    /// ` defaultValue: bool `
+    ///
     pub fn AddItemBool3(self: ?*anyopaque, name: []const u8, reference: *bool, defaultValue: bool) QtC.KCoreConfigSkeleton__ItemBool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -830,9 +1241,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *bool `
+    ///
+    /// ` defaultValue: bool `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemBool4(self: ?*anyopaque, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8) QtC.KCoreConfigSkeleton__ItemBool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -847,9 +1269,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *i32, defaultValue: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *i32 `
+    ///
+    /// ` defaultValue: i32 `
+    ///
     pub fn AddItemInt3(self: ?*anyopaque, name: []const u8, reference: *i32, defaultValue: i32) QtC.KCoreConfigSkeleton__ItemInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -860,9 +1291,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *i32 `
+    ///
+    /// ` defaultValue: i32 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemInt4(self: ?*anyopaque, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8) QtC.KCoreConfigSkeleton__ItemInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -877,9 +1319,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *u32, defaultValue: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *u32 `
+    ///
+    /// ` defaultValue: u32 `
+    ///
     pub fn AddItemUInt3(self: ?*anyopaque, name: []const u8, reference: *u32, defaultValue: u32) QtC.KCoreConfigSkeleton__ItemUInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -890,9 +1341,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *u32 `
+    ///
+    /// ` defaultValue: u32 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemUInt4(self: ?*anyopaque, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8) QtC.KCoreConfigSkeleton__ItemUInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -907,9 +1369,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *i64, defaultValue: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *i64 `
+    ///
+    /// ` defaultValue: i64 `
+    ///
     pub fn AddItemLongLong3(self: ?*anyopaque, name: []const u8, reference: *i64, defaultValue: i64) QtC.KCoreConfigSkeleton__ItemLongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -920,9 +1391,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *i64 `
+    ///
+    /// ` defaultValue: i64 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemLongLong4(self: ?*anyopaque, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8) QtC.KCoreConfigSkeleton__ItemLongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -937,9 +1419,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *u64, defaultValue: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *u64 `
+    ///
+    /// ` defaultValue: u64 `
+    ///
     pub fn AddItemULongLong3(self: ?*anyopaque, name: []const u8, reference: *u64, defaultValue: u64) QtC.KCoreConfigSkeleton__ItemULongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -950,9 +1441,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *u64 `
+    ///
+    /// ` defaultValue: u64 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemULongLong4(self: ?*anyopaque, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8) QtC.KCoreConfigSkeleton__ItemULongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -967,9 +1469,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *f64, defaultValue: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *f64 `
+    ///
+    /// ` defaultValue: f64 `
+    ///
     pub fn AddItemDouble3(self: ?*anyopaque, name: []const u8, reference: *f64, defaultValue: f64) QtC.KCoreConfigSkeleton__ItemDouble {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -980,9 +1491,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: *f64 `
+    ///
+    /// ` defaultValue: f64 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemDouble4(self: ?*anyopaque, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8) QtC.KCoreConfigSkeleton__ItemDouble {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -997,9 +1519,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QRect, defaultValue: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QRect `
+    ///
+    /// ` defaultValue: QtC.QRect `
+    ///
     pub fn AddItemRect3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1010,9 +1541,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QRect, defaultValue: QtC.QRect, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QRect `
+    ///
+    /// ` defaultValue: QtC.QRect `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemRect4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemRect {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1027,9 +1569,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QRectF, defaultValue: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QRectF `
+    ///
+    /// ` defaultValue: QtC.QRectF `
+    ///
     pub fn AddItemRectF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1040,9 +1591,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QRectF, defaultValue: QtC.QRectF, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QRectF `
+    ///
+    /// ` defaultValue: QtC.QRectF `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemRectF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemRectF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1057,9 +1619,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QPoint, defaultValue: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QPoint `
+    ///
+    /// ` defaultValue: QtC.QPoint `
+    ///
     pub fn AddItemPoint3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1070,9 +1641,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QPoint, defaultValue: QtC.QPoint, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QPoint `
+    ///
+    /// ` defaultValue: QtC.QPoint `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemPoint4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemPoint {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1087,9 +1669,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QPointF, defaultValue: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QPointF `
+    ///
+    /// ` defaultValue: QtC.QPointF `
+    ///
     pub fn AddItemPointF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1100,9 +1691,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QPointF, defaultValue: QtC.QPointF, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QPointF `
+    ///
+    /// ` defaultValue: QtC.QPointF `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemPointF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemPointF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1117,9 +1719,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QSize, defaultValue: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QSize `
+    ///
+    /// ` defaultValue: QtC.QSize `
+    ///
     pub fn AddItemSize3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1130,9 +1741,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QSize, defaultValue: QtC.QSize, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QSize `
+    ///
+    /// ` defaultValue: QtC.QSize `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemSize4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1147,9 +1769,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QSizeF, defaultValue: QtC.QSizeF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QSizeF `
+    ///
+    /// ` defaultValue: QtC.QSizeF `
+    ///
     pub fn AddItemSizeF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1160,9 +1791,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QSizeF, defaultValue: QtC.QSizeF, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QSizeF `
+    ///
+    /// ` defaultValue: QtC.QSizeF `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemSizeF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemSizeF {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1177,9 +1819,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QDateTime, defaultValue: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QDateTime `
+    ///
+    /// ` defaultValue: QtC.QDateTime `
+    ///
     pub fn AddItemDateTime3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1190,9 +1841,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: QtC.QDateTime, defaultValue: QtC.QDateTime, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: QtC.QDateTime `
+    ///
+    /// ` defaultValue: QtC.QDateTime `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemDateTime4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemDateTime {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1207,9 +1869,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: [][]const u8 `
+    ///
+    /// ` defaultValue: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddItemStringList3(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1244,9 +1917,22 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: [][]const u8 `
+    ///
+    /// ` defaultValue: [][]const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddItemStringList4(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1285,9 +1971,18 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []i32, defaultValue: []i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []i32 `
+    ///
+    /// ` defaultValue: []i32 `
+    ///
     pub fn AddItemIntList3(self: ?*anyopaque, name: []const u8, reference: []i32, defaultValue: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1306,9 +2001,20 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` reference: []i32 `
+    ///
+    /// ` defaultValue: []i32 `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn AddItemIntList4(self: ?*anyopaque, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8) QtC.KCoreConfigSkeleton__ItemIntList {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1331,9 +2037,14 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KConfigSkeleton, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1344,9 +2055,14 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1357,99 +2073,144 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KConfigSkeleton, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KConfigSkeleton, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KConfigSkeleton, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KConfigSkeleton, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KConfigSkeleton, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KConfigSkeleton, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1461,45 +2222,78 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KConfigSkeleton, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KConfigSkeleton, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KConfigSkeleton, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KConfigSkeleton, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1508,45 +2302,70 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1554,9 +2373,14 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1564,9 +2388,14 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KConfigSkeleton, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1588,54 +2417,76 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KConfigSkeleton, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1643,45 +2494,84 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KConfigSkeleton, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KConfigSkeleton, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KConfigSkeleton, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1690,524 +2580,744 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KConfigSkeleton, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeletonparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn SetDefaults(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_SetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn QBaseSetDefaults(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseSetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSetDefaults(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KConfigSkeleton_OnSetDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` b: bool `
+    ///
     pub fn UseDefaults(self: ?*anyopaque, b: bool) bool {
         return qtc.KConfigSkeleton_UseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` b: bool `
+    ///
     pub fn QBaseUseDefaults(self: ?*anyopaque, b: bool) bool {
         return qtc.KConfigSkeleton_QBaseUseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, b: bool) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, b: bool) callconv(.c) bool `
+    ///
     pub fn OnUseDefaults(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
         qtc.KConfigSkeleton_OnUseDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` b: bool `
+    ///
     pub fn UsrUseDefaults(self: ?*anyopaque, b: bool) bool {
         return qtc.KConfigSkeleton_UsrUseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` b: bool `
+    ///
     pub fn QBaseUsrUseDefaults(self: ?*anyopaque, b: bool) bool {
         return qtc.KConfigSkeleton_QBaseUsrUseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, b: bool) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, b: bool) callconv(.c) bool `
+    ///
     pub fn OnUsrUseDefaults(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
         qtc.KConfigSkeleton_OnUsrUseDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn UsrSetDefaults(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_UsrSetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn QBaseUsrSetDefaults(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseUsrSetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUsrSetDefaults(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KConfigSkeleton_OnUsrSetDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn UsrRead(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_UsrRead(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn QBaseUsrRead(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseUsrRead(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUsrRead(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KConfigSkeleton_OnUsrRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn UsrSave(self: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_UsrSave(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn QBaseUsrSave(self: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_QBaseUsrSave(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnUsrSave(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KConfigSkeleton_OnUsrSave(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KConfigSkeleton_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KConfigSkeleton_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KConfigSkeleton_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KConfigSkeleton_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KConfigSkeleton_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KConfigSkeleton_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KConfigSkeleton_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KConfigSkeleton_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KConfigSkeleton_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KConfigSkeleton_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KConfigSkeleton_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KConfigSkeleton_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KConfigSkeleton_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KConfigSkeleton_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KConfigSkeleton_Receivers(@ptrCast(self), signal_Cstring);
@@ -2215,11 +3325,16 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KConfigSkeleton_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2227,74 +3342,109 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KConfigSkeleton_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KConfigSkeleton_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KConfigSkeleton_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KConfigSkeleton, callback: *const fn (self: QtC.KConfigSkeleton, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeletonobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton.html#dtor.KConfigSkeleton)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#dtor.KConfigSkeleton)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KConfigSkeleton ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KConfigSkeleton `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kconfigskeleton-itemcolor.html
+/// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html)
 pub const kconfigskeleton__itemcolor = struct {
     /// New constructs a new KConfigSkeleton::ItemColor object.
     ///
-    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` _group: []const u8 `
+    ///
+    /// ` _key: []const u8 `
+    ///
+    /// ` reference: QtC.QColor `
+    ///
     pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KConfigSkeleton__ItemColor {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
@@ -2310,7 +3460,16 @@ pub const kconfigskeleton__itemcolor = struct {
 
     /// New2 constructs a new KConfigSkeleton::ItemColor object.
     ///
-    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QColor, defaultValue: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` _group: []const u8 `
+    ///
+    /// ` _key: []const u8 `
+    ///
+    /// ` reference: QtC.QColor `
+    ///
+    /// ` defaultValue: QtC.QColor `
+    ///
     pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KConfigSkeleton__ItemColor {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
@@ -2324,119 +3483,185 @@ pub const kconfigskeleton__itemcolor = struct {
         return qtc.KConfigSkeleton__ItemColor_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#readConfig)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#readConfig)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, config: QtC.KConfig ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` config: QtC.KConfig `
+    ///
     pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemColor_ReadConfig(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#readConfig)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#readConfig)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, callback: *const fn (self: QtC.KConfigSkeleton__ItemColor, config: QtC.KConfig) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton__ItemColor, config: QtC.KConfig) callconv(.c) void `
+    ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton__ItemColor_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#readConfig)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#readConfig)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, config: QtC.KConfig ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` config: QtC.KConfig `
+    ///
     pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemColor_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemColor_SetProperty(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, callback: *const fn (self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant) callconv(.c) void `
+    ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton__ItemColor_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemColor_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.KConfigSkeleton__ItemColor_IsEqual(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, callback: *const fn (self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant) callconv(.c) bool `
+    ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KConfigSkeleton__ItemColor_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.KConfigSkeleton__ItemColor_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
     pub fn Property(self: ?*anyopaque) QtC.QVariant {
         return qtc.KConfigSkeleton__ItemColor_Property(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor, callback: *const fn () callconv(.c) QtC.QVariant ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QVariant `
+    ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
         qtc.KConfigSkeleton__ItemColor_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
     pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KConfigSkeleton__ItemColor_QBaseProperty(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemColor ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemColor `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemColor_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kconfigskeleton-itemfont.html
+/// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html)
 pub const kconfigskeleton__itemfont = struct {
     /// New constructs a new KConfigSkeleton::ItemFont object.
     ///
-    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` _group: []const u8 `
+    ///
+    /// ` _key: []const u8 `
+    ///
+    /// ` reference: QtC.QFont `
+    ///
     pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KConfigSkeleton__ItemFont {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
@@ -2452,7 +3677,16 @@ pub const kconfigskeleton__itemfont = struct {
 
     /// New2 constructs a new KConfigSkeleton::ItemFont object.
     ///
-    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QFont, defaultValue: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` _group: []const u8 `
+    ///
+    /// ` _key: []const u8 `
+    ///
+    /// ` reference: QtC.QFont `
+    ///
+    /// ` defaultValue: QtC.QFont `
+    ///
     pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KConfigSkeleton__ItemFont {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
@@ -2466,109 +3700,168 @@ pub const kconfigskeleton__itemfont = struct {
         return qtc.KConfigSkeleton__ItemFont_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#readConfig)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#readConfig)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, config: QtC.KConfig ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` config: QtC.KConfig `
+    ///
     pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemFont_ReadConfig(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#readConfig)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#readConfig)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, callback: *const fn (self: QtC.KConfigSkeleton__ItemFont, config: QtC.KConfig) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton__ItemFont, config: QtC.KConfig) callconv(.c) void `
+    ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton__ItemFont_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#readConfig)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#readConfig)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, config: QtC.KConfig ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` config: QtC.KConfig `
+    ///
     pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemFont_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemFont_SetProperty(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, callback: *const fn (self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant) callconv(.c) void `
+    ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfigSkeleton__ItemFont_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemFont_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.KConfigSkeleton__ItemFont_IsEqual(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, callback: *const fn (self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant) callconv(.c) bool `
+    ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KConfigSkeleton__ItemFont_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, p: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` p: QtC.QVariant `
+    ///
     pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.KConfigSkeleton__ItemFont_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
     pub fn Property(self: ?*anyopaque) QtC.QVariant {
         return qtc.KConfigSkeleton__ItemFont_Property(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont, callback: *const fn () callconv(.c) QtC.QVariant ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QVariant `
+    ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
         qtc.KConfigSkeleton__ItemFont_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
     pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KConfigSkeleton__ItemFont_QBaseProperty(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KConfigSkeleton__ItemFont ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KConfigSkeleton__ItemFont `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemFont_Delete(@ptrCast(self));
     }

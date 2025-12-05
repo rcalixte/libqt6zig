@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kprocesslist-kprocessinfo.html
+/// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html)
 pub const kprocesslist__kprocessinfo = struct {
     /// New constructs a new KProcessList::KProcessInfo object.
-    ///
     ///
     pub fn New() QtC.KProcessList__KProcessInfo {
         return qtc.KProcessList__KProcessInfo_new();
@@ -13,7 +12,14 @@ pub const kprocesslist__kprocessinfo = struct {
 
     /// New2 constructs a new KProcessList::KProcessInfo object.
     ///
-    /// ``` pid: i64, command: []const u8, user: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` pid: i64 `
+    ///
+    /// ` command: []const u8 `
+    ///
+    /// ` user: []const u8 `
+    ///
     pub fn New2(pid: i64, command: []const u8, user: []const u8) QtC.KProcessList__KProcessInfo {
         const command_str = qtc.libqt_string{
             .len = command.len,
@@ -29,7 +35,16 @@ pub const kprocesslist__kprocessinfo = struct {
 
     /// New3 constructs a new KProcessList::KProcessInfo object.
     ///
-    /// ``` pid: i64, command: []const u8, name: []const u8, user: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` pid: i64 `
+    ///
+    /// ` command: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` user: []const u8 `
+    ///
     pub fn New3(pid: i64, command: []const u8, name: []const u8, user: []const u8) QtC.KProcessList__KProcessInfo {
         const command_str = qtc.libqt_string{
             .len = command.len,
@@ -49,35 +64,54 @@ pub const kprocesslist__kprocessinfo = struct {
 
     /// New4 constructs a new KProcessList::KProcessInfo object.
     ///
-    /// ``` other: QtC.KProcessList__KProcessInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KProcessList__KProcessInfo `
+    ///
     pub fn New4(other: ?*anyopaque) QtC.KProcessList__KProcessInfo {
         return qtc.KProcessList__KProcessInfo_new4(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#operator-eq)
     ///
-    /// ``` self: QtC.KProcessList__KProcessInfo, other: QtC.KProcessList__KProcessInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProcessList__KProcessInfo `
+    ///
+    /// ` other: QtC.KProcessList__KProcessInfo `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KProcessList__KProcessInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#isValid)
     ///
-    /// ``` self: QtC.KProcessList__KProcessInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProcessList__KProcessInfo `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KProcessList__KProcessInfo_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#pid)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#pid)
     ///
-    /// ``` self: QtC.KProcessList__KProcessInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProcessList__KProcessInfo `
+    ///
     pub fn Pid(self: ?*anyopaque) i64 {
         return qtc.KProcessList__KProcessInfo_Pid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#name)
     ///
-    /// ``` self: QtC.KProcessList__KProcessInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProcessList__KProcessInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KProcessList__KProcessInfo_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -86,9 +120,14 @@ pub const kprocesslist__kprocessinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#user)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#user)
     ///
-    /// ``` self: QtC.KProcessList__KProcessInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProcessList__KProcessInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KProcessList__KProcessInfo_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -97,9 +136,14 @@ pub const kprocesslist__kprocessinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#command)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#command)
     ///
-    /// ``` self: QtC.KProcessList__KProcessInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProcessList__KProcessInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Command(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KProcessList__KProcessInfo_Command(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -110,17 +154,23 @@ pub const kprocesslist__kprocessinfo = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KProcessList__KProcessInfo ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KProcessList__KProcessInfo `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KProcessList__KProcessInfo_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kprocesslist.html
+/// ### [Upstream resources](https://api.kde.org/kprocesslist.html)
 pub const kprocesslist = struct {
-    /// [Upstream resources](https://api.kde.org/kprocesslist.html#processInfoList)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist.html#processInfoList)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProcessInfoList(allocator: std.mem.Allocator) []QtC.KProcessList__KProcessInfo {
         const _arr: qtc.libqt_list = qtc.KProcessList_ProcessInfoList();
         defer qtc.libqt_free(_arr.data);
@@ -130,9 +180,12 @@ pub const kprocesslist = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprocesslist.html#processInfo)
+    /// ### [Upstream resources](https://api.kde.org/kprocesslist.html#processInfo)
     ///
-    /// ``` param1: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: i64 `
+    ///
     pub fn ProcessInfo(param1: i64) QtC.KProcessList__KProcessInfo {
         return qtc.KProcessList_ProcessInfo(@intCast(param1));
     }

@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qwebengineurlscheme_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebengineurlscheme.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html)
 pub const qwebengineurlscheme = struct {
     /// New constructs a new QWebEngineUrlScheme object.
-    ///
     ///
     pub fn New() QtC.QWebEngineUrlScheme {
         return qtc.QWebEngineUrlScheme_new();
@@ -14,7 +13,10 @@ pub const qwebengineurlscheme = struct {
 
     /// New2 constructs a new QWebEngineUrlScheme object.
     ///
-    /// ``` name: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []u8 `
+    ///
     pub fn New2(name: []u8) QtC.QWebEngineUrlScheme {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -26,35 +28,58 @@ pub const qwebengineurlscheme = struct {
 
     /// New3 constructs a new QWebEngineUrlScheme object.
     ///
-    /// ``` that: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` that: QtC.QWebEngineUrlScheme `
+    ///
     pub fn New3(that: ?*anyopaque) QtC.QWebEngineUrlScheme {
         return qtc.QWebEngineUrlScheme_new3(@ptrCast(that));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, that: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` that: QtC.QWebEngineUrlScheme `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, that: ?*anyopaque) void {
         qtc.QWebEngineUrlScheme_OperatorAssign(@ptrCast(self), @ptrCast(that));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, that: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` that: QtC.QWebEngineUrlScheme `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
         return qtc.QWebEngineUrlScheme_OperatorEqual(@ptrCast(self), @ptrCast(that));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, that: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` that: QtC.QWebEngineUrlScheme `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
         return qtc.QWebEngineUrlScheme_OperatorNotEqual(@ptrCast(self), @ptrCast(that));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#name)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#name)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QWebEngineUrlScheme_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -63,9 +88,14 @@ pub const qwebengineurlscheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setName)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, newValue: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` newValue: []u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, newValue: []u8) void {
         const newValue_str = qtc.libqt_string{
             .len = newValue.len,
@@ -74,62 +104,96 @@ pub const qwebengineurlscheme = struct {
         qtc.QWebEngineUrlScheme_SetName(@ptrCast(self), newValue_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#syntax)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#syntax)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebengineurlscheme_enums.Syntax ```
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebengineurlscheme_enums.Syntax `
+    ///
     pub fn Syntax(self: ?*anyopaque) i32 {
         return qtc.QWebEngineUrlScheme_Syntax(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setSyntax)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setSyntax)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, newValue: qwebengineurlscheme_enums.Syntax ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` newValue: qwebengineurlscheme_enums.Syntax `
+    ///
     pub fn SetSyntax(self: ?*anyopaque, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetSyntax(@ptrCast(self), @intCast(newValue));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#defaultPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#defaultPort)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
     pub fn DefaultPort(self: ?*anyopaque) i32 {
         return qtc.QWebEngineUrlScheme_DefaultPort(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setDefaultPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setDefaultPort)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, newValue: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` newValue: i32 `
+    ///
     pub fn SetDefaultPort(self: ?*anyopaque, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetDefaultPort(@ptrCast(self), @intCast(newValue));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#flags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#flags)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qwebengineurlscheme_enums.Flag ```
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qwebengineurlscheme_enums.Flag `
+    ///
     pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QWebEngineUrlScheme_Flags(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setFlags)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, newValue: flag of qwebengineurlscheme_enums.Flag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
+    /// ` newValue: flag of qwebengineurlscheme_enums.Flag `
+    ///
     pub fn SetFlags(self: ?*anyopaque, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self), @intCast(newValue));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#registerScheme)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#registerScheme)
     ///
-    /// ``` scheme: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` scheme: QtC.QWebEngineUrlScheme `
+    ///
     pub fn RegisterScheme(scheme: ?*anyopaque) void {
         qtc.QWebEngineUrlScheme_RegisterScheme(@ptrCast(scheme));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#schemeByName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#schemeByName)
     ///
-    /// ``` name: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []u8 `
+    ///
     pub fn SchemeByName(name: []u8) QtC.QWebEngineUrlScheme {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -138,17 +202,20 @@ pub const qwebengineurlscheme = struct {
         return qtc.QWebEngineUrlScheme_SchemeByName(name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#dtor.QWebEngineUrlScheme)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#dtor.QWebEngineUrlScheme)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineUrlScheme `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineUrlScheme_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebengineurlscheme.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#public-types)
 pub const enums = struct {
     pub const Syntax = enum {
         pub const HostPortAndUserInformation: i32 = 0;

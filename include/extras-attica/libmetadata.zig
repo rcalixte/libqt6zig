@@ -4,10 +4,9 @@ const metadata_enums = enums;
 const std = @import("std");
 pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
 
-/// https://api.kde.org/attica-metadata.html
+/// ### [Upstream resources](https://api.kde.org/attica-metadata.html)
 pub const attica__metadata = struct {
     /// New constructs a new Attica::Metadata object.
-    ///
     ///
     pub fn New() QtC.Attica__Metadata {
         return qtc.Attica__Metadata_new();
@@ -15,51 +14,82 @@ pub const attica__metadata = struct {
 
     /// New2 constructs a new Attica::Metadata object.
     ///
-    /// ``` other: QtC.Attica__Metadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__Metadata `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__Metadata {
         return qtc.Attica__Metadata_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__Metadata, other: QtC.Attica__Metadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` other: QtC.Attica__Metadata `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Metadata_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#error)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#error)
     ///
-    /// ``` self: QtC.Attica__Metadata ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` metadata_enums.Error ```
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ## Returns:
+    ///
+    /// ` metadata_enums.Error `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.Attica__Metadata_Error(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#setError)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setError)
     ///
-    /// ``` self: QtC.Attica__Metadata, errorVal: metadata_enums.Error ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` errorVal: metadata_enums.Error `
+    ///
     pub fn SetError(self: ?*anyopaque, errorVal: i32) void {
         qtc.Attica__Metadata_SetError(@ptrCast(self), @intCast(errorVal));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#statusCode)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#statusCode)
     ///
-    /// ``` self: QtC.Attica__Metadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
     pub fn StatusCode(self: ?*anyopaque) i32 {
         return qtc.Attica__Metadata_StatusCode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#setStatusCode)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setStatusCode)
     ///
-    /// ``` self: QtC.Attica__Metadata, code: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` code: i32 `
+    ///
     pub fn SetStatusCode(self: ?*anyopaque, code: i32) void {
         qtc.Attica__Metadata_SetStatusCode(@ptrCast(self), @intCast(code));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#statusString)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#statusString)
     ///
-    /// ``` self: QtC.Attica__Metadata, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StatusString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Metadata_StatusString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -68,9 +98,14 @@ pub const attica__metadata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#setStatusString)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setStatusString)
     ///
-    /// ``` self: QtC.Attica__Metadata, status: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` status: []const u8 `
+    ///
     pub fn SetStatusString(self: ?*anyopaque, status: []const u8) void {
         const status_str = qtc.libqt_string{
             .len = status.len,
@@ -79,9 +114,14 @@ pub const attica__metadata = struct {
         qtc.Attica__Metadata_SetStatusString(@ptrCast(self), status_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#message)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#message)
     ///
-    /// ``` self: QtC.Attica__Metadata, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Metadata_Message(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -90,9 +130,14 @@ pub const attica__metadata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#setMessage)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setMessage)
     ///
-    /// ``` self: QtC.Attica__Metadata, message: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` message: []const u8 `
+    ///
     pub fn SetMessage(self: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -101,37 +146,58 @@ pub const attica__metadata = struct {
         qtc.Attica__Metadata_SetMessage(@ptrCast(self), message_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#totalItems)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#totalItems)
     ///
-    /// ``` self: QtC.Attica__Metadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
     pub fn TotalItems(self: ?*anyopaque) i32 {
         return qtc.Attica__Metadata_TotalItems(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#setTotalItems)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setTotalItems)
     ///
-    /// ``` self: QtC.Attica__Metadata, items: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` items: i32 `
+    ///
     pub fn SetTotalItems(self: ?*anyopaque, items: i32) void {
         qtc.Attica__Metadata_SetTotalItems(@ptrCast(self), @intCast(items));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#itemsPerPage)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#itemsPerPage)
     ///
-    /// ``` self: QtC.Attica__Metadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
     pub fn ItemsPerPage(self: ?*anyopaque) i32 {
         return qtc.Attica__Metadata_ItemsPerPage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#setItemsPerPage)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setItemsPerPage)
     ///
-    /// ``` self: QtC.Attica__Metadata, itemsPerPage: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` itemsPerPage: i32 `
+    ///
     pub fn SetItemsPerPage(self: ?*anyopaque, itemsPerPage: i32) void {
         qtc.Attica__Metadata_SetItemsPerPage(@ptrCast(self), @intCast(itemsPerPage));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#resultingId)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#resultingId)
     ///
-    /// ``` self: QtC.Attica__Metadata, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ResultingId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Metadata_ResultingId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -140,9 +206,14 @@ pub const attica__metadata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#setResultingId)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setResultingId)
     ///
-    /// ``` self: QtC.Attica__Metadata, id: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` id: []const u8 `
+    ///
     pub fn SetResultingId(self: ?*anyopaque, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
@@ -151,9 +222,14 @@ pub const attica__metadata = struct {
         qtc.Attica__Metadata_SetResultingId(@ptrCast(self), id_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-metadata.html#headers)
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#headers)
     ///
-    /// ``` self: QtC.Attica__Metadata, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Headers(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Metadata_Headers(@ptrCast(self));
         defer {
@@ -175,13 +251,16 @@ pub const attica__metadata = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__Metadata ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__Metadata_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/attica-metadata.html#types
+/// ### [Upstream resources](https://api.kde.org/attica-metadata.html#public-types)
 pub const enums = struct {
     pub const Error = enum {
         pub const NoError: i32 = 0;

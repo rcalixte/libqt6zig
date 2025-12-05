@@ -4,24 +4,29 @@ const qchar_enums = @import("libqchar.zig").enums;
 const qfontdatabase_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qfontdatabase.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html)
 pub const qfontdatabase = struct {
     /// New constructs a new QFontDatabase object.
     ///
-    /// ``` other: QtC.QFontDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QFontDatabase `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QFontDatabase {
         return qtc.QFontDatabase_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QFontDatabase object and invalidates the source QFontDatabase object.
     ///
-    /// ``` other: QtC.QFontDatabase ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QFontDatabase `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QFontDatabase {
         return qtc.QFontDatabase_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QFontDatabase object.
-    ///
     ///
     pub fn New3() QtC.QFontDatabase {
         return qtc.QFontDatabase_new3();
@@ -29,21 +34,34 @@ pub const qfontdatabase = struct {
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QFontDatabase, other: QtC.QFontDatabase ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QFontDatabase `
+    ///
+    /// ` other: QtC.QFontDatabase `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QFontDatabase_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QFontDatabase, other: QtC.QFontDatabase ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QFontDatabase `
+    ///
+    /// ` other: QtC.QFontDatabase `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QFontDatabase_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#standardSizes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#standardSizes)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StandardSizes(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_StandardSizes();
         defer qtc.libqt_free(_arr.data);
@@ -53,11 +71,16 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystems)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystems)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` []qfontdatabase_enums.WritingSystem ```
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` []qfontdatabase_enums.WritingSystem `
+    ///
     pub fn WritingSystems(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_WritingSystems();
         defer qtc.libqt_free(_arr.data);
@@ -67,11 +90,18 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystems)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystems)
     ///
-    /// ``` family: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` []qfontdatabase_enums.WritingSystem ```
+    /// ` family: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` []qfontdatabase_enums.WritingSystem `
+    ///
     pub fn WritingSystems2(family: []const u8, allocator: std.mem.Allocator) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -85,9 +115,12 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#families)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#families)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Families(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_Families();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -107,9 +140,14 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styles)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styles)
     ///
-    /// ``` family: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Styles(family: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -133,9 +171,14 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#pointSizes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#pointSizes)
     ///
-    /// ``` family: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PointSizes(family: []const u8, allocator: std.mem.Allocator) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -149,9 +192,16 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#smoothSizes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#smoothSizes)
     ///
-    /// ``` family: []const u8, style: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SmoothSizes(family: []const u8, style: []const u8, allocator: std.mem.Allocator) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -169,9 +219,14 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styleString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styleString)
     ///
-    /// ``` font: QtC.QFont, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` font: QtC.QFont `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StyleString(font: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFontDatabase_StyleString(@ptrCast(font));
         defer qtc.libqt_string_free(&_str);
@@ -180,9 +235,14 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styleString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styleString)
     ///
-    /// ``` fontInfo: QtC.QFontInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` fontInfo: QtC.QFontInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StyleString2(fontInfo: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFontDatabase_StyleString2(@ptrCast(fontInfo));
         defer qtc.libqt_string_free(&_str);
@@ -191,9 +251,16 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#font)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#font)
     ///
-    /// ``` family: []const u8, style: []const u8, pointSize: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
+    /// ` pointSize: i32 `
+    ///
     pub fn Font(family: []const u8, style: []const u8, pointSize: i32) QtC.QFont {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -206,9 +273,12 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_Font(family_str, style_str, @intCast(pointSize));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isBitmapScalable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isBitmapScalable)
     ///
-    /// ``` family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn IsBitmapScalable(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -217,9 +287,12 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsBitmapScalable(family_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isSmoothlyScalable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isSmoothlyScalable)
     ///
-    /// ``` family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn IsSmoothlyScalable(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -228,9 +301,12 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsSmoothlyScalable(family_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isScalable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isScalable)
     ///
-    /// ``` family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn IsScalable(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -239,9 +315,12 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsScalable(family_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isFixedPitch)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isFixedPitch)
     ///
-    /// ``` family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn IsFixedPitch(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -250,9 +329,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsFixedPitch(family_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#italic)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#italic)
     ///
-    /// ``` family: []const u8, style: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
     pub fn Italic(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -265,9 +349,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_Italic(family_str, style_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#bold)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#bold)
     ///
-    /// ``` family: []const u8, style: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
     pub fn Bold(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -280,9 +369,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_Bold(family_str, style_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#weight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#weight)
     ///
-    /// ``` family: []const u8, style: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
     pub fn Weight(family: []const u8, style: []const u8) i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -295,9 +389,12 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_Weight(family_str, style_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#hasFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#hasFamily)
     ///
-    /// ``` family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn HasFamily(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -306,9 +403,12 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_HasFamily(family_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isPrivateFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isPrivateFamily)
     ///
-    /// ``` family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn IsPrivateFamily(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -317,9 +417,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsPrivateFamily(family_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemName)
     ///
-    /// ``` writingSystem: qfontdatabase_enums.WritingSystem, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` writingSystem: qfontdatabase_enums.WritingSystem `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WritingSystemName(writingSystem: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFontDatabase_WritingSystemName(@intCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
@@ -328,9 +433,14 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemSample)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemSample)
     ///
-    /// ``` writingSystem: qfontdatabase_enums.WritingSystem, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` writingSystem: qfontdatabase_enums.WritingSystem `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WritingSystemSample(writingSystem: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFontDatabase_WritingSystemSample(@intCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
@@ -339,9 +449,12 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFont)
     ///
-    /// ``` fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn AddApplicationFont(fileName: []const u8) i32 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -350,9 +463,12 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_AddApplicationFont(fileName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFontFromData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFontFromData)
     ///
-    /// ``` fontData: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fontData: []u8 `
+    ///
     pub fn AddApplicationFontFromData(fontData: []u8) i32 {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
@@ -361,9 +477,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_AddApplicationFontFromData(fontData_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFontFamilies)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFontFamilies)
     ///
-    /// ``` id: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ApplicationFontFamilies(id: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_ApplicationFontFamilies(@intCast(id));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -383,23 +504,30 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFont)
     ///
-    /// ``` id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` id: i32 `
+    ///
     pub fn RemoveApplicationFont(id: i32) bool {
         return qtc.QFontDatabase_RemoveApplicationFont(@intCast(id));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeAllApplicationFonts)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeAllApplicationFonts)
     ///
     pub fn RemoveAllApplicationFonts() bool {
         return qtc.QFontDatabase_RemoveAllApplicationFonts();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFallbackFontFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFallbackFontFamily)
     ///
-    /// ``` script: qchar_enums.Script, familyName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` script: qchar_enums.Script `
+    ///
+    /// ` familyName: []const u8 `
+    ///
     pub fn AddApplicationFallbackFontFamily(script: i32, familyName: []const u8) void {
         const familyName_str = qtc.libqt_string{
             .len = familyName.len,
@@ -408,9 +536,14 @@ pub const qfontdatabase = struct {
         qtc.QFontDatabase_AddApplicationFallbackFontFamily(@intCast(script), familyName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFallbackFontFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFallbackFontFamily)
     ///
-    /// ``` script: qchar_enums.Script, familyName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` script: qchar_enums.Script `
+    ///
+    /// ` familyName: []const u8 `
+    ///
     pub fn RemoveApplicationFallbackFontFamily(script: i32, familyName: []const u8) bool {
         const familyName_str = qtc.libqt_string{
             .len = familyName.len,
@@ -419,9 +552,16 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_RemoveApplicationFallbackFontFamily(@intCast(script), familyName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#setApplicationFallbackFontFamilies)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#setApplicationFallbackFontFamilies)
     ///
-    /// ``` param1: qchar_enums.Script, familyNames: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: qchar_enums.Script `
+    ///
+    /// ` familyNames: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetApplicationFallbackFontFamilies(param1: i32, familyNames: [][]const u8, allocator: std.mem.Allocator) void {
         var familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("qfontdatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
         defer allocator.free(familyNames_arr);
@@ -438,9 +578,14 @@ pub const qfontdatabase = struct {
         qtc.QFontDatabase_SetApplicationFallbackFontFamilies(@intCast(param1), familyNames_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFallbackFontFamilies)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFallbackFontFamilies)
     ///
-    /// ``` script: qchar_enums.Script, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` script: qchar_enums.Script `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ApplicationFallbackFontFamilies(script: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_ApplicationFallbackFontFamilies(@intCast(script));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -460,16 +605,24 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#systemFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#systemFont)
     ///
-    /// ``` typeVal: qfontdatabase_enums.SystemFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qfontdatabase_enums.SystemFont `
+    ///
     pub fn SystemFont(typeVal: i32) QtC.QFont {
         return qtc.QFontDatabase_SystemFont(@intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#families)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#families)
     ///
-    /// ``` writingSystem: qfontdatabase_enums.WritingSystem, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` writingSystem: qfontdatabase_enums.WritingSystem `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Families1(writingSystem: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_Families1(@intCast(writingSystem));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -489,9 +642,16 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#pointSizes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#pointSizes)
     ///
-    /// ``` family: []const u8, style: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PointSizes2(family: []const u8, style: []const u8, allocator: std.mem.Allocator) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -509,9 +669,14 @@ pub const qfontdatabase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isBitmapScalable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isBitmapScalable)
     ///
-    /// ``` family: []const u8, style: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
     pub fn IsBitmapScalable2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -524,9 +689,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsBitmapScalable2(family_str, style_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isSmoothlyScalable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isSmoothlyScalable)
     ///
-    /// ``` family: []const u8, style: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
     pub fn IsSmoothlyScalable2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -539,9 +709,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsSmoothlyScalable2(family_str, style_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isScalable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isScalable)
     ///
-    /// ``` family: []const u8, style: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
     pub fn IsScalable2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -554,9 +729,14 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsScalable2(family_str, style_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isFixedPitch)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isFixedPitch)
     ///
-    /// ``` family: []const u8, style: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` family: []const u8 `
+    ///
+    /// ` style: []const u8 `
+    ///
     pub fn IsFixedPitch2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -569,17 +749,20 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsFixedPitch2(family_str, style_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#dtor.QFontDatabase)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#dtor.QFontDatabase)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QFontDatabase ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QFontDatabase `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QFontDatabase_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qfontdatabase.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#public-types)
 pub const enums = struct {
     pub const WritingSystem = enum {
         pub const Any: i32 = 0;

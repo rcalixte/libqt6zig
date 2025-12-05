@@ -6,10 +6,9 @@ pub const map_constu8_sliceconstu8 = std.StringHashMapUnmanaged([][]const u8);
 pub const map_qtcqchar_constu8 = std.AutoHashMapUnmanaged(QtC.QChar, []const u8);
 pub const map_qtcqchar_sliceconstu8 = std.AutoHashMapUnmanaged(QtC.QChar, [][]const u8);
 
-/// https://api.kde.org/kmacroexpanderbase.html
+/// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html)
 pub const kmacroexpanderbase = struct {
     /// New constructs a new KMacroExpanderBase object.
-    ///
     ///
     pub fn New() QtC.KMacroExpanderBase {
         return qtc.KMacroExpanderBase_new();
@@ -17,14 +16,22 @@ pub const kmacroexpanderbase = struct {
 
     /// New2 constructs a new KMacroExpanderBase object.
     ///
-    /// ``` c: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` c: QtC.QChar `
+    ///
     pub fn New2(c: QtC.QChar) QtC.KMacroExpanderBase {
         return qtc.KMacroExpanderBase_new2(@ptrCast(c));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacros)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacros)
     ///
-    /// ``` self: QtC.KMacroExpanderBase, str: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` str: []const u8 `
+    ///
     pub fn ExpandMacros(self: ?*anyopaque, str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -33,9 +40,16 @@ pub const kmacroexpanderbase = struct {
         qtc.KMacroExpanderBase_ExpandMacros(@ptrCast(self), str_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
     ///
-    /// ``` self: QtC.KMacroExpanderBase, str: []const u8, pos: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: *i32 `
+    ///
     pub fn ExpandMacrosShellQuote(self: ?*anyopaque, str: []const u8, pos: *i32) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -44,9 +58,14 @@ pub const kmacroexpanderbase = struct {
         return qtc.KMacroExpanderBase_ExpandMacrosShellQuote(@ptrCast(self), str_str, @ptrCast(pos));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
     ///
-    /// ``` self: QtC.KMacroExpanderBase, str: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` str: []const u8 `
+    ///
     pub fn ExpandMacrosShellQuote2(self: ?*anyopaque, str: []const u8) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -55,23 +74,42 @@ pub const kmacroexpanderbase = struct {
         return qtc.KMacroExpanderBase_ExpandMacrosShellQuote2(@ptrCast(self), str_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#setEscapeChar)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#setEscapeChar)
     ///
-    /// ``` self: QtC.KMacroExpanderBase, c: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` c: QtC.QChar `
+    ///
     pub fn SetEscapeChar(self: ?*anyopaque, c: QtC.QChar) void {
         qtc.KMacroExpanderBase_SetEscapeChar(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#escapeChar)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#escapeChar)
     ///
-    /// ``` self: QtC.KMacroExpanderBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
     pub fn EscapeChar(self: ?*anyopaque) QtC.QChar {
         return qtc.KMacroExpanderBase_EscapeChar(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
     ///
-    /// ``` self: QtC.KMacroExpanderBase, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -92,20 +130,36 @@ pub const kmacroexpanderbase = struct {
         return qtc.KMacroExpanderBase_ExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMacroExpanderBase, callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
         qtc.KMacroExpanderBase_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KMacroExpanderBase, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -126,9 +180,20 @@ pub const kmacroexpanderbase = struct {
         return qtc.KMacroExpanderBase_QBaseExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
     ///
-    /// ``` self: QtC.KMacroExpanderBase, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -149,20 +214,36 @@ pub const kmacroexpanderbase = struct {
         return qtc.KMacroExpanderBase_ExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMacroExpanderBase, callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
         qtc.KMacroExpanderBase_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KMacroExpanderBase, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -183,20 +264,22 @@ pub const kmacroexpanderbase = struct {
         return qtc.KMacroExpanderBase_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#dtor.KMacroExpanderBase)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#dtor.KMacroExpanderBase)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KMacroExpanderBase ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KMacroExpanderBase `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KMacroExpanderBase_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kwordmacroexpander.html
+/// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html)
 pub const kwordmacroexpander = struct {
     /// New constructs a new KWordMacroExpander object.
-    ///
     ///
     pub fn New() QtC.KWordMacroExpander {
         return qtc.KWordMacroExpander_new();
@@ -204,14 +287,28 @@ pub const kwordmacroexpander = struct {
 
     /// New2 constructs a new KWordMacroExpander object.
     ///
-    /// ``` c: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` c: QtC.QChar `
+    ///
     pub fn New2(c: QtC.QChar) QtC.KWordMacroExpander {
         return qtc.KWordMacroExpander_new2(@ptrCast(c));
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -232,20 +329,36 @@ pub const kwordmacroexpander = struct {
         return qtc.KWordMacroExpander_ExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWordMacroExpander, callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
         qtc.KWordMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -266,9 +379,20 @@ pub const kwordmacroexpander = struct {
         return qtc.KWordMacroExpander_QBaseExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -289,20 +413,36 @@ pub const kwordmacroexpander = struct {
         return qtc.KWordMacroExpander_ExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWordMacroExpander, callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
         qtc.KWordMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -323,9 +463,18 @@ pub const kwordmacroexpander = struct {
         return qtc.KWordMacroExpander_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacro(self: ?*anyopaque, str: []const u8, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -346,20 +495,34 @@ pub const kwordmacroexpander = struct {
         return qtc.KWordMacroExpander_ExpandMacro(@ptrCast(self), str_str, retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWordMacroExpander, callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, retVal: [*][*:0]const u8) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, retVal: [*][*:0]const u8) callconv(.c) bool `
+    ///
     pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) bool) void {
         qtc.KWordMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandMacro(self: ?*anyopaque, str: []const u8, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -382,9 +545,14 @@ pub const kwordmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacros)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacros)
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
     pub fn ExpandMacros(self: ?*anyopaque, str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -395,9 +563,16 @@ pub const kwordmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8, pos: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: *i32 `
+    ///
     pub fn ExpandMacrosShellQuote(self: ?*anyopaque, str: []const u8, pos: *i32) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -408,9 +583,14 @@ pub const kwordmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
     ///
-    /// ``` self: QtC.KWordMacroExpander, str: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
     pub fn ExpandMacrosShellQuote2(self: ?*anyopaque, str: []const u8) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -421,36 +601,46 @@ pub const kwordmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#setEscapeChar)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#setEscapeChar)
     ///
-    /// ``` self: QtC.KWordMacroExpander, c: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
+    /// ` c: QtC.QChar `
+    ///
     pub fn SetEscapeChar(self: ?*anyopaque, c: QtC.QChar) void {
         qtc.KMacroExpanderBase_SetEscapeChar(@ptrCast(self), @ptrCast(c));
     }
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#escapeChar)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#escapeChar)
     ///
-    /// ``` self: QtC.KWordMacroExpander ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
     pub fn EscapeChar(self: ?*anyopaque) QtC.QChar {
         return qtc.KMacroExpanderBase_EscapeChar(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kwordmacroexpander.html#dtor.KWordMacroExpander)
+    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#dtor.KWordMacroExpander)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KWordMacroExpander ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KWordMacroExpander `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KWordMacroExpander_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kcharmacroexpander.html
+/// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html)
 pub const kcharmacroexpander = struct {
     /// New constructs a new KCharMacroExpander object.
-    ///
     ///
     pub fn New() QtC.KCharMacroExpander {
         return qtc.KCharMacroExpander_new();
@@ -458,14 +648,28 @@ pub const kcharmacroexpander = struct {
 
     /// New2 constructs a new KCharMacroExpander object.
     ///
-    /// ``` c: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` c: QtC.QChar `
+    ///
     pub fn New2(c: QtC.QChar) QtC.KCharMacroExpander {
         return qtc.KCharMacroExpander_new2(@ptrCast(c));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
     ///
-    /// ``` self: QtC.KCharMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -486,20 +690,36 @@ pub const kcharmacroexpander = struct {
         return qtc.KCharMacroExpander_ExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCharMacroExpander, callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
         qtc.KCharMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCharMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -520,9 +740,20 @@ pub const kcharmacroexpander = struct {
         return qtc.KCharMacroExpander_QBaseExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
     ///
-    /// ``` self: QtC.KCharMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -543,20 +774,36 @@ pub const kcharmacroexpander = struct {
         return qtc.KCharMacroExpander_ExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCharMacroExpander, callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
         qtc.KCharMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCharMacroExpander, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: i32 `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -577,9 +824,18 @@ pub const kcharmacroexpander = struct {
         return qtc.KCharMacroExpander_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
     ///
-    /// ``` self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` chr: QtC.QChar `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacro(self: ?*anyopaque, chr: QtC.QChar, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
         var retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
@@ -596,20 +852,34 @@ pub const kcharmacroexpander = struct {
         return qtc.KCharMacroExpander_ExpandMacro(@ptrCast(self), @ptrCast(chr), retVal_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCharMacroExpander, callback: *const fn (self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: [*][*:0]const u8) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` callback: *const fn (self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: [*][*:0]const u8) callconv(.c) bool `
+    ///
     pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QChar, [*][*:0]const u8) callconv(.c) bool) void {
         qtc.KCharMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` chr: QtC.QChar `
+    ///
+    /// ` retVal: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseExpandMacro(self: ?*anyopaque, chr: QtC.QChar, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
         var retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
@@ -628,9 +898,14 @@ pub const kcharmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacros)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacros)
     ///
-    /// ``` self: QtC.KCharMacroExpander, str: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
     pub fn ExpandMacros(self: ?*anyopaque, str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -641,9 +916,16 @@ pub const kcharmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
     ///
-    /// ``` self: QtC.KCharMacroExpander, str: []const u8, pos: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` pos: *i32 `
+    ///
     pub fn ExpandMacrosShellQuote(self: ?*anyopaque, str: []const u8, pos: *i32) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -654,9 +936,14 @@ pub const kcharmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandMacrosShellQuote)
     ///
-    /// ``` self: QtC.KCharMacroExpander, str: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` str: []const u8 `
+    ///
     pub fn ExpandMacrosShellQuote2(self: ?*anyopaque, str: []const u8) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -667,37 +954,57 @@ pub const kcharmacroexpander = struct {
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#setEscapeChar)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#setEscapeChar)
     ///
-    /// ``` self: QtC.KCharMacroExpander, c: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
+    /// ` c: QtC.QChar `
+    ///
     pub fn SetEscapeChar(self: ?*anyopaque, c: QtC.QChar) void {
         qtc.KMacroExpanderBase_SetEscapeChar(@ptrCast(self), @ptrCast(c));
     }
 
     /// Inherited from KMacroExpanderBase
     ///
-    /// [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#escapeChar)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#escapeChar)
     ///
-    /// ``` self: QtC.KCharMacroExpander ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
     pub fn EscapeChar(self: ?*anyopaque) QtC.QChar {
         return qtc.KMacroExpanderBase_EscapeChar(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcharmacroexpander.html#dtor.KCharMacroExpander)
+    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#dtor.KCharMacroExpander)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KCharMacroExpander ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KCharMacroExpander `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KCharMacroExpander_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kmacroexpander.html
+/// ### [Upstream resources](https://api.kde.org/kmacroexpander.html)
 pub const kmacroexpander = struct {
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
     ///
-    /// ``` param1: []const u8, param2: map_qtcqchar_constu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_qtcqchar_constu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacros(param1: []const u8, param2: map_qtcqchar_constu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -727,9 +1034,18 @@ pub const kmacroexpander = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
     ///
-    /// ``` param1: []const u8, param2: map_qtcqchar_constu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_qtcqchar_constu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacrosShellQuote(param1: []const u8, param2: map_qtcqchar_constu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -759,9 +1075,18 @@ pub const kmacroexpander = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
     ///
-    /// ``` param1: []const u8, param2: map_constu8_constu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_constu8_constu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacros2(param1: []const u8, param2: map_constu8_constu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -794,9 +1119,18 @@ pub const kmacroexpander = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
     ///
-    /// ``` param1: []const u8, param2: map_constu8_constu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_constu8_constu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacrosShellQuote2(param1: []const u8, param2: map_constu8_constu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -829,9 +1163,18 @@ pub const kmacroexpander = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
     ///
-    /// ``` param1: []const u8, param2: map_qtcqchar_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_qtcqchar_sliceconstu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacros3(param1: []const u8, param2: map_qtcqchar_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -861,9 +1204,18 @@ pub const kmacroexpander = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacros)
     ///
-    /// ``` param1: []const u8, param2: map_constu8_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_constu8_sliceconstu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacros4(param1: []const u8, param2: map_constu8_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -896,9 +1248,18 @@ pub const kmacroexpander = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
     ///
-    /// ``` param1: []const u8, param2: map_qtcqchar_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_qtcqchar_sliceconstu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacrosShellQuote3(param1: []const u8, param2: map_qtcqchar_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -928,9 +1289,18 @@ pub const kmacroexpander = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
+    /// ### [Upstream resources](https://api.kde.org/kmacroexpander.html#expandMacrosShellQuote)
     ///
-    /// ``` param1: []const u8, param2: map_constu8_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: map_constu8_sliceconstu8 `
+    ///
+    /// ` param3: QtC.QChar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExpandMacrosShellQuote4(param1: []const u8, param2: map_constu8_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

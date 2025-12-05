@@ -3,27 +3,42 @@ const qtc = @import("qt6c");
 const qwebengineglobalsettings_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html)
 pub const qwebengineglobalsettings__dnsmode = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
     ///
-    /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebengineglobalsettings_enums.SecureDnsMode ```
+    /// ` self: QtC.QWebEngineGlobalSettings__DnsMode `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebengineglobalsettings_enums.SecureDnsMode `
+    ///
     pub fn SecureMode(self: ?*anyopaque) u8 {
         return qtc.QWebEngineGlobalSettings__DnsMode_SecureMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
     ///
-    /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode, secureMode: qwebengineglobalsettings_enums.SecureDnsMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineGlobalSettings__DnsMode `
+    ///
+    /// ` secureMode: qwebengineglobalsettings_enums.SecureDnsMode `
+    ///
     pub fn SetSecureMode(self: ?*anyopaque, secureMode: u8) void {
         qtc.QWebEngineGlobalSettings__DnsMode_SetSecureMode(@ptrCast(self), @intCast(secureMode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
     ///
-    /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineGlobalSettings__DnsMode `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ServerTemplates(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const serverTemplates_arr: qtc.libqt_list = qtc.QWebEngineGlobalSettings__DnsMode_ServerTemplates(@ptrCast(self));
         const serverTemplates_str: [*]qtc.libqt_string = @ptrCast(@alignCast(serverTemplates_arr.data));
@@ -43,9 +58,16 @@ pub const qwebengineglobalsettings__dnsmode = struct {
         return serverTemplates_ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
     ///
-    /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode, serverTemplates: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineGlobalSettings__DnsMode `
+    ///
+    /// ` serverTemplates: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetServerTemplates(self: ?*anyopaque, serverTemplates: [][]const u8, allocator: std.mem.Allocator) void {
         var serverTemplates_arr = allocator.alloc(qtc.libqt_string, serverTemplates.len) catch @panic("qwebengineglobalsettings::dnsmode.SetServerTemplates: Memory allocation failed");
         defer allocator.free(serverTemplates_arr);
@@ -64,23 +86,29 @@ pub const qwebengineglobalsettings__dnsmode = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineGlobalSettings__DnsMode `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineGlobalSettings__DnsMode_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebengineglobalsettings.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings.html)
 pub const qwebengineglobalsettings = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings.html#setDnsMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings.html#setDnsMode)
     ///
-    /// ``` param1: QtC.QWebEngineGlobalSettings__DnsMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QWebEngineGlobalSettings__DnsMode `
+    ///
     pub fn SetDnsMode(param1: QtC.QWebEngineGlobalSettings__DnsMode) bool {
         return qtc.QWebEngineGlobalSettings_SetDnsMode(@ptrCast(param1));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebengineglobalsettings.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings.html#public-types)
 pub const enums = struct {
     pub const SecureDnsMode = enum {
         pub const SystemOnly: u8 = 0;

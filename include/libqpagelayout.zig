@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qpagelayout_enums = enums;
 
-/// https://doc.qt.io/qt-6/qpagelayout.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html)
 pub const qpagelayout = struct {
     /// New constructs a new QPageLayout object.
-    ///
     ///
     pub fn New() QtC.QPageLayout {
         return qtc.QPageLayout_new();
@@ -13,315 +12,530 @@ pub const qpagelayout = struct {
 
     /// New2 constructs a new QPageLayout object.
     ///
-    /// ``` pageSize: QtC.QPageSize, orientation: qpagelayout_enums.Orientation, margins: QtC.QMarginsF ```
+    /// ## Parameter(s):
+    ///
+    /// ` pageSize: QtC.QPageSize `
+    ///
+    /// ` orientation: qpagelayout_enums.Orientation `
+    ///
+    /// ` margins: QtC.QMarginsF `
+    ///
     pub fn New2(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque) QtC.QPageLayout {
         return qtc.QPageLayout_new2(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins));
     }
 
     /// New3 constructs a new QPageLayout object.
     ///
-    /// ``` other: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QPageLayout `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QPageLayout {
         return qtc.QPageLayout_new3(@ptrCast(other));
     }
 
     /// New4 constructs a new QPageLayout object.
     ///
-    /// ``` pageSize: QtC.QPageSize, orientation: qpagelayout_enums.Orientation, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
+    /// ## Parameter(s):
+    ///
+    /// ` pageSize: QtC.QPageSize `
+    ///
+    /// ` orientation: qpagelayout_enums.Orientation `
+    ///
+    /// ` margins: QtC.QMarginsF `
+    ///
+    /// ` units: qpagelayout_enums.Unit `
+    ///
     pub fn New4(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque, units: i32) QtC.QPageLayout {
         return qtc.QPageLayout_new4(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins), @intCast(units));
     }
 
     /// New5 constructs a new QPageLayout object.
     ///
-    /// ``` pageSize: QtC.QPageSize, orientation: qpagelayout_enums.Orientation, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit, minMargins: QtC.QMarginsF ```
+    /// ## Parameter(s):
+    ///
+    /// ` pageSize: QtC.QPageSize `
+    ///
+    /// ` orientation: qpagelayout_enums.Orientation `
+    ///
+    /// ` margins: QtC.QMarginsF `
+    ///
+    /// ` units: qpagelayout_enums.Unit `
+    ///
+    /// ` minMargins: QtC.QMarginsF `
+    ///
     pub fn New5(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque, units: i32, minMargins: ?*anyopaque) QtC.QPageLayout {
         return qtc.QPageLayout_new5(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins), @intCast(units), @ptrCast(minMargins));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#operator-eq)
     ///
-    /// ``` self: QtC.QPageLayout, other: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` other: QtC.QPageLayout `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPageLayout_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#swap)
     ///
-    /// ``` self: QtC.QPageLayout, other: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` other: QtC.QPageLayout `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPageLayout_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#isEquivalentTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#isEquivalentTo)
     ///
-    /// ``` self: QtC.QPageLayout, other: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` other: QtC.QPageLayout `
+    ///
     pub fn IsEquivalentTo(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QPageLayout_IsEquivalentTo(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#isValid)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QPageLayout_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMode)
     ///
-    /// ``` self: QtC.QPageLayout, mode: qpagelayout_enums.Mode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` mode: qpagelayout_enums.Mode `
+    ///
     pub fn SetMode(self: ?*anyopaque, mode: i32) void {
         qtc.QPageLayout_SetMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#mode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#mode)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpagelayout_enums.Mode ```
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpagelayout_enums.Mode `
+    ///
     pub fn Mode(self: ?*anyopaque) i32 {
         return qtc.QPageLayout_Mode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setPageSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setPageSize)
     ///
-    /// ``` self: QtC.QPageLayout, pageSize: QtC.QPageSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` pageSize: QtC.QPageSize `
+    ///
     pub fn SetPageSize(self: ?*anyopaque, pageSize: ?*anyopaque) void {
         qtc.QPageLayout_SetPageSize(@ptrCast(self), @ptrCast(pageSize));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#pageSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#pageSize)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn PageSize(self: ?*anyopaque) QtC.QPageSize {
         return qtc.QPageLayout_PageSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setOrientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setOrientation)
     ///
-    /// ``` self: QtC.QPageLayout, orientation: qpagelayout_enums.Orientation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` orientation: qpagelayout_enums.Orientation `
+    ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QPageLayout_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#orientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#orientation)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpagelayout_enums.Orientation ```
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpagelayout_enums.Orientation `
+    ///
     pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QPageLayout_Orientation(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setUnits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setUnits)
     ///
-    /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` units: qpagelayout_enums.Unit `
+    ///
     pub fn SetUnits(self: ?*anyopaque, units: i32) void {
         qtc.QPageLayout_SetUnits(@ptrCast(self), @intCast(units));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#units)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#units)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpagelayout_enums.Unit ```
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpagelayout_enums.Unit `
+    ///
     pub fn Units(self: ?*anyopaque) i32 {
         return qtc.QPageLayout_Units(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMargins)
     ///
-    /// ``` self: QtC.QPageLayout, margins: QtC.QMarginsF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` margins: QtC.QMarginsF `
+    ///
     pub fn SetMargins(self: ?*anyopaque, margins: ?*anyopaque) bool {
         return qtc.QPageLayout_SetMargins(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setLeftMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setLeftMargin)
     ///
-    /// ``` self: QtC.QPageLayout, leftMargin: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` leftMargin: f64 `
+    ///
     pub fn SetLeftMargin(self: ?*anyopaque, leftMargin: f64) bool {
         return qtc.QPageLayout_SetLeftMargin(@ptrCast(self), @floatCast(leftMargin));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
     ///
-    /// ``` self: QtC.QPageLayout, rightMargin: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` rightMargin: f64 `
+    ///
     pub fn SetRightMargin(self: ?*anyopaque, rightMargin: f64) bool {
         return qtc.QPageLayout_SetRightMargin(@ptrCast(self), @floatCast(rightMargin));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
     ///
-    /// ``` self: QtC.QPageLayout, topMargin: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` topMargin: f64 `
+    ///
     pub fn SetTopMargin(self: ?*anyopaque, topMargin: f64) bool {
         return qtc.QPageLayout_SetTopMargin(@ptrCast(self), @floatCast(topMargin));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
     ///
-    /// ``` self: QtC.QPageLayout, bottomMargin: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` bottomMargin: f64 `
+    ///
     pub fn SetBottomMargin(self: ?*anyopaque, bottomMargin: f64) bool {
         return qtc.QPageLayout_SetBottomMargin(@ptrCast(self), @floatCast(bottomMargin));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#margins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#margins)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn Margins(self: ?*anyopaque) QtC.QMarginsF {
         return qtc.QPageLayout_Margins(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#margins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#margins)
     ///
-    /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` units: qpagelayout_enums.Unit `
+    ///
     pub fn Margins2(self: ?*anyopaque, units: i32) QtC.QMarginsF {
         return qtc.QPageLayout_Margins2(@ptrCast(self), @intCast(units));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#marginsPoints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#marginsPoints)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn MarginsPoints(self: ?*anyopaque) QtC.QMargins {
         return qtc.QPageLayout_MarginsPoints(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#marginsPixels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#marginsPixels)
     ///
-    /// ``` self: QtC.QPageLayout, resolution: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` resolution: i32 `
+    ///
     pub fn MarginsPixels(self: ?*anyopaque, resolution: i32) QtC.QMargins {
         return qtc.QPageLayout_MarginsPixels(@ptrCast(self), @intCast(resolution));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMinimumMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMinimumMargins)
     ///
-    /// ``` self: QtC.QPageLayout, minMargins: QtC.QMarginsF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` minMargins: QtC.QMarginsF `
+    ///
     pub fn SetMinimumMargins(self: ?*anyopaque, minMargins: ?*anyopaque) void {
         qtc.QPageLayout_SetMinimumMargins(@ptrCast(self), @ptrCast(minMargins));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#minimumMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#minimumMargins)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn MinimumMargins(self: ?*anyopaque) QtC.QMarginsF {
         return qtc.QPageLayout_MinimumMargins(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#maximumMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#maximumMargins)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn MaximumMargins(self: ?*anyopaque) QtC.QMarginsF {
         return qtc.QPageLayout_MaximumMargins(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRect)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn FullRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QPageLayout_FullRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRect)
     ///
-    /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` units: qpagelayout_enums.Unit `
+    ///
     pub fn FullRect2(self: ?*anyopaque, units: i32) QtC.QRectF {
         return qtc.QPageLayout_FullRect2(@ptrCast(self), @intCast(units));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRectPoints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRectPoints)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn FullRectPoints(self: ?*anyopaque) QtC.QRect {
         return qtc.QPageLayout_FullRectPoints(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRectPixels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRectPixels)
     ///
-    /// ``` self: QtC.QPageLayout, resolution: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` resolution: i32 `
+    ///
     pub fn FullRectPixels(self: ?*anyopaque, resolution: i32) QtC.QRect {
         return qtc.QPageLayout_FullRectPixels(@ptrCast(self), @intCast(resolution));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRect)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn PaintRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QPageLayout_PaintRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRect)
     ///
-    /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` units: qpagelayout_enums.Unit `
+    ///
     pub fn PaintRect2(self: ?*anyopaque, units: i32) QtC.QRectF {
         return qtc.QPageLayout_PaintRect2(@ptrCast(self), @intCast(units));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRectPoints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRectPoints)
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn PaintRectPoints(self: ?*anyopaque) QtC.QRect {
         return qtc.QPageLayout_PaintRectPoints(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRectPixels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRectPixels)
     ///
-    /// ``` self: QtC.QPageLayout, resolution: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` resolution: i32 `
+    ///
     pub fn PaintRectPixels(self: ?*anyopaque, resolution: i32) QtC.QRect {
         return qtc.QPageLayout_PaintRectPixels(@ptrCast(self), @intCast(resolution));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setPageSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setPageSize)
     ///
-    /// ``` self: QtC.QPageLayout, pageSize: QtC.QPageSize, minMargins: QtC.QMarginsF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` pageSize: QtC.QPageSize `
+    ///
+    /// ` minMargins: QtC.QMarginsF `
+    ///
     pub fn SetPageSize2(self: ?*anyopaque, pageSize: ?*anyopaque, minMargins: ?*anyopaque) void {
         qtc.QPageLayout_SetPageSize2(@ptrCast(self), @ptrCast(pageSize), @ptrCast(minMargins));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMargins)
     ///
-    /// ``` self: QtC.QPageLayout, margins: QtC.QMarginsF, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` margins: QtC.QMarginsF `
+    ///
+    /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
+    ///
     pub fn SetMargins2(self: ?*anyopaque, margins: ?*anyopaque, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetMargins2(@ptrCast(self), @ptrCast(margins), @intCast(outOfBoundsPolicy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setLeftMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setLeftMargin)
     ///
-    /// ``` self: QtC.QPageLayout, leftMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` leftMargin: f64 `
+    ///
+    /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
+    ///
     pub fn SetLeftMargin2(self: ?*anyopaque, leftMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetLeftMargin2(@ptrCast(self), @floatCast(leftMargin), @intCast(outOfBoundsPolicy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
     ///
-    /// ``` self: QtC.QPageLayout, rightMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` rightMargin: f64 `
+    ///
+    /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
+    ///
     pub fn SetRightMargin2(self: ?*anyopaque, rightMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetRightMargin2(@ptrCast(self), @floatCast(rightMargin), @intCast(outOfBoundsPolicy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
     ///
-    /// ``` self: QtC.QPageLayout, topMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` topMargin: f64 `
+    ///
+    /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
+    ///
     pub fn SetTopMargin2(self: ?*anyopaque, topMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetTopMargin2(@ptrCast(self), @floatCast(topMargin), @intCast(outOfBoundsPolicy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
     ///
-    /// ``` self: QtC.QPageLayout, bottomMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
+    /// ` bottomMargin: f64 `
+    ///
+    /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
+    ///
     pub fn SetBottomMargin2(self: ?*anyopaque, bottomMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetBottomMargin2(@ptrCast(self), @floatCast(bottomMargin), @intCast(outOfBoundsPolicy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#dtor.QPageLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#dtor.QPageLayout)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QPageLayout ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QPageLayout `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QPageLayout_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qpagelayout.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#public-types)
 pub const enums = struct {
     pub const Unit = enum {
         pub const Millimeter: i32 = 0;

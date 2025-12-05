@@ -11,29 +11,51 @@ const std = @import("std");
 const view_enums = enums;
 const set_constu8 = std.StringHashMapUnmanaged(void);
 
-/// https://api.kde.org/ktexteditor-view.html
+/// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html)
 pub const ktexteditor__view = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KTextEditor__View_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KTextEditor__View, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__View_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KTextEditor__View, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KTextEditor__View_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -43,25 +65,38 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#document)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#document)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Document(self: ?*anyopaque) QtC.KTextEditor__Document {
         return qtc.KTextEditor__View_Document(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewMode)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewMode)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` view_enums.ViewMode ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` view_enums.ViewMode `
+    ///
     pub fn ViewMode(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__View_ViewMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewModeHuman)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewModeHuman)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ViewModeHuman(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__View_ViewModeHuman(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -70,25 +105,40 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setViewInputMode)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setViewInputMode)
     ///
-    /// ``` self: QtC.KTextEditor__View, inputMode: view_enums.InputMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` inputMode: view_enums.InputMode `
+    ///
     pub fn SetViewInputMode(self: ?*anyopaque, inputMode: i32) void {
         qtc.KTextEditor__View_SetViewInputMode(@ptrCast(self), @intCast(inputMode));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputMode)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputMode)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` view_enums.InputMode ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` view_enums.InputMode `
+    ///
     pub fn ViewInputMode(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__View_ViewInputMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputModeHuman)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputModeHuman)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ViewInputModeHuman(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__View_ViewInputModeHuman(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -97,72 +147,128 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#mainWindow)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#mainWindow)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MainWindow(self: ?*anyopaque) QtC.KTextEditor__MainWindow {
         return qtc.KTextEditor__View_MainWindow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusIn)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusIn)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
     pub fn FocusIn(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__View_FocusIn(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusIn)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusIn)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnFocusIn(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_FocusIn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusOut)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusOut)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
     pub fn FocusOut(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__View_FocusOut(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusOut)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#focusOut)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnFocusOut(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_FocusOut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewModeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, mode: view_enums.ViewMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` mode: view_enums.ViewMode `
+    ///
     pub fn ViewModeChanged(self: ?*anyopaque, view: ?*anyopaque, mode: i32) void {
         qtc.KTextEditor__View_ViewModeChanged(@ptrCast(self), @ptrCast(view), @intCast(mode));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewModeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, mode: view_enums.ViewMode) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, mode: view_enums.ViewMode) callconv(.c) void `
+    ///
     pub fn OnViewModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_ViewModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputModeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, mode: view_enums.InputMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` mode: view_enums.InputMode `
+    ///
     pub fn ViewInputModeChanged(self: ?*anyopaque, view: ?*anyopaque, mode: i32) void {
         qtc.KTextEditor__View_ViewInputModeChanged(@ptrCast(self), @ptrCast(view), @intCast(mode));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputModeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, mode: view_enums.InputMode) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, mode: view_enums.InputMode) callconv(.c) void `
+    ///
     pub fn OnViewInputModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_ViewInputModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#textInserted)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#textInserted)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn TextInserted(self: ?*anyopaque, view: ?*anyopaque, position: QtC.KTextEditor__Cursor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -171,58 +277,98 @@ pub const ktexteditor__view = struct {
         qtc.KTextEditor__View_TextInserted(@ptrCast(self), @ptrCast(view), @ptrCast(position), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#textInserted)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#textInserted)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor, text: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnTextInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_TextInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setContextMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setContextMenu)
     ///
-    /// ``` self: QtC.KTextEditor__View, menu: QtC.QMenu ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` menu: QtC.QMenu `
+    ///
     pub fn SetContextMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
         qtc.KTextEditor__View_SetContextMenu(@ptrCast(self), @ptrCast(menu));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#contextMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#contextMenu)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ContextMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KTextEditor__View_ContextMenu(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#defaultContextMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#defaultContextMenu)
     ///
-    /// ``` self: QtC.KTextEditor__View, menu: QtC.QMenu ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` menu: QtC.QMenu `
+    ///
     pub fn DefaultContextMenu(self: ?*anyopaque, menu: ?*anyopaque) QtC.QMenu {
         return qtc.KTextEditor__View_DefaultContextMenu(@ptrCast(self), @ptrCast(menu));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#contextMenuAboutToShow)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#contextMenuAboutToShow)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, menu: QtC.QMenu ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` menu: QtC.QMenu `
+    ///
     pub fn ContextMenuAboutToShow(self: ?*anyopaque, view: ?*anyopaque, menu: ?*anyopaque) void {
         qtc.KTextEditor__View_ContextMenuAboutToShow(@ptrCast(self), @ptrCast(view), @ptrCast(menu));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#contextMenuAboutToShow)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#contextMenuAboutToShow)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, menu: QtC.QMenu) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, menu: QtC.QMenu) callconv(.c) void `
+    ///
     pub fn OnContextMenuAboutToShow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_ContextMenuAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setCursorPosition)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setCursorPosition)
     ///
-    /// ``` self: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` position: QtC.KTextEditor__Cursor `
+    ///
     pub fn SetCursorPosition(self: ?*anyopaque, position: QtC.KTextEditor__Cursor) bool {
         return qtc.KTextEditor__View_SetCursorPosition(@ptrCast(self), @ptrCast(position));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setCursorPositions)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setCursorPositions)
     ///
-    /// ``` self: QtC.KTextEditor__View, positions: []QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` positions: []QtC.KTextEditor__Cursor `
+    ///
     pub fn SetCursorPositions(self: ?*anyopaque, positions: []QtC.KTextEditor__Cursor) void {
         const positions_list = qtc.libqt_list{
             .len = positions.len,
@@ -231,16 +377,24 @@ pub const ktexteditor__view = struct {
         qtc.KTextEditor__View_SetCursorPositions(@ptrCast(self), positions_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPosition)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPosition)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn CursorPosition(self: ?*anyopaque) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__View_CursorPosition(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositions)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositions)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CursorPositions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__Cursor {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_CursorPositions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -250,114 +404,194 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionVirtual)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionVirtual)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn CursorPositionVirtual(self: ?*anyopaque) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__View_CursorPositionVirtual(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorToCoordinate)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorToCoordinate)
     ///
-    /// ``` self: QtC.KTextEditor__View, cursor: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` cursor: QtC.KTextEditor__Cursor `
+    ///
     pub fn CursorToCoordinate(self: ?*anyopaque, cursor: QtC.KTextEditor__Cursor) QtC.QPoint {
         return qtc.KTextEditor__View_CursorToCoordinate(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionCoordinates)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionCoordinates)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn CursorPositionCoordinates(self: ?*anyopaque) QtC.QPoint {
         return qtc.KTextEditor__View_CursorPositionCoordinates(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#coordinatesToCursor)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#coordinatesToCursor)
     ///
-    /// ``` self: QtC.KTextEditor__View, coord: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` coord: QtC.QPoint `
+    ///
     pub fn CoordinatesToCursor(self: ?*anyopaque, coord: ?*anyopaque) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__View_CoordinatesToCursor(@ptrCast(self), @ptrCast(coord));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, newPosition: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` newPosition: QtC.KTextEditor__Cursor `
+    ///
     pub fn CursorPositionChanged(self: ?*anyopaque, view: ?*anyopaque, newPosition: QtC.KTextEditor__Cursor) void {
         qtc.KTextEditor__View_CursorPositionChanged(@ptrCast(self), @ptrCast(view), @ptrCast(newPosition));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, newPosition: QtC.KTextEditor__Cursor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, newPosition: QtC.KTextEditor__Cursor) callconv(.c) void `
+    ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#verticalScrollPositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#verticalScrollPositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, newPos: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` newPos: QtC.KTextEditor__Cursor `
+    ///
     pub fn VerticalScrollPositionChanged(self: ?*anyopaque, view: ?*anyopaque, newPos: QtC.KTextEditor__Cursor) void {
         qtc.KTextEditor__View_VerticalScrollPositionChanged(@ptrCast(self), @ptrCast(view), @ptrCast(newPos));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#verticalScrollPositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#verticalScrollPositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, newPos: QtC.KTextEditor__Cursor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, newPos: QtC.KTextEditor__Cursor) callconv(.c) void `
+    ///
     pub fn OnVerticalScrollPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_VerticalScrollPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#horizontalScrollPositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#horizontalScrollPositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
     pub fn HorizontalScrollPositionChanged(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__View_HorizontalScrollPositionChanged(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#horizontalScrollPositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#horizontalScrollPositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnHorizontalScrollPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_HorizontalScrollPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#mouseTrackingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#mouseTrackingEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MouseTrackingEnabled(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_MouseTrackingEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setMouseTrackingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setMouseTrackingEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetMouseTrackingEnabled(self: ?*anyopaque, enable: bool) bool {
         return qtc.KTextEditor__View_SetMouseTrackingEnabled(@ptrCast(self), enable);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#mousePositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#mousePositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, newPosition: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` newPosition: QtC.KTextEditor__Cursor `
+    ///
     pub fn MousePositionChanged(self: ?*anyopaque, view: ?*anyopaque, newPosition: QtC.KTextEditor__Cursor) void {
         qtc.KTextEditor__View_MousePositionChanged(@ptrCast(self), @ptrCast(view), @ptrCast(newPosition));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#mousePositionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#mousePositionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, newPosition: QtC.KTextEditor__Cursor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, newPosition: QtC.KTextEditor__Cursor) callconv(.c) void `
+    ///
     pub fn OnMousePositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_MousePositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setSelection)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setSelection)
     ///
-    /// ``` self: QtC.KTextEditor__View, range: QtC.KTextEditor__Range ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` range: QtC.KTextEditor__Range `
+    ///
     pub fn SetSelection(self: ?*anyopaque, range: QtC.KTextEditor__Range) bool {
         return qtc.KTextEditor__View_SetSelection(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setSelections)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setSelections)
     ///
-    /// ``` self: QtC.KTextEditor__View, ranges: []QtC.KTextEditor__Range ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` ranges: []QtC.KTextEditor__Range `
+    ///
     pub fn SetSelections(self: ?*anyopaque, ranges: []QtC.KTextEditor__Range) void {
         const ranges_list = qtc.libqt_list{
             .len = ranges.len,
@@ -366,23 +600,34 @@ pub const ktexteditor__view = struct {
         qtc.KTextEditor__View_SetSelections(@ptrCast(self), ranges_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#selection)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selection)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Selection(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_Selection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionRange)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionRange)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn SelectionRange(self: ?*anyopaque) QtC.KTextEditor__Range {
         return qtc.KTextEditor__View_SelectionRange(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionRanges)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionRanges)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectionRanges(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__Range {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_SelectionRanges(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -392,9 +637,14 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionText)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectionText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEditor__View_SelectionText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -403,51 +653,80 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#removeSelection)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#removeSelection)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn RemoveSelection(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_RemoveSelection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#removeSelectionText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#removeSelectionText)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn RemoveSelectionText(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_RemoveSelectionText(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setBlockSelection)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setBlockSelection)
     ///
-    /// ``` self: QtC.KTextEditor__View, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetBlockSelection(self: ?*anyopaque, on: bool) bool {
         return qtc.KTextEditor__View_SetBlockSelection(@ptrCast(self), on);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#blockSelection)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#blockSelection)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn BlockSelection(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_BlockSelection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
     pub fn SelectionChanged(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__View_SelectionChanged(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#insertText)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#insertText)
     ///
-    /// ``` self: QtC.KTextEditor__View, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn InsertText(self: ?*anyopaque, text: []const u8) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -456,9 +735,16 @@ pub const ktexteditor__view = struct {
         return qtc.KTextEditor__View_InsertText(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#insertTemplate)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#insertTemplate)
     ///
-    /// ``` self: QtC.KTextEditor__View, insertPosition: QtC.KTextEditor__Cursor, templateString: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` insertPosition: QtC.KTextEditor__Cursor `
+    ///
+    /// ` templateString: []const u8 `
+    ///
     pub fn InsertTemplate(self: ?*anyopaque, insertPosition: QtC.KTextEditor__Cursor, templateString: []const u8) bool {
         const templateString_str = qtc.libqt_string{
             .len = templateString.len,
@@ -467,121 +753,194 @@ pub const ktexteditor__view = struct {
         return qtc.KTextEditor__View_InsertTemplate(@ptrCast(self), @ptrCast(insertPosition), templateString_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setScrollPosition)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setScrollPosition)
     ///
-    /// ``` self: QtC.KTextEditor__View, cursor: QtC.KTextEditor__Cursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` cursor: QtC.KTextEditor__Cursor `
+    ///
     pub fn SetScrollPosition(self: ?*anyopaque, cursor: QtC.KTextEditor__Cursor) void {
         qtc.KTextEditor__View_SetScrollPosition(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setHorizontalScrollPosition)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setHorizontalScrollPosition)
     ///
-    /// ``` self: QtC.KTextEditor__View, x: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` x: i32 `
+    ///
     pub fn SetHorizontalScrollPosition(self: ?*anyopaque, x: i32) void {
         qtc.KTextEditor__View_SetHorizontalScrollPosition(@ptrCast(self), @intCast(x));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#maxScrollPosition)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#maxScrollPosition)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MaxScrollPosition(self: ?*anyopaque) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__View_MaxScrollPosition(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#firstDisplayedLine)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#firstDisplayedLine)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn FirstDisplayedLine(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__View_FirstDisplayedLine(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#lastDisplayedLine)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#lastDisplayedLine)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn LastDisplayedLine(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__View_LastDisplayedLine(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#textAreaRect)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#textAreaRect)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn TextAreaRect(self: ?*anyopaque) QtC.QRect {
         return qtc.KTextEditor__View_TextAreaRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#verticalScrollBar)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#verticalScrollBar)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
         return qtc.KTextEditor__View_VerticalScrollBar(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#horizontalScrollBar)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#horizontalScrollBar)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
         return qtc.KTextEditor__View_HorizontalScrollBar(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#displayRangeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#displayRangeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
     pub fn DisplayRangeChanged(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__View_DisplayRangeChanged(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#displayRangeChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#displayRangeChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnDisplayRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_DisplayRangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#print)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#print)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Print(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_Print(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#printPreview)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#printPreview)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn PrintPreview(self: ?*anyopaque) void {
         qtc.KTextEditor__View_PrintPreview(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#isStatusBarEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#isStatusBarEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsStatusBarEnabled(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_IsStatusBarEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setStatusBarEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setStatusBarEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetStatusBarEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KTextEditor__View_SetStatusBarEnabled(@ptrCast(self), enable);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#statusBarEnabledChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#statusBarEnabledChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn StatusBarEnabledChanged(self: ?*anyopaque, view: ?*anyopaque, enabled: bool) void {
         qtc.KTextEditor__View_StatusBarEnabledChanged(@ptrCast(self), @ptrCast(view), enabled);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#statusBarEnabledChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#statusBarEnabledChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, enabled: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, enabled: bool) callconv(.c) void `
+    ///
     pub fn OnStatusBarEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_StatusBarEnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#readSessionConfig)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#readSessionConfig)
     ///
-    /// ``` self: QtC.KTextEditor__View, config: QtC.KConfigGroup, flags: set_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` config: QtC.KConfigGroup `
+    ///
+    /// ` flags: set_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadSessionConfig(self: ?*anyopaque, config: ?*anyopaque, flags: set_constu8, allocator: std.mem.Allocator) void {
         var flags_arr = allocator.alloc(qtc.libqt_string, flags.count()) catch @panic("ktexteditor::view.ReadSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
@@ -600,9 +959,18 @@ pub const ktexteditor__view = struct {
         qtc.KTextEditor__View_ReadSessionConfig(@ptrCast(self), @ptrCast(config), flags_set);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#writeSessionConfig)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#writeSessionConfig)
     ///
-    /// ``` self: QtC.KTextEditor__View, config: QtC.KConfigGroup, flags: set_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` config: QtC.KConfigGroup `
+    ///
+    /// ` flags: set_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque, flags: set_constu8, allocator: std.mem.Allocator) void {
         var flags_arr = allocator.alloc(qtc.libqt_string, flags.count()) catch @panic("ktexteditor::view.WriteSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
@@ -621,9 +989,16 @@ pub const ktexteditor__view = struct {
         qtc.KTextEditor__View_WriteSessionConfig(@ptrCast(self), @ptrCast(config), flags_set);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#lineAttributes)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#lineAttributes)
     ///
-    /// ``` self: QtC.KTextEditor__View, line: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LineAttributes(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []QtC.KTextEditor__AttributeBlock {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_LineAttributes(@ptrCast(self), @intCast(line));
         defer qtc.libqt_free(_arr.data);
@@ -633,23 +1008,38 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#configChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#configChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
     pub fn ConfigChanged(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__View_ConfigChanged(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#configChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#configChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#configKeys)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#configKeys)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ConfigKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_ConfigKeys(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -669,9 +1059,14 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#configValue)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#configValue)
     ///
-    /// ``` self: QtC.KTextEditor__View, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn ConfigValue(self: ?*anyopaque, key: []const u8) QtC.QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -680,9 +1075,16 @@ pub const ktexteditor__view = struct {
         return qtc.KTextEditor__View_ConfigValue(@ptrCast(self), key_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setConfigValue)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setConfigValue)
     ///
-    /// ``` self: QtC.KTextEditor__View, key: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetConfigValue(self: ?*anyopaque, key: []const u8, value: ?*anyopaque) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -691,205 +1093,346 @@ pub const ktexteditor__view = struct {
         qtc.KTextEditor__View_SetConfigValue(@ptrCast(self), key_str, @ptrCast(value));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationModel)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationModel)
     ///
-    /// ``` self: QtC.KTextEditor__View, model: QtC.KTextEditor__AnnotationModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` model: QtC.KTextEditor__AnnotationModel `
+    ///
     pub fn SetAnnotationModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.KTextEditor__View_SetAnnotationModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationModel)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationModel)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn AnnotationModel(self: ?*anyopaque) QtC.KTextEditor__AnnotationModel {
         return qtc.KTextEditor__View_AnnotationModel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationBorderVisible)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationBorderVisible)
     ///
-    /// ``` self: QtC.KTextEditor__View, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetAnnotationBorderVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KTextEditor__View_SetAnnotationBorderVisible(@ptrCast(self), visible);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#isAnnotationBorderVisible)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#isAnnotationBorderVisible)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsAnnotationBorderVisible(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_IsAnnotationBorderVisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationItemDelegate)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationItemDelegate)
     ///
-    /// ``` self: QtC.KTextEditor__View, delegate: QtC.KTextEditor__AbstractAnnotationItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` delegate: QtC.KTextEditor__AbstractAnnotationItemDelegate `
+    ///
     pub fn SetAnnotationItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.KTextEditor__View_SetAnnotationItemDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationItemDelegate)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationItemDelegate)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn AnnotationItemDelegate(self: ?*anyopaque) QtC.KTextEditor__AbstractAnnotationItemDelegate {
         return qtc.KTextEditor__View_AnnotationItemDelegate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationUniformItemSizes)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationUniformItemSizes)
     ///
-    /// ``` self: QtC.KTextEditor__View, uniformItemSizes: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` uniformItemSizes: bool `
+    ///
     pub fn SetAnnotationUniformItemSizes(self: ?*anyopaque, uniformItemSizes: bool) void {
         qtc.KTextEditor__View_SetAnnotationUniformItemSizes(@ptrCast(self), uniformItemSizes);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#uniformAnnotationItemSizes)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#uniformAnnotationItemSizes)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn UniformAnnotationItemSizes(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_UniformAnnotationItemSizes(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationContextMenuAboutToShow)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationContextMenuAboutToShow)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, menu: QtC.QMenu, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` menu: QtC.QMenu `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn AnnotationContextMenuAboutToShow(self: ?*anyopaque, view: ?*anyopaque, menu: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__View_AnnotationContextMenuAboutToShow(@ptrCast(self), @ptrCast(view), @ptrCast(menu), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationContextMenuAboutToShow)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationContextMenuAboutToShow)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, menu: QtC.QMenu, line: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, menu: QtC.QMenu, line: i32) callconv(.c) void `
+    ///
     pub fn OnAnnotationContextMenuAboutToShow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_AnnotationContextMenuAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationActivated)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationActivated)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, line: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` line: i32 `
+    ///
     pub fn AnnotationActivated(self: ?*anyopaque, view: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__View_AnnotationActivated(@ptrCast(self), @ptrCast(view), @intCast(line));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationActivated)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationActivated)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, line: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, line: i32) callconv(.c) void `
+    ///
     pub fn OnAnnotationActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_AnnotationActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationBorderVisibilityChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationBorderVisibilityChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` view: QtC.KTextEditor__View `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn AnnotationBorderVisibilityChanged(self: ?*anyopaque, view: ?*anyopaque, visible: bool) void {
         qtc.KTextEditor__View_AnnotationBorderVisibilityChanged(@ptrCast(self), @ptrCast(view), visible);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationBorderVisibilityChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationBorderVisibilityChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, view: QtC.KTextEditor__View, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewview: QtC.KTextEditor__View, visible: bool) callconv(.c) void `
+    ///
     pub fn OnAnnotationBorderVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTextEditor__View_Connect_AnnotationBorderVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerInlineNoteProvider)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerInlineNoteProvider)
     ///
-    /// ``` self: QtC.KTextEditor__View, provider: QtC.KTextEditor__InlineNoteProvider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` provider: QtC.KTextEditor__InlineNoteProvider `
+    ///
     pub fn RegisterInlineNoteProvider(self: ?*anyopaque, provider: ?*anyopaque) void {
         qtc.KTextEditor__View_RegisterInlineNoteProvider(@ptrCast(self), @ptrCast(provider));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterInlineNoteProvider)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterInlineNoteProvider)
     ///
-    /// ``` self: QtC.KTextEditor__View, provider: QtC.KTextEditor__InlineNoteProvider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` provider: QtC.KTextEditor__InlineNoteProvider `
+    ///
     pub fn UnregisterInlineNoteProvider(self: ?*anyopaque, provider: ?*anyopaque) void {
         qtc.KTextEditor__View_UnregisterInlineNoteProvider(@ptrCast(self), @ptrCast(provider));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerTextHintProvider)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerTextHintProvider)
     ///
-    /// ``` self: QtC.KTextEditor__View, provider: QtC.KTextEditor__TextHintProvider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` provider: QtC.KTextEditor__TextHintProvider `
+    ///
     pub fn RegisterTextHintProvider(self: ?*anyopaque, provider: ?*anyopaque) void {
         qtc.KTextEditor__View_RegisterTextHintProvider(@ptrCast(self), @ptrCast(provider));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterTextHintProvider)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterTextHintProvider)
     ///
-    /// ``` self: QtC.KTextEditor__View, provider: QtC.KTextEditor__TextHintProvider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` provider: QtC.KTextEditor__TextHintProvider `
+    ///
     pub fn UnregisterTextHintProvider(self: ?*anyopaque, provider: ?*anyopaque) void {
         qtc.KTextEditor__View_UnregisterTextHintProvider(@ptrCast(self), @ptrCast(provider));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setTextHintDelay)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setTextHintDelay)
     ///
-    /// ``` self: QtC.KTextEditor__View, delay: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` delay: i32 `
+    ///
     pub fn SetTextHintDelay(self: ?*anyopaque, delay: i32) void {
         qtc.KTextEditor__View_SetTextHintDelay(@ptrCast(self), @intCast(delay));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#textHintDelay)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#textHintDelay)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn TextHintDelay(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__View_TextHintDelay(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#isCompletionActive)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#isCompletionActive)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsCompletionActive(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_IsCompletionActive(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#startCompletion)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#startCompletion)
     ///
-    /// ``` self: QtC.KTextEditor__View, word: QtC.KTextEditor__Range, model: QtC.KTextEditor__CodeCompletionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` word: QtC.KTextEditor__Range `
+    ///
+    /// ` model: QtC.KTextEditor__CodeCompletionModel `
+    ///
     pub fn StartCompletion(self: ?*anyopaque, word: QtC.KTextEditor__Range, model: ?*anyopaque) void {
         qtc.KTextEditor__View_StartCompletion(@ptrCast(self), @ptrCast(word), @ptrCast(model));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#abortCompletion)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#abortCompletion)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn AbortCompletion(self: ?*anyopaque) void {
         qtc.KTextEditor__View_AbortCompletion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#forceCompletion)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#forceCompletion)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ForceCompletion(self: ?*anyopaque) void {
         qtc.KTextEditor__View_ForceCompletion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerCompletionModel)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerCompletionModel)
     ///
-    /// ``` self: QtC.KTextEditor__View, model: QtC.KTextEditor__CodeCompletionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` model: QtC.KTextEditor__CodeCompletionModel `
+    ///
     pub fn RegisterCompletionModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.KTextEditor__View_RegisterCompletionModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterCompletionModel)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterCompletionModel)
     ///
-    /// ``` self: QtC.KTextEditor__View, model: QtC.KTextEditor__CodeCompletionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` model: QtC.KTextEditor__CodeCompletionModel `
+    ///
     pub fn UnregisterCompletionModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.KTextEditor__View_UnregisterCompletionModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#isAutomaticInvocationEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#isAutomaticInvocationEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsAutomaticInvocationEnabled(self: ?*anyopaque) bool {
         return qtc.KTextEditor__View_IsAutomaticInvocationEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAutomaticInvocationEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAutomaticInvocationEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetAutomaticInvocationEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.KTextEditor__View_SetAutomaticInvocationEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#startCompletion)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#startCompletion)
     ///
-    /// ``` self: QtC.KTextEditor__View, word: QtC.KTextEditor__Range, models: []QtC.KTextEditor__CodeCompletionModel, invocationType: codecompletionmodel_enums.InvocationType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` word: QtC.KTextEditor__Range `
+    ///
+    /// ` models: []QtC.KTextEditor__CodeCompletionModel `
+    ///
+    /// ` invocationType: codecompletionmodel_enums.InvocationType `
+    ///
     pub fn StartCompletion2(self: ?*anyopaque, word: ?*anyopaque, models: []?*anyopaque, invocationType: i32) void {
         const models_list = qtc.libqt_list{
             .len = models.len,
@@ -898,9 +1441,14 @@ pub const ktexteditor__view = struct {
         qtc.KTextEditor__View_StartCompletion2(@ptrCast(self), @ptrCast(word), models_list, @intCast(invocationType));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#codeCompletionModels)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#codeCompletionModels)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CodeCompletionModels(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__CodeCompletionModel {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_CodeCompletionModels(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -910,16 +1458,26 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#theme)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#theme)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Theme(self: ?*anyopaque) QtC.KSyntaxHighlighting__Theme {
         return qtc.KTextEditor__View_Theme(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -930,9 +1488,18 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -943,9 +1510,18 @@ pub const ktexteditor__view = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#insertTemplate)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#insertTemplate)
     ///
-    /// ``` self: QtC.KTextEditor__View, insertPosition: QtC.KTextEditor__Cursor, templateString: []const u8, script: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` insertPosition: QtC.KTextEditor__Cursor `
+    ///
+    /// ` templateString: []const u8 `
+    ///
+    /// ` script: []const u8 `
+    ///
     pub fn InsertTemplate3(self: ?*anyopaque, insertPosition: QtC.KTextEditor__Cursor, templateString: []const u8, script: []const u8) bool {
         const templateString_str = qtc.libqt_string{
             .len = templateString.len,
@@ -958,913 +1534,1342 @@ pub const ktexteditor__view = struct {
         return qtc.KTextEditor__View_InsertTemplate3(@ptrCast(self), @ptrCast(insertPosition), templateString_str, script_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#firstDisplayedLine)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#firstDisplayedLine)
     ///
-    /// ``` self: QtC.KTextEditor__View, lineType: view_enums.LineType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` lineType: view_enums.LineType `
+    ///
     pub fn FirstDisplayedLine1(self: ?*anyopaque, lineType: i32) i32 {
         return qtc.KTextEditor__View_FirstDisplayedLine1(@ptrCast(self), @intCast(lineType));
     }
 
-    /// [Upstream resources](https://api.kde.org/ktexteditor-view.html#lastDisplayedLine)
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#lastDisplayedLine)
     ///
-    /// ``` self: QtC.KTextEditor__View, lineType: view_enums.LineType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` lineType: view_enums.LineType `
+    ///
     pub fn LastDisplayedLine1(self: ?*anyopaque, lineType: i32) i32 {
         return qtc.KTextEditor__View_LastDisplayedLine1(@ptrCast(self), @intCast(lineType));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn DevType(self: ?*anyopaque) i32 {
         return qtc.QWidget_DevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn WinId(self: ?*anyopaque) usize {
         return qtc.QWidget_WinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn CreateWinId(self: ?*anyopaque) void {
         qtc.QWidget_CreateWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn InternalWinId(self: ?*anyopaque) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
         return qtc.QWidget_Style(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
-    /// ``` self: QtC.KTextEditor__View, style: QtC.QStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` style: QtC.QStyle `
+    ///
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
         qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsTopLevel(self: ?*anyopaque) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsWindow(self: ?*anyopaque) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsModal(self: ?*anyopaque) bool {
         return qtc.QWidget_IsModal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.WindowModality ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.WindowModality `
+    ///
     pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
-    /// ``` self: QtC.KTextEditor__View, windowModality: qnamespace_enums.WindowModality ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` windowModality: qnamespace_enums.WindowModality `
+    ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, disabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` disabled: bool `
+    ///
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
-    /// ``` self: QtC.KTextEditor__View, windowModified: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` windowModified: bool `
+    ///
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_FrameGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_NormalGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn X(self: ?*anyopaque) i32 {
         return qtc.QWidget_X(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Y(self: ?*anyopaque) i32 {
         return qtc.QWidget_Y(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_Pos(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_FrameSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_Size(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.QWidget_Width(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.QWidget_Height(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_Rect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_ChildrenRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_ChildrenRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_MinimumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_MaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, minimumSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` minimumSize: QtC.QSize `
+    ///
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
         qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, minw: i32, minh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` minw: i32 `
+    ///
+    /// ` minh: i32 `
+    ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, maximumSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` maximumSize: QtC.QSize `
+    ///
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
         qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, maxw: i32, maxh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` maxw: i32 `
+    ///
+    /// ` maxh: i32 `
+    ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
-    /// ``` self: QtC.KTextEditor__View, minw: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` minw: i32 `
+    ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
-    /// ``` self: QtC.KTextEditor__View, minh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` minh: i32 `
+    ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
-    /// ``` self: QtC.KTextEditor__View, maxw: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` maxw: i32 `
+    ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
-    /// ``` self: QtC.KTextEditor__View, maxh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` maxh: i32 `
+    ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_SizeIncrement(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: QtC.KTextEditor__View, sizeIncrement: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` sizeIncrement: QtC.QSize `
+    ///
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
         qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: QtC.KTextEditor__View, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_BaseSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, baseSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` baseSize: QtC.QSize `
+    ///
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
         qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, basew: i32, baseh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` basew: i32 `
+    ///
+    /// ` baseh: i32 `
+    ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, fixedSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` fixedSize: QtC.QSize `
+    ///
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
         qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: QtC.KTextEditor__View, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
-    /// ``` self: QtC.KTextEditor__View, w: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` w: i32 `
+    ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
-    /// ``` self: QtC.KTextEditor__View, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget, param2: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPointF `
+    ///
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget, param2: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPoint `
+    ///
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget, param2: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPointF `
+    ///
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget, param2: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPoint `
+    ///
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_Window(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_NativeParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_TopLevelWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
         return qtc.QWidget_Palette(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
-    /// ``` self: QtC.KTextEditor__View, palette: QtC.QPalette ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` palette: QtC.QPalette `
+    ///
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
         qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
-    /// ``` self: QtC.KTextEditor__View, backgroundRole: qpalette_enums.ColorRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` backgroundRole: qpalette_enums.ColorRole `
+    ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpalette_enums.ColorRole ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpalette_enums.ColorRole `
+    ///
     pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
-    /// ``` self: QtC.KTextEditor__View, foregroundRole: qpalette_enums.ColorRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` foregroundRole: qpalette_enums.ColorRole `
+    ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpalette_enums.ColorRole ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpalette_enums.ColorRole `
+    ///
     pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QWidget_Font(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
-    /// ``` self: QtC.KTextEditor__View, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
         return qtc.QWidget_FontMetrics(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
         return qtc.QWidget_FontInfo(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
         return qtc.QWidget_Cursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
-    /// ``` self: QtC.KTextEditor__View, cursor: QtC.QCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` cursor: QtC.QCursor `
+    ///
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn UnsetCursor(self: ?*anyopaque) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
-    /// ``` self: QtC.KTextEditor__View, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn UnderMouse(self: ?*anyopaque) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
-    /// ``` self: QtC.KTextEditor__View, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: QtC.KTextEditor__View, mask: QtC.QBitmap ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` mask: QtC.QBitmap `
+    ///
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: QtC.KTextEditor__View, mask: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` mask: QtC.QRegion `
+    ///
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_Mask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ClearMask(self: ?*anyopaque) void {
         qtc.QWidget_ClearMask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, target: QtC.QPaintDevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
         qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QWidget_Grab(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
         return qtc.QWidget_GraphicsEffect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
-    /// ``` self: QtC.KTextEditor__View, effect: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` effect: QtC.QGraphicsEffect `
+    ///
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.KTextEditor__View, typeVal: qnamespace_enums.GestureType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
-    /// ``` self: QtC.KTextEditor__View, typeVal: qnamespace_enums.GestureType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
-    /// ``` self: QtC.KTextEditor__View, windowTitle: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` windowTitle: []const u8 `
+    ///
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
@@ -1875,9 +2880,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
-    /// ``` self: QtC.KTextEditor__View, styleSheet: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` styleSheet: []const u8 `
+    ///
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
@@ -1888,9 +2898,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1901,9 +2916,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1914,27 +2934,40 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
-    /// ``` self: QtC.KTextEditor__View, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QWidget_WindowIcon(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
-    /// ``` self: QtC.KTextEditor__View, windowIconText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` windowIconText: []const u8 `
+    ///
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
@@ -1945,9 +2978,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1958,9 +2996,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
-    /// ``` self: QtC.KTextEditor__View, windowRole: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` windowRole: []const u8 `
+    ///
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
@@ -1971,9 +3014,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1984,9 +3032,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
-    /// ``` self: QtC.KTextEditor__View, filePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` filePath: []const u8 `
+    ///
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -1997,9 +3050,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2010,36 +3068,52 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
-    /// ``` self: QtC.KTextEditor__View, level: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` level: f64 `
+    ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsWindowModified(self: ?*anyopaque) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
-    /// ``` self: QtC.KTextEditor__View, toolTip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` toolTip: []const u8 `
+    ///
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
@@ -2050,9 +3124,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2063,27 +3142,40 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
-    /// ``` self: QtC.KTextEditor__View, msec: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` msec: i32 `
+    ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
-    /// ``` self: QtC.KTextEditor__View, statusTip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` statusTip: []const u8 `
+    ///
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
@@ -2094,9 +3186,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2107,9 +3204,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
-    /// ``` self: QtC.KTextEditor__View, whatsThis: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` whatsThis: []const u8 `
+    ///
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
@@ -2120,9 +3222,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2133,9 +3240,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2146,9 +3258,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
-    /// ``` self: QtC.KTextEditor__View, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2159,9 +3276,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2172,9 +3294,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
-    /// ``` self: QtC.KTextEditor__View, description: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` description: []const u8 `
+    ///
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
@@ -2185,284 +3312,403 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
-    /// ``` self: QtC.KTextEditor__View, direction: qnamespace_enums.LayoutDirection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` direction: qnamespace_enums.LayoutDirection `
+    ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.LayoutDirection ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.LayoutDirection `
+    ///
     pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
-    /// ``` self: QtC.KTextEditor__View, locale: QtC.QLocale ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` locale: QtC.QLocale `
+    ///
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
         qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
         return qtc.QWidget_Locale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn UnsetLocale(self: ?*anyopaque) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn SetFocus(self: ?*anyopaque) void {
         qtc.QWidget_SetFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ActivateWindow(self: ?*anyopaque) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ClearFocus(self: ?*anyopaque) void {
         qtc.QWidget_ClearFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: QtC.KTextEditor__View, reason: qnamespace_enums.FocusReason ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` reason: qnamespace_enums.FocusReason `
+    ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.FocusPolicy ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.FocusPolicy `
+    ///
     pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
-    /// ``` self: QtC.KTextEditor__View, policy: qnamespace_enums.FocusPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` policy: qnamespace_enums.FocusPolicy `
+    ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn HasFocus(self: ?*anyopaque) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
-    /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QWidget `
+    ///
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
         qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
-    /// ``` self: QtC.KTextEditor__View, focusProxy: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` focusProxy: QtC.QWidget `
+    ///
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
         qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_FocusProxy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ContextMenuPolicy `
+    ///
     pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
-    /// ``` self: QtC.KTextEditor__View, policy: qnamespace_enums.ContextMenuPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` policy: qnamespace_enums.ContextMenuPolicy `
+    ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn GrabMouse(self: ?*anyopaque) void {
         qtc.QWidget_GrabMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QCursor `
+    ///
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ReleaseMouse(self: ?*anyopaque) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn GrabKeyboard(self: ?*anyopaque) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: QtC.KTextEditor__View, key: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` key: QtC.QKeySequence `
+    ///
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
         return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
-    /// ``` self: QtC.KTextEditor__View, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: QtC.KTextEditor__View, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     pub fn MouseGrabber() QtC.QWidget {
         return qtc.QWidget_MouseGrabber();
@@ -2470,8 +3716,7 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
         return qtc.QWidget_KeyboardGrabber();
@@ -2479,270 +3724,416 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
         return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QWidget_Update(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Repaint(self: ?*anyopaque) void {
         qtc.QWidget_Repaint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KTextEditor__View, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QRegion `
+    ///
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KTextEditor__View, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QRegion `
+    ///
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
-    /// ``` self: QtC.KTextEditor__View, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QWidget_SetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
-    /// ``` self: QtC.KTextEditor__View, hidden: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` hidden: bool `
+    ///
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self), hidden);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Show(self: ?*anyopaque) void {
         qtc.QWidget_Show(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QWidget_Hide(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ShowMinimized(self: ?*anyopaque) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ShowMaximized(self: ?*anyopaque) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ShowFullScreen(self: ?*anyopaque) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ShowNormal(self: ?*anyopaque) void {
         qtc.QWidget_ShowNormal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Close(self: ?*anyopaque) bool {
         return qtc.QWidget_Close(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Raise(self: ?*anyopaque) void {
         qtc.QWidget_Raise(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Lower(self: ?*anyopaque) void {
         qtc.QWidget_Lower(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: QtC.KTextEditor__View, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
         qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: QtC.KTextEditor__View, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QSize `
+    ///
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: QtC.KTextEditor__View, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: QtC.KTextEditor__View, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -2753,9 +4144,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
-    /// ``` self: QtC.KTextEditor__View, geometry: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` geometry: []u8 `
+    ///
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
@@ -2766,326 +4162,484 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn AdjustSize(self: ?*anyopaque) void {
         qtc.QWidget_AdjustSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsHidden(self: ?*anyopaque) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsMinimized(self: ?*anyopaque) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsMaximized(self: ?*anyopaque) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsFullScreen(self: ?*anyopaque) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.WindowState ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.WindowState `
+    ///
     pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.KTextEditor__View, state: flag of qnamespace_enums.WindowState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` state: flag of qnamespace_enums.WindowState `
+    ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.KTextEditor__View, state: flag of qnamespace_enums.WindowState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` state: flag of qnamespace_enums.WindowState `
+    ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_SizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_MinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
         return qtc.QWidget_SizePolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: QtC.KTextEditor__View, sizePolicy: QtC.QSizePolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` sizePolicy: QtC.QSizePolicy `
+    ///
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
         qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: QtC.KTextEditor__View, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` horizontal: qsizepolicy_enums.Policy `
+    ///
+    /// ` vertical: qsizepolicy_enums.Policy `
+    ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidget_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QWidget_HasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_VisibleRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: QtC.KTextEditor__View, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: QtC.KTextEditor__View, margins: QtC.QMargins ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` margins: QtC.QMargins `
+    ///
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
         qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.QWidget_ContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_ContentsRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QWidget_Layout(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
-    /// ``` self: QtC.KTextEditor__View, layout: QtC.QLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` layout: QtC.QLayout `
+    ///
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
         qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn UpdateGeometry(self: ?*anyopaque) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.KTextEditor__View, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.KTextEditor__View, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` f: flag of qnamespace_enums.WindowType `
+    ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: QtC.KTextEditor__View, dx: i32, dy: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: QtC.KTextEditor__View, dx: i32, dy: i32, param3: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
+    /// ` param3: QtC.QRect `
+    ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
         qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_FocusWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_NextInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn AcceptDrops(self: ?*anyopaque) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
-    /// ``` self: QtC.KTextEditor__View, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KTextEditor__View, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
-    /// ``` self: QtC.KTextEditor__View, actions: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` actions: []QtC.QAction `
+    ///
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
@@ -3096,9 +4650,16 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
-    /// ``` self: QtC.KTextEditor__View, before: QtC.QAction, actions: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` actions: []QtC.QAction `
+    ///
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
@@ -3109,27 +4670,44 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
-    /// ``` self: QtC.KTextEditor__View, before: QtC.QAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
-    /// ``` self: QtC.KTextEditor__View, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -3141,9 +4719,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KTextEditor__View, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3154,9 +4737,16 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KTextEditor__View, icon: QtC.QIcon, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3167,9 +4757,16 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KTextEditor__View, text: []const u8, shortcut: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` shortcut: QtC.QKeySequence `
+    ///
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3180,9 +4777,18 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KTextEditor__View, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` shortcut: QtC.QKeySequence `
+    ///
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3193,211 +4799,310 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.KTextEditor__View, typeVal: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` typeVal: flag of qnamespace_enums.WindowType `
+    ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.WindowType ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.WindowType `
+    ///
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: qnamespace_enums.WindowType `
+    ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.KTextEditor__View, typeVal: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` typeVal: flag of qnamespace_enums.WindowType `
+    ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.WindowType ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.WindowType `
+    ///
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
-    /// ``` param1: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: u64 `
+    ///
     pub fn Find(param1: u64) QtC.QWidget {
         return qtc.QWidget_Find(@intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KTextEditor__View, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
         return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KTextEditor__View, p: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` p: QtC.QPoint `
+    ///
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KTextEditor__View, p: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` p: QtC.QPointF `
+    ///
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: qnamespace_enums.WidgetAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: qnamespace_enums.WidgetAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.QWidget_PaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn EnsurePolished(self: ?*anyopaque) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
-    /// ``` self: QtC.KTextEditor__View, child: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` child: QtC.QWidget `
+    ///
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
         return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
-    /// ``` self: QtC.KTextEditor__View, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
         return qtc.QWidget_BackingStore(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
         return qtc.QWidget_WindowHandle(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
         return qtc.QWidget_Screen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
-    /// ``` self: QtC.KTextEditor__View, screen: QtC.QScreen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` screen: QtC.QScreen `
+    ///
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
         qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, title: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` title: []const u8 `
+    ///
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -3408,36 +5113,56 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, title: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewtitle: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, icon: QtC.QIcon) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewicon: QtC.QIcon) callconv(.c) void `
+    ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, iconText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` iconText: []const u8 `
+    ///
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
@@ -3448,209 +5173,364 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, iconText: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__ViewiconText: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KTextEditor__View, pos: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, pos: QtC.QPoint) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewpos: QtC.QPoint) callconv(.c) void `
+    ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: qnamespace_enums.InputMethodQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: qnamespace_enums.InputMethodQuery `
+    ///
     pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
         return qtc.QWidget_InputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.InputMethodHint `
+    ///
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.KTextEditor__View, hints: flag of qnamespace_enums.InputMethodHint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` hints: flag of qnamespace_enums.InputMethodHint `
+    ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
         qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
         qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
+    /// ` renderFlags: flag of qwidget_enums.RenderFlag `
+    ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
         qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
         qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KTextEditor__View, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
+    /// ` renderFlags: flag of qwidget_enums.RenderFlag `
+    ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: QtC.KTextEditor__View, rectangle: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` rectangle: QtC.QRect `
+    ///
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
         return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.KTextEditor__View, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
+    /// ` flags: flag of qnamespace_enums.GestureFlag `
+    ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: QtC.KTextEditor__View, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` key: QtC.QKeySequence `
+    ///
+    /// ` context: qnamespace_enums.ShortcutContext `
+    ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, id: i32, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: QtC.KTextEditor__View, id: i32, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: qnamespace_enums.WindowType, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: qnamespace_enums.WindowType `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: qnamespace_enums.WidgetAttribute, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` flags: flag of qnamespace_enums.WindowType `
+    ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
-    /// ``` self: QtC.KTextEditor__View, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3661,9 +5541,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KTextEditor__View, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -3674,99 +5559,144 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KTextEditor__View, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KTextEditor__View, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KTextEditor__View, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KTextEditor__View, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KTextEditor__View, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -3778,36 +5708,64 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KTextEditor__View, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KTextEditor__View, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KTextEditor__View, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -3816,45 +5774,70 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KTextEditor__View, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -3862,9 +5845,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KTextEditor__View, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -3872,9 +5860,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -3896,54 +5889,76 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__View) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KTextEditor__View, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -3951,45 +5966,84 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KTextEditor__View, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KTextEditor__View, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KTextEditor__View, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -3998,125 +6052,167 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__Viewparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn PaintingActive(self: ?*anyopaque) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn WidthMM(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn HeightMM(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ColorCount(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Depth(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
@@ -4124,18 +6220,28 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
-    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    ///
+    /// ` value: f64 `
+    ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
-    /// ``` self: QtC.KTextEditor__View, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -4146,27 +6252,40 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
-    /// ``` self: QtC.KTextEditor__View, element: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` element: QtC.QDomElement `
+    ///
     pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
         return qtc.KXMLGUIClient_Action2(@ptrCast(self), @ptrCast(element));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KXMLGUIClient_ActionCollection(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -4177,18 +6296,26 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_DomDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -4199,9 +6326,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -4212,72 +6344,106 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
     ///
-    /// ``` self: QtC.KTextEditor__View, doc: QtC.QDomDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` doc: QtC.QDomDocument `
+    ///
     pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
     ///
-    /// ``` self: QtC.KTextEditor__View, factory: QtC.KXMLGUIFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` factory: QtC.KXMLGUIFactory `
+    ///
     pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
         return qtc.KXMLGUIClient_Factory(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
     ///
-    /// ``` self: QtC.KTextEditor__View, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
     ///
-    /// ``` self: QtC.KTextEditor__View, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
     ///
-    /// ``` self: QtC.KTextEditor__View, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4289,36 +6455,54 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
     ///
-    /// ``` self: QtC.KTextEditor__View, builder: QtC.KXMLGUIBuilder ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` builder: QtC.KXMLGUIBuilder `
+    ///
     pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
         return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn ReloadXML(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
     ///
-    /// ``` self: QtC.KTextEditor__View, name: []const u8, actionList: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` actionList: []QtC.QAction `
+    ///
     pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -4333,9 +6517,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
     ///
-    /// ``` self: QtC.KTextEditor__View, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -4346,9 +6535,16 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
     ///
-    /// ``` files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` files: [][]const u8 `
+    ///
+    /// ` doc: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("ktexteditor::view.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
@@ -4375,9 +6571,16 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -4392,9 +6595,16 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
     ///
-    /// ``` self: QtC.KTextEditor__View, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -4409,9 +6619,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
     ///
-    /// ``` self: QtC.KTextEditor__View, state: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` state: []const u8 `
+    ///
     pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -4422,36 +6637,56 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn EndXMLPlug(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
     ///
-    /// ``` self: QtC.KTextEditor__View, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KTextEditor__View, xmlfile: []const u8, localxmlfile: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
     pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -4466,9 +6701,14 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
     ///
-    /// ``` xml: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` xml: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
@@ -4483,9 +6723,18 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KTextEditor__View, xmlfile: []const u8, localxmlfile: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -4500,24 +6749,32 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTextEditor__View, callback: *const fn (self: QtC.KTextEditor__View, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` callback: *const fn (self: QtC.KTextEditor__ViewobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KTextEditor__View ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KTextEditor__View_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/view.html#types
+/// ### [Upstream resources](https://api.kde.org/view.html#public-types)
 pub const enums = struct {
     pub const InputMode = enum {
         pub const NormalInputMode: i32 = 0;

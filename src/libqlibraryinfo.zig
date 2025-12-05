@@ -3,68 +3,85 @@ const qtc = @import("qt6c");
 const qlibraryinfo_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qlibraryinfo.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html)
 pub const qlibraryinfo = struct {
     /// New constructs a new QLibraryInfo object.
     ///
-    /// ``` other: QtC.QLibraryInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QLibraryInfo `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QLibraryInfo {
         return qtc.QLibraryInfo_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QLibraryInfo object and invalidates the source QLibraryInfo object.
     ///
-    /// ``` other: QtC.QLibraryInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QLibraryInfo `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QLibraryInfo {
         return qtc.QLibraryInfo_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QLibraryInfo, other: QtC.QLibraryInfo ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLibraryInfo `
+    ///
+    /// ` other: QtC.QLibraryInfo `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QLibraryInfo_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QLibraryInfo, other: QtC.QLibraryInfo ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLibraryInfo `
+    ///
+    /// ` other: QtC.QLibraryInfo `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QLibraryInfo_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#build)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#build)
     ///
     pub fn Build() []const u8 {
         const _ret = qtc.QLibraryInfo_Build();
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isDebugBuild)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isDebugBuild)
     ///
     pub fn IsDebugBuild() bool {
         return qtc.QLibraryInfo_IsDebugBuild();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isSharedBuild)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isSharedBuild)
     ///
     pub fn IsSharedBuild() bool {
         return qtc.QLibraryInfo_IsSharedBuild();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#version)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#version)
     ///
     pub fn Version() QtC.QVersionNumber {
         return qtc.QLibraryInfo_Version();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#path)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#path)
     ///
-    /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` p: qlibraryinfo_enums.LibraryPath `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Path(p: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLibraryInfo_Path(@intCast(p));
         defer qtc.libqt_string_free(&_str);
@@ -73,9 +90,14 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#paths)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#paths)
     ///
-    /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` p: qlibraryinfo_enums.LibraryPath `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Paths(p: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QLibraryInfo_Paths(@intCast(p));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -95,9 +117,14 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#location)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#location)
     ///
-    /// ``` location: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` location: qlibraryinfo_enums.LibraryPath `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Location(location: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLibraryInfo_Location(@intCast(location));
         defer qtc.libqt_string_free(&_str);
@@ -106,9 +133,14 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#platformPluginArguments)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#platformPluginArguments)
     ///
-    /// ``` platformName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` platformName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PlatformPluginArguments(platformName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const platformName_str = qtc.libqt_string{
             .len = platformName.len,
@@ -132,17 +164,20 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#dtor.QLibraryInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#dtor.QLibraryInfo)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QLibraryInfo ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QLibraryInfo `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QLibraryInfo_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qlibraryinfo.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#public-types)
 pub const enums = struct {
     pub const LibraryPath = enum {
         pub const PrefixPath: i32 = 0;

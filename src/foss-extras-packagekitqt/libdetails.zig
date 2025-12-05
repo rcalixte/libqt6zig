@@ -4,10 +4,9 @@ const std = @import("std");
 const transaction_enums = @import("libtransaction_1.zig").enums;
 pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
-/// https://github.com/PackageKit/PackageKit-Qt
+/// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
 pub const packagekit__details = struct {
     /// New constructs a new PackageKit::Details object.
-    ///
     ///
     pub fn New() QtC.PackageKit__Details {
         return qtc.PackageKit__Details_new();
@@ -15,7 +14,12 @@ pub const packagekit__details = struct {
 
     /// New2 constructs a new PackageKit::Details object.
     ///
-    /// ``` other: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New2(other: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.PackageKit__Details {
         const other_keys = allocator.alloc(qtc.libqt_string, other.count()) catch @panic("packagekit::details.New2: Memory allocation failed");
         defer allocator.free(other_keys);
@@ -41,9 +45,14 @@ pub const packagekit__details = struct {
         return qtc.PackageKit__Details_new2(other_map);
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// ``` self: QtC.PackageKit__Details, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Details `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PackageId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.PackageKit__Details_PackageId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -52,9 +61,14 @@ pub const packagekit__details = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// ``` self: QtC.PackageKit__Details, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Details `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.PackageKit__Details_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -63,18 +77,28 @@ pub const packagekit__details = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// ``` self: QtC.PackageKit__Details ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` transaction_enums.Group ```
+    /// ` self: QtC.PackageKit__Details `
+    ///
+    /// ## Returns:
+    ///
+    /// ` transaction_enums.Group `
+    ///
     pub fn Group(self: ?*anyopaque) i32 {
         return qtc.PackageKit__Details_Group(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// ``` self: QtC.PackageKit__Details, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Details `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.PackageKit__Details_Summary(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -83,9 +107,14 @@ pub const packagekit__details = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// ``` self: QtC.PackageKit__Details, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Details `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.PackageKit__Details_Url(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -94,9 +123,14 @@ pub const packagekit__details = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// ``` self: QtC.PackageKit__Details, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Details `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.PackageKit__Details_License(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -105,18 +139,24 @@ pub const packagekit__details = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// ``` self: QtC.PackageKit__Details ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Details `
+    ///
     pub fn Size(self: ?*anyopaque) u64 {
         return qtc.PackageKit__Details_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.PackageKit__Details ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.PackageKit__Details `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.PackageKit__Details_Delete(@ptrCast(self));
     }

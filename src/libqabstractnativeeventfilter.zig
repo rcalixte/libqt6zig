@@ -1,18 +1,26 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://doc.qt.io/qt-6/qabstractnativeeventfilter.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html)
 pub const qabstractnativeeventfilter = struct {
     /// New constructs a new QAbstractNativeEventFilter object.
-    ///
     ///
     pub fn New() QtC.QAbstractNativeEventFilter {
         return qtc.QAbstractNativeEventFilter_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
-    /// ``` self: QtC.QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractNativeEventFilter `
+    ///
+    /// ` eventType: []u8 `
+    ///
+    /// ` message: ?*anyopaque `
+    ///
+    /// ` result: *isize `
+    ///
     pub fn NativeEventFilter(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
@@ -21,20 +29,34 @@ pub const qabstractnativeeventfilter = struct {
         return qtc.QAbstractNativeEventFilter_NativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractNativeEventFilter, callback: *const fn (self: QtC.QAbstractNativeEventFilter, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractNativeEventFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractNativeEventFilter, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    ///
     pub fn OnNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractNativeEventFilter `
+    ///
+    /// ` eventType: []u8 `
+    ///
+    /// ` message: ?*anyopaque `
+    ///
+    /// ` result: *isize `
+    ///
     pub fn QBaseNativeEventFilter(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
@@ -43,11 +65,14 @@ pub const qabstractnativeeventfilter = struct {
         return qtc.QAbstractNativeEventFilter_QBaseNativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#dtor.QAbstractNativeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#dtor.QAbstractNativeEventFilter)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAbstractNativeEventFilter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAbstractNativeEventFilter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAbstractNativeEventFilter_Delete(@ptrCast(self));
     }

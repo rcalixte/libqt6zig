@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const std = @import("std");
 pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
-/// https://doc.qt.io/qt-6/qauthenticator.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html)
 pub const qauthenticator = struct {
     /// New constructs a new QAuthenticator object.
-    ///
     ///
     pub fn New() QtC.QAuthenticator {
         return qtc.QAuthenticator_new();
@@ -14,35 +13,58 @@ pub const qauthenticator = struct {
 
     /// New2 constructs a new QAuthenticator object.
     ///
-    /// ``` other: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QAuthenticator `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QAuthenticator {
         return qtc.QAuthenticator_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq)
     ///
-    /// ``` self: QtC.QAuthenticator, other: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` other: QtC.QAuthenticator `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAuthenticator_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QAuthenticator, other: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` other: QtC.QAuthenticator `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QAuthenticator_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QAuthenticator, other: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` other: QtC.QAuthenticator `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QAuthenticator_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#user)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#user)
     ///
-    /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAuthenticator_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -51,9 +73,14 @@ pub const qauthenticator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setUser)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setUser)
     ///
-    /// ``` self: QtC.QAuthenticator, user: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` user: []const u8 `
+    ///
     pub fn SetUser(self: ?*anyopaque, user: []const u8) void {
         const user_str = qtc.libqt_string{
             .len = user.len,
@@ -62,9 +89,14 @@ pub const qauthenticator = struct {
         qtc.QAuthenticator_SetUser(@ptrCast(self), user_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#password)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#password)
     ///
-    /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAuthenticator_Password(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -73,9 +105,14 @@ pub const qauthenticator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setPassword)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setPassword)
     ///
-    /// ``` self: QtC.QAuthenticator, password: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` password: []const u8 `
+    ///
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
         const password_str = qtc.libqt_string{
             .len = password.len,
@@ -84,9 +121,14 @@ pub const qauthenticator = struct {
         qtc.QAuthenticator_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#realm)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#realm)
     ///
-    /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Realm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAuthenticator_Realm(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -95,9 +137,14 @@ pub const qauthenticator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setRealm)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setRealm)
     ///
-    /// ``` self: QtC.QAuthenticator, realm: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` realm: []const u8 `
+    ///
     pub fn SetRealm(self: ?*anyopaque, realm: []const u8) void {
         const realm_str = qtc.libqt_string{
             .len = realm.len,
@@ -106,9 +153,14 @@ pub const qauthenticator = struct {
         qtc.QAuthenticator_SetRealm(@ptrCast(self), realm_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#option)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#option)
     ///
-    /// ``` self: QtC.QAuthenticator, opt: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` opt: []const u8 `
+    ///
     pub fn Option(self: ?*anyopaque, opt: []const u8) QtC.QVariant {
         const opt_str = qtc.libqt_string{
             .len = opt.len,
@@ -117,9 +169,14 @@ pub const qauthenticator = struct {
         return qtc.QAuthenticator_Option(@ptrCast(self), opt_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#options)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#options)
     ///
-    /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Options(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QAuthenticator_Options(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
@@ -143,9 +200,16 @@ pub const qauthenticator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#setOption)
     ///
-    /// ``` self: QtC.QAuthenticator, opt: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
+    /// ` opt: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetOption(self: ?*anyopaque, opt: []const u8, value: ?*anyopaque) void {
         const opt_str = qtc.libqt_string{
             .len = opt.len,
@@ -154,25 +218,34 @@ pub const qauthenticator = struct {
         qtc.QAuthenticator_SetOption(@ptrCast(self), opt_str, @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#isNull)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#isNull)
     ///
-    /// ``` self: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QAuthenticator_IsNull(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#detach)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#detach)
     ///
-    /// ``` self: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
     pub fn Detach(self: ?*anyopaque) void {
         qtc.QAuthenticator_Detach(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#dtor.QAuthenticator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#dtor.QAuthenticator)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAuthenticator ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAuthenticator `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAuthenticator_Delete(@ptrCast(self));
     }

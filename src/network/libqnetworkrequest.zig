@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qnetworkrequest_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qnetworkrequest.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html)
 pub const qnetworkrequest = struct {
     /// New constructs a new QNetworkRequest object.
-    ///
     ///
     pub fn New() QtC.QNetworkRequest {
         return qtc.QNetworkRequest_new();
@@ -14,91 +13,150 @@ pub const qnetworkrequest = struct {
 
     /// New2 constructs a new QNetworkRequest object.
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn New2(url: ?*anyopaque) QtC.QNetworkRequest {
         return qtc.QNetworkRequest_new2(@ptrCast(url));
     }
 
     /// New3 constructs a new QNetworkRequest object.
     ///
-    /// ``` other: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QNetworkRequest `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QNetworkRequest {
         return qtc.QNetworkRequest_new3(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-eq)
     ///
-    /// ``` self: QtC.QNetworkRequest, other: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` other: QtC.QNetworkRequest `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkRequest_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#swap)
     ///
-    /// ``` self: QtC.QNetworkRequest, other: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` other: QtC.QNetworkRequest `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkRequest_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QNetworkRequest, other: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` other: QtC.QNetworkRequest `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkRequest_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QNetworkRequest, other: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` other: QtC.QNetworkRequest `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#url)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#url)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QNetworkRequest_Url(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setUrl)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setUrl)
     ///
-    /// ``` self: QtC.QNetworkRequest, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QNetworkRequest_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#headers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#headers)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn Headers(self: ?*anyopaque) QtC.QHttpHeaders {
         return qtc.QNetworkRequest_Headers(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHeaders)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHeaders)
     ///
-    /// ``` self: QtC.QNetworkRequest, newHeaders: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` newHeaders: QtC.QHttpHeaders `
+    ///
     pub fn SetHeaders(self: ?*anyopaque, newHeaders: ?*anyopaque) void {
         qtc.QNetworkRequest_SetHeaders(@ptrCast(self), @ptrCast(newHeaders));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#header)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#header)
     ///
-    /// ``` self: QtC.QNetworkRequest, header: qnetworkrequest_enums.KnownHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` header: qnetworkrequest_enums.KnownHeaders `
+    ///
     pub fn Header(self: ?*anyopaque, header: i32) QtC.QVariant {
         return qtc.QNetworkRequest_Header(@ptrCast(self), @intCast(header));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHeader)
     ///
-    /// ``` self: QtC.QNetworkRequest, header: qnetworkrequest_enums.KnownHeaders, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` header: qnetworkrequest_enums.KnownHeaders `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetHeader(self: ?*anyopaque, header: i32, value: ?*anyopaque) void {
         qtc.QNetworkRequest_SetHeader(@ptrCast(self), @intCast(header), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#hasRawHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#hasRawHeader)
     ///
-    /// ``` self: QtC.QNetworkRequest, headerName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` headerName: []const u8 `
+    ///
     pub fn HasRawHeader(self: ?*anyopaque, headerName: []const u8) bool {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
@@ -107,9 +165,14 @@ pub const qnetworkrequest = struct {
         return qtc.QNetworkRequest_HasRawHeader(@ptrCast(self), headerName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#rawHeaderList)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#rawHeaderList)
     ///
-    /// ``` self: QtC.QNetworkRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RawHeaderList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkRequest_RawHeaderList(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -129,9 +192,16 @@ pub const qnetworkrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#rawHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#rawHeader)
     ///
-    /// ``` self: QtC.QNetworkRequest, headerName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` headerName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RawHeader(self: ?*anyopaque, headerName: []const u8, allocator: std.mem.Allocator) []u8 {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
@@ -144,9 +214,16 @@ pub const qnetworkrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setRawHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setRawHeader)
     ///
-    /// ``` self: QtC.QNetworkRequest, headerName: []u8, value: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` headerName: []u8 `
+    ///
+    /// ` value: []u8 `
+    ///
     pub fn SetRawHeader(self: ?*anyopaque, headerName: []u8, value: []u8) void {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
@@ -159,81 +236,132 @@ pub const qnetworkrequest = struct {
         qtc.QNetworkRequest_SetRawHeader(@ptrCast(self), headerName_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#attribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#attribute)
     ///
-    /// ``` self: QtC.QNetworkRequest, code: qnetworkrequest_enums.Attribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` code: qnetworkrequest_enums.Attribute `
+    ///
     pub fn Attribute(self: ?*anyopaque, code: i32) QtC.QVariant {
         return qtc.QNetworkRequest_Attribute(@ptrCast(self), @intCast(code));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setAttribute)
     ///
-    /// ``` self: QtC.QNetworkRequest, code: qnetworkrequest_enums.Attribute, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` code: qnetworkrequest_enums.Attribute `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetAttribute(self: ?*anyopaque, code: i32, value: ?*anyopaque) void {
         qtc.QNetworkRequest_SetAttribute(@ptrCast(self), @intCast(code), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#sslConfiguration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#sslConfiguration)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn SslConfiguration(self: ?*anyopaque) QtC.QSslConfiguration {
         return qtc.QNetworkRequest_SslConfiguration(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setSslConfiguration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setSslConfiguration)
     ///
-    /// ``` self: QtC.QNetworkRequest, configuration: QtC.QSslConfiguration ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` configuration: QtC.QSslConfiguration `
+    ///
     pub fn SetSslConfiguration(self: ?*anyopaque, configuration: ?*anyopaque) void {
         qtc.QNetworkRequest_SetSslConfiguration(@ptrCast(self), @ptrCast(configuration));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setOriginatingObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setOriginatingObject)
     ///
-    /// ``` self: QtC.QNetworkRequest, object: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` object: QtC.QObject `
+    ///
     pub fn SetOriginatingObject(self: ?*anyopaque, object: ?*anyopaque) void {
         qtc.QNetworkRequest_SetOriginatingObject(@ptrCast(self), @ptrCast(object));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#originatingObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#originatingObject)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn OriginatingObject(self: ?*anyopaque) QtC.QObject {
         return qtc.QNetworkRequest_OriginatingObject(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#priority)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#priority)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnetworkrequest_enums.Priority ```
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnetworkrequest_enums.Priority `
+    ///
     pub fn Priority(self: ?*anyopaque) i32 {
         return qtc.QNetworkRequest_Priority(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setPriority)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setPriority)
     ///
-    /// ``` self: QtC.QNetworkRequest, priority: qnetworkrequest_enums.Priority ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` priority: qnetworkrequest_enums.Priority `
+    ///
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
         qtc.QNetworkRequest_SetPriority(@ptrCast(self), @intCast(priority));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#maximumRedirectsAllowed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#maximumRedirectsAllowed)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn MaximumRedirectsAllowed(self: ?*anyopaque) i32 {
         return qtc.QNetworkRequest_MaximumRedirectsAllowed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setMaximumRedirectsAllowed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setMaximumRedirectsAllowed)
     ///
-    /// ``` self: QtC.QNetworkRequest, maximumRedirectsAllowed: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` maximumRedirectsAllowed: i32 `
+    ///
     pub fn SetMaximumRedirectsAllowed(self: ?*anyopaque, maximumRedirectsAllowed: i32) void {
         qtc.QNetworkRequest_SetMaximumRedirectsAllowed(@ptrCast(self), @intCast(maximumRedirectsAllowed));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#peerVerifyName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#peerVerifyName)
     ///
-    /// ``` self: QtC.QNetworkRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PeerVerifyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkRequest_PeerVerifyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -242,9 +370,14 @@ pub const qnetworkrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setPeerVerifyName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setPeerVerifyName)
     ///
-    /// ``` self: QtC.QNetworkRequest, peerName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` peerName: []const u8 `
+    ///
     pub fn SetPeerVerifyName(self: ?*anyopaque, peerName: []const u8) void {
         const peerName_str = qtc.libqt_string{
             .len = peerName.len,
@@ -253,87 +386,132 @@ pub const qnetworkrequest = struct {
         qtc.QNetworkRequest_SetPeerVerifyName(@ptrCast(self), peerName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#http1Configuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#http1Configuration)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn Http1Configuration(self: ?*anyopaque) QtC.QHttp1Configuration {
         return qtc.QNetworkRequest_Http1Configuration(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHttp1Configuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHttp1Configuration)
     ///
-    /// ``` self: QtC.QNetworkRequest, configuration: QtC.QHttp1Configuration ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` configuration: QtC.QHttp1Configuration `
+    ///
     pub fn SetHttp1Configuration(self: ?*anyopaque, configuration: ?*anyopaque) void {
         qtc.QNetworkRequest_SetHttp1Configuration(@ptrCast(self), @ptrCast(configuration));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#http2Configuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#http2Configuration)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn Http2Configuration(self: ?*anyopaque) QtC.QHttp2Configuration {
         return qtc.QNetworkRequest_Http2Configuration(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHttp2Configuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setHttp2Configuration)
     ///
-    /// ``` self: QtC.QNetworkRequest, configuration: QtC.QHttp2Configuration ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` configuration: QtC.QHttp2Configuration `
+    ///
     pub fn SetHttp2Configuration(self: ?*anyopaque, configuration: ?*anyopaque) void {
         qtc.QNetworkRequest_SetHttp2Configuration(@ptrCast(self), @ptrCast(configuration));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#decompressedSafetyCheckThreshold)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#decompressedSafetyCheckThreshold)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn DecompressedSafetyCheckThreshold(self: ?*anyopaque) i64 {
         return qtc.QNetworkRequest_DecompressedSafetyCheckThreshold(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setDecompressedSafetyCheckThreshold)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setDecompressedSafetyCheckThreshold)
     ///
-    /// ``` self: QtC.QNetworkRequest, threshold: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` threshold: i64 `
+    ///
     pub fn SetDecompressedSafetyCheckThreshold(self: ?*anyopaque, threshold: i64) void {
         qtc.QNetworkRequest_SetDecompressedSafetyCheckThreshold(@ptrCast(self), @intCast(threshold));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#transferTimeout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#transferTimeout)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn TransferTimeout(self: ?*anyopaque) i32 {
         return qtc.QNetworkRequest_TransferTimeout(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
     ///
-    /// ``` self: QtC.QNetworkRequest, timeout: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` timeout: i32 `
+    ///
     pub fn SetTransferTimeout(self: ?*anyopaque, timeout: i32) void {
         qtc.QNetworkRequest_SetTransferTimeout(@ptrCast(self), @intCast(timeout));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn SetTransferTimeout2(self: ?*anyopaque) void {
         qtc.QNetworkRequest_SetTransferTimeout2(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#attribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#attribute)
     ///
-    /// ``` self: QtC.QNetworkRequest, code: qnetworkrequest_enums.Attribute, defaultValue: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` code: qnetworkrequest_enums.Attribute `
+    ///
+    /// ` defaultValue: QtC.QVariant `
+    ///
     pub fn Attribute2(self: ?*anyopaque, code: i32, defaultValue: ?*anyopaque) QtC.QVariant {
         return qtc.QNetworkRequest_Attribute2(@ptrCast(self), @intCast(code), @ptrCast(defaultValue));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#dtor.QNetworkRequest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#dtor.QNetworkRequest)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QNetworkRequest ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QNetworkRequest_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qnetworkrequest.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#public-types)
 pub const enums = struct {
     pub const KnownHeaders = enum {
         pub const ContentTypeHeader: i32 = 0;

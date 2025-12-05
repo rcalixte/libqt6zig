@@ -4,10 +4,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qundocommand.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html)
 pub const qundocommand = struct {
     /// New constructs a new QUndoCommand object.
-    ///
     ///
     pub fn New() QtC.QUndoCommand {
         return qtc.QUndoCommand_new();
@@ -15,7 +14,10 @@ pub const qundocommand = struct {
 
     /// New2 constructs a new QUndoCommand object.
     ///
-    /// ``` text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn New2(text: []const u8) QtC.QUndoCommand {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -27,14 +29,22 @@ pub const qundocommand = struct {
 
     /// New3 constructs a new QUndoCommand object.
     ///
-    /// ``` parent: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QUndoCommand `
+    ///
     pub fn New3(parent: ?*anyopaque) QtC.QUndoCommand {
         return qtc.QUndoCommand_new3(@ptrCast(parent));
     }
 
     /// New4 constructs a new QUndoCommand object.
     ///
-    /// ``` text: []const u8, parent: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` parent: QtC.QUndoCommand `
+    ///
     pub fn New4(text: []const u8, parent: ?*anyopaque) QtC.QUndoCommand {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -44,59 +54,86 @@ pub const qundocommand = struct {
         return qtc.QUndoCommand_new4(text_str, @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#undo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#undo)
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn Undo(self: ?*anyopaque) void {
         qtc.QUndoCommand_Undo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#undo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#undo)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUndo(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QUndoCommand_OnUndo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#undo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#undo)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn QBaseUndo(self: ?*anyopaque) void {
         qtc.QUndoCommand_QBaseUndo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn Redo(self: ?*anyopaque) void {
         qtc.QUndoCommand_Redo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnRedo(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QUndoCommand_OnRedo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn QBaseRedo(self: ?*anyopaque) void {
         qtc.QUndoCommand_QBaseRedo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#text)
     ///
-    /// ``` self: QtC.QUndoCommand, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoCommand_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -105,9 +142,14 @@ pub const qundocommand = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#actionText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#actionText)
     ///
-    /// ``` self: QtC.QUndoCommand, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ActionText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoCommand_ActionText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -116,9 +158,14 @@ pub const qundocommand = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#setText)
     ///
-    /// ``` self: QtC.QUndoCommand, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -127,98 +174,142 @@ pub const qundocommand = struct {
         qtc.QUndoCommand_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#isObsolete)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#isObsolete)
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn IsObsolete(self: ?*anyopaque) bool {
         return qtc.QUndoCommand_IsObsolete(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#setObsolete)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#setObsolete)
     ///
-    /// ``` self: QtC.QUndoCommand, obsolete: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` obsolete: bool `
+    ///
     pub fn SetObsolete(self: ?*anyopaque, obsolete: bool) void {
         qtc.QUndoCommand_SetObsolete(@ptrCast(self), obsolete);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#id)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#id)
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.QUndoCommand_Id(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#id)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#id)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QUndoCommand_OnId(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#id)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#id)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn QBaseId(self: ?*anyopaque) i32 {
         return qtc.QUndoCommand_QBaseId(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
     ///
-    /// ``` self: QtC.QUndoCommand, other: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` other: QtC.QUndoCommand `
+    ///
     pub fn MergeWith(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QUndoCommand_MergeWith(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, callback: *const fn (self: QtC.QUndoCommand, other: QtC.QUndoCommand) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoCommand, other: QtC.QUndoCommand) callconv(.c) bool `
+    ///
     pub fn OnMergeWith(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QUndoCommand_OnMergeWith(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QUndoCommand, other: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` other: QtC.QUndoCommand `
+    ///
     pub fn QBaseMergeWith(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QUndoCommand_QBaseMergeWith(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#childCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#childCount)
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn ChildCount(self: ?*anyopaque) i32 {
         return qtc.QUndoCommand_ChildCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#child)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#child)
     ///
-    /// ``` self: QtC.QUndoCommand, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn Child(self: ?*anyopaque, index: i32) QtC.QUndoCommand {
         return qtc.QUndoCommand_Child(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#dtor.QUndoCommand)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#dtor.QUndoCommand)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QUndoCommand ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QUndoCommand `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QUndoCommand_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qundostack.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html)
 pub const qundostack = struct {
     /// New constructs a new QUndoStack object.
-    ///
     ///
     pub fn New() QtC.QUndoStack {
         return qtc.QUndoStack_new();
@@ -226,46 +317,85 @@ pub const qundostack = struct {
 
     /// New2 constructs a new QUndoStack object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QUndoStack {
         return qtc.QUndoStack_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QUndoStack_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QUndoStack, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QUndoStack_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QUndoStack, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QUndoStack_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QUndoStack_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QUndoStack, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QUndoStack_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -275,37 +405,56 @@ pub const qundostack = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#clear)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QUndoStack_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#push)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#push)
     ///
-    /// ``` self: QtC.QUndoStack, cmd: QtC.QUndoCommand ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` cmd: QtC.QUndoCommand `
+    ///
     pub fn Push(self: ?*anyopaque, cmd: ?*anyopaque) void {
         qtc.QUndoStack_Push(@ptrCast(self), @ptrCast(cmd));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canUndo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canUndo)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn CanUndo(self: ?*anyopaque) bool {
         return qtc.QUndoStack_CanUndo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canRedo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canRedo)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn CanRedo(self: ?*anyopaque) bool {
         return qtc.QUndoStack_CanRedo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoText)
     ///
-    /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UndoText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoStack_UndoText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -314,9 +463,14 @@ pub const qundostack = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redoText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redoText)
     ///
-    /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RedoText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoStack_RedoText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -325,23 +479,36 @@ pub const qundostack = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#count)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QUndoStack_Count(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#index)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#index)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Index(self: ?*anyopaque) i32 {
         return qtc.QUndoStack_Index(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#text)
     ///
-    /// ``` self: QtC.QUndoStack, idx: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` idx: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, idx: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoStack_Text(@ptrCast(self), @intCast(idx));
         defer qtc.libqt_string_free(&_str);
@@ -350,44 +517,68 @@ pub const qundostack = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createUndoAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createUndoAction)
     ///
-    /// ``` self: QtC.QUndoStack, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn CreateUndoAction(self: ?*anyopaque, parent: ?*anyopaque) QtC.QAction {
         return qtc.QUndoStack_CreateUndoAction(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createRedoAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createRedoAction)
     ///
-    /// ``` self: QtC.QUndoStack, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn CreateRedoAction(self: ?*anyopaque, parent: ?*anyopaque) QtC.QAction {
         return qtc.QUndoStack_CreateRedoAction(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#isActive)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#isActive)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn IsActive(self: ?*anyopaque) bool {
         return qtc.QUndoStack_IsActive(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#isClean)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#isClean)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn IsClean(self: ?*anyopaque) bool {
         return qtc.QUndoStack_IsClean(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#cleanIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#cleanIndex)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn CleanIndex(self: ?*anyopaque) i32 {
         return qtc.QUndoStack_CleanIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#beginMacro)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#beginMacro)
     ///
-    /// ``` self: QtC.QUndoStack, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn BeginMacro(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -396,135 +587,216 @@ pub const qundostack = struct {
         qtc.QUndoStack_BeginMacro(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#endMacro)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#endMacro)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn EndMacro(self: ?*anyopaque) void {
         qtc.QUndoStack_EndMacro(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setUndoLimit)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setUndoLimit)
     ///
-    /// ``` self: QtC.QUndoStack, limit: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` limit: i32 `
+    ///
     pub fn SetUndoLimit(self: ?*anyopaque, limit: i32) void {
         qtc.QUndoStack_SetUndoLimit(@ptrCast(self), @intCast(limit));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoLimit)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoLimit)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn UndoLimit(self: ?*anyopaque) i32 {
         return qtc.QUndoStack_UndoLimit(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#command)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#command)
     ///
-    /// ``` self: QtC.QUndoStack, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn Command(self: ?*anyopaque, index: i32) QtC.QUndoCommand {
         return qtc.QUndoStack_Command(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setClean)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setClean)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn SetClean(self: ?*anyopaque) void {
         qtc.QUndoStack_SetClean(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#resetClean)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#resetClean)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn ResetClean(self: ?*anyopaque) void {
         qtc.QUndoStack_ResetClean(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setIndex)
     ///
-    /// ``` self: QtC.QUndoStack, idx: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` idx: i32 `
+    ///
     pub fn SetIndex(self: ?*anyopaque, idx: i32) void {
         qtc.QUndoStack_SetIndex(@ptrCast(self), @intCast(idx));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undo)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Undo(self: ?*anyopaque) void {
         qtc.QUndoStack_Undo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redo)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Redo(self: ?*anyopaque) void {
         qtc.QUndoStack_Redo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setActive)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setActive)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn SetActive(self: ?*anyopaque) void {
         qtc.QUndoStack_SetActive(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#indexChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#indexChanged)
     ///
-    /// ``` self: QtC.QUndoStack, idx: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` idx: i32 `
+    ///
     pub fn IndexChanged(self: ?*anyopaque, idx: i32) void {
         qtc.QUndoStack_IndexChanged(@ptrCast(self), @intCast(idx));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#indexChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#indexChanged)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, idx: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackidx: i32) callconv(.c) void `
+    ///
     pub fn OnIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QUndoStack_Connect_IndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#cleanChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#cleanChanged)
     ///
-    /// ``` self: QtC.QUndoStack, clean: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` clean: bool `
+    ///
     pub fn CleanChanged(self: ?*anyopaque, clean: bool) void {
         qtc.QUndoStack_CleanChanged(@ptrCast(self), clean);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#cleanChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#cleanChanged)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, clean: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackclean: bool) callconv(.c) void `
+    ///
     pub fn OnCleanChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoStack_Connect_CleanChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canUndoChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canUndoChanged)
     ///
-    /// ``` self: QtC.QUndoStack, canUndo: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` canUndo: bool `
+    ///
     pub fn CanUndoChanged(self: ?*anyopaque, canUndo: bool) void {
         qtc.QUndoStack_CanUndoChanged(@ptrCast(self), canUndo);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canUndoChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canUndoChanged)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, canUndo: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackcanUndo: bool) callconv(.c) void `
+    ///
     pub fn OnCanUndoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoStack_Connect_CanUndoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canRedoChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canRedoChanged)
     ///
-    /// ``` self: QtC.QUndoStack, canRedo: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` canRedo: bool `
+    ///
     pub fn CanRedoChanged(self: ?*anyopaque, canRedo: bool) void {
         qtc.QUndoStack_CanRedoChanged(@ptrCast(self), canRedo);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canRedoChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#canRedoChanged)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, canRedo: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackcanRedo: bool) callconv(.c) void `
+    ///
     pub fn OnCanRedoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoStack_Connect_CanRedoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoTextChanged)
     ///
-    /// ``` self: QtC.QUndoStack, undoText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` undoText: []const u8 `
+    ///
     pub fn UndoTextChanged(self: ?*anyopaque, undoText: []const u8) void {
         const undoText_str = qtc.libqt_string{
             .len = undoText.len,
@@ -533,16 +805,26 @@ pub const qundostack = struct {
         qtc.QUndoStack_UndoTextChanged(@ptrCast(self), undoText_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#undoTextChanged)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, undoText: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackundoText: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnUndoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoStack_Connect_UndoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redoTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redoTextChanged)
     ///
-    /// ``` self: QtC.QUndoStack, redoText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` redoText: []const u8 `
+    ///
     pub fn RedoTextChanged(self: ?*anyopaque, redoText: []const u8) void {
         const redoText_str = qtc.libqt_string{
             .len = redoText.len,
@@ -551,16 +833,28 @@ pub const qundostack = struct {
         qtc.QUndoStack_RedoTextChanged(@ptrCast(self), redoText_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redoTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#redoTextChanged)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, redoText: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackredoText: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnRedoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoStack_Connect_RedoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -571,9 +865,18 @@ pub const qundostack = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -584,9 +887,16 @@ pub const qundostack = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createUndoAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createUndoAction)
     ///
-    /// ``` self: QtC.QUndoStack, parent: QtC.QObject, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn CreateUndoAction2(self: ?*anyopaque, parent: ?*anyopaque, prefix: []const u8) QtC.QAction {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -595,9 +905,16 @@ pub const qundostack = struct {
         return qtc.QUndoStack_CreateUndoAction2(@ptrCast(self), @ptrCast(parent), prefix_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createRedoAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#createRedoAction)
     ///
-    /// ``` self: QtC.QUndoStack, parent: QtC.QObject, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn CreateRedoAction2(self: ?*anyopaque, parent: ?*anyopaque, prefix: []const u8) QtC.QAction {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -606,18 +923,28 @@ pub const qundostack = struct {
         return qtc.QUndoStack_CreateRedoAction2(@ptrCast(self), @ptrCast(parent), prefix_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setActive)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#setActive)
     ///
-    /// ``` self: QtC.QUndoStack, active: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` active: bool `
+    ///
     pub fn SetActive1(self: ?*anyopaque, active: bool) void {
         qtc.QUndoStack_SetActive1(@ptrCast(self), active);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -628,9 +955,14 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QUndoStack, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -641,99 +973,144 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QUndoStack, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QUndoStack, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QUndoStack, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QUndoStack, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QUndoStack, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -745,45 +1122,78 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QUndoStack, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QUndoStack, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QUndoStack, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QUndoStack, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -792,45 +1202,70 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QUndoStack, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -838,9 +1273,14 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QUndoStack, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -848,9 +1288,14 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -872,54 +1317,76 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QUndoStack, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -927,45 +1394,84 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QUndoStack, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QUndoStack, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QUndoStack, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -974,326 +1480,472 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QUndoStack, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QUndoStack_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QUndoStack_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QUndoStack_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QUndoStack_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QUndoStack_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QUndoStack_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QUndoStack_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QUndoStack_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QUndoStack_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QUndoStack_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QUndoStack_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QUndoStack_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QUndoStack_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QUndoStack_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QUndoStack_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QUndoStack_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QUndoStack_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QUndoStack_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QUndoStack_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QUndoStack_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QUndoStack_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QUndoStack_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QUndoStack_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QUndoStack_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QUndoStack_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QUndoStack_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QUndoStack_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QUndoStack_Receivers(@ptrCast(self), signal_Cstring);
@@ -1301,11 +1953,16 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QUndoStack_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1313,64 +1970,92 @@ pub const qundostack = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QUndoStack_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QUndoStack_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QUndoStack_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack`
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QUndoStack_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
+    /// ` callback: *const fn (self: QtC.QUndoStackobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#dtor.QUndoStack)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#dtor.QUndoStack)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QUndoStack ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QUndoStack `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QUndoStack_Delete(@ptrCast(self));
     }

@@ -2,39 +2,58 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kcompletionmatches.html
+/// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html)
 pub const kcompletionmatches = struct {
     /// New constructs a new KCompletionMatches object.
     ///
-    /// ``` sort: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` sort: bool `
+    ///
     pub fn New(sort: bool) QtC.KCompletionMatches {
         return qtc.KCompletionMatches_new(sort);
     }
 
     /// New2 constructs a new KCompletionMatches object.
     ///
-    /// ``` param1: QtC.KCompletionMatches ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KCompletionMatches `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.KCompletionMatches {
         return qtc.KCompletionMatches_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#operator-eq)
     ///
-    /// ``` self: QtC.KCompletionMatches, param1: QtC.KCompletionMatches ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCompletionMatches `
+    ///
+    /// ` param1: QtC.KCompletionMatches `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCompletionMatches_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#removeDuplicates)
+    /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#removeDuplicates)
     ///
-    /// ``` self: QtC.KCompletionMatches ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCompletionMatches `
+    ///
     pub fn RemoveDuplicates(self: ?*anyopaque) void {
         qtc.KCompletionMatches_RemoveDuplicates(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
+    /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
     ///
-    /// ``` self: QtC.KCompletionMatches, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCompletionMatches `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn List(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionMatches_List(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -54,16 +73,26 @@ pub const kcompletionmatches = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#sorting)
+    /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#sorting)
     ///
-    /// ``` self: QtC.KCompletionMatches ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCompletionMatches `
+    ///
     pub fn Sorting(self: ?*anyopaque) bool {
         return qtc.KCompletionMatches_Sorting(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
+    /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
     ///
-    /// ``` self: QtC.KCompletionMatches, sort: bool, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCompletionMatches `
+    ///
+    /// ` sort: bool `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn List1(self: ?*anyopaque, sort: bool, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionMatches_List1(@ptrCast(self), sort);
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -83,11 +112,14 @@ pub const kcompletionmatches = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#dtor.KCompletionMatches)
+    /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#dtor.KCompletionMatches)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KCompletionMatches ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KCompletionMatches `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KCompletionMatches_Delete(@ptrCast(self));
     }

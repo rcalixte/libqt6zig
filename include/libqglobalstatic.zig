@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://doc.qt.io/qt-6/qglobalstatic.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qglobalstatic.html#public-types)
 pub const enums = struct {
     pub const GuardValues = enum {
         pub const Destroyed: i32 = -2;

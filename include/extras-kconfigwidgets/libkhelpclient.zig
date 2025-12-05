@@ -1,11 +1,16 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api.kde.org/khelpclient.html
+/// ### [Upstream resources](https://api.kde.org/khelpclient.html)
 pub const khelpclient = struct {
-    /// [Upstream resources](https://api.kde.org/khelpclient.html#invokeHelp)
+    /// ### [Upstream resources](https://api.kde.org/khelpclient.html#invokeHelp)
     ///
-    /// ``` param1: []const u8, param2: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
     pub fn InvokeHelp(param1: []const u8, param2: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

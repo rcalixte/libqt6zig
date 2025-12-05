@@ -2,11 +2,18 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 
-/// https://api.kde.org/kapplicationtrader.html
+/// ### [Upstream resources](https://api.kde.org/kapplicationtrader.html)
 pub const kapplicationtrader = struct {
-    /// [Upstream resources](https://api.kde.org/kapplicationtrader.html#isSubsequence)
+    /// ### [Upstream resources](https://api.kde.org/kapplicationtrader.html#isSubsequence)
     ///
-    /// ``` param1: []const u8, param2: []const u8, param3: qnamespace_enums.CaseSensitivity ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: qnamespace_enums.CaseSensitivity `
+    ///
     pub fn IsSubsequence(param1: []const u8, param2: []const u8, param3: i32) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

@@ -3,18 +3,26 @@ const qtc = @import("qt6c");
 const qcryptographichash_enums = @import("libqcryptographichash.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qmessageauthenticationcode.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html)
 pub const qmessageauthenticationcode = struct {
     /// New constructs a new QMessageAuthenticationCode object.
     ///
-    /// ``` method: qcryptographichash_enums.Algorithm ```
+    /// ## Parameter(s):
+    ///
+    /// ` method: qcryptographichash_enums.Algorithm `
+    ///
     pub fn New(method: i32) QtC.QMessageAuthenticationCode {
         return qtc.QMessageAuthenticationCode_new(@intCast(method));
     }
 
     /// New2 constructs a new QMessageAuthenticationCode object.
     ///
-    /// ``` method: qcryptographichash_enums.Algorithm, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` method: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn New2(method: i32, key: []const u8) QtC.QMessageAuthenticationCode {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -24,23 +32,36 @@ pub const qmessageauthenticationcode = struct {
         return qtc.QMessageAuthenticationCode_new2(@intCast(method), key_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#swap)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode, other: QtC.QMessageAuthenticationCode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
+    /// ` other: QtC.QMessageAuthenticationCode `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMessageAuthenticationCode_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#reset)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QMessageAuthenticationCode_Reset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#setKey)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#setKey)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode, key: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -49,17 +70,29 @@ pub const qmessageauthenticationcode = struct {
         qtc.QMessageAuthenticationCode_SetKey(@ptrCast(self), key_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode, data: []const u8, length: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` length: i64 `
+    ///
     pub fn AddData(self: ?*anyopaque, data: []const u8, length: i64) void {
         const data_Cstring = data.ptr;
         qtc.QMessageAuthenticationCode_AddData(@ptrCast(self), data_Cstring, @intCast(length));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode, data: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
+    /// ` data: []const u8 `
+    ///
     pub fn AddData2(self: ?*anyopaque, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -68,16 +101,26 @@ pub const qmessageauthenticationcode = struct {
         qtc.QMessageAuthenticationCode_AddData2(@ptrCast(self), data_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode, device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn AddData3(self: ?*anyopaque, device: ?*anyopaque) bool {
         return qtc.QMessageAuthenticationCode_AddData3(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#resultView)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#resultView)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ResultView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QMessageAuthenticationCode_ResultView(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -86,9 +129,14 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#result)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#result)
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Result(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_Result(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -97,9 +145,18 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hash)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hash)
     ///
-    /// ``` message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` message: []const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` method: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Hash(message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []u8 {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -116,9 +173,20 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
-    /// ``` buffer: []u8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` buffer: []u8 `
+    ///
+    /// ` message: []const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` method: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HashInto(buffer: []u8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
@@ -139,9 +207,20 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
-    /// ``` buffer: []u8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` buffer: []u8 `
+    ///
+    /// ` message: []const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` method: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HashInto2(buffer: []u8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
@@ -162,9 +241,20 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
-    /// ``` buffer: []u8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` buffer: []u8 `
+    ///
+    /// ` messageParts: [][]const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` method: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HashInto4(buffer: []u8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
@@ -185,9 +275,20 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
-    /// ``` buffer: []u8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` buffer: []u8 `
+    ///
+    /// ` messageParts: [][]const u8 `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` method: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HashInto5(buffer: []u8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
@@ -208,11 +309,14 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#dtor.QMessageAuthenticationCode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#dtor.QMessageAuthenticationCode)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QMessageAuthenticationCode ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QMessageAuthenticationCode `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QMessageAuthenticationCode_Delete(@ptrCast(self));
     }

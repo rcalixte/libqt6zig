@@ -1,48 +1,70 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api.kde.org/klocalimagecacheimplementation.html
+/// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html)
 pub const klocalimagecacheimplementation = struct {
-    /// [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#lastModifiedTime)
+    /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#lastModifiedTime)
     ///
-    /// ``` self: QtC.KLocalImageCacheImplementation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLocalImageCacheImplementation `
+    ///
     pub fn LastModifiedTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.KLocalImageCacheImplementation_LastModifiedTime(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#pixmapCaching)
+    /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#pixmapCaching)
     ///
-    /// ``` self: QtC.KLocalImageCacheImplementation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLocalImageCacheImplementation `
+    ///
     pub fn PixmapCaching(self: ?*anyopaque) bool {
         return qtc.KLocalImageCacheImplementation_PixmapCaching(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#setPixmapCaching)
+    /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#setPixmapCaching)
     ///
-    /// ``` self: QtC.KLocalImageCacheImplementation, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLocalImageCacheImplementation `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetPixmapCaching(self: ?*anyopaque, enable: bool) void {
         qtc.KLocalImageCacheImplementation_SetPixmapCaching(@ptrCast(self), enable);
     }
 
-    /// [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#pixmapCacheLimit)
+    /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#pixmapCacheLimit)
     ///
-    /// ``` self: QtC.KLocalImageCacheImplementation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLocalImageCacheImplementation `
+    ///
     pub fn PixmapCacheLimit(self: ?*anyopaque) i32 {
         return qtc.KLocalImageCacheImplementation_PixmapCacheLimit(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#setPixmapCacheLimit)
+    /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#setPixmapCacheLimit)
     ///
-    /// ``` self: QtC.KLocalImageCacheImplementation, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLocalImageCacheImplementation `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetPixmapCacheLimit(self: ?*anyopaque, size: i32) void {
         qtc.KLocalImageCacheImplementation_SetPixmapCacheLimit(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#dtor.KLocalImageCacheImplementation)
+    /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#dtor.KLocalImageCacheImplementation)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KLocalImageCacheImplementation ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KLocalImageCacheImplementation `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KLocalImageCacheImplementation_Delete(@ptrCast(self));
     }

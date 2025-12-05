@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html
+/// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
 pub const signon__securitycontext = struct {
     /// New constructs a new SignOn::SecurityContext object.
-    ///
     ///
     pub fn New() QtC.SignOn__SecurityContext {
         return qtc.SignOn__SecurityContext_new();
@@ -13,7 +12,12 @@ pub const signon__securitycontext = struct {
 
     /// New2 constructs a new SignOn::SecurityContext object.
     ///
-    /// ``` systemContext: []const u8, applicationContext: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` systemContext: []const u8 `
+    ///
+    /// ` applicationContext: []const u8 `
+    ///
     pub fn New2(systemContext: []const u8, applicationContext: []const u8) QtC.SignOn__SecurityContext {
         const systemContext_str = qtc.libqt_string{
             .len = systemContext.len,
@@ -29,14 +33,22 @@ pub const signon__securitycontext = struct {
 
     /// New3 constructs a new SignOn::SecurityContext object.
     ///
-    /// ``` param1: QtC.SignOn__SecurityContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.SignOn__SecurityContext `
+    ///
     pub fn New3(param1: ?*anyopaque) QtC.SignOn__SecurityContext {
         return qtc.SignOn__SecurityContext_new3(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
-    /// ``` self: QtC.SignOn__SecurityContext, systemContext: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SecurityContext `
+    ///
+    /// ` systemContext: []const u8 `
+    ///
     pub fn SetSystemContext(self: ?*anyopaque, systemContext: []const u8) void {
         const systemContext_str = qtc.libqt_string{
             .len = systemContext.len,
@@ -45,9 +57,14 @@ pub const signon__securitycontext = struct {
         qtc.SignOn__SecurityContext_SetSystemContext(@ptrCast(self), systemContext_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
-    /// ``` self: QtC.SignOn__SecurityContext, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SecurityContext `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SystemContext(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.SignOn__SecurityContext_SystemContext(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -56,9 +73,14 @@ pub const signon__securitycontext = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
-    /// ``` self: QtC.SignOn__SecurityContext, applicationContext: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SecurityContext `
+    ///
+    /// ` applicationContext: []const u8 `
+    ///
     pub fn SetApplicationContext(self: ?*anyopaque, applicationContext: []const u8) void {
         const applicationContext_str = qtc.libqt_string{
             .len = applicationContext.len,
@@ -67,9 +89,14 @@ pub const signon__securitycontext = struct {
         qtc.SignOn__SecurityContext_SetApplicationContext(@ptrCast(self), applicationContext_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
-    /// ``` self: QtC.SignOn__SecurityContext, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SecurityContext `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ApplicationContext(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.SignOn__SecurityContext_ApplicationContext(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -78,11 +105,14 @@ pub const signon__securitycontext = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.SignOn__SecurityContext ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.SignOn__SecurityContext `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.SignOn__SecurityContext_Delete(@ptrCast(self));
     }

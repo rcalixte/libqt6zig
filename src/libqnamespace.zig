@@ -2,24 +2,29 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = enums;
 
-/// https://doc.qt.io/qt-6/disambiguated-t.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/disambiguated-t.html)
 pub const disambiguated_t = struct {
     /// New constructs a new Qt::Disambiguated_t object.
     ///
-    /// ``` other: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Disambiguated_t `
+    ///
     pub fn New(other: ?*anyopaque) QtC.Disambiguated_t {
         return qtc.Disambiguated_t_new(@ptrCast(other));
     }
 
     /// New2 constructs a new Qt::Disambiguated_t object and invalidates the source Qt::Disambiguated_t object.
     ///
-    /// ``` other: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Disambiguated_t `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Disambiguated_t {
         return qtc.Disambiguated_t_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new Qt::Disambiguated_t object.
-    ///
     ///
     pub fn New3() QtC.Disambiguated_t {
         return qtc.Disambiguated_t_new3();
@@ -27,100 +32,145 @@ pub const disambiguated_t = struct {
 
     /// New4 constructs a new Qt::Disambiguated_t object.
     ///
-    /// ``` param1: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.Disambiguated_t `
+    ///
     pub fn New4(param1: ?*anyopaque) QtC.Disambiguated_t {
         return qtc.Disambiguated_t_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.Disambiguated_t, other: QtC.Disambiguated_t ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Disambiguated_t `
+    ///
+    /// ` other: QtC.Disambiguated_t `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Disambiguated_t_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.Disambiguated_t, other: QtC.Disambiguated_t ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Disambiguated_t `
+    ///
+    /// ` other: QtC.Disambiguated_t `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Disambiguated_t_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/disambiguated-t.html#dtor.Disambiguated_t)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/disambiguated-t.html#dtor.Disambiguated_t)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Disambiguated_t ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Disambiguated_t `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Disambiguated_t_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qinternal.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qinternal.html)
 pub const qinternal = struct {
     /// New constructs a new QInternal object.
     ///
-    /// ``` other: QtC.QInternal ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QInternal `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QInternal {
         return qtc.QInternal_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QInternal object and invalidates the source QInternal object.
     ///
-    /// ``` other: QtC.QInternal ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QInternal `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QInternal {
         return qtc.QInternal_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QInternal, other: QtC.QInternal ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QInternal `
+    ///
+    /// ` other: QtC.QInternal `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QInternal_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QInternal, other: QtC.QInternal ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QInternal `
+    ///
+    /// ` other: QtC.QInternal `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QInternal_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qinternal.html#activateCallbacks)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qinternal.html#activateCallbacks)
     ///
-    /// ``` param1: qnamespace_enums.Callback, param2: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: qnamespace_enums.Callback `
+    ///
+    /// ` param2: ?*anyopaque `
+    ///
     pub fn ActivateCallbacks(param1: i32, param2: ?*anyopaque) bool {
         return qtc.QInternal_ActivateCallbacks(@intCast(param1), @ptrCast(@alignCast(param2)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qinternal.html#dtor.QInternal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qinternal.html#dtor.QInternal)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QInternal ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QInternal `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QInternal_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qkeycombination.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html)
 pub const qkeycombination = struct {
     /// New constructs a new QKeyCombination object.
     ///
-    /// ``` other: QtC.QKeyCombination ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QKeyCombination `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QKeyCombination {
         return qtc.QKeyCombination_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QKeyCombination object and invalidates the source QKeyCombination object.
     ///
-    /// ``` other: QtC.QKeyCombination ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QKeyCombination `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QKeyCombination {
         return qtc.QKeyCombination_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QKeyCombination object.
-    ///
     ///
     pub fn New3() QtC.QKeyCombination {
         return qtc.QKeyCombination_new3();
@@ -128,110 +178,164 @@ pub const qkeycombination = struct {
 
     /// New4 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: flag of qnamespace_enums.Modifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` modifiers: flag of qnamespace_enums.Modifier `
+    ///
     pub fn New4(modifiers: i64) QtC.QKeyCombination {
         return qtc.QKeyCombination_new4(@intCast(modifiers));
     }
 
     /// New5 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: flag of qnamespace_enums.KeyboardModifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
+    ///
     pub fn New5(modifiers: i64) QtC.QKeyCombination {
         return qtc.QKeyCombination_new5(@intCast(modifiers));
     }
 
     /// New6 constructs a new QKeyCombination object.
     ///
-    /// ``` param1: QtC.QKeyCombination ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QKeyCombination `
+    ///
     pub fn New6(param1: ?*anyopaque) QtC.QKeyCombination {
         return qtc.QKeyCombination_new6(@ptrCast(param1));
     }
 
     /// New7 constructs a new QKeyCombination object.
     ///
-    /// ``` key: qnamespace_enums.Key ```
+    /// ## Parameter(s):
+    ///
+    /// ` key: qnamespace_enums.Key `
+    ///
     pub fn New7(key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new7(@intCast(key));
     }
 
     /// New8 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: flag of qnamespace_enums.Modifier, key: qnamespace_enums.Key ```
+    /// ## Parameter(s):
+    ///
+    /// ` modifiers: flag of qnamespace_enums.Modifier `
+    ///
+    /// ` key: qnamespace_enums.Key `
+    ///
     pub fn New8(modifiers: i64, key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new8(@intCast(modifiers), @intCast(key));
     }
 
     /// New9 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: flag of qnamespace_enums.KeyboardModifier, key: qnamespace_enums.Key ```
+    /// ## Parameter(s):
+    ///
+    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
+    ///
+    /// ` key: qnamespace_enums.Key `
+    ///
     pub fn New9(modifiers: i64, key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new9(@intCast(modifiers), @intCast(key));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QKeyCombination, other: QtC.QKeyCombination ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QKeyCombination `
+    ///
+    /// ` other: QtC.QKeyCombination `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QKeyCombination_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QKeyCombination, other: QtC.QKeyCombination ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QKeyCombination `
+    ///
+    /// ` other: QtC.QKeyCombination `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QKeyCombination_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#keyboardModifiers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#keyboardModifiers)
     ///
-    /// ``` self: QtC.QKeyCombination ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
+    /// ` self: QtC.QKeyCombination `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.KeyboardModifier `
+    ///
     pub fn KeyboardModifiers(self: ?*anyopaque) i64 {
         return qtc.QKeyCombination_KeyboardModifiers(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#key)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#key)
     ///
-    /// ``` self: QtC.QKeyCombination ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.Key ```
+    /// ` self: QtC.QKeyCombination `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.Key `
+    ///
     pub fn Key(self: ?*anyopaque) i32 {
         return qtc.QKeyCombination_Key(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#fromCombined)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#fromCombined)
     ///
-    /// ``` combined: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` combined: i32 `
+    ///
     pub fn FromCombined(combined: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_FromCombined(@intCast(combined));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#toCombined)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#toCombined)
     ///
-    /// ``` self: QtC.QKeyCombination ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QKeyCombination `
+    ///
     pub fn ToCombined(self: ?*anyopaque) i32 {
         return qtc.QKeyCombination_ToCombined(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#operator)
     ///
-    /// ``` self: QtC.QKeyCombination ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QKeyCombination `
+    ///
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QKeyCombination_ToInt(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#dtor.QKeyCombination)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#dtor.QKeyCombination)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QKeyCombination ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QKeyCombination `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QKeyCombination_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qt.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qt.html#types)
 pub const enums = struct {
     pub const GlobalColor = enum {
         pub const Color0: i32 = 0;

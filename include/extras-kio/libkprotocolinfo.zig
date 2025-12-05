@@ -3,11 +3,14 @@ const qtc = @import("qt6c");
 const kprotocolinfo_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kprotocolinfo.html
+/// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html)
 pub const kprotocolinfo = struct {
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#protocols)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#protocols)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Protocols(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_Protocols();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -27,16 +30,22 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn IsKnownProtocol(url: ?*anyopaque) bool {
         return qtc.KProtocolInfo_IsKnownProtocol(@ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
     ///
-    /// ``` protocol: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
     pub fn IsKnownProtocol2(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -45,9 +54,14 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_IsKnownProtocol2(protocol_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#exec)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#exec)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Exec(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -60,9 +74,14 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#extraFields)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#extraFields)
     ///
-    /// ``` url: QtC.QUrl, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtraFields(url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KProtocolInfo__ExtraField {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_ExtraFields(@ptrCast(url));
         defer qtc.libqt_free(_arr.data);
@@ -72,16 +91,22 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#isHelperProtocol)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isHelperProtocol)
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn IsHelperProtocol(url: ?*anyopaque) bool {
         return qtc.KProtocolInfo_IsHelperProtocol(@ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#isHelperProtocol)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isHelperProtocol)
     ///
-    /// ``` protocol: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
     pub fn IsHelperProtocol2(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -90,16 +115,22 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_IsHelperProtocol2(protocol_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#isFilterProtocol)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isFilterProtocol)
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn IsFilterProtocol(url: ?*anyopaque) bool {
         return qtc.KProtocolInfo_IsFilterProtocol(@ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#isFilterProtocol)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isFilterProtocol)
     ///
-    /// ``` protocol: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
     pub fn IsFilterProtocol2(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -108,9 +139,14 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_IsFilterProtocol2(protocol_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#icon)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#icon)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Icon(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -123,9 +159,14 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#config)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#config)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Config(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -138,9 +179,12 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#maxWorkers)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#maxWorkers)
     ///
-    /// ``` protocol: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
     pub fn MaxWorkers(protocol: []const u8) i32 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -149,9 +193,12 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_MaxWorkers(protocol_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#maxWorkersPerHost)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#maxWorkersPerHost)
     ///
-    /// ``` protocol: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
     pub fn MaxWorkersPerHost(protocol: []const u8) i32 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -160,9 +207,12 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_MaxWorkersPerHost(protocol_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#determineMimetypeFromExtension)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#determineMimetypeFromExtension)
     ///
-    /// ``` protocol: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
     pub fn DetermineMimetypeFromExtension(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -171,9 +221,14 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_DetermineMimetypeFromExtension(protocol_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#defaultMimetype)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#defaultMimetype)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DefaultMimetype(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -186,9 +241,14 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#docPath)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#docPath)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DocPath(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -201,9 +261,14 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#protocolClass)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#protocolClass)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProtocolClass(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -216,9 +281,12 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#showFilePreview)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#showFilePreview)
     ///
-    /// ``` protocol: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
     pub fn ShowFilePreview(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -227,9 +295,14 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_ShowFilePreview(protocol_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#capabilities)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#capabilities)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Capabilities(protocol: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -253,9 +326,14 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#archiveMimetypes)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#archiveMimetypes)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ArchiveMimetypes(protocol: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -279,9 +357,14 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#proxiedBy)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#proxiedBy)
     ///
-    /// ``` protocol: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProxiedBy(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -294,9 +377,14 @@ pub const kprotocolinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
     ///
-    /// ``` protocol: []const u8, updateCacheIfNotfound: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` protocol: []const u8 `
+    ///
+    /// ` updateCacheIfNotfound: bool `
+    ///
     pub fn IsKnownProtocol22(protocol: []const u8, updateCacheIfNotfound: bool) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
@@ -305,20 +393,22 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_IsKnownProtocol22(protocol_str, updateCacheIfNotfound);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo.html#dtor.KProtocolInfo)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#dtor.KProtocolInfo)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KProtocolInfo ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KProtocolInfo `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KProtocolInfo_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kprotocolinfo-extrafield.html
+/// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html)
 pub const kprotocolinfo__extrafield = struct {
     /// New constructs a new KProtocolInfo::ExtraField object.
-    ///
     ///
     pub fn New() QtC.KProtocolInfo__ExtraField {
         return qtc.KProtocolInfo__ExtraField_new();
@@ -326,7 +416,12 @@ pub const kprotocolinfo__extrafield = struct {
 
     /// New2 constructs a new KProtocolInfo::ExtraField object.
     ///
-    /// ``` _name: []const u8, _type: kprotocolinfo_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` _name: []const u8 `
+    ///
+    /// ` _type: kprotocolinfo_enums.Type `
+    ///
     pub fn New2(_name: []const u8, _type: i32) QtC.KProtocolInfo__ExtraField {
         const _name_str = qtc.libqt_string{
             .len = _name.len,
@@ -338,14 +433,22 @@ pub const kprotocolinfo__extrafield = struct {
 
     /// New3 constructs a new KProtocolInfo::ExtraField object.
     ///
-    /// ``` param1: QtC.KProtocolInfo__ExtraField ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KProtocolInfo__ExtraField `
+    ///
     pub fn New3(param1: ?*anyopaque) QtC.KProtocolInfo__ExtraField {
         return qtc.KProtocolInfo__ExtraField_new3(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#name-var)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#name-var)
     ///
-    /// ``` self: QtC.KProtocolInfo__ExtraField, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProtocolInfo__ExtraField `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.KProtocolInfo__ExtraField_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
@@ -354,9 +457,14 @@ pub const kprotocolinfo__extrafield = struct {
         return name_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#name-var)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#name-var)
     ///
-    /// ``` self: QtC.KProtocolInfo__ExtraField, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProtocolInfo__ExtraField `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -365,38 +473,56 @@ pub const kprotocolinfo__extrafield = struct {
         qtc.KProtocolInfo__ExtraField_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
     ///
-    /// ``` self: QtC.KProtocolInfo__ExtraField ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kprotocolinfo_enums.Type ```
+    /// ` self: QtC.KProtocolInfo__ExtraField `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kprotocolinfo_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.KProtocolInfo__ExtraField_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
     ///
-    /// ``` self: QtC.KProtocolInfo__ExtraField, type: kprotocolinfo_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProtocolInfo__ExtraField `
+    ///
+    /// ` type: kprotocolinfo_enums.Type `
+    ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
         qtc.KProtocolInfo__ExtraField_SetType(@ptrCast(self), @intCast(_type));
     }
 
-    /// [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#operator-eq)
     ///
-    /// ``` self: QtC.KProtocolInfo__ExtraField, param1: QtC.KProtocolInfo__ExtraField ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProtocolInfo__ExtraField `
+    ///
+    /// ` param1: QtC.KProtocolInfo__ExtraField `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KProtocolInfo__ExtraField_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KProtocolInfo__ExtraField ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KProtocolInfo__ExtraField `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KProtocolInfo__ExtraField_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kprotocolinfo.html#types
+/// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const T_STREAM: i32 = 0;

@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qxmlstream_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qxmlstreamattribute.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html)
 pub const qxmlstreamattribute = struct {
     /// New constructs a new QXmlStreamAttribute object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamAttribute {
         return qtc.QXmlStreamAttribute_new();
@@ -14,7 +13,12 @@ pub const qxmlstreamattribute = struct {
 
     /// New2 constructs a new QXmlStreamAttribute object.
     ///
-    /// ``` qualifiedName: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn New2(qualifiedName: []const u8, value: []const u8) QtC.QXmlStreamAttribute {
         const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
@@ -30,7 +34,14 @@ pub const qxmlstreamattribute = struct {
 
     /// New3 constructs a new QXmlStreamAttribute object.
     ///
-    /// ``` namespaceUri: []const u8, name: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn New3(namespaceUri: []const u8, name: []const u8, value: []const u8) QtC.QXmlStreamAttribute {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -50,23 +61,32 @@ pub const qxmlstreamattribute = struct {
 
     /// New4 constructs a new QXmlStreamAttribute object.
     ///
-    /// ``` param1: QtC.QXmlStreamAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QXmlStreamAttribute `
+    ///
     pub fn New4(param1: ?*anyopaque) QtC.QXmlStreamAttribute {
         return qtc.QXmlStreamAttribute_new4(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#isDefault)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#isDefault)
     ///
-    /// ``` self: QtC.QXmlStreamAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamAttribute `
+    ///
     pub fn IsDefault(self: ?*anyopaque) bool {
         return qtc.QXmlStreamAttribute_IsDefault(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#dtor.QXmlStreamAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#dtor.QXmlStreamAttribute)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamAttribute ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamAttribute `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamAttribute_Delete(@ptrCast(self));
     }
@@ -74,18 +94,26 @@ pub const qxmlstreamattribute = struct {
 
 // Also inherits unprojectable QList<QXmlStreamAttribute>
 
-/// https://doc.qt.io/qt-6/qxmlstreamattributes.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html)
 pub const qxmlstreamattributes = struct {
     /// New constructs a new QXmlStreamAttributes object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamAttributes {
         return qtc.QXmlStreamAttributes_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#append)
     ///
-    /// ``` self: QtC.QXmlStreamAttributes, namespaceUri: []const u8, name: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamAttributes `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn Append(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, value: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -102,9 +130,16 @@ pub const qxmlstreamattributes = struct {
         qtc.QXmlStreamAttributes_Append(@ptrCast(self), namespaceUri_str, name_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#append)
     ///
-    /// ``` self: QtC.QXmlStreamAttributes, qualifiedName: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamAttributes `
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn Append2(self: ?*anyopaque, qualifiedName: []const u8, value: []const u8) void {
         const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
@@ -117,9 +152,14 @@ pub const qxmlstreamattributes = struct {
         qtc.QXmlStreamAttributes_Append2(@ptrCast(self), qualifiedName_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#hasAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#hasAttribute)
     ///
-    /// ``` self: QtC.QXmlStreamAttributes, qualifiedName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamAttributes `
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
     pub fn HasAttribute(self: ?*anyopaque, qualifiedName: []const u8) bool {
         const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
@@ -128,9 +168,16 @@ pub const qxmlstreamattributes = struct {
         return qtc.QXmlStreamAttributes_HasAttribute(@ptrCast(self), qualifiedName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#hasAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#hasAttribute)
     ///
-    /// ``` self: QtC.QXmlStreamAttributes, namespaceUri: []const u8, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamAttributes `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn HasAttribute2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) bool {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -143,20 +190,22 @@ pub const qxmlstreamattributes = struct {
         return qtc.QXmlStreamAttributes_HasAttribute2(@ptrCast(self), namespaceUri_str, name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#dtor.QXmlStreamAttributes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#dtor.QXmlStreamAttributes)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamAttributes ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamAttributes `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamAttributes_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html)
 pub const qxmlstreamnamespacedeclaration = struct {
     /// New constructs a new QXmlStreamNamespaceDeclaration object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamNamespaceDeclaration {
         return qtc.QXmlStreamNamespaceDeclaration_new();
@@ -164,7 +213,12 @@ pub const qxmlstreamnamespacedeclaration = struct {
 
     /// New2 constructs a new QXmlStreamNamespaceDeclaration object.
     ///
-    /// ``` prefix: []const u8, namespaceUri: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` prefix: []const u8 `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
     pub fn New2(prefix: []const u8, namespaceUri: []const u8) QtC.QXmlStreamNamespaceDeclaration {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -180,25 +234,30 @@ pub const qxmlstreamnamespacedeclaration = struct {
 
     /// New3 constructs a new QXmlStreamNamespaceDeclaration object.
     ///
-    /// ``` param1: QtC.QXmlStreamNamespaceDeclaration ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QXmlStreamNamespaceDeclaration `
+    ///
     pub fn New3(param1: ?*anyopaque) QtC.QXmlStreamNamespaceDeclaration {
         return qtc.QXmlStreamNamespaceDeclaration_new3(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html#dtor.QXmlStreamNamespaceDeclaration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html#dtor.QXmlStreamNamespaceDeclaration)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamNamespaceDeclaration ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamNamespaceDeclaration `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamNamespaceDeclaration_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html)
 pub const qxmlstreamnotationdeclaration = struct {
     /// New constructs a new QXmlStreamNotationDeclaration object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamNotationDeclaration {
         return qtc.QXmlStreamNotationDeclaration_new();
@@ -206,25 +265,30 @@ pub const qxmlstreamnotationdeclaration = struct {
 
     /// New2 constructs a new QXmlStreamNotationDeclaration object.
     ///
-    /// ``` param1: QtC.QXmlStreamNotationDeclaration ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QXmlStreamNotationDeclaration `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.QXmlStreamNotationDeclaration {
         return qtc.QXmlStreamNotationDeclaration_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html#dtor.QXmlStreamNotationDeclaration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html#dtor.QXmlStreamNotationDeclaration)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamNotationDeclaration ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamNotationDeclaration `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamNotationDeclaration_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html)
 pub const qxmlstreamentitydeclaration = struct {
     /// New constructs a new QXmlStreamEntityDeclaration object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamEntityDeclaration {
         return qtc.QXmlStreamEntityDeclaration_new();
@@ -232,33 +296,47 @@ pub const qxmlstreamentitydeclaration = struct {
 
     /// New2 constructs a new QXmlStreamEntityDeclaration object.
     ///
-    /// ``` param1: QtC.QXmlStreamEntityDeclaration ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QXmlStreamEntityDeclaration `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.QXmlStreamEntityDeclaration {
         return qtc.QXmlStreamEntityDeclaration_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#dtor.QXmlStreamEntityDeclaration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#dtor.QXmlStreamEntityDeclaration)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamEntityDeclaration ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamEntityDeclaration `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamEntityDeclaration_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qxmlstreamentityresolver.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html)
 pub const qxmlstreamentityresolver = struct {
     /// New constructs a new QXmlStreamEntityResolver object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamEntityResolver {
         return qtc.QXmlStreamEntityResolver_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamEntityResolver `
+    ///
+    /// ` publicId: []const u8 `
+    ///
+    /// ` systemId: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ResolveEntity(self: ?*anyopaque, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator) []const u8 {
         const publicId_str = qtc.libqt_string{
             .len = publicId.len,
@@ -275,20 +353,34 @@ pub const qxmlstreamentityresolver = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, callback: *const fn (self: QtC.QXmlStreamEntityResolver, publicId: [*:0]const u8, systemId: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QXmlStreamEntityResolver `
+    ///
+    /// ` callback: *const fn (self: QtC.QXmlStreamEntityResolver, publicId: [*:0]const u8, systemId: [*:0]const u8) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnResolveEntity(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.QXmlStreamEntityResolver_OnResolveEntity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamEntityResolver `
+    ///
+    /// ` publicId: []const u8 `
+    ///
+    /// ` systemId: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseResolveEntity(self: ?*anyopaque, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator) []const u8 {
         const publicId_str = qtc.libqt_string{
             .len = publicId.len,
@@ -305,9 +397,16 @@ pub const qxmlstreamentityresolver = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, name: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamEntityResolver `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ResolveUndeclaredEntity(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -320,20 +419,32 @@ pub const qxmlstreamentityresolver = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, callback: *const fn (self: QtC.QXmlStreamEntityResolver, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QXmlStreamEntityResolver `
+    ///
+    /// ` callback: *const fn (self: QtC.QXmlStreamEntityResolver, name: [*:0]const u8) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnResolveUndeclaredEntity(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.QXmlStreamEntityResolver_OnResolveUndeclaredEntity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, name: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamEntityResolver `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseResolveUndeclaredEntity(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -346,20 +457,22 @@ pub const qxmlstreamentityresolver = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#dtor.QXmlStreamEntityResolver)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#dtor.QXmlStreamEntityResolver)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamEntityResolver `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamEntityResolver_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qxmlstreamreader.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html)
 pub const qxmlstreamreader = struct {
     /// New constructs a new QXmlStreamReader object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamReader {
         return qtc.QXmlStreamReader_new();
@@ -367,14 +480,20 @@ pub const qxmlstreamreader = struct {
 
     /// New2 constructs a new QXmlStreamReader object.
     ///
-    /// ``` device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn New2(device: ?*anyopaque) QtC.QXmlStreamReader {
         return qtc.QXmlStreamReader_new2(@ptrCast(device));
     }
 
     /// New3 constructs a new QXmlStreamReader object.
     ///
-    /// ``` data: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` data: []const u8 `
+    ///
     pub fn New3(data: []const u8) QtC.QXmlStreamReader {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -384,23 +503,36 @@ pub const qxmlstreamreader = struct {
         return qtc.QXmlStreamReader_new3(data_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setDevice)
     ///
-    /// ``` self: QtC.QXmlStreamReader, device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QXmlStreamReader_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#device)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#device)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn Device(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QXmlStreamReader_Device(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#addData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#addData)
     ///
-    /// ``` self: QtC.QXmlStreamReader, data: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` data: []const u8 `
+    ///
     pub fn AddData(self: ?*anyopaque, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -409,55 +541,82 @@ pub const qxmlstreamreader = struct {
         qtc.QXmlStreamReader_AddData(@ptrCast(self), data_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#clear)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QXmlStreamReader_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#atEnd)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_AtEnd(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readNext)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readNext)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qxmlstream_enums.TokenType ```
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qxmlstream_enums.TokenType `
+    ///
     pub fn ReadNext(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamReader_ReadNext(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readNextStartElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readNextStartElement)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn ReadNextStartElement(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_ReadNextStartElement(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#skipCurrentElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#skipCurrentElement)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn SkipCurrentElement(self: ?*anyopaque) void {
         qtc.QXmlStreamReader_SkipCurrentElement(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#tokenType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#tokenType)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qxmlstream_enums.TokenType ```
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qxmlstream_enums.TokenType `
+    ///
     pub fn TokenType(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamReader_TokenType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#tokenString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#tokenString)
     ///
-    /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TokenString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_TokenString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -466,142 +625,206 @@ pub const qxmlstreamreader = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setNamespaceProcessing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setNamespaceProcessing)
     ///
-    /// ``` self: QtC.QXmlStreamReader, namespaceProcessing: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` namespaceProcessing: bool `
+    ///
     pub fn SetNamespaceProcessing(self: ?*anyopaque, namespaceProcessing: bool) void {
         qtc.QXmlStreamReader_SetNamespaceProcessing(@ptrCast(self), namespaceProcessing);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#namespaceProcessing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#namespaceProcessing)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn NamespaceProcessing(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_NamespaceProcessing(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isStartDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isStartDocument)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsStartDocument(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsStartDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isEndDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isEndDocument)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsEndDocument(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsEndDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isStartElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isStartElement)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsStartElement(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsStartElement(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isEndElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isEndElement)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsEndElement(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsEndElement(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isCharacters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isCharacters)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsCharacters(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsCharacters(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isWhitespace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isWhitespace)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsWhitespace(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsWhitespace(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isCDATA)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isCDATA)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsCDATA(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsCDATA(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isComment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isComment)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsComment(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsComment(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isDTD)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isDTD)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsDTD(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsDTD(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isEntityReference)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isEntityReference)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsEntityReference(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsEntityReference(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isProcessingInstruction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isProcessingInstruction)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsProcessingInstruction(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsProcessingInstruction(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isStandaloneDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#isStandaloneDocument)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn IsStandaloneDocument(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_IsStandaloneDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#hasStandaloneDeclaration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#hasStandaloneDeclaration)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn HasStandaloneDeclaration(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_HasStandaloneDeclaration(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#lineNumber)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#lineNumber)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn LineNumber(self: ?*anyopaque) i64 {
         return qtc.QXmlStreamReader_LineNumber(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#columnNumber)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#columnNumber)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn ColumnNumber(self: ?*anyopaque) i64 {
         return qtc.QXmlStreamReader_ColumnNumber(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#characterOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#characterOffset)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn CharacterOffset(self: ?*anyopaque) i64 {
         return qtc.QXmlStreamReader_CharacterOffset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#attributes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#attributes)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn Attributes(self: ?*anyopaque) QtC.QXmlStreamAttributes {
         return qtc.QXmlStreamReader_Attributes(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readElementText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readElementText)
     ///
-    /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadElementText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_ReadElementText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -610,9 +833,14 @@ pub const qxmlstreamreader = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#namespaceDeclarations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#namespaceDeclarations)
     ///
-    /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NamespaceDeclarations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QXmlStreamNamespaceDeclaration {
         const _arr: qtc.libqt_list = qtc.QXmlStreamReader_NamespaceDeclarations(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -622,16 +850,26 @@ pub const qxmlstreamreader = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#addExtraNamespaceDeclaration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#addExtraNamespaceDeclaration)
     ///
-    /// ``` self: QtC.QXmlStreamReader, extraNamespaceDeclaraction: QtC.QXmlStreamNamespaceDeclaration ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` extraNamespaceDeclaraction: QtC.QXmlStreamNamespaceDeclaration `
+    ///
     pub fn AddExtraNamespaceDeclaration(self: ?*anyopaque, extraNamespaceDeclaraction: ?*anyopaque) void {
         qtc.QXmlStreamReader_AddExtraNamespaceDeclaration(@ptrCast(self), @ptrCast(extraNamespaceDeclaraction));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#addExtraNamespaceDeclarations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#addExtraNamespaceDeclarations)
     ///
-    /// ``` self: QtC.QXmlStreamReader, extraNamespaceDeclaractions: []QtC.QXmlStreamNamespaceDeclaration ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` extraNamespaceDeclaractions: []QtC.QXmlStreamNamespaceDeclaration `
+    ///
     pub fn AddExtraNamespaceDeclarations(self: ?*anyopaque, extraNamespaceDeclaractions: []QtC.QXmlStreamNamespaceDeclaration) void {
         const extraNamespaceDeclaractions_list = qtc.libqt_list{
             .len = extraNamespaceDeclaractions.len,
@@ -640,9 +878,14 @@ pub const qxmlstreamreader = struct {
         qtc.QXmlStreamReader_AddExtraNamespaceDeclarations(@ptrCast(self), extraNamespaceDeclaractions_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#notationDeclarations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#notationDeclarations)
     ///
-    /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NotationDeclarations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QXmlStreamNotationDeclaration {
         const _arr: qtc.libqt_list = qtc.QXmlStreamReader_NotationDeclarations(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -652,9 +895,14 @@ pub const qxmlstreamreader = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#entityDeclarations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#entityDeclarations)
     ///
-    /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn EntityDeclarations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QXmlStreamEntityDeclaration {
         const _arr: qtc.libqt_list = qtc.QXmlStreamReader_EntityDeclarations(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -664,30 +912,46 @@ pub const qxmlstreamreader = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#entityExpansionLimit)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#entityExpansionLimit)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn EntityExpansionLimit(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamReader_EntityExpansionLimit(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setEntityExpansionLimit)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setEntityExpansionLimit)
     ///
-    /// ``` self: QtC.QXmlStreamReader, limit: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` limit: i32 `
+    ///
     pub fn SetEntityExpansionLimit(self: ?*anyopaque, limit: i32) void {
         qtc.QXmlStreamReader_SetEntityExpansionLimit(@ptrCast(self), @intCast(limit));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#raiseError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#raiseError)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn RaiseError(self: ?*anyopaque) void {
         qtc.QXmlStreamReader_RaiseError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#errorString)
     ///
-    /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -696,39 +960,62 @@ pub const qxmlstreamreader = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#error)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#error)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qxmlstream_enums.Error ```
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qxmlstream_enums.Error `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamReader_Error(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#hasError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#hasError)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn HasError(self: ?*anyopaque) bool {
         return qtc.QXmlStreamReader_HasError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setEntityResolver)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setEntityResolver)
     ///
-    /// ``` self: QtC.QXmlStreamReader, resolver: QtC.QXmlStreamEntityResolver ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` resolver: QtC.QXmlStreamEntityResolver `
+    ///
     pub fn SetEntityResolver(self: ?*anyopaque, resolver: ?*anyopaque) void {
         qtc.QXmlStreamReader_SetEntityResolver(@ptrCast(self), @ptrCast(resolver));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#entityResolver)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#entityResolver)
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn EntityResolver(self: ?*anyopaque) QtC.QXmlStreamEntityResolver {
         return qtc.QXmlStreamReader_EntityResolver(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readElementText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#readElementText)
     ///
-    /// ``` self: QtC.QXmlStreamReader, behaviour: qxmlstream_enums.ReadElementTextBehaviour, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` behaviour: qxmlstream_enums.ReadElementTextBehaviour `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadElementText1(self: ?*anyopaque, behaviour: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_ReadElementText1(@ptrCast(self), @intCast(behaviour));
         defer qtc.libqt_string_free(&_str);
@@ -737,9 +1024,14 @@ pub const qxmlstreamreader = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#raiseError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#raiseError)
     ///
-    /// ``` self: QtC.QXmlStreamReader, message: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
+    /// ` message: []const u8 `
+    ///
     pub fn RaiseError1(self: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -748,20 +1040,22 @@ pub const qxmlstreamreader = struct {
         qtc.QXmlStreamReader_RaiseError1(@ptrCast(self), message_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#dtor.QXmlStreamReader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#dtor.QXmlStreamReader)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamReader ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamReader `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamReader_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qxmlstreamwriter.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html)
 pub const qxmlstreamwriter = struct {
     /// New constructs a new QXmlStreamWriter object.
-    ///
     ///
     pub fn New() QtC.QXmlStreamWriter {
         return qtc.QXmlStreamWriter_new();
@@ -769,56 +1063,90 @@ pub const qxmlstreamwriter = struct {
 
     /// New2 constructs a new QXmlStreamWriter object.
     ///
-    /// ``` device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn New2(device: ?*anyopaque) QtC.QXmlStreamWriter {
         return qtc.QXmlStreamWriter_new2(@ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#setDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#setDevice)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QXmlStreamWriter_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#device)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#device)
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn Device(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QXmlStreamWriter_Device(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#setAutoFormatting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#setAutoFormatting)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, autoFormatting: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` autoFormatting: bool `
+    ///
     pub fn SetAutoFormatting(self: ?*anyopaque, autoFormatting: bool) void {
         qtc.QXmlStreamWriter_SetAutoFormatting(@ptrCast(self), autoFormatting);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#autoFormatting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#autoFormatting)
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn AutoFormatting(self: ?*anyopaque) bool {
         return qtc.QXmlStreamWriter_AutoFormatting(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#setAutoFormattingIndent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#setAutoFormattingIndent)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, spacesOrTabs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` spacesOrTabs: i32 `
+    ///
     pub fn SetAutoFormattingIndent(self: ?*anyopaque, spacesOrTabs: i32) void {
         qtc.QXmlStreamWriter_SetAutoFormattingIndent(@ptrCast(self), @intCast(spacesOrTabs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#autoFormattingIndent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#autoFormattingIndent)
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn AutoFormattingIndent(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamWriter_AutoFormattingIndent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn WriteAttribute(self: ?*anyopaque, qualifiedName: []const u8, value: []const u8) void {
         const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
@@ -831,9 +1159,18 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteAttribute(@ptrCast(self), qualifiedName_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn WriteAttribute2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, value: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -850,23 +1187,38 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteAttribute2(@ptrCast(self), namespaceUri_str, name_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, attribute: QtC.QXmlStreamAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` attribute: QtC.QXmlStreamAttribute `
+    ///
     pub fn WriteAttribute3(self: ?*anyopaque, attribute: ?*anyopaque) void {
         qtc.QXmlStreamWriter_WriteAttribute3(@ptrCast(self), @ptrCast(attribute));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttributes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttributes)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, attributes: QtC.QXmlStreamAttributes ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` attributes: QtC.QXmlStreamAttributes `
+    ///
     pub fn WriteAttributes(self: ?*anyopaque, attributes: ?*anyopaque) void {
         qtc.QXmlStreamWriter_WriteAttributes(@ptrCast(self), @ptrCast(attributes));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCDATA)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCDATA)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn WriteCDATA(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -875,9 +1227,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteCDATA(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCharacters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCharacters)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn WriteCharacters(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -886,9 +1243,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteCharacters(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeComment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeComment)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn WriteComment(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -897,9 +1259,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteComment(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeDTD)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeDTD)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, dtd: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` dtd: []const u8 `
+    ///
     pub fn WriteDTD(self: ?*anyopaque, dtd: []const u8) void {
         const dtd_str = qtc.libqt_string{
             .len = dtd.len,
@@ -908,9 +1275,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteDTD(@ptrCast(self), dtd_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEmptyElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEmptyElement)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
     pub fn WriteEmptyElement(self: ?*anyopaque, qualifiedName: []const u8) void {
         const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
@@ -919,9 +1291,16 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteEmptyElement(@ptrCast(self), qualifiedName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEmptyElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEmptyElement)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn WriteEmptyElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -934,9 +1313,16 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteEmptyElement2(@ptrCast(self), namespaceUri_str, name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeTextElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeTextElement)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn WriteTextElement(self: ?*anyopaque, qualifiedName: []const u8, text: []const u8) void {
         const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
@@ -949,9 +1335,18 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteTextElement(@ptrCast(self), qualifiedName_str, text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeTextElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeTextElement)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn WriteTextElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, text: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -968,23 +1363,34 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteTextElement2(@ptrCast(self), namespaceUri_str, name_str, text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEndDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEndDocument)
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn WriteEndDocument(self: ?*anyopaque) void {
         qtc.QXmlStreamWriter_WriteEndDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEndElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEndElement)
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn WriteEndElement(self: ?*anyopaque) void {
         qtc.QXmlStreamWriter_WriteEndElement(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEntityReference)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEntityReference)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn WriteEntityReference(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -993,9 +1399,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteEntityReference(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeNamespace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeNamespace)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
     pub fn WriteNamespace(self: ?*anyopaque, namespaceUri: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -1004,9 +1415,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteNamespace(@ptrCast(self), namespaceUri_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeDefaultNamespace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeDefaultNamespace)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
     pub fn WriteDefaultNamespace(self: ?*anyopaque, namespaceUri: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -1015,9 +1431,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteDefaultNamespace(@ptrCast(self), namespaceUri_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeProcessingInstruction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeProcessingInstruction)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, target: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` target: []const u8 `
+    ///
     pub fn WriteProcessingInstruction(self: ?*anyopaque, target: []const u8) void {
         const target_str = qtc.libqt_string{
             .len = target.len,
@@ -1026,16 +1447,24 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteProcessingInstruction(@ptrCast(self), target_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn WriteStartDocument(self: ?*anyopaque) void {
         qtc.QXmlStreamWriter_WriteStartDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, version: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` version: []const u8 `
+    ///
     pub fn WriteStartDocument2(self: ?*anyopaque, version: []const u8) void {
         const version_str = qtc.libqt_string{
             .len = version.len,
@@ -1044,9 +1473,16 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteStartDocument2(@ptrCast(self), version_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, version: []const u8, standalone: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` version: []const u8 `
+    ///
+    /// ` standalone: bool `
+    ///
     pub fn WriteStartDocument3(self: ?*anyopaque, version: []const u8, standalone: bool) void {
         const version_str = qtc.libqt_string{
             .len = version.len,
@@ -1055,9 +1491,14 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteStartDocument3(@ptrCast(self), version_str, standalone);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartElement)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
     pub fn WriteStartElement(self: ?*anyopaque, qualifiedName: []const u8) void {
         const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
@@ -1066,9 +1507,16 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteStartElement(@ptrCast(self), qualifiedName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartElement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartElement)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn WriteStartElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -1081,23 +1529,38 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteStartElement2(@ptrCast(self), namespaceUri_str, name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCurrentToken)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCurrentToken)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, reader: QtC.QXmlStreamReader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` reader: QtC.QXmlStreamReader `
+    ///
     pub fn WriteCurrentToken(self: ?*anyopaque, reader: ?*anyopaque) void {
         qtc.QXmlStreamWriter_WriteCurrentToken(@ptrCast(self), @ptrCast(reader));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#hasError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#hasError)
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn HasError(self: ?*anyopaque) bool {
         return qtc.QXmlStreamWriter_HasError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeNamespace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeNamespace)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn WriteNamespace2(self: ?*anyopaque, namespaceUri: []const u8, prefix: []const u8) void {
         const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
@@ -1110,9 +1573,16 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteNamespace2(@ptrCast(self), namespaceUri_str, prefix_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeProcessingInstruction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeProcessingInstruction)
     ///
-    /// ``` self: QtC.QXmlStreamWriter, target: []const u8, data: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
+    /// ` target: []const u8 `
+    ///
+    /// ` data: []const u8 `
+    ///
     pub fn WriteProcessingInstruction2(self: ?*anyopaque, target: []const u8, data: []const u8) void {
         const target_str = qtc.libqt_string{
             .len = target.len,
@@ -1125,17 +1595,20 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteProcessingInstruction2(@ptrCast(self), target_str, data_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#dtor.QXmlStreamWriter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#dtor.QXmlStreamWriter)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QXmlStreamWriter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QXmlStreamWriter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QXmlStreamWriter_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qxmlstream.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstream.html#public-types)
 pub const enums = struct {
     pub const TokenType = enum {
         pub const NoToken: i32 = 0;

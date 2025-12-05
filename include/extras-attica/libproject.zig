@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
-/// https://api.kde.org/attica-project.html
+/// ### [Upstream resources](https://api.kde.org/attica-project.html)
 pub const attica__project = struct {
     /// New constructs a new Attica::Project object.
-    ///
     ///
     pub fn New() QtC.Attica__Project {
         return qtc.Attica__Project_new();
@@ -14,21 +13,34 @@ pub const attica__project = struct {
 
     /// New2 constructs a new Attica::Project object.
     ///
-    /// ``` other: QtC.Attica__Project ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__Project `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__Project {
         return qtc.Attica__Project_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__Project, other: QtC.Attica__Project ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` other: QtC.Attica__Project `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Project_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setId)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setId)
     ///
-    /// ``` self: QtC.Attica__Project, id: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` id: []const u8 `
+    ///
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
@@ -37,9 +49,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#id)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#id)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -48,9 +65,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setName)
     ///
-    /// ``` self: QtC.Attica__Project, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -59,9 +81,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#name)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#name)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -70,9 +97,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setVersion)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setVersion)
     ///
-    /// ``` self: QtC.Attica__Project, version: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` version: []const u8 `
+    ///
     pub fn SetVersion(self: ?*anyopaque, version: []const u8) void {
         const version_str = qtc.libqt_string{
             .len = version.len,
@@ -81,9 +113,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetVersion(@ptrCast(self), version_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#version)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#version)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -92,9 +129,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setUrl)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setUrl)
     ///
-    /// ``` self: QtC.Attica__Project, url: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` url: []const u8 `
+    ///
     pub fn SetUrl(self: ?*anyopaque, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
@@ -103,9 +145,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetUrl(@ptrCast(self), url_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#url)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#url)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_Url(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -114,9 +161,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setLicense)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setLicense)
     ///
-    /// ``` self: QtC.Attica__Project, license: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` license: []const u8 `
+    ///
     pub fn SetLicense(self: ?*anyopaque, license: []const u8) void {
         const license_str = qtc.libqt_string{
             .len = license.len,
@@ -125,9 +177,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetLicense(@ptrCast(self), license_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#license)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#license)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_License(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -136,9 +193,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setSummary)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setSummary)
     ///
-    /// ``` self: QtC.Attica__Project, summary: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` summary: []const u8 `
+    ///
     pub fn SetSummary(self: ?*anyopaque, summary: []const u8) void {
         const summary_str = qtc.libqt_string{
             .len = summary.len,
@@ -147,9 +209,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetSummary(@ptrCast(self), summary_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#summary)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#summary)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_Summary(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -158,9 +225,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setDescription)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setDescription)
     ///
-    /// ``` self: QtC.Attica__Project, description: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` description: []const u8 `
+    ///
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
@@ -169,9 +241,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#description)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#description)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -180,9 +257,16 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setDevelopers)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setDevelopers)
     ///
-    /// ``` self: QtC.Attica__Project, developers: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` developers: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetDevelopers(self: ?*anyopaque, developers: [][]const u8, allocator: std.mem.Allocator) void {
         var developers_arr = allocator.alloc(qtc.libqt_string, developers.len) catch @panic("attica::project.SetDevelopers: Memory allocation failed");
         defer allocator.free(developers_arr);
@@ -199,9 +283,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetDevelopers(@ptrCast(self), developers_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#developers)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#developers)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Developers(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Project_Developers(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -221,9 +310,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setRequirements)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setRequirements)
     ///
-    /// ``` self: QtC.Attica__Project, requirements: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` requirements: []const u8 `
+    ///
     pub fn SetRequirements(self: ?*anyopaque, requirements: []const u8) void {
         const requirements_str = qtc.libqt_string{
             .len = requirements.len,
@@ -232,9 +326,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetRequirements(@ptrCast(self), requirements_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#requirements)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#requirements)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Requirements(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_Requirements(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -243,9 +342,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#setSpecFile)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#setSpecFile)
     ///
-    /// ``` self: QtC.Attica__Project, specFile: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` specFile: []const u8 `
+    ///
     pub fn SetSpecFile(self: ?*anyopaque, specFile: []const u8) void {
         const specFile_str = qtc.libqt_string{
             .len = specFile.len,
@@ -254,9 +358,14 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetSpecFile(@ptrCast(self), specFile_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#specFile)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#specFile)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SpecFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Project_SpecFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -265,9 +374,16 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#addExtendedAttribute)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#addExtendedAttribute)
     ///
-    /// ``` self: QtC.Attica__Project, key: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn AddExtendedAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -280,9 +396,16 @@ pub const attica__project = struct {
         qtc.Attica__Project_AddExtendedAttribute(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#extendedAttribute)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#extendedAttribute)
     ///
-    /// ``` self: QtC.Attica__Project, key: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtendedAttribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -295,9 +418,14 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#extendedAttributes)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#extendedAttributes)
     ///
-    /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.Attica__Project_ExtendedAttributes(@ptrCast(self));
         var _ret: map_constu8_constu8 = .empty;
@@ -321,16 +449,22 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-project.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/attica-project.html#isValid)
     ///
-    /// ``` self: QtC.Attica__Project ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Attica__Project_IsValid(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__Project ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__Project `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__Project_Delete(@ptrCast(self));
     }

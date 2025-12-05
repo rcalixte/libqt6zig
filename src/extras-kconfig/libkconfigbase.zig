@@ -3,11 +3,16 @@ const qtc = @import("qt6c");
 const kconfigbase_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kconfigbase.html
+/// ### [Upstream resources](https://api.kde.org/kconfigbase.html)
 pub const kconfigbase = struct {
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#groupList)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#groupList)
     ///
-    /// ``` self: QtC.KConfigBase, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KConfigBase_GroupList(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -27,9 +32,14 @@ pub const kconfigbase = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#hasGroup)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#hasGroup)
     ///
-    /// ``` self: QtC.KConfigBase, group: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ` group: []const u8 `
+    ///
     pub fn HasGroup(self: ?*anyopaque, group: []const u8) bool {
         const group_str = qtc.libqt_string{
             .len = group.len,
@@ -38,9 +48,14 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_HasGroup(@ptrCast(self), group_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
-    /// ``` self: QtC.KConfigBase, group: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ` group: []const u8 `
+    ///
     pub fn Group(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
         const group_str = qtc.libqt_string{
             .len = group.len,
@@ -49,9 +64,14 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_Group(@ptrCast(self), group_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
-    /// ``` self: QtC.KConfigBase, group: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ` group: []const u8 `
+    ///
     pub fn Group2(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
         const group_str = qtc.libqt_string{
             .len = group.len,
@@ -60,9 +80,14 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_Group2(@ptrCast(self), group_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
-    /// ``` self: QtC.KConfigBase, group: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ` group: []const u8 `
+    ///
     pub fn DeleteGroup(self: ?*anyopaque, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
@@ -71,39 +96,58 @@ pub const kconfigbase = struct {
         qtc.KConfigBase_DeleteGroup(@ptrCast(self), group_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#sync)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#sync)
     ///
-    /// ``` self: QtC.KConfigBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
     pub fn Sync(self: ?*anyopaque) bool {
         return qtc.KConfigBase_Sync(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#markAsClean)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#markAsClean)
     ///
-    /// ``` self: QtC.KConfigBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
     pub fn MarkAsClean(self: ?*anyopaque) void {
         qtc.KConfigBase_MarkAsClean(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#accessMode)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#accessMode)
     ///
-    /// ``` self: QtC.KConfigBase ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kconfigbase_enums.AccessMode ```
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kconfigbase_enums.AccessMode `
+    ///
     pub fn AccessMode(self: ?*anyopaque) i32 {
         return qtc.KConfigBase_AccessMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#isImmutable)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#isImmutable)
     ///
-    /// ``` self: QtC.KConfigBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
     pub fn IsImmutable(self: ?*anyopaque) bool {
         return qtc.KConfigBase_IsImmutable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#isGroupImmutable)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#isGroupImmutable)
     ///
-    /// ``` self: QtC.KConfigBase, group: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ` group: []const u8 `
+    ///
     pub fn IsGroupImmutable(self: ?*anyopaque, group: []const u8) bool {
         const group_str = qtc.libqt_string{
             .len = group.len,
@@ -112,9 +156,16 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_IsGroupImmutable(@ptrCast(self), group_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
-    /// ``` self: QtC.KConfigBase, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
+    /// ` group: []const u8 `
+    ///
+    /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
+    ///
     pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
@@ -123,17 +174,20 @@ pub const kconfigbase = struct {
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @intCast(flags));
     }
 
-    /// [Upstream resources](https://api.kde.org/kconfigbase.html#dtor.KConfigBase)
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#dtor.KConfigBase)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KConfigBase ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KConfigBase `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KConfigBase_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kconfigbase.html#types
+/// ### [Upstream resources](https://api.kde.org/kconfigbase.html#public-types)
 pub const enums = struct {
     pub const WriteConfigFlag = enum {
         pub const Persistent: i32 = 1;

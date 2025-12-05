@@ -4,10 +4,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html
+/// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
 pub const qscilexercmake = struct {
     /// New constructs a new QsciLexerCMake object.
-    ///
     ///
     pub fn New() QtC.QsciLexerCMake {
         return qtc.QsciLexerCMake_new();
@@ -15,46 +14,85 @@ pub const qscilexercmake = struct {
 
     /// New2 constructs a new QsciLexerCMake object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QsciLexerCMake {
         return qtc.QsciLexerCMake_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QsciLexerCMake_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QsciLexerCMake, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QsciLexerCMake_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QsciLexerCMake, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QsciLexerCMake, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -64,54 +102,87 @@ pub const qscilexercmake = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Language(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QsciLexerCMake_Language(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Lexer(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QsciLexerCMake_Lexer(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn DefaultColor(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_DefaultColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn DefaultFont(self: ?*anyopaque, style: i32) QtC.QFont {
         return qtc.QsciLexerCMake_DefaultFont(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn DefaultPaper(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_DefaultPaper(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, set: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` set: i32 `
+    ///
     pub fn Keywords(self: ?*anyopaque, set: i32) []const u8 {
         const _ret = qtc.QsciLexerCMake_Keywords(@ptrCast(self), @intCast(set));
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QsciLexerCMake_Description(@ptrCast(self), @intCast(style));
         defer qtc.libqt_string_free(&_str);
@@ -120,48 +191,76 @@ pub const qscilexercmake = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn RefreshProperties(self: ?*anyopaque) void {
         qtc.QsciLexerCMake_RefreshProperties(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn FoldAtElse(self: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_FoldAtElse(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, fold: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` fold: bool `
+    ///
     pub fn SetFoldAtElse(self: ?*anyopaque, fold: bool) void {
         qtc.QsciLexerCMake_SetFoldAtElse(@ptrCast(self), fold);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, fold: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, fold: bool) callconv(.c) void `
+    ///
     pub fn OnSetFoldAtElse(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnSetFoldAtElse(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QsciLexerCMake, fold: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` fold: bool `
+    ///
     pub fn QBaseSetFoldAtElse(self: ?*anyopaque, fold: bool) void {
         qtc.QsciLexerCMake_QBaseSetFoldAtElse(@ptrCast(self), fold);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn ReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -170,20 +269,32 @@ pub const qscilexercmake = struct {
         return qtc.QsciLexerCMake_ReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool `
+    ///
     pub fn OnReadProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnReadProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn QBaseReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -192,9 +303,16 @@ pub const qscilexercmake = struct {
         return qtc.QsciLexerCMake_QBaseReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn WriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -203,20 +321,32 @@ pub const qscilexercmake = struct {
         return qtc.QsciLexerCMake_WriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool `
+    ///
     pub fn OnWriteProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnWriteProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn QBaseWriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -225,9 +355,16 @@ pub const qscilexercmake = struct {
         return qtc.QsciLexerCMake_QBaseWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -238,9 +375,18 @@ pub const qscilexercmake = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -253,162 +399,256 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Apis(self: ?*anyopaque) QtC.QsciAbstractAPIs {
         return qtc.QsciLexer_Apis(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn AutoIndentStyle(self: ?*anyopaque) i32 {
         return qtc.QsciLexer_AutoIndentStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Editor(self: ?*anyopaque) QtC.QsciScintilla {
         return qtc.QsciLexer_Editor(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, apis: QtC.QsciAbstractAPIs ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` apis: QtC.QsciAbstractAPIs `
+    ///
     pub fn SetAPIs(self: ?*anyopaque, apis: ?*anyopaque) void {
         qtc.QsciLexer_SetAPIs(@ptrCast(self), @ptrCast(apis));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
     pub fn SetDefaultColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QsciLexer_SetDefaultColor(@ptrCast(self), @ptrCast(c));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, f: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` f: QtC.QFont `
+    ///
     pub fn SetDefaultFont(self: ?*anyopaque, f: ?*anyopaque) void {
         qtc.QsciLexer_SetDefaultFont(@ptrCast(self), @ptrCast(f));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
     pub fn SetDefaultPaper(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QsciLexer_SetDefaultPaper(@ptrCast(self), @ptrCast(c));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
     pub fn ReadSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
         return qtc.QsciLexer_ReadSettings(@ptrCast(self), @ptrCast(qs));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
     pub fn WriteSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
         return qtc.QsciLexer_WriteSettings(@ptrCast(self), @ptrCast(qs));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn ColorChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
         qtc.QsciLexer_ColorChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMakec: QtC.QColor, style: i32) callconv(.c) void `
+    ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, eolfilled: bool, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` eolfilled: bool `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn EolFillChanged(self: ?*anyopaque, eolfilled: bool, style: i32) void {
         qtc.QsciLexer_EolFillChanged(@ptrCast(self), eolfilled, @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, eolfilled: bool, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMakeeolfilled: bool, style: i32) callconv(.c) void `
+    ///
     pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` f: QtC.QFont `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn FontChanged(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
         qtc.QsciLexer_FontChanged(@ptrCast(self), @ptrCast(f), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMakef: QtC.QFont, style: i32) callconv(.c) void `
+    ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn PaperChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
         qtc.QsciLexer_PaperChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMakec: QtC.QColor, style: i32) callconv(.c) void `
+    ///
     pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, prop: []const u8, val: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` prop: []const u8 `
+    ///
+    /// ` val: []const u8 `
+    ///
     pub fn PropertyChanged(self: ?*anyopaque, prop: []const u8, val: []const u8) void {
         const prop_Cstring = prop.ptr;
         const val_Cstring = val.ptr;
@@ -417,18 +657,30 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMakeprop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
@@ -436,9 +688,16 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` qs: QtC.QSettings `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
@@ -446,9 +705,14 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QsciLexerCMake, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -459,9 +723,14 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QsciLexerCMake, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -472,99 +741,144 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QsciLexerCMake, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QsciLexerCMake, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QsciLexerCMake, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QsciLexerCMake, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QsciLexerCMake, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QsciLexerCMake, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -576,45 +890,78 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QsciLexerCMake, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QsciLexerCMake, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QsciLexerCMake, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QsciLexerCMake, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -623,45 +970,70 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QsciLexerCMake, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -669,9 +1041,14 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QsciLexerCMake, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -679,9 +1056,14 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QsciLexerCMake, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -703,54 +1085,76 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QsciLexerCMake, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -758,45 +1162,84 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QsciLexerCMake, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QsciLexerCMake, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QsciLexerCMake, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -805,62 +1248,86 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QsciLexerCMake, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMakeparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn LexerId(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_LexerId(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseLexerId(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseLexerId(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnLexerId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnLexerId(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn AutoCompletionFillups(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QsciLexerCMake_AutoCompletionFillups(@ptrCast(self));
         return std.mem.span(_ret);
@@ -868,11 +1335,14 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseAutoCompletionFillups(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QsciLexerCMake_QBaseAutoCompletionFillups(@ptrCast(self));
         return std.mem.span(_ret);
@@ -880,22 +1350,32 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnAutoCompletionFillups(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerCMake_OnAutoCompletionFillups(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerCMake_AutoCompletionWordSeparators(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -917,11 +1397,16 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseAutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerCMake_QBaseAutoCompletionWordSeparators(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -943,22 +1428,32 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    ///
     pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
         qtc.QsciLexerCMake_OnAutoCompletionWordSeparators(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: *i32 `
+    ///
     pub fn BlockEnd(self: ?*anyopaque, style: *i32) []const u8 {
         const _ret = qtc.QsciLexerCMake_BlockEnd(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
@@ -966,11 +1461,16 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: *i32 `
+    ///
     pub fn QBaseBlockEnd(self: ?*anyopaque, style: *i32) []const u8 {
         const _ret = qtc.QsciLexerCMake_QBaseBlockEnd(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
@@ -978,55 +1478,76 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnBlockEnd(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerCMake_OnBlockEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn BlockLookback(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_BlockLookback(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseBlockLookback(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseBlockLookback(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnBlockLookback(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnBlockLookback(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: *i32 `
+    ///
     pub fn BlockStart(self: ?*anyopaque, style: *i32) []const u8 {
         const _ret = qtc.QsciLexerCMake_BlockStart(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
@@ -1034,11 +1555,16 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: *i32 `
+    ///
     pub fn QBaseBlockStart(self: ?*anyopaque, style: *i32) []const u8 {
         const _ret = qtc.QsciLexerCMake_QBaseBlockStart(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
@@ -1046,22 +1572,32 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnBlockStart(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerCMake_OnBlockStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: *i32 `
+    ///
     pub fn BlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
         const _ret = qtc.QsciLexerCMake_BlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
@@ -1069,11 +1605,16 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: *i32 `
+    ///
     pub fn QBaseBlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
         const _ret = qtc.QsciLexerCMake_QBaseBlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
@@ -1081,484 +1622,682 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnBlockStartKeyword(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerCMake_OnBlockStartKeyword(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn BraceStyle(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_BraceStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseBraceStyle(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseBraceStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnBraceStyle(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnBraceStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn CaseSensitive(self: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_CaseSensitive(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseCaseSensitive(self: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_QBaseCaseSensitive(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnCaseSensitive(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnCaseSensitive(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn Color(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_Color(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseColor(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_QBaseColor(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    ///
     pub fn OnColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
         qtc.QsciLexerCMake_OnColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn EolFill(self: ?*anyopaque, style: i32) bool {
         return qtc.QsciLexerCMake_EolFill(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseEolFill(self: ?*anyopaque, style: i32) bool {
         return qtc.QsciLexerCMake_QBaseEolFill(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) bool `
+    ///
     pub fn OnEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn Font(self: ?*anyopaque, style: i32) QtC.QFont {
         return qtc.QsciLexerCMake_Font(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseFont(self: ?*anyopaque, style: i32) QtC.QFont {
         return qtc.QsciLexerCMake_QBaseFont(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QFont ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QFont `
+    ///
     pub fn OnFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
         qtc.QsciLexerCMake_OnFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn IndentationGuideView(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_IndentationGuideView(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseIndentationGuideView(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseIndentationGuideView(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnIndentationGuideView(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnIndentationGuideView(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn DefaultStyle(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_DefaultStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseDefaultStyle(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseDefaultStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnDefaultStyle(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnDefaultStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn Paper(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_Paper(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBasePaper(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_QBasePaper(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    ///
     pub fn OnPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
         qtc.QsciLexerCMake_OnPaper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn DefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_DefaultColor2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseDefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_QBaseDefaultColor2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    ///
     pub fn OnDefaultColor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
         qtc.QsciLexerCMake_OnDefaultColor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn DefaultEolFill(self: ?*anyopaque, style: i32) bool {
         return qtc.QsciLexerCMake_DefaultEolFill(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseDefaultEolFill(self: ?*anyopaque, style: i32) bool {
         return qtc.QsciLexerCMake_QBaseDefaultEolFill(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) bool `
+    ///
     pub fn OnDefaultEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnDefaultEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn DefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
         return qtc.QsciLexerCMake_DefaultFont2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseDefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
         return qtc.QsciLexerCMake_QBaseDefaultFont2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QFont ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QFont `
+    ///
     pub fn OnDefaultFont2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
         qtc.QsciLexerCMake_OnDefaultFont2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn DefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_DefaultPaper2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseDefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerCMake_QBaseDefaultPaper2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    ///
     pub fn OnDefaultPaper2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
         qtc.QsciLexerCMake_OnDefaultPaper2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, editor: QtC.QsciScintilla ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` editor: QtC.QsciScintilla `
+    ///
     pub fn SetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
         qtc.QsciLexerCMake_SetEditor(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, editor: QtC.QsciScintilla ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` editor: QtC.QsciScintilla `
+    ///
     pub fn QBaseSetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
         qtc.QsciLexerCMake_QBaseSetEditor(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, editor: QtC.QsciScintilla) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, editor: QtC.QsciScintilla) callconv(.c) void `
+    ///
     pub fn OnSetEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnSetEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn StyleBitsNeeded(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_StyleBitsNeeded(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseStyleBitsNeeded(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseStyleBitsNeeded(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnStyleBitsNeeded(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnStyleBitsNeeded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn WordCharacters(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QsciLexerCMake_WordCharacters(@ptrCast(self));
         return std.mem.span(_ret);
@@ -1566,11 +2305,14 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseWordCharacters(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QsciLexerCMake_QBaseWordCharacters(@ptrCast(self));
         return std.mem.span(_ret);
@@ -1578,418 +2320,630 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnWordCharacters(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerCMake_OnWordCharacters(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, autoindentstyle: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` autoindentstyle: i32 `
+    ///
     pub fn SetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
         qtc.QsciLexerCMake_SetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, autoindentstyle: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` autoindentstyle: i32 `
+    ///
     pub fn QBaseSetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
         qtc.QsciLexerCMake_QBaseSetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, autoindentstyle: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, autoindentstyle: i32) callconv(.c) void `
+    ///
     pub fn OnSetAutoIndentStyle(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnSetAutoIndentStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
         qtc.QsciLexerCMake_SetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseSetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
         qtc.QsciLexerCMake_QBaseSetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void `
+    ///
     pub fn OnSetColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnSetColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, eoffill: bool, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` eoffill: bool `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn SetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
         qtc.QsciLexerCMake_SetEolFill(@ptrCast(self), eoffill, @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, eoffill: bool, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` eoffill: bool `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseSetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
         qtc.QsciLexerCMake_QBaseSetEolFill(@ptrCast(self), eoffill, @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, eoffill: bool, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, eoffill: bool, style: i32) callconv(.c) void `
+    ///
     pub fn OnSetEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnSetEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` f: QtC.QFont `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
         qtc.QsciLexerCMake_SetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` f: QtC.QFont `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseSetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
         qtc.QsciLexerCMake_QBaseSetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32) callconv(.c) void `
+    ///
     pub fn OnSetFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnSetFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn SetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
         qtc.QsciLexerCMake_SetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` c: QtC.QColor `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn QBaseSetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
         qtc.QsciLexerCMake_QBaseSetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void `
+    ///
     pub fn OnSetPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnSetPaper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QsciLexerCMake_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QsciLexerCMake_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QsciLexerCMake_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QsciLexerCMake_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QsciLexerCMake_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QsciLexerCMake_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QsciLexerCMake_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QsciLexerCMake_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QsciLexerCMake_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QsciLexerCMake_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciLexerCMake_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, text: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2004,11 +2958,18 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, text: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseTextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2023,22 +2984,36 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, text: [*:0]const u8) callconv(.c) [*:0]u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, text: [*:0]const u8) callconv(.c) [*:0]u8 `
+    ///
     pub fn OnTextAsBytes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
         qtc.QsciLexerCMake_OnTextAsBytes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, bytes: []const u8, size: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` bytes: []const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
         const _str = qtc.QsciLexerCMake_BytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
@@ -2050,11 +3025,20 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, bytes: []const u8, size: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` bytes: []const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
         const _str = qtc.QsciLexerCMake_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
@@ -2066,88 +3050,120 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnBytesAsText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerCMake_OnBytesAsText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QsciLexerCMake_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QsciLexerCMake_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QsciLexerCMake_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QsciLexerCMake_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciLexerCMake_Receivers(@ptrCast(self), signal_Cstring);
@@ -2155,11 +3171,16 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciLexerCMake_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2167,64 +3188,92 @@ pub const qscilexercmake = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QsciLexerCMake_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QsciLexerCMake_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake`
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QsciLexerCMake_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QsciLexerCMake, callback: *const fn (self: QtC.QsciLexerCMake, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
+    /// ` callback: *const fn (self: QtC.QsciLexerCMakeobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QsciLexerCMake ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QsciLexerCMake `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QsciLexerCMake_Delete(@ptrCast(self));
     }

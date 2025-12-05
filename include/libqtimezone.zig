@@ -5,10 +5,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qtimezone_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qtimezone.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html)
 pub const qtimezone = struct {
     /// New constructs a new QTimeZone object.
-    ///
     ///
     pub fn New() QtC.QTimeZone {
         return qtc.QTimeZone_new();
@@ -16,21 +15,30 @@ pub const qtimezone = struct {
 
     /// New2 constructs a new QTimeZone object.
     ///
-    /// ``` spec: qtimezone_enums.Initialization ```
+    /// ## Parameter(s):
+    ///
+    /// ` spec: qtimezone_enums.Initialization `
+    ///
     pub fn New2(spec: i32) QtC.QTimeZone {
         return qtc.QTimeZone_new2(@intCast(spec));
     }
 
     /// New3 constructs a new QTimeZone object.
     ///
-    /// ``` offsetSeconds: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` offsetSeconds: i32 `
+    ///
     pub fn New3(offsetSeconds: i32) QtC.QTimeZone {
         return qtc.QTimeZone_new3(@intCast(offsetSeconds));
     }
 
     /// New4 constructs a new QTimeZone object.
     ///
-    /// ``` ianaId: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` ianaId: []u8 `
+    ///
     pub fn New4(ianaId: []u8) QtC.QTimeZone {
         const ianaId_str = qtc.libqt_string{
             .len = ianaId.len,
@@ -42,7 +50,16 @@ pub const qtimezone = struct {
 
     /// New5 constructs a new QTimeZone object.
     ///
-    /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` zoneId: []u8 `
+    ///
+    /// ` offsetSeconds: i32 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` abbreviation: []const u8 `
+    ///
     pub fn New5(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8) QtC.QTimeZone {
         const zoneId_str = qtc.libqt_string{
             .len = zoneId.len,
@@ -62,14 +79,28 @@ pub const qtimezone = struct {
 
     /// New6 constructs a new QTimeZone object.
     ///
-    /// ``` other: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QTimeZone `
+    ///
     pub fn New6(other: ?*anyopaque) QtC.QTimeZone {
         return qtc.QTimeZone_new6(@ptrCast(other));
     }
 
     /// New7 constructs a new QTimeZone object.
     ///
-    /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: qlocale_enums.Country ```
+    /// ## Parameter(s):
+    ///
+    /// ` zoneId: []u8 `
+    ///
+    /// ` offsetSeconds: i32 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` abbreviation: []const u8 `
+    ///
+    /// ` territory: qlocale_enums.Country `
+    ///
     pub fn New7(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: u16) QtC.QTimeZone {
         const zoneId_str = qtc.libqt_string{
             .len = zoneId.len,
@@ -89,7 +120,20 @@ pub const qtimezone = struct {
 
     /// New8 constructs a new QTimeZone object.
     ///
-    /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: qlocale_enums.Country, comment: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` zoneId: []u8 `
+    ///
+    /// ` offsetSeconds: i32 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` abbreviation: []const u8 `
+    ///
+    /// ` territory: qlocale_enums.Country `
+    ///
+    /// ` comment: []const u8 `
+    ///
     pub fn New8(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: u16, comment: []const u8) QtC.QTimeZone {
         const zoneId_str = qtc.libqt_string{
             .len = zoneId.len,
@@ -111,74 +155,112 @@ pub const qtimezone = struct {
         return qtc.QTimeZone_new8(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory), comment_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#operator-eq)
     ///
-    /// ``` self: QtC.QTimeZone, other: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` other: QtC.QTimeZone `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QTimeZone_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#swap)
     ///
-    /// ``` self: QtC.QTimeZone, other: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` other: QtC.QTimeZone `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QTimeZone_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isValid)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QTimeZone_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#fromSecondsAheadOfUtc)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#fromSecondsAheadOfUtc)
     ///
-    /// ``` offset: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` offset: i32 `
+    ///
     pub fn FromSecondsAheadOfUtc(offset: i32) QtC.QTimeZone {
         return qtc.QTimeZone_FromSecondsAheadOfUtc(@intCast(offset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#timeSpec)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#timeSpec)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.TimeSpec ```
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.TimeSpec `
+    ///
     pub fn TimeSpec(self: ?*anyopaque) i32 {
         return qtc.QTimeZone_TimeSpec(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#fixedSecondsAheadOfUtc)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#fixedSecondsAheadOfUtc)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
     pub fn FixedSecondsAheadOfUtc(self: ?*anyopaque) i32 {
         return qtc.QTimeZone_FixedSecondsAheadOfUtc(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset)
     ///
-    /// ``` spec: qnamespace_enums.TimeSpec ```
+    /// ## Parameter(s):
+    ///
+    /// ` spec: qnamespace_enums.TimeSpec `
+    ///
     pub fn IsUtcOrFixedOffset(spec: i32) bool {
         return qtc.QTimeZone_IsUtcOrFixedOffset(@intCast(spec));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
     pub fn IsUtcOrFixedOffset2(self: ?*anyopaque) bool {
         return qtc.QTimeZone_IsUtcOrFixedOffset2(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#asBackendZone)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#asBackendZone)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
     pub fn AsBackendZone(self: ?*anyopaque) QtC.QTimeZone {
         return qtc.QTimeZone_AsBackendZone(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#hasAlternativeName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#hasAlternativeName)
     ///
-    /// ``` self: QtC.QTimeZone, alias: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` alias: []const u8 `
+    ///
     pub fn HasAlternativeName(self: ?*anyopaque, alias: []const u8) bool {
         const alias_str = qtc.libqt_string{
             .len = alias.len,
@@ -187,9 +269,14 @@ pub const qtimezone = struct {
         return qtc.QTimeZone_HasAlternativeName(@ptrCast(self), alias_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#id)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#id)
     ///
-    /// ``` self: QtC.QTimeZone, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QTimeZone_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -198,27 +285,42 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#territory)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#territory)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qlocale_enums.Country ```
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlocale_enums.Country `
+    ///
     pub fn Territory(self: ?*anyopaque) u16 {
         return qtc.QTimeZone_Territory(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#country)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#country)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qlocale_enums.Country ```
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlocale_enums.Country `
+    ///
     pub fn Country(self: ?*anyopaque) u16 {
         return qtc.QTimeZone_Country(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#comment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#comment)
     ///
-    /// ``` self: QtC.QTimeZone, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_Comment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -227,9 +329,16 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName(self: ?*anyopaque, atDateTime: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_DisplayName(@ptrCast(self), @ptrCast(atDateTime));
         defer qtc.libqt_string_free(&_str);
@@ -238,9 +347,16 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
     ///
-    /// ``` self: QtC.QTimeZone, timeType: qtimezone_enums.TimeType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` timeType: qtimezone_enums.TimeType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName2(self: ?*anyopaque, timeType: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_DisplayName2(@ptrCast(self), @intCast(timeType));
         defer qtc.libqt_string_free(&_str);
@@ -249,9 +365,16 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#abbreviation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#abbreviation)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Abbreviation(self: ?*anyopaque, atDateTime: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_Abbreviation(@ptrCast(self), @ptrCast(atDateTime));
         defer qtc.libqt_string_free(&_str);
@@ -260,72 +383,122 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#offsetFromUtc)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#offsetFromUtc)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
     pub fn OffsetFromUtc(self: ?*anyopaque, atDateTime: ?*anyopaque) i32 {
         return qtc.QTimeZone_OffsetFromUtc(@ptrCast(self), @ptrCast(atDateTime));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#standardTimeOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#standardTimeOffset)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
     pub fn StandardTimeOffset(self: ?*anyopaque, atDateTime: ?*anyopaque) i32 {
         return qtc.QTimeZone_StandardTimeOffset(@ptrCast(self), @ptrCast(atDateTime));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#daylightTimeOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#daylightTimeOffset)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
     pub fn DaylightTimeOffset(self: ?*anyopaque, atDateTime: ?*anyopaque) i32 {
         return qtc.QTimeZone_DaylightTimeOffset(@ptrCast(self), @ptrCast(atDateTime));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#hasDaylightTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#hasDaylightTime)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
     pub fn HasDaylightTime(self: ?*anyopaque) bool {
         return qtc.QTimeZone_HasDaylightTime(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isDaylightTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isDaylightTime)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
     pub fn IsDaylightTime(self: ?*anyopaque, atDateTime: ?*anyopaque) bool {
         return qtc.QTimeZone_IsDaylightTime(@ptrCast(self), @ptrCast(atDateTime));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#offsetData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#offsetData)
     ///
-    /// ``` self: QtC.QTimeZone, forDateTime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` forDateTime: QtC.QDateTime `
+    ///
     pub fn OffsetData(self: ?*anyopaque, forDateTime: ?*anyopaque) QtC.QTimeZone__OffsetData {
         return qtc.QTimeZone_OffsetData(@ptrCast(self), @ptrCast(forDateTime));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#hasTransitions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#hasTransitions)
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
     pub fn HasTransitions(self: ?*anyopaque) bool {
         return qtc.QTimeZone_HasTransitions(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#nextTransition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#nextTransition)
     ///
-    /// ``` self: QtC.QTimeZone, afterDateTime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` afterDateTime: QtC.QDateTime `
+    ///
     pub fn NextTransition(self: ?*anyopaque, afterDateTime: ?*anyopaque) QtC.QTimeZone__OffsetData {
         return qtc.QTimeZone_NextTransition(@ptrCast(self), @ptrCast(afterDateTime));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#previousTransition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#previousTransition)
     ///
-    /// ``` self: QtC.QTimeZone, beforeDateTime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` beforeDateTime: QtC.QDateTime `
+    ///
     pub fn PreviousTransition(self: ?*anyopaque, beforeDateTime: ?*anyopaque) QtC.QTimeZone__OffsetData {
         return qtc.QTimeZone_PreviousTransition(@ptrCast(self), @ptrCast(beforeDateTime));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#transitions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#transitions)
     ///
-    /// ``` self: QtC.QTimeZone, fromDateTime: QtC.QDateTime, toDateTime: QtC.QDateTime, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` fromDateTime: QtC.QDateTime `
+    ///
+    /// ` toDateTime: QtC.QDateTime `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Transitions(self: ?*anyopaque, fromDateTime: ?*anyopaque, toDateTime: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTimeZone__OffsetData {
         const _arr: qtc.libqt_list = qtc.QTimeZone_Transitions(@ptrCast(self), @ptrCast(fromDateTime), @ptrCast(toDateTime));
         defer qtc.libqt_free(_arr.data);
@@ -335,9 +508,12 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#systemTimeZoneId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#systemTimeZoneId)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SystemTimeZoneId(allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QTimeZone_SystemTimeZoneId();
         defer qtc.libqt_string_free(&_bytearray);
@@ -346,23 +522,24 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#systemTimeZone)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#systemTimeZone)
     ///
     pub fn SystemTimeZone() QtC.QTimeZone {
         return qtc.QTimeZone_SystemTimeZone();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#utc)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#utc)
     ///
     pub fn Utc() QtC.QTimeZone {
         return qtc.QTimeZone_Utc();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isTimeZoneIdAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isTimeZoneIdAvailable)
     ///
-    /// ``` ianaId: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` ianaId: []u8 `
+    ///
     pub fn IsTimeZoneIdAvailable(ianaId: []u8) bool {
         const ianaId_str = qtc.libqt_string{
             .len = ianaId.len,
@@ -371,9 +548,12 @@ pub const qtimezone = struct {
         return qtc.QTimeZone_IsTimeZoneIdAvailable(ianaId_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AvailableTimeZoneIds(allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QTimeZone_AvailableTimeZoneIds();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -393,9 +573,14 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds)
     ///
-    /// ``` territory: qlocale_enums.Country, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` territory: qlocale_enums.Country `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AvailableTimeZoneIds2(territory: u16, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QTimeZone_AvailableTimeZoneIds2(@intCast(territory));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -415,9 +600,14 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds)
     ///
-    /// ``` offsetSeconds: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` offsetSeconds: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AvailableTimeZoneIds3(offsetSeconds: i32, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QTimeZone_AvailableTimeZoneIds3(@intCast(offsetSeconds));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -437,9 +627,14 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#ianaIdToWindowsId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#ianaIdToWindowsId)
     ///
-    /// ``` ianaId: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` ianaId: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IanaIdToWindowsId(ianaId: []u8, allocator: std.mem.Allocator) []u8 {
         const ianaId_str = qtc.libqt_string{
             .len = ianaId.len,
@@ -452,9 +647,14 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToDefaultIanaId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToDefaultIanaId)
     ///
-    /// ``` windowsId: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` windowsId: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowsIdToDefaultIanaId(windowsId: []u8, allocator: std.mem.Allocator) []u8 {
         const windowsId_str = qtc.libqt_string{
             .len = windowsId.len,
@@ -467,9 +667,16 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToDefaultIanaId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToDefaultIanaId)
     ///
-    /// ``` windowsId: []u8, territory: qlocale_enums.Country, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` windowsId: []u8 `
+    ///
+    /// ` territory: qlocale_enums.Country `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowsIdToDefaultIanaId2(windowsId: []u8, territory: u16, allocator: std.mem.Allocator) []u8 {
         const windowsId_str = qtc.libqt_string{
             .len = windowsId.len,
@@ -482,9 +689,14 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToIanaIds)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToIanaIds)
     ///
-    /// ``` windowsId: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` windowsId: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowsIdToIanaIds(windowsId: []u8, allocator: std.mem.Allocator) [][]u8 {
         const windowsId_str = qtc.libqt_string{
             .len = windowsId.len,
@@ -508,9 +720,16 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToIanaIds)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#windowsIdToIanaIds)
     ///
-    /// ``` windowsId: []u8, territory: qlocale_enums.Country, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` windowsId: []u8 `
+    ///
+    /// ` territory: qlocale_enums.Country `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowsIdToIanaIds2(windowsId: []u8, territory: u16, allocator: std.mem.Allocator) [][]u8 {
         const windowsId_str = qtc.libqt_string{
             .len = windowsId.len,
@@ -534,9 +753,18 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime, nameType: qtimezone_enums.NameType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
+    /// ` nameType: qtimezone_enums.NameType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName22(self: ?*anyopaque, atDateTime: ?*anyopaque, nameType: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_DisplayName22(@ptrCast(self), @ptrCast(atDateTime), @intCast(nameType));
         defer qtc.libqt_string_free(&_str);
@@ -545,9 +773,20 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
     ///
-    /// ``` self: QtC.QTimeZone, atDateTime: QtC.QDateTime, nameType: qtimezone_enums.NameType, locale: QtC.QLocale, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` atDateTime: QtC.QDateTime `
+    ///
+    /// ` nameType: qtimezone_enums.NameType `
+    ///
+    /// ` locale: QtC.QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName3(self: ?*anyopaque, atDateTime: ?*anyopaque, nameType: i32, locale: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_DisplayName3(@ptrCast(self), @ptrCast(atDateTime), @intCast(nameType), @ptrCast(locale));
         defer qtc.libqt_string_free(&_str);
@@ -556,9 +795,18 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
     ///
-    /// ``` self: QtC.QTimeZone, timeType: qtimezone_enums.TimeType, nameType: qtimezone_enums.NameType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` timeType: qtimezone_enums.TimeType `
+    ///
+    /// ` nameType: qtimezone_enums.NameType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName23(self: ?*anyopaque, timeType: i32, nameType: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_DisplayName23(@ptrCast(self), @intCast(timeType), @intCast(nameType));
         defer qtc.libqt_string_free(&_str);
@@ -567,9 +815,20 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#displayName)
     ///
-    /// ``` self: QtC.QTimeZone, timeType: qtimezone_enums.TimeType, nameType: qtimezone_enums.NameType, locale: QtC.QLocale, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
+    /// ` timeType: qtimezone_enums.TimeType `
+    ///
+    /// ` nameType: qtimezone_enums.NameType `
+    ///
+    /// ` locale: QtC.QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName32(self: ?*anyopaque, timeType: i32, nameType: i32, locale: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeZone_DisplayName32(@ptrCast(self), @intCast(timeType), @intCast(nameType), @ptrCast(locale));
         defer qtc.libqt_string_free(&_str);
@@ -578,35 +837,45 @@ pub const qtimezone = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#dtor.QTimeZone)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#dtor.QTimeZone)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QTimeZone ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QTimeZone `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QTimeZone_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qtimezone-offsetdata.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html)
 pub const qtimezone__offsetdata = struct {
     /// New constructs a new QTimeZone::OffsetData object.
     ///
-    /// ``` param1: QtC.QTimeZone__OffsetData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QTimeZone__OffsetData `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.QTimeZone__OffsetData {
         return qtc.QTimeZone__OffsetData_new(@ptrCast(param1));
     }
 
     /// New2 constructs a new QTimeZone::OffsetData object.
     ///
-    ///
     pub fn New2() QtC.QTimeZone__OffsetData {
         return qtc.QTimeZone__OffsetData_new2();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#abbreviation-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#abbreviation-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Abbreviation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const abbreviation_str = qtc.QTimeZone__OffsetData_Abbreviation(@ptrCast(self));
         defer qtc.libqt_string_free(&abbreviation_str);
@@ -615,9 +884,14 @@ pub const qtimezone__offsetdata = struct {
         return abbreviation_ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#abbreviation-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#abbreviation-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData, abbreviation: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
+    /// ` abbreviation: []const u8 `
+    ///
     pub fn SetAbbreviation(self: ?*anyopaque, abbreviation: []const u8) void {
         const abbreviation_str = qtc.libqt_string{
             .len = abbreviation.len,
@@ -626,78 +900,118 @@ pub const qtimezone__offsetdata = struct {
         qtc.QTimeZone__OffsetData_SetAbbreviation(@ptrCast(self), abbreviation_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#atUtc-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#atUtc-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
     pub fn AtUtc(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QTimeZone__OffsetData_AtUtc(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#atUtc-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#atUtc-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData, atUtc: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
+    /// ` atUtc: QtC.QDateTime `
+    ///
     pub fn SetAtUtc(self: ?*anyopaque, atUtc: QtC.QDateTime) void {
         qtc.QTimeZone__OffsetData_SetAtUtc(@ptrCast(self), @ptrCast(atUtc));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#offsetFromUtc-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#offsetFromUtc-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
     pub fn OffsetFromUtc(self: ?*anyopaque) i32 {
         return qtc.QTimeZone__OffsetData_OffsetFromUtc(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#offsetFromUtc-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#offsetFromUtc-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData, offsetFromUtc: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
+    /// ` offsetFromUtc: i32 `
+    ///
     pub fn SetOffsetFromUtc(self: ?*anyopaque, offsetFromUtc: i32) void {
         qtc.QTimeZone__OffsetData_SetOffsetFromUtc(@ptrCast(self), @intCast(offsetFromUtc));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#standardTimeOffset-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#standardTimeOffset-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
     pub fn StandardTimeOffset(self: ?*anyopaque) i32 {
         return qtc.QTimeZone__OffsetData_StandardTimeOffset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#standardTimeOffset-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#standardTimeOffset-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData, standardTimeOffset: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
+    /// ` standardTimeOffset: i32 `
+    ///
     pub fn SetStandardTimeOffset(self: ?*anyopaque, standardTimeOffset: i32) void {
         qtc.QTimeZone__OffsetData_SetStandardTimeOffset(@ptrCast(self), @intCast(standardTimeOffset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#daylightTimeOffset-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#daylightTimeOffset-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
     pub fn DaylightTimeOffset(self: ?*anyopaque) i32 {
         return qtc.QTimeZone__OffsetData_DaylightTimeOffset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#daylightTimeOffset-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#daylightTimeOffset-var)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData, daylightTimeOffset: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
+    /// ` daylightTimeOffset: i32 `
+    ///
     pub fn SetDaylightTimeOffset(self: ?*anyopaque, daylightTimeOffset: i32) void {
         qtc.QTimeZone__OffsetData_SetDaylightTimeOffset(@ptrCast(self), @intCast(daylightTimeOffset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#operator-eq)
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData, param1: QtC.QTimeZone__OffsetData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
+    /// ` param1: QtC.QTimeZone__OffsetData `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QTimeZone__OffsetData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QTimeZone__OffsetData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QTimeZone__OffsetData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QTimeZone__OffsetData_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qtimezone.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#public-types)
 pub const enums = struct {
     pub const Initialization = enum {
         pub const LocalTime: i32 = 0;

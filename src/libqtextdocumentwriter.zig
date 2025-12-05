@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qtextdocumentwriter.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html)
 pub const qtextdocumentwriter = struct {
     /// New constructs a new QTextDocumentWriter object.
-    ///
     ///
     pub fn New() QtC.QTextDocumentWriter {
         return qtc.QTextDocumentWriter_new();
@@ -13,7 +12,12 @@ pub const qtextdocumentwriter = struct {
 
     /// New2 constructs a new QTextDocumentWriter object.
     ///
-    /// ``` device: QtC.QIODevice, format: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` format: []u8 `
+    ///
     pub fn New2(device: ?*anyopaque, format: []u8) QtC.QTextDocumentWriter {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -25,7 +29,10 @@ pub const qtextdocumentwriter = struct {
 
     /// New3 constructs a new QTextDocumentWriter object.
     ///
-    /// ``` fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn New3(fileName: []const u8) QtC.QTextDocumentWriter {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -37,7 +44,12 @@ pub const qtextdocumentwriter = struct {
 
     /// New4 constructs a new QTextDocumentWriter object.
     ///
-    /// ``` fileName: []const u8, format: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` format: []u8 `
+    ///
     pub fn New4(fileName: []const u8, format: []u8) QtC.QTextDocumentWriter {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -51,9 +63,14 @@ pub const qtextdocumentwriter = struct {
         return qtc.QTextDocumentWriter_new4(fileName_str, format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#setFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#setFormat)
     ///
-    /// ``` self: QtC.QTextDocumentWriter, format: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
+    /// ` format: []u8 `
+    ///
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -62,9 +79,14 @@ pub const qtextdocumentwriter = struct {
         qtc.QTextDocumentWriter_SetFormat(@ptrCast(self), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#format)
     ///
-    /// ``` self: QtC.QTextDocumentWriter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QTextDocumentWriter_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -73,23 +95,36 @@ pub const qtextdocumentwriter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#setDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#setDevice)
     ///
-    /// ``` self: QtC.QTextDocumentWriter, device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QTextDocumentWriter_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#device)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#device)
     ///
-    /// ``` self: QtC.QTextDocumentWriter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
     pub fn Device(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QTextDocumentWriter_Device(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#setFileName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#setFileName)
     ///
-    /// ``` self: QtC.QTextDocumentWriter, fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -98,9 +133,14 @@ pub const qtextdocumentwriter = struct {
         qtc.QTextDocumentWriter_SetFileName(@ptrCast(self), fileName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#fileName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#fileName)
     ///
-    /// ``` self: QtC.QTextDocumentWriter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocumentWriter_FileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -109,23 +149,36 @@ pub const qtextdocumentwriter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#write)
     ///
-    /// ``` self: QtC.QTextDocumentWriter, document: QtC.QTextDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
+    /// ` document: QtC.QTextDocument `
+    ///
     pub fn Write(self: ?*anyopaque, document: ?*anyopaque) bool {
         return qtc.QTextDocumentWriter_Write(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#write)
     ///
-    /// ``` self: QtC.QTextDocumentWriter, fragment: QtC.QTextDocumentFragment ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
+    /// ` fragment: QtC.QTextDocumentFragment `
+    ///
     pub fn Write2(self: ?*anyopaque, fragment: ?*anyopaque) bool {
         return qtc.QTextDocumentWriter_Write2(@ptrCast(self), @ptrCast(fragment));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#supportedDocumentFormats)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#supportedDocumentFormats)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SupportedDocumentFormats(allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QTextDocumentWriter_SupportedDocumentFormats();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -145,11 +198,14 @@ pub const qtextdocumentwriter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#dtor.QTextDocumentWriter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#dtor.QTextDocumentWriter)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QTextDocumentWriter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QTextDocumentWriter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QTextDocumentWriter_Delete(@ptrCast(self));
     }

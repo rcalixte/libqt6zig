@@ -5,10 +5,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qsctpserver.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html)
 pub const qsctpserver = struct {
     /// New constructs a new QSctpServer object.
-    ///
     ///
     pub fn New() QtC.QSctpServer {
         return qtc.QSctpServer_new();
@@ -16,46 +15,85 @@ pub const qsctpserver = struct {
 
     /// New2 constructs a new QSctpServer object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QSctpServer {
         return qtc.QSctpServer_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QSctpServer_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QSctpServer, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSctpServer_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QSctpServer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSctpServer_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QSctpServer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSctpServer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSctpServer_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -65,55 +103,88 @@ pub const qsctpserver = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#setMaximumChannelCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#setMaximumChannelCount)
     ///
-    /// ``` self: QtC.QSctpServer, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn SetMaximumChannelCount(self: ?*anyopaque, count: i32) void {
         qtc.QSctpServer_SetMaximumChannelCount(@ptrCast(self), @intCast(count));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#maximumChannelCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#maximumChannelCount)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn MaximumChannelCount(self: ?*anyopaque) i32 {
         return qtc.QSctpServer_MaximumChannelCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#nextPendingDatagramConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#nextPendingDatagramConnection)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn NextPendingDatagramConnection(self: ?*anyopaque) QtC.QSctpSocket {
         return qtc.QSctpServer_NextPendingDatagramConnection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#incomingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#incomingConnection)
     ///
-    /// ``` self: QtC.QSctpServer, handle: isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` handle: isize `
+    ///
     pub fn IncomingConnection(self: ?*anyopaque, handle: isize) void {
         qtc.QSctpServer_IncomingConnection(@ptrCast(self), @intCast(handle));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#incomingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#incomingConnection)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, handle: isize) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, handle: isize) callconv(.c) void `
+    ///
     pub fn OnIncomingConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
         qtc.QSctpServer_OnIncomingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#incomingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#incomingConnection)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSctpServer, handle: isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` handle: isize `
+    ///
     pub fn QBaseIncomingConnection(self: ?*anyopaque, handle: isize) void {
         qtc.QSctpServer_QBaseIncomingConnection(@ptrCast(self), @intCast(handle));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -124,9 +195,18 @@ pub const qsctpserver = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -139,128 +219,180 @@ pub const qsctpserver = struct {
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listen)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn Listen(self: ?*anyopaque) bool {
         return qtc.QTcpServer_Listen(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#close)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn Close(self: ?*anyopaque) void {
         qtc.QTcpServer_Close(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#isListening)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#isListening)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn IsListening(self: ?*anyopaque) bool {
         return qtc.QTcpServer_IsListening(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setMaxPendingConnections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setMaxPendingConnections)
     ///
-    /// ``` self: QtC.QSctpServer, numConnections: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` numConnections: i32 `
+    ///
     pub fn SetMaxPendingConnections(self: ?*anyopaque, numConnections: i32) void {
         qtc.QTcpServer_SetMaxPendingConnections(@ptrCast(self), @intCast(numConnections));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#maxPendingConnections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#maxPendingConnections)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn MaxPendingConnections(self: ?*anyopaque) i32 {
         return qtc.QTcpServer_MaxPendingConnections(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setListenBacklogSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setListenBacklogSize)
     ///
-    /// ``` self: QtC.QSctpServer, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetListenBacklogSize(self: ?*anyopaque, size: i32) void {
         qtc.QTcpServer_SetListenBacklogSize(@ptrCast(self), @intCast(size));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listenBacklogSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listenBacklogSize)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn ListenBacklogSize(self: ?*anyopaque) i32 {
         return qtc.QTcpServer_ListenBacklogSize(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#serverPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#serverPort)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn ServerPort(self: ?*anyopaque) u16 {
         return qtc.QTcpServer_ServerPort(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#serverAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#serverAddress)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn ServerAddress(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QTcpServer_ServerAddress(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#socketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#socketDescriptor)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn SocketDescriptor(self: ?*anyopaque) isize {
         return qtc.QTcpServer_SocketDescriptor(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setSocketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setSocketDescriptor)
     ///
-    /// ``` self: QtC.QSctpServer, socketDescriptor: isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` socketDescriptor: isize `
+    ///
     pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize) bool {
         return qtc.QTcpServer_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn WaitForNewConnection(self: ?*anyopaque) bool {
         return qtc.QTcpServer_WaitForNewConnection(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#serverError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#serverError)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractsocket_enums.SocketError ```
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractsocket_enums.SocketError `
+    ///
     pub fn ServerError(self: ?*anyopaque) i32 {
         return qtc.QTcpServer_ServerError(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#errorString)
     ///
-    /// ``` self: QtC.QSctpServer, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTcpServer_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -271,117 +403,178 @@ pub const qsctpserver = struct {
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#pauseAccepting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#pauseAccepting)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn PauseAccepting(self: ?*anyopaque) void {
         qtc.QTcpServer_PauseAccepting(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#resumeAccepting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#resumeAccepting)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn ResumeAccepting(self: ?*anyopaque) void {
         qtc.QTcpServer_ResumeAccepting(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#setProxy)
     ///
-    /// ``` self: QtC.QSctpServer, networkProxy: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` networkProxy: QtC.QNetworkProxy `
+    ///
     pub fn SetProxy(self: ?*anyopaque, networkProxy: ?*anyopaque) void {
         qtc.QTcpServer_SetProxy(@ptrCast(self), @ptrCast(networkProxy));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#proxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#proxy)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn Proxy(self: ?*anyopaque) QtC.QNetworkProxy {
         return qtc.QTcpServer_Proxy(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#newConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#newConnection)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn NewConnection(self: ?*anyopaque) void {
         qtc.QTcpServer_NewConnection(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#newConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#newConnection)
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer) callconv(.c) void `
+    ///
     pub fn OnNewConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTcpServer_Connect_NewConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
     ///
-    /// ``` self: QtC.QSctpServer, socketError: qabstractsocket_enums.SocketError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` socketError: qabstractsocket_enums.SocketError `
+    ///
     pub fn AcceptError(self: ?*anyopaque, socketError: i32) void {
         qtc.QTcpServer_AcceptError(@ptrCast(self), @intCast(socketError));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServersocketError: qabstractsocket_enums.SocketError) callconv(.c) void `
+    ///
     pub fn OnAcceptError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listen)
     ///
-    /// ``` self: QtC.QSctpServer, address: QtC.QHostAddress ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
     pub fn Listen1(self: ?*anyopaque, address: ?*anyopaque) bool {
         return qtc.QTcpServer_Listen1(@ptrCast(self), @ptrCast(address));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listen)
     ///
-    /// ``` self: QtC.QSctpServer, address: QtC.QHostAddress, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn Listen2(self: ?*anyopaque, address: ?*anyopaque, port: u16) bool {
         return qtc.QTcpServer_Listen2(@ptrCast(self), @ptrCast(address), @intCast(port));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
     ///
-    /// ``` self: QtC.QSctpServer, msec: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` msec: i32 `
+    ///
     pub fn WaitForNewConnection1(self: ?*anyopaque, msec: i32) bool {
         return qtc.QTcpServer_WaitForNewConnection1(@ptrCast(self), @intCast(msec));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
     ///
-    /// ``` self: QtC.QSctpServer, msec: i32, timedOut: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` msec: i32 `
+    ///
+    /// ` timedOut: *bool `
+    ///
     pub fn WaitForNewConnection2(self: ?*anyopaque, msec: i32, timedOut: *bool) bool {
         return qtc.QTcpServer_WaitForNewConnection2(@ptrCast(self), @intCast(msec), @ptrCast(timedOut));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QSctpServer, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -392,9 +585,14 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QSctpServer, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -405,99 +603,144 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QSctpServer, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QSctpServer, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QSctpServer, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QSctpServer, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QSctpServer, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QSctpServer, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -509,45 +752,78 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QSctpServer, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QSctpServer, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QSctpServer, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QSctpServer, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -556,45 +832,70 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QSctpServer, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -602,9 +903,14 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QSctpServer, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -612,9 +918,14 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QSctpServer, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -636,54 +947,76 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QSctpServer, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -691,45 +1024,84 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QSctpServer, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QSctpServer, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QSctpServer, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -738,425 +1110,608 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSctpServer, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServerparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#hasPendingConnections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#hasPendingConnections)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn HasPendingConnections(self: ?*anyopaque) bool {
         return qtc.QSctpServer_HasPendingConnections(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#hasPendingConnections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#hasPendingConnections)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn QBaseHasPendingConnections(self: ?*anyopaque) bool {
         return qtc.QSctpServer_QBaseHasPendingConnections(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#hasPendingConnections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#hasPendingConnections)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasPendingConnections(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QSctpServer_OnHasPendingConnections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#nextPendingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#nextPendingConnection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn NextPendingConnection(self: ?*anyopaque) QtC.QTcpSocket {
         return qtc.QSctpServer_NextPendingConnection(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#nextPendingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#nextPendingConnection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn QBaseNextPendingConnection(self: ?*anyopaque) QtC.QTcpSocket {
         return qtc.QSctpServer_QBaseNextPendingConnection(@ptrCast(self));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#nextPendingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#nextPendingConnection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn () callconv(.c) QtC.QTcpSocket ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QTcpSocket `
+    ///
     pub fn OnNextPendingConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTcpSocket) void {
         qtc.QSctpServer_OnNextPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSctpServer_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSctpServer_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QSctpServer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSctpServer_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSctpServer_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QSctpServer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSctpServer_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSctpServer_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSctpServer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSctpServer_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSctpServer_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSctpServer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSctpServer_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSctpServer_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSctpServer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSctpServer_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSctpServer_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSctpServer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSctpServer_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSctpServer_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSctpServer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, socket: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` socket: QtC.QTcpSocket `
+    ///
     pub fn AddPendingConnection(self: ?*anyopaque, socket: ?*anyopaque) void {
         qtc.QSctpServer_AddPendingConnection(@ptrCast(self), @ptrCast(socket));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, socket: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` socket: QtC.QTcpSocket `
+    ///
     pub fn QBaseAddPendingConnection(self: ?*anyopaque, socket: ?*anyopaque) void {
         qtc.QSctpServer_QBaseAddPendingConnection(@ptrCast(self), @ptrCast(socket));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, socket: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, socket: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnAddPendingConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSctpServer_OnAddPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QSctpServer_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QSctpServer_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QSctpServer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QSctpServer_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QSctpServer_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QSctpServer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSctpServer_Receivers(@ptrCast(self), signal_Cstring);
@@ -1164,11 +1719,16 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSctpServer_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1176,75 +1736,108 @@ pub const qsctpserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSctpServer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QSctpServer_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QSctpServer_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer`
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QSctpServer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#pendingConnectionAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#pendingConnectionAvailable)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServer) callconv(.c) void `
+    ///
     pub fn OnPendingConnectionAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTcpServer_Connect_PendingConnectionAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSctpServer, callback: *const fn (self: QtC.QSctpServer, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
+    /// ` callback: *const fn (self: QtC.QSctpServerobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#dtor.QSctpServer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpserver.html#dtor.QSctpServer)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSctpServer ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSctpServer `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSctpServer_Delete(@ptrCast(self));
     }

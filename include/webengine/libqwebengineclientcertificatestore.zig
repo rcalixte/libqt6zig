@@ -2,18 +2,30 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html)
 pub const qwebengineclientcertificatestore = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#add)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#add)
     ///
-    /// ``` self: QtC.QWebEngineClientCertificateStore, certificate: QtC.QSslCertificate, privateKey: QtC.QSslKey ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineClientCertificateStore `
+    ///
+    /// ` certificate: QtC.QSslCertificate `
+    ///
+    /// ` privateKey: QtC.QSslKey `
+    ///
     pub fn Add(self: ?*anyopaque, certificate: ?*anyopaque, privateKey: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateStore_Add(@ptrCast(self), @ptrCast(certificate), @ptrCast(privateKey));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#certificates)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#certificates)
     ///
-    /// ``` self: QtC.QWebEngineClientCertificateStore, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineClientCertificateStore `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Certificates(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QWebEngineClientCertificateStore_Certificates(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -23,16 +35,24 @@ pub const qwebengineclientcertificatestore = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#remove)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#remove)
     ///
-    /// ``` self: QtC.QWebEngineClientCertificateStore, certificate: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineClientCertificateStore `
+    ///
+    /// ` certificate: QtC.QSslCertificate `
+    ///
     pub fn Remove(self: ?*anyopaque, certificate: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateStore_Remove(@ptrCast(self), @ptrCast(certificate));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#clear)
     ///
-    /// ``` self: QtC.QWebEngineClientCertificateStore ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineClientCertificateStore `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateStore_Clear(@ptrCast(self));
     }

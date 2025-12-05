@@ -6,29 +6,51 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
-/// https://api.kde.org/kio-job.html
+/// ### [Upstream resources](https://api.kde.org/kio-job.html)
 pub const kio__job = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KIO__Job_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KIO__Job, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KIO__Job_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KIO__Job, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KIO__Job_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -38,30 +60,46 @@ pub const kio__job = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#start)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#start)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Start(self: ?*anyopaque) void {
         qtc.KIO__Job_Start(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#uiDelegateExtension)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#uiDelegateExtension)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn UiDelegateExtension(self: ?*anyopaque) QtC.KIO__JobUiDelegateExtension {
         return qtc.KIO__Job_UiDelegateExtension(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#setUiDelegateExtension)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#setUiDelegateExtension)
     ///
-    /// ``` self: QtC.KIO__Job, extension: QtC.KIO__JobUiDelegateExtension ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` extension: QtC.KIO__JobUiDelegateExtension `
+    ///
     pub fn SetUiDelegateExtension(self: ?*anyopaque, extension: ?*anyopaque) void {
         qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self), @ptrCast(extension));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#errorString)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#errorString)
     ///
-    /// ``` self: QtC.KIO__Job, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIO__Job_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -70,9 +108,14 @@ pub const kio__job = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
-    /// ``` self: QtC.KIO__Job, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DetailedErrorStrings(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -92,30 +135,50 @@ pub const kio__job = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#setParentJob)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#setParentJob)
     ///
-    /// ``` self: QtC.KIO__Job, parentJob: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` parentJob: QtC.KIO__Job `
+    ///
     pub fn SetParentJob(self: ?*anyopaque, parentJob: ?*anyopaque) void {
         qtc.KIO__Job_SetParentJob(@ptrCast(self), @ptrCast(parentJob));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#parentJob)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#parentJob)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn ParentJob(self: ?*anyopaque) QtC.KIO__Job {
         return qtc.KIO__Job_ParentJob(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#setMetaData)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#setMetaData)
     ///
-    /// ``` self: QtC.KIO__Job, metaData: QtC.KIO__MetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` metaData: QtC.KIO__MetaData `
+    ///
     pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.KIO__Job_SetMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
     ///
-    /// ``` self: QtC.KIO__Job, key: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn AddMetaData(self: ?*anyopaque, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -128,9 +191,16 @@ pub const kio__job = struct {
         qtc.KIO__Job_AddMetaData(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
     ///
-    /// ``` self: QtC.KIO__Job, values: map_constu8_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` values: map_constu8_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddMetaData2(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
         const values_keys = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::job.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_keys);
@@ -155,9 +225,16 @@ pub const kio__job = struct {
         qtc.KIO__Job_AddMetaData2(@ptrCast(self), values_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#mergeMetaData)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#mergeMetaData)
     ///
-    /// ``` self: QtC.KIO__Job, values: map_constu8_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` values: map_constu8_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MergeMetaData(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
         const values_keys = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::job.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_keys);
@@ -182,23 +259,36 @@ pub const kio__job = struct {
         qtc.KIO__Job_MergeMetaData(@ptrCast(self), values_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#outgoingMetaData)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#outgoingMetaData)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn OutgoingMetaData(self: ?*anyopaque) QtC.KIO__MetaData {
         return qtc.KIO__Job_OutgoingMetaData(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#metaData)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#metaData)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn MetaData(self: ?*anyopaque) QtC.KIO__MetaData {
         return qtc.KIO__Job_MetaData(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#queryMetaData)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#queryMetaData)
     ///
-    /// ``` self: QtC.KIO__Job, key: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryMetaData(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -211,23 +301,40 @@ pub const kio__job = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#connected)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#connected)
     ///
-    /// ``` self: QtC.KIO__Job, job: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` job: QtC.KIO__Job `
+    ///
     pub fn Connected(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KIO__Job_Connected(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#connected)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#connected)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KIO__Job) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KIO__Job) callconv(.c) void `
+    ///
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__Job_Connect_Connected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -238,9 +345,18 @@ pub const kio__job = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -251,9 +367,16 @@ pub const kio__job = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
-    /// ``` self: QtC.KIO__Job, reqUrl: QtC.QUrl, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` reqUrl: QtC.QUrl `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DetailedErrorStrings1(self: ?*anyopaque, reqUrl: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings1(@ptrCast(self), @ptrCast(reqUrl));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -273,9 +396,18 @@ pub const kio__job = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// ### [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
-    /// ``` self: QtC.KIO__Job, reqUrl: QtC.QUrl, method: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` reqUrl: QtC.QUrl `
+    ///
+    /// ` method: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self), @ptrCast(reqUrl), @intCast(method));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -297,92 +429,128 @@ pub const kio__job = struct {
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#setUiDelegate)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#setUiDelegate)
     ///
-    /// ``` self: QtC.KIO__Job, delegate: QtC.KJobUiDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` delegate: QtC.KJobUiDelegate `
+    ///
     pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.KJob_SetUiDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#uiDelegate)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#uiDelegate)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
         return qtc.KJob_UiDelegate(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#capabilities)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#capabilities)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of kjob_enums.Capability ```
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of kjob_enums.Capability `
+    ///
     pub fn Capabilities(self: ?*anyopaque) i32 {
         return qtc.KJob_Capabilities(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#isSuspended)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#isSuspended)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn IsSuspended(self: ?*anyopaque) bool {
         return qtc.KJob_IsSuspended(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Kill(self: ?*anyopaque) bool {
         return qtc.KJob_Kill(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#suspend)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#suspend)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Suspend(self: ?*anyopaque) bool {
         return qtc.KJob_Suspend(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#resume)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#resume)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Resume(self: ?*anyopaque) bool {
         return qtc.KJob_Resume(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#exec)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#exec)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Exec(self: ?*anyopaque) bool {
         return qtc.KJob_Exec(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#error)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#error)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.KJob_Error(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#errorText)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#errorText)
     ///
-    /// ``` self: QtC.KIO__Job, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KJob_ErrorText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -393,90 +561,130 @@ pub const kio__job = struct {
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmount)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#processedAmount)
     ///
-    /// ``` self: QtC.KIO__Job, unit: kjob_enums.Unit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` unit: kjob_enums.Unit `
+    ///
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
         return qtc.KJob_ProcessedAmount(@ptrCast(self), @intCast(unit));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmount)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#totalAmount)
     ///
-    /// ``` self: QtC.KIO__Job, unit: kjob_enums.Unit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` unit: kjob_enums.Unit `
+    ///
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
         return qtc.KJob_TotalAmount(@ptrCast(self), @intCast(unit));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#percent)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#percent)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Percent(self: ?*anyopaque) u64 {
         return qtc.KJob_Percent(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#setAutoDelete)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#setAutoDelete)
     ///
-    /// ``` self: QtC.KIO__Job, autodelete: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` autodelete: bool `
+    ///
     pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
         qtc.KJob_SetAutoDelete(@ptrCast(self), autodelete);
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#isAutoDelete)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#isAutoDelete)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn IsAutoDelete(self: ?*anyopaque) bool {
         return qtc.KJob_IsAutoDelete(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
         qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
         return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#isStartedWithExec)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#isStartedWithExec)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn IsStartedWithExec(self: ?*anyopaque) bool {
         return qtc.KJob_IsStartedWithExec(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#elapsedTime)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#elapsedTime)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
         return qtc.KJob_ElapsedTime(@ptrCast(self));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
-    /// ``` self: QtC.KIO__Job, job: QtC.KJob, message: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` job: QtC.KJob `
+    ///
+    /// ` message: []const u8 `
+    ///
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -487,18 +695,30 @@ pub const kio__job = struct {
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
-    /// ``` self: QtC.KIO__Job, job: QtC.KJob, message: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` job: QtC.KJob `
+    ///
+    /// ` message: []const u8 `
+    ///
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -509,108 +729,176 @@ pub const kio__job = struct {
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
-    /// ``` self: QtC.KIO__Job, job: QtC.KJob, size: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` job: QtC.KJob `
+    ///
+    /// ` size: u64 `
+    ///
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
         qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @intCast(size));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, size: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, size: u64) callconv(.c) void `
+    ///
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
-    /// ``` self: QtC.KIO__Job, job: QtC.KJob, size: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` job: QtC.KJob `
+    ///
+    /// ` size: u64 `
+    ///
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
         qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @intCast(size));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, size: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, size: u64) callconv(.c) void `
+    ///
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
-    /// ``` self: QtC.KIO__Job, job: QtC.KJob, speed: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` job: QtC.KJob `
+    ///
+    /// ` speed: u64 `
+    ///
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
         qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @intCast(speed));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, speed: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, speed: u64) callconv(.c) void `
+    ///
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
-    /// ``` self: QtC.KIO__Job, verbosity: kjob_enums.KillVerbosity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` verbosity: kjob_enums.KillVerbosity `
+    ///
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
         return qtc.KJob_Kill1(@ptrCast(self), @intCast(verbosity));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
-    /// ``` self: QtC.KIO__Job, hide: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` hide: bool `
+    ///
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
         qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self), hide);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
-    /// ``` self: QtC.KIO__Job, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
-    /// ``` self: QtC.KIO__Job, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KIO__Job, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -621,9 +909,14 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KIO__Job, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -634,99 +927,144 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KIO__Job, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KIO__Job, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KIO__Job, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KIO__Job, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KIO__Job, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KIO__Job, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -738,45 +1076,78 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KIO__Job, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KIO__Job, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KIO__Job, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KIO__Job, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -785,45 +1156,70 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KIO__Job, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -831,9 +1227,14 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KIO__Job, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -841,9 +1242,14 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KIO__Job, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -865,54 +1271,76 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Job) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KIO__Job, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -920,45 +1348,84 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KIO__Job, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KIO__Job, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KIO__Job, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -967,119 +1434,172 @@ pub const kio__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__Job, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#finished)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob) callconv(.c) void `
+    ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#suspended)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#suspended)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob) callconv(.c) void `
+    ///
     pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#resumed)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#resumed)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob) callconv(.c) void `
+    ///
     pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#result)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#result)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob) callconv(.c) void `
+    ///
     pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmountChanged)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#totalAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    ///
     pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmountChanged)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#processedAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    ///
     pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
     ///
-    /// [Upstream resources](https://api.kde.org/kjob.html#percentChanged)
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#percentChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, job: QtC.KJob, percent: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__Jobjob: QtC.KJob, percent: u64) callconv(.c) void `
+    ///
     pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__Job, callback: *const fn (self: QtC.KIO__Job, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__JobobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KIO__Job ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KIO__Job `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KIO__Job_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kio-job-base.html#types
+/// ### [Upstream resources](https://api.kde.org/kio-job-base.html#public-types)
 pub const enums = struct {
     pub const JobFlag = enum {
         pub const DefaultFlags: i32 = 0;

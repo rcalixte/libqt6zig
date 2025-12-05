@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/attica-activity.html
+/// ### [Upstream resources](https://api.kde.org/attica-activity.html)
 pub const attica__activity = struct {
     /// New constructs a new Attica::Activity object.
-    ///
     ///
     pub fn New() QtC.Attica__Activity {
         return qtc.Attica__Activity_new();
@@ -13,21 +12,34 @@ pub const attica__activity = struct {
 
     /// New2 constructs a new Attica::Activity object.
     ///
-    /// ``` other: QtC.Attica__Activity ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__Activity `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__Activity {
         return qtc.Attica__Activity_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__Activity, other: QtC.Attica__Activity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` other: QtC.Attica__Activity `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Activity_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#setId)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#setId)
     ///
-    /// ``` self: QtC.Attica__Activity, id: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` id: []const u8 `
+    ///
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
@@ -36,9 +48,14 @@ pub const attica__activity = struct {
         qtc.Attica__Activity_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#id)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#id)
     ///
-    /// ``` self: QtC.Attica__Activity, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Activity_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -47,37 +64,58 @@ pub const attica__activity = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#setAssociatedPerson)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#setAssociatedPerson)
     ///
-    /// ``` self: QtC.Attica__Activity, associatedPerson: QtC.Attica__Person ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` associatedPerson: QtC.Attica__Person `
+    ///
     pub fn SetAssociatedPerson(self: ?*anyopaque, associatedPerson: ?*anyopaque) void {
         qtc.Attica__Activity_SetAssociatedPerson(@ptrCast(self), @ptrCast(associatedPerson));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#associatedPerson)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#associatedPerson)
     ///
-    /// ``` self: QtC.Attica__Activity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
     pub fn AssociatedPerson(self: ?*anyopaque) QtC.Attica__Person {
         return qtc.Attica__Activity_AssociatedPerson(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#setTimestamp)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#setTimestamp)
     ///
-    /// ``` self: QtC.Attica__Activity, timestamp: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` timestamp: QtC.QDateTime `
+    ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: ?*anyopaque) void {
         qtc.Attica__Activity_SetTimestamp(@ptrCast(self), @ptrCast(timestamp));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#timestamp)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#timestamp)
     ///
-    /// ``` self: QtC.Attica__Activity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
     pub fn Timestamp(self: ?*anyopaque) QtC.QDateTime {
         return qtc.Attica__Activity_Timestamp(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#setMessage)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#setMessage)
     ///
-    /// ``` self: QtC.Attica__Activity, message: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` message: []const u8 `
+    ///
     pub fn SetMessage(self: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -86,9 +124,14 @@ pub const attica__activity = struct {
         qtc.Attica__Activity_SetMessage(@ptrCast(self), message_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#message)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#message)
     ///
-    /// ``` self: QtC.Attica__Activity, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Activity_Message(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -97,30 +140,44 @@ pub const attica__activity = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#setLink)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#setLink)
     ///
-    /// ``` self: QtC.Attica__Activity, link: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
+    /// ` link: QtC.QUrl `
+    ///
     pub fn SetLink(self: ?*anyopaque, link: ?*anyopaque) void {
         qtc.Attica__Activity_SetLink(@ptrCast(self), @ptrCast(link));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#link)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#link)
     ///
-    /// ``` self: QtC.Attica__Activity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
     pub fn Link(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__Activity_Link(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-activity.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/attica-activity.html#isValid)
     ///
-    /// ``` self: QtC.Attica__Activity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Attica__Activity_IsValid(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__Activity ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__Activity `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__Activity_Delete(@ptrCast(self));
     }

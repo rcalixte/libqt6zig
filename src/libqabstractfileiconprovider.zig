@@ -3,68 +3,104 @@ const qtc = @import("qt6c");
 const qabstractfileiconprovider_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qabstractfileiconprovider.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html)
 pub const qabstractfileiconprovider = struct {
     /// New constructs a new QAbstractFileIconProvider object.
-    ///
     ///
     pub fn New() QtC.QAbstractFileIconProvider {
         return qtc.QAbstractFileIconProvider_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` param1: qabstractfileiconprovider_enums.IconType `
+    ///
     pub fn Icon(self: ?*anyopaque, param1: i32) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_Icon(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon `
+    ///
     pub fn OnIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
         qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` param1: qabstractfileiconprovider_enums.IconType `
+    ///
     pub fn QBaseIcon(self: ?*anyopaque, param1: i32) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_QBaseIcon(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` param1: QtC.QFileInfo `
+    ///
     pub fn Icon2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_Icon2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) QtC.QIcon `
+    ///
     pub fn OnIcon2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
         qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` param1: QtC.QFileInfo `
+    ///
     pub fn QBaseIcon2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_QBaseIcon2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` param1: QtC.QFileInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Type(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractFileIconProvider_Type(@ptrCast(self), @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -73,20 +109,32 @@ pub const qabstractfileiconprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
         qtc.QAbstractFileIconProvider_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` param1: QtC.QFileInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseType(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractFileIconProvider_QBaseType(@ptrCast(self), @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -95,71 +143,104 @@ pub const qabstractfileiconprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` options: flag of qabstractfileiconprovider_enums.Option `
+    ///
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QAbstractFileIconProvider_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void `
+    ///
     pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` options: flag of qabstractfileiconprovider_enums.Option `
+    ///
     pub fn QBaseSetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QAbstractFileIconProvider_QBaseSetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qabstractfileiconprovider_enums.Option ```
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qabstractfileiconprovider_enums.Option `
+    ///
     pub fn Options(self: ?*anyopaque) i32 {
         return qtc.QAbstractFileIconProvider_Options(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnOptions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qabstractfileiconprovider_enums.Option ```
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qabstractfileiconprovider_enums.Option `
+    ///
     pub fn QBaseOptions(self: ?*anyopaque) i32 {
         return qtc.QAbstractFileIconProvider_QBaseOptions(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#dtor.QAbstractFileIconProvider)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#dtor.QAbstractFileIconProvider)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAbstractFileIconProvider `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAbstractFileIconProvider_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qabstractfileiconprovider.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#public-types)
 pub const enums = struct {
     pub const IconType = enum {
         pub const Computer: i32 = 0;

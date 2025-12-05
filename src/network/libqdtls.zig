@@ -8,10 +8,9 @@ const qssl_enums = @import("libqssl.zig").enums;
 const qsslsocket_enums = @import("libqsslsocket.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qdtlsclientverifier.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html)
 pub const qdtlsclientverifier = struct {
     /// New constructs a new QDtlsClientVerifier object.
-    ///
     ///
     pub fn New() QtC.QDtlsClientVerifier {
         return qtc.QDtlsClientVerifier_new();
@@ -19,46 +18,85 @@ pub const qdtlsclientverifier = struct {
 
     /// New2 constructs a new QDtlsClientVerifier object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QDtlsClientVerifier {
         return qtc.QDtlsClientVerifier_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QDtlsClientVerifier_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QDtlsClientVerifier, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDtlsClientVerifier_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QDtlsClientVerifier, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDtlsClientVerifier_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDtlsClientVerifier_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDtlsClientVerifier_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -68,23 +106,42 @@ pub const qdtlsclientverifier = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#setCookieGeneratorParameters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#setCookieGeneratorParameters)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, params: QtC.QDtlsClientVerifier__GeneratorParameters ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` params: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
     pub fn SetCookieGeneratorParameters(self: ?*anyopaque, params: ?*anyopaque) bool {
         return qtc.QDtlsClientVerifier_SetCookieGeneratorParameters(@ptrCast(self), @ptrCast(params));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#cookieGeneratorParameters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#cookieGeneratorParameters)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn CookieGeneratorParameters(self: ?*anyopaque) QtC.QDtlsClientVerifier__GeneratorParameters {
         return qtc.QDtlsClientVerifier_CookieGeneratorParameters(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#verifyClient)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#verifyClient)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, socket: QtC.QUdpSocket, dgram: []u8, address: QtC.QHostAddress, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
+    /// ` dgram: []u8 `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn VerifyClient(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8, address: ?*anyopaque, port: u16) bool {
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -93,9 +150,14 @@ pub const qdtlsclientverifier = struct {
         return qtc.QDtlsClientVerifier_VerifyClient(@ptrCast(self), @ptrCast(socket), dgram_str, @ptrCast(address), @intCast(port));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#verifiedHello)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#verifiedHello)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn VerifiedHello(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier_VerifiedHello(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -104,18 +166,28 @@ pub const qdtlsclientverifier = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtlsError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtlsError)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdtls_enums.QDtlsError ```
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdtls_enums.QDtlsError `
+    ///
     pub fn DtlsError(self: ?*anyopaque) u8 {
         return qtc.QDtlsClientVerifier_DtlsError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtlsErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtlsErrorString)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DtlsErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDtlsClientVerifier_DtlsErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -124,9 +196,16 @@ pub const qdtlsclientverifier = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -137,9 +216,18 @@ pub const qdtlsclientverifier = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -152,9 +240,14 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -165,9 +258,14 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -178,99 +276,144 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -282,45 +425,78 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -329,45 +505,70 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -375,9 +576,14 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -385,9 +591,14 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -409,54 +620,76 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -464,45 +697,84 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -511,326 +783,472 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifierparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtlsClientVerifier_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtlsClientVerifier_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDtlsClientVerifier_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtlsClientVerifier_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtlsClientVerifier_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDtlsClientVerifier_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDtlsClientVerifier_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDtlsClientVerifier_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QDtlsClientVerifier_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDtlsClientVerifier_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDtlsClientVerifier_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QDtlsClientVerifier_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtlsClientVerifier_Receivers(@ptrCast(self), signal_Cstring);
@@ -838,11 +1256,16 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtlsClientVerifier_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -850,120 +1273,192 @@ pub const qdtlsclientverifier = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDtlsClientVerifier_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDtlsClientVerifier_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDtlsClientVerifier_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDtlsClientVerifier_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDtlsClientVerifier, callback: *const fn (self: QtC.QDtlsClientVerifier, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifierobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtor.QDtlsClientVerifier)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtor.QDtlsClientVerifier)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDtlsClientVerifier ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDtlsClientVerifier_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qdtls.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html)
 pub const qdtls = struct {
     /// New constructs a new QDtls object.
     ///
-    /// ``` mode: qsslsocket_enums.SslMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` mode: qsslsocket_enums.SslMode `
+    ///
     pub fn New(mode: i32) QtC.QDtls {
         return qtc.QDtls_new(@intCast(mode));
     }
 
     /// New2 constructs a new QDtls object.
     ///
-    /// ``` mode: qsslsocket_enums.SslMode, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` mode: qsslsocket_enums.SslMode `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(mode: i32, parent: ?*anyopaque) QtC.QDtls {
         return qtc.QDtls_new2(@intCast(mode), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QDtls_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QDtls, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDtls_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QDtls, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDtls_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDtls_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDtls, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDtls_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -973,16 +1468,28 @@ pub const qdtls = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeer)
     ///
-    /// ``` self: QtC.QDtls, address: QtC.QHostAddress, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn SetPeer(self: ?*anyopaque, address: ?*anyopaque, port: u16) bool {
         return qtc.QDtls_SetPeer(@ptrCast(self), @ptrCast(address), @intCast(port));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeerVerificationName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeerVerificationName)
     ///
-    /// ``` self: QtC.QDtls, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetPeerVerificationName(self: ?*anyopaque, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -991,23 +1498,34 @@ pub const qdtls = struct {
         return qtc.QDtls_SetPeerVerificationName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerAddress)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn PeerAddress(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QDtls_PeerAddress(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerPort)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn PeerPort(self: ?*anyopaque) u16 {
         return qtc.QDtls_PeerPort(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerVerificationName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerVerificationName)
     ///
-    /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PeerVerificationName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDtls_PeerVerificationName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1016,127 +1534,204 @@ pub const qdtls = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sslMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sslMode)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qsslsocket_enums.SslMode ```
+    /// ` self: QtC.QDtls `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qsslsocket_enums.SslMode `
+    ///
     pub fn SslMode(self: ?*anyopaque) i32 {
         return qtc.QDtls_SslMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setMtuHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setMtuHint)
     ///
-    /// ``` self: QtC.QDtls, mtuHint: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` mtuHint: u16 `
+    ///
     pub fn SetMtuHint(self: ?*anyopaque, mtuHint: u16) void {
         qtc.QDtls_SetMtuHint(@ptrCast(self), @intCast(mtuHint));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#mtuHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#mtuHint)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn MtuHint(self: ?*anyopaque) u16 {
         return qtc.QDtls_MtuHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setCookieGeneratorParameters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setCookieGeneratorParameters)
     ///
-    /// ``` self: QtC.QDtls, params: QtC.QDtlsClientVerifier__GeneratorParameters ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` params: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
     pub fn SetCookieGeneratorParameters(self: ?*anyopaque, params: ?*anyopaque) bool {
         return qtc.QDtls_SetCookieGeneratorParameters(@ptrCast(self), @ptrCast(params));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#cookieGeneratorParameters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#cookieGeneratorParameters)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn CookieGeneratorParameters(self: ?*anyopaque) QtC.QDtlsClientVerifier__GeneratorParameters {
         return qtc.QDtls_CookieGeneratorParameters(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setDtlsConfiguration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setDtlsConfiguration)
     ///
-    /// ``` self: QtC.QDtls, configuration: QtC.QSslConfiguration ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` configuration: QtC.QSslConfiguration `
+    ///
     pub fn SetDtlsConfiguration(self: ?*anyopaque, configuration: ?*anyopaque) bool {
         return qtc.QDtls_SetDtlsConfiguration(@ptrCast(self), @ptrCast(configuration));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsConfiguration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsConfiguration)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn DtlsConfiguration(self: ?*anyopaque) QtC.QSslConfiguration {
         return qtc.QDtls_DtlsConfiguration(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeState)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdtls_enums.HandshakeState ```
+    /// ` self: QtC.QDtls `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdtls_enums.HandshakeState `
+    ///
     pub fn HandshakeState(self: ?*anyopaque) i32 {
         return qtc.QDtls_HandshakeState(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#doHandshake)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#doHandshake)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
     pub fn DoHandshake(self: ?*anyopaque, socket: ?*anyopaque) bool {
         return qtc.QDtls_DoHandshake(@ptrCast(self), @ptrCast(socket));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handleTimeout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handleTimeout)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
     pub fn HandleTimeout(self: ?*anyopaque, socket: ?*anyopaque) bool {
         return qtc.QDtls_HandleTimeout(@ptrCast(self), @ptrCast(socket));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#resumeHandshake)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#resumeHandshake)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
     pub fn ResumeHandshake(self: ?*anyopaque, socket: ?*anyopaque) bool {
         return qtc.QDtls_ResumeHandshake(@ptrCast(self), @ptrCast(socket));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#abortHandshake)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#abortHandshake)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
     pub fn AbortHandshake(self: ?*anyopaque, socket: ?*anyopaque) bool {
         return qtc.QDtls_AbortHandshake(@ptrCast(self), @ptrCast(socket));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#shutdown)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#shutdown)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
     pub fn Shutdown(self: ?*anyopaque, socket: ?*anyopaque) bool {
         return qtc.QDtls_Shutdown(@ptrCast(self), @ptrCast(socket));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#isConnectionEncrypted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#isConnectionEncrypted)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn IsConnectionEncrypted(self: ?*anyopaque) bool {
         return qtc.QDtls_IsConnectionEncrypted(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sessionCipher)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sessionCipher)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn SessionCipher(self: ?*anyopaque) QtC.QSslCipher {
         return qtc.QDtls_SessionCipher(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sessionProtocol)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sessionProtocol)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qssl_enums.SslProtocol ```
+    /// ` self: QtC.QDtls `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qssl_enums.SslProtocol `
+    ///
     pub fn SessionProtocol(self: ?*anyopaque) i32 {
         return qtc.QDtls_SessionProtocol(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#writeDatagramEncrypted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#writeDatagramEncrypted)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket, dgram: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
+    /// ` dgram: []u8 `
+    ///
     pub fn WriteDatagramEncrypted(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8) i64 {
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -1145,9 +1740,18 @@ pub const qdtls = struct {
         return qtc.QDtls_WriteDatagramEncrypted(@ptrCast(self), @ptrCast(socket), dgram_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#decryptDatagram)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#decryptDatagram)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket, dgram: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
+    /// ` dgram: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DecryptDatagram(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8, allocator: std.mem.Allocator) []u8 {
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -1160,18 +1764,28 @@ pub const qdtls = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsError)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdtls_enums.QDtlsError ```
+    /// ` self: QtC.QDtls `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdtls_enums.QDtlsError `
+    ///
     pub fn DtlsError(self: ?*anyopaque) u8 {
         return qtc.QDtls_DtlsError(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsErrorString)
     ///
-    /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DtlsErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDtls_DtlsErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1180,9 +1794,14 @@ pub const qdtls = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerVerificationErrors)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerVerificationErrors)
     ///
-    /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PeerVerificationErrors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslError {
         const _arr: qtc.libqt_list = qtc.QDtls_PeerVerificationErrors(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1192,9 +1811,14 @@ pub const qdtls = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#ignoreVerificationErrors)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#ignoreVerificationErrors)
     ///
-    /// ``` self: QtC.QDtls, errorsToIgnore: []QtC.QSslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` errorsToIgnore: []QtC.QSslError `
+    ///
     pub fn IgnoreVerificationErrors(self: ?*anyopaque, errorsToIgnore: []QtC.QSslError) void {
         const errorsToIgnore_list = qtc.libqt_list{
             .len = errorsToIgnore.len,
@@ -1203,37 +1827,62 @@ pub const qdtls = struct {
         qtc.QDtls_IgnoreVerificationErrors(@ptrCast(self), errorsToIgnore_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#pskRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#pskRequired)
     ///
-    /// ``` self: QtC.QDtls, authenticator: QtC.QSslPreSharedKeyAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` authenticator: QtC.QSslPreSharedKeyAuthenticator `
+    ///
     pub fn PskRequired(self: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QDtls_PskRequired(@ptrCast(self), @ptrCast(authenticator));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#pskRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#pskRequired)
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsauthenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    ///
     pub fn OnPskRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_Connect_PskRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeTimeout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeTimeout)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn HandshakeTimeout(self: ?*anyopaque) void {
         qtc.QDtls_HandshakeTimeout(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeTimeout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeTimeout)
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls) callconv(.c) void `
+    ///
     pub fn OnHandshakeTimeout(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_Connect_HandshakeTimeout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1244,9 +1893,18 @@ pub const qdtls = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1257,9 +1915,18 @@ pub const qdtls = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeer)
     ///
-    /// ``` self: QtC.QDtls, address: QtC.QHostAddress, port: u16, verificationName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` verificationName: []const u8 `
+    ///
     pub fn SetPeer3(self: ?*anyopaque, address: ?*anyopaque, port: u16, verificationName: []const u8) bool {
         const verificationName_str = qtc.libqt_string{
             .len = verificationName.len,
@@ -1268,9 +1935,16 @@ pub const qdtls = struct {
         return qtc.QDtls_SetPeer3(@ptrCast(self), @ptrCast(address), @intCast(port), verificationName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#doHandshake)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#doHandshake)
     ///
-    /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket, dgram: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` socket: QtC.QUdpSocket `
+    ///
+    /// ` dgram: []u8 `
+    ///
     pub fn DoHandshake2(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8) bool {
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -1281,9 +1955,14 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1294,9 +1973,14 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QDtls, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1307,99 +1991,144 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QDtls, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDtls, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDtls, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDtls, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDtls, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1411,45 +2140,78 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QDtls, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QDtls, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QDtls, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDtls, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1458,45 +2220,70 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QDtls, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1504,9 +2291,14 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QDtls, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1514,9 +2306,14 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1538,54 +2335,76 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QDtls, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1593,45 +2412,84 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDtls, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDtls, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDtls, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1640,326 +2498,472 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtls, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtls_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtls_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDtls_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtls_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDtls_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDtls_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtls_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtls_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtls_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtls_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtls_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDtls_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtls_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtls_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtls_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDtls_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDtls_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDtls_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QDtls_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDtls_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDtls_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QDtls_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtls_Receivers(@ptrCast(self), signal_Cstring);
@@ -1967,11 +2971,16 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtls_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1979,73 +2988,100 @@ pub const qdtls = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDtls_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDtls_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDtls_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls`
+    ///
+    /// ` callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDtls_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDtls, callback: *const fn (self: QtC.QDtls, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDtls `
+    ///
+    /// ` callback: *const fn (self: QtC.QDtlsobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtor.QDtls)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtor.QDtls)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDtls ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDtls `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDtls_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html)
 pub const qdtlsclientverifier__generatorparameters = struct {
     /// New constructs a new QDtlsClientVerifier::GeneratorParameters object.
-    ///
     ///
     pub fn New() QtC.QDtlsClientVerifier__GeneratorParameters {
         return qtc.QDtlsClientVerifier__GeneratorParameters_new();
@@ -2053,7 +3089,12 @@ pub const qdtlsclientverifier__generatorparameters = struct {
 
     /// New2 constructs a new QDtlsClientVerifier::GeneratorParameters object.
     ///
-    /// ``` a: qcryptographichash_enums.Algorithm, s: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` a: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` s: []u8 `
+    ///
     pub fn New2(a: i32, s: []u8) QtC.QDtlsClientVerifier__GeneratorParameters {
         const s_str = qtc.libqt_string{
             .len = s.len,
@@ -2065,30 +3106,48 @@ pub const qdtlsclientverifier__generatorparameters = struct {
 
     /// New3 constructs a new QDtlsClientVerifier::GeneratorParameters object.
     ///
-    /// ``` param1: QtC.QDtlsClientVerifier__GeneratorParameters ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
     pub fn New3(param1: ?*anyopaque) QtC.QDtlsClientVerifier__GeneratorParameters {
         return qtc.QDtlsClientVerifier__GeneratorParameters_new3(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qcryptographichash_enums.Algorithm ```
+    /// ` self: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qcryptographichash_enums.Algorithm `
+    ///
     pub fn Hash(self: ?*anyopaque) i32 {
         return qtc.QDtlsClientVerifier__GeneratorParameters_Hash(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, hash: qcryptographichash_enums.Algorithm ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
+    /// ` hash: qcryptographichash_enums.Algorithm `
+    ///
     pub fn SetHash(self: ?*anyopaque, hash: i32) void {
         qtc.QDtlsClientVerifier__GeneratorParameters_SetHash(@ptrCast(self), @intCast(hash));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Secret(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const secret_bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier__GeneratorParameters_Secret(@ptrCast(self));
         defer qtc.libqt_string_free(&secret_bytearray);
@@ -2097,9 +3156,14 @@ pub const qdtlsclientverifier__generatorparameters = struct {
         return secret_ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, secret: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
+    /// ` secret: []u8 `
+    ///
     pub fn SetSecret(self: ?*anyopaque, secret: []u8) void {
         const secret_str = qtc.libqt_string{
             .len = secret.len,
@@ -2108,22 +3172,30 @@ pub const qdtlsclientverifier__generatorparameters = struct {
         qtc.QDtlsClientVerifier__GeneratorParameters_SetSecret(@ptrCast(self), secret_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#operator-eq)
     ///
-    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, param1: QtC.QDtlsClientVerifier__GeneratorParameters ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
+    /// ` param1: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QDtlsClientVerifier__GeneratorParameters_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDtlsClientVerifier__GeneratorParameters `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDtlsClientVerifier__GeneratorParameters_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qdtls.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#public-types)
 pub const enums = struct {
     pub const QDtlsError = enum {
         pub const NoError: u8 = 0;

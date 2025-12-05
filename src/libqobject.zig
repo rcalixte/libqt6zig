@@ -4,39 +4,60 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qobjectdata.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html)
 pub const qobjectdata = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#q_ptr-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#q_ptr-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn QPtr(self: ?*anyopaque) QtC.QObject {
         return qtc.QObjectData_QPtr(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#q_ptr-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#q_ptr-var)
     ///
-    /// ``` self: QtC.QObjectData, q_ptr: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` q_ptr: QtC.QObject `
+    ///
     pub fn SetQPtr(self: ?*anyopaque, q_ptr: ?*anyopaque) void {
         qtc.QObjectData_SetQPtr(@ptrCast(self), @ptrCast(q_ptr));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#parent-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#parent-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObjectData_Parent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#parent-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#parent-var)
     ///
-    /// ``` self: QtC.QObjectData, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObjectData_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#children-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#children-var)
     ///
-    /// ``` self: QtC.QObjectData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const children_arr: qtc.libqt_list = qtc.QObjectData_Children(@ptrCast(self));
         defer qtc.libqt_free(children_arr.data);
@@ -46,9 +67,14 @@ pub const qobjectdata = struct {
         return children_ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#children-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#children-var)
     ///
-    /// ``` self: QtC.QObjectData, children: []QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` children: []QtC.QObject `
+    ///
     pub fn SetChildren(self: ?*anyopaque, children: []?*anyopaque) void {
         const children_list = qtc.libqt_list{
             .len = children.len,
@@ -57,223 +83,340 @@ pub const qobjectdata = struct {
         qtc.QObjectData_SetChildren(@ptrCast(self), children_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWidget-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWidget-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn IsWidget(self: ?*anyopaque) u32 {
         return qtc.QObjectData_IsWidget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWidget-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWidget-var)
     ///
-    /// ``` self: QtC.QObjectData, isWidget: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` isWidget: u32 `
+    ///
     pub fn SetIsWidget(self: ?*anyopaque, isWidget: u32) void {
         qtc.QObjectData_SetIsWidget(@ptrCast(self), @intCast(isWidget));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#blockSig-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#blockSig-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn BlockSig(self: ?*anyopaque) u32 {
         return qtc.QObjectData_BlockSig(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#blockSig-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#blockSig-var)
     ///
-    /// ``` self: QtC.QObjectData, blockSig: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` blockSig: u32 `
+    ///
     pub fn SetBlockSig(self: ?*anyopaque, blockSig: u32) void {
         qtc.QObjectData_SetBlockSig(@ptrCast(self), @intCast(blockSig));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasDeleted-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasDeleted-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn WasDeleted(self: ?*anyopaque) u32 {
         return qtc.QObjectData_WasDeleted(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasDeleted-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasDeleted-var)
     ///
-    /// ``` self: QtC.QObjectData, wasDeleted: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` wasDeleted: u32 `
+    ///
     pub fn SetWasDeleted(self: ?*anyopaque, wasDeleted: u32) void {
         qtc.QObjectData_SetWasDeleted(@ptrCast(self), @intCast(wasDeleted));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isDeletingChildren-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isDeletingChildren-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn IsDeletingChildren(self: ?*anyopaque) u32 {
         return qtc.QObjectData_IsDeletingChildren(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isDeletingChildren-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isDeletingChildren-var)
     ///
-    /// ``` self: QtC.QObjectData, isDeletingChildren: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` isDeletingChildren: u32 `
+    ///
     pub fn SetIsDeletingChildren(self: ?*anyopaque, isDeletingChildren: u32) void {
         qtc.QObjectData_SetIsDeletingChildren(@ptrCast(self), @intCast(isDeletingChildren));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#sendChildEvents-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#sendChildEvents-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn SendChildEvents(self: ?*anyopaque) u32 {
         return qtc.QObjectData_SendChildEvents(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#sendChildEvents-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#sendChildEvents-var)
     ///
-    /// ``` self: QtC.QObjectData, sendChildEvents: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` sendChildEvents: u32 `
+    ///
     pub fn SetSendChildEvents(self: ?*anyopaque, sendChildEvents: u32) void {
         qtc.QObjectData_SetSendChildEvents(@ptrCast(self), @intCast(sendChildEvents));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveChildEvents-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveChildEvents-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn ReceiveChildEvents(self: ?*anyopaque) u32 {
         return qtc.QObjectData_ReceiveChildEvents(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveChildEvents-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveChildEvents-var)
     ///
-    /// ``` self: QtC.QObjectData, receiveChildEvents: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` receiveChildEvents: u32 `
+    ///
     pub fn SetReceiveChildEvents(self: ?*anyopaque, receiveChildEvents: u32) void {
         qtc.QObjectData_SetReceiveChildEvents(@ptrCast(self), @intCast(receiveChildEvents));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWindow-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWindow-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn IsWindow(self: ?*anyopaque) u32 {
         return qtc.QObjectData_IsWindow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWindow-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isWindow-var)
     ///
-    /// ``` self: QtC.QObjectData, isWindow: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` isWindow: u32 `
+    ///
     pub fn SetIsWindow(self: ?*anyopaque, isWindow: u32) void {
         qtc.QObjectData_SetIsWindow(@ptrCast(self), @intCast(isWindow));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#deleteLaterCalled-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#deleteLaterCalled-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn DeleteLaterCalled(self: ?*anyopaque) u32 {
         return qtc.QObjectData_DeleteLaterCalled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#deleteLaterCalled-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#deleteLaterCalled-var)
     ///
-    /// ``` self: QtC.QObjectData, deleteLaterCalled: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` deleteLaterCalled: u32 `
+    ///
     pub fn SetDeleteLaterCalled(self: ?*anyopaque, deleteLaterCalled: u32) void {
         qtc.QObjectData_SetDeleteLaterCalled(@ptrCast(self), @intCast(deleteLaterCalled));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isQuickItem-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isQuickItem-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn IsQuickItem(self: ?*anyopaque) u32 {
         return qtc.QObjectData_IsQuickItem(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isQuickItem-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#isQuickItem-var)
     ///
-    /// ``` self: QtC.QObjectData, isQuickItem: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` isQuickItem: u32 `
+    ///
     pub fn SetIsQuickItem(self: ?*anyopaque, isQuickItem: u32) void {
         qtc.QObjectData_SetIsQuickItem(@ptrCast(self), @intCast(isQuickItem));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#willBeWidget-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#willBeWidget-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn WillBeWidget(self: ?*anyopaque) u32 {
         return qtc.QObjectData_WillBeWidget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#willBeWidget-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#willBeWidget-var)
     ///
-    /// ``` self: QtC.QObjectData, willBeWidget: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` willBeWidget: u32 `
+    ///
     pub fn SetWillBeWidget(self: ?*anyopaque, willBeWidget: u32) void {
         qtc.QObjectData_SetWillBeWidget(@ptrCast(self), @intCast(willBeWidget));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasWidget-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasWidget-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn WasWidget(self: ?*anyopaque) u32 {
         return qtc.QObjectData_WasWidget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasWidget-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#wasWidget-var)
     ///
-    /// ``` self: QtC.QObjectData, wasWidget: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` wasWidget: u32 `
+    ///
     pub fn SetWasWidget(self: ?*anyopaque, wasWidget: u32) void {
         qtc.QObjectData_SetWasWidget(@ptrCast(self), @intCast(wasWidget));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveParentEvents-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveParentEvents-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn ReceiveParentEvents(self: ?*anyopaque) u32 {
         return qtc.QObjectData_ReceiveParentEvents(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveParentEvents-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#receiveParentEvents-var)
     ///
-    /// ``` self: QtC.QObjectData, receiveParentEvents: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` receiveParentEvents: u32 `
+    ///
     pub fn SetReceiveParentEvents(self: ?*anyopaque, receiveParentEvents: u32) void {
         qtc.QObjectData_SetReceiveParentEvents(@ptrCast(self), @intCast(receiveParentEvents));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#unused-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#unused-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn Unused(self: ?*anyopaque) u32 {
         return qtc.QObjectData_Unused(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#unused-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#unused-var)
     ///
-    /// ``` self: QtC.QObjectData, unused: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` unused: u32 `
+    ///
     pub fn SetUnused(self: ?*anyopaque, unused: u32) void {
         qtc.QObjectData_SetUnused(@ptrCast(self), @intCast(unused));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#bindingStorage-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#bindingStorage-var)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObjectData_BindingStorage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#bindingStorage-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#bindingStorage-var)
     ///
-    /// ``` self: QtC.QObjectData, bindingStorage: QtC.QBindingStorage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
+    /// ` bindingStorage: QtC.QBindingStorage `
+    ///
     pub fn SetBindingStorage(self: ?*anyopaque, bindingStorage: QtC.QBindingStorage) void {
         qtc.QObjectData_SetBindingStorage(@ptrCast(self), @ptrCast(bindingStorage));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#dynamicMetaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#dynamicMetaObject)
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn DynamicMetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QObjectData_DynamicMetaObject(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#dtor.QObjectData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdata.html#dtor.QObjectData)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QObjectData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QObjectData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QObjectData_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qobject.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html)
 pub const qobject = struct {
     /// New constructs a new QObject object.
-    ///
     ///
     pub fn New() QtC.QObject {
         return qtc.QObject_new();
@@ -281,46 +424,85 @@ pub const qobject = struct {
 
     /// New2 constructs a new QObject object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QObject {
         return qtc.QObject_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QObject_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QObject, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QObject_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QObject_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -330,59 +512,98 @@ pub const qobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
-    /// ``` self: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QObject_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
-    /// ``` self: QtC.QObject, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QObject_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QObject, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -391,9 +612,14 @@ pub const qobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QObject, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -402,79 +628,124 @@ pub const qobject = struct {
         qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QObject, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QObject, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QObject, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QObject, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QObject, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QObject, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -484,90 +755,158 @@ pub const qobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QObject, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QObject, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QObject, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QObject, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QObject, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QObject, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QObject, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -587,286 +926,445 @@ pub const qobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QObject, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Sender(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QObject_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_QBaseSender(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QObject_SenderSignalIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QObject_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QObject_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
-    /// ``` self: QtC.QObject, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Receivers(@ptrCast(self), signal_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QObject_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
-    /// ``` self: QtC.QObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QObject_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QObject_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QObject_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
-    /// ``` self: QtC.QObject, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QObject_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QObject_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
-    /// ``` self: QtC.QObject, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QObject_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QObject_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
-    /// ``` self: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QObject_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QObject_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
-    /// ``` self: QtC.QObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QObject_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QObject_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
-    /// ``` self: QtC.QObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QObject_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObject, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QObject_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -877,9 +1375,18 @@ pub const qobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -890,117 +1397,189 @@ pub const qobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QObject, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QObject, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QObject, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObjectparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QObject, callback: *const fn (self: QtC.QObject, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QObjectobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dtor.QObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dtor.QObject)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QObject ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QObject `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QObject_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qsignalblocker.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html)
 pub const qsignalblocker = struct {
     /// New constructs a new QSignalBlocker object.
     ///
-    /// ``` o: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` o: QtC.QObject `
+    ///
     pub fn New(o: ?*anyopaque) QtC.QSignalBlocker {
         return qtc.QSignalBlocker_new(@ptrCast(o));
     }
 
     /// New2 constructs a new QSignalBlocker object.
     ///
-    /// ``` o: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` o: QtC.QObject `
+    ///
     pub fn New2(o: ?*anyopaque) QtC.QSignalBlocker {
         return qtc.QSignalBlocker_new2(@ptrCast(o));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#reblock)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#reblock)
     ///
-    /// ``` self: QtC.QSignalBlocker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSignalBlocker `
+    ///
     pub fn Reblock(self: ?*anyopaque) void {
         qtc.QSignalBlocker_Reblock(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#unblock)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#unblock)
     ///
-    /// ``` self: QtC.QSignalBlocker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSignalBlocker `
+    ///
     pub fn Unblock(self: ?*anyopaque) void {
         qtc.QSignalBlocker_Unblock(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#dismiss)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#dismiss)
     ///
-    /// ``` self: QtC.QSignalBlocker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSignalBlocker `
+    ///
     pub fn Dismiss(self: ?*anyopaque) void {
         qtc.QSignalBlocker_Dismiss(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#dtor.QSignalBlocker)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#dtor.QSignalBlocker)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSignalBlocker ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSignalBlocker `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSignalBlocker_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qobject.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#public-types)
 pub const enums = struct {
     pub const QObjectData = enum {
         pub const CheckForParentChildLoopsWarnDepth: i32 = 4096;

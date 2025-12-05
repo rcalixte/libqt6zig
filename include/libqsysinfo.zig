@@ -2,39 +2,58 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qsysinfo.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html)
 pub const qsysinfo = struct {
     /// New constructs a new QSysInfo object.
     ///
-    /// ``` other: QtC.QSysInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSysInfo `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QSysInfo {
         return qtc.QSysInfo_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QSysInfo object and invalidates the source QSysInfo object.
     ///
-    /// ``` other: QtC.QSysInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSysInfo `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QSysInfo {
         return qtc.QSysInfo_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QSysInfo, other: QtC.QSysInfo ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSysInfo `
+    ///
+    /// ` other: QtC.QSysInfo `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSysInfo_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QSysInfo, other: QtC.QSysInfo ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSysInfo `
+    ///
+    /// ` other: QtC.QSysInfo `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSysInfo_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#buildCpuArchitecture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#buildCpuArchitecture)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BuildCpuArchitecture(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_BuildCpuArchitecture();
         defer qtc.libqt_string_free(&_str);
@@ -43,9 +62,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#currentCpuArchitecture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#currentCpuArchitecture)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CurrentCpuArchitecture(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_CurrentCpuArchitecture();
         defer qtc.libqt_string_free(&_str);
@@ -54,9 +76,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#buildAbi)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#buildAbi)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BuildAbi(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_BuildAbi();
         defer qtc.libqt_string_free(&_str);
@@ -65,9 +90,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#kernelType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#kernelType)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn KernelType(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_KernelType();
         defer qtc.libqt_string_free(&_str);
@@ -76,9 +104,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#kernelVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#kernelVersion)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn KernelVersion(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_KernelVersion();
         defer qtc.libqt_string_free(&_str);
@@ -87,9 +118,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#productType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#productType)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProductType(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_ProductType();
         defer qtc.libqt_string_free(&_str);
@@ -98,9 +132,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#productVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#productVersion)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProductVersion(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_ProductVersion();
         defer qtc.libqt_string_free(&_str);
@@ -109,9 +146,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#prettyProductName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#prettyProductName)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PrettyProductName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_PrettyProductName();
         defer qtc.libqt_string_free(&_str);
@@ -120,9 +160,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#machineHostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#machineHostName)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MachineHostName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSysInfo_MachineHostName();
         defer qtc.libqt_string_free(&_str);
@@ -131,9 +174,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#machineUniqueId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#machineUniqueId)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MachineUniqueId(allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSysInfo_MachineUniqueId();
         defer qtc.libqt_string_free(&_bytearray);
@@ -142,9 +188,12 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#bootUniqueId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#bootUniqueId)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BootUniqueId(allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSysInfo_BootUniqueId();
         defer qtc.libqt_string_free(&_bytearray);
@@ -153,17 +202,20 @@ pub const qsysinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#dtor.QSysInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#dtor.QSysInfo)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSysInfo ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSysInfo `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSysInfo_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qsysinfo.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#public-types)
 pub const enums = struct {
     pub const Sizes = enum {
         pub const WordSize: i32 = 64;

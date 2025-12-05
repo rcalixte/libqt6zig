@@ -6,57 +6,109 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html)
 pub const qbarlegendmarker = struct {
     /// New constructs a new QBarLegendMarker object.
     ///
-    /// ``` series: QtC.QAbstractBarSeries, barset: QtC.QBarSet, legend: QtC.QLegend ```
+    /// ## Parameter(s):
+    ///
+    /// ` series: QtC.QAbstractBarSeries `
+    ///
+    /// ` barset: QtC.QBarSet `
+    ///
+    /// ` legend: QtC.QLegend `
+    ///
     pub fn New(series: ?*anyopaque, barset: ?*anyopaque, legend: ?*anyopaque) QtC.QBarLegendMarker {
         return qtc.QBarLegendMarker_new(@ptrCast(series), @ptrCast(barset), @ptrCast(legend));
     }
 
     /// New2 constructs a new QBarLegendMarker object.
     ///
-    /// ``` series: QtC.QAbstractBarSeries, barset: QtC.QBarSet, legend: QtC.QLegend, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` series: QtC.QAbstractBarSeries `
+    ///
+    /// ` barset: QtC.QBarSet `
+    ///
+    /// ` legend: QtC.QLegend `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(series: ?*anyopaque, barset: ?*anyopaque, legend: ?*anyopaque, parent: ?*anyopaque) QtC.QBarLegendMarker {
         return qtc.QBarLegendMarker_new2(@ptrCast(series), @ptrCast(barset), @ptrCast(legend), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QBarLegendMarker_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QBarLegendMarker, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QBarLegendMarker_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QBarLegendMarker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QBarLegendMarker_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QBarLegendMarker_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QBarLegendMarker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QBarLegendMarker_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -66,70 +118,106 @@ pub const qbarlegendmarker = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#type)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qlegendmarker_enums.LegendMarkerType ```
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlegendmarker_enums.LegendMarkerType `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QBarLegendMarker_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#type)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QBarLegendMarker_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#type)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qlegendmarker_enums.LegendMarkerType ```
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlegendmarker_enums.LegendMarkerType `
+    ///
     pub fn QBaseType(self: ?*anyopaque) i32 {
         return qtc.QBarLegendMarker_QBaseType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#series)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#series)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Series(self: ?*anyopaque) QtC.QAbstractBarSeries {
         return qtc.QBarLegendMarker_Series(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#series)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#series)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn () callconv(.c) QtC.QAbstractBarSeries ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QAbstractBarSeries `
+    ///
     pub fn OnSeries(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAbstractBarSeries) void {
         qtc.QBarLegendMarker_OnSeries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#series)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#series)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn QBaseSeries(self: ?*anyopaque) QtC.QAbstractBarSeries {
         return qtc.QBarLegendMarker_QBaseSeries(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#barset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#barset)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Barset(self: ?*anyopaque) QtC.QBarSet {
         return qtc.QBarLegendMarker_Barset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -140,9 +228,18 @@ pub const qbarlegendmarker = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -155,9 +252,14 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#label)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#label)
     ///
-    /// ``` self: QtC.QBarLegendMarker, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLegendMarker_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -168,9 +270,14 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setLabel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setLabel)
     ///
-    /// ``` self: QtC.QBarLegendMarker, label: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` label: []const u8 `
+    ///
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -181,281 +288,410 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrush)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn LabelBrush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QLegendMarker_LabelBrush(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setLabelBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setLabelBrush)
     ///
-    /// ``` self: QtC.QBarLegendMarker, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetLabelBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QLegendMarker_SetLabelBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#font)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#font)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QLegendMarker_Font(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setFont)
     ///
-    /// ``` self: QtC.QBarLegendMarker, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QLegendMarker_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#pen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#pen)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
         return qtc.QLegendMarker_Pen(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setPen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setPen)
     ///
-    /// ``` self: QtC.QBarLegendMarker, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QLegendMarker_SetPen(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brush)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QLegendMarker_Brush(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setBrush)
     ///
-    /// ``` self: QtC.QBarLegendMarker, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QLegendMarker_SetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#isVisible)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QLegendMarker_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setVisible)
     ///
-    /// ``` self: QtC.QBarLegendMarker, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QLegendMarker_SetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shape)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shape)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qlegend_enums.MarkerShape ```
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlegend_enums.MarkerShape `
+    ///
     pub fn Shape(self: ?*anyopaque) i32 {
         return qtc.QLegendMarker_Shape(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setShape)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setShape)
     ///
-    /// ``` self: QtC.QBarLegendMarker, shape: qlegend_enums.MarkerShape ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` shape: qlegend_enums.MarkerShape `
+    ///
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
         qtc.QLegendMarker_SetShape(@ptrCast(self), @intCast(shape));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Clicked(self: ?*anyopaque) void {
         qtc.QLegendMarker_Clicked(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
     ///
-    /// ``` self: QtC.QBarLegendMarker, status: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` status: bool `
+    ///
     pub fn Hovered(self: ?*anyopaque, status: bool) void {
         qtc.QLegendMarker_Hovered(@ptrCast(self), status);
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, status: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarkerstatus: bool) callconv(.c) void `
+    ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn LabelChanged(self: ?*anyopaque) void {
         qtc.QLegendMarker_LabelChanged(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_LabelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn LabelBrushChanged(self: ?*anyopaque) void {
         qtc.QLegendMarker_LabelBrushChanged(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnLabelBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_LabelBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn FontChanged(self: ?*anyopaque) void {
         qtc.QLegendMarker_FontChanged(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn PenChanged(self: ?*anyopaque) void {
         qtc.QLegendMarker_PenChanged(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn BrushChanged(self: ?*anyopaque) void {
         qtc.QLegendMarker_BrushChanged(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn VisibleChanged(self: ?*anyopaque) void {
         qtc.QLegendMarker_VisibleChanged(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn ShapeChanged(self: ?*anyopaque) void {
         qtc.QLegendMarker_ShapeChanged(@ptrCast(self));
     }
 
     /// Inherited from QLegendMarker
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnShapeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_ShapeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QBarLegendMarker, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -466,9 +702,14 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QBarLegendMarker, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -479,99 +720,144 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QBarLegendMarker, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QBarLegendMarker, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QBarLegendMarker, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QBarLegendMarker, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QBarLegendMarker, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QBarLegendMarker, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -583,45 +869,78 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QBarLegendMarker, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QBarLegendMarker, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QBarLegendMarker, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QBarLegendMarker, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -630,45 +949,70 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QBarLegendMarker, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -676,9 +1020,14 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QBarLegendMarker, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -686,9 +1035,14 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QBarLegendMarker, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -710,54 +1064,76 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QBarLegendMarker, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -765,45 +1141,84 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QBarLegendMarker, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QBarLegendMarker, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QBarLegendMarker, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -812,326 +1227,472 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBarLegendMarker, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarkerparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QBarLegendMarker_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QBarLegendMarker_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QBarLegendMarker_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QBarLegendMarker_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QBarLegendMarker_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QBarLegendMarker_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QBarLegendMarker_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QBarLegendMarker_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QBarLegendMarker_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QBarLegendMarker_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QBarLegendMarker_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QBarLegendMarker_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QBarLegendMarker_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QBarLegendMarker_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QBarLegendMarker_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QBarLegendMarker_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QBarLegendMarker_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QBarLegendMarker_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QBarLegendMarker_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QBarLegendMarker_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QBarLegendMarker_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QBarLegendMarker_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QBarLegendMarker_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QBarLegendMarker_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QBarLegendMarker_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QBarLegendMarker_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QBarLegendMarker_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBarLegendMarker_Receivers(@ptrCast(self), signal_Cstring);
@@ -1139,11 +1700,16 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBarLegendMarker_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1151,64 +1717,92 @@ pub const qbarlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QBarLegendMarker_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QBarLegendMarker_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QBarLegendMarker_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker`
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarker, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QBarLegendMarker_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QBarLegendMarker, callback: *const fn (self: QtC.QBarLegendMarker, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
+    /// ` callback: *const fn (self: QtC.QBarLegendMarkerobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#dtor.QBarLegendMarker)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#dtor.QBarLegendMarker)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QBarLegendMarker ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QBarLegendMarker `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QBarLegendMarker_Delete(@ptrCast(self));
     }

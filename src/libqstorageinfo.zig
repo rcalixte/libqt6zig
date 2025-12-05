@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qstorageinfo.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html)
 pub const qstorageinfo = struct {
     /// New constructs a new QStorageInfo object.
-    ///
     ///
     pub fn New() QtC.QStorageInfo {
         return qtc.QStorageInfo_new();
@@ -13,7 +12,10 @@ pub const qstorageinfo = struct {
 
     /// New2 constructs a new QStorageInfo object.
     ///
-    /// ``` path: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
     pub fn New2(path: []const u8) QtC.QStorageInfo {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -25,35 +27,56 @@ pub const qstorageinfo = struct {
 
     /// New3 constructs a new QStorageInfo object.
     ///
-    /// ``` dir: QtC.QDir ```
+    /// ## Parameter(s):
+    ///
+    /// ` dir: QtC.QDir `
+    ///
     pub fn New3(dir: ?*anyopaque) QtC.QStorageInfo {
         return qtc.QStorageInfo_new3(@ptrCast(dir));
     }
 
     /// New4 constructs a new QStorageInfo object.
     ///
-    /// ``` other: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QStorageInfo `
+    ///
     pub fn New4(other: ?*anyopaque) QtC.QStorageInfo {
         return qtc.QStorageInfo_new4(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#operator-eq)
     ///
-    /// ``` self: QtC.QStorageInfo, other: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` other: QtC.QStorageInfo `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QStorageInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#swap)
     ///
-    /// ``` self: QtC.QStorageInfo, other: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` other: QtC.QStorageInfo `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QStorageInfo_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#setPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#setPath)
     ///
-    /// ``` self: QtC.QStorageInfo, path: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` path: []const u8 `
+    ///
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -62,9 +85,14 @@ pub const qstorageinfo = struct {
         qtc.QStorageInfo_SetPath(@ptrCast(self), path_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#rootPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#rootPath)
     ///
-    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RootPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStorageInfo_RootPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -73,9 +101,14 @@ pub const qstorageinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#device)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#device)
     ///
-    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Device(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QStorageInfo_Device(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -84,9 +117,14 @@ pub const qstorageinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#subvolume)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#subvolume)
     ///
-    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Subvolume(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QStorageInfo_Subvolume(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -95,9 +133,14 @@ pub const qstorageinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#fileSystemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#fileSystemType)
     ///
-    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FileSystemType(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QStorageInfo_FileSystemType(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -106,9 +149,14 @@ pub const qstorageinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#name)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#name)
     ///
-    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStorageInfo_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -117,9 +165,14 @@ pub const qstorageinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#displayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#displayName)
     ///
-    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStorageInfo_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -128,72 +181,102 @@ pub const qstorageinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#bytesTotal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#bytesTotal)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn BytesTotal(self: ?*anyopaque) i64 {
         return qtc.QStorageInfo_BytesTotal(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#bytesFree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#bytesFree)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn BytesFree(self: ?*anyopaque) i64 {
         return qtc.QStorageInfo_BytesFree(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#bytesAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#bytesAvailable)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn BytesAvailable(self: ?*anyopaque) i64 {
         return qtc.QStorageInfo_BytesAvailable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#blockSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#blockSize)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn BlockSize(self: ?*anyopaque) i32 {
         return qtc.QStorageInfo_BlockSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isRoot)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isRoot)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn IsRoot(self: ?*anyopaque) bool {
         return qtc.QStorageInfo_IsRoot(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isReadOnly)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isReadOnly)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.QStorageInfo_IsReadOnly(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isReady)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isReady)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn IsReady(self: ?*anyopaque) bool {
         return qtc.QStorageInfo_IsReady(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#isValid)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QStorageInfo_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#refresh)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#refresh)
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn Refresh(self: ?*anyopaque) void {
         qtc.QStorageInfo_Refresh(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#mountedVolumes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#mountedVolumes)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MountedVolumes(allocator: std.mem.Allocator) []QtC.QStorageInfo {
         const _arr: qtc.libqt_list = qtc.QStorageInfo_MountedVolumes();
         defer qtc.libqt_free(_arr.data);
@@ -203,18 +286,20 @@ pub const qstorageinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#root)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#root)
     ///
     pub fn Root() QtC.QStorageInfo {
         return qtc.QStorageInfo_Root();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#dtor.QStorageInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#dtor.QStorageInfo)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QStorageInfo ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QStorageInfo `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QStorageInfo_Delete(@ptrCast(self));
     }

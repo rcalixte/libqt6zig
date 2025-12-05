@@ -4,18 +4,28 @@ const kstandardactions_enums = enums;
 const kstandardshortcut_enums = @import("libkstandardshortcut.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kstandardactions.html
+/// ### [Upstream resources](https://api.kde.org/kstandardactions.html)
 pub const kstandardactions = struct {
-    /// [Upstream resources](https://api.kde.org/kstandardactions.html#_kgui_createInternal)
+    /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#_kgui_createInternal)
     ///
-    /// ``` param1: kstandardactions_enums.StandardAction, param2: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardactions_enums.StandardAction `
+    ///
+    /// ` param2: QtC.QObject `
+    ///
     pub fn KguiCreateInternal(param1: i32, param2: ?*anyopaque) QtC.QAction {
         return qtc.KStandardActions_KguiCreateInternal(@intCast(param1), @ptrCast(param2));
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardactions.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#name)
     ///
-    /// ``` param1: kstandardactions_enums.StandardAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardactions_enums.StandardAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KStandardActions_Name(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -24,11 +34,16 @@ pub const kstandardactions = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardactions.html#actionIds)
+    /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#actionIds)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` []kstandardactions_enums.StandardAction ```
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` []kstandardactions_enums.StandardAction `
+    ///
     pub fn ActionIds(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KStandardActions_ActionIds();
         defer qtc.libqt_free(_arr.data);
@@ -38,17 +53,22 @@ pub const kstandardactions = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardactions.html#shortcutForActionId)
+    /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#shortcutForActionId)
     ///
-    /// ``` param1: kstandardactions_enums.StandardAction ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kstandardshortcut_enums.StandardShortcut ```
+    /// ` param1: kstandardactions_enums.StandardAction `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kstandardshortcut_enums.StandardShortcut `
+    ///
     pub fn ShortcutForActionId(param1: i32) i32 {
         return qtc.KStandardActions_ShortcutForActionId(@intCast(param1));
     }
 };
 
-/// https://api.kde.org/kstandardactions.html#types
+/// ### [Upstream resources](https://api.kde.org/kstandardactions.html#public-types)
 pub const enums = struct {
     pub const StandardAction = enum {
         pub const ActionNone: i32 = 0;

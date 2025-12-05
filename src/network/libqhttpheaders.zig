@@ -4,10 +4,9 @@ const qhttpheaders_enums = enums;
 const std = @import("std");
 pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
 
-/// https://doc.qt.io/qt-6/qhttpheaders.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html)
 pub const qhttpheaders = struct {
     /// New constructs a new QHttpHeaders object.
-    ///
     ///
     pub fn New() QtC.QHttpHeaders {
         return qtc.QHttpHeaders_new();
@@ -15,28 +14,48 @@ pub const qhttpheaders = struct {
 
     /// New2 constructs a new QHttpHeaders object.
     ///
-    /// ``` other: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QHttpHeaders `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QHttpHeaders {
         return qtc.QHttpHeaders_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#operator-eq)
     ///
-    /// ``` self: QtC.QHttpHeaders, other: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` other: QtC.QHttpHeaders `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QHttpHeaders_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#swap)
     ///
-    /// ``` self: QtC.QHttpHeaders, other: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` other: QtC.QHttpHeaders `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QHttpHeaders_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#append)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn Append(self: ?*anyopaque, name: []const u8, value: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -49,9 +68,16 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_Append(@ptrCast(self), name_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#append)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn Append2(self: ?*anyopaque, name: i32, value: []const u8) bool {
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -60,9 +86,18 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_Append2(@ptrCast(self), @intCast(name), value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
     ///
-    /// ``` self: QtC.QHttpHeaders, i: i64, name: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` i: i64 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn Insert(self: ?*anyopaque, i: i64, name: []const u8, value: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -75,9 +110,18 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_Insert(@ptrCast(self), @intCast(i), name_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
     ///
-    /// ``` self: QtC.QHttpHeaders, i: i64, name: qhttpheaders_enums.WellKnownHeader, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` i: i64 `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn Insert2(self: ?*anyopaque, i: i64, name: i32, value: []const u8) bool {
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -86,9 +130,18 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_Insert2(@ptrCast(self), @intCast(i), @intCast(name), value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
     ///
-    /// ``` self: QtC.QHttpHeaders, i: i64, name: []const u8, newValue: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` i: i64 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` newValue: []const u8 `
+    ///
     pub fn Replace(self: ?*anyopaque, i: i64, name: []const u8, newValue: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -101,9 +154,18 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_Replace(@ptrCast(self), @intCast(i), name_str, newValue_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
     ///
-    /// ``` self: QtC.QHttpHeaders, i: i64, name: qhttpheaders_enums.WellKnownHeader, newValue: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` i: i64 `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` newValue: []const u8 `
+    ///
     pub fn Replace2(self: ?*anyopaque, i: i64, name: i32, newValue: []const u8) bool {
         const newValue_str = qtc.libqt_string{
             .len = newValue.len,
@@ -112,9 +174,16 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_Replace2(@ptrCast(self), @intCast(i), @intCast(name), newValue_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8, newValue: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` newValue: []const u8 `
+    ///
     pub fn ReplaceOrAppend(self: ?*anyopaque, name: []const u8, newValue: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -127,9 +196,16 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_ReplaceOrAppend(@ptrCast(self), name_str, newValue_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader, newValue: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` newValue: []const u8 `
+    ///
     pub fn ReplaceOrAppend2(self: ?*anyopaque, name: i32, newValue: []const u8) bool {
         const newValue_str = qtc.libqt_string{
             .len = newValue.len,
@@ -138,9 +214,14 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_ReplaceOrAppend2(@ptrCast(self), @intCast(name), newValue_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Contains(self: ?*anyopaque, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -149,23 +230,36 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_Contains(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
     pub fn Contains2(self: ?*anyopaque, name: i32) bool {
         return qtc.QHttpHeaders_Contains2(@ptrCast(self), @intCast(name));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#clear)
     ///
-    /// ``` self: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QHttpHeaders_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAll)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn RemoveAll(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -174,23 +268,40 @@ pub const qhttpheaders = struct {
         qtc.QHttpHeaders_RemoveAll(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAll)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
     pub fn RemoveAll2(self: ?*anyopaque, name: i32) void {
         qtc.QHttpHeaders_RemoveAll2(@ptrCast(self), @intCast(name));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAt)
     ///
-    /// ``` self: QtC.QHttpHeaders, i: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` i: i64 `
+    ///
     pub fn RemoveAt(self: ?*anyopaque, i: i64) void {
         qtc.QHttpHeaders_RemoveAt(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Value(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -203,9 +314,16 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Value2(self: ?*anyopaque, name: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHttpHeaders_Value2(@ptrCast(self), @intCast(name));
         defer qtc.libqt_string_free(&_str);
@@ -214,9 +332,16 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#values)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#values)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Values(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) [][]u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -240,9 +365,16 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#values)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#values)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Values2(self: ?*anyopaque, name: i32, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QHttpHeaders_Values2(@ptrCast(self), @intCast(name));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -262,9 +394,16 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#valueAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#valueAt)
     ///
-    /// ``` self: QtC.QHttpHeaders, i: i64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` i: i64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ValueAt(self: ?*anyopaque, i: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHttpHeaders_ValueAt(@ptrCast(self), @intCast(i));
         defer qtc.libqt_string_free(&_str);
@@ -273,9 +412,16 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#combinedValue)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#combinedValue)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CombinedValue(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -288,9 +434,16 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#combinedValue)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#combinedValue)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CombinedValue2(self: ?*anyopaque, name: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QHttpHeaders_CombinedValue2(@ptrCast(self), @intCast(name));
         defer qtc.libqt_string_free(&_bytearray);
@@ -299,30 +452,46 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#size)
     ///
-    /// ``` self: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
     pub fn Size(self: ?*anyopaque) i64 {
         return qtc.QHttpHeaders_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#reserve)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#reserve)
     ///
-    /// ``` self: QtC.QHttpHeaders, size: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` size: i64 `
+    ///
     pub fn Reserve(self: ?*anyopaque, size: i64) void {
         qtc.QHttpHeaders_Reserve(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#isEmpty)
     ///
-    /// ``` self: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QHttpHeaders_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#wellKnownHeaderName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#wellKnownHeaderName)
     ///
-    /// ``` name: qhttpheaders_enums.WellKnownHeader, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WellKnownHeaderName(name: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHttpHeaders_WellKnownHeaderName(@intCast(name));
         defer qtc.libqt_string_free(&_str);
@@ -331,9 +500,14 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toListOfPairs)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toListOfPairs)
     ///
-    /// ``` self: QtC.QHttpHeaders, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToListOfPairs(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
         const _arr: qtc.libqt_list = qtc.QHttpHeaders_ToListOfPairs(@ptrCast(self));
         defer {
@@ -353,9 +527,18 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Value22(self: ?*anyopaque, name: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -372,9 +555,18 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
-    /// ``` self: QtC.QHttpHeaders, name: qhttpheaders_enums.WellKnownHeader, defaultValue: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` name: qhttpheaders_enums.WellKnownHeader `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Value23(self: ?*anyopaque, name: i32, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
@@ -387,17 +579,20 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#dtor.QHttpHeaders)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#dtor.QHttpHeaders)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QHttpHeaders ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QHttpHeaders_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qhttpheaders.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#public-types)
 pub const enums = struct {
     pub const WellKnownHeader = enum {
         pub const AIM: i32 = 0;

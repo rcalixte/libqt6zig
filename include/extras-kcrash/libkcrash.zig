@@ -5,46 +5,56 @@ const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
-/// https://api.kde.org/kcrash.html
+/// ### [Upstream resources](https://api.kde.org/kcrash.html)
 pub const kcrash = struct {
-    /// [Upstream resources](https://api.kde.org/kcrash.html#initialize)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#initialize)
     ///
     pub fn Initialize() void {
         qtc.KCrash_Initialize();
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#defaultCrashHandler)
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#defaultCrashHandler)
     ///
-    /// ``` param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn DefaultCrashHandler(param1: i32) void {
         qtc.KCrash_DefaultCrashHandler(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#setFlags)
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setFlags)
     ///
-    /// ``` param1: flag of kcrash_enums.CrashFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: flag of kcrash_enums.CrashFlag `
+    ///
     pub fn SetFlags(param1: i32) void {
         qtc.KCrash_SetFlags(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#setDrKonqiEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setDrKonqiEnabled)
     ///
-    /// ``` param1: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: bool `
+    ///
     pub fn SetDrKonqiEnabled(param1: bool) void {
         qtc.KCrash_SetDrKonqiEnabled(param1);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#isDrKonqiEnabled)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#isDrKonqiEnabled)
     ///
     pub fn IsDrKonqiEnabled() bool {
         return qtc.KCrash_IsDrKonqiEnabled();
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#setErrorMessage)
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorMessage)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn SetErrorMessage(param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -53,9 +63,14 @@ pub const kcrash = struct {
         qtc.KCrash_SetErrorMessage(param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#setErrorTags)
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorTags)
     ///
-    /// ``` param1: map_constu8_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: map_constu8_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetErrorTags(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
         const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -80,9 +95,14 @@ pub const kcrash = struct {
         qtc.KCrash_SetErrorTags(param1_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#setErrorExtraData)
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorExtraData)
     ///
-    /// ``` param1: map_constu8_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: map_constu8_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetErrorExtraData(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
         const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -107,9 +127,14 @@ pub const kcrash = struct {
         qtc.KCrash_SetErrorExtraData(param1_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcrash.html#setGPUData)
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setGPUData)
     ///
-    /// ``` param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetGPUData(param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetGPUData: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -135,7 +160,7 @@ pub const kcrash = struct {
     }
 };
 
-/// https://api.kde.org/kcrash.html#types
+/// ### [Upstream resources](https://api.kde.org/kcrash.html#public-types)
 pub const enums = struct {
     pub const CrashFlag = enum {
         pub const KeepFDs: i32 = 1;

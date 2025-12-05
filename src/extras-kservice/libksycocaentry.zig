@@ -3,34 +3,48 @@ const qtc = @import("qt6c");
 const ksycocatype_enums = @import("libksycocatype.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/ksycocaentry.html
+/// ### [Upstream resources](https://api.kde.org/ksycocaentry.html)
 pub const ksycocaentry = struct {
     /// New constructs a new KSycocaEntry object.
-    ///
     ///
     pub fn New() QtC.KSycocaEntry {
         return qtc.KSycocaEntry_new();
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isType)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isType)
     ///
-    /// ``` self: QtC.KSycocaEntry, t: ksycocatype_enums.KSycocaType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
+    /// ` t: ksycocatype_enums.KSycocaType `
+    ///
     pub fn IsType(self: ?*anyopaque, t: i32) bool {
         return qtc.KSycocaEntry_IsType(@ptrCast(self), @intCast(t));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#sycocaType)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#sycocaType)
     ///
-    /// ``` self: QtC.KSycocaEntry ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` ksycocatype_enums.KSycocaType ```
+    /// ` self: QtC.KSycocaEntry `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ksycocatype_enums.KSycocaType `
+    ///
     pub fn SycocaType(self: ?*anyopaque) i32 {
         return qtc.KSycocaEntry_SycocaType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#name)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#name)
     ///
-    /// ``` self: QtC.KSycocaEntry, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSycocaEntry_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -39,9 +53,14 @@ pub const ksycocaentry = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#entryPath)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#entryPath)
     ///
-    /// ``` self: QtC.KSycocaEntry, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn EntryPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -50,9 +69,14 @@ pub const ksycocaentry = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#storageId)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#storageId)
     ///
-    /// ``` self: QtC.KSycocaEntry, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StorageId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSycocaEntry_StorageId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -61,39 +85,56 @@ pub const ksycocaentry = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isValid)
     ///
-    /// ``` self: QtC.KSycocaEntry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KSycocaEntry_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isDeleted)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isDeleted)
     ///
-    /// ``` self: QtC.KSycocaEntry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
     pub fn IsDeleted(self: ?*anyopaque) bool {
         return qtc.KSycocaEntry_IsDeleted(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#setDeleted)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#setDeleted)
     ///
-    /// ``` self: QtC.KSycocaEntry, deleted: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
+    /// ` deleted: bool `
+    ///
     pub fn SetDeleted(self: ?*anyopaque, deleted: bool) void {
         qtc.KSycocaEntry_SetDeleted(@ptrCast(self), deleted);
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isSeparator)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isSeparator)
     ///
-    /// ``` self: QtC.KSycocaEntry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
     pub fn IsSeparator(self: ?*anyopaque) bool {
         return qtc.KSycocaEntry_IsSeparator(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#dtor.KSycocaEntry)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#dtor.KSycocaEntry)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KSycocaEntry ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KSycocaEntry `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KSycocaEntry_Delete(@ptrCast(self));
     }

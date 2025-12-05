@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qsslerror_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qsslerror.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html)
 pub const qsslerror = struct {
     /// New constructs a new QSslError object.
-    ///
     ///
     pub fn New() QtC.QSslError {
         return qtc.QSslError_new();
@@ -14,65 +13,106 @@ pub const qsslerror = struct {
 
     /// New2 constructs a new QSslError object.
     ///
-    /// ``` errorVal: qsslerror_enums.SslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` errorVal: qsslerror_enums.SslError `
+    ///
     pub fn New2(errorVal: i32) QtC.QSslError {
         return qtc.QSslError_new2(@intCast(errorVal));
     }
 
     /// New3 constructs a new QSslError object.
     ///
-    /// ``` errorVal: qsslerror_enums.SslError, certificate: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` errorVal: qsslerror_enums.SslError `
+    ///
+    /// ` certificate: QtC.QSslCertificate `
+    ///
     pub fn New3(errorVal: i32, certificate: ?*anyopaque) QtC.QSslError {
         return qtc.QSslError_new3(@intCast(errorVal), @ptrCast(certificate));
     }
 
     /// New4 constructs a new QSslError object.
     ///
-    /// ``` other: QtC.QSslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSslError `
+    ///
     pub fn New4(other: ?*anyopaque) QtC.QSslError {
         return qtc.QSslError_new4(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#swap)
     ///
-    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslError `
+    ///
+    /// ` other: QtC.QSslError `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslError_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-eq)
     ///
-    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslError `
+    ///
+    /// ` other: QtC.QSslError `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslError `
+    ///
+    /// ` other: QtC.QSslError `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslError_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslError `
+    ///
+    /// ` other: QtC.QSslError `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslError_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#error)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#error)
     ///
-    /// ``` self: QtC.QSslError ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qsslerror_enums.SslError ```
+    /// ` self: QtC.QSslError `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qsslerror_enums.SslError `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QSslError_Error(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#errorString)
     ///
-    /// ``` self: QtC.QSslError, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslError `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslError_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -81,24 +121,30 @@ pub const qsslerror = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#certificate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#certificate)
     ///
-    /// ``` self: QtC.QSslError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslError `
+    ///
     pub fn Certificate(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QSslError_Certificate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#dtor.QSslError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#dtor.QSslError)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSslError ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSslError `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSslError_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qsslerror.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#public-types)
 pub const enums = struct {
     pub const SslError = enum {
         pub const NoError: i32 = 0;

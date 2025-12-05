@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qdatastream_enums = enums;
 
-/// https://doc.qt.io/qt-6/qdatastream.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html)
 pub const qdatastream = struct {
     /// New constructs a new QDataStream object.
-    ///
     ///
     pub fn New() QtC.QDataStream {
         return qtc.QDataStream_new();
@@ -13,14 +12,20 @@ pub const qdatastream = struct {
 
     /// New2 constructs a new QDataStream object.
     ///
-    /// ``` param1: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QIODevice `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.QDataStream {
         return qtc.QDataStream_new2(@ptrCast(param1));
     }
 
     /// New3 constructs a new QDataStream object.
     ///
-    /// ``` param1: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []u8 `
+    ///
     pub fn New3(param1: []u8) QtC.QDataStream {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -30,366 +35,601 @@ pub const qdatastream = struct {
         return qtc.QDataStream_new3(param1_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#device)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#device)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn Device(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QDataStream_Device(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setDevice)
     ///
-    /// ``` self: QtC.QDataStream, device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QDataStream_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#atEnd)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.QDataStream_AtEnd(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#status)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#status)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdatastream_enums.Status ```
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdatastream_enums.Status `
+    ///
     pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QDataStream_Status(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setStatus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setStatus)
     ///
-    /// ``` self: QtC.QDataStream, status: qdatastream_enums.Status ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` status: qdatastream_enums.Status `
+    ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
         qtc.QDataStream_SetStatus(@ptrCast(self), @intCast(status));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#resetStatus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#resetStatus)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn ResetStatus(self: ?*anyopaque) void {
         qtc.QDataStream_ResetStatus(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#floatingPointPrecision)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#floatingPointPrecision)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdatastream_enums.FloatingPointPrecision ```
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdatastream_enums.FloatingPointPrecision `
+    ///
     pub fn FloatingPointPrecision(self: ?*anyopaque) i32 {
         return qtc.QDataStream_FloatingPointPrecision(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setFloatingPointPrecision)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setFloatingPointPrecision)
     ///
-    /// ``` self: QtC.QDataStream, precision: qdatastream_enums.FloatingPointPrecision ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` precision: qdatastream_enums.FloatingPointPrecision `
+    ///
     pub fn SetFloatingPointPrecision(self: ?*anyopaque, precision: i32) void {
         qtc.QDataStream_SetFloatingPointPrecision(@ptrCast(self), @intCast(precision));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#byteOrder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#byteOrder)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdatastream_enums.ByteOrder ```
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdatastream_enums.ByteOrder `
+    ///
     pub fn ByteOrder(self: ?*anyopaque) i32 {
         return qtc.QDataStream_ByteOrder(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setByteOrder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setByteOrder)
     ///
-    /// ``` self: QtC.QDataStream, byteOrder: qdatastream_enums.ByteOrder ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` byteOrder: qdatastream_enums.ByteOrder `
+    ///
     pub fn SetByteOrder(self: ?*anyopaque, byteOrder: i32) void {
         qtc.QDataStream_SetByteOrder(@ptrCast(self), @intCast(byteOrder));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#version)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#version)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn Version(self: ?*anyopaque) i32 {
         return qtc.QDataStream_Version(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#setVersion)
     ///
-    /// ``` self: QtC.QDataStream, version: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` version: i32 `
+    ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
         qtc.QDataStream_SetVersion(@ptrCast(self), @intCast(version));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *u8 `
+    ///
     pub fn OperatorShiftRight(self: ?*anyopaque, i: *u8) void {
         qtc.QDataStream_OperatorShiftRight(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *i8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *i8 `
+    ///
     pub fn OperatorShiftRight2(self: ?*anyopaque, i: *i8) void {
         qtc.QDataStream_OperatorShiftRight2(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *u8 `
+    ///
     pub fn OperatorShiftRight3(self: ?*anyopaque, i: *u8) void {
         qtc.QDataStream_OperatorShiftRight3(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *i16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *i16 `
+    ///
     pub fn OperatorShiftRight4(self: ?*anyopaque, i: *i16) void {
         qtc.QDataStream_OperatorShiftRight4(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *u16 `
+    ///
     pub fn OperatorShiftRight5(self: ?*anyopaque, i: *u16) void {
         qtc.QDataStream_OperatorShiftRight5(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *i32 `
+    ///
     pub fn OperatorShiftRight6(self: ?*anyopaque, i: *i32) void {
         qtc.QDataStream_OperatorShiftRight6(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *u32 `
+    ///
     pub fn OperatorShiftRight7(self: ?*anyopaque, i: *u32) void {
         qtc.QDataStream_OperatorShiftRight7(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *i64 `
+    ///
     pub fn OperatorShiftRight8(self: ?*anyopaque, i: *i64) void {
         qtc.QDataStream_OperatorShiftRight8(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *u64 `
+    ///
     pub fn OperatorShiftRight9(self: ?*anyopaque, i: *u64) void {
         qtc.QDataStream_OperatorShiftRight9(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: *bool `
+    ///
     pub fn OperatorShiftRight11(self: ?*anyopaque, i: *bool) void {
         qtc.QDataStream_OperatorShiftRight11(@ptrCast(self), @ptrCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, f: *f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` f: *f32 `
+    ///
     pub fn OperatorShiftRight12(self: ?*anyopaque, f: *f32) void {
         qtc.QDataStream_OperatorShiftRight12(@ptrCast(self), @ptrCast(f));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, f: *f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` f: *f64 `
+    ///
     pub fn OperatorShiftRight13(self: ?*anyopaque, f: *f64) void {
         qtc.QDataStream_OperatorShiftRight13(@ptrCast(self), @ptrCast(f));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, str: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` str: []u8 `
+    ///
     pub fn OperatorShiftRight14(self: ?*anyopaque, str: []u8) void {
         const str_Cstring = str.ptr;
         qtc.QDataStream_OperatorShiftRight14(@ptrCast(self), str_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: u8 `
+    ///
     pub fn OperatorShiftLeft(self: ?*anyopaque, i: u8) void {
         qtc.QDataStream_OperatorShiftLeft(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: i8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: i8 `
+    ///
     pub fn OperatorShiftLeft2(self: ?*anyopaque, i: i8) void {
         qtc.QDataStream_OperatorShiftLeft2(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: u8 `
+    ///
     pub fn OperatorShiftLeft3(self: ?*anyopaque, i: u8) void {
         qtc.QDataStream_OperatorShiftLeft3(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: i16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: i16 `
+    ///
     pub fn OperatorShiftLeft4(self: ?*anyopaque, i: i16) void {
         qtc.QDataStream_OperatorShiftLeft4(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: u16 `
+    ///
     pub fn OperatorShiftLeft5(self: ?*anyopaque, i: u16) void {
         qtc.QDataStream_OperatorShiftLeft5(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: i32 `
+    ///
     pub fn OperatorShiftLeft6(self: ?*anyopaque, i: i32) void {
         qtc.QDataStream_OperatorShiftLeft6(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: u32 `
+    ///
     pub fn OperatorShiftLeft7(self: ?*anyopaque, i: u32) void {
         qtc.QDataStream_OperatorShiftLeft7(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: i64 `
+    ///
     pub fn OperatorShiftLeft8(self: ?*anyopaque, i: i64) void {
         qtc.QDataStream_OperatorShiftLeft8(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` i: u64 `
+    ///
     pub fn OperatorShiftLeft9(self: ?*anyopaque, i: u64) void {
         qtc.QDataStream_OperatorShiftLeft9(@ptrCast(self), @intCast(i));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, f: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` f: f32 `
+    ///
     pub fn OperatorShiftLeft11(self: ?*anyopaque, f: f32) void {
         qtc.QDataStream_OperatorShiftLeft11(@ptrCast(self), @floatCast(f));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, f: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` f: f64 `
+    ///
     pub fn OperatorShiftLeft12(self: ?*anyopaque, f: f64) void {
         qtc.QDataStream_OperatorShiftLeft12(@ptrCast(self), @floatCast(f));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, str: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` str: []const u8 `
+    ///
     pub fn OperatorShiftLeft13(self: ?*anyopaque, str: []const u8) void {
         const str_Cstring = str.ptr;
         qtc.QDataStream_OperatorShiftLeft13(@ptrCast(self), str_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
     ///
-    /// ``` self: QtC.QDataStream, param1: []u8, lenVal: *u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` param1: []u8 `
+    ///
+    /// ` lenVal: *u32 `
+    ///
     pub fn ReadBytes(self: ?*anyopaque, param1: []u8, lenVal: *u32) QtC.QDataStream {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadBytes(@ptrCast(self), param1_Cstring, @ptrCast(lenVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
     ///
-    /// ``` self: QtC.QDataStream, param1: []u8, lenVal: *i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` param1: []u8 `
+    ///
+    /// ` lenVal: *i64 `
+    ///
     pub fn ReadBytes2(self: ?*anyopaque, param1: []u8, lenVal: *i64) QtC.QDataStream {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadBytes2(@ptrCast(self), param1_Cstring, @ptrCast(lenVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readRawData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readRawData)
     ///
-    /// ``` self: QtC.QDataStream, param1: []u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` param1: []u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn ReadRawData(self: ?*anyopaque, param1: []u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeBytes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeBytes)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn WriteBytes(self: ?*anyopaque, param1: []const u8, lenVal: i64) void {
         const param1_Cstring = param1.ptr;
         qtc.QDataStream_WriteBytes(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeRawData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeRawData)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn WriteRawData(self: ?*anyopaque, param1: []const u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_WriteRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#skipRawData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#skipRawData)
     ///
-    /// ``` self: QtC.QDataStream, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn SkipRawData(self: ?*anyopaque, lenVal: i64) i64 {
         return qtc.QDataStream_SkipRawData(@ptrCast(self), @intCast(lenVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#startTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#startTransaction)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn StartTransaction(self: ?*anyopaque) void {
         qtc.QDataStream_StartTransaction(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#commitTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#commitTransaction)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn CommitTransaction(self: ?*anyopaque) bool {
         return qtc.QDataStream_CommitTransaction(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#rollbackTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#rollbackTransaction)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn RollbackTransaction(self: ?*anyopaque) void {
         qtc.QDataStream_RollbackTransaction(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#abortTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#abortTransaction)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn AbortTransaction(self: ?*anyopaque) void {
         qtc.QDataStream_AbortTransaction(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#isDeviceTransactionStarted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#isDeviceTransactionStarted)
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn IsDeviceTransactionStarted(self: ?*anyopaque) bool {
         return qtc.QDataStream_IsDeviceTransactionStarted(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#dtor.QDataStream)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#dtor.QDataStream)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDataStream ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDataStream `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDataStream_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qdatastream.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#public-types)
 pub const enums = struct {
     pub const Version = enum {
         pub const Qt_1_0: i32 = 1;

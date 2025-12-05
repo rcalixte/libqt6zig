@@ -3,13 +3,18 @@ const qtc = @import("qt6c");
 const kfilesystemtype_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kfilesystemtype.html
+/// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html)
 pub const kfilesystemtype = struct {
-    /// [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemType)
+    /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemType)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kfilesystemtype_enums.Type ```
+    /// ` param1: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kfilesystemtype_enums.Type `
+    ///
     pub fn FileSystemType(param1: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -18,9 +23,14 @@ pub const kfilesystemtype = struct {
         return qtc.KFileSystemType_FileSystemType(param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemName)
+    /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemName)
     ///
-    /// ``` param1: kfilesystemtype_enums.Type, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kfilesystemtype_enums.Type `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FileSystemName(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KFileSystemType_FileSystemName(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -30,7 +40,7 @@ pub const kfilesystemtype = struct {
     }
 };
 
-/// https://api.kde.org/kfilesystemtype.html#types
+/// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const Unknown: i32 = 0;

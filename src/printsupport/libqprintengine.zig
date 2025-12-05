@@ -4,70 +4,106 @@ const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qprintengine_enums = enums;
 const qprinter_enums = @import("libqprinter.zig").enums;
 
-/// https://doc.qt.io/qt-6/qprintengine.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html)
 pub const qprintengine = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#setProperty)
     ///
-    /// ``` self: QtC.QPrintEngine, key: qprintengine_enums.PrintEnginePropertyKey, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPrintEngine `
+    ///
+    /// ` key: qprintengine_enums.PrintEnginePropertyKey `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
         qtc.QPrintEngine_SetProperty(@ptrCast(self), @intCast(key), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#property)
     ///
-    /// ``` self: QtC.QPrintEngine, key: qprintengine_enums.PrintEnginePropertyKey ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPrintEngine `
+    ///
+    /// ` key: qprintengine_enums.PrintEnginePropertyKey `
+    ///
     pub fn Property(self: ?*anyopaque, key: i32) QtC.QVariant {
         return qtc.QPrintEngine_Property(@ptrCast(self), @intCast(key));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#newPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#newPage)
     ///
-    /// ``` self: QtC.QPrintEngine ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPrintEngine `
+    ///
     pub fn NewPage(self: ?*anyopaque) bool {
         return qtc.QPrintEngine_NewPage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#abort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#abort)
     ///
-    /// ``` self: QtC.QPrintEngine ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPrintEngine `
+    ///
     pub fn Abort(self: ?*anyopaque) bool {
         return qtc.QPrintEngine_Abort(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#metric)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#metric)
     ///
-    /// ``` self: QtC.QPrintEngine, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPrintEngine `
+    ///
+    /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QPrintEngine_Metric(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#printerState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#printerState)
     ///
-    /// ``` self: QtC.QPrintEngine ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qprinter_enums.PrinterState ```
+    /// ` self: QtC.QPrintEngine `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qprinter_enums.PrinterState `
+    ///
     pub fn PrinterState(self: ?*anyopaque) i32 {
         return qtc.QPrintEngine_PrinterState(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#operator-eq)
     ///
-    /// ``` self: QtC.QPrintEngine, param1: QtC.QPrintEngine ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPrintEngine `
+    ///
+    /// ` param1: QtC.QPrintEngine `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QPrintEngine_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#dtor.QPrintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#dtor.QPrintEngine)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QPrintEngine ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QPrintEngine `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QPrintEngine_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qprintengine.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#public-types)
 pub const enums = struct {
     pub const PrintEnginePropertyKey = enum {
         pub const PPK_CollateCopies: i32 = 0;

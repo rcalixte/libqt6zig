@@ -2,11 +2,16 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html
+/// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
 pub const qscistyledtext = struct {
     /// New constructs a new QsciStyledText object.
     ///
-    /// ``` text: []const u8, style: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` style: i32 `
+    ///
     pub fn New(text: []const u8, style: i32) QtC.QsciStyledText {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -18,7 +23,12 @@ pub const qscistyledtext = struct {
 
     /// New2 constructs a new QsciStyledText object.
     ///
-    /// ``` text: []const u8, style: QtC.QsciStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` style: QtC.QsciStyle `
+    ///
     pub fn New2(text: []const u8, style: ?*anyopaque) QtC.QsciStyledText {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -30,21 +40,34 @@ pub const qscistyledtext = struct {
 
     /// New3 constructs a new QsciStyledText object.
     ///
-    /// ``` param1: QtC.QsciStyledText ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QsciStyledText `
+    ///
     pub fn New3(param1: ?*anyopaque) QtC.QsciStyledText {
         return qtc.QsciStyledText_new3(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
-    /// ``` self: QtC.QsciStyledText, sci: QtC.QsciScintillaBase ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciStyledText `
+    ///
+    /// ` sci: QtC.QsciScintillaBase `
+    ///
     pub fn Apply(self: ?*anyopaque, sci: ?*anyopaque) void {
         qtc.QsciStyledText_Apply(@ptrCast(self), @ptrCast(sci));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
-    /// ``` self: QtC.QsciStyledText, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciStyledText `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QsciStyledText_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -53,18 +76,24 @@ pub const qscistyledtext = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
-    /// ``` self: QtC.QsciStyledText ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciStyledText `
+    ///
     pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QsciStyledText_Style(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QsciStyledText ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QsciStyledText `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QsciStyledText_Delete(@ptrCast(self));
     }

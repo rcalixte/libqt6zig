@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qpageranges.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html)
 pub const qpageranges = struct {
     /// New constructs a new QPageRanges object.
-    ///
     ///
     pub fn New() QtC.QPageRanges {
         return qtc.QPageRanges_new();
@@ -13,42 +12,72 @@ pub const qpageranges = struct {
 
     /// New2 constructs a new QPageRanges object.
     ///
-    /// ``` other: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QPageRanges `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QPageRanges {
         return qtc.QPageRanges_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#operator-eq)
     ///
-    /// ``` self: QtC.QPageRanges, other: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
+    /// ` other: QtC.QPageRanges `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPageRanges_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#swap)
     ///
-    /// ``` self: QtC.QPageRanges, other: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
+    /// ` other: QtC.QPageRanges `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPageRanges_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#addPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#addPage)
     ///
-    /// ``` self: QtC.QPageRanges, pageNumber: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
+    /// ` pageNumber: i32 `
+    ///
     pub fn AddPage(self: ?*anyopaque, pageNumber: i32) void {
         qtc.QPageRanges_AddPage(@ptrCast(self), @intCast(pageNumber));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#addRange)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#addRange)
     ///
-    /// ``` self: QtC.QPageRanges, from: i32, to: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
+    /// ` from: i32 `
+    ///
+    /// ` to: i32 `
+    ///
     pub fn AddRange(self: ?*anyopaque, from: i32, to: i32) void {
         qtc.QPageRanges_AddRange(@ptrCast(self), @intCast(from), @intCast(to));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#toRangeList)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#toRangeList)
     ///
-    /// ``` self: QtC.QPageRanges, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToRangeList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPageRanges__Range {
         const _arr: qtc.libqt_list = qtc.QPageRanges_ToRangeList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -58,16 +87,24 @@ pub const qpageranges = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#clear)
     ///
-    /// ``` self: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QPageRanges_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#toString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#toString)
     ///
-    /// ``` self: QtC.QPageRanges, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageRanges_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -76,9 +113,12 @@ pub const qpageranges = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#fromString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#fromString)
     ///
-    /// ``` ranges: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` ranges: []const u8 `
+    ///
     pub fn FromString(ranges: []const u8) QtC.QPageRanges {
         const ranges_str = qtc.libqt_string{
             .len = ranges.len,
@@ -87,69 +127,94 @@ pub const qpageranges = struct {
         return qtc.QPageRanges_FromString(ranges_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#contains)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#contains)
     ///
-    /// ``` self: QtC.QPageRanges, pageNumber: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
+    /// ` pageNumber: i32 `
+    ///
     pub fn Contains(self: ?*anyopaque, pageNumber: i32) bool {
         return qtc.QPageRanges_Contains(@ptrCast(self), @intCast(pageNumber));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#isEmpty)
     ///
-    /// ``` self: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QPageRanges_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#firstPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#firstPage)
     ///
-    /// ``` self: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
     pub fn FirstPage(self: ?*anyopaque) i32 {
         return qtc.QPageRanges_FirstPage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#lastPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#lastPage)
     ///
-    /// ``` self: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
     pub fn LastPage(self: ?*anyopaque) i32 {
         return qtc.QPageRanges_LastPage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#detach)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#detach)
     ///
-    /// ``` self: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
     pub fn Detach(self: ?*anyopaque) void {
         qtc.QPageRanges_Detach(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#dtor.QPageRanges)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#dtor.QPageRanges)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QPageRanges ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QPageRanges `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QPageRanges_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qpageranges-range.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html)
 pub const qpageranges__range = struct {
     /// New constructs a new QPageRanges::Range object.
     ///
-    /// ``` other: QtC.QPageRanges__Range ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QPageRanges__Range `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QPageRanges__Range {
         return qtc.QPageRanges__Range_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QPageRanges::Range object and invalidates the source QPageRanges::Range object.
     ///
-    /// ``` other: QtC.QPageRanges__Range ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QPageRanges__Range `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QPageRanges__Range {
         return qtc.QPageRanges__Range_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QPageRanges::Range object.
-    ///
     ///
     pub fn New3() QtC.QPageRanges__Range {
         return qtc.QPageRanges__Range_new3();
@@ -157,63 +222,100 @@ pub const qpageranges__range = struct {
 
     /// New4 constructs a new QPageRanges::Range object.
     ///
-    /// ``` param1: QtC.QPageRanges__Range ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QPageRanges__Range `
+    ///
     pub fn New4(param1: ?*anyopaque) QtC.QPageRanges__Range {
         return qtc.QPageRanges__Range_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QPageRanges__Range, other: QtC.QPageRanges__Range ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
+    /// ` other: QtC.QPageRanges__Range `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPageRanges__Range_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QPageRanges__Range, other: QtC.QPageRanges__Range ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
+    /// ` other: QtC.QPageRanges__Range `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPageRanges__Range_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#from-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#from-var)
     ///
-    /// ``` self: QtC.QPageRanges__Range ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
     pub fn From(self: ?*anyopaque) i32 {
         return qtc.QPageRanges__Range_From(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#from-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#from-var)
     ///
-    /// ``` self: QtC.QPageRanges__Range, from: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
+    /// ` from: i32 `
+    ///
     pub fn SetFrom(self: ?*anyopaque, from: i32) void {
         qtc.QPageRanges__Range_SetFrom(@ptrCast(self), @intCast(from));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#to-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#to-var)
     ///
-    /// ``` self: QtC.QPageRanges__Range ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
     pub fn To(self: ?*anyopaque) i32 {
         return qtc.QPageRanges__Range_To(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#to-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#to-var)
     ///
-    /// ``` self: QtC.QPageRanges__Range, to: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
+    /// ` to: i32 `
+    ///
     pub fn SetTo(self: ?*anyopaque, to: i32) void {
         qtc.QPageRanges__Range_SetTo(@ptrCast(self), @intCast(to));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#contains)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#contains)
     ///
-    /// ``` self: QtC.QPageRanges__Range, pageNumber: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
+    /// ` pageNumber: i32 `
+    ///
     pub fn Contains(self: ?*anyopaque, pageNumber: i32) bool {
         return qtc.QPageRanges__Range_Contains(@ptrCast(self), @intCast(pageNumber));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QPageRanges__Range ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QPageRanges__Range `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QPageRanges__Range_Delete(@ptrCast(self));
     }

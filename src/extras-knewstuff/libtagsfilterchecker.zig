@@ -2,11 +2,16 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/knscore-tagsfilterchecker.html
+/// ### [Upstream resources](https://api.kde.org/knscore-tagsfilterchecker.html)
 pub const knscore__tagsfilterchecker = struct {
     /// New constructs a new KNSCore::TagsFilterChecker object.
     ///
-    /// ``` tagFilter: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` tagFilter: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New(tagFilter: [][]const u8, allocator: std.mem.Allocator) QtC.KNSCore__TagsFilterChecker {
         var tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("knscore::tagsfilterchecker.New: Memory allocation failed");
         defer allocator.free(tagFilter_arr);
@@ -24,9 +29,16 @@ pub const knscore__tagsfilterchecker = struct {
         return qtc.KNSCore__TagsFilterChecker_new(tagFilter_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-tagsfilterchecker.html#filterAccepts)
+    /// ### [Upstream resources](https://api.kde.org/knscore-tagsfilterchecker.html#filterAccepts)
     ///
-    /// ``` self: QtC.KNSCore__TagsFilterChecker, tags: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__TagsFilterChecker `
+    ///
+    /// ` tags: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilterAccepts(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) bool {
         var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore::tagsfilterchecker.FilterAccepts: Memory allocation failed");
         defer allocator.free(tags_arr);
@@ -45,7 +57,10 @@ pub const knscore__tagsfilterchecker = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KNSCore__TagsFilterChecker ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KNSCore__TagsFilterChecker `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KNSCore__TagsFilterChecker_Delete(@ptrCast(self));
     }

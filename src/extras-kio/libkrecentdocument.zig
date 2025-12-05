@@ -3,39 +3,58 @@ const qtc = @import("qt6c");
 const krecentdocument_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/krecentdocument.html
+/// ### [Upstream resources](https://api.kde.org/krecentdocument.html)
 pub const krecentdocument = struct {
     /// New constructs a new KRecentDocument object.
     ///
-    /// ``` other: QtC.KRecentDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KRecentDocument `
+    ///
     pub fn New(other: ?*anyopaque) QtC.KRecentDocument {
         return qtc.KRecentDocument_new(@ptrCast(other));
     }
 
     /// New2 constructs a new KRecentDocument object and invalidates the source KRecentDocument object.
     ///
-    /// ``` other: QtC.KRecentDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KRecentDocument `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.KRecentDocument {
         return qtc.KRecentDocument_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.KRecentDocument, other: QtC.KRecentDocument ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRecentDocument `
+    ///
+    /// ` other: QtC.KRecentDocument `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KRecentDocument_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.KRecentDocument, other: QtC.KRecentDocument ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRecentDocument `
+    ///
+    /// ` other: QtC.KRecentDocument `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KRecentDocument_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#recentUrls)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#recentUrls)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RecentUrls(allocator: std.mem.Allocator) []QtC.QUrl {
         const _arr: qtc.libqt_list = qtc.KRecentDocument_RecentUrls();
         defer qtc.libqt_free(_arr.data);
@@ -45,16 +64,24 @@ pub const krecentdocument = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn Add(url: ?*anyopaque) void {
         qtc.KRecentDocument_Add(@ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
-    /// ``` url: QtC.QUrl, groups: []krecentdocument_enums.RecentDocumentGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` groups: []krecentdocument_enums.RecentDocumentGroup `
+    ///
     pub fn Add2(url: ?*anyopaque, groups: []i32) void {
         const groups_list = qtc.libqt_list{
             .len = groups.len,
@@ -63,9 +90,14 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_Add2(@ptrCast(url), groups_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
-    /// ``` url: QtC.QUrl, desktopEntryName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` desktopEntryName: []const u8 `
+    ///
     pub fn Add3(url: ?*anyopaque, desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
@@ -74,9 +106,16 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_Add3(@ptrCast(url), desktopEntryName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
-    /// ``` url: QtC.QUrl, desktopEntryName: []const u8, groups: []krecentdocument_enums.RecentDocumentGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` desktopEntryName: []const u8 `
+    ///
+    /// ` groups: []krecentdocument_enums.RecentDocumentGroup `
+    ///
     pub fn Add4(url: ?*anyopaque, desktopEntryName: []const u8, groups: []i32) void {
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
@@ -89,16 +128,22 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_Add4(@ptrCast(url), desktopEntryName_str, groups_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#removeFile)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#removeFile)
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn RemoveFile(url: ?*anyopaque) void {
         qtc.KRecentDocument_RemoveFile(@ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#removeApplication)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#removeApplication)
     ///
-    /// ``` desktopEntryName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` desktopEntryName: []const u8 `
+    ///
     pub fn RemoveApplication(desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
@@ -107,38 +152,42 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_RemoveApplication(desktopEntryName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#removeBookmarksModifiedSince)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#removeBookmarksModifiedSince)
     ///
-    /// ``` since: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` since: QtC.QDateTime `
+    ///
     pub fn RemoveBookmarksModifiedSince(since: ?*anyopaque) void {
         qtc.KRecentDocument_RemoveBookmarksModifiedSince(@ptrCast(since));
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#clear)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#clear)
     ///
     pub fn Clear() void {
         qtc.KRecentDocument_Clear();
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#maximumItems)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#maximumItems)
     ///
     pub fn MaximumItems() i32 {
         return qtc.KRecentDocument_MaximumItems();
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdocument.html#dtor.KRecentDocument)
+    /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#dtor.KRecentDocument)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KRecentDocument ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KRecentDocument `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KRecentDocument_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/krecentdocument.html#types
+/// ### [Upstream resources](https://api.kde.org/krecentdocument.html#public-types)
 pub const enums = struct {
     pub const RecentDocumentGroup = enum {
         pub const Development: i32 = 0;

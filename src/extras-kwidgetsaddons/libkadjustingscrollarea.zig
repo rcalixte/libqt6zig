@@ -10,57 +10,95 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kadjustingscrollarea.html
+/// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html)
 pub const kadjustingscrollarea = struct {
     /// New constructs a new KAdjustingScrollArea object.
     ///
-    /// ``` parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn New(parent: ?*anyopaque) QtC.KAdjustingScrollArea {
         return qtc.KAdjustingScrollArea_new(@ptrCast(parent));
     }
 
     /// New2 constructs a new KAdjustingScrollArea object.
     ///
-    ///
     pub fn New2() QtC.KAdjustingScrollArea {
         return qtc.KAdjustingScrollArea_new2();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KAdjustingScrollArea_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KAdjustingScrollArea, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KAdjustingScrollArea_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KAdjustingScrollArea_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KAdjustingScrollArea_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KAdjustingScrollArea_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -70,84 +108,128 @@ pub const kadjustingscrollarea = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.KAdjustingScrollArea_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_SizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.KAdjustingScrollArea_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -158,9 +240,18 @@ pub const kadjustingscrollarea = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -173,231 +264,366 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#widget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QScrollArea_Widget(@ptrCast(self));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#setWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#setWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QScrollArea_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#takeWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#takeWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn TakeWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QScrollArea_TakeWidget(@ptrCast(self));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#widgetResizable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#widgetResizable)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn WidgetResizable(self: ?*anyopaque) bool {
         return qtc.QScrollArea_WidgetResizable(@ptrCast(self));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#setWidgetResizable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#setWidgetResizable)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, resizable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` resizable: bool `
+    ///
     pub fn SetWidgetResizable(self: ?*anyopaque, resizable: bool) void {
         qtc.QScrollArea_SetWidgetResizable(@ptrCast(self), resizable);
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#alignment)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QScrollArea_Alignment(@ptrCast(self));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#setAlignment)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, alignment: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QScrollArea_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureVisible)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn EnsureVisible(self: ?*anyopaque, x: i32, y: i32) void {
         qtc.QScrollArea_EnsureVisible(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureWidgetVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureWidgetVisible)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, childWidget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` childWidget: QtC.QWidget `
+    ///
     pub fn EnsureWidgetVisible(self: ?*anyopaque, childWidget: ?*anyopaque) void {
         qtc.QScrollArea_EnsureWidgetVisible(@ptrCast(self), @ptrCast(childWidget));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureVisible)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32, xmargin: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` xmargin: i32 `
+    ///
     pub fn EnsureVisible3(self: ?*anyopaque, x: i32, y: i32, xmargin: i32) void {
         qtc.QScrollArea_EnsureVisible3(@ptrCast(self), @intCast(x), @intCast(y), @intCast(xmargin));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureVisible)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32, xmargin: i32, ymargin: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` xmargin: i32 `
+    ///
+    /// ` ymargin: i32 `
+    ///
     pub fn EnsureVisible4(self: ?*anyopaque, x: i32, y: i32, xmargin: i32, ymargin: i32) void {
         qtc.QScrollArea_EnsureVisible4(@ptrCast(self), @intCast(x), @intCast(y), @intCast(xmargin), @intCast(ymargin));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureWidgetVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureWidgetVisible)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, childWidget: QtC.QWidget, xmargin: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` childWidget: QtC.QWidget `
+    ///
+    /// ` xmargin: i32 `
+    ///
     pub fn EnsureWidgetVisible2(self: ?*anyopaque, childWidget: ?*anyopaque, xmargin: i32) void {
         qtc.QScrollArea_EnsureWidgetVisible2(@ptrCast(self), @ptrCast(childWidget), @intCast(xmargin));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureWidgetVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#ensureWidgetVisible)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, childWidget: QtC.QWidget, xmargin: i32, ymargin: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` childWidget: QtC.QWidget `
+    ///
+    /// ` xmargin: i32 `
+    ///
+    /// ` ymargin: i32 `
+    ///
     pub fn EnsureWidgetVisible3(self: ?*anyopaque, childWidget: ?*anyopaque, xmargin: i32, ymargin: i32) void {
         qtc.QScrollArea_EnsureWidgetVisible3(@ptrCast(self), @ptrCast(childWidget), @intCast(xmargin), @intCast(ymargin));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
         return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, scrollbar: QtC.QScrollBar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` scrollbar: QtC.QScrollBar `
+    ///
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
         return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, scrollbar: QtC.QScrollBar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` scrollbar: QtC.QScrollBar `
+    ///
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
@@ -409,1056 +635,1548 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
         return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
+    ///
     pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
+    ///
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FrameStyle(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, frameStyle: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` frameStyle: i32 `
+    ///
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
         qtc.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FrameWidth(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qframe_enums.Shape ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qframe_enums.Shape `
+    ///
     pub fn FrameShape(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, frameShape: qframe_enums.Shape ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` frameShape: qframe_enums.Shape `
+    ///
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
         qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qframe_enums.Shadow ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qframe_enums.Shadow `
+    ///
     pub fn FrameShadow(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, frameShadow: qframe_enums.Shadow ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` frameShadow: qframe_enums.Shadow `
+    ///
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
         qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn LineWidth(self: ?*anyopaque) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, lineWidth: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` lineWidth: i32 `
+    ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
         qtc.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, midLineWidth: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` midLineWidth: i32 `
+    ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
         qtc.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QFrame_FrameRect(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, frameRect: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` frameRect: QtC.QRect `
+    ///
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
         qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn WinId(self: ?*anyopaque) usize {
         return qtc.QWidget_WinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn CreateWinId(self: ?*anyopaque) void {
         qtc.QWidget_CreateWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn InternalWinId(self: ?*anyopaque) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
         return qtc.QWidget_Style(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, style: QtC.QStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` style: QtC.QStyle `
+    ///
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
         qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsTopLevel(self: ?*anyopaque) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsWindow(self: ?*anyopaque) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsModal(self: ?*anyopaque) bool {
         return qtc.QWidget_IsModal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.WindowModality ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.WindowModality `
+    ///
     pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, windowModality: qnamespace_enums.WindowModality ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` windowModality: qnamespace_enums.WindowModality `
+    ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, disabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` disabled: bool `
+    ///
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, windowModified: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` windowModified: bool `
+    ///
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_FrameGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_NormalGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn X(self: ?*anyopaque) i32 {
         return qtc.QWidget_X(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Y(self: ?*anyopaque) i32 {
         return qtc.QWidget_Y(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_Pos(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_FrameSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_Size(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.QWidget_Width(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.QWidget_Height(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_Rect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_ChildrenRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_ChildrenRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_MinimumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_MaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, minimumSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` minimumSize: QtC.QSize `
+    ///
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
         qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, minw: i32, minh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` minw: i32 `
+    ///
+    /// ` minh: i32 `
+    ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, maximumSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` maximumSize: QtC.QSize `
+    ///
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
         qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, maxw: i32, maxh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` maxw: i32 `
+    ///
+    /// ` maxh: i32 `
+    ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, minw: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` minw: i32 `
+    ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, minh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` minh: i32 `
+    ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, maxw: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` maxw: i32 `
+    ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, maxh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` maxh: i32 `
+    ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_SizeIncrement(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, sizeIncrement: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` sizeIncrement: QtC.QSize `
+    ///
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
         qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_BaseSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, baseSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` baseSize: QtC.QSize `
+    ///
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
         qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, basew: i32, baseh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` basew: i32 `
+    ///
+    /// ` baseh: i32 `
+    ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, fixedSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` fixedSize: QtC.QSize `
+    ///
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
         qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, w: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` w: i32 `
+    ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWidget, param2: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPointF `
+    ///
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWidget, param2: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPoint `
+    ///
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWidget, param2: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPointF `
+    ///
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWidget, param2: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPoint `
+    ///
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_Window(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_NativeParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_TopLevelWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
         return qtc.QWidget_Palette(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, palette: QtC.QPalette ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` palette: QtC.QPalette `
+    ///
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
         qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, backgroundRole: qpalette_enums.ColorRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` backgroundRole: qpalette_enums.ColorRole `
+    ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpalette_enums.ColorRole ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpalette_enums.ColorRole `
+    ///
     pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, foregroundRole: qpalette_enums.ColorRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` foregroundRole: qpalette_enums.ColorRole `
+    ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpalette_enums.ColorRole ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpalette_enums.ColorRole `
+    ///
     pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QWidget_Font(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
         return qtc.QWidget_FontMetrics(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
         return qtc.QWidget_FontInfo(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
         return qtc.QWidget_Cursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, cursor: QtC.QCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` cursor: QtC.QCursor `
+    ///
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn UnsetCursor(self: ?*anyopaque) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn UnderMouse(self: ?*anyopaque) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, mask: QtC.QBitmap ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` mask: QtC.QBitmap `
+    ///
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, mask: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` mask: QtC.QRegion `
+    ///
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_Mask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ClearMask(self: ?*anyopaque) void {
         qtc.QWidget_ClearMask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, target: QtC.QPaintDevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
         qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QWidget_Grab(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
         return qtc.QWidget_GraphicsEffect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, effect: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` effect: QtC.QGraphicsEffect `
+    ///
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, typeVal: qnamespace_enums.GestureType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, typeVal: qnamespace_enums.GestureType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, windowTitle: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` windowTitle: []const u8 `
+    ///
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
@@ -1469,9 +2187,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, styleSheet: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` styleSheet: []const u8 `
+    ///
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
@@ -1482,9 +2205,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1495,9 +2223,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1508,27 +2241,40 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QWidget_WindowIcon(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, windowIconText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` windowIconText: []const u8 `
+    ///
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
@@ -1539,9 +2285,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1552,9 +2303,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, windowRole: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` windowRole: []const u8 `
+    ///
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
@@ -1565,9 +2321,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1578,9 +2339,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, filePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` filePath: []const u8 `
+    ///
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -1591,9 +2357,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1604,36 +2375,52 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, level: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` level: f64 `
+    ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsWindowModified(self: ?*anyopaque) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, toolTip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` toolTip: []const u8 `
+    ///
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
@@ -1644,9 +2431,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1657,27 +2449,40 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, msec: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` msec: i32 `
+    ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, statusTip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` statusTip: []const u8 `
+    ///
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
@@ -1688,9 +2493,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1701,9 +2511,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, whatsThis: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` whatsThis: []const u8 `
+    ///
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
@@ -1714,9 +2529,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1727,9 +2547,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1740,9 +2565,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1753,9 +2583,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1766,9 +2601,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, description: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` description: []const u8 `
+    ///
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
@@ -1779,284 +2619,403 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, direction: qnamespace_enums.LayoutDirection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` direction: qnamespace_enums.LayoutDirection `
+    ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.LayoutDirection ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.LayoutDirection `
+    ///
     pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, locale: QtC.QLocale ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` locale: QtC.QLocale `
+    ///
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
         qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
         return qtc.QWidget_Locale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn UnsetLocale(self: ?*anyopaque) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn SetFocus(self: ?*anyopaque) void {
         qtc.QWidget_SetFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ActivateWindow(self: ?*anyopaque) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ClearFocus(self: ?*anyopaque) void {
         qtc.QWidget_ClearFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, reason: qnamespace_enums.FocusReason ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` reason: qnamespace_enums.FocusReason `
+    ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.FocusPolicy ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.FocusPolicy `
+    ///
     pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, policy: qnamespace_enums.FocusPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` policy: qnamespace_enums.FocusPolicy `
+    ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn HasFocus(self: ?*anyopaque) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
-    /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QWidget `
+    ///
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
         qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, focusProxy: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` focusProxy: QtC.QWidget `
+    ///
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
         qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_FocusProxy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ContextMenuPolicy `
+    ///
     pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, policy: qnamespace_enums.ContextMenuPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` policy: qnamespace_enums.ContextMenuPolicy `
+    ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn GrabMouse(self: ?*anyopaque) void {
         qtc.QWidget_GrabMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QCursor `
+    ///
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ReleaseMouse(self: ?*anyopaque) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn GrabKeyboard(self: ?*anyopaque) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, key: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` key: QtC.QKeySequence `
+    ///
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
         return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     pub fn MouseGrabber() QtC.QWidget {
         return qtc.QWidget_MouseGrabber();
@@ -2064,8 +3023,7 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
         return qtc.QWidget_KeyboardGrabber();
@@ -2073,261 +3031,402 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
         return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QWidget_Update(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Repaint(self: ?*anyopaque) void {
         qtc.QWidget_Repaint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QRegion `
+    ///
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QRegion `
+    ///
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, hidden: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` hidden: bool `
+    ///
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self), hidden);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Show(self: ?*anyopaque) void {
         qtc.QWidget_Show(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QWidget_Hide(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ShowMinimized(self: ?*anyopaque) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ShowMaximized(self: ?*anyopaque) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ShowFullScreen(self: ?*anyopaque) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ShowNormal(self: ?*anyopaque) void {
         qtc.QWidget_ShowNormal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Close(self: ?*anyopaque) bool {
         return qtc.QWidget_Close(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Raise(self: ?*anyopaque) void {
         qtc.QWidget_Raise(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Lower(self: ?*anyopaque) void {
         qtc.QWidget_Lower(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
         qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QSize `
+    ///
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -2338,9 +3437,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, geometry: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` geometry: []u8 `
+    ///
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
@@ -2351,290 +3455,434 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn AdjustSize(self: ?*anyopaque) void {
         qtc.QWidget_AdjustSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsHidden(self: ?*anyopaque) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsMinimized(self: ?*anyopaque) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsMaximized(self: ?*anyopaque) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsFullScreen(self: ?*anyopaque) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.WindowState ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.WindowState `
+    ///
     pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, state: flag of qnamespace_enums.WindowState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` state: flag of qnamespace_enums.WindowState `
+    ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, state: flag of qnamespace_enums.WindowState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` state: flag of qnamespace_enums.WindowState `
+    ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
         return qtc.QWidget_SizePolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, sizePolicy: QtC.QSizePolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` sizePolicy: QtC.QSizePolicy `
+    ///
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
         qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` horizontal: qsizepolicy_enums.Policy `
+    ///
+    /// ` vertical: qsizepolicy_enums.Policy `
+    ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_VisibleRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, margins: QtC.QMargins ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` margins: QtC.QMargins `
+    ///
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
         qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.QWidget_ContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_ContentsRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QWidget_Layout(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, layout: QtC.QLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` layout: QtC.QLayout `
+    ///
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
         qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn UpdateGeometry(self: ?*anyopaque) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` f: flag of qnamespace_enums.WindowType `
+    ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, dx: i32, dy: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, dx: i32, dy: i32, param3: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
+    /// ` param3: QtC.QRect `
+    ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
         qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_FocusWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_NextInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn AcceptDrops(self: ?*anyopaque) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, actions: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` actions: []QtC.QAction `
+    ///
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
@@ -2645,9 +3893,16 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, before: QtC.QAction, actions: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` actions: []QtC.QAction `
+    ///
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
@@ -2658,27 +3913,44 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, before: QtC.QAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -2690,9 +3962,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2703,9 +3980,16 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, icon: QtC.QIcon, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2716,9 +4000,16 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, text: []const u8, shortcut: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` shortcut: QtC.QKeySequence `
+    ///
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2729,9 +4020,18 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` shortcut: QtC.QKeySequence `
+    ///
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2742,202 +4042,298 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, typeVal: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` typeVal: flag of qnamespace_enums.WindowType `
+    ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.WindowType ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.WindowType `
+    ///
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qnamespace_enums.WindowType `
+    ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, typeVal: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` typeVal: flag of qnamespace_enums.WindowType `
+    ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.WindowType ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.WindowType `
+    ///
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
-    /// ``` param1: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: u64 `
+    ///
     pub fn Find(param1: u64) QtC.QWidget {
         return qtc.QWidget_Find(@intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
         return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, p: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` p: QtC.QPoint `
+    ///
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, p: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` p: QtC.QPointF `
+    ///
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.WidgetAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.WidgetAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn EnsurePolished(self: ?*anyopaque) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, child: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` child: QtC.QWidget `
+    ///
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
         return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
         return qtc.QWidget_BackingStore(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
         return qtc.QWidget_WindowHandle(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
         return qtc.QWidget_Screen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, screen: QtC.QScreen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` screen: QtC.QScreen `
+    ///
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
         qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, title: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` title: []const u8 `
+    ///
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -2948,36 +4344,56 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, title: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollAreatitle: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, icon: QtC.QIcon) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollAreaicon: QtC.QIcon) callconv(.c) void `
+    ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, iconText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` iconText: []const u8 `
+    ///
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
@@ -2988,191 +4404,334 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, iconText: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollAreaiconText: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, pos: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, pos: QtC.QPoint) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollAreapos: QtC.QPoint) callconv(.c) void `
+    ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.InputMethodHint `
+    ///
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, hints: flag of qnamespace_enums.InputMethodHint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` hints: flag of qnamespace_enums.InputMethodHint `
+    ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
         qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
         qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
+    /// ` renderFlags: flag of qwidget_enums.RenderFlag `
+    ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
         qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
         qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
+    /// ` renderFlags: flag of qwidget_enums.RenderFlag `
+    ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, rectangle: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` rectangle: QtC.QRect `
+    ///
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
         return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
+    /// ` flags: flag of qnamespace_enums.GestureFlag `
+    ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` key: QtC.QKeySequence `
+    ///
+    /// ` context: qnamespace_enums.ShortcutContext `
+    ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, id: i32, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, id: i32, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.WindowType, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qnamespace_enums.WindowType `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.WidgetAttribute, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` flags: flag of qnamespace_enums.WindowType `
+    ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3183,9 +4742,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -3196,99 +4760,144 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -3300,36 +4909,64 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -3338,45 +4975,70 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -3384,9 +5046,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -3394,9 +5061,14 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -3418,54 +5090,76 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -3473,45 +5167,84 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -3520,125 +5253,167 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollAreaparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn PaintingActive(self: ?*anyopaque) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn WidthMM(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn HeightMM(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ColorCount(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Depth(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
@@ -3646,1208 +5421,1750 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
-    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    ///
+    /// ` value: f64 `
+    ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#focusNextPrevChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, next: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` next: bool `
+    ///
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
         return qtc.KAdjustingScrollArea_FocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#focusNextPrevChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, next: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` next: bool `
+    ///
     pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
         return qtc.KAdjustingScrollArea_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#focusNextPrevChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, next: bool) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, next: bool) callconv(.c) bool `
+    ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QResizeEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QResizeEvent `
+    ///
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QResizeEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QResizeEvent `
+    ///
     pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QResizeEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QResizeEvent) callconv(.c) void `
+    ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, dx: i32, dy: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.KAdjustingScrollArea_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, dx: i32, dy: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.KAdjustingScrollArea_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, dx: i32, dy: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, dx: i32, dy: i32) callconv(.c) void `
+    ///
     pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_ViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_QBaseViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.KAdjustingScrollArea_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, viewport: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` viewport: QtC.QWidget `
+    ///
     pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, viewport: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` viewport: QtC.QWidget `
+    ///
     pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, viewport: QtC.QWidget) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, viewport: QtC.QWidget) callconv(.c) void `
+    ///
     pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn ViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_ViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn QBaseViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_QBaseViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPaintEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPaintEvent `
+    ///
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPaintEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPaintEvent `
+    ///
     pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QPaintEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QPaintEvent) callconv(.c) void `
+    ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWheelEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWheelEvent `
+    ///
     pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QWheelEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QWheelEvent `
+    ///
     pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QWheelEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QWheelEvent) callconv(.c) void `
+    ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QContextMenuEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QContextMenuEvent `
+    ///
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QContextMenuEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QContextMenuEvent `
+    ///
     pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QContextMenuEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDragEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDragEnterEvent `
+    ///
     pub fn DragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDragEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDragEnterEvent `
+    ///
     pub fn QBaseDragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDragEnterEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDragEnterEvent) callconv(.c) void `
+    ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDragMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDragMoveEvent `
+    ///
     pub fn DragMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_DragMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDragMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDragMoveEvent `
+    ///
     pub fn QBaseDragMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDragMoveEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDragMoveEvent) callconv(.c) void `
+    ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDragLeaveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDragLeaveEvent `
+    ///
     pub fn DragLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_DragLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDragLeaveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDragLeaveEvent `
+    ///
     pub fn QBaseDragLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDragLeaveEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDragLeaveEvent) callconv(.c) void `
+    ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDropEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDropEvent `
+    ///
     pub fn DropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_DropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QDropEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QDropEvent `
+    ///
     pub fn QBaseDropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseDropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDropEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QDropEvent) callconv(.c) void `
+    ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QKeyEvent `
+    ///
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QKeyEvent `
+    ///
     pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QKeyEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QKeyEvent) callconv(.c) void `
+    ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, option: QtC.QStyleOptionFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` option: QtC.QStyleOptionFrame `
+    ///
     pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, option: QtC.QStyleOptionFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` option: QtC.QStyleOptionFrame `
+    ///
     pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, option: QtC.QStyleOptionFrame) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn DevType(self: ?*anyopaque) i32 {
         return qtc.KAdjustingScrollArea_DevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseDevType(self: ?*anyopaque) i32 {
         return qtc.KAdjustingScrollArea_QBaseDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KAdjustingScrollArea_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KAdjustingScrollArea_SetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KAdjustingScrollArea_QBaseSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, visible: bool) callconv(.c) void `
+    ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KAdjustingScrollArea_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KAdjustingScrollArea_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.KAdjustingScrollArea_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_HasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.KAdjustingScrollArea_PaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.KAdjustingScrollArea_QBasePaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
         qtc.KAdjustingScrollArea_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QKeyEvent `
+    ///
     pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QKeyEvent `
+    ///
     pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QKeyEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QKeyEvent) callconv(.c) void `
+    ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QFocusEvent `
+    ///
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QFocusEvent `
+    ///
     pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent) callconv(.c) void `
+    ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QFocusEvent `
+    ///
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QFocusEvent `
+    ///
     pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QFocusEvent) callconv(.c) void `
+    ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEnterEvent `
+    ///
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEnterEvent `
+    ///
     pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEnterEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEnterEvent) callconv(.c) void `
+    ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QMoveEvent `
+    ///
     pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QMoveEvent `
+    ///
     pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QMoveEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QMoveEvent) callconv(.c) void `
+    ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QCloseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QCloseEvent `
+    ///
     pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QCloseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QCloseEvent `
+    ///
     pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QCloseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QCloseEvent) callconv(.c) void `
+    ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QTabletEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QTabletEvent `
+    ///
     pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QTabletEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QTabletEvent `
+    ///
     pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QTabletEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QTabletEvent) callconv(.c) void `
+    ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QActionEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QActionEvent `
+    ///
     pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QActionEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QActionEvent `
+    ///
     pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QActionEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QActionEvent) callconv(.c) void `
+    ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QShowEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QShowEvent `
+    ///
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QShowEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QShowEvent `
+    ///
     pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QShowEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QShowEvent) callconv(.c) void `
+    ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QHideEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QHideEvent `
+    ///
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QHideEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QHideEvent `
+    ///
     pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QHideEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QHideEvent) callconv(.c) void `
+    ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` eventType: []u8 `
+    ///
+    /// ` message: ?*anyopaque `
+    ///
+    /// ` result: *isize `
+    ///
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
@@ -4858,11 +7175,20 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` eventType: []u8 `
+    ///
+    /// ` message: ?*anyopaque `
+    ///
+    /// ` result: *isize `
+    ///
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
@@ -4873,715 +7199,1016 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KAdjustingScrollArea_Metric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KAdjustingScrollArea_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.KAdjustingScrollArea_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, offset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
     pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
         return qtc.KAdjustingScrollArea_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, offset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
     pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
         return qtc.KAdjustingScrollArea_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
         qtc.KAdjustingScrollArea_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
         return qtc.KAdjustingScrollArea_SharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
         return qtc.KAdjustingScrollArea_QBaseSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) QtC.QPainter ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
         qtc.KAdjustingScrollArea_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QInputMethodEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QInputMethodEvent `
+    ///
     pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QInputMethodEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QInputMethodEvent `
+    ///
     pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.InputMethodQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qnamespace_enums.InputMethodQuery `
+    ///
     pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
         return qtc.KAdjustingScrollArea_InputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.InputMethodQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: qnamespace_enums.InputMethodQuery `
+    ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
         return qtc.KAdjustingScrollArea_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
         qtc.KAdjustingScrollArea_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KAdjustingScrollArea_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KAdjustingScrollArea_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
+    ///
     pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.KAdjustingScrollArea_ViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.KAdjustingScrollArea_QBaseViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) QtC.QMargins ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMargins `
+    ///
     pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
         qtc.KAdjustingScrollArea_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPainter `
+    ///
     pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, param1: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` param1: QtC.QPainter `
+    ///
     pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, param1: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn UpdateMicroFocus(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_UpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Create(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_Create(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseCreate(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Destroy(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_Destroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseDestroy(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_QBaseDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KAdjustingScrollArea_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FocusNextChild(self: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_FocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_QBaseFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn FocusPreviousChild(self: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_FocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_QBaseFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KAdjustingScrollArea_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KAdjustingScrollArea_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KAdjustingScrollArea_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KAdjustingScrollArea_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KAdjustingScrollArea_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KAdjustingScrollArea_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAdjustingScrollArea_Receivers(@ptrCast(self), signal_Cstring);
@@ -5589,11 +8216,16 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAdjustingScrollArea_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -5601,97 +8233,144 @@ pub const kadjustingscrollarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KAdjustingScrollArea_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
+    ///
+    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.KAdjustingScrollArea_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
+    ///
+    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.KAdjustingScrollArea_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea`
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollArea, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.KAdjustingScrollArea_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KAdjustingScrollArea, callback: *const fn (self: QtC.KAdjustingScrollArea, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
+    /// ` callback: *const fn (self: QtC.KAdjustingScrollAreaobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#dtor.KAdjustingScrollArea)
+    /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#dtor.KAdjustingScrollArea)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KAdjustingScrollArea ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KAdjustingScrollArea `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_Delete(@ptrCast(self));
     }

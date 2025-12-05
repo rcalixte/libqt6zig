@@ -2,53 +2,74 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qdbuserror_enums = @import("libqdbuserror.zig").enums;
 
-/// https://doc.qt.io/qt-6/qdbuscontext.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html)
 pub const qdbuscontext = struct {
     /// New constructs a new QDBusContext object.
-    ///
     ///
     pub fn New() QtC.QDBusContext {
         return qtc.QDBusContext_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#calledFromDBus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#calledFromDBus)
     ///
-    /// ``` self: QtC.QDBusContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
     pub fn CalledFromDBus(self: ?*anyopaque) bool {
         return qtc.QDBusContext_CalledFromDBus(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#connection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#connection)
     ///
-    /// ``` self: QtC.QDBusContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
     pub fn Connection(self: ?*anyopaque) QtC.QDBusConnection {
         return qtc.QDBusContext_Connection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#message)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#message)
     ///
-    /// ``` self: QtC.QDBusContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
     pub fn Message(self: ?*anyopaque) QtC.QDBusMessage {
         return qtc.QDBusContext_Message(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#isDelayedReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#isDelayedReply)
     ///
-    /// ``` self: QtC.QDBusContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
     pub fn IsDelayedReply(self: ?*anyopaque) bool {
         return qtc.QDBusContext_IsDelayedReply(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#setDelayedReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#setDelayedReply)
     ///
-    /// ``` self: QtC.QDBusContext, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetDelayedReply(self: ?*anyopaque, enable: bool) void {
         qtc.QDBusContext_SetDelayedReply(@ptrCast(self), enable);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
-    /// ``` self: QtC.QDBusContext, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SendErrorReply(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -57,16 +78,28 @@ pub const qdbuscontext = struct {
         qtc.QDBusContext_SendErrorReply(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
-    /// ``` self: QtC.QDBusContext, typeVal: qdbuserror_enums.ErrorType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
+    /// ` typeVal: qdbuserror_enums.ErrorType `
+    ///
     pub fn SendErrorReply2(self: ?*anyopaque, typeVal: i32) void {
         qtc.QDBusContext_SendErrorReply2(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
-    /// ``` self: QtC.QDBusContext, name: []const u8, msg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` msg: []const u8 `
+    ///
     pub fn SendErrorReply22(self: ?*anyopaque, name: []const u8, msg: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -79,9 +112,16 @@ pub const qdbuscontext = struct {
         qtc.QDBusContext_SendErrorReply22(@ptrCast(self), name_str, msg_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
-    /// ``` self: QtC.QDBusContext, typeVal: qdbuserror_enums.ErrorType, msg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
+    /// ` typeVal: qdbuserror_enums.ErrorType `
+    ///
+    /// ` msg: []const u8 `
+    ///
     pub fn SendErrorReply23(self: ?*anyopaque, typeVal: i32, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
@@ -90,11 +130,14 @@ pub const qdbuscontext = struct {
         qtc.QDBusContext_SendErrorReply23(@ptrCast(self), @intCast(typeVal), msg_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#dtor.QDBusContext)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#dtor.QDBusContext)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDBusContext ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDBusContext `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDBusContext_Delete(@ptrCast(self));
     }

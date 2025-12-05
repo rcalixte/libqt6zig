@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const builtin = @import("builtin");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qversionnumber.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html)
 pub const qversionnumber = struct {
     /// New constructs a new QVersionNumber object.
-    ///
     ///
     pub fn New() QtC.QVersionNumber {
         return qtc.QVersionNumber_new();
@@ -14,7 +13,10 @@ pub const qversionnumber = struct {
 
     /// New2 constructs a new QVersionNumber object.
     ///
-    /// ``` args: []i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` args: []i32 `
+    ///
     pub fn New2(args: []i32) QtC.QVersionNumber {
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -26,70 +28,108 @@ pub const qversionnumber = struct {
 
     /// New3 constructs a new QVersionNumber object.
     ///
-    /// ``` maj: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` maj: i32 `
+    ///
     pub fn New3(maj: i32) QtC.QVersionNumber {
         return qtc.QVersionNumber_new3(@intCast(maj));
     }
 
     /// New4 constructs a new QVersionNumber object.
     ///
-    /// ``` maj: i32, min: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` maj: i32 `
+    ///
+    /// ` min: i32 `
+    ///
     pub fn New4(maj: i32, min: i32) QtC.QVersionNumber {
         return qtc.QVersionNumber_new4(@intCast(maj), @intCast(min));
     }
 
     /// New5 constructs a new QVersionNumber object.
     ///
-    /// ``` maj: i32, min: i32, mic: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` maj: i32 `
+    ///
+    /// ` min: i32 `
+    ///
+    /// ` mic: i32 `
+    ///
     pub fn New5(maj: i32, min: i32, mic: i32) QtC.QVersionNumber {
         return qtc.QVersionNumber_new5(@intCast(maj), @intCast(min), @intCast(mic));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isNull)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isNull)
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QVersionNumber_IsNull(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isNormalized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isNormalized)
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn IsNormalized(self: ?*anyopaque) bool {
         return qtc.QVersionNumber_IsNormalized(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#majorVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#majorVersion)
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn MajorVersion(self: ?*anyopaque) i32 {
         return qtc.QVersionNumber_MajorVersion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#minorVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#minorVersion)
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn MinorVersion(self: ?*anyopaque) i32 {
         return qtc.QVersionNumber_MinorVersion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#microVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#microVersion)
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn MicroVersion(self: ?*anyopaque) i32 {
         return qtc.QVersionNumber_MicroVersion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#normalized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#normalized)
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn Normalized(self: ?*anyopaque) QtC.QVersionNumber {
         return qtc.QVersionNumber_Normalized(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segments)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segments)
     ///
-    /// ``` self: QtC.QVersionNumber, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Segments(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QVersionNumber_Segments(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -99,44 +139,72 @@ pub const qversionnumber = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segmentAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segmentAt)
     ///
-    /// ``` self: QtC.QVersionNumber, index: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
+    /// ` index: i64 `
+    ///
     pub fn SegmentAt(self: ?*anyopaque, index: i64) i32 {
         return qtc.QVersionNumber_SegmentAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segmentCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segmentCount)
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn SegmentCount(self: ?*anyopaque) i64 {
         return qtc.QVersionNumber_SegmentCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isPrefixOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isPrefixOf)
     ///
-    /// ``` self: QtC.QVersionNumber, other: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
+    /// ` other: QtC.QVersionNumber `
+    ///
     pub fn IsPrefixOf(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QVersionNumber_IsPrefixOf(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#compare)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#compare)
     ///
-    /// ``` v1: QtC.QVersionNumber, v2: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` v1: QtC.QVersionNumber `
+    ///
+    /// ` v2: QtC.QVersionNumber `
+    ///
     pub fn Compare(v1: ?*anyopaque, v2: ?*anyopaque) i32 {
         return qtc.QVersionNumber_Compare(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#commonPrefix)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#commonPrefix)
     ///
-    /// ``` v1: QtC.QVersionNumber, v2: QtC.QVersionNumber ```
+    /// ## Parameter(s):
+    ///
+    /// ` v1: QtC.QVersionNumber `
+    ///
+    /// ` v2: QtC.QVersionNumber `
+    ///
     pub fn CommonPrefix(v1: ?*anyopaque, v2: ?*anyopaque) QtC.QVersionNumber {
         return qtc.QVersionNumber_CommonPrefix(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#toString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#toString)
     ///
-    /// ``` self: QtC.QVersionNumber, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QVersionNumber_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -145,9 +213,12 @@ pub const qversionnumber = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
-    /// ``` stringVal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` stringVal: []const u8 `
+    ///
     pub fn FromString(stringVal: []const u8) QtC.QVersionNumber {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
@@ -156,9 +227,14 @@ pub const qversionnumber = struct {
         return qtc.QVersionNumber_FromString(stringVal_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
-    /// ``` stringVal: []const u8, suffixIndex: *i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` stringVal: []const u8 `
+    ///
+    /// ` suffixIndex: *i64 `
+    ///
     pub fn FromString2(stringVal: []const u8, suffixIndex: *i64) QtC.QVersionNumber {
         switch (builtin.os.tag) {
             .linux, .freebsd => {},
@@ -172,11 +248,14 @@ pub const qversionnumber = struct {
         return qtc.QVersionNumber_FromString2(stringVal_str, @ptrCast(suffixIndex));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QVersionNumber ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QVersionNumber `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QVersionNumber_Delete(@ptrCast(self));
     }

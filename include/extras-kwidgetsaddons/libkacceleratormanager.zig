@@ -2,46 +2,72 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kacceleratormanager.html
+/// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html)
 pub const kacceleratormanager = struct {
     /// New constructs a new KAcceleratorManager object.
     ///
-    /// ``` other: QtC.KAcceleratorManager ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KAcceleratorManager `
+    ///
     pub fn New(other: ?*anyopaque) QtC.KAcceleratorManager {
         return qtc.KAcceleratorManager_new(@ptrCast(other));
     }
 
     /// New2 constructs a new KAcceleratorManager object and invalidates the source KAcceleratorManager object.
     ///
-    /// ``` other: QtC.KAcceleratorManager ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KAcceleratorManager `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.KAcceleratorManager {
         return qtc.KAcceleratorManager_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.KAcceleratorManager, other: QtC.KAcceleratorManager ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAcceleratorManager `
+    ///
+    /// ` other: QtC.KAcceleratorManager `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KAcceleratorManager_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.KAcceleratorManager, other: QtC.KAcceleratorManager ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAcceleratorManager `
+    ///
+    /// ` other: QtC.KAcceleratorManager `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KAcceleratorManager_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kacceleratormanager.html#manage)
+    /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#manage)
     ///
-    /// ``` widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn Manage(widget: ?*anyopaque) void {
         qtc.KAcceleratorManager_Manage(@ptrCast(widget));
     }
 
-    /// [Upstream resources](https://api.kde.org/kacceleratormanager.html#last_manage)
+    /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#last_manage)
     ///
-    /// ``` added: []const u8, changed: []const u8, removed: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` added: []const u8 `
+    ///
+    /// ` changed: []const u8 `
+    ///
+    /// ` removed: []const u8 `
+    ///
     pub fn LastManage(added: []const u8, changed: []const u8, removed: []const u8) void {
         const added_str = qtc.libqt_string{
             .len = added.len,
@@ -58,16 +84,24 @@ pub const kacceleratormanager = struct {
         qtc.KAcceleratorManager_LastManage(added_str, changed_str, removed_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kacceleratormanager.html#setNoAccel)
+    /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#setNoAccel)
     ///
-    /// ``` widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetNoAccel(widget: ?*anyopaque) void {
         qtc.KAcceleratorManager_SetNoAccel(@ptrCast(widget));
     }
 
-    /// [Upstream resources](https://api.kde.org/kacceleratormanager.html#addStandardActionNames)
+    /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#addStandardActionNames)
     ///
-    /// ``` names: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` names: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddStandardActionNames(names: [][]const u8, allocator: std.mem.Allocator) void {
         var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("kacceleratormanager.AddStandardActionNames: Memory allocation failed");
         defer allocator.free(names_arr);
@@ -84,18 +118,26 @@ pub const kacceleratormanager = struct {
         qtc.KAcceleratorManager_AddStandardActionNames(names_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kacceleratormanager.html#manage)
+    /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#manage)
     ///
-    /// ``` widget: QtC.QWidget, programmers_mode: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` programmers_mode: bool `
+    ///
     pub fn Manage2(widget: ?*anyopaque, programmers_mode: bool) void {
         qtc.KAcceleratorManager_Manage2(@ptrCast(widget), programmers_mode);
     }
 
-    /// [Upstream resources](https://api.kde.org/kacceleratormanager.html#dtor.KAcceleratorManager)
+    /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#dtor.KAcceleratorManager)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KAcceleratorManager ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KAcceleratorManager `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KAcceleratorManager_Delete(@ptrCast(self));
     }

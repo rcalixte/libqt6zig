@@ -5,10 +5,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qdatawidgetmapper.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html)
 pub const qdatawidgetmapper = struct {
     /// New constructs a new QDataWidgetMapper object.
-    ///
     ///
     pub fn New() QtC.QDataWidgetMapper {
         return qtc.QDataWidgetMapper_new();
@@ -16,46 +15,85 @@ pub const qdatawidgetmapper = struct {
 
     /// New2 constructs a new QDataWidgetMapper object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QDataWidgetMapper {
         return qtc.QDataWidgetMapper_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QDataWidgetMapper_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QDataWidgetMapper, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDataWidgetMapper_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QDataWidgetMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDataWidgetMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDataWidgetMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -65,90 +103,150 @@ pub const qdatawidgetmapper = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setModel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setModel)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, model: QtC.QAbstractItemModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#model)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#model)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QDataWidgetMapper_Model(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setItemDelegate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setItemDelegate)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, delegate: QtC.QAbstractItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` delegate: QtC.QAbstractItemDelegate `
+    ///
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#itemDelegate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#itemDelegate)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
         return qtc.QDataWidgetMapper_ItemDelegate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setRootIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setRootIndex)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn SetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#rootIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#rootIndex)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QDataWidgetMapper_RootIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setOrientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setOrientation)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, aOrientation: qnamespace_enums.Orientation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` aOrientation: qnamespace_enums.Orientation `
+    ///
     pub fn SetOrientation(self: ?*anyopaque, aOrientation: i32) void {
         qtc.QDataWidgetMapper_SetOrientation(@ptrCast(self), @intCast(aOrientation));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#orientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#orientation)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.Orientation ```
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.Orientation `
+    ///
     pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_Orientation(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setSubmitPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setSubmitPolicy)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, policy: qdatawidgetmapper_enums.SubmitPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` policy: qdatawidgetmapper_enums.SubmitPolicy `
+    ///
     pub fn SetSubmitPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QDataWidgetMapper_SetSubmitPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submitPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submitPolicy)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qdatawidgetmapper_enums.SubmitPolicy ```
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qdatawidgetmapper_enums.SubmitPolicy `
+    ///
     pub fn SubmitPolicy(self: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_SubmitPolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, section: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` section: i32 `
+    ///
     pub fn AddMapping(self: ?*anyopaque, widget: ?*anyopaque, section: i32) void {
         qtc.QDataWidgetMapper_AddMapping(@ptrCast(self), @ptrCast(widget), @intCast(section));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, section: i32, propertyName: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` section: i32 `
+    ///
+    /// ` propertyName: []u8 `
+    ///
     pub fn AddMapping2(self: ?*anyopaque, widget: ?*anyopaque, section: i32, propertyName: []u8) void {
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
@@ -157,23 +255,40 @@ pub const qdatawidgetmapper = struct {
         qtc.QDataWidgetMapper_AddMapping2(@ptrCast(self), @ptrCast(widget), @intCast(section), propertyName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#removeMapping)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#removeMapping)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn RemoveMapping(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QDataWidgetMapper_RemoveMapping(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedSection)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn MappedSection(self: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_MappedSection(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedPropertyName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedPropertyName)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MappedPropertyName(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QDataWidgetMapper_MappedPropertyName(@ptrCast(self), @ptrCast(widget));
         defer qtc.libqt_string_free(&_bytearray);
@@ -182,118 +297,184 @@ pub const qdatawidgetmapper = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedWidgetAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedWidgetAt)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, section: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` section: i32 `
+    ///
     pub fn MappedWidgetAt(self: ?*anyopaque, section: i32) QtC.QWidget {
         return qtc.QDataWidgetMapper_MappedWidgetAt(@ptrCast(self), @intCast(section));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#clearMapping)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#clearMapping)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn ClearMapping(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ClearMapping(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndex)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn CurrentIndex(self: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_CurrentIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#revert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#revert)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn Revert(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_Revert(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submit)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submit)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn Submit(self: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_Submit(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toFirst)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toFirst)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn ToFirst(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToFirst(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toLast)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toLast)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn ToLast(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToLast(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toNext)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toNext)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn ToNext(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToNext(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toPrevious)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toPrevious)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn ToPrevious(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToPrevious(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
         qtc.QDataWidgetMapper_SetCurrentIndex(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, index: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, index: i32) callconv(.c) void `
+    ///
     pub fn OnSetCurrentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnSetCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDataWidgetMapper, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: i32) void {
         qtc.QDataWidgetMapper_QBaseSetCurrentIndex(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentModelIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentModelIndex)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn SetCurrentModelIndex(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetCurrentModelIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn CurrentIndexChanged(self: ?*anyopaque, index: i32) void {
         qtc.QDataWidgetMapper_CurrentIndexChanged(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, index: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapperindex: i32) callconv(.c) void `
+    ///
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDataWidgetMapper_Connect_CurrentIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -304,9 +485,18 @@ pub const qdatawidgetmapper = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -319,9 +509,14 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -332,9 +527,14 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -345,99 +545,144 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -449,45 +694,78 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -496,45 +774,70 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -542,9 +845,14 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -552,9 +860,14 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -576,54 +889,76 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -631,45 +966,84 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -678,326 +1052,472 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapperparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDataWidgetMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDataWidgetMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDataWidgetMapper_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDataWidgetMapper_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDataWidgetMapper_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDataWidgetMapper_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDataWidgetMapper_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDataWidgetMapper_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDataWidgetMapper_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDataWidgetMapper_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDataWidgetMapper_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDataWidgetMapper_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QDataWidgetMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QDataWidgetMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDataWidgetMapper_Receivers(@ptrCast(self), signal_Cstring);
@@ -1005,11 +1525,16 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDataWidgetMapper_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1017,70 +1542,98 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDataWidgetMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDataWidgetMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapperobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#dtor.QDataWidgetMapper)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#dtor.QDataWidgetMapper)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDataWidgetMapper ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDataWidgetMapper `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qdatawidgetmapper.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#public-types)
 pub const enums = struct {
     pub const SubmitPolicy = enum {
         pub const AutoSubmit: i32 = 0;

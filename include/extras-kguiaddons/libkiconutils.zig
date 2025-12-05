@@ -4,18 +4,32 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const std = @import("std");
 pub const map_i32_qtcqicon = std.AutoHashMapUnmanaged(i32, QtC.QIcon);
 
-/// https://api.kde.org/kiconutils.html
+/// ### [Upstream resources](https://api.kde.org/kiconutils.html)
 pub const kiconutils = struct {
-    /// [Upstream resources](https://api.kde.org/kiconutils.html#addOverlay)
+    /// ### [Upstream resources](https://api.kde.org/kiconutils.html#addOverlay)
     ///
-    /// ``` param1: QtC.QIcon, param2: QtC.QIcon, param3: qnamespace_enums.Corner ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QIcon `
+    ///
+    /// ` param2: QtC.QIcon `
+    ///
+    /// ` param3: qnamespace_enums.Corner `
+    ///
     pub fn AddOverlay(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.QIcon {
         return qtc.KIconUtils_AddOverlay(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
-    /// [Upstream resources](https://api.kde.org/kiconutils.html#addOverlays)
+    /// ### [Upstream resources](https://api.kde.org/kiconutils.html#addOverlays)
     ///
-    /// ``` param1: QtC.QIcon, param2: map_i32_qtcqicon, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QIcon `
+    ///
+    /// ` param2: map_i32_qtcqicon `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddOverlays(param1: ?*anyopaque, param2: map_i32_qtcqicon, allocator: std.mem.Allocator) QtC.QIcon {
         const param2_keys = allocator.alloc(i32, param2.count()) catch @panic("kiconutils.AddOverlays: Memory allocation failed");
         defer allocator.free(param2_keys);
@@ -37,9 +51,16 @@ pub const kiconutils = struct {
         return qtc.KIconUtils_AddOverlays(@ptrCast(param1), param2_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kiconutils.html#addOverlays)
+    /// ### [Upstream resources](https://api.kde.org/kiconutils.html#addOverlays)
     ///
-    /// ``` param1: QtC.QIcon, param2: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QIcon `
+    ///
+    /// ` param2: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddOverlays2(param1: ?*anyopaque, param2: [][]const u8, allocator: std.mem.Allocator) QtC.QIcon {
         var param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kiconutils.AddOverlays2: Memory allocation failed");
         defer allocator.free(param2_arr);
@@ -56,9 +77,16 @@ pub const kiconutils = struct {
         return qtc.KIconUtils_AddOverlays2(@ptrCast(param1), param2_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kiconutils.html#addOverlays)
+    /// ### [Upstream resources](https://api.kde.org/kiconutils.html#addOverlays)
     ///
-    /// ``` param1: []const u8, param2: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddOverlays3(param1: []const u8, param2: [][]const u8, allocator: std.mem.Allocator) QtC.QIcon {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

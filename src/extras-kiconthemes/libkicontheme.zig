@@ -3,11 +3,14 @@ const qtc = @import("qt6c");
 const kiconloader_enums = @import("libkiconloader.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kicontheme.html
+/// ### [Upstream resources](https://api.kde.org/kicontheme.html)
 pub const kicontheme = struct {
     /// New constructs a new KIconTheme object.
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn New(name: []const u8) QtC.KIconTheme {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -19,7 +22,12 @@ pub const kicontheme = struct {
 
     /// New2 constructs a new KIconTheme object.
     ///
-    /// ``` name: []const u8, appName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` appName: []const u8 `
+    ///
     pub fn New2(name: []const u8, appName: []const u8) QtC.KIconTheme {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -35,7 +43,14 @@ pub const kicontheme = struct {
 
     /// New3 constructs a new KIconTheme object.
     ///
-    /// ``` name: []const u8, appName: []const u8, basePathHint: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` appName: []const u8 `
+    ///
+    /// ` basePathHint: []const u8 `
+    ///
     pub fn New3(name: []const u8, appName: []const u8, basePathHint: []const u8) QtC.KIconTheme {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -53,9 +68,14 @@ pub const kicontheme = struct {
         return qtc.KIconTheme_new3(name_str, appName_str, basePathHint_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#name)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -64,9 +84,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#internalName)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#internalName)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn InternalName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_InternalName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -75,9 +100,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#description)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#description)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -86,9 +116,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#example)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#example)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Example(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_Example(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -97,9 +132,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#screenshot)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#screenshot)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Screenshot(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_Screenshot(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -108,9 +148,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#dir)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#dir)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Dir(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_Dir(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -119,9 +164,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#inherits)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#inherits)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Inherits(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_Inherits(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -141,37 +191,58 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#isValid)
     ///
-    /// ``` self: QtC.KIconTheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KIconTheme_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#isHidden)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#isHidden)
     ///
-    /// ``` self: QtC.KIconTheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
     pub fn IsHidden(self: ?*anyopaque) bool {
         return qtc.KIconTheme_IsHidden(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#depth)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#depth)
     ///
-    /// ``` self: QtC.KIconTheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
     pub fn Depth(self: ?*anyopaque) i32 {
         return qtc.KIconTheme_Depth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#defaultSize)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#defaultSize)
     ///
-    /// ``` self: QtC.KIconTheme, group: kiconloader_enums.Group ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
     pub fn DefaultSize(self: ?*anyopaque, group: i32) i32 {
         return qtc.KIconTheme_DefaultSize(@ptrCast(self), @intCast(group));
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#querySizes)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#querySizes)
     ///
-    /// ``` self: QtC.KIconTheme, group: kiconloader_enums.Group, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QuerySizes(self: ?*anyopaque, group: i32, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QuerySizes(@ptrCast(self), @intCast(group));
         defer qtc.libqt_free(_arr.data);
@@ -181,9 +252,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#queryIcons)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#queryIcons)
     ///
-    /// ``` self: QtC.KIconTheme, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryIcons(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIcons(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -203,9 +279,16 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#queryIcons)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#queryIcons)
     ///
-    /// ``` self: QtC.KIconTheme, size: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryIcons2(self: ?*anyopaque, size: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIcons2(@ptrCast(self), @intCast(size));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -225,9 +308,16 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#queryIconsByContext)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#queryIconsByContext)
     ///
-    /// ``` self: QtC.KIconTheme, size: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryIconsByContext(self: ?*anyopaque, size: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIconsByContext(@ptrCast(self), @intCast(size));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -247,9 +337,20 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#iconPath)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#iconPath)
     ///
-    /// ``` self: QtC.KIconTheme, name: []const u8, size: i32, match: kiconloader_enums.MatchType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` match: kiconloader_enums.MatchType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconPath(self: ?*anyopaque, name: []const u8, size: i32, match: i32, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -262,9 +363,22 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#iconPath)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#iconPath)
     ///
-    /// ``` self: QtC.KIconTheme, name: []const u8, size: i32, match: kiconloader_enums.MatchType, scale: f64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` match: kiconloader_enums.MatchType `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconPath2(self: ?*anyopaque, name: []const u8, size: i32, match: i32, scale: f64, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -277,9 +391,20 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#iconPathByName)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#iconPathByName)
     ///
-    /// ``` self: QtC.KIconTheme, name: []const u8, size: i32, match: kiconloader_enums.MatchType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` match: kiconloader_enums.MatchType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconPathByName(self: ?*anyopaque, name: []const u8, size: i32, match: i32, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -292,9 +417,22 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#iconPathByName)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#iconPathByName)
     ///
-    /// ``` self: QtC.KIconTheme, name: []const u8, size: i32, match: kiconloader_enums.MatchType, scale: f64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` match: kiconloader_enums.MatchType `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconPathByName2(self: ?*anyopaque, name: []const u8, size: i32, match: i32, scale: f64, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -307,23 +445,34 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#hasContext)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#hasContext)
     ///
-    /// ``` self: QtC.KIconTheme, context: kiconloader_enums.Context ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` context: kiconloader_enums.Context `
+    ///
     pub fn HasContext(self: ?*anyopaque, context: i32) bool {
         return qtc.KIconTheme_HasContext(@ptrCast(self), @intCast(context));
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#followsColorScheme)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#followsColorScheme)
     ///
-    /// ``` self: QtC.KIconTheme ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
     pub fn FollowsColorScheme(self: ?*anyopaque) bool {
         return qtc.KIconTheme_FollowsColorScheme(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#list)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#list)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn List(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_List();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -343,9 +492,12 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#current)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#current)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Current(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_Current();
         defer qtc.libqt_string_free(&_str);
@@ -354,9 +506,12 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#forceThemeForTests)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#forceThemeForTests)
     ///
-    /// ``` themeName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` themeName: []const u8 `
+    ///
     pub fn ForceThemeForTests(themeName: []const u8) void {
         const themeName_str = qtc.libqt_string{
             .len = themeName.len,
@@ -365,16 +520,18 @@ pub const kicontheme = struct {
         qtc.KIconTheme_ForceThemeForTests(themeName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#reconfigure)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#reconfigure)
     ///
     pub fn Reconfigure() void {
         qtc.KIconTheme_Reconfigure();
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#defaultThemeName)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#defaultThemeName)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DefaultThemeName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIconTheme_DefaultThemeName();
         defer qtc.libqt_string_free(&_str);
@@ -383,16 +540,24 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#initTheme)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#initTheme)
     ///
     pub fn InitTheme() void {
         qtc.KIconTheme_InitTheme();
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#queryIcons)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#queryIcons)
     ///
-    /// ``` self: QtC.KIconTheme, size: i32, context: kiconloader_enums.Context, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` context: kiconloader_enums.Context `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryIcons22(self: ?*anyopaque, size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIcons22(@ptrCast(self), @intCast(size), @intCast(context));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -412,9 +577,18 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#queryIconsByContext)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#queryIconsByContext)
     ///
-    /// ``` self: QtC.KIconTheme, size: i32, context: kiconloader_enums.Context, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` context: kiconloader_enums.Context `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryIconsByContext2(self: ?*anyopaque, size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIconsByContext2(@ptrCast(self), @intCast(size), @intCast(context));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -434,11 +608,14 @@ pub const kicontheme = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kicontheme.html#dtor.KIconTheme)
+    /// ### [Upstream resources](https://api.kde.org/kicontheme.html#dtor.KIconTheme)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KIconTheme ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KIconTheme `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KIconTheme_Delete(@ptrCast(self));
     }

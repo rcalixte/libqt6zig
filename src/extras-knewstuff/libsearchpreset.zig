@@ -3,25 +3,36 @@ const qtc = @import("qt6c");
 const searchpreset_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/knscore-searchpreset.html
+/// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html)
 pub const knscore__searchpreset = struct {
     /// New constructs a new KNSCore::SearchPreset object.
     ///
-    /// ``` param1: QtC.KNSCore__SearchPreset ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KNSCore__SearchPreset `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.KNSCore__SearchPreset {
         return qtc.KNSCore__SearchPreset_new(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#request)
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#request)
     ///
-    /// ``` self: QtC.KNSCore__SearchPreset ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__SearchPreset `
+    ///
     pub fn Request(self: ?*anyopaque) QtC.KNSCore__SearchRequest {
         return qtc.KNSCore__SearchPreset_Request(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#displayName)
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#displayName)
     ///
-    /// ``` self: QtC.KNSCore__SearchPreset, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__SearchPreset `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__SearchPreset_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -30,9 +41,14 @@ pub const knscore__searchpreset = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#iconName)
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#iconName)
     ///
-    /// ``` self: QtC.KNSCore__SearchPreset, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__SearchPreset `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__SearchPreset_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -41,18 +57,28 @@ pub const knscore__searchpreset = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#type)
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#type)
     ///
-    /// ``` self: QtC.KNSCore__SearchPreset ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` searchpreset_enums.Type ```
+    /// ` self: QtC.KNSCore__SearchPreset `
+    ///
+    /// ## Returns:
+    ///
+    /// ` searchpreset_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.KNSCore__SearchPreset_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#providerId)
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#providerId)
     ///
-    /// ``` self: QtC.KNSCore__SearchPreset, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__SearchPreset `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__SearchPreset_ProviderId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -63,13 +89,16 @@ pub const knscore__searchpreset = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KNSCore__SearchPreset ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KNSCore__SearchPreset `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KNSCore__SearchPreset_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/knscore-searchpreset.html#types
+/// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const NoPresetType: i32 = 0;

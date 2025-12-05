@@ -2,58 +2,80 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qsurface_enums = enums;
 
-/// https://doc.qt.io/qt-6/qsurface.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html)
 pub const qsurface = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
-    /// ``` self: QtC.QSurface ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qsurface_enums.SurfaceClass ```
+    /// ` self: QtC.QSurface `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qsurface_enums.SurfaceClass `
+    ///
     pub fn SurfaceClass(self: ?*anyopaque) i32 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#format)
     ///
-    /// ``` self: QtC.QSurface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurface `
+    ///
     pub fn Format(self: ?*anyopaque) QtC.QSurfaceFormat {
         return qtc.QSurface_Format(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
     ///
-    /// ``` self: QtC.QSurface ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qsurface_enums.SurfaceType ```
+    /// ` self: QtC.QSurface `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qsurface_enums.SurfaceType `
+    ///
     pub fn SurfaceType(self: ?*anyopaque) i32 {
         return qtc.QSurface_SurfaceType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
     ///
-    /// ``` self: QtC.QSurface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurface `
+    ///
     pub fn SupportsOpenGL(self: ?*anyopaque) bool {
         return qtc.QSurface_SupportsOpenGL(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#size)
     ///
-    /// ``` self: QtC.QSurface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurface `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QSurface_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#dtor.QSurface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#dtor.QSurface)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSurface ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSurface `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSurface_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qsurface.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#public-types)
 pub const enums = struct {
     pub const SurfaceClass = enum {
         pub const Window: i32 = 0;

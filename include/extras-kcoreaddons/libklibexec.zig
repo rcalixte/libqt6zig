@@ -2,11 +2,18 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/klibexec.html
+/// ### [Upstream resources](https://api.kde.org/klibexec.html)
 pub const klibexec = struct {
-    /// [Upstream resources](https://api.kde.org/klibexec.html#pathFromAddress)
+    /// ### [Upstream resources](https://api.kde.org/klibexec.html#pathFromAddress)
     ///
-    /// ``` param1: []const u8, param2: ?*anyopaque, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: ?*anyopaque `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PathFromAddress(param1: []const u8, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -19,9 +26,14 @@ pub const klibexec = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/klibexec.html#pathCandidates)
+    /// ### [Upstream resources](https://api.kde.org/klibexec.html#pathCandidates)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PathCandidates(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -45,9 +57,14 @@ pub const klibexec = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/klibexec.html#path)
+    /// ### [Upstream resources](https://api.kde.org/klibexec.html#path)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Path(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -60,9 +77,14 @@ pub const klibexec = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/klibexec.html#kdeFrameworksPaths)
+    /// ### [Upstream resources](https://api.kde.org/klibexec.html#kdeFrameworksPaths)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn KdeFrameworksPaths(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

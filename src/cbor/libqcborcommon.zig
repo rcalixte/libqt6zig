@@ -3,36 +3,56 @@ const qtc = @import("qt6c");
 const qcborcommon_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qcborerror.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html)
 pub const qcborerror = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
-    /// ``` self: QtC.QCborError ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qcborcommon_enums.Code ```
+    /// ` self: QtC.QCborError `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qcborcommon_enums.Code `
+    ///
     pub fn C(self: ?*anyopaque) i32 {
         return qtc.QCborError_C(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
-    /// ``` self: QtC.QCborError, c: qcborcommon_enums.Code ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCborError `
+    ///
+    /// ` c: qcborcommon_enums.Code `
+    ///
     pub fn SetC(self: ?*anyopaque, c: i32) void {
         qtc.QCborError_SetC(@ptrCast(self), @intCast(c));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator)
     ///
-    /// ``` self: QtC.QCborError ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qcborcommon_enums.Code ```
+    /// ` self: QtC.QCborError `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qcborcommon_enums.Code `
+    ///
     pub fn ToQCborError__Code(self: ?*anyopaque) i32 {
         return qtc.QCborError_ToQCborError__Code(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#toString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#toString)
     ///
-    /// ``` self: QtC.QCborError, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCborError `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCborError_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -41,17 +61,20 @@ pub const qcborerror = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#dtor.QCborError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#dtor.QCborError)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QCborError ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QCborError `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QCborError_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qcborcommon.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcborcommon.html#public-types)
 pub const enums = struct {
     pub const QCborSimpleType = enum {
         pub const False: u8 = 20;

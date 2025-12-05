@@ -3,11 +3,18 @@ const qtc = @import("qt6c");
 const qwebenginesettings_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebenginesettings.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html)
 pub const qwebenginesettings = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setFontFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setFontFamily)
     ///
-    /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily, family: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` which: qwebenginesettings_enums.FontFamily `
+    ///
+    /// ` family: []const u8 `
+    ///
     pub fn SetFontFamily(self: ?*anyopaque, which: i32, family: []const u8) void {
         const family_str = qtc.libqt_string{
             .len = family.len,
@@ -16,9 +23,16 @@ pub const qwebenginesettings = struct {
         qtc.QWebEngineSettings_SetFontFamily(@ptrCast(self), @intCast(which), family_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#fontFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#fontFamily)
     ///
-    /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` which: qwebenginesettings_enums.FontFamily `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FontFamily(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineSettings_FontFamily(@ptrCast(self), @intCast(which));
         defer qtc.libqt_string_free(&_str);
@@ -27,58 +41,102 @@ pub const qwebenginesettings = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetFontFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetFontFamily)
     ///
-    /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` which: qwebenginesettings_enums.FontFamily `
+    ///
     pub fn ResetFontFamily(self: ?*anyopaque, which: i32) void {
         qtc.QWebEngineSettings_ResetFontFamily(@ptrCast(self), @intCast(which));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setFontSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setFontSize)
     ///
-    /// ``` self: QtC.QWebEngineSettings, typeVal: qwebenginesettings_enums.FontSize, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` typeVal: qwebenginesettings_enums.FontSize `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetFontSize(self: ?*anyopaque, typeVal: i32, size: i32) void {
         qtc.QWebEngineSettings_SetFontSize(@ptrCast(self), @intCast(typeVal), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#fontSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#fontSize)
     ///
-    /// ``` self: QtC.QWebEngineSettings, typeVal: qwebenginesettings_enums.FontSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` typeVal: qwebenginesettings_enums.FontSize `
+    ///
     pub fn FontSize(self: ?*anyopaque, typeVal: i32) i32 {
         return qtc.QWebEngineSettings_FontSize(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetFontSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetFontSize)
     ///
-    /// ``` self: QtC.QWebEngineSettings, typeVal: qwebenginesettings_enums.FontSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` typeVal: qwebenginesettings_enums.FontSize `
+    ///
     pub fn ResetFontSize(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWebEngineSettings_ResetFontSize(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setAttribute)
     ///
-    /// ``` self: QtC.QWebEngineSettings, attr: qwebenginesettings_enums.WebAttribute, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` attr: qwebenginesettings_enums.WebAttribute `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetAttribute(self: ?*anyopaque, attr: i32, on: bool) void {
         qtc.QWebEngineSettings_SetAttribute(@ptrCast(self), @intCast(attr), on);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#testAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#testAttribute)
     ///
-    /// ``` self: QtC.QWebEngineSettings, attr: qwebenginesettings_enums.WebAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` attr: qwebenginesettings_enums.WebAttribute `
+    ///
     pub fn TestAttribute(self: ?*anyopaque, attr: i32) bool {
         return qtc.QWebEngineSettings_TestAttribute(@ptrCast(self), @intCast(attr));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetAttribute)
     ///
-    /// ``` self: QtC.QWebEngineSettings, attr: qwebenginesettings_enums.WebAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` attr: qwebenginesettings_enums.WebAttribute `
+    ///
     pub fn ResetAttribute(self: ?*anyopaque, attr: i32) void {
         qtc.QWebEngineSettings_ResetAttribute(@ptrCast(self), @intCast(attr));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setDefaultTextEncoding)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setDefaultTextEncoding)
     ///
-    /// ``` self: QtC.QWebEngineSettings, encoding: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` encoding: []const u8 `
+    ///
     pub fn SetDefaultTextEncoding(self: ?*anyopaque, encoding: []const u8) void {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
@@ -87,9 +145,14 @@ pub const qwebenginesettings = struct {
         qtc.QWebEngineSettings_SetDefaultTextEncoding(@ptrCast(self), encoding_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#defaultTextEncoding)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#defaultTextEncoding)
     ///
-    /// ``` self: QtC.QWebEngineSettings, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DefaultTextEncoding(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineSettings_DefaultTextEncoding(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -98,63 +161,92 @@ pub const qwebenginesettings = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#unknownUrlSchemePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#unknownUrlSchemePolicy)
     ///
-    /// ``` self: QtC.QWebEngineSettings ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginesettings_enums.UnknownUrlSchemePolicy ```
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginesettings_enums.UnknownUrlSchemePolicy `
+    ///
     pub fn UnknownUrlSchemePolicy(self: ?*anyopaque) i32 {
         return qtc.QWebEngineSettings_UnknownUrlSchemePolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setUnknownUrlSchemePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setUnknownUrlSchemePolicy)
     ///
-    /// ``` self: QtC.QWebEngineSettings, policy: qwebenginesettings_enums.UnknownUrlSchemePolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` policy: qwebenginesettings_enums.UnknownUrlSchemePolicy `
+    ///
     pub fn SetUnknownUrlSchemePolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWebEngineSettings_SetUnknownUrlSchemePolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetUnknownUrlSchemePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetUnknownUrlSchemePolicy)
     ///
-    /// ``` self: QtC.QWebEngineSettings ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
     pub fn ResetUnknownUrlSchemePolicy(self: ?*anyopaque) void {
         qtc.QWebEngineSettings_ResetUnknownUrlSchemePolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setImageAnimationPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#setImageAnimationPolicy)
     ///
-    /// ``` self: QtC.QWebEngineSettings, policy: qwebenginesettings_enums.ImageAnimationPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ` policy: qwebenginesettings_enums.ImageAnimationPolicy `
+    ///
     pub fn SetImageAnimationPolicy(self: ?*anyopaque, policy: u8) void {
         qtc.QWebEngineSettings_SetImageAnimationPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#imageAnimationPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#imageAnimationPolicy)
     ///
-    /// ``` self: QtC.QWebEngineSettings ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginesettings_enums.ImageAnimationPolicy ```
+    /// ` self: QtC.QWebEngineSettings `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginesettings_enums.ImageAnimationPolicy `
+    ///
     pub fn ImageAnimationPolicy(self: ?*anyopaque) u8 {
         return qtc.QWebEngineSettings_ImageAnimationPolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetImageAnimationPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#resetImageAnimationPolicy)
     ///
-    /// ``` self: QtC.QWebEngineSettings ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
     pub fn ResetImageAnimationPolicy(self: ?*anyopaque) void {
         qtc.QWebEngineSettings_ResetImageAnimationPolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#dtor.QWebEngineSettings)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#dtor.QWebEngineSettings)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineSettings ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineSettings `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineSettings_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebenginesettings.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#public-types)
 pub const enums = struct {
     pub const FontFamily = enum {
         pub const StandardFont: i32 = 0;

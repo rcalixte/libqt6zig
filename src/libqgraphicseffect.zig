@@ -5,10 +5,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qgraphicseffect.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html)
 pub const qgraphicseffect = struct {
     /// New constructs a new QGraphicsEffect object.
-    ///
     ///
     pub fn New() QtC.QGraphicsEffect {
         return qtc.QGraphicsEffect_new();
@@ -16,46 +15,85 @@ pub const qgraphicseffect = struct {
 
     /// New2 constructs a new QGraphicsEffect object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QGraphicsEffect {
         return qtc.QGraphicsEffect_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QGraphicsEffect_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QGraphicsEffect, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QGraphicsEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -65,251 +103,386 @@ pub const qgraphicseffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
-    /// ``` self: QtC.QGraphicsEffect, sourceRect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` sourceRect: QtC.QRectF `
+    ///
     pub fn BoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, sourceRect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` sourceRect: QtC.QRectF `
+    ///
     pub fn QBaseBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
-    /// ``` self: QtC.QGraphicsEffect, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self), enable);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsEffect, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self), enabled);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, enabled: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffectenabled: bool) callconv(.c) void `
+    ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
-    /// ``` self: QtC.QGraphicsEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
-    /// ``` self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
+    ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn UpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseUpdateBoundingRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn SourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_SourceIsPixmap(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_QBaseSourceIsPixmap(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn SourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_SourceBoundingRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn () callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRectF `
+    ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_QBaseSourceBoundingRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
-    /// ``` self: QtC.QGraphicsEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn DrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn SourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn () callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsEffect_QBaseSourcePixmap(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -320,9 +493,18 @@ pub const qgraphicseffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -333,111 +515,188 @@ pub const qgraphicseffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
     pub fn SourceBoundingRect1(self: ?*anyopaque, system: i32) QtC.QRectF {
         return qtc.QGraphicsEffect_SourceBoundingRect1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnSourceBoundingRect1(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
     pub fn QBaseSourceBoundingRect1(self: ?*anyopaque, system: i32) QtC.QRectF {
         return qtc.QGraphicsEffect_QBaseSourceBoundingRect1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
     pub fn SourcePixmap1(self: ?*anyopaque, system: i32) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap1(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
     pub fn QBaseSourcePixmap1(self: ?*anyopaque, system: i32) QtC.QPixmap {
         return qtc.QGraphicsEffect_QBaseSourcePixmap1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
     pub fn SourcePixmap2(self: ?*anyopaque, system: i32, offset: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap2(@ptrCast(self), @intCast(system), @ptrCast(offset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint) callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint) callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
     pub fn QBaseSourcePixmap2(self: ?*anyopaque, system: i32, offset: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsEffect_QBaseSourcePixmap2(@ptrCast(self), @intCast(system), @ptrCast(offset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint, mode: qgraphicseffect_enums.PixmapPadMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
+    /// ` mode: qgraphicseffect_enums.PixmapPadMode `
+    ///
     pub fn SourcePixmap3(self: ?*anyopaque, system: i32, offset: ?*anyopaque, mode: i32) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap3(@ptrCast(self), @intCast(system), @ptrCast(offset), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint, mode: qgraphicseffect_enums.PixmapPadMode) callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint, mode: qgraphicseffect_enums.PixmapPadMode) callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap3(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, i32) callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint, mode: qgraphicseffect_enums.PixmapPadMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` system: qnamespace_enums.CoordinateSystem `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
+    /// ` mode: qgraphicseffect_enums.PixmapPadMode `
+    ///
     pub fn QBaseSourcePixmap3(self: ?*anyopaque, system: i32, offset: ?*anyopaque, mode: i32) QtC.QPixmap {
         return qtc.QGraphicsEffect_QBaseSourcePixmap3(@ptrCast(self), @intCast(system), @ptrCast(offset), @intCast(mode));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -448,9 +707,14 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QGraphicsEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -461,99 +725,144 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QGraphicsEffect, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsEffect, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsEffect, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsEffect, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsEffect, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -565,45 +874,78 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QGraphicsEffect, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsEffect, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsEffect, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -612,45 +954,70 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QGraphicsEffect, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -658,9 +1025,14 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QGraphicsEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -668,9 +1040,14 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -692,54 +1069,76 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QGraphicsEffect, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -747,45 +1146,84 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -794,326 +1232,472 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsEffect, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffectparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsEffect_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsEffect_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QGraphicsEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsEffect_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsEffect_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsEffect_Receivers(@ptrCast(self), signal_Cstring);
@@ -1121,11 +1705,16 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1133,73 +1722,100 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsEffectobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#dtor.QGraphicsEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#dtor.QGraphicsEffect)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGraphicsEffect ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGraphicsEffect `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html)
 pub const qgraphicscolorizeeffect = struct {
     /// New constructs a new QGraphicsColorizeEffect object.
-    ///
     ///
     pub fn New() QtC.QGraphicsColorizeEffect {
         return qtc.QGraphicsColorizeEffect_new();
@@ -1207,46 +1823,85 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// New2 constructs a new QGraphicsColorizeEffect object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QGraphicsColorizeEffect {
         return qtc.QGraphicsColorizeEffect_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QGraphicsColorizeEffect_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QGraphicsColorizeEffect, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsColorizeEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QGraphicsColorizeEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsColorizeEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsColorizeEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsColorizeEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -1256,90 +1911,148 @@ pub const qgraphicscolorizeeffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#color)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#color)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QGraphicsColorizeEffect_Color(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strength)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strength)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn Strength(self: ?*anyopaque) f64 {
         return qtc.QGraphicsColorizeEffect_Strength(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setColor)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, c: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` c: QtC.QColor `
+    ///
     pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_SetColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setStrength)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setStrength)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, strength: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` strength: f64 `
+    ///
     pub fn SetStrength(self: ?*anyopaque, strength: f64) void {
         qtc.QGraphicsColorizeEffect_SetStrength(@ptrCast(self), @floatCast(strength));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn ColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_ColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectcolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, strength: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` strength: f64 `
+    ///
     pub fn StrengthChanged(self: ?*anyopaque, strength: f64) void {
         qtc.QGraphicsColorizeEffect_StrengthChanged(@ptrCast(self), @floatCast(strength));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, strength: f64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectstrength: f64) callconv(.c) void `
+    ///
     pub fn OnStrengthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_StrengthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1350,9 +2063,18 @@ pub const qgraphicscolorizeeffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1365,63 +2087,92 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self), enabled);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, enabled: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectenabled: bool) callconv(.c) void `
+    ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1432,9 +2183,14 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1445,99 +2201,144 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1549,45 +2350,78 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1596,45 +2430,70 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1642,9 +2501,14 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1652,9 +2516,14 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1676,54 +2545,76 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1731,45 +2622,84 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1778,557 +2708,792 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, sourceRect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` sourceRect: QtC.QRectF `
+    ///
     pub fn BoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsColorizeEffect_BoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, sourceRect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` sourceRect: QtC.QRectF `
+    ///
     pub fn QBaseBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsColorizeEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsColorizeEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsColorizeEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsColorizeEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
+    ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn UpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn SourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_SourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_QBaseSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn SourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsColorizeEffect_SourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsColorizeEffect_QBaseSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRectF `
+    ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsColorizeEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn DrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn SourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsColorizeEffect_SourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsColorizeEffect_QBaseSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsColorizeEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsColorizeEffect_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsColorizeEffect_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QGraphicsColorizeEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsColorizeEffect_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsColorizeEffect_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsColorizeEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsColorizeEffect_Receivers(@ptrCast(self), signal_Cstring);
@@ -2336,11 +3501,16 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsColorizeEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2348,73 +3518,100 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsColorizeEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsColorizeEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGraphicsColorizeEffect `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qgraphicsblureffect.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html)
 pub const qgraphicsblureffect = struct {
     /// New constructs a new QGraphicsBlurEffect object.
-    ///
     ///
     pub fn New() QtC.QGraphicsBlurEffect {
         return qtc.QGraphicsBlurEffect_new();
@@ -2422,46 +3619,85 @@ pub const qgraphicsblureffect = struct {
 
     /// New2 constructs a new QGraphicsBlurEffect object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QGraphicsBlurEffect {
         return qtc.QGraphicsBlurEffect_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QGraphicsBlurEffect_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QGraphicsBlurEffect, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsBlurEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QGraphicsBlurEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsBlurEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -2471,117 +3707,192 @@ pub const qgraphicsblureffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, rect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
     pub fn BoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsBlurEffect_BoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, rect: QtC.QRectF) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, rect: QtC.QRectF) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsBlurEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, rect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
     pub fn QBaseBoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsBlurEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadius)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn BlurRadius(self: ?*anyopaque) f64 {
         return qtc.QGraphicsBlurEffect_BlurRadius(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHints)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qgraphicseffect_enums.BlurHint ```
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qgraphicseffect_enums.BlurHint `
+    ///
     pub fn BlurHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_BlurHints(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurRadius)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, blurRadius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` blurRadius: f64 `
+    ///
     pub fn SetBlurRadius(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsBlurEffect_SetBlurRadius(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` hints: flag of qgraphicseffect_enums.BlurHint `
+    ///
     pub fn SetBlurHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsBlurEffect_SetBlurHints(@ptrCast(self), @intCast(hints));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, blurRadius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` blurRadius: f64 `
+    ///
     pub fn BlurRadiusChanged(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsBlurEffect_BlurRadiusChanged(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, blurRadius: f64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectblurRadius: f64) callconv(.c) void `
+    ///
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` hints: flag of qgraphicseffect_enums.BlurHint `
+    ///
     pub fn BlurHintsChanged(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsBlurEffect_BlurHintsChanged(@ptrCast(self), @intCast(hints));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffecthints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void `
+    ///
     pub fn OnBlurHintsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -2592,9 +3903,18 @@ pub const qgraphicsblureffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -2607,63 +3927,92 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self), enabled);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, enabled: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectenabled: bool) callconv(.c) void `
+    ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2674,9 +4023,14 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2687,99 +4041,144 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -2791,45 +4190,78 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -2838,45 +4270,70 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -2884,9 +4341,14 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -2894,9 +4356,14 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -2918,54 +4385,76 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -2973,45 +4462,84 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -3020,524 +4548,744 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsBlurEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsBlurEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
+    ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn UpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn SourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_SourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_QBaseSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn SourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsBlurEffect_SourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsBlurEffect_QBaseSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn () callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRectF `
+    ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsBlurEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn DrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn SourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsBlurEffect_SourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsBlurEffect_QBaseSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn () callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsBlurEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsBlurEffect_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsBlurEffect_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QGraphicsBlurEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsBlurEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsBlurEffect_Receivers(@ptrCast(self), signal_Cstring);
@@ -3545,11 +5293,16 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsBlurEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -3557,73 +5310,100 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsBlurEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsBlurEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#dtor.QGraphicsBlurEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#dtor.QGraphicsBlurEffect)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGraphicsBlurEffect `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html)
 pub const qgraphicsdropshadoweffect = struct {
     /// New constructs a new QGraphicsDropShadowEffect object.
-    ///
     ///
     pub fn New() QtC.QGraphicsDropShadowEffect {
         return qtc.QGraphicsDropShadowEffect_new();
@@ -3631,46 +5411,85 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// New2 constructs a new QGraphicsDropShadowEffect object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QGraphicsDropShadowEffect {
         return qtc.QGraphicsDropShadowEffect_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QGraphicsDropShadowEffect_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QGraphicsDropShadowEffect, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsDropShadowEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QGraphicsDropShadowEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsDropShadowEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsDropShadowEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsDropShadowEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -3680,185 +5499,304 @@ pub const qgraphicsdropshadoweffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, rect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
     pub fn BoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsDropShadowEffect_BoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, rect: QtC.QRectF) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, rect: QtC.QRectF) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsDropShadowEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, rect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
     pub fn QBaseBoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsDropShadowEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn Offset(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsDropShadowEffect_Offset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#xOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#xOffset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn XOffset(self: ?*anyopaque) f64 {
         return qtc.QGraphicsDropShadowEffect_XOffset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#yOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#yOffset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn YOffset(self: ?*anyopaque) f64 {
         return qtc.QGraphicsDropShadowEffect_YOffset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadius)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn BlurRadius(self: ?*anyopaque) f64 {
         return qtc.QGraphicsDropShadowEffect_BlurRadius(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#color)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#color)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QGraphicsDropShadowEffect_Color(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, ofs: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` ofs: QtC.QPointF `
+    ///
     pub fn SetOffset(self: ?*anyopaque, ofs: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_SetOffset(@ptrCast(self), @ptrCast(ofs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, dx: f64, dy: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` dx: f64 `
+    ///
+    /// ` dy: f64 `
+    ///
     pub fn SetOffset2(self: ?*anyopaque, dx: f64, dy: f64) void {
         qtc.QGraphicsDropShadowEffect_SetOffset2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, d: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` d: f64 `
+    ///
     pub fn SetOffset3(self: ?*anyopaque, d: f64) void {
         qtc.QGraphicsDropShadowEffect_SetOffset3(@ptrCast(self), @floatCast(d));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setXOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setXOffset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, dx: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` dx: f64 `
+    ///
     pub fn SetXOffset(self: ?*anyopaque, dx: f64) void {
         qtc.QGraphicsDropShadowEffect_SetXOffset(@ptrCast(self), @floatCast(dx));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setYOffset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setYOffset)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, dy: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` dy: f64 `
+    ///
     pub fn SetYOffset(self: ?*anyopaque, dy: f64) void {
         qtc.QGraphicsDropShadowEffect_SetYOffset(@ptrCast(self), @floatCast(dy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setBlurRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setBlurRadius)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, blurRadius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` blurRadius: f64 `
+    ///
     pub fn SetBlurRadius(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsDropShadowEffect_SetBlurRadius(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setColor)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, offset: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` offset: QtC.QPointF `
+    ///
     pub fn OffsetChanged(self: ?*anyopaque, offset: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_OffsetChanged(@ptrCast(self), @ptrCast(offset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, offset: QtC.QPointF) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectoffset: QtC.QPointF) callconv(.c) void `
+    ///
     pub fn OnOffsetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_OffsetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, blurRadius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` blurRadius: f64 `
+    ///
     pub fn BlurRadiusChanged(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsDropShadowEffect_BlurRadiusChanged(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, blurRadius: f64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectblurRadius: f64) callconv(.c) void `
+    ///
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn ColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_ColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectcolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -3869,9 +5807,18 @@ pub const qgraphicsdropshadoweffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -3884,63 +5831,92 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self), enabled);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, enabled: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectenabled: bool) callconv(.c) void `
+    ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3951,9 +5927,14 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -3964,99 +5945,144 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4068,45 +6094,78 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -4115,45 +6174,70 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -4161,9 +6245,14 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -4171,9 +6260,14 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -4195,54 +6289,76 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -4250,45 +6366,84 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -4297,524 +6452,744 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsDropShadowEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsDropShadowEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
+    ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn UpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn SourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_SourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_QBaseSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn SourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsDropShadowEffect_SourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsDropShadowEffect_QBaseSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRectF `
+    ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsDropShadowEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn DrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn SourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsDropShadowEffect_SourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsDropShadowEffect_QBaseSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsDropShadowEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsDropShadowEffect_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsDropShadowEffect_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QGraphicsDropShadowEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsDropShadowEffect_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsDropShadowEffect_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsDropShadowEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsDropShadowEffect_Receivers(@ptrCast(self), signal_Cstring);
@@ -4822,11 +7197,16 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsDropShadowEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -4834,73 +7214,100 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsDropShadowEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsDropShadowEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#dtor.QGraphicsDropShadowEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#dtor.QGraphicsDropShadowEffect)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGraphicsDropShadowEffect `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qgraphicsopacityeffect.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html)
 pub const qgraphicsopacityeffect = struct {
     /// New constructs a new QGraphicsOpacityEffect object.
-    ///
     ///
     pub fn New() QtC.QGraphicsOpacityEffect {
         return qtc.QGraphicsOpacityEffect_new();
@@ -4908,46 +7315,85 @@ pub const qgraphicsopacityeffect = struct {
 
     /// New2 constructs a new QGraphicsOpacityEffect object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QGraphicsOpacityEffect {
         return qtc.QGraphicsOpacityEffect_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QGraphicsOpacityEffect_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QGraphicsOpacityEffect, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsOpacityEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QGraphicsOpacityEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsOpacityEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsOpacityEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsOpacityEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -4957,90 +7403,148 @@ pub const qgraphicsopacityeffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacity)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn Opacity(self: ?*anyopaque) f64 {
         return qtc.QGraphicsOpacityEffect_Opacity(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMask)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn OpacityMask(self: ?*anyopaque) QtC.QBrush {
         return qtc.QGraphicsOpacityEffect_OpacityMask(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacity)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, opacity: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` opacity: f64 `
+    ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
         qtc.QGraphicsOpacityEffect_SetOpacity(@ptrCast(self), @floatCast(opacity));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacityMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacityMask)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` mask: QtC.QBrush `
+    ///
     pub fn SetOpacityMask(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_SetOpacityMask(@ptrCast(self), @ptrCast(mask));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, opacity: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` opacity: f64 `
+    ///
     pub fn OpacityChanged(self: ?*anyopaque, opacity: f64) void {
         qtc.QGraphicsOpacityEffect_OpacityChanged(@ptrCast(self), @floatCast(opacity));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, opacity: f64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectopacity: f64) callconv(.c) void `
+    ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` mask: QtC.QBrush `
+    ///
     pub fn OpacityMaskChanged(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_OpacityMaskChanged(@ptrCast(self), @ptrCast(mask));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectmask: QtC.QBrush) callconv(.c) void `
+    ///
     pub fn OnOpacityMaskChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityMaskChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -5051,9 +7555,18 @@ pub const qgraphicsopacityeffect = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -5066,63 +7579,92 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self), enabled);
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, enabled: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectenabled: bool) callconv(.c) void `
+    ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -5133,9 +7675,14 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -5146,99 +7693,144 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -5250,45 +7842,78 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -5297,45 +7922,70 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -5343,9 +7993,14 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -5353,9 +8008,14 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -5377,54 +8037,76 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -5432,45 +8114,84 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -5479,557 +8200,792 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, sourceRect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` sourceRect: QtC.QRectF `
+    ///
     pub fn BoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsOpacityEffect_BoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, sourceRect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` sourceRect: QtC.QRectF `
+    ///
     pub fn QBaseBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsOpacityEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsOpacityEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsOpacityEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
+    ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsOpacityEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
+    ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn UpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn SourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_SourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_QBaseSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn SourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsOpacityEffect_SourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsOpacityEffect_QBaseSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRectF `
+    ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
         qtc.QGraphicsOpacityEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn DrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn SourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsOpacityEffect_SourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsOpacityEffect_QBaseSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QtC.QPixmap ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
+    ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
         qtc.QGraphicsOpacityEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsOpacityEffect_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGraphicsOpacityEffect_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QGraphicsOpacityEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsOpacityEffect_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGraphicsOpacityEffect_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsOpacityEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsOpacityEffect_Receivers(@ptrCast(self), signal_Cstring);
@@ -6037,11 +8993,16 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsOpacityEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -6049,70 +9010,98 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsOpacityEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGraphicsOpacityEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect`
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#dtor.QGraphicsOpacityEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#dtor.QGraphicsOpacityEffect)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGraphicsOpacityEffect `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qgraphicseffect.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#public-types)
 pub const enums = struct {
     pub const ChangeFlag = enum {
         pub const SourceAttached: i32 = 1;

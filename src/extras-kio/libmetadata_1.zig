@@ -4,10 +4,9 @@ const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
-/// https://api.kde.org/kio-metadata.html
+/// ### [Upstream resources](https://api.kde.org/kio-metadata.html)
 pub const kio__metadata = struct {
     /// New constructs a new KIO::MetaData object.
-    ///
     ///
     pub fn New() QtC.KIO__MetaData {
         return qtc.KIO__MetaData_new();
@@ -15,7 +14,12 @@ pub const kio__metadata = struct {
 
     /// New2 constructs a new KIO::MetaData object.
     ///
-    /// ``` metaData: map_constu8_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` metaData: map_constu8_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New2(metaData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.New2: Memory allocation failed");
         defer allocator.free(metaData_keys);
@@ -43,7 +47,12 @@ pub const kio__metadata = struct {
 
     /// New3 constructs a new KIO::MetaData object.
     ///
-    /// ``` param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New3(param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kio::metadata.New3: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -71,14 +80,24 @@ pub const kio__metadata = struct {
 
     /// New4 constructs a new KIO::MetaData object.
     ///
-    /// ``` param1: QtC.KIO__MetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KIO__MetaData `
+    ///
     pub fn New4(param1: ?*anyopaque) QtC.KIO__MetaData {
         return qtc.KIO__MetaData_new4(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
+    /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
     ///
-    /// ``` self: QtC.KIO__MetaData, metaData: map_constu8_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__MetaData `
+    ///
+    /// ` metaData: map_constu8_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn OperatorPlusAssign(self: ?*anyopaque, metaData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.OperatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
@@ -103,9 +122,16 @@ pub const kio__metadata = struct {
         return qtc.KIO__MetaData_OperatorPlusAssign(@ptrCast(self), metaData_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
+    /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
     ///
-    /// ``` self: QtC.KIO__MetaData, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__MetaData `
+    ///
+    /// ` metaData: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn OperatorPlusAssign2(self: ?*anyopaque, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.OperatorPlusAssign2: Memory allocation failed");
         defer allocator.free(metaData_keys);
@@ -130,9 +156,16 @@ pub const kio__metadata = struct {
         return qtc.KIO__MetaData_OperatorPlusAssign2(@ptrCast(self), metaData_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
     ///
-    /// ``` self: QtC.KIO__MetaData, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__MetaData `
+    ///
+    /// ` metaData: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.OperatorAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
@@ -157,23 +190,34 @@ pub const kio__metadata = struct {
         qtc.KIO__MetaData_OperatorAssign(@ptrCast(self), metaData_map);
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-metadata.html#toVariant)
+    /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#toVariant)
     ///
-    /// ``` self: QtC.KIO__MetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__MetaData `
+    ///
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.KIO__MetaData_ToVariant(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
     ///
-    /// ``` self: QtC.KIO__MetaData, param1: QtC.KIO__MetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__MetaData `
+    ///
+    /// ` param1: QtC.KIO__MetaData `
+    ///
     pub fn OperatorAssign2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KIO__MetaData_OperatorAssign2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KIO__MetaData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KIO__MetaData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KIO__MetaData_Delete(@ptrCast(self));
     }
