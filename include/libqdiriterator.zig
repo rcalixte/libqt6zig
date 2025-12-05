@@ -4,18 +4,24 @@ const qdir_enums = @import("libqdir.zig").enums;
 const qdiriterator_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qdiriterator.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html)
 pub const qdiriterator = struct {
     /// New constructs a new QDirIterator object.
     ///
-    /// ``` dir: QtC.QDir ```
+    /// ## Parameter(s):
+    ///
+    /// ` dir: QtC.QDir `
+    ///
     pub fn New(dir: ?*anyopaque) QtC.QDirIterator {
         return qtc.QDirIterator_new(@ptrCast(dir));
     }
 
     /// New2 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
     pub fn New2(path: []const u8) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -27,7 +33,12 @@ pub const qdiriterator = struct {
 
     /// New3 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, filter: flag of qdir_enums.Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` filter: flag of qdir_enums.Filter `
+    ///
     pub fn New3(path: []const u8, filter: i32) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -39,7 +50,14 @@ pub const qdiriterator = struct {
 
     /// New4 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, nameFilters: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` nameFilters: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New4(path: []const u8, nameFilters: [][]const u8, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -63,14 +81,24 @@ pub const qdiriterator = struct {
 
     /// New5 constructs a new QDirIterator object.
     ///
-    /// ``` dir: QtC.QDir, flags: flag of qdiriterator_enums.IteratorFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` dir: QtC.QDir `
+    ///
+    /// ` flags: flag of qdiriterator_enums.IteratorFlag `
+    ///
     pub fn New5(dir: ?*anyopaque, flags: i32) QtC.QDirIterator {
         return qtc.QDirIterator_new5(@ptrCast(dir), @intCast(flags));
     }
 
     /// New6 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, flags: flag of qdiriterator_enums.IteratorFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` flags: flag of qdiriterator_enums.IteratorFlag `
+    ///
     pub fn New6(path: []const u8, flags: i32) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -82,7 +110,14 @@ pub const qdiriterator = struct {
 
     /// New7 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, filter: flag of qdir_enums.Filter, flags: flag of qdiriterator_enums.IteratorFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` filter: flag of qdir_enums.Filter `
+    ///
+    /// ` flags: flag of qdiriterator_enums.IteratorFlag `
+    ///
     pub fn New7(path: []const u8, filter: i32, flags: i32) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -94,7 +129,16 @@ pub const qdiriterator = struct {
 
     /// New8 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` nameFilters: [][]const u8 `
+    ///
+    /// ` filters: flag of qdir_enums.Filter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New8(path: []const u8, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -118,7 +162,18 @@ pub const qdiriterator = struct {
 
     /// New9 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, flags: flag of qdiriterator_enums.IteratorFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` nameFilters: [][]const u8 `
+    ///
+    /// ` filters: flag of qdir_enums.Filter `
+    ///
+    /// ` flags: flag of qdiriterator_enums.IteratorFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New9(path: []const u8, nameFilters: [][]const u8, filters: i32, flags: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -140,9 +195,14 @@ pub const qdiriterator = struct {
         return qtc.QDirIterator_new9(path_str, nameFilters_list, @intCast(filters), @intCast(flags));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#next)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#next)
     ///
-    /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Next(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_Next(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -151,23 +211,34 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#nextFileInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#nextFileInfo)
     ///
-    /// ``` self: QtC.QDirIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
     pub fn NextFileInfo(self: ?*anyopaque) QtC.QFileInfo {
         return qtc.QDirIterator_NextFileInfo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#hasNext)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#hasNext)
     ///
-    /// ``` self: QtC.QDirIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
     pub fn HasNext(self: ?*anyopaque) bool {
         return qtc.QDirIterator_HasNext(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#fileName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#fileName)
     ///
-    /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_FileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -176,9 +247,14 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#filePath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#filePath)
     ///
-    /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_FilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -187,16 +263,24 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#fileInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#fileInfo)
     ///
-    /// ``` self: QtC.QDirIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
     pub fn FileInfo(self: ?*anyopaque) QtC.QFileInfo {
         return qtc.QDirIterator_FileInfo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#path)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#path)
     ///
-    /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_Path(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -205,17 +289,20 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#dtor.QDirIterator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#dtor.QDirIterator)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDirIterator ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDirIterator `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDirIterator_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qdiriterator.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#public-types)
 pub const enums = struct {
     pub const IteratorFlag = enum {
         pub const NoIteratorFlags: i32 = 0;

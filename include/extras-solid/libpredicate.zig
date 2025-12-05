@@ -5,10 +5,9 @@ const predicate_enums = enums;
 const std = @import("std");
 const set_i32 = std.AutoHashMapUnmanaged(i32, void);
 
-/// https://api.kde.org/solid-predicate.html
+/// ### [Upstream resources](https://api.kde.org/solid-predicate.html)
 pub const solid__predicate = struct {
     /// New constructs a new Solid::Predicate object.
-    ///
     ///
     pub fn New() QtC.Solid__Predicate {
         return qtc.Solid__Predicate_new();
@@ -16,14 +15,24 @@ pub const solid__predicate = struct {
 
     /// New2 constructs a new Solid::Predicate object.
     ///
-    /// ``` other: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Solid__Predicate `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Solid__Predicate {
         return qtc.Solid__Predicate_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new Solid::Predicate object.
     ///
-    /// ``` ifaceType: *const deviceinterface_enums.Type, property: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` ifaceType: *const deviceinterface_enums.Type `
+    ///
+    /// ` property: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn New3(ifaceType: *const i32, property: []const u8, value: ?*anyopaque) QtC.Solid__Predicate {
         const property_str = qtc.libqt_string{
             .len = property.len,
@@ -35,7 +44,14 @@ pub const solid__predicate = struct {
 
     /// New4 constructs a new Solid::Predicate object.
     ///
-    /// ``` ifaceName: []const u8, property: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` ifaceName: []const u8 `
+    ///
+    /// ` property: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn New4(ifaceName: []const u8, property: []const u8, value: ?*anyopaque) QtC.Solid__Predicate {
         const ifaceName_str = qtc.libqt_string{
             .len = ifaceName.len,
@@ -51,14 +67,20 @@ pub const solid__predicate = struct {
 
     /// New5 constructs a new Solid::Predicate object.
     ///
-    /// ``` ifaceType: *const deviceinterface_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` ifaceType: *const deviceinterface_enums.Type `
+    ///
     pub fn New5(ifaceType: *const i32) QtC.Solid__Predicate {
         return qtc.Solid__Predicate_new5(@ptrCast(ifaceType));
     }
 
     /// New6 constructs a new Solid::Predicate object.
     ///
-    /// ``` ifaceName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` ifaceName: []const u8 `
+    ///
     pub fn New6(ifaceName: []const u8) QtC.Solid__Predicate {
         const ifaceName_str = qtc.libqt_string{
             .len = ifaceName.len,
@@ -70,7 +92,16 @@ pub const solid__predicate = struct {
 
     /// New7 constructs a new Solid::Predicate object.
     ///
-    /// ``` ifaceType: *const deviceinterface_enums.Type, property: []const u8, value: QtC.QVariant, compOperator: predicate_enums.ComparisonOperator ```
+    /// ## Parameter(s):
+    ///
+    /// ` ifaceType: *const deviceinterface_enums.Type `
+    ///
+    /// ` property: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
+    /// ` compOperator: predicate_enums.ComparisonOperator `
+    ///
     pub fn New7(ifaceType: *const i32, property: []const u8, value: ?*anyopaque, compOperator: i32) QtC.Solid__Predicate {
         const property_str = qtc.libqt_string{
             .len = property.len,
@@ -82,7 +113,16 @@ pub const solid__predicate = struct {
 
     /// New8 constructs a new Solid::Predicate object.
     ///
-    /// ``` ifaceName: []const u8, property: []const u8, value: QtC.QVariant, compOperator: predicate_enums.ComparisonOperator ```
+    /// ## Parameter(s):
+    ///
+    /// ` ifaceName: []const u8 `
+    ///
+    /// ` property: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
+    /// ` compOperator: predicate_enums.ComparisonOperator `
+    ///
     pub fn New8(ifaceName: []const u8, property: []const u8, value: ?*anyopaque, compOperator: i32) QtC.Solid__Predicate {
         const ifaceName_str = qtc.libqt_string{
             .len = ifaceName.len,
@@ -96,58 +136,96 @@ pub const solid__predicate = struct {
         return qtc.Solid__Predicate_new8(ifaceName_str, property_str, @ptrCast(value), @intCast(compOperator));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-eq)
     ///
-    /// ``` self: QtC.Solid__Predicate, other: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` other: QtC.Solid__Predicate `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Solid__Predicate_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#operator-and)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-and)
     ///
-    /// ``` self: QtC.Solid__Predicate, other: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` other: QtC.Solid__Predicate `
+    ///
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, other: ?*anyopaque) QtC.Solid__Predicate {
         return qtc.Solid__Predicate_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#operator-and-eq)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-and-eq)
     ///
-    /// ``` self: QtC.Solid__Predicate, other: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` other: QtC.Solid__Predicate `
+    ///
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Solid__Predicate_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#operator-7c)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-7c)
     ///
-    /// ``` self: QtC.Solid__Predicate, other: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` other: QtC.Solid__Predicate `
+    ///
     pub fn OperatorBitwiseOr(self: ?*anyopaque, other: ?*anyopaque) QtC.Solid__Predicate {
         return qtc.Solid__Predicate_OperatorBitwiseOr(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#operator-7c-eq)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-7c-eq)
     ///
-    /// ``` self: QtC.Solid__Predicate, other: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` other: QtC.Solid__Predicate `
+    ///
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Solid__Predicate_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#isValid)
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Solid__Predicate_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#matches)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#matches)
     ///
-    /// ``` self: QtC.Solid__Predicate, device: QtC.Solid__Device ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` device: QtC.Solid__Device `
+    ///
     pub fn Matches(self: ?*anyopaque, device: ?*anyopaque) bool {
         return qtc.Solid__Predicate_Matches(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#usedTypes)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#usedTypes)
     ///
-    /// ``` self: QtC.Solid__Predicate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UsedTypes(self: ?*anyopaque, allocator: std.mem.Allocator) set_i32 {
         const _set: qtc.libqt_list = qtc.Solid__Predicate_UsedTypes(@ptrCast(self));
         var _ret: set_i32 = .empty;
@@ -158,9 +236,14 @@ pub const solid__predicate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#toString)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#toString)
     ///
-    /// ``` self: QtC.Solid__Predicate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Solid__Predicate_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -169,9 +252,12 @@ pub const solid__predicate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#fromString)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#fromString)
     ///
-    /// ``` predicate: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` predicate: []const u8 `
+    ///
     pub fn FromString(predicate: []const u8) QtC.Solid__Predicate {
         const predicate_str = qtc.libqt_string{
             .len = predicate.len,
@@ -180,27 +266,42 @@ pub const solid__predicate = struct {
         return qtc.Solid__Predicate_FromString(predicate_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#type)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#type)
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` predicate_enums.Type ```
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ## Returns:
+    ///
+    /// ` predicate_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.Solid__Predicate_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#interfaceType)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#interfaceType)
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` deviceinterface_enums.Type ```
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ## Returns:
+    ///
+    /// ` deviceinterface_enums.Type `
+    ///
     pub fn InterfaceType(self: ?*anyopaque) i32 {
         return qtc.Solid__Predicate_InterfaceType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#propertyName)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#propertyName)
     ///
-    /// ``` self: QtC.Solid__Predicate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Solid__Predicate_PropertyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -209,45 +310,62 @@ pub const solid__predicate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#matchingValue)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#matchingValue)
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
     pub fn MatchingValue(self: ?*anyopaque) QtC.QVariant {
         return qtc.Solid__Predicate_MatchingValue(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#comparisonOperator)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#comparisonOperator)
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` predicate_enums.ComparisonOperator ```
+    /// ` self: QtC.Solid__Predicate `
+    ///
+    /// ## Returns:
+    ///
+    /// ` predicate_enums.ComparisonOperator `
+    ///
     pub fn ComparisonOperator(self: ?*anyopaque) i32 {
         return qtc.Solid__Predicate_ComparisonOperator(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#firstOperand)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#firstOperand)
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
     pub fn FirstOperand(self: ?*anyopaque) QtC.Solid__Predicate {
         return qtc.Solid__Predicate_FirstOperand(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/solid-predicate.html#secondOperand)
+    /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#secondOperand)
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
     pub fn SecondOperand(self: ?*anyopaque) QtC.Solid__Predicate {
         return qtc.Solid__Predicate_SecondOperand(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Solid__Predicate ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Solid__Predicate `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Solid__Predicate_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/solid-predicate.html#types
+/// ### [Upstream resources](https://api.kde.org/solid-predicate.html#public-types)
 pub const enums = struct {
     pub const ComparisonOperator = enum {
         pub const Equals: i32 = 0;

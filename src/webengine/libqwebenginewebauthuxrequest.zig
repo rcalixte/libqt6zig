@@ -5,29 +5,51 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qwebenginewebauthuxrequest_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html)
 pub const qwebenginewebauthuxrequest = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QWebEngineWebAuthUxRequest_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebEngineWebAuthUxRequest_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEngineWebAuthUxRequest_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -37,9 +59,14 @@ pub const qwebenginewebauthuxrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#userNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#userNames)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UserNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QWebEngineWebAuthUxRequest_UserNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -59,9 +86,14 @@ pub const qwebenginewebauthuxrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#relyingPartyId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#relyingPartyId)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RelyingPartyId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineWebAuthUxRequest_RelyingPartyId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -70,62 +102,96 @@ pub const qwebenginewebauthuxrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#pinRequest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#pinRequest)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn PinRequest(self: ?*anyopaque) QtC.QWebEngineWebAuthPinRequest {
         return qtc.QWebEngineWebAuthUxRequest_PinRequest(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#state)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginewebauthuxrequest_enums.WebAuthUxState ```
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginewebauthuxrequest_enums.WebAuthUxState `
+    ///
     pub fn State(self: ?*anyopaque) i32 {
         return qtc.QWebEngineWebAuthUxRequest_State(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#requestFailureReason)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#requestFailureReason)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginewebauthuxrequest_enums.RequestFailureReason ```
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginewebauthuxrequest_enums.RequestFailureReason `
+    ///
     pub fn RequestFailureReason(self: ?*anyopaque) i32 {
         return qtc.QWebEngineWebAuthUxRequest_RequestFailureReason(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#stateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#stateChanged)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, state: qwebenginewebauthuxrequest_enums.WebAuthUxState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` state: qwebenginewebauthuxrequest_enums.WebAuthUxState `
+    ///
     pub fn StateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QWebEngineWebAuthUxRequest_StateChanged(@ptrCast(self), @intCast(state));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#stateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#stateChanged)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest, state: qwebenginewebauthuxrequest_enums.WebAuthUxState) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEngineWebAuthUxRequeststate: qwebenginewebauthuxrequest_enums.WebAuthUxState) callconv(.c) void `
+    ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEngineWebAuthUxRequest_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#cancel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#cancel)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn Cancel(self: ?*anyopaque) void {
         qtc.QWebEngineWebAuthUxRequest_Cancel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#retry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#retry)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn Retry(self: ?*anyopaque) void {
         qtc.QWebEngineWebAuthUxRequest_Retry(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#setSelectedAccount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#setSelectedAccount)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, selectedAccount: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` selectedAccount: []const u8 `
+    ///
     pub fn SetSelectedAccount(self: ?*anyopaque, selectedAccount: []const u8) void {
         const selectedAccount_str = qtc.libqt_string{
             .len = selectedAccount.len,
@@ -134,9 +200,14 @@ pub const qwebenginewebauthuxrequest = struct {
         qtc.QWebEngineWebAuthUxRequest_SetSelectedAccount(@ptrCast(self), selectedAccount_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#setPin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#setPin)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, pin: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` pin: []const u8 `
+    ///
     pub fn SetPin(self: ?*anyopaque, pin: []const u8) void {
         const pin_str = qtc.libqt_string{
             .len = pin.len,
@@ -145,9 +216,16 @@ pub const qwebenginewebauthuxrequest = struct {
         qtc.QWebEngineWebAuthUxRequest_SetPin(@ptrCast(self), pin_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -158,9 +236,18 @@ pub const qwebenginewebauthuxrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -173,27 +260,44 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -204,9 +308,14 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -217,99 +326,144 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -321,45 +475,78 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -368,45 +555,70 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -414,9 +626,14 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -424,9 +641,14 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -448,54 +670,76 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -503,45 +747,84 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -550,116 +833,173 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEngineWebAuthUxRequestparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEngineWebAuthUxRequestobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#dtor.QWebEngineWebAuthUxRequest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#dtor.QWebEngineWebAuthUxRequest)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineWebAuthUxRequest_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html)
 pub const qwebenginewebauthpinrequest = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#reason-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#reason-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginewebauthuxrequest_enums.PinEntryReason ```
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginewebauthuxrequest_enums.PinEntryReason `
+    ///
     pub fn Reason(self: ?*anyopaque) i32 {
         return qtc.QWebEngineWebAuthPinRequest_Reason(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#reason-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#reason-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest, reason: qwebenginewebauthuxrequest_enums.PinEntryReason ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
+    /// ` reason: qwebenginewebauthuxrequest_enums.PinEntryReason `
+    ///
     pub fn SetReason(self: ?*anyopaque, reason: i32) void {
         qtc.QWebEngineWebAuthPinRequest_SetReason(@ptrCast(self), @intCast(reason));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#error-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#error-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginewebauthuxrequest_enums.PinEntryError ```
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginewebauthuxrequest_enums.PinEntryError `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QWebEngineWebAuthPinRequest_Error(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#error-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#error-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest, error: qwebenginewebauthuxrequest_enums.PinEntryError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
+    /// ` error: qwebenginewebauthuxrequest_enums.PinEntryError `
+    ///
     pub fn SetError(self: ?*anyopaque, _error: i32) void {
         qtc.QWebEngineWebAuthPinRequest_SetError(@ptrCast(self), @intCast(_error));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#minPinLength-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#minPinLength-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
     pub fn MinPinLength(self: ?*anyopaque) i32 {
         return qtc.QWebEngineWebAuthPinRequest_MinPinLength(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#minPinLength-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#minPinLength-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest, minPinLength: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
+    /// ` minPinLength: i32 `
+    ///
     pub fn SetMinPinLength(self: ?*anyopaque, minPinLength: i32) void {
         qtc.QWebEngineWebAuthPinRequest_SetMinPinLength(@ptrCast(self), @intCast(minPinLength));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#remainingAttempts-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#remainingAttempts-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
     pub fn RemainingAttempts(self: ?*anyopaque) i32 {
         return qtc.QWebEngineWebAuthPinRequest_RemainingAttempts(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#remainingAttempts-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#remainingAttempts-var)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest, remainingAttempts: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
+    /// ` remainingAttempts: i32 `
+    ///
     pub fn SetRemainingAttempts(self: ?*anyopaque, remainingAttempts: i32) void {
         qtc.QWebEngineWebAuthPinRequest_SetRemainingAttempts(@ptrCast(self), @intCast(remainingAttempts));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#dtor.QWebEngineWebAuthPinRequest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#dtor.QWebEngineWebAuthPinRequest)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineWebAuthPinRequest `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineWebAuthPinRequest_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#public-types)
 pub const enums = struct {
     pub const WebAuthUxState = enum {
         pub const NotStarted: i32 = 0;

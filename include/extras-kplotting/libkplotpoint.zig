@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kplotpoint.html
+/// ### [Upstream resources](https://api.kde.org/kplotpoint.html)
 pub const kplotpoint = struct {
     /// New constructs a new KPlotPoint object.
-    ///
     ///
     pub fn New() QtC.KPlotPoint {
         return qtc.KPlotPoint_new();
@@ -13,21 +12,36 @@ pub const kplotpoint = struct {
 
     /// New2 constructs a new KPlotPoint object.
     ///
-    /// ``` x: f64, y: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
     pub fn New2(x: f64, y: f64) QtC.KPlotPoint {
         return qtc.KPlotPoint_new2(@floatCast(x), @floatCast(y));
     }
 
     /// New3 constructs a new KPlotPoint object.
     ///
-    /// ``` p: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` p: QtC.QPointF `
+    ///
     pub fn New3(p: ?*anyopaque) QtC.KPlotPoint {
         return qtc.KPlotPoint_new3(@ptrCast(p));
     }
 
     /// New4 constructs a new KPlotPoint object.
     ///
-    /// ``` x: f64, y: f64, label: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
+    /// ` label: []const u8 `
+    ///
     pub fn New4(x: f64, y: f64, label: []const u8) QtC.KPlotPoint {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -39,7 +53,16 @@ pub const kplotpoint = struct {
 
     /// New5 constructs a new KPlotPoint object.
     ///
-    /// ``` x: f64, y: f64, label: []const u8, width: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
+    /// ` label: []const u8 `
+    ///
+    /// ` width: f64 `
+    ///
     pub fn New5(x: f64, y: f64, label: []const u8, width: f64) QtC.KPlotPoint {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -51,7 +74,12 @@ pub const kplotpoint = struct {
 
     /// New6 constructs a new KPlotPoint object.
     ///
-    /// ``` p: QtC.QPointF, label: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` p: QtC.QPointF `
+    ///
+    /// ` label: []const u8 `
+    ///
     pub fn New6(p: ?*anyopaque, label: []const u8) QtC.KPlotPoint {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -63,7 +91,14 @@ pub const kplotpoint = struct {
 
     /// New7 constructs a new KPlotPoint object.
     ///
-    /// ``` p: QtC.QPointF, label: []const u8, width: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` p: QtC.QPointF `
+    ///
+    /// ` label: []const u8 `
+    ///
+    /// ` width: f64 `
+    ///
     pub fn New7(p: ?*anyopaque, label: []const u8, width: f64) QtC.KPlotPoint {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -73,51 +108,80 @@ pub const kplotpoint = struct {
         return qtc.KPlotPoint_new7(@ptrCast(p), label_str, @floatCast(width));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#position)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#position)
     ///
-    /// ``` self: QtC.KPlotPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
     pub fn Position(self: ?*anyopaque) QtC.QPointF {
         return qtc.KPlotPoint_Position(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#setPosition)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#setPosition)
     ///
-    /// ``` self: QtC.KPlotPoint, pos: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
+    /// ` pos: QtC.QPointF `
+    ///
     pub fn SetPosition(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.KPlotPoint_SetPosition(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#x)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#x)
     ///
-    /// ``` self: QtC.KPlotPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
     pub fn X(self: ?*anyopaque) f64 {
         return qtc.KPlotPoint_X(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#setX)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#setX)
     ///
-    /// ``` self: QtC.KPlotPoint, x: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
+    /// ` x: f64 `
+    ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
         qtc.KPlotPoint_SetX(@ptrCast(self), @floatCast(x));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#y)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#y)
     ///
-    /// ``` self: QtC.KPlotPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
     pub fn Y(self: ?*anyopaque) f64 {
         return qtc.KPlotPoint_Y(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#setY)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#setY)
     ///
-    /// ``` self: QtC.KPlotPoint, y: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
+    /// ` y: f64 `
+    ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
         qtc.KPlotPoint_SetY(@ptrCast(self), @floatCast(y));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#label)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#label)
     ///
-    /// ``` self: QtC.KPlotPoint, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KPlotPoint_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -126,9 +190,14 @@ pub const kplotpoint = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#setLabel)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#setLabel)
     ///
-    /// ``` self: QtC.KPlotPoint, label: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
+    /// ` label: []const u8 `
+    ///
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -137,25 +206,36 @@ pub const kplotpoint = struct {
         qtc.KPlotPoint_SetLabel(@ptrCast(self), label_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#barWidth)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#barWidth)
     ///
-    /// ``` self: QtC.KPlotPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
     pub fn BarWidth(self: ?*anyopaque) f64 {
         return qtc.KPlotPoint_BarWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#setBarWidth)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#setBarWidth)
     ///
-    /// ``` self: QtC.KPlotPoint, w: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
+    /// ` w: f64 `
+    ///
     pub fn SetBarWidth(self: ?*anyopaque, w: f64) void {
         qtc.KPlotPoint_SetBarWidth(@ptrCast(self), @floatCast(w));
     }
 
-    /// [Upstream resources](https://api.kde.org/kplotpoint.html#dtor.KPlotPoint)
+    /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#dtor.KPlotPoint)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KPlotPoint ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KPlotPoint `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KPlotPoint_Delete(@ptrCast(self));
     }

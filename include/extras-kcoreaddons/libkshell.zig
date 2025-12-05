@@ -3,11 +3,20 @@ const qtc = @import("qt6c");
 const kshell_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kshell.html
+/// ### [Upstream resources](https://api.kde.org/kshell.html)
 pub const kshell = struct {
-    /// [Upstream resources](https://api.kde.org/kshell.html#splitArgs)
+    /// ### [Upstream resources](https://api.kde.org/kshell.html#splitArgs)
     ///
-    /// ``` param1: []const u8, param2: flag of kshell_enums.Option, param3: *kshell_enums.Errors, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: flag of kshell_enums.Option `
+    ///
+    /// ` param3: *kshell_enums.Errors `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SplitArgs(param1: []const u8, param2: i32, param3: *i32, allocator: std.mem.Allocator) [][]const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -31,9 +40,14 @@ pub const kshell = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kshell.html#joinArgs)
+    /// ### [Upstream resources](https://api.kde.org/kshell.html#joinArgs)
     ///
-    /// ``` param1: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn JoinArgs(param1: [][]const u8, allocator: std.mem.Allocator) []const u8 {
         var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
         defer allocator.free(param1_arr);
@@ -54,9 +68,14 @@ pub const kshell = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kshell.html#quoteArg)
+    /// ### [Upstream resources](https://api.kde.org/kshell.html#quoteArg)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QuoteArg(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -69,9 +88,14 @@ pub const kshell = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kshell.html#tildeExpand)
+    /// ### [Upstream resources](https://api.kde.org/kshell.html#tildeExpand)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TildeExpand(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -84,9 +108,14 @@ pub const kshell = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kshell.html#tildeCollapse)
+    /// ### [Upstream resources](https://api.kde.org/kshell.html#tildeCollapse)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TildeCollapse(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -100,7 +129,7 @@ pub const kshell = struct {
     }
 };
 
-/// https://api.kde.org/kshell.html#types
+/// ### [Upstream resources](https://api.kde.org/kshell.html#public-types)
 pub const enums = struct {
     pub const Option = enum {
         pub const NoOptions: i32 = 0;

@@ -2,11 +2,18 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kfileutils.html
+/// ### [Upstream resources](https://api.kde.org/kfileutils.html)
 pub const kfileutils = struct {
-    /// [Upstream resources](https://api.kde.org/kfileutils.html#suggestName)
+    /// ### [Upstream resources](https://api.kde.org/kfileutils.html#suggestName)
     ///
-    /// ``` param1: QtC.QUrl, param2: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QUrl `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SuggestName(param1: ?*anyopaque, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -19,9 +26,14 @@ pub const kfileutils = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileutils.html#makeSuggestedName)
+    /// ### [Upstream resources](https://api.kde.org/kfileutils.html#makeSuggestedName)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MakeSuggestedName(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -34,9 +46,16 @@ pub const kfileutils = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileutils.html#findAllUniqueFiles)
+    /// ### [Upstream resources](https://api.kde.org/kfileutils.html#findAllUniqueFiles)
     ///
-    /// ``` param1: [][]const u8, param2: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: [][]const u8 `
+    ///
+    /// ` param2: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindAllUniqueFiles(param1: [][]const u8, param2: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
         defer allocator.free(param1_arr);

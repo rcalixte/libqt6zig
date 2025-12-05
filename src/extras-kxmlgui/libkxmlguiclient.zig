@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const kxmlguiclient_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kxmlguiclient.html
+/// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html)
 pub const kxmlguiclient = struct {
     /// New constructs a new KXMLGUIClient object.
-    ///
     ///
     pub fn New() QtC.KXMLGUIClient {
         return qtc.KXMLGUIClient_new();
@@ -14,14 +13,22 @@ pub const kxmlguiclient = struct {
 
     /// New2 constructs a new KXMLGUIClient object.
     ///
-    /// ``` parent: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.KXMLGUIClient `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KXMLGUIClient_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
-    /// ``` self: QtC.KXMLGUIClient, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -30,59 +37,90 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_Action(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
-    /// ``` self: QtC.KXMLGUIClient, element: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` element: QtC.QDomElement `
+    ///
     pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
         return qtc.KXMLGUIClient_Action2(@ptrCast(self), @ptrCast(element));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn (self: QtC.KXMLGUIClient, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn (self: QtC.KXMLGUIClient, element: QtC.QDomElement) callconv(.c) QtC.QAction `
+    ///
     pub fn OnAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
         qtc.KXMLGUIClient_OnAction2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, element: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` element: QtC.QDomElement `
+    ///
     pub fn QBaseAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
         return qtc.KXMLGUIClient_QBaseAction2(@ptrCast(self), @ptrCast(element));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KXMLGUIClient_ActionCollection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn () callconv(.c) QtC.KActionCollection ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.KActionCollection `
+    ///
     pub fn OnActionCollection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KActionCollection) void {
         qtc.KXMLGUIClient_OnActionCollection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn QBaseActionCollection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KXMLGUIClient_QBaseActionCollection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -91,20 +129,30 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnComponentName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXMLGUIClient_OnComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_QBaseComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -113,34 +161,50 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_DomDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn () callconv(.c) QtC.QDomDocument ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QDomDocument `
+    ///
     pub fn OnDomDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDomDocument) void {
         qtc.KXMLGUIClient_OnDomDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn QBaseDomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_QBaseDomDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -149,20 +213,30 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXMLGUIClient_OnXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_QBaseXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -171,9 +245,14 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -182,20 +261,30 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnLocalXMLFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXMLGUIClient_OnLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_QBaseLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -204,58 +293,92 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
     ///
-    /// ``` self: QtC.KXMLGUIClient, doc: QtC.QDomDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` doc: QtC.QDomDocument `
+    ///
     pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
     ///
-    /// ``` self: QtC.KXMLGUIClient, factory: QtC.KXMLGUIFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` factory: QtC.KXMLGUIFactory `
+    ///
     pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
         return qtc.KXMLGUIClient_Factory(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
     ///
-    /// ``` self: QtC.KXMLGUIClient, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
     ///
-    /// ``` self: QtC.KXMLGUIClient, child: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` child: QtC.KXMLGUIClient `
+    ///
     pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -265,30 +388,48 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
     ///
-    /// ``` self: QtC.KXMLGUIClient, builder: QtC.KXMLGUIBuilder ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` builder: QtC.KXMLGUIBuilder `
+    ///
     pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
         return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn ReloadXML(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
     ///
-    /// ``` self: QtC.KXMLGUIClient, name: []const u8, actionList: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` actionList: []QtC.QAction `
+    ///
     pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -301,9 +442,14 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_PlugActionList(@ptrCast(self), name_str, actionList_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
     ///
-    /// ``` self: QtC.KXMLGUIClient, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -312,9 +458,16 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
     ///
-    /// ``` files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` files: [][]const u8 `
+    ///
+    /// ` doc: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kxmlguiclient.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
@@ -339,9 +492,16 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
     ///
-    /// ``` self: QtC.KXMLGUIClient, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -354,9 +514,16 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self), state_str, action_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
     ///
-    /// ``` self: QtC.KXMLGUIClient, state: []const u8, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` state: []const u8 `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -369,9 +536,14 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self), state_str, action_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
     ///
-    /// ``` self: QtC.KXMLGUIClient, state: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` state: []const u8 `
+    ///
     pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
@@ -380,30 +552,50 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self), state_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
     ///
-    /// ``` self: QtC.KXMLGUIClient, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn EndXMLPlug(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
     ///
-    /// ``` self: QtC.KXMLGUIClient, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KXMLGUIClient, xmlfile: []const u8, localxmlfile: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
     pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -416,9 +608,14 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self), xmlfile_str, localxmlfile_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
     ///
-    /// ``` xml: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` xml: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
@@ -431,9 +628,16 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
-    /// ``` self: QtC.KXMLGUIClient, componentName: []const u8, componentDisplayName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` componentName: []const u8 `
+    ///
+    /// ` componentDisplayName: []const u8 `
+    ///
     pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
@@ -446,20 +650,32 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn (self: QtC.KXMLGUIClient, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn (self: QtC.KXMLGUIClient, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetComponentName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.KXMLGUIClient_OnSetComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, componentName: []const u8, componentDisplayName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` componentName: []const u8 `
+    ///
+    /// ` componentDisplayName: []const u8 `
+    ///
     pub fn QBaseSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
@@ -472,9 +688,18 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
-    /// ``` self: QtC.KXMLGUIClient, file: []const u8, merge: bool, setXMLDoc: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` file: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
+    /// ` setXMLDoc: bool `
+    ///
     pub fn SetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -483,20 +708,34 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn (self: QtC.KXMLGUIClient, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn (self: QtC.KXMLGUIClient, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
+    ///
     pub fn OnSetXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
         qtc.KXMLGUIClient_OnSetXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, file: []const u8, merge: bool, setXMLDoc: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` file: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
+    /// ` setXMLDoc: bool `
+    ///
     pub fn QBaseSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -505,9 +744,14 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_StandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -516,20 +760,30 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXMLGUIClient_OnStandardsXmlFileLocation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KXMLGUIClient_QBaseStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -538,34 +792,50 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn LoadStandardsXmlFile(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_LoadStandardsXmlFile(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KXMLGUIClient_OnLoadStandardsXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn QBaseLoadStandardsXmlFile(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_QBaseLoadStandardsXmlFile(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
-    /// ``` self: QtC.KXMLGUIClient, file: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` file: []const u8 `
+    ///
     pub fn SetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -574,20 +844,30 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetLocalXMLFile(@ptrCast(self), file_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn (self: QtC.KXMLGUIClient, file: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn (self: QtC.KXMLGUIClient, file: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetLocalXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KXMLGUIClient_OnSetLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, file: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` file: []const u8 `
+    ///
     pub fn QBaseSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
@@ -596,9 +876,16 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetLocalXMLFile(@ptrCast(self), file_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
-    /// ``` self: QtC.KXMLGUIClient, document: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` document: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn SetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
@@ -607,20 +894,32 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetXML(@ptrCast(self), document_str, merge);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn (self: QtC.KXMLGUIClient, document: [*:0]const u8, merge: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn (self: QtC.KXMLGUIClient, document: [*:0]const u8, merge: bool) callconv(.c) void `
+    ///
     pub fn OnSetXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.KXMLGUIClient_OnSetXML(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, document: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` document: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn QBaseSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
@@ -629,34 +928,60 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetXML(@ptrCast(self), document_str, merge);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
-    /// ``` self: QtC.KXMLGUIClient, document: QtC.QDomDocument, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` document: QtC.QDomDocument `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn SetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
         qtc.KXMLGUIClient_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn (self: QtC.KXMLGUIClient, document: QtC.QDomDocument, merge: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn (self: QtC.KXMLGUIClient, document: QtC.QDomDocument, merge: bool) callconv(.c) void `
+    ///
     pub fn OnSetDOMDocument(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KXMLGUIClient_OnSetDOMDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, document: QtC.QDomDocument, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` document: QtC.QDomDocument `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn QBaseSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
         qtc.KXMLGUIClient_QBaseSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
-    /// ``` self: QtC.KXMLGUIClient, newstate: []const u8, reverse: kxmlguiclient_enums.ReverseStateChange ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` newstate: []const u8 `
+    ///
+    /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
+    ///
     pub fn StateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
@@ -665,20 +990,32 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_StateChanged(@ptrCast(self), newstate_str, @intCast(reverse));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIClient, callback: *const fn (self: QtC.KXMLGUIClient, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` callback: *const fn (self: QtC.KXMLGUIClient, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
+    ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KXMLGUIClient_OnStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KXMLGUIClient, newstate: []const u8, reverse: kxmlguiclient_enums.ReverseStateChange ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` newstate: []const u8 `
+    ///
+    /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
+    ///
     pub fn QBaseStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
@@ -687,9 +1024,18 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseStateChanged(@ptrCast(self), newstate_str, @intCast(reverse));
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
-    /// ``` self: QtC.KXMLGUIClient, xmlfile: []const u8, localxmlfile: []const u8, merge: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    /// ` localxmlfile: []const u8 `
+    ///
+    /// ` merge: bool `
+    ///
     pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -702,21 +1048,29 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self), xmlfile_str, localxmlfile_str, merge);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#dtor.KXMLGUIClient)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#dtor.KXMLGUIClient)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KXMLGUIClient ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KXMLGUIClient `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kxmlguiclient-statechange.html
+/// ### [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html)
 pub const kxmlguiclient__statechange = struct {
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
     ///
-    /// ``` self: QtC.KXMLGUIClient__StateChange, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient__StateChange `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ActionsToEnable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const actionsToEnable_arr: qtc.libqt_list = qtc.KXMLGUIClient__StateChange_ActionsToEnable(@ptrCast(self));
         const actionsToEnable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToEnable_arr.data));
@@ -736,9 +1090,16 @@ pub const kxmlguiclient__statechange = struct {
         return actionsToEnable_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
     ///
-    /// ``` self: QtC.KXMLGUIClient__StateChange, actionsToEnable: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient__StateChange `
+    ///
+    /// ` actionsToEnable: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetActionsToEnable(self: ?*anyopaque, actionsToEnable: [][]const u8, allocator: std.mem.Allocator) void {
         var actionsToEnable_arr = allocator.alloc(qtc.libqt_string, actionsToEnable.len) catch @panic("kxmlguiclient::statechange.SetActionsToEnable: Memory allocation failed");
         defer allocator.free(actionsToEnable_arr);
@@ -755,9 +1116,14 @@ pub const kxmlguiclient__statechange = struct {
         qtc.KXMLGUIClient__StateChange_SetActionsToEnable(@ptrCast(self), actionsToEnable_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
     ///
-    /// ``` self: QtC.KXMLGUIClient__StateChange, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient__StateChange `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ActionsToDisable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const actionsToDisable_arr: qtc.libqt_list = qtc.KXMLGUIClient__StateChange_ActionsToDisable(@ptrCast(self));
         const actionsToDisable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToDisable_arr.data));
@@ -777,9 +1143,16 @@ pub const kxmlguiclient__statechange = struct {
         return actionsToDisable_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
     ///
-    /// ``` self: QtC.KXMLGUIClient__StateChange, actionsToDisable: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KXMLGUIClient__StateChange `
+    ///
+    /// ` actionsToDisable: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetActionsToDisable(self: ?*anyopaque, actionsToDisable: [][]const u8, allocator: std.mem.Allocator) void {
         var actionsToDisable_arr = allocator.alloc(qtc.libqt_string, actionsToDisable.len) catch @panic("kxmlguiclient::statechange.SetActionsToDisable: Memory allocation failed");
         defer allocator.free(actionsToDisable_arr);
@@ -798,13 +1171,16 @@ pub const kxmlguiclient__statechange = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KXMLGUIClient__StateChange ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KXMLGUIClient__StateChange `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KXMLGUIClient__StateChange_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kxmlguiclient.html#types
+/// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#public-types)
 pub const enums = struct {
     pub const ReverseStateChange = enum {
         pub const StateNoReverse: i32 = 0;

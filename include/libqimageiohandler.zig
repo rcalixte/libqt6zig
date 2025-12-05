@@ -6,32 +6,44 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qimageiohandler.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html)
 pub const qimageiohandler = struct {
     /// New constructs a new QImageIOHandler object.
-    ///
     ///
     pub fn New() QtC.QImageIOHandler {
         return qtc.QImageIOHandler_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setDevice)
     ///
-    /// ``` self: QtC.QImageIOHandler, device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QImageIOHandler_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#device)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#device)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn Device(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QImageIOHandler_Device(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setFormat)
     ///
-    /// ``` self: QtC.QImageIOHandler, format: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` format: []u8 `
+    ///
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -40,9 +52,14 @@ pub const qimageiohandler = struct {
         qtc.QImageIOHandler_SetFormat(@ptrCast(self), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setFormat)
     ///
-    /// ``` self: QtC.QImageIOHandler, format: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` format: []u8 `
+    ///
     pub fn SetFormat2(self: ?*anyopaque, format: []u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -51,9 +68,14 @@ pub const qimageiohandler = struct {
         qtc.QImageIOHandler_SetFormat2(@ptrCast(self), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#format)
     ///
-    /// ``` self: QtC.QImageIOHandler, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QImageIOHandler_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -62,352 +84,532 @@ pub const qimageiohandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn CanRead(self: ?*anyopaque) bool {
         return qtc.QImageIOHandler_CanRead(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnCanRead(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QImageIOHandler_OnCanRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QBaseCanRead(self: ?*anyopaque) bool {
         return qtc.QImageIOHandler_QBaseCanRead(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
     ///
-    /// ``` self: QtC.QImageIOHandler, image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn Read(self: ?*anyopaque, image: ?*anyopaque) bool {
         return qtc.QImageIOHandler_Read(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool `
+    ///
     pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler, image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn QBaseRead(self: ?*anyopaque, image: ?*anyopaque) bool {
         return qtc.QImageIOHandler_QBaseRead(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#write)
     ///
-    /// ``` self: QtC.QImageIOHandler, image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn Write(self: ?*anyopaque, image: ?*anyopaque) bool {
         return qtc.QImageIOHandler_Write(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#write)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool `
+    ///
     pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#write)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler, image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn QBaseWrite(self: ?*anyopaque, image: ?*anyopaque) bool {
         return qtc.QImageIOHandler_QBaseWrite(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
     ///
-    /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` option: qimageiohandler_enums.ImageOption `
+    ///
     pub fn Option(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QImageIOHandler_Option(@ptrCast(self), @intCast(option));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) QtC.QVariant ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) QtC.QVariant `
+    ///
     pub fn OnOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QImageIOHandler_OnOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` option: qimageiohandler_enums.ImageOption `
+    ///
     pub fn QBaseOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QImageIOHandler_QBaseOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
     ///
-    /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` option: qimageiohandler_enums.ImageOption `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QImageIOHandler_SetOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant) callconv(.c) void `
+    ///
     pub fn OnSetOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageIOHandler_OnSetOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` option: qimageiohandler_enums.ImageOption `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn QBaseSetOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QImageIOHandler_QBaseSetOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
     ///
-    /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` option: qimageiohandler_enums.ImageOption `
+    ///
     pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageIOHandler_SupportsOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) bool `
+    ///
     pub fn OnSupportsOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnSupportsOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` option: qimageiohandler_enums.ImageOption `
+    ///
     pub fn QBaseSupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageIOHandler_QBaseSupportsOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn JumpToNextImage(self: ?*anyopaque) bool {
         return qtc.QImageIOHandler_JumpToNextImage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnJumpToNextImage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QImageIOHandler_OnJumpToNextImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QBaseJumpToNextImage(self: ?*anyopaque) bool {
         return qtc.QImageIOHandler_QBaseJumpToNextImage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
     ///
-    /// ``` self: QtC.QImageIOHandler, imageNumber: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` imageNumber: i32 `
+    ///
     pub fn JumpToImage(self: ?*anyopaque, imageNumber: i32) bool {
         return qtc.QImageIOHandler_JumpToImage(@ptrCast(self), @intCast(imageNumber));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, imageNumber: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOHandler, imageNumber: i32) callconv(.c) bool `
+    ///
     pub fn OnJumpToImage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnJumpToImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler, imageNumber: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` imageNumber: i32 `
+    ///
     pub fn QBaseJumpToImage(self: ?*anyopaque, imageNumber: i32) bool {
         return qtc.QImageIOHandler_QBaseJumpToImage(@ptrCast(self), @intCast(imageNumber));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn LoopCount(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_LoopCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnLoopCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QImageIOHandler_OnLoopCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QBaseLoopCount(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_QBaseLoopCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn ImageCount(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_ImageCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnImageCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QImageIOHandler_OnImageCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QBaseImageCount(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_QBaseImageCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn NextImageDelay(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_NextImageDelay(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnNextImageDelay(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QImageIOHandler_OnNextImageDelay(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QBaseNextImageDelay(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_QBaseNextImageDelay(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn CurrentImageNumber(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_CurrentImageNumber(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnCurrentImageNumber(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QImageIOHandler_OnCurrentImageNumber(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QBaseCurrentImageNumber(self: ?*anyopaque) i32 {
         return qtc.QImageIOHandler_QBaseCurrentImageNumber(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn CurrentImageRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QImageIOHandler_CurrentImageRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnCurrentImageRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QImageIOHandler_OnCurrentImageRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QBaseCurrentImageRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QImageIOHandler_QBaseCurrentImageRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#allocateImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#allocateImage)
     ///
-    /// ``` size: QtC.QSize, format: qimage_enums.Format, image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` size: QtC.QSize `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn AllocateImage(size: QtC.QSize, format: i32, image: ?*anyopaque) bool {
         return qtc.QImageIOHandler_AllocateImage(@ptrCast(size), @intCast(format), @ptrCast(image));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#dtor.QImageIOHandler)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#dtor.QImageIOHandler)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QImageIOHandler ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QImageIOHandler `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QImageIOHandler_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qimageioplugin.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html)
 pub const qimageioplugin = struct {
     /// New constructs a new QImageIOPlugin object.
-    ///
     ///
     pub fn New() QtC.QImageIOPlugin {
         return qtc.QImageIOPlugin_new();
@@ -415,46 +617,85 @@ pub const qimageioplugin = struct {
 
     /// New2 constructs a new QImageIOPlugin object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QImageIOPlugin {
         return qtc.QImageIOPlugin_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QImageIOPlugin_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QImageIOPlugin, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QImageIOPlugin_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QImageIOPlugin_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QImageIOPlugin_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QImageIOPlugin_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -464,11 +705,20 @@ pub const qimageioplugin = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
     ///
-    /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qimageiohandler_enums.Capability ```
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` format: []u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qimageiohandler_enums.Capability `
+    ///
     pub fn Capabilities(self: ?*anyopaque, device: ?*anyopaque, format: []u8) i32 {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -477,22 +727,36 @@ pub const qimageioplugin = struct {
         return qtc.QImageIOPlugin_Capabilities(@ptrCast(self), @ptrCast(device), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) i32 `
+    ///
     pub fn OnCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) i32) void {
         qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qimageiohandler_enums.Capability ```
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` format: []u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qimageiohandler_enums.Capability `
+    ///
     pub fn QBaseCapabilities(self: ?*anyopaque, device: ?*anyopaque, format: []u8) i32 {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -501,9 +765,16 @@ pub const qimageioplugin = struct {
         return qtc.QImageIOPlugin_QBaseCapabilities(@ptrCast(self), @ptrCast(device), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
     ///
-    /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` format: []u8 `
+    ///
     pub fn Create(self: ?*anyopaque, device: ?*anyopaque, format: []u8) QtC.QImageIOHandler {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -512,20 +783,32 @@ pub const qimageioplugin = struct {
         return qtc.QImageIOPlugin_Create(@ptrCast(self), @ptrCast(device), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) QtC.QImageIOHandler ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) QtC.QImageIOHandler `
+    ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) QtC.QImageIOHandler) void {
         qtc.QImageIOPlugin_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` format: []u8 `
+    ///
     pub fn QBaseCreate(self: ?*anyopaque, device: ?*anyopaque, format: []u8) QtC.QImageIOHandler {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -534,9 +817,16 @@ pub const qimageioplugin = struct {
         return qtc.QImageIOPlugin_QBaseCreate(@ptrCast(self), @ptrCast(device), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -547,9 +837,18 @@ pub const qimageioplugin = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -562,9 +861,14 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QImageIOPlugin, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -575,9 +879,14 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QImageIOPlugin, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -588,99 +897,144 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QImageIOPlugin, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QImageIOPlugin, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QImageIOPlugin, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QImageIOPlugin, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QImageIOPlugin, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QImageIOPlugin, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -692,45 +1046,78 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QImageIOPlugin, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QImageIOPlugin, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QImageIOPlugin, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QImageIOPlugin, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -739,45 +1126,70 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QImageIOPlugin, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -785,9 +1197,14 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QImageIOPlugin, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -795,9 +1212,14 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QImageIOPlugin, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -819,54 +1241,76 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QImageIOPlugin, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -874,45 +1318,84 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QImageIOPlugin, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QImageIOPlugin, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QImageIOPlugin, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -921,326 +1404,472 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QImageIOPlugin, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPluginparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QImageIOPlugin_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QImageIOPlugin_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QImageIOPlugin_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QImageIOPlugin_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QImageIOPlugin_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QImageIOPlugin_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QImageIOPlugin_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QImageIOPlugin_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageIOPlugin_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QImageIOPlugin_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QImageIOPlugin_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageIOPlugin_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QImageIOPlugin_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QImageIOPlugin_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageIOPlugin_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QImageIOPlugin_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QImageIOPlugin_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageIOPlugin_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QImageIOPlugin_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QImageIOPlugin_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageIOPlugin_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QImageIOPlugin_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QImageIOPlugin_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QImageIOPlugin_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QImageIOPlugin_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QImageIOPlugin_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QImageIOPlugin_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QImageIOPlugin_Receivers(@ptrCast(self), signal_Cstring);
@@ -1248,11 +1877,16 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QImageIOPlugin_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1260,70 +1894,98 @@ pub const qimageioplugin = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QImageIOPlugin_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QImageIOPlugin_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QImageIOPlugin_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin`
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QImageIOPlugin_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
+    /// ` callback: *const fn (self: QtC.QImageIOPluginobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#dtor.QImageIOPlugin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#dtor.QImageIOPlugin)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QImageIOPlugin ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QImageIOPlugin `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QImageIOPlugin_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qimageiohandler.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#public-types)
 pub const enums = struct {
     pub const ImageOption = enum {
         pub const Size: i32 = 0;

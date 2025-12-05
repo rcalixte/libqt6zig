@@ -4,50 +4,89 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html)
 pub const qabstracttextdocumentlayout = struct {
     /// New constructs a new QAbstractTextDocumentLayout object.
     ///
-    /// ``` doc: QtC.QTextDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` doc: QtC.QTextDocument `
+    ///
     pub fn New(doc: ?*anyopaque) QtC.QAbstractTextDocumentLayout {
         return qtc.QAbstractTextDocumentLayout_new(@ptrCast(doc));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QAbstractTextDocumentLayout_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QAbstractTextDocumentLayout, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractTextDocumentLayout_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QAbstractTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAbstractTextDocumentLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAbstractTextDocumentLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -57,59 +96,104 @@ pub const qabstracttextdocumentlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, context: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` context: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque, context: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_Draw(@ptrCast(self), @ptrCast(painter), @ptrCast(context));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, context: QtC.QAbstractTextDocumentLayout__PaintContext) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, context: QtC.QAbstractTextDocumentLayout__PaintContext) callconv(.c) void `
+    ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, context: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` context: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
     pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque, context: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseDraw(@ptrCast(self), @ptrCast(painter), @ptrCast(context));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, point: QtC.QPointF, accuracy: qnamespace_enums.HitTestAccuracy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` point: QtC.QPointF `
+    ///
+    /// ` accuracy: qnamespace_enums.HitTestAccuracy `
+    ///
     pub fn HitTest(self: ?*anyopaque, point: ?*anyopaque, accuracy: i32) i32 {
         return qtc.QAbstractTextDocumentLayout_HitTest(@ptrCast(self), @ptrCast(point), @intCast(accuracy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, point: QtC.QPointF, accuracy: qnamespace_enums.HitTestAccuracy) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, point: QtC.QPointF, accuracy: qnamespace_enums.HitTestAccuracy) callconv(.c) i32 `
+    ///
     pub fn OnHitTest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnHitTest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, point: QtC.QPointF, accuracy: qnamespace_enums.HitTestAccuracy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` point: QtC.QPointF `
+    ///
+    /// ` accuracy: qnamespace_enums.HitTestAccuracy `
+    ///
     pub fn QBaseHitTest(self: ?*anyopaque, point: ?*anyopaque, accuracy: i32) i32 {
         return qtc.QAbstractTextDocumentLayout_QBaseHitTest(@ptrCast(self), @ptrCast(point), @intCast(accuracy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#anchorAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#anchorAt)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: QtC.QPointF, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: QtC.QPointF `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AnchorAt(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractTextDocumentLayout_AnchorAt(@ptrCast(self), @ptrCast(pos));
         defer qtc.libqt_string_free(&_str);
@@ -118,9 +202,16 @@ pub const qabstracttextdocumentlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#imageAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#imageAt)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: QtC.QPointF, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: QtC.QPointF `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ImageAt(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractTextDocumentLayout_ImageAt(@ptrCast(self), @ptrCast(pos));
         defer qtc.libqt_string_free(&_str);
@@ -129,371 +220,636 @@ pub const qabstracttextdocumentlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatAt)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: QtC.QPointF `
+    ///
     pub fn FormatAt(self: ?*anyopaque, pos: ?*anyopaque) QtC.QTextFormat {
         return qtc.QAbstractTextDocumentLayout_FormatAt(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockWithMarkerAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockWithMarkerAt)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: QtC.QPointF `
+    ///
     pub fn BlockWithMarkerAt(self: ?*anyopaque, pos: ?*anyopaque) QtC.QTextBlock {
         return qtc.QAbstractTextDocumentLayout_BlockWithMarkerAt(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn PageCount(self: ?*anyopaque) i32 {
         return qtc.QAbstractTextDocumentLayout_PageCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnPageCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnPageCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn QBasePageCount(self: ?*anyopaque) i32 {
         return qtc.QAbstractTextDocumentLayout_QBasePageCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn DocumentSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QAbstractTextDocumentLayout_DocumentSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) QtC.QSizeF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSizeF `
+    ///
     pub fn OnDocumentSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSizeF) void {
         qtc.QAbstractTextDocumentLayout_OnDocumentSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn QBaseDocumentSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QAbstractTextDocumentLayout_QBaseDocumentSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, frame: QtC.QTextFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` frame: QtC.QTextFrame `
+    ///
     pub fn FrameBoundingRect(self: ?*anyopaque, frame: ?*anyopaque) QtC.QRectF {
         return qtc.QAbstractTextDocumentLayout_FrameBoundingRect(@ptrCast(self), @ptrCast(frame));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, frame: QtC.QTextFrame) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, frame: QtC.QTextFrame) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnFrameBoundingRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
         qtc.QAbstractTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, frame: QtC.QTextFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` frame: QtC.QTextFrame `
+    ///
     pub fn QBaseFrameBoundingRect(self: ?*anyopaque, frame: ?*anyopaque) QtC.QRectF {
         return qtc.QAbstractTextDocumentLayout_QBaseFrameBoundingRect(@ptrCast(self), @ptrCast(frame));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` block: QtC.QTextBlock `
+    ///
     pub fn BlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
         return qtc.QAbstractTextDocumentLayout_BlockBoundingRect(@ptrCast(self), @ptrCast(block));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock) callconv(.c) QtC.QRectF ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock) callconv(.c) QtC.QRectF `
+    ///
     pub fn OnBlockBoundingRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
         qtc.QAbstractTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` block: QtC.QTextBlock `
+    ///
     pub fn QBaseBlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
         return qtc.QAbstractTextDocumentLayout_QBaseBlockBoundingRect(@ptrCast(self), @ptrCast(block));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#setPaintDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#setPaintDevice)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, device: QtC.QPaintDevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` device: QtC.QPaintDevice `
+    ///
     pub fn SetPaintDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_SetPaintDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#paintDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#paintDevice)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn PaintDevice(self: ?*anyopaque) QtC.QPaintDevice {
         return qtc.QAbstractTextDocumentLayout_PaintDevice(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#document)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#document)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
         return qtc.QAbstractTextDocumentLayout_Document(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#registerHandler)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#registerHandler)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, objectType: i32, component: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` objectType: i32 `
+    ///
+    /// ` component: QtC.QObject `
+    ///
     pub fn RegisterHandler(self: ?*anyopaque, objectType: i32, component: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_RegisterHandler(@ptrCast(self), @intCast(objectType), @ptrCast(component));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#unregisterHandler)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#unregisterHandler)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, objectType: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` objectType: i32 `
+    ///
     pub fn UnregisterHandler(self: ?*anyopaque, objectType: i32) void {
         qtc.QAbstractTextDocumentLayout_UnregisterHandler(@ptrCast(self), @intCast(objectType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#handlerForObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#handlerForObject)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, objectType: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` objectType: i32 `
+    ///
     pub fn HandlerForObject(self: ?*anyopaque, objectType: i32) QtC.QTextObjectInterface {
         return qtc.QAbstractTextDocumentLayout_HandlerForObject(@ptrCast(self), @intCast(objectType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_Update(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout) callconv(.c) void `
+    ///
     pub fn OnUpdate(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_Update(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#updateBlock)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#updateBlock)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` block: QtC.QTextBlock `
+    ///
     pub fn UpdateBlock(self: ?*anyopaque, block: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_UpdateBlock(@ptrCast(self), @ptrCast(block));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#updateBlock)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#updateBlock)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutblock: QtC.QTextBlock) callconv(.c) void `
+    ///
     pub fn OnUpdateBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_UpdateBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSizeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSizeChanged)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, newSize: QtC.QSizeF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` newSize: QtC.QSizeF `
+    ///
     pub fn DocumentSizeChanged(self: ?*anyopaque, newSize: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_DocumentSizeChanged(@ptrCast(self), @ptrCast(newSize));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSizeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSizeChanged)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, newSize: QtC.QSizeF) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutnewSize: QtC.QSizeF) callconv(.c) void `
+    ///
     pub fn OnDocumentSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_DocumentSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCountChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCountChanged)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, newPages: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` newPages: i32 `
+    ///
     pub fn PageCountChanged(self: ?*anyopaque, newPages: i32) void {
         qtc.QAbstractTextDocumentLayout_PageCountChanged(@ptrCast(self), @intCast(newPages));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCountChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCountChanged)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, newPages: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutnewPages: i32) callconv(.c) void `
+    ///
     pub fn OnPageCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_PageCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, from: i32, charsRemoved: i32, charsAdded: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` from: i32 `
+    ///
+    /// ` charsRemoved: i32 `
+    ///
+    /// ` charsAdded: i32 `
+    ///
     pub fn DocumentChanged(self: ?*anyopaque, from: i32, charsRemoved: i32, charsAdded: i32) void {
         qtc.QAbstractTextDocumentLayout_DocumentChanged(@ptrCast(self), @intCast(from), @intCast(charsRemoved), @intCast(charsAdded));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void `
+    ///
     pub fn OnDocumentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnDocumentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, from: i32, charsRemoved: i32, charsAdded: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` from: i32 `
+    ///
+    /// ` charsRemoved: i32 `
+    ///
+    /// ` charsAdded: i32 `
+    ///
     pub fn QBaseDocumentChanged(self: ?*anyopaque, from: i32, charsRemoved: i32, charsAdded: i32) void {
         qtc.QAbstractTextDocumentLayout_QBaseDocumentChanged(@ptrCast(self), @intCast(from), @intCast(charsRemoved), @intCast(charsAdded));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` item: QtC.QTextInlineObject `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn ResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_ResizeInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void `
+    ///
     pub fn OnResizeInlineObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTextInlineObject, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnResizeInlineObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` item: QtC.QTextInlineObject `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn QBaseResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseResizeInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` item: QtC.QTextInlineObject `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn PositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_PositionInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void `
+    ///
     pub fn OnPositionInlineObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTextInlineObject, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnPositionInlineObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` item: QtC.QTextInlineObject `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn QBasePositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBasePositionInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, rect: QtC.QRectF, object: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
+    /// ` object: QtC.QTextInlineObject `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn DrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_DrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, rect: QtC.QRectF, object: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, rect: QtC.QRectF, object: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void `
+    ///
     pub fn OnDrawInlineObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, QtC.QTextInlineObject, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnDrawInlineObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, rect: QtC.QRectF, object: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
+    /// ` object: QtC.QTextInlineObject `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn QBaseDrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseDrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: i32 `
+    ///
     pub fn FormatIndex(self: ?*anyopaque, pos: i32) i32 {
         return qtc.QAbstractTextDocumentLayout_FormatIndex(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, pos: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, pos: i32) callconv(.c) i32 `
+    ///
     pub fn OnFormatIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnFormatIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: i32 `
+    ///
     pub fn QBaseFormatIndex(self: ?*anyopaque, pos: i32) i32 {
         return qtc.QAbstractTextDocumentLayout_QBaseFormatIndex(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: i32 `
+    ///
     pub fn Format(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
         return qtc.QAbstractTextDocumentLayout_Format(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, pos: i32) callconv(.c) QtC.QTextCharFormat ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, pos: i32) callconv(.c) QtC.QTextCharFormat `
+    ///
     pub fn OnFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTextCharFormat) void {
         qtc.QAbstractTextDocumentLayout_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, pos: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` pos: i32 `
+    ///
     pub fn QBaseFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
         return qtc.QAbstractTextDocumentLayout_QBaseFormat(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -504,9 +860,18 @@ pub const qabstracttextdocumentlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -517,32 +882,54 @@ pub const qabstracttextdocumentlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#unregisterHandler)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#unregisterHandler)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, objectType: i32, component: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` objectType: i32 `
+    ///
+    /// ` component: QtC.QObject `
+    ///
     pub fn UnregisterHandler2(self: ?*anyopaque, objectType: i32, component: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_UnregisterHandler2(@ptrCast(self), @intCast(objectType), @ptrCast(component));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, param1: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` param1: QtC.QRectF `
+    ///
     pub fn Update1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_Update1(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: QtC.QRectF) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutparam1: QtC.QRectF) callconv(.c) void `
+    ///
     pub fn OnUpdate1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_Update1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -553,9 +940,14 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -566,99 +958,144 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -670,45 +1107,78 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -717,45 +1187,70 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -763,9 +1258,14 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -773,9 +1273,14 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -797,54 +1302,76 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -852,45 +1379,84 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -899,326 +1465,472 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractTextDocumentLayout_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractTextDocumentLayout_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAbstractTextDocumentLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractTextDocumentLayout_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractTextDocumentLayout_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAbstractTextDocumentLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QAbstractTextDocumentLayout_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QAbstractTextDocumentLayout_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QAbstractTextDocumentLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QAbstractTextDocumentLayout_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QAbstractTextDocumentLayout_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractTextDocumentLayout_Receivers(@ptrCast(self), signal_Cstring);
@@ -1226,11 +1938,16 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractTextDocumentLayout_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1238,208 +1955,317 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QAbstractTextDocumentLayout_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QAbstractTextDocumentLayout_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAbstractTextDocumentLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout, callback: *const fn (self: QtC.QAbstractTextDocumentLayout, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#dtor.QAbstractTextDocumentLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#dtor.QAbstractTextDocumentLayout)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qtextobjectinterface.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html)
 pub const qtextobjectinterface = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#intrinsicSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#intrinsicSize)
     ///
-    /// ``` self: QtC.QTextObjectInterface, doc: QtC.QTextDocument, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextObjectInterface `
+    ///
+    /// ` doc: QtC.QTextDocument `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn IntrinsicSize(self: ?*anyopaque, doc: ?*anyopaque, posInDocument: i32, format: ?*anyopaque) QtC.QSizeF {
         return qtc.QTextObjectInterface_IntrinsicSize(@ptrCast(self), @ptrCast(doc), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#drawObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#drawObject)
     ///
-    /// ``` self: QtC.QTextObjectInterface, painter: QtC.QPainter, rect: QtC.QRectF, doc: QtC.QTextDocument, posInDocument: i32, format: QtC.QTextFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextObjectInterface `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
+    /// ` doc: QtC.QTextDocument `
+    ///
+    /// ` posInDocument: i32 `
+    ///
+    /// ` format: QtC.QTextFormat `
+    ///
     pub fn DrawObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, doc: ?*anyopaque, posInDocument: i32, format: ?*anyopaque) void {
         qtc.QTextObjectInterface_DrawObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(doc), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#operator-eq)
     ///
-    /// ``` self: QtC.QTextObjectInterface, param1: QtC.QTextObjectInterface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextObjectInterface `
+    ///
+    /// ` param1: QtC.QTextObjectInterface `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QTextObjectInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#dtor.QTextObjectInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#dtor.QTextObjectInterface)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QTextObjectInterface ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QTextObjectInterface `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QTextObjectInterface_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html)
 pub const qabstracttextdocumentlayout__selection = struct {
     /// New constructs a new QAbstractTextDocumentLayout::Selection object.
-    ///
     ///
     pub fn New() QtC.QAbstractTextDocumentLayout__Selection {
         return qtc.QAbstractTextDocumentLayout__Selection_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#cursor-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#cursor-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__Selection `
+    ///
     pub fn Cursor(self: ?*anyopaque) QtC.QTextCursor {
         return qtc.QAbstractTextDocumentLayout__Selection_Cursor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#cursor-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#cursor-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, cursor: QtC.QTextCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__Selection `
+    ///
+    /// ` cursor: QtC.QTextCursor `
+    ///
     pub fn SetCursor(self: ?*anyopaque, cursor: QtC.QTextCursor) void {
         qtc.QAbstractTextDocumentLayout__Selection_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#format-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#format-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__Selection `
+    ///
     pub fn Format(self: ?*anyopaque) QtC.QTextCharFormat {
         return qtc.QAbstractTextDocumentLayout__Selection_Format(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#format-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#format-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, format: QtC.QTextCharFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__Selection `
+    ///
+    /// ` format: QtC.QTextCharFormat `
+    ///
     pub fn SetFormat(self: ?*anyopaque, format: QtC.QTextCharFormat) void {
         qtc.QAbstractTextDocumentLayout__Selection_SetFormat(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#operator-eq)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, param1: QtC.QAbstractTextDocumentLayout__Selection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__Selection `
+    ///
+    /// ` param1: QtC.QAbstractTextDocumentLayout__Selection `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout__Selection_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__Selection `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout__Selection_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html)
 pub const qabstracttextdocumentlayout__paintcontext = struct {
     /// New constructs a new QAbstractTextDocumentLayout::PaintContext object.
-    ///
     ///
     pub fn New() QtC.QAbstractTextDocumentLayout__PaintContext {
         return qtc.QAbstractTextDocumentLayout__PaintContext_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
     pub fn CursorPosition(self: ?*anyopaque) i32 {
         return qtc.QAbstractTextDocumentLayout__PaintContext_CursorPosition(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, cursorPosition: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// ` cursorPosition: i32 `
+    ///
     pub fn SetCursorPosition(self: ?*anyopaque, cursorPosition: i32) void {
         qtc.QAbstractTextDocumentLayout__PaintContext_SetCursorPosition(@ptrCast(self), @intCast(cursorPosition));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#palette-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#palette-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
         return qtc.QAbstractTextDocumentLayout__PaintContext_Palette(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#palette-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#palette-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, palette: QtC.QPalette ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// ` palette: QtC.QPalette `
+    ///
     pub fn SetPalette(self: ?*anyopaque, palette: QtC.QPalette) void {
         qtc.QAbstractTextDocumentLayout__PaintContext_SetPalette(@ptrCast(self), @ptrCast(palette));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#clip-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#clip-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
     pub fn Clip(self: ?*anyopaque) QtC.QRectF {
         return qtc.QAbstractTextDocumentLayout__PaintContext_Clip(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#clip-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#clip-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, clip: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// ` clip: QtC.QRectF `
+    ///
     pub fn SetClip(self: ?*anyopaque, clip: QtC.QRectF) void {
         qtc.QAbstractTextDocumentLayout__PaintContext_SetClip(@ptrCast(self), @ptrCast(clip));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#selections-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#selections-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Selections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractTextDocumentLayout__Selection {
         const selections_arr: qtc.libqt_list = qtc.QAbstractTextDocumentLayout__PaintContext_Selections(@ptrCast(self));
         defer qtc.libqt_free(selections_arr.data);
@@ -1449,9 +2275,14 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
         return selections_ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#selections-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#selections-var)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, selections: []QtC.QAbstractTextDocumentLayout__Selection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// ` selections: []QtC.QAbstractTextDocumentLayout__Selection `
+    ///
     pub fn SetSelections(self: ?*anyopaque, selections: []QtC.QAbstractTextDocumentLayout__Selection) void {
         const selections_list = qtc.libqt_list{
             .len = selections.len,
@@ -1460,16 +2291,24 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
         qtc.QAbstractTextDocumentLayout__PaintContext_SetSelections(@ptrCast(self), selections_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#operator-eq)
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, param1: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// ` param1: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout__PaintContext_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout__PaintContext_Delete(@ptrCast(self));
     }

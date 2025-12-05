@@ -3,25 +3,36 @@ const qtc = @import("qt6c");
 const std = @import("std");
 pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
-/// https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html
+/// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
 pub const accounts__authdata = struct {
     /// New constructs a new Accounts::AuthData object.
     ///
-    /// ``` other: QtC.Accounts__AuthData ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Accounts__AuthData `
+    ///
     pub fn New(other: ?*anyopaque) QtC.Accounts__AuthData {
         return qtc.Accounts__AuthData_new(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
-    /// ``` self: QtC.Accounts__AuthData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Accounts__AuthData `
+    ///
     pub fn CredentialsId(self: ?*anyopaque) u32 {
         return qtc.Accounts__AuthData_CredentialsId(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
-    /// ``` self: QtC.Accounts__AuthData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Accounts__AuthData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Method(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Accounts__AuthData_Method(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -30,9 +41,14 @@ pub const accounts__authdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
-    /// ``` self: QtC.Accounts__AuthData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Accounts__AuthData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Mechanism(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Accounts__AuthData_Mechanism(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -41,9 +57,14 @@ pub const accounts__authdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
-    /// ``` self: QtC.Accounts__AuthData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Accounts__AuthData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Parameters(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.Accounts__AuthData_Parameters(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
@@ -67,11 +88,14 @@ pub const accounts__authdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Accounts__AuthData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Accounts__AuthData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Accounts__AuthData_Delete(@ptrCast(self));
     }

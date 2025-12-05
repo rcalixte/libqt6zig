@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/attica-accountbalance.html
+/// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html)
 pub const attica__accountbalance = struct {
     /// New constructs a new Attica::AccountBalance object.
-    ///
     ///
     pub fn New() QtC.Attica__AccountBalance {
         return qtc.Attica__AccountBalance_new();
@@ -13,21 +12,34 @@ pub const attica__accountbalance = struct {
 
     /// New2 constructs a new Attica::AccountBalance object.
     ///
-    /// ``` other: QtC.Attica__AccountBalance ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__AccountBalance `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__AccountBalance {
         return qtc.Attica__AccountBalance_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__AccountBalance, other: QtC.Attica__AccountBalance ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__AccountBalance `
+    ///
+    /// ` other: QtC.Attica__AccountBalance `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__AccountBalance_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#setCurrency)
+    /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#setCurrency)
     ///
-    /// ``` self: QtC.Attica__AccountBalance, currency: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__AccountBalance `
+    ///
+    /// ` currency: []const u8 `
+    ///
     pub fn SetCurrency(self: ?*anyopaque, currency: []const u8) void {
         const currency_str = qtc.libqt_string{
             .len = currency.len,
@@ -36,9 +48,14 @@ pub const attica__accountbalance = struct {
         qtc.Attica__AccountBalance_SetCurrency(@ptrCast(self), currency_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#currency)
+    /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#currency)
     ///
-    /// ``` self: QtC.Attica__AccountBalance, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__AccountBalance `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Currency(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__AccountBalance_Currency(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -47,9 +64,14 @@ pub const attica__accountbalance = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#setBalance)
+    /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#setBalance)
     ///
-    /// ``` self: QtC.Attica__AccountBalance, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__AccountBalance `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetBalance(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -58,9 +80,14 @@ pub const attica__accountbalance = struct {
         qtc.Attica__AccountBalance_SetBalance(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#balance)
+    /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#balance)
     ///
-    /// ``` self: QtC.Attica__AccountBalance, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__AccountBalance `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Balance(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__AccountBalance_Balance(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -71,7 +98,10 @@ pub const attica__accountbalance = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__AccountBalance ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__AccountBalance `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__AccountBalance_Delete(@ptrCast(self));
     }

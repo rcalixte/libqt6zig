@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qcapturablewindow.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html)
 pub const qcapturablewindow = struct {
     /// New constructs a new QCapturableWindow object.
-    ///
     ///
     pub fn New() QtC.QCapturableWindow {
         return qtc.QCapturableWindow_new();
@@ -13,35 +12,56 @@ pub const qcapturablewindow = struct {
 
     /// New2 constructs a new QCapturableWindow object.
     ///
-    /// ``` other: QtC.QCapturableWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QCapturableWindow `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QCapturableWindow {
         return qtc.QCapturableWindow_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#operator-eq)
     ///
-    /// ``` self: QtC.QCapturableWindow, other: QtC.QCapturableWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCapturableWindow `
+    ///
+    /// ` other: QtC.QCapturableWindow `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCapturableWindow_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#swap)
     ///
-    /// ``` self: QtC.QCapturableWindow, other: QtC.QCapturableWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCapturableWindow `
+    ///
+    /// ` other: QtC.QCapturableWindow `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCapturableWindow_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#isValid)
     ///
-    /// ``` self: QtC.QCapturableWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCapturableWindow `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QCapturableWindow_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#description)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#description)
     ///
-    /// ``` self: QtC.QCapturableWindow, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCapturableWindow `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCapturableWindow_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -50,11 +70,14 @@ pub const qcapturablewindow = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#dtor.QCapturableWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#dtor.QCapturableWindow)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QCapturableWindow ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QCapturableWindow `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QCapturableWindow_Delete(@ptrCast(self));
     }

@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qocspresponse_enums = enums;
 
-/// https://doc.qt.io/qt-6/qocspresponse.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html)
 pub const qocspresponse = struct {
     /// New constructs a new QOcspResponse object.
-    ///
     ///
     pub fn New() QtC.QOcspResponse {
         return qtc.QOcspResponse_new();
@@ -13,68 +12,100 @@ pub const qocspresponse = struct {
 
     /// New2 constructs a new QOcspResponse object.
     ///
-    /// ``` other: QtC.QOcspResponse ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QOcspResponse `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QOcspResponse {
         return qtc.QOcspResponse_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#operator-eq)
     ///
-    /// ``` self: QtC.QOcspResponse, other: QtC.QOcspResponse ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOcspResponse `
+    ///
+    /// ` other: QtC.QOcspResponse `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QOcspResponse_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#certificateStatus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#certificateStatus)
     ///
-    /// ``` self: QtC.QOcspResponse ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qocspresponse_enums.QOcspCertificateStatus ```
+    /// ` self: QtC.QOcspResponse `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qocspresponse_enums.QOcspCertificateStatus `
+    ///
     pub fn CertificateStatus(self: ?*anyopaque) i32 {
         return qtc.QOcspResponse_CertificateStatus(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#revocationReason)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#revocationReason)
     ///
-    /// ``` self: QtC.QOcspResponse ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qocspresponse_enums.QOcspRevocationReason ```
+    /// ` self: QtC.QOcspResponse `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qocspresponse_enums.QOcspRevocationReason `
+    ///
     pub fn RevocationReason(self: ?*anyopaque) i32 {
         return qtc.QOcspResponse_RevocationReason(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#responder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#responder)
     ///
-    /// ``` self: QtC.QOcspResponse ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOcspResponse `
+    ///
     pub fn Responder(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QOcspResponse_Responder(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#subject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#subject)
     ///
-    /// ``` self: QtC.QOcspResponse ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOcspResponse `
+    ///
     pub fn Subject(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QOcspResponse_Subject(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#swap)
     ///
-    /// ``` self: QtC.QOcspResponse, other: QtC.QOcspResponse ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOcspResponse `
+    ///
+    /// ` other: QtC.QOcspResponse `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QOcspResponse_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#dtor.QOcspResponse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#dtor.QOcspResponse)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QOcspResponse ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOcspResponse `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QOcspResponse_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qocspresponse.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#public-types)
 pub const enums = struct {
     pub const QOcspCertificateStatus = enum {
         pub const Good: i32 = 0;

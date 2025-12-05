@@ -2,32 +2,50 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebenginescriptcollection.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html)
 pub const qwebenginescriptcollection = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#isEmpty)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QWebEngineScriptCollection_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#count)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QWebEngineScriptCollection_Count(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#contains)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#contains)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection, value: QtC.QWebEngineScript ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
+    /// ` value: QtC.QWebEngineScript `
+    ///
     pub fn Contains(self: ?*anyopaque, value: ?*anyopaque) bool {
         return qtc.QWebEngineScriptCollection_Contains(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#find)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#find)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection, name: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Find(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []QtC.QWebEngineScript {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -41,16 +59,26 @@ pub const qwebenginescriptcollection = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#insert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#insert)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection, param1: QtC.QWebEngineScript ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
+    /// ` param1: QtC.QWebEngineScript `
+    ///
     pub fn Insert(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWebEngineScriptCollection_Insert(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#insert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#insert)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection, list: []QtC.QWebEngineScript ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
+    /// ` list: []QtC.QWebEngineScript `
+    ///
     pub fn Insert2(self: ?*anyopaque, list: []QtC.QWebEngineScript) void {
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -59,23 +87,36 @@ pub const qwebenginescriptcollection = struct {
         qtc.QWebEngineScriptCollection_Insert2(@ptrCast(self), list_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#remove)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#remove)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection, param1: QtC.QWebEngineScript ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
+    /// ` param1: QtC.QWebEngineScript `
+    ///
     pub fn Remove(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWebEngineScriptCollection_Remove(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#clear)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QWebEngineScriptCollection_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#toList)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#toList)
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEngineScript {
         const _arr: qtc.libqt_list = qtc.QWebEngineScriptCollection_ToList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -85,11 +126,14 @@ pub const qwebenginescriptcollection = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#dtor.QWebEngineScriptCollection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#dtor.QWebEngineScriptCollection)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineScriptCollection ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineScriptCollection `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineScriptCollection_Delete(@ptrCast(self));
     }

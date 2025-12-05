@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kdesktopfileaction.html
+/// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html)
 pub const kdesktopfileaction = struct {
     /// New constructs a new KDesktopFileAction object.
-    ///
     ///
     pub fn New() QtC.KDesktopFileAction {
         return qtc.KDesktopFileAction_new();
@@ -13,7 +12,18 @@ pub const kdesktopfileaction = struct {
 
     /// New2 constructs a new KDesktopFileAction object.
     ///
-    /// ``` name: []const u8, text: []const u8, icon: []const u8, exec: []const u8, desktopFilePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` icon: []const u8 `
+    ///
+    /// ` exec: []const u8 `
+    ///
+    /// ` desktopFilePath: []const u8 `
+    ///
     pub fn New2(name: []const u8, text: []const u8, icon: []const u8, exec: []const u8, desktopFilePath: []const u8) QtC.KDesktopFileAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -41,21 +51,34 @@ pub const kdesktopfileaction = struct {
 
     /// New3 constructs a new KDesktopFileAction object.
     ///
-    /// ``` other: QtC.KDesktopFileAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KDesktopFileAction `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.KDesktopFileAction {
         return qtc.KDesktopFileAction_new3(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#operator-eq)
     ///
-    /// ``` self: QtC.KDesktopFileAction, other: QtC.KDesktopFileAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
+    /// ` other: QtC.KDesktopFileAction `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KDesktopFileAction_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#actionsKey)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#actionsKey)
     ///
-    /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ActionsKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KDesktopFileAction_ActionsKey(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -64,9 +87,14 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#desktopFilePath)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#desktopFilePath)
     ///
-    /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DesktopFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KDesktopFileAction_DesktopFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -75,9 +103,14 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#name)
     ///
-    /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KDesktopFileAction_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -86,9 +119,14 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#icon)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#icon)
     ///
-    /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KDesktopFileAction_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -97,9 +135,14 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#exec)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#exec)
     ///
-    /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Exec(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KDesktopFileAction_Exec(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -108,18 +151,24 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#isSeparator)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#isSeparator)
     ///
-    /// ``` self: QtC.KDesktopFileAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
     pub fn IsSeparator(self: ?*anyopaque) bool {
         return qtc.KDesktopFileAction_IsSeparator(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#dtor.KDesktopFileAction)
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#dtor.KDesktopFileAction)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KDesktopFileAction ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KDesktopFileAction `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KDesktopFileAction_Delete(@ptrCast(self));
     }

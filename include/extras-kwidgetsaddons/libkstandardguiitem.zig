@@ -4,18 +4,26 @@ const kstandardguiitem_enums = enums;
 const std = @import("std");
 pub const struct_qtckguiitem_qtckguiitem = extern struct { first: QtC.KGuiItem, second: QtC.KGuiItem };
 
-/// https://api.kde.org/kstandardguiitem.html
+/// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html)
 pub const kstandardguiitem = struct {
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#guiItem)
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#guiItem)
     ///
-    /// ``` param1: kstandardguiitem_enums.StandardItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardguiitem_enums.StandardItem `
+    ///
     pub fn GuiItem(param1: i32) QtC.KGuiItem {
         return qtc.KStandardGuiItem_GuiItem(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#standardItem)
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#standardItem)
     ///
-    /// ``` param1: kstandardguiitem_enums.StandardItem, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardguiitem_enums.StandardItem `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StandardItem(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KStandardGuiItem_StandardItem(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -24,183 +32,165 @@ pub const kstandardguiitem = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#ok)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#ok)
     ///
     pub fn Ok() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Ok();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#cancel)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#cancel)
     ///
     pub fn Cancel() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Cancel();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#insert)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#insert)
     ///
     pub fn Insert() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Insert();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#discard)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#discard)
     ///
     pub fn Discard() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Discard();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#save)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#save)
     ///
     pub fn Save() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Save();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#help)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#help)
     ///
     pub fn Help() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Help();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#dontSave)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#dontSave)
     ///
     pub fn DontSave() QtC.KGuiItem {
         return qtc.KStandardGuiItem_DontSave();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#saveAs)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#saveAs)
     ///
     pub fn SaveAs() QtC.KGuiItem {
         return qtc.KStandardGuiItem_SaveAs();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#apply)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#apply)
     ///
     pub fn Apply() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Apply();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#clear)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#clear)
     ///
     pub fn Clear() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Clear();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#defaults)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#defaults)
     ///
     pub fn Defaults() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Defaults();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#close)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#close)
     ///
     pub fn Close() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Close();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#closeWindow)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#closeWindow)
     ///
     pub fn CloseWindow() QtC.KGuiItem {
         return qtc.KStandardGuiItem_CloseWindow();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#closeDocument)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#closeDocument)
     ///
     pub fn CloseDocument() QtC.KGuiItem {
         return qtc.KStandardGuiItem_CloseDocument();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#print)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#print)
     ///
     pub fn Print() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Print();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#properties)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#properties)
     ///
     pub fn Properties() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Properties();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#reset)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#reset)
     ///
     pub fn Reset() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Reset();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#overwrite)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#overwrite)
     ///
     pub fn Overwrite() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Overwrite();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#adminMode)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#adminMode)
     ///
     pub fn AdminMode() QtC.KGuiItem {
         return qtc.KStandardGuiItem_AdminMode();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#cont)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#cont)
     ///
     pub fn Cont() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Cont();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#del)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#del)
     ///
     pub fn Del() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Del();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#open)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#open)
     ///
     pub fn Open() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Open();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#back)
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#back)
     ///
-    /// ``` param1: kstandardguiitem_enums.BidiMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardguiitem_enums.BidiMode `
+    ///
     pub fn Back(param1: i32) QtC.KGuiItem {
         return qtc.KStandardGuiItem_Back(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#forward)
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#forward)
     ///
-    /// ``` param1: kstandardguiitem_enums.BidiMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardguiitem_enums.BidiMode `
+    ///
     pub fn Forward(param1: i32) QtC.KGuiItem {
         return qtc.KStandardGuiItem_Forward(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#configure)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#configure)
     ///
     pub fn Configure() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Configure();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#backAndForward)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#backAndForward)
     ///
     pub fn BackAndForward() struct_qtckguiitem_qtckguiitem {
         const _pair: qtc.libqt_pair = qtc.KStandardGuiItem_BackAndForward();
@@ -210,57 +200,56 @@ pub const kstandardguiitem = struct {
         };
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#quit)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#quit)
     ///
     pub fn Quit() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Quit();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#find)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#find)
     ///
     pub fn Find() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Find();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#stop)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#stop)
     ///
     pub fn Stop() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Stop();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#add)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#add)
     ///
     pub fn Add() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Add();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#remove)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#remove)
     ///
     pub fn Remove() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Remove();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#test)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#test)
     ///
     pub fn Test() QtC.KGuiItem {
         return qtc.KStandardGuiItem_Test();
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardguiitem.html#assign)
+    /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#assign)
     ///
-    /// ``` param1: QtC.QPushButton, param2: kstandardguiitem_enums.StandardItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QPushButton `
+    ///
+    /// ` param2: kstandardguiitem_enums.StandardItem `
+    ///
     pub fn Assign(param1: ?*anyopaque, param2: i32) void {
         qtc.KStandardGuiItem_Assign(@ptrCast(param1), @intCast(param2));
     }
 };
 
-/// https://api.kde.org/kstandardguiitem.html#types
+/// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#public-types)
 pub const enums = struct {
     pub const BidiMode = enum {
         pub const UseRTL: i32 = 0;

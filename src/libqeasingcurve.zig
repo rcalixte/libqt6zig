@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qeasingcurve_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qeasingcurve.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html)
 pub const qeasingcurve = struct {
     /// New constructs a new QEasingCurve object.
-    ///
     ///
     pub fn New() QtC.QEasingCurve {
         return qtc.QEasingCurve_new();
@@ -14,91 +13,156 @@ pub const qeasingcurve = struct {
 
     /// New2 constructs a new QEasingCurve object.
     ///
-    /// ``` other: QtC.QEasingCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QEasingCurve `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QEasingCurve {
         return qtc.QEasingCurve_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QEasingCurve object.
     ///
-    /// ``` typeVal: qeasingcurve_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qeasingcurve_enums.Type `
+    ///
     pub fn New3(typeVal: i32) QtC.QEasingCurve {
         return qtc.QEasingCurve_new3(@intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#operator-eq)
     ///
-    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` other: QtC.QEasingCurve `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QEasingCurve_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#swap)
     ///
-    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` other: QtC.QEasingCurve `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QEasingCurve_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#amplitude)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#amplitude)
     ///
-    /// ``` self: QtC.QEasingCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
     pub fn Amplitude(self: ?*anyopaque) f64 {
         return qtc.QEasingCurve_Amplitude(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setAmplitude)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setAmplitude)
     ///
-    /// ``` self: QtC.QEasingCurve, amplitude: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` amplitude: f64 `
+    ///
     pub fn SetAmplitude(self: ?*anyopaque, amplitude: f64) void {
         qtc.QEasingCurve_SetAmplitude(@ptrCast(self), @floatCast(amplitude));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#period)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#period)
     ///
-    /// ``` self: QtC.QEasingCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
     pub fn Period(self: ?*anyopaque) f64 {
         return qtc.QEasingCurve_Period(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setPeriod)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setPeriod)
     ///
-    /// ``` self: QtC.QEasingCurve, period: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` period: f64 `
+    ///
     pub fn SetPeriod(self: ?*anyopaque, period: f64) void {
         qtc.QEasingCurve_SetPeriod(@ptrCast(self), @floatCast(period));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#overshoot)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#overshoot)
     ///
-    /// ``` self: QtC.QEasingCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
     pub fn Overshoot(self: ?*anyopaque) f64 {
         return qtc.QEasingCurve_Overshoot(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setOvershoot)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setOvershoot)
     ///
-    /// ``` self: QtC.QEasingCurve, overshoot: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` overshoot: f64 `
+    ///
     pub fn SetOvershoot(self: ?*anyopaque, overshoot: f64) void {
         qtc.QEasingCurve_SetOvershoot(@ptrCast(self), @floatCast(overshoot));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#addCubicBezierSegment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#addCubicBezierSegment)
     ///
-    /// ``` self: QtC.QEasingCurve, c1: QtC.QPointF, c2: QtC.QPointF, endPoint: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` c1: QtC.QPointF `
+    ///
+    /// ` c2: QtC.QPointF `
+    ///
+    /// ` endPoint: QtC.QPointF `
+    ///
     pub fn AddCubicBezierSegment(self: ?*anyopaque, c1: ?*anyopaque, c2: ?*anyopaque, endPoint: ?*anyopaque) void {
         qtc.QEasingCurve_AddCubicBezierSegment(@ptrCast(self), @ptrCast(c1), @ptrCast(c2), @ptrCast(endPoint));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#addTCBSegment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#addTCBSegment)
     ///
-    /// ``` self: QtC.QEasingCurve, nextPoint: QtC.QPointF, t: f64, c: f64, b: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` nextPoint: QtC.QPointF `
+    ///
+    /// ` t: f64 `
+    ///
+    /// ` c: f64 `
+    ///
+    /// ` b: f64 `
+    ///
     pub fn AddTCBSegment(self: ?*anyopaque, nextPoint: ?*anyopaque, t: f64, c: f64, b: f64) void {
         qtc.QEasingCurve_AddTCBSegment(@ptrCast(self), @ptrCast(nextPoint), @floatCast(t), @floatCast(c), @floatCast(b));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#toCubicSpline)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#toCubicSpline)
     ///
-    /// ``` self: QtC.QEasingCurve, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToCubicSpline(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
         const _arr: qtc.libqt_list = qtc.QEasingCurve_ToCubicSpline(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -108,40 +172,58 @@ pub const qeasingcurve = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#type)
     ///
-    /// ``` self: QtC.QEasingCurve ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qeasingcurve_enums.Type ```
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qeasingcurve_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEasingCurve_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setType)
     ///
-    /// ``` self: QtC.QEasingCurve, typeVal: qeasingcurve_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` typeVal: qeasingcurve_enums.Type `
+    ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QEasingCurve_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#valueForProgress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#valueForProgress)
     ///
-    /// ``` self: QtC.QEasingCurve, progress: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` progress: f64 `
+    ///
     pub fn ValueForProgress(self: ?*anyopaque, progress: f64) f64 {
         return qtc.QEasingCurve_ValueForProgress(@ptrCast(self), @floatCast(progress));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#dtor.QEasingCurve)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#dtor.QEasingCurve)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QEasingCurve ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QEasingCurve_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qeasingcurve.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const Linear: i32 = 0;

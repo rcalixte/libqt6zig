@@ -2,11 +2,16 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kstringhandler.html
+/// ### [Upstream resources](https://api.kde.org/kstringhandler.html)
 pub const kstringhandler = struct {
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#capwords)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#capwords)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Capwords(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -19,9 +24,14 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#capwords)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#capwords)
     ///
-    /// ``` param1: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Capwords2(param1: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
         defer allocator.free(param1_arr);
@@ -53,9 +63,16 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#lsqueeze)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#lsqueeze)
     ///
-    /// ``` param1: []const u8, param2: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Lsqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -68,9 +85,16 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#csqueeze)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#csqueeze)
     ///
-    /// ``` param1: []const u8, param2: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Csqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -83,9 +107,16 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#rsqueeze)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#rsqueeze)
     ///
-    /// ``` param1: []const u8, param2: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Rsqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -98,9 +129,18 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#perlSplit)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#perlSplit)
     ///
-    /// ``` param1: []const u8, param2: []const u8, param3: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PerlSplit2(param1: []const u8, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -128,9 +168,18 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#perlSplit)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#perlSplit)
     ///
-    /// ``` param1: QtC.QChar, param2: []const u8, param3: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QChar `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PerlSplit3(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -154,9 +203,18 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#perlSplit)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#perlSplit)
     ///
-    /// ``` param1: QtC.QRegularExpression, param2: []const u8, param3: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QRegularExpression `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PerlSplit4(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -180,9 +238,14 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#tagUrls)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#tagUrls)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TagUrls(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -195,9 +258,14 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#obscure)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#obscure)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Obscure(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -210,9 +278,14 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#preProcessWrap)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#preProcessWrap)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PreProcessWrap(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -225,9 +298,12 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstringhandler.html#logicalLength)
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#logicalLength)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn LogicalLength(param1: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

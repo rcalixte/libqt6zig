@@ -2,11 +2,16 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/krandom.html
+/// ### [Upstream resources](https://api.kde.org/krandom.html)
 pub const krandom = struct {
-    /// [Upstream resources](https://api.kde.org/krandom.html#randomString)
+    /// ### [Upstream resources](https://api.kde.org/krandom.html#randomString)
     ///
-    /// ``` param1: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RandomString(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KRandom_RandomString(@intCast(param1));
         defer qtc.libqt_string_free(&_str);

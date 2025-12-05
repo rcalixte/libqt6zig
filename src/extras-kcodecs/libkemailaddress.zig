@@ -3,11 +3,16 @@ const qtc = @import("qt6c");
 const kemailaddress_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kemailaddress.html
+/// ### [Upstream resources](https://api.kde.org/kemailaddress.html)
 pub const kemailaddress = struct {
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#splitAddressList)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#splitAddressList)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SplitAddressList(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -31,11 +36,22 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#splitAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#splitAddress)
     ///
-    /// ``` param1: []u8, param2: []u8, param3: []u8, param4: []u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kemailaddress_enums.EmailParseResult ```
+    /// ` param1: []u8 `
+    ///
+    /// ` param2: []u8 `
+    ///
+    /// ` param3: []u8 `
+    ///
+    /// ` param4: []u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kemailaddress_enums.EmailParseResult `
+    ///
     pub fn SplitAddress(param1: []u8, param2: []u8, param3: []u8, param4: []u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -56,11 +72,22 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_SplitAddress(param1_str, param2_str, param3_str, param4_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#splitAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#splitAddress)
     ///
-    /// ``` param1: []const u8, param2: []const u8, param3: []const u8, param4: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kemailaddress_enums.EmailParseResult ```
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: []const u8 `
+    ///
+    /// ` param4: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kemailaddress_enums.EmailParseResult `
+    ///
     pub fn SplitAddress2(param1: []const u8, param2: []const u8, param3: []const u8, param4: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -81,11 +108,16 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_SplitAddress2(param1_str, param2_str, param3_str, param4_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#isValidAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#isValidAddress)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kemailaddress_enums.EmailParseResult ```
+    /// ` param1: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kemailaddress_enums.EmailParseResult `
+    ///
     pub fn IsValidAddress(param1: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -94,11 +126,18 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_IsValidAddress(param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#isValidAddressList)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#isValidAddressList)
     ///
-    /// ``` param1: []const u8, param2: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kemailaddress_enums.EmailParseResult ```
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kemailaddress_enums.EmailParseResult `
+    ///
     pub fn IsValidAddressList(param1: []const u8, param2: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -111,9 +150,14 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_IsValidAddressList(param1_str, param2_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#emailParseResultToString)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#emailParseResultToString)
     ///
-    /// ``` param1: kemailaddress_enums.EmailParseResult, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kemailaddress_enums.EmailParseResult `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn EmailParseResultToString(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KEmailAddress_EmailParseResultToString(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -122,9 +166,12 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#isValidSimpleAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#isValidSimpleAddress)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn IsValidSimpleAddress(param1: []const u8) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -133,9 +180,12 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_IsValidSimpleAddress(param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#simpleEmailAddressErrorMsg)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#simpleEmailAddressErrorMsg)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SimpleEmailAddressErrorMsg(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KEmailAddress_SimpleEmailAddressErrorMsg();
         defer qtc.libqt_string_free(&_str);
@@ -144,9 +194,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
-    /// ``` param1: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtractEmailAddress(param1: []u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -159,9 +214,16 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
-    /// ``` param1: []u8, param2: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtractEmailAddress2(param1: []u8, param2: []const u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -178,9 +240,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtractEmailAddress3(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -193,9 +260,16 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
-    /// ``` param1: []const u8, param2: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtractEmailAddress4(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -212,9 +286,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
-    /// ``` param1: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FirstEmailAddress(param1: []u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -227,9 +306,16 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
-    /// ``` param1: []u8, param2: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FirstEmailAddress2(param1: []u8, param2: []const u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -246,9 +332,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FirstEmailAddress3(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -261,9 +352,16 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
-    /// ``` param1: []const u8, param2: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FirstEmailAddress4(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -280,9 +378,16 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddressAndName)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#extractEmailAddressAndName)
     ///
-    /// ``` param1: []const u8, param2: []const u8, param3: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: []const u8 `
+    ///
     pub fn ExtractEmailAddressAndName(param1: []const u8, param2: []const u8, param3: []const u8) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -299,9 +404,16 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_ExtractEmailAddressAndName(param1_str, param2_str, param3_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#compareEmail)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#compareEmail)
     ///
-    /// ``` param1: []const u8, param2: []const u8, param3: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: bool `
+    ///
     pub fn CompareEmail(param1: []const u8, param2: []const u8, param3: bool) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -314,9 +426,18 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_CompareEmail(param1_str, param2_str, param3);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#normalizedAddress)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#normalizedAddress)
     ///
-    /// ``` param1: []const u8, param2: []const u8, param3: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NormalizedAddress(param1: []const u8, param2: []const u8, param3: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -337,9 +458,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#fromIdn)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#fromIdn)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -352,9 +478,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#toIdn)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#toIdn)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -367,9 +498,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#normalizeAddressesAndDecodeIdn)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#normalizeAddressesAndDecodeIdn)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NormalizeAddressesAndDecodeIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -382,9 +518,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#normalizeAddressesAndEncodeIdn)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#normalizeAddressesAndEncodeIdn)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NormalizeAddressesAndEncodeIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -397,9 +538,14 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#quoteNameIfNecessary)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#quoteNameIfNecessary)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QuoteNameIfNecessary(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -412,9 +558,12 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#encodeMailtoUrl)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#encodeMailtoUrl)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn EncodeMailtoUrl(param1: []const u8) QtC.QUrl {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -423,9 +572,14 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_EncodeMailtoUrl(param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kemailaddress.html#decodeMailtoUrl)
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#decodeMailtoUrl)
     ///
-    /// ``` param1: QtC.QUrl, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QUrl `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DecodeMailtoUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KEmailAddress_DecodeMailtoUrl(@ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -435,7 +589,7 @@ pub const kemailaddress = struct {
     }
 };
 
-/// https://api.kde.org/kemailaddress.html#types
+/// ### [Upstream resources](https://api.kde.org/kemailaddress.html#public-types)
 pub const enums = struct {
     pub const EmailParseResult = enum {
         pub const AddressOk: i32 = 0;

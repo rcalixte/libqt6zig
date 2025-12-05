@@ -5,10 +5,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qcompleter.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html)
 pub const qcompleter = struct {
     /// New constructs a new QCompleter object.
-    ///
     ///
     pub fn New() QtC.QCompleter {
         return qtc.QCompleter_new();
@@ -16,14 +15,22 @@ pub const qcompleter = struct {
 
     /// New2 constructs a new QCompleter object.
     ///
-    /// ``` model: QtC.QAbstractItemModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
     pub fn New2(model: ?*anyopaque) QtC.QCompleter {
         return qtc.QCompleter_new2(@ptrCast(model));
     }
 
     /// New3 constructs a new QCompleter object.
     ///
-    /// ``` completions: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` completions: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New3(completions: [][]const u8, allocator: std.mem.Allocator) QtC.QCompleter {
         var completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.New3: Memory allocation failed");
         defer allocator.free(completions_arr);
@@ -43,21 +50,36 @@ pub const qcompleter = struct {
 
     /// New4 constructs a new QCompleter object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New4(parent: ?*anyopaque) QtC.QCompleter {
         return qtc.QCompleter_new4(@ptrCast(parent));
     }
 
     /// New5 constructs a new QCompleter object.
     ///
-    /// ``` model: QtC.QAbstractItemModel, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New5(model: ?*anyopaque, parent: ?*anyopaque) QtC.QCompleter {
         return qtc.QCompleter_new5(@ptrCast(model), @ptrCast(parent));
     }
 
     /// New6 constructs a new QCompleter object.
     ///
-    /// ``` completions: [][]const u8, parent: QtC.QObject, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` completions: [][]const u8 `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New6(completions: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QCompleter {
         var completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.New6: Memory allocation failed");
         defer allocator.free(completions_arr);
@@ -75,41 +97,77 @@ pub const qcompleter = struct {
         return qtc.QCompleter_new6(completions_list, @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QCompleter_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QCompleter, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCompleter_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QCompleter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCompleter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QCompleter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QCompleter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCompleter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -119,192 +177,302 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setWidget)
     ///
-    /// ``` self: QtC.QCompleter, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QCompleter_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#widget)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QCompleter_Widget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setModel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setModel)
     ///
-    /// ``` self: QtC.QCompleter, c: QtC.QAbstractItemModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` c: QtC.QAbstractItemModel `
+    ///
     pub fn SetModel(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QCompleter_SetModel(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#model)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#model)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QCompleter_Model(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionMode)
     ///
-    /// ``` self: QtC.QCompleter, mode: qcompleter_enums.CompletionMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` mode: qcompleter_enums.CompletionMode `
+    ///
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
         qtc.QCompleter_SetCompletionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionMode)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qcompleter_enums.CompletionMode ```
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qcompleter_enums.CompletionMode `
+    ///
     pub fn CompletionMode(self: ?*anyopaque) i32 {
         return qtc.QCompleter_CompletionMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setFilterMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setFilterMode)
     ///
-    /// ``` self: QtC.QCompleter, filterMode: flag of qnamespace_enums.MatchFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` filterMode: flag of qnamespace_enums.MatchFlag `
+    ///
     pub fn SetFilterMode(self: ?*anyopaque, filterMode: i32) void {
         qtc.QCompleter_SetFilterMode(@ptrCast(self), @intCast(filterMode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#filterMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#filterMode)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.MatchFlag ```
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.MatchFlag `
+    ///
     pub fn FilterMode(self: ?*anyopaque) i32 {
         return qtc.QCompleter_FilterMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#popup)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#popup)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Popup(self: ?*anyopaque) QtC.QAbstractItemView {
         return qtc.QCompleter_Popup(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setPopup)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setPopup)
     ///
-    /// ``` self: QtC.QCompleter, popup: QtC.QAbstractItemView ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` popup: QtC.QAbstractItemView `
+    ///
     pub fn SetPopup(self: ?*anyopaque, popup: ?*anyopaque) void {
         qtc.QCompleter_SetPopup(@ptrCast(self), @ptrCast(popup));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCaseSensitivity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCaseSensitivity)
     ///
-    /// ``` self: QtC.QCompleter, caseSensitivity: qnamespace_enums.CaseSensitivity ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` caseSensitivity: qnamespace_enums.CaseSensitivity `
+    ///
     pub fn SetCaseSensitivity(self: ?*anyopaque, caseSensitivity: i32) void {
         qtc.QCompleter_SetCaseSensitivity(@ptrCast(self), @intCast(caseSensitivity));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#caseSensitivity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#caseSensitivity)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.CaseSensitivity ```
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.CaseSensitivity `
+    ///
     pub fn CaseSensitivity(self: ?*anyopaque) i32 {
         return qtc.QCompleter_CaseSensitivity(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setModelSorting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setModelSorting)
     ///
-    /// ``` self: QtC.QCompleter, sorting: qcompleter_enums.ModelSorting ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` sorting: qcompleter_enums.ModelSorting `
+    ///
     pub fn SetModelSorting(self: ?*anyopaque, sorting: i32) void {
         qtc.QCompleter_SetModelSorting(@ptrCast(self), @intCast(sorting));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#modelSorting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#modelSorting)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qcompleter_enums.ModelSorting ```
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qcompleter_enums.ModelSorting `
+    ///
     pub fn ModelSorting(self: ?*anyopaque) i32 {
         return qtc.QCompleter_ModelSorting(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionColumn)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionColumn)
     ///
-    /// ``` self: QtC.QCompleter, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn SetCompletionColumn(self: ?*anyopaque, column: i32) void {
         qtc.QCompleter_SetCompletionColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionColumn)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionColumn)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn CompletionColumn(self: ?*anyopaque) i32 {
         return qtc.QCompleter_CompletionColumn(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionRole)
     ///
-    /// ``` self: QtC.QCompleter, role: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` role: i32 `
+    ///
     pub fn SetCompletionRole(self: ?*anyopaque, role: i32) void {
         qtc.QCompleter_SetCompletionRole(@ptrCast(self), @intCast(role));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionRole)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn CompletionRole(self: ?*anyopaque) i32 {
         return qtc.QCompleter_CompletionRole(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#wrapAround)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#wrapAround)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn WrapAround(self: ?*anyopaque) bool {
         return qtc.QCompleter_WrapAround(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#maxVisibleItems)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#maxVisibleItems)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn MaxVisibleItems(self: ?*anyopaque) i32 {
         return qtc.QCompleter_MaxVisibleItems(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setMaxVisibleItems)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setMaxVisibleItems)
     ///
-    /// ``` self: QtC.QCompleter, maxItems: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` maxItems: i32 `
+    ///
     pub fn SetMaxVisibleItems(self: ?*anyopaque, maxItems: i32) void {
         qtc.QCompleter_SetMaxVisibleItems(@ptrCast(self), @intCast(maxItems));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionCount)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn CompletionCount(self: ?*anyopaque) i32 {
         return qtc.QCompleter_CompletionCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCurrentRow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCurrentRow)
     ///
-    /// ``` self: QtC.QCompleter, row: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` row: i32 `
+    ///
     pub fn SetCurrentRow(self: ?*anyopaque, row: i32) bool {
         return qtc.QCompleter_SetCurrentRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#currentRow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#currentRow)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn CurrentRow(self: ?*anyopaque) i32 {
         return qtc.QCompleter_CurrentRow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#currentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#currentIndex)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QCompleter_CurrentIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#currentCompletion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#currentCompletion)
     ///
-    /// ``` self: QtC.QCompleter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CurrentCompletion(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCompleter_CurrentCompletion(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -313,16 +481,24 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionModel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionModel)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn CompletionModel(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QCompleter_CompletionModel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionPrefix)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionPrefix)
     ///
-    /// ``` self: QtC.QCompleter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CompletionPrefix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCompleter_CompletionPrefix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -331,9 +507,14 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionPrefix)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setCompletionPrefix)
     ///
-    /// ``` self: QtC.QCompleter, prefix: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` prefix: []const u8 `
+    ///
     pub fn SetCompletionPrefix(self: ?*anyopaque, prefix: []const u8) void {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -342,23 +523,38 @@ pub const qcompleter = struct {
         qtc.QCompleter_SetCompletionPrefix(@ptrCast(self), prefix_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#complete)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#complete)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Complete(self: ?*anyopaque) void {
         qtc.QCompleter_Complete(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setWrapAround)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#setWrapAround)
     ///
-    /// ``` self: QtC.QCompleter, wrap: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` wrap: bool `
+    ///
     pub fn SetWrapAround(self: ?*anyopaque, wrap: bool) void {
         qtc.QCompleter_SetWrapAround(@ptrCast(self), wrap);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
     ///
-    /// ``` self: QtC.QCompleter, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PathFromIndex(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCompleter_PathFromIndex(@ptrCast(self), @ptrCast(index));
         defer qtc.libqt_string_free(&_str);
@@ -367,20 +563,32 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, index: QtC.QModelIndex) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, index: QtC.QModelIndex) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnPathFromIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
         qtc.QCompleter_OnPathFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QCompleter, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBasePathFromIndex(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCompleter_QBasePathFromIndex(@ptrCast(self), @ptrCast(index));
         defer qtc.libqt_string_free(&_str);
@@ -389,9 +597,16 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
     ///
-    /// ``` self: QtC.QCompleter, path: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -415,20 +630,32 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, path: [*:0]const u8) callconv(.c) [*][*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, path: [*:0]const u8) callconv(.c) [*][*:0]const u8 `
+    ///
     pub fn OnSplitPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*][*:0]const u8) void {
         qtc.QCompleter_OnSplitPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QCompleter, path: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseSplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -452,59 +679,98 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
     ///
-    /// ``` self: QtC.QCompleter, o: QtC.QObject, e: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` o: QtC.QObject `
+    ///
+    /// ` e: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QCompleter_EventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, o: QtC.QObject, e: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, o: QtC.QObject, e: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QCompleter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QCompleter, o: QtC.QObject, e: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` o: QtC.QObject `
+    ///
+    /// ` e: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QCompleter_QBaseEventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
     ///
-    /// ``` self: QtC.QCompleter, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QCompleter_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, param1: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, param1: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QCompleter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QCompleter, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QCompleter_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#activated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#activated)
     ///
-    /// ``` self: QtC.QCompleter, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn Activated(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -513,16 +779,26 @@ pub const qcompleter = struct {
         qtc.QCompleter_Activated(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#activated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#activated)
     ///
-    /// ``` self: QtC.QCompleter, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn Activated2(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QCompleter_Activated2(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#highlighted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#highlighted)
     ///
-    /// ``` self: QtC.QCompleter, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn Highlighted(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -531,16 +807,28 @@ pub const qcompleter = struct {
         qtc.QCompleter_Highlighted(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#highlighted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#highlighted)
     ///
-    /// ``` self: QtC.QCompleter, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn Highlighted2(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QCompleter_Highlighted2(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -551,9 +839,18 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -564,18 +861,28 @@ pub const qcompleter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#complete)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#complete)
     ///
-    /// ``` self: QtC.QCompleter, rect: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` rect: QtC.QRect `
+    ///
     pub fn Complete1(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QCompleter_Complete1(@ptrCast(self), @ptrCast(rect));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QCompleter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -586,9 +893,14 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QCompleter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -599,99 +911,144 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QCompleter, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QCompleter, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QCompleter, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QCompleter, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QCompleter, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QCompleter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -703,45 +1060,78 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QCompleter, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QCompleter, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QCompleter, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QCompleter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -750,45 +1140,70 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QCompleter, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -796,9 +1211,14 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QCompleter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -806,9 +1226,14 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QCompleter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -830,54 +1255,76 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QCompleter, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -885,45 +1332,84 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QCompleter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QCompleter, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QCompleter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -932,260 +1418,372 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCompleter, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleterparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCompleter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCompleter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCompleter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCompleter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCompleter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCompleter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCompleter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCompleter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCompleter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCompleter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCompleter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCompleter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCompleter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCompleter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCompleter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QCompleter_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QCompleter_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QCompleter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QCompleter_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QCompleter_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QCompleter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCompleter_Receivers(@ptrCast(self), signal_Cstring);
@@ -1193,11 +1791,16 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCompleter_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1205,70 +1808,98 @@ pub const qcompleter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCompleter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QCompleter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QCompleter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter`
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QCompleter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QCompleter, callback: *const fn (self: QtC.QCompleter, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
+    /// ` callback: *const fn (self: QtC.QCompleterobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#dtor.QCompleter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#dtor.QCompleter)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QCompleter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QCompleter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QCompleter_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qcompleter.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#public-types)
 pub const enums = struct {
     pub const CompletionMode = enum {
         pub const PopupCompletion: i32 = 0;

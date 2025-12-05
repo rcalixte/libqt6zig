@@ -5,10 +5,9 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpieslice_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qpieslice-qtcharts.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html)
 pub const qpieslice = struct {
     /// New constructs a new QPieSlice object.
-    ///
     ///
     pub fn New() QtC.QPieSlice {
         return qtc.QPieSlice_new();
@@ -16,7 +15,12 @@ pub const qpieslice = struct {
 
     /// New2 constructs a new QPieSlice object.
     ///
-    /// ``` label: []const u8, value: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` label: []const u8 `
+    ///
+    /// ` value: f64 `
+    ///
     pub fn New2(label: []const u8, value: f64) QtC.QPieSlice {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -28,14 +32,24 @@ pub const qpieslice = struct {
 
     /// New3 constructs a new QPieSlice object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New3(parent: ?*anyopaque) QtC.QPieSlice {
         return qtc.QPieSlice_new3(@ptrCast(parent));
     }
 
     /// New4 constructs a new QPieSlice object.
     ///
-    /// ``` label: []const u8, value: f64, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` label: []const u8 `
+    ///
+    /// ` value: f64 `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New4(label: []const u8, value: f64, parent: ?*anyopaque) QtC.QPieSlice {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -45,41 +59,77 @@ pub const qpieslice = struct {
         return qtc.QPieSlice_new4(label_str, @floatCast(value), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QPieSlice_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QPieSlice, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPieSlice_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QPieSlice, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPieSlice_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QPieSlice_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QPieSlice, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPieSlice_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -89,9 +139,14 @@ pub const qpieslice = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabel)
     ///
-    /// ``` self: QtC.QPieSlice, label: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` label: []const u8 `
+    ///
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -100,9 +155,14 @@ pub const qpieslice = struct {
         qtc.QPieSlice_SetLabel(@ptrCast(self), label_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#label)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#label)
     ///
-    /// ``` self: QtC.QPieSlice, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPieSlice_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -111,501 +171,784 @@ pub const qpieslice = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setValue)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setValue)
     ///
-    /// ``` self: QtC.QPieSlice, value: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` value: f64 `
+    ///
     pub fn SetValue(self: ?*anyopaque, value: f64) void {
         qtc.QPieSlice_SetValue(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#value)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#value)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Value(self: ?*anyopaque) f64 {
         return qtc.QPieSlice_Value(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelVisible)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn SetLabelVisible(self: ?*anyopaque) void {
         qtc.QPieSlice_SetLabelVisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#isLabelVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#isLabelVisible)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn IsLabelVisible(self: ?*anyopaque) bool {
         return qtc.QPieSlice_IsLabelVisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelPosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelPosition)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpieslice_enums.LabelPosition ```
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpieslice_enums.LabelPosition `
+    ///
     pub fn LabelPosition(self: ?*anyopaque) i32 {
         return qtc.QPieSlice_LabelPosition(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelPosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelPosition)
     ///
-    /// ``` self: QtC.QPieSlice, position: qpieslice_enums.LabelPosition ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` position: qpieslice_enums.LabelPosition `
+    ///
     pub fn SetLabelPosition(self: ?*anyopaque, position: i32) void {
         qtc.QPieSlice_SetLabelPosition(@ptrCast(self), @intCast(position));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setExploded)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setExploded)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn SetExploded(self: ?*anyopaque) void {
         qtc.QPieSlice_SetExploded(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#isExploded)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#isExploded)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn IsExploded(self: ?*anyopaque) bool {
         return qtc.QPieSlice_IsExploded(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setPen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setPen)
     ///
-    /// ``` self: QtC.QPieSlice, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QPieSlice_SetPen(@ptrCast(self), @ptrCast(pen));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#pen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#pen)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
         return qtc.QPieSlice_Pen(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderColor)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn BorderColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QPieSlice_BorderColor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setBorderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setBorderColor)
     ///
-    /// ``` self: QtC.QPieSlice, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetBorderColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QPieSlice_SetBorderColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderWidth)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn BorderWidth(self: ?*anyopaque) i32 {
         return qtc.QPieSlice_BorderWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setBorderWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setBorderWidth)
     ///
-    /// ``` self: QtC.QPieSlice, width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` width: i32 `
+    ///
     pub fn SetBorderWidth(self: ?*anyopaque, width: i32) void {
         qtc.QPieSlice_SetBorderWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setBrush)
     ///
-    /// ``` self: QtC.QPieSlice, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QPieSlice_SetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#brush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#brush)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QPieSlice_Brush(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#color)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#color)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QPieSlice_Color(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setColor)
     ///
-    /// ``` self: QtC.QPieSlice, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QPieSlice_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelBrush)
     ///
-    /// ``` self: QtC.QPieSlice, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetLabelBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QPieSlice_SetLabelBrush(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelBrush)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelBrush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QPieSlice_LabelBrush(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelColor)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QPieSlice_LabelColor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelColor)
     ///
-    /// ``` self: QtC.QPieSlice, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetLabelColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QPieSlice_SetLabelColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelFont)
     ///
-    /// ``` self: QtC.QPieSlice, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn SetLabelFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QPieSlice_SetLabelFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelFont)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelFont(self: ?*anyopaque) QtC.QFont {
         return qtc.QPieSlice_LabelFont(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelArmLengthFactor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelArmLengthFactor)
     ///
-    /// ``` self: QtC.QPieSlice, factor: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` factor: f64 `
+    ///
     pub fn SetLabelArmLengthFactor(self: ?*anyopaque, factor: f64) void {
         qtc.QPieSlice_SetLabelArmLengthFactor(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelArmLengthFactor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelArmLengthFactor)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelArmLengthFactor(self: ?*anyopaque) f64 {
         return qtc.QPieSlice_LabelArmLengthFactor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setExplodeDistanceFactor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setExplodeDistanceFactor)
     ///
-    /// ``` self: QtC.QPieSlice, factor: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` factor: f64 `
+    ///
     pub fn SetExplodeDistanceFactor(self: ?*anyopaque, factor: f64) void {
         qtc.QPieSlice_SetExplodeDistanceFactor(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#explodeDistanceFactor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#explodeDistanceFactor)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn ExplodeDistanceFactor(self: ?*anyopaque) f64 {
         return qtc.QPieSlice_ExplodeDistanceFactor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#percentage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#percentage)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Percentage(self: ?*anyopaque) f64 {
         return qtc.QPieSlice_Percentage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#startAngle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#startAngle)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn StartAngle(self: ?*anyopaque) f64 {
         return qtc.QPieSlice_StartAngle(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#angleSpan)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#angleSpan)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn AngleSpan(self: ?*anyopaque) f64 {
         return qtc.QPieSlice_AngleSpan(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#series)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#series)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Series(self: ?*anyopaque) QtC.QPieSeries {
         return qtc.QPieSlice_Series(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#clicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Clicked(self: ?*anyopaque) void {
         qtc.QPieSlice_Clicked(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#clicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QPieSlice, state: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` state: bool `
+    ///
     pub fn Hovered(self: ?*anyopaque, state: bool) void {
         qtc.QPieSlice_Hovered(@ptrCast(self), state);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, state: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlicestate: bool) callconv(.c) void `
+    ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QPieSlice_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#pressed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#pressed)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Pressed(self: ?*anyopaque) void {
         qtc.QPieSlice_Pressed(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#pressed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#pressed)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#released)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#released)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Released(self: ?*anyopaque) void {
         qtc.QPieSlice_Released(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#released)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#released)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#doubleClicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn DoubleClicked(self: ?*anyopaque) void {
         qtc.QPieSlice_DoubleClicked(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#doubleClicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_LabelChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_LabelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#valueChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#valueChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn ValueChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_ValueChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#valueChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#valueChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelVisibleChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelVisibleChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_LabelVisibleChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelVisibleChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnLabelVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_LabelVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#penChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn PenChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_PenChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#penChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#brushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn BrushChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_BrushChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#brushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelBrushChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelBrushChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_LabelBrushChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelBrushChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnLabelBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_LabelBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelFontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelFontChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelFontChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_LabelFontChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelFontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelFontChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnLabelFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_LabelFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#percentageChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#percentageChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn PercentageChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_PercentageChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#percentageChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#percentageChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnPercentageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_PercentageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#startAngleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#startAngleChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn StartAngleChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_StartAngleChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#startAngleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#startAngleChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnStartAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_StartAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#angleSpanChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#angleSpanChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn AngleSpanChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_AngleSpanChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#angleSpanChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#angleSpanChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnAngleSpanChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_AngleSpanChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#colorChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn ColorChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_ColorChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#colorChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderColorChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn BorderColorChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_BorderColorChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderColorChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderWidthChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn BorderWidthChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_BorderWidthChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#borderWidthChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnBorderWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_BorderWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelColorChanged)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn LabelColorChanged(self: ?*anyopaque) void {
         qtc.QPieSlice_LabelColorChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#labelColorChanged)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnLabelColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_Connect_LabelColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -616,9 +959,18 @@ pub const qpieslice = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -629,25 +981,40 @@ pub const qpieslice = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setLabelVisible)
     ///
-    /// ``` self: QtC.QPieSlice, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetLabelVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QPieSlice_SetLabelVisible1(@ptrCast(self), visible);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setExploded)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#setExploded)
     ///
-    /// ``` self: QtC.QPieSlice, exploded: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` exploded: bool `
+    ///
     pub fn SetExploded1(self: ?*anyopaque, exploded: bool) void {
         qtc.QPieSlice_SetExploded1(@ptrCast(self), exploded);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QPieSlice, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -658,9 +1025,14 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QPieSlice, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -671,99 +1043,144 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QPieSlice, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QPieSlice, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QPieSlice, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QPieSlice, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QPieSlice, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QPieSlice, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -775,45 +1192,78 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QPieSlice, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QPieSlice, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QPieSlice, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QPieSlice, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -822,45 +1272,70 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QPieSlice, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -868,9 +1343,14 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QPieSlice, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -878,9 +1358,14 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QPieSlice, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -902,54 +1387,76 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QPieSlice, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -957,45 +1464,84 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QPieSlice, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QPieSlice, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QPieSlice, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1004,326 +1550,472 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPieSlice, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSliceparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QPieSlice_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QPieSlice_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QPieSlice_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QPieSlice_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QPieSlice_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QPieSlice_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QPieSlice_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QPieSlice_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QPieSlice_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QPieSlice_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QPieSlice_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QPieSlice_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QPieSlice_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QPieSlice_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QPieSlice_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QPieSlice_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSlice_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QPieSlice_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QPieSlice_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QPieSlice_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QPieSlice_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QPieSlice_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QPieSlice_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPieSlice_Receivers(@ptrCast(self), signal_Cstring);
@@ -1331,11 +2023,16 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPieSlice_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1343,70 +2040,98 @@ pub const qpieslice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPieSlice_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QPieSlice_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QPieSlice_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice`
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSlice, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QPieSlice_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QPieSlice, callback: *const fn (self: QtC.QPieSlice, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
+    /// ` callback: *const fn (self: QtC.QPieSliceobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#dtor.QPieSlice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#dtor.QPieSlice)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QPieSlice ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QPieSlice `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QPieSlice_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qpieslice-qtcharts.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#public-types)
 pub const enums = struct {
     pub const LabelPosition = enum {
         pub const LabelOutside: i32 = 0;

@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qglyphrun_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qglyphrun.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html)
 pub const qglyphrun = struct {
     /// New constructs a new QGlyphRun object.
-    ///
     ///
     pub fn New() QtC.QGlyphRun {
         return qtc.QGlyphRun_new();
@@ -14,49 +13,84 @@ pub const qglyphrun = struct {
 
     /// New2 constructs a new QGlyphRun object.
     ///
-    /// ``` other: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QGlyphRun `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QGlyphRun {
         return qtc.QGlyphRun_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#operator-eq)
     ///
-    /// ``` self: QtC.QGlyphRun, other: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` other: QtC.QGlyphRun `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QGlyphRun_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#swap)
     ///
-    /// ``` self: QtC.QGlyphRun, other: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` other: QtC.QGlyphRun `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QGlyphRun_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#rawFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#rawFont)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn RawFont(self: ?*anyopaque) QtC.QRawFont {
         return qtc.QGlyphRun_RawFont(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setRawFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setRawFont)
     ///
-    /// ``` self: QtC.QGlyphRun, rawFont: QtC.QRawFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` rawFont: QtC.QRawFont `
+    ///
     pub fn SetRawFont(self: ?*anyopaque, rawFont: ?*anyopaque) void {
         qtc.QGlyphRun_SetRawFont(@ptrCast(self), @ptrCast(rawFont));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setRawData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setRawData)
     ///
-    /// ``` self: QtC.QGlyphRun, glyphIndexArray: *const u32, glyphPositionArray: QtC.QPointF, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` glyphIndexArray: *const u32 `
+    ///
+    /// ` glyphPositionArray: QtC.QPointF `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetRawData(self: ?*anyopaque, glyphIndexArray: *const u32, glyphPositionArray: ?*anyopaque, size: i32) void {
         qtc.QGlyphRun_SetRawData(@ptrCast(self), @ptrCast(glyphIndexArray), @ptrCast(glyphPositionArray), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#glyphIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#glyphIndexes)
     ///
-    /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn GlyphIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.QGlyphRun_GlyphIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -66,9 +100,14 @@ pub const qglyphrun = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setGlyphIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setGlyphIndexes)
     ///
-    /// ``` self: QtC.QGlyphRun, glyphIndexes: []u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` glyphIndexes: []u32 `
+    ///
     pub fn SetGlyphIndexes(self: ?*anyopaque, glyphIndexes: []u32) void {
         const glyphIndexes_list = qtc.libqt_list{
             .len = glyphIndexes.len,
@@ -77,9 +116,14 @@ pub const qglyphrun = struct {
         qtc.QGlyphRun_SetGlyphIndexes(@ptrCast(self), glyphIndexes_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#positions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#positions)
     ///
-    /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Positions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
         const _arr: qtc.libqt_list = qtc.QGlyphRun_Positions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -89,9 +133,14 @@ pub const qglyphrun = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setPositions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setPositions)
     ///
-    /// ``` self: QtC.QGlyphRun, positions: []QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` positions: []QtC.QPointF `
+    ///
     pub fn SetPositions(self: ?*anyopaque, positions: []QtC.QPointF) void {
         const positions_list = qtc.libqt_list{
             .len = positions.len,
@@ -100,123 +149,196 @@ pub const qglyphrun = struct {
         qtc.QGlyphRun_SetPositions(@ptrCast(self), positions_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#clear)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QGlyphRun_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QGlyphRun, other: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` other: QtC.QGlyphRun `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QGlyphRun_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QGlyphRun, other: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` other: QtC.QGlyphRun `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QGlyphRun_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setOverline)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setOverline)
     ///
-    /// ``` self: QtC.QGlyphRun, overline: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` overline: bool `
+    ///
     pub fn SetOverline(self: ?*anyopaque, overline: bool) void {
         qtc.QGlyphRun_SetOverline(@ptrCast(self), overline);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#overline)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#overline)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn Overline(self: ?*anyopaque) bool {
         return qtc.QGlyphRun_Overline(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setUnderline)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setUnderline)
     ///
-    /// ``` self: QtC.QGlyphRun, underline: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` underline: bool `
+    ///
     pub fn SetUnderline(self: ?*anyopaque, underline: bool) void {
         qtc.QGlyphRun_SetUnderline(@ptrCast(self), underline);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#underline)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#underline)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn Underline(self: ?*anyopaque) bool {
         return qtc.QGlyphRun_Underline(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setStrikeOut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setStrikeOut)
     ///
-    /// ``` self: QtC.QGlyphRun, strikeOut: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` strikeOut: bool `
+    ///
     pub fn SetStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
         qtc.QGlyphRun_SetStrikeOut(@ptrCast(self), strikeOut);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#strikeOut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#strikeOut)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn StrikeOut(self: ?*anyopaque) bool {
         return qtc.QGlyphRun_StrikeOut(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setRightToLeft)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setRightToLeft)
     ///
-    /// ``` self: QtC.QGlyphRun, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetRightToLeft(self: ?*anyopaque, on: bool) void {
         qtc.QGlyphRun_SetRightToLeft(@ptrCast(self), on);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#isRightToLeft)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#isRightToLeft)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
         return qtc.QGlyphRun_IsRightToLeft(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setFlag)
     ///
-    /// ``` self: QtC.QGlyphRun, flag: qglyphrun_enums.GlyphRunFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` flag: qglyphrun_enums.GlyphRunFlag `
+    ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
         qtc.QGlyphRun_SetFlag(@ptrCast(self), @intCast(flag));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setFlags)
     ///
-    /// ``` self: QtC.QGlyphRun, flags: flag of qglyphrun_enums.GlyphRunFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` flags: flag of qglyphrun_enums.GlyphRunFlag `
+    ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGlyphRun_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#flags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#flags)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qglyphrun_enums.GlyphRunFlag ```
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qglyphrun_enums.GlyphRunFlag `
+    ///
     pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGlyphRun_Flags(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setBoundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setBoundingRect)
     ///
-    /// ``` self: QtC.QGlyphRun, boundingRect: QtC.QRectF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` boundingRect: QtC.QRectF `
+    ///
     pub fn SetBoundingRect(self: ?*anyopaque, boundingRect: ?*anyopaque) void {
         qtc.QGlyphRun_SetBoundingRect(@ptrCast(self), @ptrCast(boundingRect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#boundingRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#boundingRect)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGlyphRun_BoundingRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#stringIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#stringIndexes)
     ///
-    /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StringIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
         const _arr: qtc.libqt_list = qtc.QGlyphRun_StringIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -226,9 +348,14 @@ pub const qglyphrun = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setStringIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setStringIndexes)
     ///
-    /// ``` self: QtC.QGlyphRun, stringIndexes: []i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` stringIndexes: []i64 `
+    ///
     pub fn SetStringIndexes(self: ?*anyopaque, stringIndexes: []i64) void {
         const stringIndexes_list = qtc.libqt_list{
             .len = stringIndexes.len,
@@ -237,9 +364,14 @@ pub const qglyphrun = struct {
         qtc.QGlyphRun_SetStringIndexes(@ptrCast(self), stringIndexes_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setSourceString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setSourceString)
     ///
-    /// ``` self: QtC.QGlyphRun, sourceString: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` sourceString: []const u8 `
+    ///
     pub fn SetSourceString(self: ?*anyopaque, sourceString: []const u8) void {
         const sourceString_str = qtc.libqt_string{
             .len = sourceString.len,
@@ -248,9 +380,14 @@ pub const qglyphrun = struct {
         qtc.QGlyphRun_SetSourceString(@ptrCast(self), sourceString_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#sourceString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#sourceString)
     ///
-    /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SourceString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QGlyphRun_SourceString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -259,31 +396,44 @@ pub const qglyphrun = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#isEmpty)
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QGlyphRun_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setFlag)
     ///
-    /// ``` self: QtC.QGlyphRun, flag: qglyphrun_enums.GlyphRunFlag, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
+    /// ` flag: qglyphrun_enums.GlyphRunFlag `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
         qtc.QGlyphRun_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#dtor.QGlyphRun)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#dtor.QGlyphRun)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGlyphRun ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGlyphRun `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGlyphRun_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qglyphrun.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#public-types)
 pub const enums = struct {
     pub const GlyphRunFlag = enum {
         pub const Overline: i32 = 1;

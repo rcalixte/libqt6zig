@@ -4,10 +4,9 @@ const qnetworkproxy_enums = enums;
 const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qnetworkproxyquery.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html)
 pub const qnetworkproxyquery = struct {
     /// New constructs a new QNetworkProxyQuery object.
-    ///
     ///
     pub fn New() QtC.QNetworkProxyQuery {
         return qtc.QNetworkProxyQuery_new();
@@ -15,14 +14,22 @@ pub const qnetworkproxyquery = struct {
 
     /// New2 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` requestUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` requestUrl: QtC.QUrl `
+    ///
     pub fn New2(requestUrl: ?*anyopaque) QtC.QNetworkProxyQuery {
         return qtc.QNetworkProxyQuery_new2(@ptrCast(requestUrl));
     }
 
     /// New3 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` hostname: []const u8, port: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` hostname: []const u8 `
+    ///
+    /// ` port: i32 `
+    ///
     pub fn New3(hostname: []const u8, port: i32) QtC.QNetworkProxyQuery {
         const hostname_str = qtc.libqt_string{
             .len = hostname.len,
@@ -34,28 +41,46 @@ pub const qnetworkproxyquery = struct {
 
     /// New4 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` bindPort: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` bindPort: u16 `
+    ///
     pub fn New4(bindPort: u16) QtC.QNetworkProxyQuery {
         return qtc.QNetworkProxyQuery_new4(@intCast(bindPort));
     }
 
     /// New5 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` other: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QNetworkProxyQuery `
+    ///
     pub fn New5(other: ?*anyopaque) QtC.QNetworkProxyQuery {
         return qtc.QNetworkProxyQuery_new5(@ptrCast(other));
     }
 
     /// New6 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` requestUrl: QtC.QUrl, queryType: qnetworkproxy_enums.QueryType ```
+    /// ## Parameter(s):
+    ///
+    /// ` requestUrl: QtC.QUrl `
+    ///
+    /// ` queryType: qnetworkproxy_enums.QueryType `
+    ///
     pub fn New6(requestUrl: ?*anyopaque, queryType: i32) QtC.QNetworkProxyQuery {
         return qtc.QNetworkProxyQuery_new6(@ptrCast(requestUrl), @intCast(queryType));
     }
 
     /// New7 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` hostname: []const u8, port: i32, protocolTag: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` hostname: []const u8 `
+    ///
+    /// ` port: i32 `
+    ///
+    /// ` protocolTag: []const u8 `
+    ///
     pub fn New7(hostname: []const u8, port: i32, protocolTag: []const u8) QtC.QNetworkProxyQuery {
         const hostname_str = qtc.libqt_string{
             .len = hostname.len,
@@ -71,7 +96,16 @@ pub const qnetworkproxyquery = struct {
 
     /// New8 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` hostname: []const u8, port: i32, protocolTag: []const u8, queryType: qnetworkproxy_enums.QueryType ```
+    /// ## Parameter(s):
+    ///
+    /// ` hostname: []const u8 `
+    ///
+    /// ` port: i32 `
+    ///
+    /// ` protocolTag: []const u8 `
+    ///
+    /// ` queryType: qnetworkproxy_enums.QueryType `
+    ///
     pub fn New8(hostname: []const u8, port: i32, protocolTag: []const u8, queryType: i32) QtC.QNetworkProxyQuery {
         const hostname_str = qtc.libqt_string{
             .len = hostname.len,
@@ -87,7 +121,12 @@ pub const qnetworkproxyquery = struct {
 
     /// New9 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` bindPort: u16, protocolTag: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` bindPort: u16 `
+    ///
+    /// ` protocolTag: []const u8 `
+    ///
     pub fn New9(bindPort: u16, protocolTag: []const u8) QtC.QNetworkProxyQuery {
         const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
@@ -99,7 +138,14 @@ pub const qnetworkproxyquery = struct {
 
     /// New10 constructs a new QNetworkProxyQuery object.
     ///
-    /// ``` bindPort: u16, protocolTag: []const u8, queryType: qnetworkproxy_enums.QueryType ```
+    /// ## Parameter(s):
+    ///
+    /// ` bindPort: u16 `
+    ///
+    /// ` protocolTag: []const u8 `
+    ///
+    /// ` queryType: qnetworkproxy_enums.QueryType `
+    ///
     pub fn New10(bindPort: u16, protocolTag: []const u8, queryType: i32) QtC.QNetworkProxyQuery {
         const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
@@ -109,67 +155,110 @@ pub const qnetworkproxyquery = struct {
         return qtc.QNetworkProxyQuery_new10(@intCast(bindPort), protocolTag_str, @intCast(queryType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-eq)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, other: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` other: QtC.QNetworkProxyQuery `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkProxyQuery_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#swap)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, other: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` other: QtC.QNetworkProxyQuery `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkProxyQuery_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, other: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` other: QtC.QNetworkProxyQuery `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkProxyQuery_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, other: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` other: QtC.QNetworkProxyQuery `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkProxyQuery_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#queryType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#queryType)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnetworkproxy_enums.QueryType ```
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnetworkproxy_enums.QueryType `
+    ///
     pub fn QueryType(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxyQuery_QueryType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setQueryType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setQueryType)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, typeVal: qnetworkproxy_enums.QueryType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` typeVal: qnetworkproxy_enums.QueryType `
+    ///
     pub fn SetQueryType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QNetworkProxyQuery_SetQueryType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#peerPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#peerPort)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
     pub fn PeerPort(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxyQuery_PeerPort(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setPeerPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setPeerPort)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, port: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` port: i32 `
+    ///
     pub fn SetPeerPort(self: ?*anyopaque, port: i32) void {
         qtc.QNetworkProxyQuery_SetPeerPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#peerHostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#peerHostName)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PeerHostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkProxyQuery_PeerHostName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -178,9 +267,14 @@ pub const qnetworkproxyquery = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setPeerHostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setPeerHostName)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, hostname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` hostname: []const u8 `
+    ///
     pub fn SetPeerHostName(self: ?*anyopaque, hostname: []const u8) void {
         const hostname_str = qtc.libqt_string{
             .len = hostname.len,
@@ -189,23 +283,36 @@ pub const qnetworkproxyquery = struct {
         qtc.QNetworkProxyQuery_SetPeerHostName(@ptrCast(self), hostname_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#localPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#localPort)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
     pub fn LocalPort(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxyQuery_LocalPort(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setLocalPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setLocalPort)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, port: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` port: i32 `
+    ///
     pub fn SetLocalPort(self: ?*anyopaque, port: i32) void {
         qtc.QNetworkProxyQuery_SetLocalPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#protocolTag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#protocolTag)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkProxyQuery_ProtocolTag(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -214,9 +321,14 @@ pub const qnetworkproxyquery = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setProtocolTag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setProtocolTag)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, protocolTag: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` protocolTag: []const u8 `
+    ///
     pub fn SetProtocolTag(self: ?*anyopaque, protocolTag: []const u8) void {
         const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
@@ -225,34 +337,44 @@ pub const qnetworkproxyquery = struct {
         qtc.QNetworkProxyQuery_SetProtocolTag(@ptrCast(self), protocolTag_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#url)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#url)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QNetworkProxyQuery_Url(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setUrl)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setUrl)
     ///
-    /// ``` self: QtC.QNetworkProxyQuery, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QNetworkProxyQuery_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#dtor.QNetworkProxyQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#dtor.QNetworkProxyQuery)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QNetworkProxyQuery ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QNetworkProxyQuery `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QNetworkProxyQuery_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qnetworkproxy.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html)
 pub const qnetworkproxy = struct {
     /// New constructs a new QNetworkProxy object.
-    ///
     ///
     pub fn New() QtC.QNetworkProxy {
         return qtc.QNetworkProxy_new();
@@ -260,21 +382,32 @@ pub const qnetworkproxy = struct {
 
     /// New2 constructs a new QNetworkProxy object.
     ///
-    /// ``` typeVal: qnetworkproxy_enums.ProxyType ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qnetworkproxy_enums.ProxyType `
+    ///
     pub fn New2(typeVal: i32) QtC.QNetworkProxy {
         return qtc.QNetworkProxy_new2(@intCast(typeVal));
     }
 
     /// New3 constructs a new QNetworkProxy object.
     ///
-    /// ``` other: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QNetworkProxy `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QNetworkProxy {
         return qtc.QNetworkProxy_new3(@ptrCast(other));
     }
 
     /// New4 constructs a new QNetworkProxy object.
     ///
-    /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qnetworkproxy_enums.ProxyType `
+    ///
+    /// ` hostName: []const u8 `
+    ///
     pub fn New4(typeVal: i32, hostName: []const u8) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
@@ -286,7 +419,14 @@ pub const qnetworkproxy = struct {
 
     /// New5 constructs a new QNetworkProxy object.
     ///
-    /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qnetworkproxy_enums.ProxyType `
+    ///
+    /// ` hostName: []const u8 `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn New5(typeVal: i32, hostName: []const u8, port: u16) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
@@ -298,7 +438,16 @@ pub const qnetworkproxy = struct {
 
     /// New6 constructs a new QNetworkProxy object.
     ///
-    /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16, user: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qnetworkproxy_enums.ProxyType `
+    ///
+    /// ` hostName: []const u8 `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` user: []const u8 `
+    ///
     pub fn New6(typeVal: i32, hostName: []const u8, port: u16, user: []const u8) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
@@ -314,7 +463,18 @@ pub const qnetworkproxy = struct {
 
     /// New7 constructs a new QNetworkProxy object.
     ///
-    /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16, user: []const u8, password: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qnetworkproxy_enums.ProxyType `
+    ///
+    /// ` hostName: []const u8 `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` user: []const u8 `
+    ///
+    /// ` password: []const u8 `
+    ///
     pub fn New7(typeVal: i32, hostName: []const u8, port: u16, user: []const u8, password: []const u8) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
@@ -332,83 +492,134 @@ pub const qnetworkproxy = struct {
         return qtc.QNetworkProxy_new7(@intCast(typeVal), hostName_str, @intCast(port), user_str, password_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-eq)
     ///
-    /// ``` self: QtC.QNetworkProxy, other: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` other: QtC.QNetworkProxy `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkProxy_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#swap)
     ///
-    /// ``` self: QtC.QNetworkProxy, other: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` other: QtC.QNetworkProxy `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkProxy_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QNetworkProxy, other: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` other: QtC.QNetworkProxy `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkProxy_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QNetworkProxy, other: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` other: QtC.QNetworkProxy `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkProxy_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setType)
     ///
-    /// ``` self: QtC.QNetworkProxy, typeVal: qnetworkproxy_enums.ProxyType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` typeVal: qnetworkproxy_enums.ProxyType `
+    ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QNetworkProxy_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#type)
     ///
-    /// ``` self: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnetworkproxy_enums.ProxyType ```
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnetworkproxy_enums.ProxyType `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxy_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setCapabilities)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setCapabilities)
     ///
-    /// ``` self: QtC.QNetworkProxy, capab: flag of qnetworkproxy_enums.Capability ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` capab: flag of qnetworkproxy_enums.Capability `
+    ///
     pub fn SetCapabilities(self: ?*anyopaque, capab: i32) void {
         qtc.QNetworkProxy_SetCapabilities(@ptrCast(self), @intCast(capab));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#capabilities)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#capabilities)
     ///
-    /// ``` self: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnetworkproxy_enums.Capability ```
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnetworkproxy_enums.Capability `
+    ///
     pub fn Capabilities(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxy_Capabilities(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#isCachingProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#isCachingProxy)
     ///
-    /// ``` self: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
     pub fn IsCachingProxy(self: ?*anyopaque) bool {
         return qtc.QNetworkProxy_IsCachingProxy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#isTransparentProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#isTransparentProxy)
     ///
-    /// ``` self: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
     pub fn IsTransparentProxy(self: ?*anyopaque) bool {
         return qtc.QNetworkProxy_IsTransparentProxy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setUser)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setUser)
     ///
-    /// ``` self: QtC.QNetworkProxy, userName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` userName: []const u8 `
+    ///
     pub fn SetUser(self: ?*anyopaque, userName: []const u8) void {
         const userName_str = qtc.libqt_string{
             .len = userName.len,
@@ -417,9 +628,14 @@ pub const qnetworkproxy = struct {
         qtc.QNetworkProxy_SetUser(@ptrCast(self), userName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#user)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#user)
     ///
-    /// ``` self: QtC.QNetworkProxy, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkProxy_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -428,9 +644,14 @@ pub const qnetworkproxy = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setPassword)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setPassword)
     ///
-    /// ``` self: QtC.QNetworkProxy, password: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` password: []const u8 `
+    ///
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
         const password_str = qtc.libqt_string{
             .len = password.len,
@@ -439,9 +660,14 @@ pub const qnetworkproxy = struct {
         qtc.QNetworkProxy_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#password)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#password)
     ///
-    /// ``` self: QtC.QNetworkProxy, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkProxy_Password(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -450,9 +676,14 @@ pub const qnetworkproxy = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setHostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setHostName)
     ///
-    /// ``` self: QtC.QNetworkProxy, hostName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` hostName: []const u8 `
+    ///
     pub fn SetHostName(self: ?*anyopaque, hostName: []const u8) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
@@ -461,9 +692,14 @@ pub const qnetworkproxy = struct {
         qtc.QNetworkProxy_SetHostName(@ptrCast(self), hostName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#hostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#hostName)
     ///
-    /// ``` self: QtC.QNetworkProxy, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkProxy_HostName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -472,65 +708,100 @@ pub const qnetworkproxy = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setPort)
     ///
-    /// ``` self: QtC.QNetworkProxy, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn SetPort(self: ?*anyopaque, port: u16) void {
         qtc.QNetworkProxy_SetPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#port)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#port)
     ///
-    /// ``` self: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
     pub fn Port(self: ?*anyopaque) u16 {
         return qtc.QNetworkProxy_Port(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setApplicationProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setApplicationProxy)
     ///
-    /// ``` proxy: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` proxy: QtC.QNetworkProxy `
+    ///
     pub fn SetApplicationProxy(proxy: ?*anyopaque) void {
         qtc.QNetworkProxy_SetApplicationProxy(@ptrCast(proxy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#applicationProxy)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#applicationProxy)
     ///
     pub fn ApplicationProxy() QtC.QNetworkProxy {
         return qtc.QNetworkProxy_ApplicationProxy();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#headers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#headers)
     ///
-    /// ``` self: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
     pub fn Headers(self: ?*anyopaque) QtC.QHttpHeaders {
         return qtc.QNetworkProxy_Headers(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setHeaders)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setHeaders)
     ///
-    /// ``` self: QtC.QNetworkProxy, newHeaders: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` newHeaders: QtC.QHttpHeaders `
+    ///
     pub fn SetHeaders(self: ?*anyopaque, newHeaders: ?*anyopaque) void {
         qtc.QNetworkProxy_SetHeaders(@ptrCast(self), @ptrCast(newHeaders));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#header)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#header)
     ///
-    /// ``` self: QtC.QNetworkProxy, header: qnetworkrequest_enums.KnownHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` header: qnetworkrequest_enums.KnownHeaders `
+    ///
     pub fn Header(self: ?*anyopaque, header: i32) QtC.QVariant {
         return qtc.QNetworkProxy_Header(@ptrCast(self), @intCast(header));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setHeader)
     ///
-    /// ``` self: QtC.QNetworkProxy, header: qnetworkrequest_enums.KnownHeaders, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` header: qnetworkrequest_enums.KnownHeaders `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetHeader(self: ?*anyopaque, header: i32, value: ?*anyopaque) void {
         qtc.QNetworkProxy_SetHeader(@ptrCast(self), @intCast(header), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#hasRawHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#hasRawHeader)
     ///
-    /// ``` self: QtC.QNetworkProxy, headerName: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` headerName: []u8 `
+    ///
     pub fn HasRawHeader(self: ?*anyopaque, headerName: []u8) bool {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
@@ -539,9 +810,14 @@ pub const qnetworkproxy = struct {
         return qtc.QNetworkProxy_HasRawHeader(@ptrCast(self), headerName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#rawHeaderList)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#rawHeaderList)
     ///
-    /// ``` self: QtC.QNetworkProxy, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RawHeaderList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkProxy_RawHeaderList(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -561,9 +837,16 @@ pub const qnetworkproxy = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#rawHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#rawHeader)
     ///
-    /// ``` self: QtC.QNetworkProxy, headerName: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` headerName: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RawHeader(self: ?*anyopaque, headerName: []u8, allocator: std.mem.Allocator) []u8 {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
@@ -576,9 +859,16 @@ pub const qnetworkproxy = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setRawHeader)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setRawHeader)
     ///
-    /// ``` self: QtC.QNetworkProxy, headerName: []u8, value: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
+    /// ` headerName: []u8 `
+    ///
+    /// ` value: []u8 `
+    ///
     pub fn SetRawHeader(self: ?*anyopaque, headerName: []u8, value: []u8) void {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
@@ -591,28 +881,37 @@ pub const qnetworkproxy = struct {
         qtc.QNetworkProxy_SetRawHeader(@ptrCast(self), headerName_str, value_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#dtor.QNetworkProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#dtor.QNetworkProxy)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QNetworkProxy ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QNetworkProxy `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QNetworkProxy_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qnetworkproxyfactory.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html)
 pub const qnetworkproxyfactory = struct {
     /// New constructs a new QNetworkProxyFactory object.
-    ///
     ///
     pub fn New() QtC.QNetworkProxyFactory {
         return qtc.QNetworkProxyFactory_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
     ///
-    /// ``` self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyFactory `
+    ///
+    /// ` query: QtC.QNetworkProxyQuery `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryProxy(self: ?*anyopaque, query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
         const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_QueryProxy(@ptrCast(self), @ptrCast(query));
         defer qtc.libqt_free(_arr.data);
@@ -622,20 +921,32 @@ pub const qnetworkproxyfactory = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkProxyFactory, callback: *const fn (self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery) callconv(.c) [*:null]QtC.QNetworkProxy ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QNetworkProxyFactory `
+    ///
+    /// ` callback: *const fn (self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery) callconv(.c) [*:null]QtC.QNetworkProxy `
+    ///
     pub fn OnQueryProxy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QNetworkProxy) void {
         qtc.QNetworkProxyFactory_OnQueryProxy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyFactory `
+    ///
+    /// ` query: QtC.QNetworkProxyQuery `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseQueryProxy(self: ?*anyopaque, query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
         const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_QBaseQueryProxy(@ptrCast(self), @ptrCast(query));
         defer qtc.libqt_free(_arr.data);
@@ -645,30 +956,40 @@ pub const qnetworkproxyfactory = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#usesSystemConfiguration)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#usesSystemConfiguration)
     ///
     pub fn UsesSystemConfiguration() bool {
         return qtc.QNetworkProxyFactory_UsesSystemConfiguration();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#setUseSystemConfiguration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#setUseSystemConfiguration)
     ///
-    /// ``` enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetUseSystemConfiguration(enable: bool) void {
         qtc.QNetworkProxyFactory_SetUseSystemConfiguration(enable);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#setApplicationProxyFactory)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#setApplicationProxyFactory)
     ///
-    /// ``` factory: QtC.QNetworkProxyFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` factory: QtC.QNetworkProxyFactory `
+    ///
     pub fn SetApplicationProxyFactory(factory: ?*anyopaque) void {
         qtc.QNetworkProxyFactory_SetApplicationProxyFactory(@ptrCast(factory));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#proxyForQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#proxyForQuery)
     ///
-    /// ``` query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` query: QtC.QNetworkProxyQuery `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProxyForQuery(query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
         const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_ProxyForQuery(@ptrCast(query));
         defer qtc.libqt_free(_arr.data);
@@ -678,9 +999,12 @@ pub const qnetworkproxyfactory = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#systemProxyForQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#systemProxyForQuery)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SystemProxyForQuery(allocator: std.mem.Allocator) []QtC.QNetworkProxy {
         const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_SystemProxyForQuery();
         defer qtc.libqt_free(_arr.data);
@@ -690,16 +1014,26 @@ pub const qnetworkproxyfactory = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#operator-eq)
     ///
-    /// ``` self: QtC.QNetworkProxyFactory, param1: QtC.QNetworkProxyFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkProxyFactory `
+    ///
+    /// ` param1: QtC.QNetworkProxyFactory `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QNetworkProxyFactory_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#systemProxyForQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#systemProxyForQuery)
     ///
-    /// ``` query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` query: QtC.QNetworkProxyQuery `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SystemProxyForQuery1(query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
         const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_SystemProxyForQuery1(@ptrCast(query));
         defer qtc.libqt_free(_arr.data);
@@ -709,17 +1043,20 @@ pub const qnetworkproxyfactory = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#dtor.QNetworkProxyFactory)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#dtor.QNetworkProxyFactory)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QNetworkProxyFactory ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QNetworkProxyFactory `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QNetworkProxyFactory_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qnetworkproxy.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#public-types)
 pub const enums = struct {
     pub const QueryType = enum {
         pub const TcpSocket: i32 = 0;

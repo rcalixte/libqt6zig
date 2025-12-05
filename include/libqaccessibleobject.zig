@@ -4,93 +4,136 @@ const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const std = @import("std");
 pub const struct_qtcqaccessibleinterface_i64 = extern struct { first: QtC.QAccessibleInterface, second: i64 };
 
-/// https://doc.qt.io/qt-6/qaccessibleobject.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html)
 pub const qaccessibleobject = struct {
     /// New constructs a new QAccessibleObject object.
     ///
-    /// ``` object: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` object: QtC.QObject `
+    ///
     pub fn New(object: ?*anyopaque) QtC.QAccessibleObject {
         return qtc.QAccessibleObject_new(@ptrCast(object));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QAccessibleObject_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsValid(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QAccessibleObject_OnIsValid(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseIsValid(self: ?*anyopaque) bool {
         return qtc.QAccessibleObject_QBaseIsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn Object(self: ?*anyopaque) QtC.QObject {
         return qtc.QAccessibleObject_Object(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QAccessibleObject_OnObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseObject(self: ?*anyopaque) QtC.QObject {
         return qtc.QAccessibleObject_QBaseObject(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
         return qtc.QAccessibleObject_Rect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QAccessibleObject_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QAccessibleObject_QBaseRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
-    /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -99,20 +142,32 @@ pub const qaccessibleobject = struct {
         qtc.QAccessibleObject_SetText(@ptrCast(self), @intCast(t), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QAccessibleObject_OnSetText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn QBaseSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -121,161 +176,228 @@ pub const qaccessibleobject = struct {
         qtc.QAccessibleObject_QBaseSetText(@ptrCast(self), @intCast(t), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
-    /// ``` self: QtC.QAccessibleObject, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnChildAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleObject_OnChildAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleObject, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn QBaseChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_QBaseChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#textInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#textInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn TextInterface(self: ?*anyopaque) QtC.QAccessibleTextInterface {
         return qtc.QAccessibleInterface_TextInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#editableTextInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#editableTextInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn EditableTextInterface(self: ?*anyopaque) QtC.QAccessibleEditableTextInterface {
         return qtc.QAccessibleInterface_EditableTextInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#valueInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#valueInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn ValueInterface(self: ?*anyopaque) QtC.QAccessibleValueInterface {
         return qtc.QAccessibleInterface_ValueInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#actionInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#actionInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn ActionInterface(self: ?*anyopaque) QtC.QAccessibleActionInterface {
         return qtc.QAccessibleInterface_ActionInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#imageInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#imageInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn ImageInterface(self: ?*anyopaque) QtC.QAccessibleImageInterface {
         return qtc.QAccessibleInterface_ImageInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn TableInterface(self: ?*anyopaque) QtC.QAccessibleTableInterface {
         return qtc.QAccessibleInterface_TableInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableCellInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableCellInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn TableCellInterface(self: ?*anyopaque) QtC.QAccessibleTableCellInterface {
         return qtc.QAccessibleInterface_TableCellInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#hyperlinkInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#hyperlinkInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn HyperlinkInterface(self: ?*anyopaque) QtC.QAccessibleHyperlinkInterface {
         return qtc.QAccessibleInterface_HyperlinkInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn SelectionInterface(self: ?*anyopaque) QtC.QAccessibleSelectionInterface {
         return qtc.QAccessibleInterface_SelectionInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn AttributesInterface(self: ?*anyopaque) QtC.QAccessibleAttributesInterface {
         return qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn Window(self: ?*anyopaque) QtC.QWindow {
         return qtc.QAccessibleObject_Window(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseWindow(self: ?*anyopaque) QtC.QWindow {
         return qtc.QAccessibleObject_QBaseWindow(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QWindow ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWindow `
+    ///
     pub fn OnWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWindow) void {
         qtc.QAccessibleObject_OnWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
         const _arr: qtc.libqt_list = qtc.QAccessibleObject_Relations(@ptrCast(self), @intCast(match));
         defer {
@@ -294,11 +416,18 @@ pub const qaccessibleobject = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseRelations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
         const _arr: qtc.libqt_list = qtc.QAccessibleObject_QBaseRelations(@ptrCast(self), @intCast(match));
         defer {
@@ -317,187 +446,262 @@ pub const qaccessibleobject = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 `
+    ///
     pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleObject_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#focusChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#focusChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn FocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_FocusChild(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#focusChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#focusChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseFocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_QBaseFocusChild(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#focusChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#focusChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnFocusChild(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleObject_OnFocusChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseParent(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_QBaseParent(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleObject_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn Child(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_Child(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn QBaseChild(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleObject_QBaseChild(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, index: i32) callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, index: i32) callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleObject_OnChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn ChildCount(self: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_ChildCount(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseChildCount(self: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_QBaseChildCount(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnChildCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAccessibleObject_OnChildCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, param1: QtC.QAccessibleInterface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` param1: QtC.QAccessibleInterface `
+    ///
     pub fn IndexOfChild(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_IndexOfChild(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, param1: QtC.QAccessibleInterface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` param1: QtC.QAccessibleInterface `
+    ///
     pub fn QBaseIndexOfChild(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_QBaseIndexOfChild(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, param1: QtC.QAccessibleInterface) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, param1: QtC.QAccessibleInterface) callconv(.c) i32 `
+    ///
     pub fn OnIndexOfChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAccessibleObject_OnIndexOfChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleObject_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
@@ -508,11 +712,18 @@ pub const qaccessibleobject = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleObject_QBaseText(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
@@ -523,380 +734,547 @@ pub const qaccessibleobject = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QAccessibleObject_OnText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qaccessible_base_enums.Role ```
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qaccessible_base_enums.Role `
+    ///
     pub fn Role(self: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_Role(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qaccessible_base_enums.Role ```
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qaccessible_base_enums.Role `
+    ///
     pub fn QBaseRole(self: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_QBaseRole(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnRole(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAccessibleObject_OnRole(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn State(self: ?*anyopaque) QtC.QAccessible__State {
         return qtc.QAccessibleObject_State(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseState(self: ?*anyopaque) QtC.QAccessible__State {
         return qtc.QAccessibleObject_QBaseState(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QAccessible__State ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QAccessible__State `
+    ///
     pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessible__State) void {
         qtc.QAccessibleObject_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn ForegroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleObject_ForegroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseForegroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleObject_QBaseForegroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QColor `
+    ///
     pub fn OnForegroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
         qtc.QAccessibleObject_OnForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleObject_BackgroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
     pub fn QBaseBackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleObject_QBaseBackgroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn () callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QColor `
+    ///
     pub fn OnBackgroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
         qtc.QAccessibleObject_OnBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, id: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.QAccessibleObject_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, id: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.QAccessibleObject_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, id: i32, data: ?*anyopaque) callconv(.c) void `
+    ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAccessibleObject_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` param1: qaccessible_base_enums.InterfaceType `
+    ///
     pub fn InterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleObject_InterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleObject `
+    ///
+    /// ` param1: qaccessible_base_enums.InterfaceType `
+    ///
     pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleObject_QBaseInterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, callback: *const fn (self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleObject`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque `
+    ///
     pub fn OnInterfaceCast(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
         qtc.QAccessibleObject_OnInterfaceCast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };
 
-/// https://doc.qt.io/qt-6/qaccessibleapplication.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html)
 pub const qaccessibleapplication = struct {
     /// New constructs a new QAccessibleApplication object.
-    ///
     ///
     pub fn New() QtC.QAccessibleApplication {
         return qtc.QAccessibleApplication_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#window)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn Window(self: ?*anyopaque) QtC.QWindow {
         return qtc.QAccessibleApplication_Window(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#window)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QWindow ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWindow `
+    ///
     pub fn OnWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWindow) void {
         qtc.QAccessibleApplication_OnWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#window)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseWindow(self: ?*anyopaque) QtC.QWindow {
         return qtc.QAccessibleApplication_QBaseWindow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#childCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#childCount)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn ChildCount(self: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_ChildCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#childCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#childCount)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnChildCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAccessibleApplication_OnChildCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#childCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#childCount)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseChildCount(self: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_QBaseChildCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#indexOfChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#indexOfChild)
     ///
-    /// ``` self: QtC.QAccessibleApplication, param1: QtC.QAccessibleInterface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` param1: QtC.QAccessibleInterface `
+    ///
     pub fn IndexOfChild(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_IndexOfChild(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#indexOfChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#indexOfChild)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, param1: QtC.QAccessibleInterface) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, param1: QtC.QAccessibleInterface) callconv(.c) i32 `
+    ///
     pub fn OnIndexOfChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAccessibleApplication_OnIndexOfChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#indexOfChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#indexOfChild)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication, param1: QtC.QAccessibleInterface ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` param1: QtC.QAccessibleInterface `
+    ///
     pub fn QBaseIndexOfChild(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_QBaseIndexOfChild(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#focusChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#focusChild)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn FocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_FocusChild(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#focusChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#focusChild)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnFocusChild(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleApplication_OnFocusChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#focusChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#focusChild)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseFocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_QBaseFocusChild(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#parent)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_Parent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleApplication_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#parent)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseParent(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_QBaseParent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
     ///
-    /// ``` self: QtC.QAccessibleApplication, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn Child(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_Child(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, index: i32) callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, index: i32) callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleApplication_OnChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn QBaseChild(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_QBaseChild(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
     ///
-    /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleApplication_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
@@ -905,20 +1283,32 @@ pub const qaccessibleapplication = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QAccessibleApplication_OnText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleApplication_QBaseText(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
@@ -927,256 +1317,352 @@ pub const qaccessibleapplication = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qaccessible_base_enums.Role ```
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qaccessible_base_enums.Role `
+    ///
     pub fn Role(self: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_Role(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnRole(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAccessibleApplication_OnRole(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qaccessible_base_enums.Role ```
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qaccessible_base_enums.Role `
+    ///
     pub fn QBaseRole(self: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_QBaseRole(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#state)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn State(self: ?*anyopaque) QtC.QAccessible__State {
         return qtc.QAccessibleApplication_State(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#state)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QAccessible__State ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QAccessible__State `
+    ///
     pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessible__State) void {
         qtc.QAccessibleApplication_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#state)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseState(self: ?*anyopaque) QtC.QAccessible__State {
         return qtc.QAccessibleApplication_QBaseState(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#textInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#textInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn TextInterface(self: ?*anyopaque) QtC.QAccessibleTextInterface {
         return qtc.QAccessibleInterface_TextInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#editableTextInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#editableTextInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn EditableTextInterface(self: ?*anyopaque) QtC.QAccessibleEditableTextInterface {
         return qtc.QAccessibleInterface_EditableTextInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#valueInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#valueInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn ValueInterface(self: ?*anyopaque) QtC.QAccessibleValueInterface {
         return qtc.QAccessibleInterface_ValueInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#actionInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#actionInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn ActionInterface(self: ?*anyopaque) QtC.QAccessibleActionInterface {
         return qtc.QAccessibleInterface_ActionInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#imageInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#imageInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn ImageInterface(self: ?*anyopaque) QtC.QAccessibleImageInterface {
         return qtc.QAccessibleInterface_ImageInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn TableInterface(self: ?*anyopaque) QtC.QAccessibleTableInterface {
         return qtc.QAccessibleInterface_TableInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableCellInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableCellInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn TableCellInterface(self: ?*anyopaque) QtC.QAccessibleTableCellInterface {
         return qtc.QAccessibleInterface_TableCellInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#hyperlinkInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#hyperlinkInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn HyperlinkInterface(self: ?*anyopaque) QtC.QAccessibleHyperlinkInterface {
         return qtc.QAccessibleInterface_HyperlinkInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn SelectionInterface(self: ?*anyopaque) QtC.QAccessibleSelectionInterface {
         return qtc.QAccessibleInterface_SelectionInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn AttributesInterface(self: ?*anyopaque) QtC.QAccessibleAttributesInterface {
         return qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QAccessibleApplication_IsValid(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseIsValid(self: ?*anyopaque) bool {
         return qtc.QAccessibleApplication_QBaseIsValid(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsValid(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QAccessibleApplication_OnIsValid(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn Object(self: ?*anyopaque) QtC.QObject {
         return qtc.QAccessibleApplication_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseObject(self: ?*anyopaque) QtC.QObject {
         return qtc.QAccessibleApplication_QBaseObject(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QAccessibleApplication_OnObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
         return qtc.QAccessibleApplication_Rect(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QAccessibleApplication_QBaseRect(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QAccessibleApplication_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1187,11 +1673,18 @@ pub const qaccessibleapplication = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn QBaseSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1202,55 +1695,86 @@ pub const qaccessibleapplication = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QAccessibleApplication_OnSetText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn QBaseChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleApplication_QBaseChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface `
+    ///
     pub fn OnChildAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleApplication_OnChildAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
         const _arr: qtc.libqt_list = qtc.QAccessibleApplication_Relations(@ptrCast(self), @intCast(match));
         defer {
@@ -1269,11 +1793,18 @@ pub const qaccessibleapplication = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseRelations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
         const _arr: qtc.libqt_list = qtc.QAccessibleApplication_QBaseRelations(@ptrCast(self), @intCast(match));
         defer {
@@ -1292,152 +1823,216 @@ pub const qaccessibleapplication = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 `
+    ///
     pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleApplication_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn ForegroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleApplication_ForegroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseForegroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleApplication_QBaseForegroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QColor `
+    ///
     pub fn OnForegroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
         qtc.QAccessibleApplication_OnForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleApplication_BackgroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QBaseBackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleApplication_QBaseBackgroundColor(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn () callconv(.c) QtC.QColor ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QColor `
+    ///
     pub fn OnBackgroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
         qtc.QAccessibleApplication_OnBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, id: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.QAccessibleApplication_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, id: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.QAccessibleApplication_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, id: i32, data: ?*anyopaque) callconv(.c) void `
+    ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAccessibleApplication_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` param1: qaccessible_base_enums.InterfaceType `
+    ///
     pub fn InterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleApplication_InterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
+    /// ` param1: qaccessible_base_enums.InterfaceType `
+    ///
     pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleApplication_QBaseInterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, callback: *const fn (self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAccessibleApplication`
+    ///
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque `
+    ///
     pub fn OnInterfaceCast(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
         qtc.QAccessibleApplication_OnInterfaceCast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#dtor.QAccessibleApplication)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#dtor.QAccessibleApplication)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAccessibleApplication ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAccessibleApplication `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAccessibleApplication_Delete(@ptrCast(self));
     }

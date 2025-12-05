@@ -7,10 +7,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qtcpsocket.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html)
 pub const qtcpsocket = struct {
     /// New constructs a new QTcpSocket object.
-    ///
     ///
     pub fn New() QtC.QTcpSocket {
         return qtc.QTcpSocket_new();
@@ -18,46 +17,85 @@ pub const qtcpsocket = struct {
 
     /// New2 constructs a new QTcpSocket object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QTcpSocket {
         return qtc.QTcpSocket_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QTcpSocket_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QTcpSocket, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTcpSocket_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QTcpSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTcpSocket_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QTcpSocket_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QTcpSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTcpSocket_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -67,16 +105,28 @@ pub const qtcpsocket = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
     ///
-    /// ``` self: QtC.QTcpSocket, addr: qhostaddress_enums.SpecialAddress ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` addr: qhostaddress_enums.SpecialAddress `
+    ///
     pub fn Bind(self: ?*anyopaque, addr: i32) bool {
         return qtc.QTcpSocket_Bind(@ptrCast(self), @intCast(addr));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -87,9 +137,18 @@ pub const qtcpsocket = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -100,99 +159,152 @@ pub const qtcpsocket = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
     ///
-    /// ``` self: QtC.QTcpSocket, addr: qhostaddress_enums.SpecialAddress, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` addr: qhostaddress_enums.SpecialAddress `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn Bind2(self: ?*anyopaque, addr: i32, port: u16) bool {
         return qtc.QTcpSocket_Bind2(@ptrCast(self), @intCast(addr), @intCast(port));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
     ///
-    /// ``` self: QtC.QTcpSocket, addr: qhostaddress_enums.SpecialAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` addr: qhostaddress_enums.SpecialAddress `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` mode: flag of qabstractsocket_enums.BindFlag `
+    ///
     pub fn Bind3(self: ?*anyopaque, addr: i32, port: u16, mode: i32) bool {
         return qtc.QTcpSocket_Bind3(@ptrCast(self), @intCast(addr), @intCast(port), @intCast(mode));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qabstractsocket_enums.PauseMode ```
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qabstractsocket_enums.PauseMode `
+    ///
     pub fn PauseMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_PauseMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
     ///
-    /// ``` self: QtC.QTcpSocket, pauseMode: flag of qabstractsocket_enums.PauseMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` pauseMode: flag of qabstractsocket_enums.PauseMode `
+    ///
     pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i32) void {
         qtc.QAbstractSocket_SetPauseMode(@ptrCast(self), @intCast(pauseMode));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
-    /// ``` self: QtC.QTcpSocket, address: QtC.QHostAddress, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn ConnectToHost2(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
         qtc.QAbstractSocket_ConnectToHost2(@ptrCast(self), @ptrCast(address), @intCast(port));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isValid)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QAbstractSocket_IsValid(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localPort)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn LocalPort(self: ?*anyopaque) u16 {
         return qtc.QAbstractSocket_LocalPort(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localAddress)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn LocalAddress(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QAbstractSocket_LocalAddress(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerPort)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn PeerPort(self: ?*anyopaque) u16 {
         return qtc.QAbstractSocket_PeerPort(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerAddress)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn PeerAddress(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QAbstractSocket_PeerAddress(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerName)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PeerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSocket_PeerName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -203,87 +315,124 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readBufferSize)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn ReadBufferSize(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_ReadBufferSize(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#abort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#abort)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Abort(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Abort(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractsocket_enums.SocketType ```
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractsocket_enums.SocketType `
+    ///
     pub fn SocketType(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_SocketType(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#state)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractsocket_enums.SocketState ```
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractsocket_enums.SocketState `
+    ///
     pub fn State(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_State(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#error)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#error)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractsocket_enums.SocketError ```
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractsocket_enums.SocketError `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_Error(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#flush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#flush)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Flush(self: ?*anyopaque) bool {
         return qtc.QAbstractSocket_Flush(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProxy)
     ///
-    /// ``` self: QtC.QTcpSocket, networkProxy: QtC.QNetworkProxy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` networkProxy: QtC.QNetworkProxy `
+    ///
     pub fn SetProxy(self: ?*anyopaque, networkProxy: ?*anyopaque) void {
         qtc.QAbstractSocket_SetProxy(@ptrCast(self), @ptrCast(networkProxy));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxy)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Proxy(self: ?*anyopaque) QtC.QNetworkProxy {
         return qtc.QAbstractSocket_Proxy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#protocolTag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#protocolTag)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSocket_ProtocolTag(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -294,9 +443,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProtocolTag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProtocolTag)
     ///
-    /// ``` self: QtC.QTcpSocket, tag: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` tag: []const u8 `
+    ///
     pub fn SetProtocolTag(self: ?*anyopaque, tag: []const u8) void {
         const tag_str = qtc.libqt_string{
             .len = tag.len,
@@ -307,254 +461,382 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn HostFound(self: ?*anyopaque) void {
         qtc.QAbstractSocket_HostFound(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnHostFound(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_HostFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Connected(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Connected(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_Connected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Disconnected(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Disconnected(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_Disconnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
-    /// ``` self: QtC.QTcpSocket, param1: qabstractsocket_enums.SocketState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` param1: qabstractsocket_enums.SocketState `
+    ///
     pub fn StateChanged(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractSocket_StateChanged(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketparam1: qabstractsocket_enums.SocketState) callconv(.c) void `
+    ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
-    /// ``` self: QtC.QTcpSocket, param1: qabstractsocket_enums.SocketError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` param1: qabstractsocket_enums.SocketError `
+    ///
     pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractSocket_ErrorOccurred(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketparam1: qabstractsocket_enums.SocketError) callconv(.c) void `
+    ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
     ///
-    /// ``` self: QtC.QTcpSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` proxy: QtC.QNetworkProxy `
+    ///
+    /// ` authenticator: QtC.QAuthenticator `
+    ///
     pub fn ProxyAuthenticationRequired(self: ?*anyopaque, proxy: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QAbstractSocket_ProxyAuthenticationRequired(@ptrCast(self), @ptrCast(proxy), @ptrCast(authenticator));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketproxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    ///
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
-    /// ``` self: QtC.QTcpSocket, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn Bind1(self: ?*anyopaque, port: u16) bool {
         return qtc.QAbstractSocket_Bind1(@ptrCast(self), @intCast(port));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
-    /// ``` self: QtC.QTcpSocket, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` mode: flag of qabstractsocket_enums.BindFlag `
+    ///
     pub fn Bind22(self: ?*anyopaque, port: u16, mode: i32) bool {
         return qtc.QAbstractSocket_Bind22(@ptrCast(self), @intCast(port), @intCast(mode));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
-    /// ``` self: QtC.QTcpSocket, address: QtC.QHostAddress, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) void {
         qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self), @ptrCast(address), @intCast(port), @intCast(mode));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
-    /// ``` self: QtC.QTcpSocket, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsOpen(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsOpen(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsReadable(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsReadable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsWritable(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsWritable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
         return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
         return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
         return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
-    /// ``` self: QtC.QTcpSocket, channel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` channel: i32 `
+    ///
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @intCast(channel));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
         return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
-    /// ``` self: QtC.QTcpSocket, channel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` channel: i32 `
+    ///
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @intCast(channel));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -562,9 +844,16 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
-    /// ``` self: QtC.QTcpSocket, maxlen: i64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` maxlen: i64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
@@ -575,9 +864,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -588,9 +882,16 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -598,9 +899,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -611,45 +917,64 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn StartTransaction(self: ?*anyopaque) void {
         qtc.QIODevice_StartTransaction(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn CommitTransaction(self: ?*anyopaque) void {
         qtc.QIODevice_CommitTransaction(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn RollbackTransaction(self: ?*anyopaque) void {
         qtc.QIODevice_RollbackTransaction(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
-    /// ``` self: QtC.QTcpSocket, data: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @intCast(lenVal));
@@ -657,9 +982,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
-    /// ``` self: QtC.QTcpSocket, data: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []const u8 `
+    ///
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
@@ -667,9 +997,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -680,9 +1015,16 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -690,9 +1032,16 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
-    /// ``` self: QtC.QTcpSocket, maxlen: i64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` maxlen: i64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
@@ -703,36 +1052,56 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
-    /// ``` self: QtC.QTcpSocket, maxSize: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` maxSize: i64 `
+    ///
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.QIODevice_Skip(@ptrCast(self), @intCast(maxSize));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
-    /// ``` self: QtC.QTcpSocket, c: u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` c: u8 `
+    ///
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self), @intCast(c));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
-    /// ``` self: QtC.QTcpSocket, c: u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` c: u8 `
+    ///
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self), @intCast(c));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
-    /// ``` self: QtC.QTcpSocket, c: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` c: []u8 `
+    ///
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
@@ -740,9 +1109,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QIODevice_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -753,117 +1127,180 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn ReadyRead(self: ?*anyopaque) void {
         qtc.QIODevice_ReadyRead(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.QTcpSocket, channel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` channel: i32 `
+    ///
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
         qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @intCast(channel));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, channel: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketchannel: i32) callconv(.c) void `
+    ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.QTcpSocket, bytes: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` bytes: i64 `
+    ///
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
         qtc.QIODevice_BytesWritten(@ptrCast(self), @intCast(bytes));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, bytes: i64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketbytes: i64) callconv(.c) void `
+    ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.QTcpSocket, channel: i32, bytes: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` channel: i32 `
+    ///
+    /// ` bytes: i64 `
+    ///
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
         qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @intCast(channel), @intCast(bytes));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, channel: i32, bytes: i64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketchannel: i32, bytes: i64) callconv(.c) void `
+    ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn AboutToClose(self: ?*anyopaque) void {
         qtc.QIODevice_AboutToClose(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
         qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.QTcpSocket, maxlen: i64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` maxlen: i64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
@@ -874,9 +1311,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -887,9 +1329,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QTcpSocket, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -900,99 +1347,144 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QTcpSocket, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QTcpSocket, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QTcpSocket, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QTcpSocket, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QTcpSocket, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1004,45 +1496,78 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QTcpSocket, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QTcpSocket, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QTcpSocket, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QTcpSocket, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1051,45 +1576,70 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QTcpSocket, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1097,9 +1647,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QTcpSocket, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1107,9 +1662,14 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QTcpSocket, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1131,54 +1691,76 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QTcpSocket, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1186,45 +1768,84 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QTcpSocket, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QTcpSocket, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QTcpSocket, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1233,62 +1854,94 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTcpSocket, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QTcpSocket_Resume(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseResume(self: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseResume(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnResume(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QTcpSocket_OnResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` hostName: []const u8 `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
+    /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
+    ///
     pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
@@ -1299,11 +1952,22 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` hostName: []const u8 `
+    ///
+    /// ` port: u16 `
+    ///
+    /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
+    /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
+    ///
     pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
@@ -1314,484 +1978,694 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, hostName: [*:0]const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, hostName: [*:0]const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void `
+    ///
     pub fn OnConnectToHost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u16, i32, i32) callconv(.c) void) void {
         qtc.QTcpSocket_OnConnectToHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn DisconnectFromHost(self: ?*anyopaque) void {
         qtc.QTcpSocket_DisconnectFromHost(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseDisconnectFromHost(self: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseDisconnectFromHost(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnDisconnectFromHost(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QTcpSocket_OnDisconnectFromHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn BytesAvailable(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_BytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_QBaseBytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.QTcpSocket_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn BytesToWrite(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_BytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_QBaseBytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.QTcpSocket_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, size: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` size: i64 `
+    ///
     pub fn SetReadBufferSize(self: ?*anyopaque, size: i64) void {
         qtc.QTcpSocket_SetReadBufferSize(@ptrCast(self), @intCast(size));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, size: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` size: i64 `
+    ///
     pub fn QBaseSetReadBufferSize(self: ?*anyopaque, size: i64) void {
         qtc.QTcpSocket_QBaseSetReadBufferSize(@ptrCast(self), @intCast(size));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, size: i64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, size: i64) callconv(.c) void `
+    ///
     pub fn OnSetReadBufferSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetReadBufferSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn SocketDescriptor(self: ?*anyopaque) isize {
         return qtc.QTcpSocket_SocketDescriptor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseSocketDescriptor(self: ?*anyopaque) isize {
         return qtc.QTcpSocket_QBaseSocketDescriptor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) isize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) isize `
+    ///
     pub fn OnSocketDescriptor(self: ?*anyopaque, callback: *const fn () callconv(.c) isize) void {
         qtc.QTcpSocket_OnSocketDescriptor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` socketDescriptor: isize `
+    ///
+    /// ` state: qabstractsocket_enums.SocketState `
+    ///
+    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
         return qtc.QTcpSocket_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` socketDescriptor: isize `
+    ///
+    /// ` state: qabstractsocket_enums.SocketState `
+    ///
+    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn QBaseSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
         return qtc.QTcpSocket_QBaseSetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    ///
     pub fn OnSetSocketDescriptor(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, i32, i32) callconv(.c) bool) void {
         qtc.QTcpSocket_OnSetSocketDescriptor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` option: qabstractsocket_enums.SocketOption `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QTcpSocket_SetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` option: qabstractsocket_enums.SocketOption `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn QBaseSetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseSetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant) callconv(.c) void `
+    ///
     pub fn OnSetSocketOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetSocketOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` option: qabstractsocket_enums.SocketOption `
+    ///
     pub fn SocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QTcpSocket_SocketOption(@ptrCast(self), @intCast(option));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` option: qabstractsocket_enums.SocketOption `
+    ///
     pub fn QBaseSocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QTcpSocket_QBaseSocketOption(@ptrCast(self), @intCast(option));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QtC.QVariant ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QtC.QVariant `
+    ///
     pub fn OnSocketOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QTcpSocket_OnSocketOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Close(self: ?*anyopaque) void {
         qtc.QTcpSocket_Close(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseClose(self: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseClose(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QTcpSocket_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn IsSequential(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_IsSequential(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseIsSequential(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_QBaseIsSequential(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QTcpSocket_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn WaitForConnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_WaitForConnected(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn QBaseWaitForConnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_QBaseWaitForConnected(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool `
+    ///
     pub fn OnWaitForConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QTcpSocket_OnWaitForConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_WaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_QBaseWaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool `
+    ///
     pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QTcpSocket_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_WaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_QBaseWaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool `
+    ///
     pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QTcpSocket_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn WaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_WaitForDisconnected(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn QBaseWaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QTcpSocket_QBaseWaitForDisconnected(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, msecs: i32) callconv(.c) bool `
+    ///
     pub fn OnWaitForDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QTcpSocket_OnWaitForDisconnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn ReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTcpSocket_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1799,11 +2673,18 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn QBaseReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTcpSocket_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1811,22 +2692,34 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, data: [*:0]u8, maxlen: i64) callconv(.c) i64 `
+    ///
     pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.QTcpSocket_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn ReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTcpSocket_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1834,11 +2727,18 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn QBaseReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTcpSocket_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1846,55 +2746,82 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, data: [*:0]u8, maxlen: i64) callconv(.c) i64 `
+    ///
     pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.QTcpSocket_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, maxSize: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` maxSize: i64 `
+    ///
     pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.QTcpSocket_SkipData(@ptrCast(self), @intCast(maxSize));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, maxSize: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` maxSize: i64 `
+    ///
     pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.QTcpSocket_QBaseSkipData(@ptrCast(self), @intCast(maxSize));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, maxSize: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, maxSize: i64) callconv(.c) i64 `
+    ///
     pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
         qtc.QTcpSocket_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, data: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn WriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTcpSocket_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
@@ -1902,11 +2829,18 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, data: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn QBaseWriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTcpSocket_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
@@ -1914,682 +2848,976 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    ///
     pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QTcpSocket_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
         return qtc.QTcpSocket_Open(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
         return qtc.QTcpSocket_QBaseOpen(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QTcpSocket_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Pos(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_Pos(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBasePos(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_QBasePos(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.QTcpSocket_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Size(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_Size(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseSize(self: ?*anyopaque) i64 {
         return qtc.QTcpSocket_QBaseSize(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.QTcpSocket_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, pos: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` pos: i64 `
+    ///
     pub fn Seek(self: ?*anyopaque, pos: i64) bool {
         return qtc.QTcpSocket_Seek(@ptrCast(self), @intCast(pos));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, pos: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` pos: i64 `
+    ///
     pub fn QBaseSeek(self: ?*anyopaque, pos: i64) bool {
         return qtc.QTcpSocket_QBaseSeek(@ptrCast(self), @intCast(pos));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, pos: i64) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, pos: i64) callconv(.c) bool `
+    ///
     pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
         qtc.QTcpSocket_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_AtEnd(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseAtEnd(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_QBaseAtEnd(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QTcpSocket_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Reset(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_Reset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseReset(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_QBaseReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QTcpSocket_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn CanReadLine(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_CanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
         return qtc.QTcpSocket_QBaseCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QTcpSocket_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QTcpSocket_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QTcpSocket_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QTcpSocket_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QTcpSocket_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QTcpSocket_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QTcpSocket_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTcpSocket_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTcpSocket_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTcpSocket_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QTcpSocket_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QTcpSocket_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, state: qabstractsocket_enums.SocketState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` state: qabstractsocket_enums.SocketState `
+    ///
     pub fn SetSocketState(self: ?*anyopaque, state: i32) void {
         qtc.QTcpSocket_SetSocketState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, state: qabstractsocket_enums.SocketState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` state: qabstractsocket_enums.SocketState `
+    ///
     pub fn QBaseSetSocketState(self: ?*anyopaque, state: i32) void {
         qtc.QTcpSocket_QBaseSetSocketState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void `
+    ///
     pub fn OnSetSocketState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetSocketState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, socketError: qabstractsocket_enums.SocketError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` socketError: qabstractsocket_enums.SocketError `
+    ///
     pub fn SetSocketError(self: ?*anyopaque, socketError: i32) void {
         qtc.QTcpSocket_SetSocketError(@ptrCast(self), @intCast(socketError));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, socketError: qabstractsocket_enums.SocketError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` socketError: qabstractsocket_enums.SocketError `
+    ///
     pub fn QBaseSetSocketError(self: ?*anyopaque, socketError: i32) void {
         qtc.QTcpSocket_QBaseSetSocketError(@ptrCast(self), @intCast(socketError));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
+    ///
     pub fn OnSetSocketError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetSocketError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn SetLocalPort(self: ?*anyopaque, port: u16) void {
         qtc.QTcpSocket_SetLocalPort(@ptrCast(self), @intCast(port));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn QBaseSetLocalPort(self: ?*anyopaque, port: u16) void {
         qtc.QTcpSocket_QBaseSetLocalPort(@ptrCast(self), @intCast(port));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, port: u16) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, port: u16) callconv(.c) void `
+    ///
     pub fn OnSetLocalPort(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetLocalPort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, address: QtC.QHostAddress ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
     pub fn SetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
         qtc.QTcpSocket_SetLocalAddress(@ptrCast(self), @ptrCast(address));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, address: QtC.QHostAddress ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
     pub fn QBaseSetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseSetLocalAddress(@ptrCast(self), @ptrCast(address));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, address: QtC.QHostAddress) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, address: QtC.QHostAddress) callconv(.c) void `
+    ///
     pub fn OnSetLocalAddress(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetLocalAddress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn SetPeerPort(self: ?*anyopaque, port: u16) void {
         qtc.QTcpSocket_SetPeerPort(@ptrCast(self), @intCast(port));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, port: u16 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` port: u16 `
+    ///
     pub fn QBaseSetPeerPort(self: ?*anyopaque, port: u16) void {
         qtc.QTcpSocket_QBaseSetPeerPort(@ptrCast(self), @intCast(port));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, port: u16) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, port: u16) callconv(.c) void `
+    ///
     pub fn OnSetPeerPort(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetPeerPort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, address: QtC.QHostAddress ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
     pub fn SetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
         qtc.QTcpSocket_SetPeerAddress(@ptrCast(self), @ptrCast(address));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, address: QtC.QHostAddress ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` address: QtC.QHostAddress `
+    ///
     pub fn QBaseSetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
         qtc.QTcpSocket_QBaseSetPeerAddress(@ptrCast(self), @ptrCast(address));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, address: QtC.QHostAddress) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, address: QtC.QHostAddress) callconv(.c) void `
+    ///
     pub fn OnSetPeerAddress(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetPeerAddress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetPeerName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2600,11 +3828,16 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn QBaseSetPeerName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2615,55 +3848,80 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, name: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, name: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetPeerName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetPeerName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QTcpSocket_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QTcpSocket_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    ///
     pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, errorString: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` errorString: []const u8 `
+    ///
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -2674,11 +3932,16 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, errorString: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` errorString: []const u8 `
+    ///
     pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -2689,88 +3952,120 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, errorString: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, errorString: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QTcpSocket_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QTcpSocket_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QTcpSocket_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QTcpSocket_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QTcpSocket_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QTcpSocket_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QTcpSocket_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTcpSocket_Receivers(@ptrCast(self), signal_Cstring);
@@ -2778,11 +4073,16 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTcpSocket_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2790,64 +4090,92 @@ pub const qtcpsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTcpSocket_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QTcpSocket_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QTcpSocket_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket`
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocket, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QTcpSocket_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTcpSocket, callback: *const fn (self: QtC.QTcpSocket, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
+    /// ` callback: *const fn (self: QtC.QTcpSocketobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#dtor.QTcpSocket)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#dtor.QTcpSocket)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QTcpSocket ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QTcpSocket `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QTcpSocket_Delete(@ptrCast(self));
     }

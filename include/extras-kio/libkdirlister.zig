@@ -5,10 +5,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kdirlister.html
+/// ### [Upstream resources](https://api.kde.org/kdirlister.html)
 pub const kdirlister = struct {
     /// New constructs a new KDirLister object.
-    ///
     ///
     pub fn New() QtC.KDirLister {
         return qtc.KDirLister_new();
@@ -16,46 +15,85 @@ pub const kdirlister = struct {
 
     /// New2 constructs a new KDirLister object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.KDirLister {
         return qtc.KDirLister_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KDirLister_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KDirLister, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDirLister_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KDirLister_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KDirLister_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KDirLister_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -65,55 +103,88 @@ pub const kdirlister = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kdirlister.html#autoErrorHandlingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kdirlister.html#autoErrorHandlingEnabled)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn AutoErrorHandlingEnabled(self: ?*anyopaque) bool {
         return qtc.KDirLister_AutoErrorHandlingEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdirlister.html#setMainWindow)
+    /// ### [Upstream resources](https://api.kde.org/kdirlister.html#setMainWindow)
     ///
-    /// ``` self: QtC.KDirLister, window: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` window: QtC.QWidget `
+    ///
     pub fn SetMainWindow(self: ?*anyopaque, window: ?*anyopaque) void {
         qtc.KDirLister_SetMainWindow(@ptrCast(self), @ptrCast(window));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdirlister.html#mainWindow)
+    /// ### [Upstream resources](https://api.kde.org/kdirlister.html#mainWindow)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn MainWindow(self: ?*anyopaque) QtC.QWidget {
         return qtc.KDirLister_MainWindow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdirlister.html#jobStarted)
+    /// ### [Upstream resources](https://api.kde.org/kdirlister.html#jobStarted)
     ///
-    /// ``` self: QtC.KDirLister, param1: QtC.KIO__ListJob ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` param1: QtC.KIO__ListJob `
+    ///
     pub fn JobStarted(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KDirLister_JobStarted(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdirlister.html#jobStarted)
+    /// ### [Upstream resources](https://api.kde.org/kdirlister.html#jobStarted)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, param1: QtC.KIO__ListJob) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, param1: QtC.KIO__ListJob) callconv(.c) void `
+    ///
     pub fn OnJobStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirLister_OnJobStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdirlister.html#jobStarted)
+    /// ### [Upstream resources](https://api.kde.org/kdirlister.html#jobStarted)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KDirLister, param1: QtC.KIO__ListJob ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` param1: QtC.KIO__ListJob `
+    ///
     pub fn QBaseJobStarted(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KDirLister_QBaseJobStarted(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -124,9 +195,18 @@ pub const kdirlister = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -139,144 +219,210 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#openUrl)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#openUrl)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn OpenUrl(self: ?*anyopaque, dirUrl: ?*anyopaque) bool {
         return qtc.KCoreDirLister_OpenUrl(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#stop)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#stop)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Stop(self: ?*anyopaque) void {
         qtc.KCoreDirLister_Stop(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#stop)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#stop)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn Stop2(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_Stop2(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#forgetDirs)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#forgetDirs)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn ForgetDirs(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_ForgetDirs(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#delayedMimeTypes)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#delayedMimeTypes)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn DelayedMimeTypes(self: ?*anyopaque) bool {
         return qtc.KCoreDirLister_DelayedMimeTypes(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setDelayedMimeTypes)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setDelayedMimeTypes)
     ///
-    /// ``` self: QtC.KDirLister, delayedMimeTypes: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` delayedMimeTypes: bool `
+    ///
     pub fn SetDelayedMimeTypes(self: ?*anyopaque, delayedMimeTypes: bool) void {
         qtc.KCoreDirLister_SetDelayedMimeTypes(@ptrCast(self), delayedMimeTypes);
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#autoUpdate)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#autoUpdate)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn AutoUpdate(self: ?*anyopaque) bool {
         return qtc.KCoreDirLister_AutoUpdate(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setAutoUpdate)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setAutoUpdate)
     ///
-    /// ``` self: QtC.KDirLister, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetAutoUpdate(self: ?*anyopaque, enable: bool) void {
         qtc.KCoreDirLister_SetAutoUpdate(@ptrCast(self), enable);
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#showHiddenFiles)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#showHiddenFiles)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn ShowHiddenFiles(self: ?*anyopaque) bool {
         return qtc.KCoreDirLister_ShowHiddenFiles(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setShowHiddenFiles)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setShowHiddenFiles)
     ///
-    /// ``` self: QtC.KDirLister, showHiddenFiles: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` showHiddenFiles: bool `
+    ///
     pub fn SetShowHiddenFiles(self: ?*anyopaque, showHiddenFiles: bool) void {
         qtc.KCoreDirLister_SetShowHiddenFiles(@ptrCast(self), showHiddenFiles);
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#dirOnlyMode)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#dirOnlyMode)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn DirOnlyMode(self: ?*anyopaque) bool {
         return qtc.KCoreDirLister_DirOnlyMode(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setDirOnlyMode)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setDirOnlyMode)
     ///
-    /// ``` self: QtC.KDirLister, dirsOnly: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirsOnly: bool `
+    ///
     pub fn SetDirOnlyMode(self: ?*anyopaque, dirsOnly: bool) void {
         qtc.KCoreDirLister_SetDirOnlyMode(@ptrCast(self), dirsOnly);
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#requestMimeTypeWhileListing)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#requestMimeTypeWhileListing)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn RequestMimeTypeWhileListing(self: ?*anyopaque) bool {
         return qtc.KCoreDirLister_RequestMimeTypeWhileListing(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setRequestMimeTypeWhileListing)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setRequestMimeTypeWhileListing)
     ///
-    /// ``` self: QtC.KDirLister, request: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` request: bool `
+    ///
     pub fn SetRequestMimeTypeWhileListing(self: ?*anyopaque, request: bool) void {
         qtc.KCoreDirLister_SetRequestMimeTypeWhileListing(@ptrCast(self), request);
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#url)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#url)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KCoreDirLister_Url(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#directories)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#directories)
     ///
-    /// ``` self: QtC.KDirLister, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Directories(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
         const _arr: qtc.libqt_list = qtc.KCoreDirLister_Directories(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -288,54 +434,78 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#emitChanges)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#emitChanges)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn EmitChanges(self: ?*anyopaque) void {
         qtc.KCoreDirLister_EmitChanges(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#updateDirectory)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#updateDirectory)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn UpdateDirectory(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_UpdateDirectory(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#isFinished)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#isFinished)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn IsFinished(self: ?*anyopaque) bool {
         return qtc.KCoreDirLister_IsFinished(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#rootItem)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#rootItem)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn RootItem(self: ?*anyopaque) QtC.KFileItem {
         return qtc.KCoreDirLister_RootItem(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#findByUrl)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#findByUrl)
     ///
-    /// ``` self: QtC.KDirLister, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn FindByUrl(self: ?*anyopaque, url: ?*anyopaque) QtC.KFileItem {
         return qtc.KCoreDirLister_FindByUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#findByName)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#findByName)
     ///
-    /// ``` self: QtC.KDirLister, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn FindByName(self: ?*anyopaque, name: []const u8) QtC.KFileItem {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -346,9 +516,14 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setNameFilter)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setNameFilter)
     ///
-    /// ``` self: QtC.KDirLister, filter: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` filter: []const u8 `
+    ///
     pub fn SetNameFilter(self: ?*anyopaque, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
@@ -359,9 +534,14 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#nameFilter)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#nameFilter)
     ///
-    /// ``` self: QtC.KDirLister, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NameFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KCoreDirLister_NameFilter(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -372,9 +552,16 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setMimeFilter)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setMimeFilter)
     ///
-    /// ``` self: QtC.KDirLister, mimeList: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` mimeList: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetMimeFilter(self: ?*anyopaque, mimeList: [][]const u8, allocator: std.mem.Allocator) void {
         var mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
@@ -393,9 +580,16 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setMimeExcludeFilter)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setMimeExcludeFilter)
     ///
-    /// ``` self: QtC.KDirLister, mimeList: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` mimeList: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetMimeExcludeFilter(self: ?*anyopaque, mimeList: [][]const u8, allocator: std.mem.Allocator) void {
         var mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeExcludeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
@@ -414,18 +608,26 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#clearMimeFilter)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clearMimeFilter)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn ClearMimeFilter(self: ?*anyopaque) void {
         qtc.KCoreDirLister_ClearMimeFilter(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#mimeFilters)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#mimeFilters)
     ///
-    /// ``` self: QtC.KDirLister, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MimeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KCoreDirLister_MimeFilters(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -447,261 +649,400 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#items)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#items)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Items(self: ?*anyopaque) QtC.KFileItemList {
         return qtc.KCoreDirLister_Items(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsForDir)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsForDir)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn ItemsForDir(self: ?*anyopaque, dirUrl: ?*anyopaque) QtC.KFileItemList {
         return qtc.KCoreDirLister_ItemsForDir(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#cachedItemForUrl)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#cachedItemForUrl)
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn CachedItemForUrl(url: ?*anyopaque) QtC.KFileItem {
         return qtc.KCoreDirLister_CachedItemForUrl(@ptrCast(url));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#setAutoErrorHandlingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setAutoErrorHandlingEnabled)
     ///
-    /// ``` self: QtC.KDirLister, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetAutoErrorHandlingEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KCoreDirLister_SetAutoErrorHandlingEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#started)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#started)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn Started(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_Started(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#started)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#started)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#completed)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#completed)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Completed(self: ?*anyopaque) void {
         qtc.KCoreDirLister_Completed(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#completed)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#completed)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister) callconv(.c) void `
+    ///
     pub fn OnCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Completed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCompleted)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCompleted)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn ListingDirCompleted(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_ListingDirCompleted(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCompleted)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCompleted)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnListingDirCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ListingDirCompleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#canceled)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#canceled)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Canceled(self: ?*anyopaque) void {
         qtc.KCoreDirLister_Canceled(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#canceled)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#canceled)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister) callconv(.c) void `
+    ///
     pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCanceled)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCanceled)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn ListingDirCanceled(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_ListingDirCanceled(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCanceled)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCanceled)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnListingDirCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ListingDirCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#redirection)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#redirection)
     ///
-    /// ``` self: QtC.KDirLister, oldUrl: QtC.QUrl, newUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` oldUrl: QtC.QUrl `
+    ///
+    /// ` newUrl: QtC.QUrl `
+    ///
     pub fn Redirection(self: ?*anyopaque, oldUrl: ?*anyopaque, newUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_Redirection(@ptrCast(self), @ptrCast(oldUrl), @ptrCast(newUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#redirection)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#redirection)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, oldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListeroldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Redirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#clear)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clear)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KCoreDirLister_Clear(@ptrCast(self));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#clear)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clear)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister) callconv(.c) void `
+    ///
     pub fn OnClear(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Clear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#clearDir)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clearDir)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
     pub fn ClearDir(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
         qtc.KCoreDirLister_ClearDir(@ptrCast(self), @ptrCast(dirUrl));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#clearDir)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clearDir)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnClearDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ClearDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#newItems)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#newItems)
     ///
-    /// ``` self: QtC.KDirLister, items: QtC.KFileItemList ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` items: QtC.KFileItemList `
+    ///
     pub fn NewItems(self: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KCoreDirLister_NewItems(@ptrCast(self), @ptrCast(items));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#newItems)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#newItems)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListeritems: QtC.KFileItemList) callconv(.c) void `
+    ///
     pub fn OnNewItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_NewItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsAdded)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsAdded)
     ///
-    /// ``` self: QtC.KDirLister, directoryUrl: QtC.QUrl, items: QtC.KFileItemList ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` directoryUrl: QtC.QUrl `
+    ///
+    /// ` items: QtC.KFileItemList `
+    ///
     pub fn ItemsAdded(self: ?*anyopaque, directoryUrl: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KCoreDirLister_ItemsAdded(@ptrCast(self), @ptrCast(directoryUrl), @ptrCast(items));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsAdded)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsAdded)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, directoryUrl: QtC.QUrl, items: QtC.KFileItemList) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerdirectoryUrl: QtC.QUrl, items: QtC.KFileItemList) callconv(.c) void `
+    ///
     pub fn OnItemsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ItemsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsFilteredByMime)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsFilteredByMime)
     ///
-    /// ``` self: QtC.KDirLister, items: QtC.KFileItemList ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` items: QtC.KFileItemList `
+    ///
     pub fn ItemsFilteredByMime(self: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KCoreDirLister_ItemsFilteredByMime(@ptrCast(self), @ptrCast(items));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsFilteredByMime)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsFilteredByMime)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListeritems: QtC.KFileItemList) callconv(.c) void `
+    ///
     pub fn OnItemsFilteredByMime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ItemsFilteredByMime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsDeleted)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsDeleted)
     ///
-    /// ``` self: QtC.KDirLister, items: QtC.KFileItemList ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` items: QtC.KFileItemList `
+    ///
     pub fn ItemsDeleted(self: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KCoreDirLister_ItemsDeleted(@ptrCast(self), @ptrCast(items));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsDeleted)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsDeleted)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListeritems: QtC.KFileItemList) callconv(.c) void `
+    ///
     pub fn OnItemsDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ItemsDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#infoMessage)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#infoMessage)
     ///
-    /// ``` self: QtC.KDirLister, msg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` msg: []const u8 `
+    ///
     pub fn InfoMessage(self: ?*anyopaque, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
@@ -712,135 +1053,214 @@ pub const kdirlister = struct {
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#infoMessage)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#infoMessage)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, msg: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListermsg: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#percent)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#percent)
     ///
-    /// ``` self: QtC.KDirLister, percent: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` percent: i32 `
+    ///
     pub fn Percent(self: ?*anyopaque, percent: i32) void {
         qtc.KCoreDirLister_Percent(@ptrCast(self), @intCast(percent));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#percent)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#percent)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, percent: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerpercent: i32) callconv(.c) void `
+    ///
     pub fn OnPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Percent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#totalSize)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#totalSize)
     ///
-    /// ``` self: QtC.KDirLister, size: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` size: u64 `
+    ///
     pub fn TotalSize(self: ?*anyopaque, size: u64) void {
         qtc.KCoreDirLister_TotalSize(@ptrCast(self), @intCast(size));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#totalSize)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#totalSize)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, size: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListersize: u64) callconv(.c) void `
+    ///
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#processedSize)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#processedSize)
     ///
-    /// ``` self: QtC.KDirLister, size: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` size: u64 `
+    ///
     pub fn ProcessedSize(self: ?*anyopaque, size: u64) void {
         qtc.KCoreDirLister_ProcessedSize(@ptrCast(self), @intCast(size));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#processedSize)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#processedSize)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, size: u64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListersize: u64) callconv(.c) void `
+    ///
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#speed)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#speed)
     ///
-    /// ``` self: QtC.KDirLister, bytes_per_second: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` bytes_per_second: i32 `
+    ///
     pub fn Speed(self: ?*anyopaque, bytes_per_second: i32) void {
         qtc.KCoreDirLister_Speed(@ptrCast(self), @intCast(bytes_per_second));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#speed)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#speed)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, bytes_per_second: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerbytes_per_second: i32) callconv(.c) void `
+    ///
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#jobError)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#jobError)
     ///
-    /// ``` self: QtC.KDirLister, job: QtC.KIO__Job ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` job: QtC.KIO__Job `
+    ///
     pub fn JobError(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KCoreDirLister_JobError(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#jobError)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#jobError)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, job: QtC.KIO__Job) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerjob: QtC.KIO__Job) callconv(.c) void `
+    ///
     pub fn OnJobError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_JobError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#openUrl)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#openUrl)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl, flags: flag of kcoredirlister_enums.OpenUrlFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
+    /// ` flags: flag of kcoredirlister_enums.OpenUrlFlag `
+    ///
     pub fn OpenUrl2(self: ?*anyopaque, dirUrl: ?*anyopaque, flags: i32) bool {
         return qtc.KCoreDirLister_OpenUrl2(@ptrCast(self), @ptrCast(dirUrl), @intCast(flags));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#items)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#items)
     ///
-    /// ``` self: QtC.KDirLister, which: kcoredirlister_enums.WhichItems ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` which: kcoredirlister_enums.WhichItems `
+    ///
     pub fn Items1(self: ?*anyopaque, which: i32) QtC.KFileItemList {
         return qtc.KCoreDirLister_Items1(@ptrCast(self), @intCast(which));
     }
 
     /// Inherited from KCoreDirLister
     ///
-    /// [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsForDir)
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsForDir)
     ///
-    /// ``` self: QtC.KDirLister, dirUrl: QtC.QUrl, which: kcoredirlister_enums.WhichItems ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` dirUrl: QtC.QUrl `
+    ///
+    /// ` which: kcoredirlister_enums.WhichItems `
+    ///
     pub fn ItemsForDir2(self: ?*anyopaque, dirUrl: ?*anyopaque, which: i32) QtC.KFileItemList {
         return qtc.KCoreDirLister_ItemsForDir2(@ptrCast(self), @ptrCast(dirUrl), @intCast(which));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KDirLister, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -851,9 +1271,14 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KDirLister, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -864,99 +1289,144 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KDirLister, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KDirLister, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KDirLister, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KDirLister, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KDirLister, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KDirLister, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -968,45 +1438,78 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KDirLister, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KDirLister, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KDirLister, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KDirLister, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1015,45 +1518,70 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KDirLister, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1061,9 +1589,14 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KDirLister, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1071,9 +1604,14 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KDirLister, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1095,54 +1633,76 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KDirLister, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1150,45 +1710,84 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KDirLister, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KDirLister, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KDirLister, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1197,326 +1796,472 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirLister, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDirLister_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDirLister_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KDirLister_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDirLister_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDirLister_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KDirLister_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDirLister_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDirLister_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirLister_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDirLister_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDirLister_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirLister_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDirLister_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDirLister_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirLister_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KDirLister_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KDirLister_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirLister_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KDirLister_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KDirLister_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirLister_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KDirLister_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KDirLister_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KDirLister_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KDirLister_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KDirLister_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KDirLister_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDirLister_Receivers(@ptrCast(self), signal_Cstring);
@@ -1524,11 +2269,16 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDirLister_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1536,64 +2286,92 @@ pub const kdirlister = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KDirLister_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KDirLister_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KDirLister_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister`
+    ///
+    /// ` callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KDirLister_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
+    /// ` callback: *const fn (self: QtC.KDirListerobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kdirlister.html#dtor.KDirLister)
+    /// ### [Upstream resources](https://api.kde.org/kdirlister.html#dtor.KDirLister)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KDirLister ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KDirLister `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KDirLister_Delete(@ptrCast(self));
     }

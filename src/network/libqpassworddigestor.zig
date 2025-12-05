@@ -3,11 +3,24 @@ const qtc = @import("qt6c");
 const qcryptographichash_enums = @import("../libqcryptographichash.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qpassworddigestor.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html)
 pub const qpassworddigestor = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html#deriveKeyPbkdf1)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html#deriveKeyPbkdf1)
     ///
-    /// ``` param1: qcryptographichash_enums.Algorithm, param2: []u8, param3: []u8, param4: i32, param5: u64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` param2: []u8 `
+    ///
+    /// ` param3: []u8 `
+    ///
+    /// ` param4: i32 `
+    ///
+    /// ` param5: u64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DeriveKeyPbkdf1(param1: i32, param2: []u8, param3: []u8, param4: i32, param5: u64, allocator: std.mem.Allocator) []u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -24,9 +37,22 @@ pub const qpassworddigestor = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html#deriveKeyPbkdf2)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html#deriveKeyPbkdf2)
     ///
-    /// ``` param1: qcryptographichash_enums.Algorithm, param2: []u8, param3: []u8, param4: i32, param5: u64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` param2: []u8 `
+    ///
+    /// ` param3: []u8 `
+    ///
+    /// ` param4: i32 `
+    ///
+    /// ` param5: u64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DeriveKeyPbkdf2(param1: i32, param2: []u8, param3: []u8, param4: i32, param5: u64, allocator: std.mem.Allocator) []u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,

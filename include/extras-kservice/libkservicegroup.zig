@@ -3,11 +3,14 @@ const qtc = @import("qt6c");
 const ksycocatype_enums = @import("libksycocatype.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kservicegroup.html
+/// ### [Upstream resources](https://api.kde.org/kservicegroup.html)
 pub const kservicegroup = struct {
     /// New constructs a new KServiceGroup object.
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn New(name: []const u8) QtC.KServiceGroup {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -19,7 +22,12 @@ pub const kservicegroup = struct {
 
     /// New2 constructs a new KServiceGroup object.
     ///
-    /// ``` _fullpath: []const u8, _relpath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` _fullpath: []const u8 `
+    ///
+    /// ` _relpath: []const u8 `
+    ///
     pub fn New2(_fullpath: []const u8, _relpath: []const u8) QtC.KServiceGroup {
         const _fullpath_str = qtc.libqt_string{
             .len = _fullpath.len,
@@ -33,9 +41,14 @@ pub const kservicegroup = struct {
         return qtc.KServiceGroup_new2(_fullpath_str, _relpath_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#relPath)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#relPath)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RelPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KServiceGroup_RelPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -44,9 +57,14 @@ pub const kservicegroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#caption)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#caption)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KServiceGroup_Caption(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -55,9 +73,14 @@ pub const kservicegroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#icon)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#icon)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KServiceGroup_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -66,9 +89,14 @@ pub const kservicegroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#comment)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#comment)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KServiceGroup_Comment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -77,93 +105,144 @@ pub const kservicegroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#childCount)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#childCount)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn ChildCount(self: ?*anyopaque) i32 {
         return qtc.KServiceGroup_ChildCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#noDisplay)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#noDisplay)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn NoDisplay(self: ?*anyopaque) bool {
         return qtc.KServiceGroup_NoDisplay(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#showEmptyMenu)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#showEmptyMenu)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn ShowEmptyMenu(self: ?*anyopaque) bool {
         return qtc.KServiceGroup_ShowEmptyMenu(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#setShowEmptyMenu)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setShowEmptyMenu)
     ///
-    /// ``` self: QtC.KServiceGroup, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` b: bool `
+    ///
     pub fn SetShowEmptyMenu(self: ?*anyopaque, b: bool) void {
         qtc.KServiceGroup_SetShowEmptyMenu(@ptrCast(self), b);
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#showInlineHeader)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#showInlineHeader)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn ShowInlineHeader(self: ?*anyopaque) bool {
         return qtc.KServiceGroup_ShowInlineHeader(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#setShowInlineHeader)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setShowInlineHeader)
     ///
-    /// ``` self: QtC.KServiceGroup, _b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` _b: bool `
+    ///
     pub fn SetShowInlineHeader(self: ?*anyopaque, _b: bool) void {
         qtc.KServiceGroup_SetShowInlineHeader(@ptrCast(self), _b);
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#inlineAlias)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#inlineAlias)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn InlineAlias(self: ?*anyopaque) bool {
         return qtc.KServiceGroup_InlineAlias(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#setInlineAlias)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setInlineAlias)
     ///
-    /// ``` self: QtC.KServiceGroup, _b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` _b: bool `
+    ///
     pub fn SetInlineAlias(self: ?*anyopaque, _b: bool) void {
         qtc.KServiceGroup_SetInlineAlias(@ptrCast(self), _b);
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#allowInline)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#allowInline)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn AllowInline(self: ?*anyopaque) bool {
         return qtc.KServiceGroup_AllowInline(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#setAllowInline)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setAllowInline)
     ///
-    /// ``` self: QtC.KServiceGroup, _b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` _b: bool `
+    ///
     pub fn SetAllowInline(self: ?*anyopaque, _b: bool) void {
         qtc.KServiceGroup_SetAllowInline(@ptrCast(self), _b);
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#inlineValue)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#inlineValue)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn InlineValue(self: ?*anyopaque) i32 {
         return qtc.KServiceGroup_InlineValue(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#setInlineValue)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setInlineValue)
     ///
-    /// ``` self: QtC.KServiceGroup, _val: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` _val: i32 `
+    ///
     pub fn SetInlineValue(self: ?*anyopaque, _val: i32) void {
         qtc.KServiceGroup_SetInlineValue(@ptrCast(self), @intCast(_val));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#suppressGenericNames)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#suppressGenericNames)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SuppressGenericNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_SuppressGenericNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -183,9 +262,16 @@ pub const kservicegroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#setLayoutInfo)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setLayoutInfo)
     ///
-    /// ``` self: QtC.KServiceGroup, layout: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` layout: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetLayoutInfo(self: ?*anyopaque, layout: [][]const u8, allocator: std.mem.Allocator) void {
         var layout_arr = allocator.alloc(qtc.libqt_string, layout.len) catch @panic("kservicegroup.SetLayoutInfo: Memory allocation failed");
         defer allocator.free(layout_arr);
@@ -202,9 +288,14 @@ pub const kservicegroup = struct {
         qtc.KServiceGroup_SetLayoutInfo(@ptrCast(self), layout_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#layoutInfo)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#layoutInfo)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LayoutInfo(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_LayoutInfo(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -224,9 +315,14 @@ pub const kservicegroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#baseGroupName)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#baseGroupName)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BaseGroupName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KServiceGroup_BaseGroupName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -235,9 +331,14 @@ pub const kservicegroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#directoryEntryPath)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#directoryEntryPath)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DirectoryEntryPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KServiceGroup_DirectoryEntryPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -248,29 +349,44 @@ pub const kservicegroup = struct {
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isType)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isType)
     ///
-    /// ``` self: QtC.KServiceGroup, t: ksycocatype_enums.KSycocaType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` t: ksycocatype_enums.KSycocaType `
+    ///
     pub fn IsType(self: ?*anyopaque, t: i32) bool {
         return qtc.KSycocaEntry_IsType(@ptrCast(self), @intCast(t));
     }
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#sycocaType)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#sycocaType)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` ksycocatype_enums.KSycocaType ```
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ksycocatype_enums.KSycocaType `
+    ///
     pub fn SycocaType(self: ?*anyopaque) i32 {
         return qtc.KSycocaEntry_SycocaType(@ptrCast(self));
     }
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#name)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#name)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSycocaEntry_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -281,9 +397,14 @@ pub const kservicegroup = struct {
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#entryPath)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#entryPath)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn EntryPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -294,9 +415,14 @@ pub const kservicegroup = struct {
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#storageId)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#storageId)
     ///
-    /// ``` self: QtC.KServiceGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StorageId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KSycocaEntry_StorageId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -307,51 +433,68 @@ pub const kservicegroup = struct {
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isValid)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KSycocaEntry_IsValid(@ptrCast(self));
     }
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isDeleted)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isDeleted)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn IsDeleted(self: ?*anyopaque) bool {
         return qtc.KSycocaEntry_IsDeleted(@ptrCast(self));
     }
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#setDeleted)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#setDeleted)
     ///
-    /// ``` self: QtC.KServiceGroup, deleted: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
+    /// ` deleted: bool `
+    ///
     pub fn SetDeleted(self: ?*anyopaque, deleted: bool) void {
         qtc.KSycocaEntry_SetDeleted(@ptrCast(self), deleted);
     }
 
     /// Inherited from KSycocaEntry
     ///
-    /// [Upstream resources](https://api.kde.org/ksycocaentry.html#isSeparator)
+    /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isSeparator)
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn IsSeparator(self: ?*anyopaque) bool {
         return qtc.KSycocaEntry_IsSeparator(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kservicegroup.html#dtor.KServiceGroup)
+    /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#dtor.KServiceGroup)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KServiceGroup ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KServiceGroup `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KServiceGroup_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kservicegroup.html#types
+/// ### [Upstream resources](https://api.kde.org/kservicegroup.html#public-types)
 pub const enums = struct {
     pub const EntriesOption = enum {
         pub const NoOptions: i32 = 0;

@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
-/// https://api.kde.org/attica-event.html
+/// ### [Upstream resources](https://api.kde.org/attica-event.html)
 pub const attica__event = struct {
     /// New constructs a new Attica::Event object.
-    ///
     ///
     pub fn New() QtC.Attica__Event {
         return qtc.Attica__Event_new();
@@ -14,21 +13,34 @@ pub const attica__event = struct {
 
     /// New2 constructs a new Attica::Event object.
     ///
-    /// ``` other: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__Event `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__Event {
         return qtc.Attica__Event_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__Event, other: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` other: QtC.Attica__Event `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Event_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setId)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setId)
     ///
-    /// ``` self: QtC.Attica__Event, id: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` id: []const u8 `
+    ///
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
@@ -37,9 +49,14 @@ pub const attica__event = struct {
         qtc.Attica__Event_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#id)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#id)
     ///
-    /// ``` self: QtC.Attica__Event, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Event_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -48,9 +65,14 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setName)
     ///
-    /// ``` self: QtC.Attica__Event, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -59,9 +81,14 @@ pub const attica__event = struct {
         qtc.Attica__Event_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#name)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#name)
     ///
-    /// ``` self: QtC.Attica__Event, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Event_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -70,9 +97,14 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setDescription)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setDescription)
     ///
-    /// ``` self: QtC.Attica__Event, description: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` description: []const u8 `
+    ///
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
@@ -81,9 +113,14 @@ pub const attica__event = struct {
         qtc.Attica__Event_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#description)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#description)
     ///
-    /// ``` self: QtC.Attica__Event, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Event_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -92,9 +129,14 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setUser)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setUser)
     ///
-    /// ``` self: QtC.Attica__Event, user: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` user: []const u8 `
+    ///
     pub fn SetUser(self: ?*anyopaque, user: []const u8) void {
         const user_str = qtc.libqt_string{
             .len = user.len,
@@ -103,9 +145,14 @@ pub const attica__event = struct {
         qtc.Attica__Event_SetUser(@ptrCast(self), user_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#user)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#user)
     ///
-    /// ``` self: QtC.Attica__Event, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Event_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -114,79 +161,124 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setStartDate)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setStartDate)
     ///
-    /// ``` self: QtC.Attica__Event, startDate: QtC.QDate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` startDate: QtC.QDate `
+    ///
     pub fn SetStartDate(self: ?*anyopaque, startDate: ?*anyopaque) void {
         qtc.Attica__Event_SetStartDate(@ptrCast(self), @ptrCast(startDate));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#startDate)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#startDate)
     ///
-    /// ``` self: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
     pub fn StartDate(self: ?*anyopaque) QtC.QDate {
         return qtc.Attica__Event_StartDate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setEndDate)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setEndDate)
     ///
-    /// ``` self: QtC.Attica__Event, endDate: QtC.QDate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` endDate: QtC.QDate `
+    ///
     pub fn SetEndDate(self: ?*anyopaque, endDate: ?*anyopaque) void {
         qtc.Attica__Event_SetEndDate(@ptrCast(self), @ptrCast(endDate));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#endDate)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#endDate)
     ///
-    /// ``` self: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
     pub fn EndDate(self: ?*anyopaque) QtC.QDate {
         return qtc.Attica__Event_EndDate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setLatitude)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setLatitude)
     ///
-    /// ``` self: QtC.Attica__Event, latitude: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` latitude: f64 `
+    ///
     pub fn SetLatitude(self: ?*anyopaque, latitude: f64) void {
         qtc.Attica__Event_SetLatitude(@ptrCast(self), @floatCast(latitude));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#latitude)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#latitude)
     ///
-    /// ``` self: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
     pub fn Latitude(self: ?*anyopaque) f64 {
         return qtc.Attica__Event_Latitude(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setLongitude)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setLongitude)
     ///
-    /// ``` self: QtC.Attica__Event, longitude: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` longitude: f64 `
+    ///
     pub fn SetLongitude(self: ?*anyopaque, longitude: f64) void {
         qtc.Attica__Event_SetLongitude(@ptrCast(self), @floatCast(longitude));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#longitude)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#longitude)
     ///
-    /// ``` self: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
     pub fn Longitude(self: ?*anyopaque) f64 {
         return qtc.Attica__Event_Longitude(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setHomepage)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setHomepage)
     ///
-    /// ``` self: QtC.Attica__Event, homepage: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` homepage: QtC.QUrl `
+    ///
     pub fn SetHomepage(self: ?*anyopaque, homepage: ?*anyopaque) void {
         qtc.Attica__Event_SetHomepage(@ptrCast(self), @ptrCast(homepage));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#homepage)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#homepage)
     ///
-    /// ``` self: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
     pub fn Homepage(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__Event_Homepage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setCountry)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setCountry)
     ///
-    /// ``` self: QtC.Attica__Event, country: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` country: []const u8 `
+    ///
     pub fn SetCountry(self: ?*anyopaque, country: []const u8) void {
         const country_str = qtc.libqt_string{
             .len = country.len,
@@ -195,9 +287,14 @@ pub const attica__event = struct {
         qtc.Attica__Event_SetCountry(@ptrCast(self), country_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#country)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#country)
     ///
-    /// ``` self: QtC.Attica__Event, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Country(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Event_Country(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -206,9 +303,14 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#setCity)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#setCity)
     ///
-    /// ``` self: QtC.Attica__Event, city: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` city: []const u8 `
+    ///
     pub fn SetCity(self: ?*anyopaque, city: []const u8) void {
         const city_str = qtc.libqt_string{
             .len = city.len,
@@ -217,9 +319,14 @@ pub const attica__event = struct {
         qtc.Attica__Event_SetCity(@ptrCast(self), city_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#city)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#city)
     ///
-    /// ``` self: QtC.Attica__Event, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn City(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Event_City(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -228,9 +335,16 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#addExtendedAttribute)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#addExtendedAttribute)
     ///
-    /// ``` self: QtC.Attica__Event, key: []const u8, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn AddExtendedAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -243,9 +357,16 @@ pub const attica__event = struct {
         qtc.Attica__Event_AddExtendedAttribute(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#extendedAttribute)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#extendedAttribute)
     ///
-    /// ``` self: QtC.Attica__Event, key: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtendedAttribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -258,9 +379,14 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#extendedAttributes)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#extendedAttributes)
     ///
-    /// ``` self: QtC.Attica__Event, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.Attica__Event_ExtendedAttributes(@ptrCast(self));
         var _ret: map_constu8_constu8 = .empty;
@@ -284,16 +410,22 @@ pub const attica__event = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-event.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/attica-event.html#isValid)
     ///
-    /// ``` self: QtC.Attica__Event ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Attica__Event_IsValid(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__Event ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__Event `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__Event_Delete(@ptrCast(self));
     }

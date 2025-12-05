@@ -4,428 +4,860 @@ const qopengltexture_enums = enums;
 pub const struct_f32_f32 = extern struct { first: f32, second: f32 };
 pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
-/// https://doc.qt.io/qt-6/qopengltexture.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html)
 pub const qopengltexture = struct {
     /// New constructs a new QOpenGLTexture object.
     ///
-    /// ``` target: qopengltexture_enums.Target ```
+    /// ## Parameter(s):
+    ///
+    /// ` target: qopengltexture_enums.Target `
+    ///
     pub fn New(target: i32) QtC.QOpenGLTexture {
         return qtc.QOpenGLTexture_new(@intCast(target));
     }
 
     /// New2 constructs a new QOpenGLTexture object.
     ///
-    /// ``` image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn New2(image: ?*anyopaque) QtC.QOpenGLTexture {
         return qtc.QOpenGLTexture_new2(@ptrCast(image));
     }
 
     /// New3 constructs a new QOpenGLTexture object.
     ///
-    /// ``` image: QtC.QImage, genMipMaps: qopengltexture_enums.MipMapGeneration ```
+    /// ## Parameter(s):
+    ///
+    /// ` image: QtC.QImage `
+    ///
+    /// ` genMipMaps: qopengltexture_enums.MipMapGeneration `
+    ///
     pub fn New3(image: ?*anyopaque, genMipMaps: i32) QtC.QOpenGLTexture {
         return qtc.QOpenGLTexture_new3(@ptrCast(image), @intCast(genMipMaps));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#target)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#target)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.Target ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.Target `
+    ///
     pub fn Target(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Target(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#create)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Create(self: ?*anyopaque) bool {
         return qtc.QOpenGLTexture_Create(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#destroy)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Destroy(self: ?*anyopaque) void {
         qtc.QOpenGLTexture_Destroy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isCreated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isCreated)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn IsCreated(self: ?*anyopaque) bool {
         return qtc.QOpenGLTexture_IsCreated(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#textureId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#textureId)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn TextureId(self: ?*anyopaque) u32 {
         return qtc.QOpenGLTexture_TextureId(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#bind)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Bind(self: ?*anyopaque) void {
         qtc.QOpenGLTexture_Bind(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#bind)
     ///
-    /// ``` self: QtC.QOpenGLTexture, unit: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` unit: u32 `
+    ///
     pub fn Bind2(self: ?*anyopaque, unit: u32) void {
         qtc.QOpenGLTexture_Bind2(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#release)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#release)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Release(self: ?*anyopaque) void {
         qtc.QOpenGLTexture_Release(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#release)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#release)
     ///
-    /// ``` self: QtC.QOpenGLTexture, unit: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` unit: u32 `
+    ///
     pub fn Release2(self: ?*anyopaque, unit: u32) void {
         qtc.QOpenGLTexture_Release2(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isBound)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isBound)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn IsBound(self: ?*anyopaque) bool {
         return qtc.QOpenGLTexture_IsBound(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isBound)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isBound)
     ///
-    /// ``` self: QtC.QOpenGLTexture, unit: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` unit: u32 `
+    ///
     pub fn IsBound2(self: ?*anyopaque, unit: u32) bool {
         return qtc.QOpenGLTexture_IsBound2(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#boundTextureId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#boundTextureId)
     ///
-    /// ``` target: qopengltexture_enums.BindingTarget ```
+    /// ## Parameter(s):
+    ///
+    /// ` target: qopengltexture_enums.BindingTarget `
+    ///
     pub fn BoundTextureId(target: i32) u32 {
         return qtc.QOpenGLTexture_BoundTextureId(@intCast(target));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#boundTextureId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#boundTextureId)
     ///
-    /// ``` unit: u32, target: qopengltexture_enums.BindingTarget ```
+    /// ## Parameter(s):
+    ///
+    /// ` unit: u32 `
+    ///
+    /// ` target: qopengltexture_enums.BindingTarget `
+    ///
     pub fn BoundTextureId2(unit: u32, target: i32) u32 {
         return qtc.QOpenGLTexture_BoundTextureId2(@intCast(unit), @intCast(target));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setFormat)
     ///
-    /// ``` self: QtC.QOpenGLTexture, format: qopengltexture_enums.TextureFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` format: qopengltexture_enums.TextureFormat `
+    ///
     pub fn SetFormat(self: ?*anyopaque, format: i32) void {
         qtc.QOpenGLTexture_SetFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#format)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.TextureFormat ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.TextureFormat `
+    ///
     pub fn Format(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Format(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSize)
     ///
-    /// ``` self: QtC.QOpenGLTexture, width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` width: i32 `
+    ///
     pub fn SetSize(self: ?*anyopaque, width: i32) void {
         qtc.QOpenGLTexture_SetSize(@ptrCast(self), @intCast(width));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#width)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#width)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Width(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#height)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#height)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Height(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#depth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#depth)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Depth(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Depth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipLevels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipLevels)
     ///
-    /// ``` self: QtC.QOpenGLTexture, levels: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` levels: i32 `
+    ///
     pub fn SetMipLevels(self: ?*anyopaque, levels: i32) void {
         qtc.QOpenGLTexture_SetMipLevels(@ptrCast(self), @intCast(levels));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipLevels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipLevels)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MipLevels(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_MipLevels(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#maximumMipLevels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#maximumMipLevels)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MaximumMipLevels(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_MaximumMipLevels(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLayers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLayers)
     ///
-    /// ``` self: QtC.QOpenGLTexture, layers: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` layers: i32 `
+    ///
     pub fn SetLayers(self: ?*anyopaque, layers: i32) void {
         qtc.QOpenGLTexture_SetLayers(@ptrCast(self), @intCast(layers));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#layers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#layers)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Layers(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Layers(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#faces)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#faces)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Faces(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Faces(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSamples)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSamples)
     ///
-    /// ``` self: QtC.QOpenGLTexture, samples: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` samples: i32 `
+    ///
     pub fn SetSamples(self: ?*anyopaque, samples: i32) void {
         qtc.QOpenGLTexture_SetSamples(@ptrCast(self), @intCast(samples));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#samples)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#samples)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn Samples(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_Samples(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setFixedSamplePositions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setFixedSamplePositions)
     ///
-    /// ``` self: QtC.QOpenGLTexture, fixed: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` fixed: bool `
+    ///
     pub fn SetFixedSamplePositions(self: ?*anyopaque, fixed: bool) void {
         qtc.QOpenGLTexture_SetFixedSamplePositions(@ptrCast(self), fixed);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isFixedSamplePositions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isFixedSamplePositions)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn IsFixedSamplePositions(self: ?*anyopaque) bool {
         return qtc.QOpenGLTexture_IsFixedSamplePositions(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#allocateStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#allocateStorage)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn AllocateStorage(self: ?*anyopaque) void {
         qtc.QOpenGLTexture_AllocateStorage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#allocateStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#allocateStorage)
     ///
-    /// ``` self: QtC.QOpenGLTexture, pixelFormat: qopengltexture_enums.PixelFormat, pixelType: qopengltexture_enums.PixelType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` pixelFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` pixelType: qopengltexture_enums.PixelType `
+    ///
     pub fn AllocateStorage2(self: ?*anyopaque, pixelFormat: i32, pixelType: i32) void {
         qtc.QOpenGLTexture_AllocateStorage2(@ptrCast(self), @intCast(pixelFormat), @intCast(pixelType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isStorageAllocated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isStorageAllocated)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn IsStorageAllocated(self: ?*anyopaque) bool {
         return qtc.QOpenGLTexture_IsStorageAllocated(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#createTextureView)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#createTextureView)
     ///
-    /// ``` self: QtC.QOpenGLTexture, target: qopengltexture_enums.Target, viewFormat: qopengltexture_enums.TextureFormat, minimumMipmapLevel: i32, maximumMipmapLevel: i32, minimumLayer: i32, maximumLayer: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` target: qopengltexture_enums.Target `
+    ///
+    /// ` viewFormat: qopengltexture_enums.TextureFormat `
+    ///
+    /// ` minimumMipmapLevel: i32 `
+    ///
+    /// ` maximumMipmapLevel: i32 `
+    ///
+    /// ` minimumLayer: i32 `
+    ///
+    /// ` maximumLayer: i32 `
+    ///
     pub fn CreateTextureView(self: ?*anyopaque, target: i32, viewFormat: i32, minimumMipmapLevel: i32, maximumMipmapLevel: i32, minimumLayer: i32, maximumLayer: i32) QtC.QOpenGLTexture {
         return qtc.QOpenGLTexture_CreateTextureView(@ptrCast(self), @intCast(target), @intCast(viewFormat), @intCast(minimumMipmapLevel), @intCast(maximumMipmapLevel), @intCast(minimumLayer), @intCast(maximumLayer));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isTextureView)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isTextureView)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn IsTextureView(self: ?*anyopaque) bool {
         return qtc.QOpenGLTexture_IsTextureView(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: qopengltexture_enums.CubeMapFace, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` layerCount: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData2(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData2(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData3(self: ?*anyopaque, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData3(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData4(self: ?*anyopaque, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData4(@ptrCast(self), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData5(self: ?*anyopaque, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData5(@ptrCast(self), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData6(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData6(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData7(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData7(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData8(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData8(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData9(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData9(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, layerCount: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` layerCount: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetData10(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, layerCount: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData10(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(layerCount), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, dataSize: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetCompressedData(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: qopengltexture_enums.CubeMapFace, dataSize: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` layerCount: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetCompressedData2(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData2(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, dataSize: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetCompressedData3(self: ?*anyopaque, mipLevel: i32, layer: i32, dataSize: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData3(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(dataSize), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, dataSize: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetCompressedData4(self: ?*anyopaque, mipLevel: i32, dataSize: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData4(@ptrCast(self), @intCast(mipLevel), @intCast(dataSize), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, dataSize: i32, data: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
     pub fn SetCompressedData5(self: ?*anyopaque, dataSize: i32, data: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData5(@ptrCast(self), @intCast(dataSize), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn SetData11(self: ?*anyopaque, image: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData11(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#hasFeature)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#hasFeature)
     ///
-    /// ``` feature: qopengltexture_enums.Feature ```
+    /// ## Parameter(s):
+    ///
+    /// ` feature: qopengltexture_enums.Feature `
+    ///
     pub fn HasFeature(feature: i32) bool {
         return qtc.QOpenGLTexture_HasFeature(@intCast(feature));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipBaseLevel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipBaseLevel)
     ///
-    /// ``` self: QtC.QOpenGLTexture, baseLevel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` baseLevel: i32 `
+    ///
     pub fn SetMipBaseLevel(self: ?*anyopaque, baseLevel: i32) void {
         qtc.QOpenGLTexture_SetMipBaseLevel(@ptrCast(self), @intCast(baseLevel));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipBaseLevel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipBaseLevel)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MipBaseLevel(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_MipBaseLevel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipMaxLevel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipMaxLevel)
     ///
-    /// ``` self: QtC.QOpenGLTexture, maxLevel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` maxLevel: i32 `
+    ///
     pub fn SetMipMaxLevel(self: ?*anyopaque, maxLevel: i32) void {
         qtc.QOpenGLTexture_SetMipMaxLevel(@ptrCast(self), @intCast(maxLevel));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipMaxLevel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipMaxLevel)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MipMaxLevel(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_MipMaxLevel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipLevelRange)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMipLevelRange)
     ///
-    /// ``` self: QtC.QOpenGLTexture, baseLevel: i32, maxLevel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` baseLevel: i32 `
+    ///
+    /// ` maxLevel: i32 `
+    ///
     pub fn SetMipLevelRange(self: ?*anyopaque, baseLevel: i32, maxLevel: i32) void {
         qtc.QOpenGLTexture_SetMipLevelRange(@ptrCast(self), @intCast(baseLevel), @intCast(maxLevel));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipLevelRange)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#mipLevelRange)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MipLevelRange(self: ?*anyopaque) struct_i32_i32 {
         const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_MipLevelRange(@ptrCast(self));
         return struct_i32_i32{
@@ -434,147 +866,248 @@ pub const qopengltexture = struct {
         };
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setAutoMipMapGenerationEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setAutoMipMapGenerationEnabled)
     ///
-    /// ``` self: QtC.QOpenGLTexture, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetAutoMipMapGenerationEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QOpenGLTexture_SetAutoMipMapGenerationEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isAutoMipMapGenerationEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#isAutoMipMapGenerationEnabled)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn IsAutoMipMapGenerationEnabled(self: ?*anyopaque) bool {
         return qtc.QOpenGLTexture_IsAutoMipMapGenerationEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#generateMipMaps)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#generateMipMaps)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn GenerateMipMaps(self: ?*anyopaque) void {
         qtc.QOpenGLTexture_GenerateMipMaps(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#generateMipMaps)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#generateMipMaps)
     ///
-    /// ``` self: QtC.QOpenGLTexture, baseLevel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` baseLevel: i32 `
+    ///
     pub fn GenerateMipMaps2(self: ?*anyopaque, baseLevel: i32) void {
         qtc.QOpenGLTexture_GenerateMipMaps2(@ptrCast(self), @intCast(baseLevel));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSwizzleMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSwizzleMask)
     ///
-    /// ``` self: QtC.QOpenGLTexture, component: qopengltexture_enums.SwizzleComponent, value: qopengltexture_enums.SwizzleValue ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` component: qopengltexture_enums.SwizzleComponent `
+    ///
+    /// ` value: qopengltexture_enums.SwizzleValue `
+    ///
     pub fn SetSwizzleMask(self: ?*anyopaque, component: i32, value: i32) void {
         qtc.QOpenGLTexture_SetSwizzleMask(@ptrCast(self), @intCast(component), @intCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSwizzleMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSwizzleMask)
     ///
-    /// ``` self: QtC.QOpenGLTexture, r: qopengltexture_enums.SwizzleValue, g: qopengltexture_enums.SwizzleValue, b: qopengltexture_enums.SwizzleValue, a: qopengltexture_enums.SwizzleValue ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` r: qopengltexture_enums.SwizzleValue `
+    ///
+    /// ` g: qopengltexture_enums.SwizzleValue `
+    ///
+    /// ` b: qopengltexture_enums.SwizzleValue `
+    ///
+    /// ` a: qopengltexture_enums.SwizzleValue `
+    ///
     pub fn SetSwizzleMask2(self: ?*anyopaque, r: i32, g: i32, b: i32, a: i32) void {
         qtc.QOpenGLTexture_SetSwizzleMask2(@ptrCast(self), @intCast(r), @intCast(g), @intCast(b), @intCast(a));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#swizzleMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#swizzleMask)
     ///
-    /// ``` self: QtC.QOpenGLTexture, component: qopengltexture_enums.SwizzleComponent ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.SwizzleValue ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` component: qopengltexture_enums.SwizzleComponent `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.SwizzleValue `
+    ///
     pub fn SwizzleMask(self: ?*anyopaque, component: i32) i32 {
         return qtc.QOpenGLTexture_SwizzleMask(@ptrCast(self), @intCast(component));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setDepthStencilMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setDepthStencilMode)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mode: qopengltexture_enums.DepthStencilMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mode: qopengltexture_enums.DepthStencilMode `
+    ///
     pub fn SetDepthStencilMode(self: ?*anyopaque, mode: i32) void {
         qtc.QOpenGLTexture_SetDepthStencilMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#depthStencilMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#depthStencilMode)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.DepthStencilMode ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.DepthStencilMode `
+    ///
     pub fn DepthStencilMode(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_DepthStencilMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setComparisonFunction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setComparisonFunction)
     ///
-    /// ``` self: QtC.QOpenGLTexture, function: qopengltexture_enums.ComparisonFunction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` function: qopengltexture_enums.ComparisonFunction `
+    ///
     pub fn SetComparisonFunction(self: ?*anyopaque, function: i32) void {
         qtc.QOpenGLTexture_SetComparisonFunction(@ptrCast(self), @intCast(function));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#comparisonFunction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#comparisonFunction)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.ComparisonFunction ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.ComparisonFunction `
+    ///
     pub fn ComparisonFunction(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_ComparisonFunction(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setComparisonMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setComparisonMode)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mode: qopengltexture_enums.ComparisonMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mode: qopengltexture_enums.ComparisonMode `
+    ///
     pub fn SetComparisonMode(self: ?*anyopaque, mode: i32) void {
         qtc.QOpenGLTexture_SetComparisonMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#comparisonMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#comparisonMode)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.ComparisonMode ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.ComparisonMode `
+    ///
     pub fn ComparisonMode(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_ComparisonMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMinificationFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMinificationFilter)
     ///
-    /// ``` self: QtC.QOpenGLTexture, filter: qopengltexture_enums.Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` filter: qopengltexture_enums.Filter `
+    ///
     pub fn SetMinificationFilter(self: ?*anyopaque, filter: i32) void {
         qtc.QOpenGLTexture_SetMinificationFilter(@ptrCast(self), @intCast(filter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#minificationFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#minificationFilter)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.Filter ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.Filter `
+    ///
     pub fn MinificationFilter(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_MinificationFilter(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMagnificationFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMagnificationFilter)
     ///
-    /// ``` self: QtC.QOpenGLTexture, filter: qopengltexture_enums.Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` filter: qopengltexture_enums.Filter `
+    ///
     pub fn SetMagnificationFilter(self: ?*anyopaque, filter: i32) void {
         qtc.QOpenGLTexture_SetMagnificationFilter(@ptrCast(self), @intCast(filter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#magnificationFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#magnificationFilter)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.Filter ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.Filter `
+    ///
     pub fn MagnificationFilter(self: ?*anyopaque) i32 {
         return qtc.QOpenGLTexture_MagnificationFilter(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMinMagFilters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMinMagFilters)
     ///
-    /// ``` self: QtC.QOpenGLTexture, minificationFilter: qopengltexture_enums.Filter, magnificationFilter: qopengltexture_enums.Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` minificationFilter: qopengltexture_enums.Filter `
+    ///
+    /// ` magnificationFilter: qopengltexture_enums.Filter `
+    ///
     pub fn SetMinMagFilters(self: ?*anyopaque, minificationFilter: i32, magnificationFilter: i32) void {
         qtc.QOpenGLTexture_SetMinMagFilters(@ptrCast(self), @intCast(minificationFilter), @intCast(magnificationFilter));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#minMagFilters)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#minMagFilters)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MinMagFilters(self: ?*anyopaque) struct_i32_i32 {
         const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_MinMagFilters(@ptrCast(self));
         return struct_i32_i32{
@@ -583,137 +1116,246 @@ pub const qopengltexture = struct {
         };
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMaximumAnisotropy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMaximumAnisotropy)
     ///
-    /// ``` self: QtC.QOpenGLTexture, anisotropy: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` anisotropy: f32 `
+    ///
     pub fn SetMaximumAnisotropy(self: ?*anyopaque, anisotropy: f32) void {
         qtc.QOpenGLTexture_SetMaximumAnisotropy(@ptrCast(self), @floatCast(anisotropy));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#maximumAnisotropy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#maximumAnisotropy)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MaximumAnisotropy(self: ?*anyopaque) f32 {
         return qtc.QOpenGLTexture_MaximumAnisotropy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setWrapMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setWrapMode)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mode: qopengltexture_enums.WrapMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mode: qopengltexture_enums.WrapMode `
+    ///
     pub fn SetWrapMode(self: ?*anyopaque, mode: i32) void {
         qtc.QOpenGLTexture_SetWrapMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setWrapMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setWrapMode)
     ///
-    /// ``` self: QtC.QOpenGLTexture, direction: qopengltexture_enums.CoordinateDirection, mode: qopengltexture_enums.WrapMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` direction: qopengltexture_enums.CoordinateDirection `
+    ///
+    /// ` mode: qopengltexture_enums.WrapMode `
+    ///
     pub fn SetWrapMode2(self: ?*anyopaque, direction: i32, mode: i32) void {
         qtc.QOpenGLTexture_SetWrapMode2(@ptrCast(self), @intCast(direction), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#wrapMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#wrapMode)
     ///
-    /// ``` self: QtC.QOpenGLTexture, direction: qopengltexture_enums.CoordinateDirection ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopengltexture_enums.WrapMode ```
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` direction: qopengltexture_enums.CoordinateDirection `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopengltexture_enums.WrapMode `
+    ///
     pub fn WrapMode(self: ?*anyopaque, direction: i32) i32 {
         return qtc.QOpenGLTexture_WrapMode(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetBorderColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetBorderColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture, r: f32, g: f32, b: f32, a: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` r: f32 `
+    ///
+    /// ` g: f32 `
+    ///
+    /// ` b: f32 `
+    ///
+    /// ` a: f32 `
+    ///
     pub fn SetBorderColor2(self: ?*anyopaque, r: f32, g: f32, b: f32, a: f32) void {
         qtc.QOpenGLTexture_SetBorderColor2(@ptrCast(self), @floatCast(r), @floatCast(g), @floatCast(b), @floatCast(a));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture, r: i32, g: i32, b: i32, a: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` r: i32 `
+    ///
+    /// ` g: i32 `
+    ///
+    /// ` b: i32 `
+    ///
+    /// ` a: i32 `
+    ///
     pub fn SetBorderColor3(self: ?*anyopaque, r: i32, g: i32, b: i32, a: i32) void {
         qtc.QOpenGLTexture_SetBorderColor3(@ptrCast(self), @intCast(r), @intCast(g), @intCast(b), @intCast(a));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setBorderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture, r: u32, g: u32, b: u32, a: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` r: u32 `
+    ///
+    /// ` g: u32 `
+    ///
+    /// ` b: u32 `
+    ///
+    /// ` a: u32 `
+    ///
     pub fn SetBorderColor4(self: ?*anyopaque, r: u32, g: u32, b: u32, a: u32) void {
         qtc.QOpenGLTexture_SetBorderColor4(@ptrCast(self), @intCast(r), @intCast(g), @intCast(b), @intCast(a));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn BorderColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QOpenGLTexture_BorderColor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture, border: *f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` border: *f32 `
+    ///
     pub fn BorderColor2(self: ?*anyopaque, border: *f32) void {
         qtc.QOpenGLTexture_BorderColor2(@ptrCast(self), @ptrCast(border));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture, border: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` border: *i32 `
+    ///
     pub fn BorderColor3(self: ?*anyopaque, border: *i32) void {
         qtc.QOpenGLTexture_BorderColor3(@ptrCast(self), @ptrCast(border));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#borderColor)
     ///
-    /// ``` self: QtC.QOpenGLTexture, border: *u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` border: *u32 `
+    ///
     pub fn BorderColor4(self: ?*anyopaque, border: *u32) void {
         qtc.QOpenGLTexture_BorderColor4(@ptrCast(self), @ptrCast(border));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMinimumLevelOfDetail)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMinimumLevelOfDetail)
     ///
-    /// ``` self: QtC.QOpenGLTexture, value: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` value: f32 `
+    ///
     pub fn SetMinimumLevelOfDetail(self: ?*anyopaque, value: f32) void {
         qtc.QOpenGLTexture_SetMinimumLevelOfDetail(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#minimumLevelOfDetail)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#minimumLevelOfDetail)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MinimumLevelOfDetail(self: ?*anyopaque) f32 {
         return qtc.QOpenGLTexture_MinimumLevelOfDetail(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMaximumLevelOfDetail)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMaximumLevelOfDetail)
     ///
-    /// ``` self: QtC.QOpenGLTexture, value: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` value: f32 `
+    ///
     pub fn SetMaximumLevelOfDetail(self: ?*anyopaque, value: f32) void {
         qtc.QOpenGLTexture_SetMaximumLevelOfDetail(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#maximumLevelOfDetail)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#maximumLevelOfDetail)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn MaximumLevelOfDetail(self: ?*anyopaque) f32 {
         return qtc.QOpenGLTexture_MaximumLevelOfDetail(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLevelOfDetailRange)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLevelOfDetailRange)
     ///
-    /// ``` self: QtC.QOpenGLTexture, min: f32, max: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` min: f32 `
+    ///
+    /// ` max: f32 `
+    ///
     pub fn SetLevelOfDetailRange(self: ?*anyopaque, min: f32, max: f32) void {
         qtc.QOpenGLTexture_SetLevelOfDetailRange(@ptrCast(self), @floatCast(min), @floatCast(max));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#levelOfDetailRange)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#levelOfDetailRange)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn LevelOfDetailRange(self: ?*anyopaque) struct_f32_f32 {
         const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_LevelOfDetailRange(@ptrCast(self));
         return struct_f32_f32{
@@ -722,178 +1364,508 @@ pub const qopengltexture = struct {
         };
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLevelofDetailBias)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLevelofDetailBias)
     ///
-    /// ``` self: QtC.QOpenGLTexture, bias: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` bias: f32 `
+    ///
     pub fn SetLevelofDetailBias(self: ?*anyopaque, bias: f32) void {
         qtc.QOpenGLTexture_SetLevelofDetailBias(@ptrCast(self), @floatCast(bias));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#levelofDetailBias)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#levelofDetailBias)
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn LevelofDetailBias(self: ?*anyopaque) f32 {
         return qtc.QOpenGLTexture_LevelofDetailBias(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#bind)
     ///
-    /// ``` self: QtC.QOpenGLTexture, unit: u32, reset: qopengltexture_enums.TextureUnitReset ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` unit: u32 `
+    ///
+    /// ` reset: qopengltexture_enums.TextureUnitReset `
+    ///
     pub fn Bind22(self: ?*anyopaque, unit: u32, reset: i32) void {
         qtc.QOpenGLTexture_Bind22(@ptrCast(self), @intCast(unit), @intCast(reset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#release)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#release)
     ///
-    /// ``` self: QtC.QOpenGLTexture, unit: u32, reset: qopengltexture_enums.TextureUnitReset ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` unit: u32 `
+    ///
+    /// ` reset: qopengltexture_enums.TextureUnitReset `
+    ///
     pub fn Release22(self: ?*anyopaque, unit: u32, reset: i32) void {
         qtc.QOpenGLTexture_Release22(@ptrCast(self), @intCast(unit), @intCast(reset));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSize)
     ///
-    /// ``` self: QtC.QOpenGLTexture, width: i32, height: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
     pub fn SetSize2(self: ?*anyopaque, width: i32, height: i32) void {
         qtc.QOpenGLTexture_SetSize2(@ptrCast(self), @intCast(width), @intCast(height));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setSize)
     ///
-    /// ``` self: QtC.QOpenGLTexture, width: i32, height: i32, depth: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
     pub fn SetSize3(self: ?*anyopaque, width: i32, height: i32, depth: i32) void {
         qtc.QOpenGLTexture_SetSize3(@ptrCast(self), @intCast(width), @intCast(height), @intCast(depth));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData72(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData72(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: qopengltexture_enums.CubeMapFace, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` layerCount: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData82(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData82(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData62(self: ?*anyopaque, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData62(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData52(self: ?*anyopaque, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData52(@ptrCast(self), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData42(self: ?*anyopaque, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData42(@ptrCast(self), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData102(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData102(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData112(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData112(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData12(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData12(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData13(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData13(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, layerCount: i32, sourceFormat: qopengltexture_enums.PixelFormat, sourceType: qopengltexture_enums.PixelType, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` xOffset: i32 `
+    ///
+    /// ` yOffset: i32 `
+    ///
+    /// ` zOffset: i32 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` depth: i32 `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` layerCount: i32 `
+    ///
+    /// ` sourceFormat: qopengltexture_enums.PixelFormat `
+    ///
+    /// ` sourceType: qopengltexture_enums.PixelType `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetData14(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, layerCount: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData14(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(layerCount), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, cubeFace: qopengltexture_enums.CubeMapFace, dataSize: i32, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetCompressedData6(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData6(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: qopengltexture_enums.CubeMapFace, dataSize: i32, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` layerCount: i32 `
+    ///
+    /// ` cubeFace: qopengltexture_enums.CubeMapFace `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetCompressedData7(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData7(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, layer: i32, dataSize: i32, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` layer: i32 `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetCompressedData52(self: ?*anyopaque, mipLevel: i32, layer: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData52(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, mipLevel: i32, dataSize: i32, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` mipLevel: i32 `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetCompressedData42(self: ?*anyopaque, mipLevel: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData42(@ptrCast(self), @intCast(mipLevel), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setCompressedData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, dataSize: i32, data: ?*anyopaque, options: QtC.QOpenGLPixelTransferOptions ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` dataSize: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` options: QtC.QOpenGLPixelTransferOptions `
+    ///
     pub fn SetCompressedData32(self: ?*anyopaque, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData32(@ptrCast(self), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setData)
     ///
-    /// ``` self: QtC.QOpenGLTexture, image: QtC.QImage, genMipMaps: qopengltexture_enums.MipMapGeneration ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` image: QtC.QImage `
+    ///
+    /// ` genMipMaps: qopengltexture_enums.MipMapGeneration `
+    ///
     pub fn SetData22(self: ?*anyopaque, image: ?*anyopaque, genMipMaps: i32) void {
         qtc.QOpenGLTexture_SetData22(@ptrCast(self), @ptrCast(image), @intCast(genMipMaps));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#generateMipMaps)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#generateMipMaps)
     ///
-    /// ``` self: QtC.QOpenGLTexture, baseLevel: i32, resetBaseLevel: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ` baseLevel: i32 `
+    ///
+    /// ` resetBaseLevel: bool `
+    ///
     pub fn GenerateMipMaps22(self: ?*anyopaque, baseLevel: i32, resetBaseLevel: bool) void {
         qtc.QOpenGLTexture_GenerateMipMaps22(@ptrCast(self), @intCast(baseLevel), resetBaseLevel);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#dtor.QOpenGLTexture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#dtor.QOpenGLTexture)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QOpenGLTexture ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLTexture `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QOpenGLTexture_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qopengltexture.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#public-types)
 pub const enums = struct {
     pub const Target = enum {
         pub const Target1D: i32 = 3552;

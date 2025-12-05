@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const kencodingprober_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kencodingprober.html
+/// ### [Upstream resources](https://api.kde.org/kencodingprober.html)
 pub const kencodingprober = struct {
     /// New constructs a new KEncodingProber object.
-    ///
     ///
     pub fn New() QtC.KEncodingProber {
         return qtc.KEncodingProber_new();
@@ -14,14 +13,22 @@ pub const kencodingprober = struct {
 
     /// New2 constructs a new KEncodingProber object.
     ///
-    /// ``` proberType: kencodingprober_enums.ProberType ```
+    /// ## Parameter(s):
+    ///
+    /// ` proberType: kencodingprober_enums.ProberType `
+    ///
     pub fn New2(proberType: i32) QtC.KEncodingProber {
         return qtc.KEncodingProber_new2(@intCast(proberType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` sourceText: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const _str = qtc.QObject_Tr(sourceText_Cstring);
@@ -31,18 +38,28 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#reset)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#reset)
     ///
-    /// ``` self: QtC.KEncodingProber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KEncodingProber `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.KEncodingProber_Reset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#feed)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#feed)
     ///
-    /// ``` self: QtC.KEncodingProber, data: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kencodingprober_enums.ProberState ```
+    /// ` self: QtC.KEncodingProber `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kencodingprober_enums.ProberState `
+    ///
     pub fn Feed(self: ?*anyopaque, data: []const u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -51,28 +68,47 @@ pub const kencodingprober = struct {
         return qtc.KEncodingProber_Feed(@ptrCast(self), data_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#feed)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#feed)
     ///
-    /// ``` self: QtC.KEncodingProber, data: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kencodingprober_enums.ProberState ```
+    /// ` self: QtC.KEncodingProber `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kencodingprober_enums.ProberState `
+    ///
     pub fn Feed2(self: ?*anyopaque, data: []const u8, lenVal: i64) i32 {
         const data_Cstring = data.ptr;
         return qtc.KEncodingProber_Feed2(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#state)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#state)
     ///
-    /// ``` self: QtC.KEncodingProber ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kencodingprober_enums.ProberState ```
+    /// ` self: QtC.KEncodingProber `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kencodingprober_enums.ProberState `
+    ///
     pub fn State(self: ?*anyopaque) i32 {
         return qtc.KEncodingProber_State(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#encoding)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#encoding)
     ///
-    /// ``` self: QtC.KEncodingProber, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KEncodingProber `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Encoding(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.KEncodingProber_Encoding(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -81,34 +117,52 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#confidence)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#confidence)
     ///
-    /// ``` self: QtC.KEncodingProber ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KEncodingProber `
+    ///
     pub fn Confidence(self: ?*anyopaque) f32 {
         return qtc.KEncodingProber_Confidence(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#proberType)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#proberType)
     ///
-    /// ``` self: QtC.KEncodingProber ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kencodingprober_enums.ProberType ```
+    /// ` self: QtC.KEncodingProber `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kencodingprober_enums.ProberType `
+    ///
     pub fn ProberType(self: ?*anyopaque) i32 {
         return qtc.KEncodingProber_ProberType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#setProberType)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#setProberType)
     ///
-    /// ``` self: QtC.KEncodingProber, proberType: kencodingprober_enums.ProberType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KEncodingProber `
+    ///
+    /// ` proberType: kencodingprober_enums.ProberType `
+    ///
     pub fn SetProberType(self: ?*anyopaque, proberType: i32) void {
         qtc.KEncodingProber_SetProberType(@ptrCast(self), @intCast(proberType));
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#proberTypeForName)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#proberTypeForName)
     ///
-    /// ``` lang: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kencodingprober_enums.ProberType ```
+    /// ` lang: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kencodingprober_enums.ProberType `
+    ///
     pub fn ProberTypeForName(lang: []const u8) i32 {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
@@ -117,9 +171,14 @@ pub const kencodingprober = struct {
         return qtc.KEncodingProber_ProberTypeForName(lang_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#nameForProberType)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#nameForProberType)
     ///
-    /// ``` proberType: kencodingprober_enums.ProberType, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` proberType: kencodingprober_enums.ProberType `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NameForProberType(proberType: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KEncodingProber_NameForProberType(@intCast(proberType));
         defer qtc.libqt_string_free(&_str);
@@ -128,9 +187,16 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` sourceText: []const u8 `
+    ///
+    /// ` disambiguation: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
@@ -141,9 +207,18 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` sourceText: []const u8 `
+    ///
+    /// ` disambiguation: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
@@ -154,17 +229,20 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kencodingprober.html#dtor.KEncodingProber)
+    /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#dtor.KEncodingProber)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KEncodingProber ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KEncodingProber `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KEncodingProber_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kencodingprober.html#types
+/// ### [Upstream resources](https://api.kde.org/kencodingprober.html#public-types)
 pub const enums = struct {
     pub const ProberState = enum {
         pub const FoundIt: i32 = 0;

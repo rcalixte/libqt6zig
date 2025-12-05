@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kfilefilter.html
+/// ### [Upstream resources](https://api.kde.org/kfilefilter.html)
 pub const kfilefilter = struct {
     /// New constructs a new KFileFilter object.
-    ///
     ///
     pub fn New() QtC.KFileFilter {
         return qtc.KFileFilter_new();
@@ -13,7 +12,16 @@ pub const kfilefilter = struct {
 
     /// New2 constructs a new KFileFilter object.
     ///
-    /// ``` label: []const u8, filePatterns: [][]const u8, mimePatterns: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` label: []const u8 `
+    ///
+    /// ` filePatterns: [][]const u8 `
+    ///
+    /// ` mimePatterns: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New2(label: []const u8, filePatterns: [][]const u8, mimePatterns: [][]const u8, allocator: std.mem.Allocator) QtC.KFileFilter {
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -49,28 +57,46 @@ pub const kfilefilter = struct {
 
     /// New3 constructs a new KFileFilter object.
     ///
-    /// ``` other: QtC.KFileFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KFileFilter `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.KFileFilter {
         return qtc.KFileFilter_new3(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq)
     ///
-    /// ``` self: QtC.KFileFilter, other: QtC.KFileFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
+    /// ` other: QtC.KFileFilter `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KFileFilter_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq-eq)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.KFileFilter, other: QtC.KFileFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
+    /// ` other: QtC.KFileFilter `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KFileFilter_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#label)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#label)
     ///
-    /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KFileFilter_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -79,9 +105,14 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#filePatterns)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#filePatterns)
     ///
-    /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KFileFilter_FilePatterns(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -101,9 +132,14 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#mimePatterns)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#mimePatterns)
     ///
-    /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MimePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KFileFilter_MimePatterns(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -123,9 +159,14 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#toFilterString)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#toFilterString)
     ///
-    /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToFilterString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KFileFilter_ToFilterString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -134,23 +175,32 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#isEmpty)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#isEmpty)
     ///
-    /// ``` self: QtC.KFileFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.KFileFilter_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#isValid)
     ///
-    /// ``` self: QtC.KFileFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KFileFilter_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeType)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeType)
     ///
-    /// ``` mimeType: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` mimeType: []const u8 `
+    ///
     pub fn FromMimeType(mimeType: []const u8) QtC.KFileFilter {
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
@@ -159,9 +209,14 @@ pub const kfilefilter = struct {
         return qtc.KFileFilter_FromMimeType(mimeType_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeTypes)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeTypes)
     ///
-    /// ``` mimeTypes: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` mimeTypes: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromMimeTypes(mimeTypes: [][]const u8, allocator: std.mem.Allocator) []QtC.KFileFilter {
         var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kfilefilter.FromMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
@@ -183,11 +238,14 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfilefilter.html#dtor.KFileFilter)
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#dtor.KFileFilter)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KFileFilter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KFileFilter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KFileFilter_Delete(@ptrCast(self));
     }

@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api.kde.org/netwm.html#types
+/// ### [Upstream resources](https://api.kde.org/netwm.html#public-types)
 pub const enums = struct {
     pub const NETRootInfo = enum {
         pub const PROTOCOLS: i32 = 0;

@@ -2,18 +2,30 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kio.html
+/// ### [Upstream resources](https://api.kde.org/kio.html)
 pub const kio = struct {
-    /// [Upstream resources](https://api.kde.org/kio.html#canPasteMimeData)
+    /// ### [Upstream resources](https://api.kde.org/kio.html#canPasteMimeData)
     ///
-    /// ``` param1: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMimeData `
+    ///
     pub fn CanPasteMimeData(param1: ?*anyopaque) bool {
         return qtc.KIO_CanPasteMimeData(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio.html#pasteActionText)
+    /// ### [Upstream resources](https://api.kde.org/kio.html#pasteActionText)
     ///
-    /// ``` param1: QtC.QMimeData, param2: *bool, param3: QtC.KFileItem, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMimeData `
+    ///
+    /// ` param2: *bool `
+    ///
+    /// ` param3: QtC.KFileItem `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PasteActionText(param1: ?*anyopaque, param2: *bool, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIO_PasteActionText(@ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
@@ -22,16 +34,24 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio.html#setClipboardDataCut)
+    /// ### [Upstream resources](https://api.kde.org/kio.html#setClipboardDataCut)
     ///
-    /// ``` param1: QtC.QMimeData, param2: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMimeData `
+    ///
+    /// ` param2: bool `
+    ///
     pub fn SetClipboardDataCut(param1: ?*anyopaque, param2: bool) void {
         qtc.KIO_SetClipboardDataCut(@ptrCast(param1), param2);
     }
 
-    /// [Upstream resources](https://api.kde.org/kio.html#isClipboardDataCut)
+    /// ### [Upstream resources](https://api.kde.org/kio.html#isClipboardDataCut)
     ///
-    /// ``` param1: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMimeData `
+    ///
     pub fn IsClipboardDataCut(param1: ?*anyopaque) bool {
         return qtc.KIO_IsClipboardDataCut(@ptrCast(param1));
     }

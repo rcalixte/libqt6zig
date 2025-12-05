@@ -1,10 +1,9 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://doc.qt.io/qt-6/qformdatapartbuilder.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html)
 pub const qformdatapartbuilder = struct {
     /// New constructs a new QFormDataPartBuilder object.
-    ///
     ///
     pub fn New() QtC.QFormDataPartBuilder {
         return qtc.QFormDataPartBuilder_new();
@@ -12,21 +11,34 @@ pub const qformdatapartbuilder = struct {
 
     /// New2 constructs a new QFormDataPartBuilder object.
     ///
-    /// ``` param1: QtC.QFormDataPartBuilder ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QFormDataPartBuilder `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.QFormDataPartBuilder {
         return qtc.QFormDataPartBuilder_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#swap)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, other: QtC.QFormDataPartBuilder ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` other: QtC.QFormDataPartBuilder `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QFormDataPartBuilder_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, data: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` data: []const u8 `
+    ///
     pub fn SetBody(self: ?*anyopaque, data: []const u8) QtC.QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -35,23 +47,40 @@ pub const qformdatapartbuilder = struct {
         return qtc.QFormDataPartBuilder_SetBody(@ptrCast(self), data_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, body: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` body: QtC.QIODevice `
+    ///
     pub fn SetBodyDevice(self: ?*anyopaque, body: ?*anyopaque) QtC.QFormDataPartBuilder {
         return qtc.QFormDataPartBuilder_SetBodyDevice(@ptrCast(self), @ptrCast(body));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setHeaders)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setHeaders)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, headers: QtC.QHttpHeaders ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` headers: QtC.QHttpHeaders `
+    ///
     pub fn SetHeaders(self: ?*anyopaque, headers: ?*anyopaque) QtC.QFormDataPartBuilder {
         return qtc.QFormDataPartBuilder_SetHeaders(@ptrCast(self), @ptrCast(headers));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, data: []const u8, fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn SetBody2(self: ?*anyopaque, data: []const u8, fileName: []const u8) QtC.QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -64,9 +93,18 @@ pub const qformdatapartbuilder = struct {
         return qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self), data_str, fileName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, data: []const u8, fileName: []const u8, mimeType: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` mimeType: []const u8 `
+    ///
     pub fn SetBody3(self: ?*anyopaque, data: []const u8, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -83,9 +121,16 @@ pub const qformdatapartbuilder = struct {
         return qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self), data_str, fileName_str, mimeType_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, body: QtC.QIODevice, fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` body: QtC.QIODevice `
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn SetBodyDevice2(self: ?*anyopaque, body: ?*anyopaque, fileName: []const u8) QtC.QFormDataPartBuilder {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -94,9 +139,18 @@ pub const qformdatapartbuilder = struct {
         return qtc.QFormDataPartBuilder_SetBodyDevice2(@ptrCast(self), @ptrCast(body), fileName_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
     ///
-    /// ``` self: QtC.QFormDataPartBuilder, body: QtC.QIODevice, fileName: []const u8, mimeType: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
+    /// ` body: QtC.QIODevice `
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` mimeType: []const u8 `
+    ///
     pub fn SetBodyDevice3(self: ?*anyopaque, body: ?*anyopaque, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -109,35 +163,47 @@ pub const qformdatapartbuilder = struct {
         return qtc.QFormDataPartBuilder_SetBodyDevice3(@ptrCast(self), @ptrCast(body), fileName_str, mimeType_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#dtor.QFormDataPartBuilder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#dtor.QFormDataPartBuilder)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QFormDataPartBuilder ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QFormDataPartBuilder `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QFormDataPartBuilder_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qformdatabuilder.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html)
 pub const qformdatabuilder = struct {
     /// New constructs a new QFormDataBuilder object.
-    ///
     ///
     pub fn New() QtC.QFormDataBuilder {
         return qtc.QFormDataBuilder_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#swap)
     ///
-    /// ``` self: QtC.QFormDataBuilder, other: QtC.QFormDataBuilder ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataBuilder `
+    ///
+    /// ` other: QtC.QFormDataBuilder `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QFormDataBuilder_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#part)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#part)
     ///
-    /// ``` self: QtC.QFormDataBuilder, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataBuilder `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Part(self: ?*anyopaque, name: []const u8) QtC.QFormDataPartBuilder {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -146,17 +212,20 @@ pub const qformdatabuilder = struct {
         return qtc.QFormDataBuilder_Part(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#dtor.QFormDataBuilder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#dtor.QFormDataBuilder)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QFormDataBuilder ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QFormDataBuilder `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QFormDataBuilder_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qformdatabuilder.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#public-types)
 pub const enums = struct {
     pub const Option = enum {
         pub const Default: i32 = 0;

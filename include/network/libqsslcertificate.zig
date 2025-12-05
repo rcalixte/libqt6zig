@@ -5,17 +5,19 @@ const qssl_enums = @import("libqssl.zig").enums;
 const qsslcertificate_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qsslcertificate.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html)
 pub const qsslcertificate = struct {
     /// New constructs a new QSslCertificate object.
     ///
-    /// ``` device: QtC.QIODevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
     pub fn New(device: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QSslCertificate_new(@ptrCast(device));
     }
 
     /// New2 constructs a new QSslCertificate object.
-    ///
     ///
     pub fn New2() QtC.QSslCertificate {
         return qtc.QSslCertificate_new2();
@@ -23,21 +25,32 @@ pub const qsslcertificate = struct {
 
     /// New3 constructs a new QSslCertificate object.
     ///
-    /// ``` other: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSslCertificate `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QSslCertificate_new3(@ptrCast(other));
     }
 
     /// New4 constructs a new QSslCertificate object.
     ///
-    /// ``` device: QtC.QIODevice, format: qssl_enums.EncodingFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` format: qssl_enums.EncodingFormat `
+    ///
     pub fn New4(device: ?*anyopaque, format: i32) QtC.QSslCertificate {
         return qtc.QSslCertificate_new4(@ptrCast(device), @intCast(format));
     }
 
     /// New5 constructs a new QSslCertificate object.
     ///
-    /// ``` data: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` data: []u8 `
+    ///
     pub fn New5(data: []u8) QtC.QSslCertificate {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -49,7 +62,12 @@ pub const qsslcertificate = struct {
 
     /// New6 constructs a new QSslCertificate object.
     ///
-    /// ``` data: []u8, format: qssl_enums.EncodingFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` format: qssl_enums.EncodingFormat `
+    ///
     pub fn New6(data: []u8, format: i32) QtC.QSslCertificate {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -59,65 +77,102 @@ pub const qsslcertificate = struct {
         return qtc.QSslCertificate_new6(data_str, @intCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#operator-eq)
     ///
-    /// ``` self: QtC.QSslCertificate, other: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` other: QtC.QSslCertificate `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslCertificate_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#swap)
     ///
-    /// ``` self: QtC.QSslCertificate, other: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` other: QtC.QSslCertificate `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslCertificate_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QSslCertificate, other: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` other: QtC.QSslCertificate `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslCertificate_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QSslCertificate, other: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` other: QtC.QSslCertificate `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslCertificate_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#isNull)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#isNull)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QSslCertificate_IsNull(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#isBlacklisted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#isBlacklisted)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn IsBlacklisted(self: ?*anyopaque) bool {
         return qtc.QSslCertificate_IsBlacklisted(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#isSelfSigned)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#isSelfSigned)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn IsSelfSigned(self: ?*anyopaque) bool {
         return qtc.QSslCertificate_IsSelfSigned(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#clear)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QSslCertificate_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#version)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#version)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSslCertificate_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -126,9 +181,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#serialNumber)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#serialNumber)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SerialNumber(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSslCertificate_SerialNumber(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -137,9 +197,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#digest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#digest)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Digest(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSslCertificate_Digest(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -148,9 +213,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerInfo)
     ///
-    /// ``` self: QtC.QSslCertificate, info: qsslcertificate_enums.SubjectInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` info: qsslcertificate_enums.SubjectInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IssuerInfo(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_IssuerInfo(@ptrCast(self), @intCast(info));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -170,9 +242,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerInfo)
     ///
-    /// ``` self: QtC.QSslCertificate, attribute: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` attribute: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IssuerInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) [][]const u8 {
         const attribute_str = qtc.libqt_string{
             .len = attribute.len,
@@ -196,9 +275,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectInfo)
     ///
-    /// ``` self: QtC.QSslCertificate, info: qsslcertificate_enums.SubjectInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` info: qsslcertificate_enums.SubjectInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SubjectInfo(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_SubjectInfo(@ptrCast(self), @intCast(info));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -218,9 +304,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectInfo)
     ///
-    /// ``` self: QtC.QSslCertificate, attribute: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` attribute: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SubjectInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) [][]const u8 {
         const attribute_str = qtc.libqt_string{
             .len = attribute.len,
@@ -244,9 +337,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerDisplayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerDisplayName)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IssuerDisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslCertificate_IssuerDisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -255,9 +353,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectDisplayName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectDisplayName)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SubjectDisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslCertificate_SubjectDisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -266,9 +369,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectInfoAttributes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectInfoAttributes)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SubjectInfoAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_SubjectInfoAttributes(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -288,9 +396,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerInfoAttributes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#issuerInfoAttributes)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IssuerInfoAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_IssuerInfoAttributes(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -310,30 +423,44 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#effectiveDate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#effectiveDate)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn EffectiveDate(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QSslCertificate_EffectiveDate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#expiryDate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#expiryDate)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn ExpiryDate(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QSslCertificate_ExpiryDate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#publicKey)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#publicKey)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn PublicKey(self: ?*anyopaque) QtC.QSslKey {
         return qtc.QSslCertificate_PublicKey(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#extensions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#extensions)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Extensions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificateExtension {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_Extensions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -343,9 +470,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#toPem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#toPem)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToPem(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSslCertificate_ToPem(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -354,9 +486,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#toDer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#toDer)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToDer(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSslCertificate_ToDer(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -365,9 +502,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#toText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#toText)
     ///
-    /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslCertificate_ToText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -376,9 +518,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromPath)
     ///
-    /// ``` path: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromPath(path: []const u8, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -392,9 +539,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromDevice)
     ///
-    /// ``` device: QtC.QIODevice, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromDevice(device: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromDevice(@ptrCast(device));
         defer qtc.libqt_free(_arr.data);
@@ -404,9 +556,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromData)
     ///
-    /// ``` data: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromData(data: []u8, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -420,9 +577,14 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#verify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#verify)
     ///
-    /// ``` certificateChain: []QtC.QSslCertificate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` certificateChain: []QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Verify(certificateChain: []QtC.QSslCertificate, allocator: std.mem.Allocator) []QtC.QSslError {
         const certificateChain_list = qtc.libqt_list{
             .len = certificateChain.len,
@@ -436,23 +598,40 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#importPkcs12)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#importPkcs12)
     ///
-    /// ``` device: QtC.QIODevice, key: QtC.QSslKey, cert: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` key: QtC.QSslKey `
+    ///
+    /// ` cert: QtC.QSslCertificate `
+    ///
     pub fn ImportPkcs12(device: ?*anyopaque, key: ?*anyopaque, cert: ?*anyopaque) bool {
         return qtc.QSslCertificate_ImportPkcs12(@ptrCast(device), @ptrCast(key), @ptrCast(cert));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#handle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#handle)
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn Handle(self: ?*anyopaque) ?*anyopaque {
         return qtc.QSslCertificate_Handle(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#digest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#digest)
     ///
-    /// ``` self: QtC.QSslCertificate, algorithm: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` algorithm: qcryptographichash_enums.Algorithm `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Digest1(self: ?*anyopaque, algorithm: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QSslCertificate_Digest1(@ptrCast(self), @intCast(algorithm));
         defer qtc.libqt_string_free(&_bytearray);
@@ -461,9 +640,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromPath)
     ///
-    /// ``` path: []const u8, format: qssl_enums.EncodingFormat, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` format: qssl_enums.EncodingFormat `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromPath2(path: []const u8, format: i32, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -477,9 +663,18 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromPath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromPath)
     ///
-    /// ``` path: []const u8, format: qssl_enums.EncodingFormat, syntax: qsslcertificate_enums.PatternSyntax, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` path: []const u8 `
+    ///
+    /// ` format: qssl_enums.EncodingFormat `
+    ///
+    /// ` syntax: qsslcertificate_enums.PatternSyntax `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromPath3(path: []const u8, format: i32, syntax: i32, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -493,9 +688,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromDevice)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromDevice)
     ///
-    /// ``` device: QtC.QIODevice, format: qssl_enums.EncodingFormat, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` format: qssl_enums.EncodingFormat `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromDevice2(device: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromDevice2(@ptrCast(device), @intCast(format));
         defer qtc.libqt_free(_arr.data);
@@ -505,9 +707,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#fromData)
     ///
-    /// ``` data: []u8, format: qssl_enums.EncodingFormat, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` format: qssl_enums.EncodingFormat `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FromData2(data: []u8, format: i32, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -521,9 +730,16 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#verify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#verify)
     ///
-    /// ``` certificateChain: []QtC.QSslCertificate, hostName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` certificateChain: []QtC.QSslCertificate `
+    ///
+    /// ` hostName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Verify2(certificateChain: []QtC.QSslCertificate, hostName: []const u8, allocator: std.mem.Allocator) []QtC.QSslError {
         const certificateChain_list = qtc.libqt_list{
             .len = certificateChain.len,
@@ -541,9 +757,18 @@ pub const qsslcertificate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#importPkcs12)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#importPkcs12)
     ///
-    /// ``` device: QtC.QIODevice, key: QtC.QSslKey, cert: QtC.QSslCertificate, caCertificates: []QtC.QSslCertificate ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` key: QtC.QSslKey `
+    ///
+    /// ` cert: QtC.QSslCertificate `
+    ///
+    /// ` caCertificates: []QtC.QSslCertificate `
+    ///
     pub fn ImportPkcs124(device: ?*anyopaque, key: ?*anyopaque, cert: ?*anyopaque, caCertificates: []QtC.QSslCertificate) bool {
         const caCertificates_list = qtc.libqt_list{
             .len = caCertificates.len,
@@ -552,9 +777,20 @@ pub const qsslcertificate = struct {
         return qtc.QSslCertificate_ImportPkcs124(@ptrCast(device), @ptrCast(key), @ptrCast(cert), caCertificates_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#importPkcs12)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#importPkcs12)
     ///
-    /// ``` device: QtC.QIODevice, key: QtC.QSslKey, cert: QtC.QSslCertificate, caCertificates: []QtC.QSslCertificate, passPhrase: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    /// ` key: QtC.QSslKey `
+    ///
+    /// ` cert: QtC.QSslCertificate `
+    ///
+    /// ` caCertificates: []QtC.QSslCertificate `
+    ///
+    /// ` passPhrase: []u8 `
+    ///
     pub fn ImportPkcs125(device: ?*anyopaque, key: ?*anyopaque, cert: ?*anyopaque, caCertificates: []QtC.QSslCertificate, passPhrase: []u8) bool {
         const caCertificates_list = qtc.libqt_list{
             .len = caCertificates.len,
@@ -567,17 +803,20 @@ pub const qsslcertificate = struct {
         return qtc.QSslCertificate_ImportPkcs125(@ptrCast(device), @ptrCast(key), @ptrCast(cert), caCertificates_list, passPhrase_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#dtor.QSslCertificate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#dtor.QSslCertificate)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSslCertificate ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSslCertificate_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qsslcertificate.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#public-types)
 pub const enums = struct {
     pub const SubjectInfo = enum {
         pub const Organization: i32 = 0;

@@ -3,25 +3,31 @@ const qtc = @import("qt6c");
 const errorcode_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/knscore-errorcode.html
+/// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html)
 pub const knscore__errorcode = struct {
-    /// [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumMetaObject)
+    /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumMetaObject)
     ///
-    /// ``` param1: errorcode_enums.ErrorCode ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: errorcode_enums.ErrorCode `
+    ///
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
         return qtc.KNSCore__ErrorCode_GetEnumMetaObject(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumName)
+    /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumName)
     ///
-    /// ``` param1: errorcode_enums.ErrorCode ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: errorcode_enums.ErrorCode `
+    ///
     pub fn GetEnumName(param1: i32) []const u8 {
         const _ret = qtc.KNSCore__ErrorCode_GetEnumName(@intCast(param1));
         return std.mem.span(_ret);
     }
 };
 
-/// https://api.kde.org/knscore-errorcode.html#types
+/// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#public-types)
 pub const enums = struct {
     pub const ErrorCode = enum {
         pub const UnknownError: i32 = 0;

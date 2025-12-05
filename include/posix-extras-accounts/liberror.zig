@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const error_enums = enums;
 const std = @import("std");
 
-/// https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html
+/// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
 pub const accounts__error = struct {
     /// New constructs a new Accounts::Error object.
-    ///
     ///
     pub fn New() QtC.Accounts__Error {
         return qtc.Accounts__Error_new();
@@ -14,21 +13,32 @@ pub const accounts__error = struct {
 
     /// New2 constructs a new Accounts::Error object.
     ///
-    /// ``` src: QtC.Accounts__Error ```
+    /// ## Parameter(s):
+    ///
+    /// ` src: QtC.Accounts__Error `
+    ///
     pub fn New2(src: ?*anyopaque) QtC.Accounts__Error {
         return qtc.Accounts__Error_new2(@ptrCast(src));
     }
 
     /// New3 constructs a new Accounts::Error object.
     ///
-    /// ``` typeVal: error_enums.ErrorType ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: error_enums.ErrorType `
+    ///
     pub fn New3(typeVal: i32) QtC.Accounts__Error {
         return qtc.Accounts__Error_new3(@intCast(typeVal));
     }
 
     /// New4 constructs a new Accounts::Error object.
     ///
-    /// ``` typeVal: error_enums.ErrorType, message: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: error_enums.ErrorType `
+    ///
+    /// ` message: []const u8 `
+    ///
     pub fn New4(typeVal: i32, message: []const u8) QtC.Accounts__Error {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -38,25 +48,40 @@ pub const accounts__error = struct {
         return qtc.Accounts__Error_new4(@intCast(typeVal), message_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
-    /// ``` self: QtC.Accounts__Error, src: QtC.Accounts__Error ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Accounts__Error `
+    ///
+    /// ` src: QtC.Accounts__Error `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, src: ?*anyopaque) void {
         qtc.Accounts__Error_OperatorAssign(@ptrCast(self), @ptrCast(src));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
-    /// ``` self: QtC.Accounts__Error ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` error_enums.ErrorType ```
+    /// ` self: QtC.Accounts__Error `
+    ///
+    /// ## Returns:
+    ///
+    /// ` error_enums.ErrorType `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.Accounts__Error_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
-    /// ``` self: QtC.Accounts__Error, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Accounts__Error `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Accounts__Error_Message(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -65,17 +90,20 @@ pub const accounts__error = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Accounts__Error ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Accounts__Error `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Accounts__Error_Delete(@ptrCast(self));
     }
 };
 
-/// https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html
+/// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
 pub const enums = struct {
     pub const ErrorType = enum {
         pub const NoError: i32 = 0;

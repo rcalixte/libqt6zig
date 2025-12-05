@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/attica-homepageentry.html
+/// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html)
 pub const attica__homepageentry = struct {
     /// New constructs a new Attica::HomePageEntry object.
-    ///
     ///
     pub fn New() QtC.Attica__HomePageEntry {
         return qtc.Attica__HomePageEntry_new();
@@ -13,21 +12,34 @@ pub const attica__homepageentry = struct {
 
     /// New2 constructs a new Attica::HomePageEntry object.
     ///
-    /// ``` other: QtC.Attica__HomePageEntry ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__HomePageEntry `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__HomePageEntry {
         return qtc.Attica__HomePageEntry_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__HomePageEntry, other: QtC.Attica__HomePageEntry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__HomePageEntry `
+    ///
+    /// ` other: QtC.Attica__HomePageEntry `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__HomePageEntry_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#type)
+    /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#type)
     ///
-    /// ``` self: QtC.Attica__HomePageEntry, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__HomePageEntry `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Type(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__HomePageEntry_Type(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -36,9 +48,14 @@ pub const attica__homepageentry = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#setType)
+    /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#setType)
     ///
-    /// ``` self: QtC.Attica__HomePageEntry, typeVal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__HomePageEntry `
+    ///
+    /// ` typeVal: []const u8 `
+    ///
     pub fn SetType(self: ?*anyopaque, typeVal: []const u8) void {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
@@ -47,23 +64,34 @@ pub const attica__homepageentry = struct {
         qtc.Attica__HomePageEntry_SetType(@ptrCast(self), typeVal_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#url)
+    /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#url)
     ///
-    /// ``` self: QtC.Attica__HomePageEntry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__HomePageEntry `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__HomePageEntry_Url(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#setUrl)
+    /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#setUrl)
     ///
-    /// ``` self: QtC.Attica__HomePageEntry, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__HomePageEntry `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.Attica__HomePageEntry_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__HomePageEntry ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__HomePageEntry `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__HomePageEntry_Delete(@ptrCast(self));
     }

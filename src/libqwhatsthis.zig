@@ -1,60 +1,78 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://doc.qt.io/qt-6/qwhatsthis.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html)
 pub const qwhatsthis = struct {
     /// New constructs a new QWhatsThis object.
     ///
-    /// ``` other: QtC.QWhatsThis ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QWhatsThis `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QWhatsThis {
         return qtc.QWhatsThis_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QWhatsThis object and invalidates the source QWhatsThis object.
     ///
-    /// ``` other: QtC.QWhatsThis ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QWhatsThis `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QWhatsThis {
         return qtc.QWhatsThis_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QWhatsThis, other: QtC.QWhatsThis ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWhatsThis `
+    ///
+    /// ` other: QtC.QWhatsThis `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWhatsThis_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QWhatsThis, other: QtC.QWhatsThis ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWhatsThis `
+    ///
+    /// ` other: QtC.QWhatsThis `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWhatsThis_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#enterWhatsThisMode)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#enterWhatsThisMode)
     ///
     pub fn EnterWhatsThisMode() void {
         qtc.QWhatsThis_EnterWhatsThisMode();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#inWhatsThisMode)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#inWhatsThisMode)
     ///
     pub fn InWhatsThisMode() bool {
         return qtc.QWhatsThis_InWhatsThisMode();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#leaveWhatsThisMode)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#leaveWhatsThisMode)
     ///
     pub fn LeaveWhatsThisMode() void {
         qtc.QWhatsThis_LeaveWhatsThisMode();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
     ///
-    /// ``` pos: QtC.QPoint, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn ShowText(pos: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -63,23 +81,28 @@ pub const qwhatsthis = struct {
         qtc.QWhatsThis_ShowText(@ptrCast(pos), text_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#hideText)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#hideText)
     ///
     pub fn HideText() void {
         qtc.QWhatsThis_HideText();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
     ///
     pub fn CreateAction() QtC.QAction {
         return qtc.QWhatsThis_CreateAction();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
     ///
-    /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn ShowText3(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -88,18 +111,24 @@ pub const qwhatsthis = struct {
         qtc.QWhatsThis_ShowText3(@ptrCast(pos), text_str, @ptrCast(w));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn CreateAction1(parent: ?*anyopaque) QtC.QAction {
         return qtc.QWhatsThis_CreateAction1(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#dtor.QWhatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#dtor.QWhatsThis)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWhatsThis ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWhatsThis `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWhatsThis_Delete(@ptrCast(self));
     }

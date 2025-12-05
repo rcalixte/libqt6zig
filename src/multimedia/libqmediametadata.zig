@@ -3,48 +3,74 @@ const qtc = @import("qt6c");
 const qmediametadata_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qmediametadata.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html)
 pub const qmediametadata = struct {
     /// New constructs a new QMediaMetaData object.
     ///
-    /// ``` param1: QtC.QMediaMetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMediaMetaData `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.QMediaMetaData {
         return qtc.QMediaMetaData_new(@ptrCast(param1));
     }
 
     /// New2 constructs a new QMediaMetaData object.
     ///
-    ///
     pub fn New2() QtC.QMediaMetaData {
         return qtc.QMediaMetaData_new2();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#value)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#value)
     ///
-    /// ``` self: QtC.QMediaMetaData, k: qmediametadata_enums.Key ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
+    /// ` k: qmediametadata_enums.Key `
+    ///
     pub fn Value(self: ?*anyopaque, k: i32) QtC.QVariant {
         return qtc.QMediaMetaData_Value(@ptrCast(self), @intCast(k));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#insert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#insert)
     ///
-    /// ``` self: QtC.QMediaMetaData, k: qmediametadata_enums.Key, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
+    /// ` k: qmediametadata_enums.Key `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn Insert(self: ?*anyopaque, k: i32, value: ?*anyopaque) void {
         qtc.QMediaMetaData_Insert(@ptrCast(self), @intCast(k), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#remove)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#remove)
     ///
-    /// ``` self: QtC.QMediaMetaData, k: qmediametadata_enums.Key ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
+    /// ` k: qmediametadata_enums.Key `
+    ///
     pub fn Remove(self: ?*anyopaque, k: i32) void {
         qtc.QMediaMetaData_Remove(@ptrCast(self), @intCast(k));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#keys)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#keys)
     ///
-    /// ``` self: QtC.QMediaMetaData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` []qmediametadata_enums.Key ```
+    /// ` self: QtC.QMediaMetaData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` []qmediametadata_enums.Key `
+    ///
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QMediaMetaData_Keys(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -54,30 +80,48 @@ pub const qmediametadata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#operator-5b-5d)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#operator-5b-5d)
     ///
-    /// ``` self: QtC.QMediaMetaData, k: qmediametadata_enums.Key ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
+    /// ` k: qmediametadata_enums.Key `
+    ///
     pub fn OperatorSubscript(self: ?*anyopaque, k: i32) QtC.QVariant {
         return qtc.QMediaMetaData_OperatorSubscript(@ptrCast(self), @intCast(k));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#clear)
     ///
-    /// ``` self: QtC.QMediaMetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QMediaMetaData_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#isEmpty)
     ///
-    /// ``` self: QtC.QMediaMetaData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QMediaMetaData_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#stringValue)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#stringValue)
     ///
-    /// ``` self: QtC.QMediaMetaData, k: qmediametadata_enums.Key, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
+    /// ` k: qmediametadata_enums.Key `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StringValue(self: ?*anyopaque, k: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QMediaMetaData_StringValue(@ptrCast(self), @intCast(k));
         defer qtc.libqt_string_free(&_str);
@@ -86,9 +130,14 @@ pub const qmediametadata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#metaDataKeyToString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#metaDataKeyToString)
     ///
-    /// ``` k: qmediametadata_enums.Key, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` k: qmediametadata_enums.Key `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MetaDataKeyToString(k: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QMediaMetaData_MetaDataKeyToString(@intCast(k));
         defer qtc.libqt_string_free(&_str);
@@ -97,17 +146,20 @@ pub const qmediametadata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#dtor.QMediaMetaData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#dtor.QMediaMetaData)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QMediaMetaData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QMediaMetaData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QMediaMetaData_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qmediametadata.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#public-types)
 pub const enums = struct {
     pub const Key = enum {
         pub const Title: i32 = 0;

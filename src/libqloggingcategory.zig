@@ -2,77 +2,103 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qloggingcategory.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html)
 pub const qloggingcategory = struct {
     /// New constructs a new QLoggingCategory object.
     ///
-    /// ``` category: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` category: []const u8 `
+    ///
     pub fn New(category: []const u8) QtC.QLoggingCategory {
         const category_Cstring = category.ptr;
 
         return qtc.QLoggingCategory_new(category_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isDebugEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isDebugEnabled)
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn IsDebugEnabled(self: ?*anyopaque) bool {
         return qtc.QLoggingCategory_IsDebugEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isInfoEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isInfoEnabled)
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn IsInfoEnabled(self: ?*anyopaque) bool {
         return qtc.QLoggingCategory_IsInfoEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isWarningEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isWarningEnabled)
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn IsWarningEnabled(self: ?*anyopaque) bool {
         return qtc.QLoggingCategory_IsWarningEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isCriticalEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isCriticalEnabled)
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn IsCriticalEnabled(self: ?*anyopaque) bool {
         return qtc.QLoggingCategory_IsCriticalEnabled(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#categoryName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#categoryName)
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn CategoryName(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QLoggingCategory_CategoryName(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn OperatorCall(self: ?*anyopaque) QtC.QLoggingCategory {
         return qtc.QLoggingCategory_OperatorCall(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn OperatorCall2(self: ?*anyopaque) QtC.QLoggingCategory {
         return qtc.QLoggingCategory_OperatorCall2(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#defaultCategory)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#defaultCategory)
     ///
     pub fn DefaultCategory() QtC.QLoggingCategory {
         return qtc.QLoggingCategory_DefaultCategory();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#setFilterRules)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#setFilterRules)
     ///
-    /// ``` rules: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` rules: []const u8 `
+    ///
     pub fn SetFilterRules(rules: []const u8) void {
         const rules_str = qtc.libqt_string{
             .len = rules.len,
@@ -81,11 +107,14 @@ pub const qloggingcategory = struct {
         qtc.QLoggingCategory_SetFilterRules(rules_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#dtor.QLoggingCategory)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#dtor.QLoggingCategory)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QLoggingCategory ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QLoggingCategory `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QLoggingCategory_Delete(@ptrCast(self));
     }

@@ -2,11 +2,18 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kio.html
+/// ### [Upstream resources](https://api.kde.org/kio.html)
 pub const kio = struct {
-    /// [Upstream resources](https://api.kde.org/kio.html#buildErrorString)
+    /// ### [Upstream resources](https://api.kde.org/kio.html#buildErrorString)
     ///
-    /// ``` param1: i32, param2: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: i32 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BuildErrorString(param1: i32, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -19,9 +26,20 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kio.html#rawErrorDetail)
+    /// ### [Upstream resources](https://api.kde.org/kio.html#rawErrorDetail)
     ///
-    /// ``` param1: i32, param2: []const u8, param3: QtC.QUrl, param4: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: i32 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: QtC.QUrl `
+    ///
+    /// ` param4: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RawErrorDetail(param1: i32, param2: []const u8, param3: ?*anyopaque, param4: i32, allocator: std.mem.Allocator) []u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,

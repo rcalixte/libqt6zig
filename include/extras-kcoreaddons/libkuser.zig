@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const kuser_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kuser.html
+/// ### [Upstream resources](https://api.kde.org/kuser.html)
 pub const kuser = struct {
     /// New constructs a new KUser object.
-    ///
     ///
     pub fn New() QtC.KUser {
         return qtc.KUser_new();
@@ -14,14 +13,20 @@ pub const kuser = struct {
 
     /// New2 constructs a new KUser object.
     ///
-    /// ``` uid: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` uid: u32 `
+    ///
     pub fn New2(uid: u32) QtC.KUser {
         return qtc.KUser_new2(uid);
     }
 
     /// New3 constructs a new KUser object.
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn New3(name: []const u8) QtC.KUser {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -33,7 +38,10 @@ pub const kuser = struct {
 
     /// New4 constructs a new KUser object.
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn New4(name: []const u8) QtC.KUser {
         const name_Cstring = name.ptr;
 
@@ -42,56 +50,88 @@ pub const kuser = struct {
 
     /// New5 constructs a new KUser object.
     ///
-    /// ``` user: QtC.KUser ```
+    /// ## Parameter(s):
+    ///
+    /// ` user: QtC.KUser `
+    ///
     pub fn New5(user: ?*anyopaque) QtC.KUser {
         return qtc.KUser_new5(@ptrCast(user));
     }
 
     /// New6 constructs a new KUser object.
     ///
-    /// ``` mode: kuser_enums.UIDMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` mode: kuser_enums.UIDMode `
+    ///
     pub fn New6(mode: i32) QtC.KUser {
         return qtc.KUser_new6(@intCast(mode));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#operator-eq)
     ///
-    /// ``` self: QtC.KUser, user: QtC.KUser ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` user: QtC.KUser `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, user: ?*anyopaque) void {
         qtc.KUser_OperatorAssign(@ptrCast(self), @ptrCast(user));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#operator-eq-eq)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.KUser, user: QtC.KUser ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` user: QtC.KUser `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, user: ?*anyopaque) bool {
         return qtc.KUser_OperatorEqual(@ptrCast(self), @ptrCast(user));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#operator-not-eq)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#operator-not-eq)
     ///
-    /// ``` self: QtC.KUser, user: QtC.KUser ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` user: QtC.KUser `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, user: ?*anyopaque) bool {
         return qtc.KUser_OperatorNotEqual(@ptrCast(self), @ptrCast(user));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#isValid)
     ///
-    /// ``` self: QtC.KUser ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KUser_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#isSuperUser)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#isSuperUser)
     ///
-    /// ``` self: QtC.KUser ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
     pub fn IsSuperUser(self: ?*anyopaque) bool {
         return qtc.KUser_IsSuperUser(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#loginName)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#loginName)
     ///
-    /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LoginName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUser_LoginName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -100,9 +140,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#homeDir)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#homeDir)
     ///
-    /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HomeDir(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUser_HomeDir(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -111,9 +156,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#faceIconPath)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#faceIconPath)
     ///
-    /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FaceIconPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUser_FaceIconPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -122,9 +172,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#shell)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#shell)
     ///
-    /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Shell(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUser_Shell(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -133,9 +188,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#groups)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#groups)
     ///
-    /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Groups(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUser_Groups(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -145,9 +205,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#groupNames)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#groupNames)
     ///
-    /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn GroupNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -167,16 +232,24 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#property)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#property)
     ///
-    /// ``` self: QtC.KUser, which: kuser_enums.UserProperty ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` which: kuser_enums.UserProperty `
+    ///
     pub fn Property(self: ?*anyopaque, which: i32) QtC.QVariant {
         return qtc.KUser_Property(@ptrCast(self), @intCast(which));
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#allUsers)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#allUsers)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllUsers(allocator: std.mem.Allocator) []QtC.KUser {
         const _arr: qtc.libqt_list = qtc.KUser_AllUsers();
         defer qtc.libqt_free(_arr.data);
@@ -186,9 +259,12 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllUserNames(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -208,9 +284,16 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#groups)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#groups)
     ///
-    /// ``` self: QtC.KUser, maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Groups1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []QtC.KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUser_Groups1(@ptrCast(self), @intCast(maxCount));
         defer qtc.libqt_free(_arr.data);
@@ -220,9 +303,16 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#groupNames)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#groupNames)
     ///
-    /// ``` self: QtC.KUser, maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUser `
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn GroupNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames1(@ptrCast(self), @intCast(maxCount));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -242,9 +332,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#allUsers)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#allUsers)
     ///
-    /// ``` maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllUsers1(maxCount: u32, allocator: std.mem.Allocator) []QtC.KUser {
         const _arr: qtc.libqt_list = qtc.KUser_AllUsers1(@intCast(maxCount));
         defer qtc.libqt_free(_arr.data);
@@ -254,9 +349,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
     ///
-    /// ``` maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllUserNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames1(@intCast(maxCount));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -276,21 +376,27 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kuser.html#dtor.KUser)
+    /// ### [Upstream resources](https://api.kde.org/kuser.html#dtor.KUser)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KUser ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KUser `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KUser_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kusergroup.html
+/// ### [Upstream resources](https://api.kde.org/kusergroup.html)
 pub const kusergroup = struct {
     /// New constructs a new KUserGroup object.
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn New(name: []const u8) QtC.KUserGroup {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -302,7 +408,10 @@ pub const kusergroup = struct {
 
     /// New2 constructs a new KUserGroup object.
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn New2(name: []const u8) QtC.KUserGroup {
         const name_Cstring = name.ptr;
 
@@ -311,63 +420,94 @@ pub const kusergroup = struct {
 
     /// New3 constructs a new KUserGroup object.
     ///
-    ///
     pub fn New3() QtC.KUserGroup {
         return qtc.KUserGroup_new3();
     }
 
     /// New4 constructs a new KUserGroup object.
     ///
-    /// ``` gid: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` gid: u32 `
+    ///
     pub fn New4(gid: u32) QtC.KUserGroup {
         return qtc.KUserGroup_new4(gid);
     }
 
     /// New5 constructs a new KUserGroup object.
     ///
-    /// ``` group: QtC.KUserGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` group: QtC.KUserGroup `
+    ///
     pub fn New5(group: ?*anyopaque) QtC.KUserGroup {
         return qtc.KUserGroup_new5(@ptrCast(group));
     }
 
     /// New6 constructs a new KUserGroup object.
     ///
-    /// ``` mode: kuser_enums.UIDMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` mode: kuser_enums.UIDMode `
+    ///
     pub fn New6(mode: i32) QtC.KUserGroup {
         return qtc.KUserGroup_new6(@intCast(mode));
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq)
     ///
-    /// ``` self: QtC.KUserGroup, group: QtC.KUserGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` group: QtC.KUserGroup `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, group: ?*anyopaque) void {
         qtc.KUserGroup_OperatorAssign(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq-eq)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.KUserGroup, group: QtC.KUserGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` group: QtC.KUserGroup `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, group: ?*anyopaque) bool {
         return qtc.KUserGroup_OperatorEqual(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#operator-not-eq)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#operator-not-eq)
     ///
-    /// ``` self: QtC.KUserGroup, group: QtC.KUserGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` group: QtC.KUserGroup `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, group: ?*anyopaque) bool {
         return qtc.KUserGroup_OperatorNotEqual(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#isValid)
     ///
-    /// ``` self: QtC.KUserGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KUserGroup_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#name)
     ///
-    /// ``` self: QtC.KUserGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUserGroup_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -376,9 +516,14 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#users)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#users)
     ///
-    /// ``` self: QtC.KUserGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Users(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KUser {
         const _arr: qtc.libqt_list = qtc.KUserGroup_Users(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -388,9 +533,14 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
     ///
-    /// ``` self: QtC.KUserGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UserNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -410,9 +560,12 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllGroups(allocator: std.mem.Allocator) []QtC.KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups();
         defer qtc.libqt_free(_arr.data);
@@ -422,9 +575,12 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllGroupNames(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -444,9 +600,16 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#users)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#users)
     ///
-    /// ``` self: QtC.KUserGroup, maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Users1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []QtC.KUser {
         const _arr: qtc.libqt_list = qtc.KUserGroup_Users1(@ptrCast(self), @intCast(maxCount));
         defer qtc.libqt_free(_arr.data);
@@ -456,9 +619,16 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
     ///
-    /// ``` self: QtC.KUserGroup, maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UserNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames1(@ptrCast(self), @intCast(maxCount));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -478,9 +648,14 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
     ///
-    /// ``` maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllGroups1(maxCount: u32, allocator: std.mem.Allocator) []QtC.KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups1(@intCast(maxCount));
         defer qtc.libqt_free(_arr.data);
@@ -490,9 +665,14 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
     ///
-    /// ``` maxCount: u32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` maxCount: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllGroupNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames1(@intCast(maxCount));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -512,17 +692,20 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kusergroup.html#dtor.KUserGroup)
+    /// ### [Upstream resources](https://api.kde.org/kusergroup.html#dtor.KUserGroup)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KUserGroup ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KUserGroup `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KUserGroup_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kuser.html#types
+/// ### [Upstream resources](https://api.kde.org/kuser.html#public-types)
 pub const enums = struct {
     pub const UIDMode = enum {
         pub const UseEffectiveUID: i32 = 0;

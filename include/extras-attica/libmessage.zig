@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const message_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/attica-message.html
+/// ### [Upstream resources](https://api.kde.org/attica-message.html)
 pub const attica__message = struct {
     /// New constructs a new Attica::Message object.
-    ///
     ///
     pub fn New() QtC.Attica__Message {
         return qtc.Attica__Message_new();
@@ -14,21 +13,34 @@ pub const attica__message = struct {
 
     /// New2 constructs a new Attica::Message object.
     ///
-    /// ``` other: QtC.Attica__Message ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.Attica__Message `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.Attica__Message {
         return qtc.Attica__Message_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#operator-eq)
     ///
-    /// ``` self: QtC.Attica__Message, other: QtC.Attica__Message ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` other: QtC.Attica__Message `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Message_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#setId)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#setId)
     ///
-    /// ``` self: QtC.Attica__Message, id: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` id: []const u8 `
+    ///
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
@@ -37,9 +49,14 @@ pub const attica__message = struct {
         qtc.Attica__Message_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#id)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#id)
     ///
-    /// ``` self: QtC.Attica__Message, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Message_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -48,9 +65,14 @@ pub const attica__message = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#setFrom)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#setFrom)
     ///
-    /// ``` self: QtC.Attica__Message, from: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` from: []const u8 `
+    ///
     pub fn SetFrom(self: ?*anyopaque, from: []const u8) void {
         const from_str = qtc.libqt_string{
             .len = from.len,
@@ -59,9 +81,14 @@ pub const attica__message = struct {
         qtc.Attica__Message_SetFrom(@ptrCast(self), from_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#from)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#from)
     ///
-    /// ``` self: QtC.Attica__Message, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn From(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Message_From(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -70,9 +97,14 @@ pub const attica__message = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#setTo)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#setTo)
     ///
-    /// ``` self: QtC.Attica__Message, to: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` to: []const u8 `
+    ///
     pub fn SetTo(self: ?*anyopaque, to: []const u8) void {
         const to_str = qtc.libqt_string{
             .len = to.len,
@@ -81,9 +113,14 @@ pub const attica__message = struct {
         qtc.Attica__Message_SetTo(@ptrCast(self), to_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#to)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#to)
     ///
-    /// ``` self: QtC.Attica__Message, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn To(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Message_To(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -92,39 +129,62 @@ pub const attica__message = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#setSent)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#setSent)
     ///
-    /// ``` self: QtC.Attica__Message, sent: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` sent: QtC.QDateTime `
+    ///
     pub fn SetSent(self: ?*anyopaque, sent: ?*anyopaque) void {
         qtc.Attica__Message_SetSent(@ptrCast(self), @ptrCast(sent));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#sent)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#sent)
     ///
-    /// ``` self: QtC.Attica__Message ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
     pub fn Sent(self: ?*anyopaque) QtC.QDateTime {
         return qtc.Attica__Message_Sent(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#setStatus)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#setStatus)
     ///
-    /// ``` self: QtC.Attica__Message, status: message_enums.Status ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` status: message_enums.Status `
+    ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
         qtc.Attica__Message_SetStatus(@ptrCast(self), @intCast(status));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#status)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#status)
     ///
-    /// ``` self: QtC.Attica__Message ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` message_enums.Status ```
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ## Returns:
+    ///
+    /// ` message_enums.Status `
+    ///
     pub fn Status(self: ?*anyopaque) i32 {
         return qtc.Attica__Message_Status(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#setSubject)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#setSubject)
     ///
-    /// ``` self: QtC.Attica__Message, subject: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` subject: []const u8 `
+    ///
     pub fn SetSubject(self: ?*anyopaque, subject: []const u8) void {
         const subject_str = qtc.libqt_string{
             .len = subject.len,
@@ -133,9 +193,14 @@ pub const attica__message = struct {
         qtc.Attica__Message_SetSubject(@ptrCast(self), subject_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#subject)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#subject)
     ///
-    /// ``` self: QtC.Attica__Message, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Subject(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Message_Subject(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -144,9 +209,14 @@ pub const attica__message = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#setBody)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#setBody)
     ///
-    /// ``` self: QtC.Attica__Message, body: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` body: []const u8 `
+    ///
     pub fn SetBody(self: ?*anyopaque, body: []const u8) void {
         const body_str = qtc.libqt_string{
             .len = body.len,
@@ -155,9 +225,14 @@ pub const attica__message = struct {
         qtc.Attica__Message_SetBody(@ptrCast(self), body_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#body)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#body)
     ///
-    /// ``` self: QtC.Attica__Message, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Body(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Attica__Message_Body(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -166,22 +241,28 @@ pub const attica__message = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/attica-message.html#isValid)
+    /// ### [Upstream resources](https://api.kde.org/attica-message.html#isValid)
     ///
-    /// ``` self: QtC.Attica__Message ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Attica__Message_IsValid(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Attica__Message ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Attica__Message `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Attica__Message_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/attica-message.html#types
+/// ### [Upstream resources](https://api.kde.org/attica-message.html#public-types)
 pub const enums = struct {
     pub const Status = enum {
         pub const Unread: i32 = 0;

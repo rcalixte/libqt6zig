@@ -33,10 +33,9 @@ pub fn build(b: *std.Build) !void {
     defer arena.deinit();
     const allocator = arena.allocator();
 
-    const src_dir = try std.fs.path.join(allocator, &.{ b.build_root.path.?, "src" });
-    var dir = try std.fs.cwd().openDir(src_dir, .{ .iterate = true });
+    var dir = try b.build_root.handle.openDir("src", .{ .iterate = true });
     defer dir.close();
-    var walker = try dir.walk(b.allocator);
+    var walker = try dir.walk(allocator);
     defer walker.deinit();
 
     while (try walker.next()) |entry| {
@@ -71,7 +70,7 @@ pub fn build(b: *std.Build) !void {
                     }
                 }
 
-                try cpp_sources.append(allocator, try std.fs.path.join(allocator, &.{ "src", entry.path }));
+                try cpp_sources.append(allocator, b.fmt("{s}/{s}", .{ "src", entry.path }));
             } else if (entry.kind == .directory) {
                 inline for (prefixes) |prefix| {
                     if (std.mem.startsWith(u8, entry.path, prefix)) {
@@ -103,13 +102,13 @@ pub fn build(b: *std.Build) !void {
             try stdout_writer.interface.flush();
             continue;
         };
-        try qt_include_path.append(b.allocator, b.dupe(inc_path));
+        try qt_include_path.append(allocator, b.dupe(inc_path));
     }
     for (os_include_path) |os_path| {
         std.fs.cwd().access(os_path, .{}) catch {
             continue;
         };
-        try qt_include_path.append(b.allocator, b.dupe(os_path));
+        try qt_include_path.append(allocator, b.dupe(os_path));
     }
 
     // Add base flags
@@ -210,7 +209,6 @@ pub fn build(b: *std.Build) !void {
     });
 
     docs_step.dependOn(&docs_install.step);
-    b.default_step.dependOn(docs_step);
 }
 
 const is_bsd_host = switch (host_os) {

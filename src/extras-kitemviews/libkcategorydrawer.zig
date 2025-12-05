@@ -4,50 +4,89 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kcategorydrawer.html
+/// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html)
 pub const kcategorydrawer = struct {
     /// New constructs a new KCategoryDrawer object.
     ///
-    /// ``` view: QtC.KCategorizedView ```
+    /// ## Parameter(s):
+    ///
+    /// ` view: QtC.KCategorizedView `
+    ///
     pub fn New(view: ?*anyopaque) QtC.KCategoryDrawer {
         return qtc.KCategoryDrawer_new(@ptrCast(view));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KCategoryDrawer_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KCategoryDrawer, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCategoryDrawer_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KCategoryDrawer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KCategoryDrawer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -57,269 +96,480 @@ pub const kcategorydrawer = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#view)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#view)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn View(self: ?*anyopaque) QtC.KCategorizedView {
         return qtc.KCategoryDrawer_View(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#drawCategory)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#drawCategory)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, sortRole: i32, option: QtC.QStyleOption, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` sortRole: i32 `
+    ///
+    /// ` option: QtC.QStyleOption `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn DrawCategory(self: ?*anyopaque, index: ?*anyopaque, sortRole: i32, option: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.KCategoryDrawer_DrawCategory(@ptrCast(self), @ptrCast(index), @intCast(sortRole), @ptrCast(option), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#drawCategory)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#drawCategory)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, sortRole: i32, option: QtC.QStyleOption, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, sortRole: i32, option: QtC.QStyleOption, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnDrawCategory(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#drawCategory)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#drawCategory)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, sortRole: i32, option: QtC.QStyleOption, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` sortRole: i32 `
+    ///
+    /// ` option: QtC.QStyleOption `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseDrawCategory(self: ?*anyopaque, index: ?*anyopaque, sortRole: i32, option: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseDrawCategory(@ptrCast(self), @ptrCast(index), @intCast(sortRole), @ptrCast(option), @ptrCast(painter));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, option: QtC.QStyleOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` option: QtC.QStyleOption `
+    ///
     pub fn CategoryHeight(self: ?*anyopaque, index: ?*anyopaque, option: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_CategoryHeight(@ptrCast(self), @ptrCast(index), @ptrCast(option));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, option: QtC.QStyleOption) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, option: QtC.QStyleOption) callconv(.c) i32 `
+    ///
     pub fn OnCategoryHeight(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.KCategoryDrawer_OnCategoryHeight(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, option: QtC.QStyleOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` option: QtC.QStyleOption `
+    ///
     pub fn QBaseCategoryHeight(self: ?*anyopaque, index: ?*anyopaque, option: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_QBaseCategoryHeight(@ptrCast(self), @ptrCast(index), @ptrCast(option));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn LeftMargin(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_LeftMargin(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnLeftMargin(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KCategoryDrawer_OnLeftMargin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn QBaseLeftMargin(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_QBaseLeftMargin(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn RightMargin(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_RightMargin(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnRightMargin(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KCategoryDrawer_OnRightMargin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn QBaseRightMargin(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_QBaseRightMargin(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn CollapseOrExpandClicked(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KCategoryDrawer_CollapseOrExpandClicked(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawerindex: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnCollapseOrExpandClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_Connect_CollapseOrExpandClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#actionRequested)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#actionRequested)
     ///
-    /// ``` self: QtC.KCategoryDrawer, action: i32, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` action: i32 `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn ActionRequested(self: ?*anyopaque, action: i32, index: ?*anyopaque) void {
         qtc.KCategoryDrawer_ActionRequested(@ptrCast(self), @intCast(action), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#actionRequested)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#actionRequested)
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, action: i32, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDraweraction: i32, index: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnActionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_Connect_ActionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn MouseButtonPressed(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseButtonPressed(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnMouseButtonPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseButtonPressed(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseMouseButtonPressed(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn MouseButtonReleased(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseButtonReleased(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseButtonReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnMouseButtonReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseButtonReleased(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseMouseButtonReleased(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn MouseMoved(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseMoved(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnMouseMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseMoved(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseMouseMoved(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn MouseButtonDoubleClicked(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseButtonDoubleClicked(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseButtonDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnMouseButtonDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
+    /// ` event: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseButtonDoubleClicked(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseMouseButtonDoubleClicked(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
     pub fn MouseLeft(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseLeft(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect) callconv(.c) void `
+    ///
     pub fn OnMouseLeft(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnMouseLeft(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` blockRect: QtC.QRect `
+    ///
     pub fn QBaseMouseLeft(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseMouseLeft(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -330,9 +580,18 @@ pub const kcategorydrawer = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -345,9 +604,14 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KCategoryDrawer, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -358,9 +622,14 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KCategoryDrawer, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -371,99 +640,144 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KCategoryDrawer, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KCategoryDrawer, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KCategoryDrawer, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KCategoryDrawer, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KCategoryDrawer, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KCategoryDrawer, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -475,45 +789,78 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KCategoryDrawer, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KCategoryDrawer, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KCategoryDrawer, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KCategoryDrawer, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -522,45 +869,70 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KCategoryDrawer, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -568,9 +940,14 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KCategoryDrawer, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -578,9 +955,14 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KCategoryDrawer, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -602,54 +984,76 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KCategoryDrawer, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -657,45 +1061,84 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KCategoryDrawer, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KCategoryDrawer, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KCategoryDrawer, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -704,326 +1147,472 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCategoryDrawer, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawerparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KCategoryDrawer_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KCategoryDrawer_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KCategoryDrawer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KCategoryDrawer_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KCategoryDrawer_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KCategoryDrawer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KCategoryDrawer_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KCategoryDrawer_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KCategoryDrawer_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KCategoryDrawer_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KCategoryDrawer_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KCategoryDrawer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KCategoryDrawer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCategoryDrawer_Receivers(@ptrCast(self), signal_Cstring);
@@ -1031,11 +1620,16 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCategoryDrawer_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1043,64 +1637,92 @@ pub const kcategorydrawer = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KCategoryDrawer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KCategoryDrawer_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KCategoryDrawer_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer`
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KCategoryDrawer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
+    /// ` callback: *const fn (self: QtC.KCategoryDrawerobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcategorydrawer.html#dtor.KCategoryDrawer)
+    /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#dtor.KCategoryDrawer)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KCategoryDrawer ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KCategoryDrawer `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KCategoryDrawer_Delete(@ptrCast(self));
     }

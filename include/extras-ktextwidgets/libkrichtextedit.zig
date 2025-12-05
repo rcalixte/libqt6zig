@@ -15,18 +15,24 @@ const qtextoption_enums = @import("../libqtextoption.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/krichtextedit.html
+/// ### [Upstream resources](https://api.kde.org/krichtextedit.html)
 pub const krichtextedit = struct {
     /// New constructs a new KRichTextEdit object.
     ///
-    /// ``` parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn New(parent: ?*anyopaque) QtC.KRichTextEdit {
         return qtc.KRichTextEdit_new(@ptrCast(parent));
     }
 
     /// New2 constructs a new KRichTextEdit object.
     ///
-    /// ``` text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn New2(text: []const u8) QtC.KRichTextEdit {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -38,14 +44,18 @@ pub const krichtextedit = struct {
 
     /// New3 constructs a new KRichTextEdit object.
     ///
-    ///
     pub fn New3() QtC.KRichTextEdit {
         return qtc.KRichTextEdit_new3();
     }
 
     /// New4 constructs a new KRichTextEdit object.
     ///
-    /// ``` text: []const u8, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn New4(text: []const u8, parent: ?*anyopaque) QtC.KRichTextEdit {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -55,41 +65,77 @@ pub const krichtextedit = struct {
         return qtc.KRichTextEdit_new4(text_str, @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KRichTextEdit_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KRichTextEdit, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KRichTextEdit_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KRichTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KRichTextEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KRichTextEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KRichTextEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -99,25 +145,38 @@ pub const krichtextedit = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#enableRichTextMode)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#enableRichTextMode)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn EnableRichTextMode(self: ?*anyopaque) void {
         qtc.KRichTextEdit_EnableRichTextMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textMode)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#textMode)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` krichtextedit_enums.Mode ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` krichtextedit_enums.Mode `
+    ///
     pub fn TextMode(self: ?*anyopaque) i32 {
         return qtc.KRichTextEdit_TextMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textOrHtml)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#textOrHtml)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TextOrHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KRichTextEdit_TextOrHtml(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -126,9 +185,14 @@ pub const krichtextedit = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextOrHtml)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextOrHtml)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetTextOrHtml(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -137,9 +201,14 @@ pub const krichtextedit = struct {
         qtc.KRichTextEdit_SetTextOrHtml(@ptrCast(self), text_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#currentLinkText)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#currentLinkText)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CurrentLinkText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KRichTextEdit_CurrentLinkText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -148,9 +217,14 @@ pub const krichtextedit = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#currentLinkUrl)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#currentLinkUrl)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CurrentLinkUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KRichTextEdit_CurrentLinkUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -159,23 +233,38 @@ pub const krichtextedit = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#selectLinkText)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#selectLinkText)
     ///
-    /// ``` self: QtC.KRichTextEdit, cursor: QtC.QTextCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` cursor: QtC.QTextCursor `
+    ///
     pub fn SelectLinkText(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.KRichTextEdit_SelectLinkText(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#selectLinkText)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#selectLinkText)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SelectLinkText2(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SelectLinkText2(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#updateLink)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#updateLink)
     ///
-    /// ``` self: QtC.KRichTextEdit, linkUrl: []const u8, linkText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` linkUrl: []const u8 `
+    ///
+    /// ` linkText: []const u8 `
+    ///
     pub fn UpdateLink(self: ?*anyopaque, linkUrl: []const u8, linkText: []const u8) void {
         const linkUrl_str = qtc.libqt_string{
             .len = linkUrl.len,
@@ -188,86 +277,126 @@ pub const krichtextedit = struct {
         qtc.KRichTextEdit_UpdateLink(@ptrCast(self), linkUrl_str, linkText_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#canIndentList)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#canIndentList)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CanIndentList(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_CanIndentList(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#canDedentList)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#canDedentList)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CanDedentList(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_CanDedentList(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignLeft)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#alignLeft)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AlignLeft(self: ?*anyopaque) void {
         qtc.KRichTextEdit_AlignLeft(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignCenter)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#alignCenter)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AlignCenter(self: ?*anyopaque) void {
         qtc.KRichTextEdit_AlignCenter(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignRight)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#alignRight)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AlignRight(self: ?*anyopaque) void {
         qtc.KRichTextEdit_AlignRight(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignJustify)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#alignJustify)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AlignJustify(self: ?*anyopaque) void {
         qtc.KRichTextEdit_AlignJustify(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#makeRightToLeft)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#makeRightToLeft)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MakeRightToLeft(self: ?*anyopaque) void {
         qtc.KRichTextEdit_MakeRightToLeft(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#makeLeftToRight)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#makeLeftToRight)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MakeLeftToRight(self: ?*anyopaque) void {
         qtc.KRichTextEdit_MakeLeftToRight(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setListStyle)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setListStyle)
     ///
-    /// ``` self: QtC.KRichTextEdit, _styleIndex: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` _styleIndex: i32 `
+    ///
     pub fn SetListStyle(self: ?*anyopaque, _styleIndex: i32) void {
         qtc.KRichTextEdit_SetListStyle(@ptrCast(self), @intCast(_styleIndex));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#indentListMore)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#indentListMore)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IndentListMore(self: ?*anyopaque) void {
         qtc.KRichTextEdit_IndentListMore(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#indentListLess)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#indentListLess)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IndentListLess(self: ?*anyopaque) void {
         qtc.KRichTextEdit_IndentListLess(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setFontFamily)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setFontFamily)
     ///
-    /// ``` self: QtC.KRichTextEdit, fontFamily: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` fontFamily: []const u8 `
+    ///
     pub fn SetFontFamily(self: ?*anyopaque, fontFamily: []const u8) void {
         const fontFamily_str = qtc.libqt_string{
             .len = fontFamily.len,
@@ -276,79 +405,130 @@ pub const krichtextedit = struct {
         qtc.KRichTextEdit_SetFontFamily(@ptrCast(self), fontFamily_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setFontSize)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setFontSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetFontSize(self: ?*anyopaque, size: i32) void {
         qtc.KRichTextEdit_SetFontSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setFont)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setFont)
     ///
-    /// ``` self: QtC.KRichTextEdit, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KRichTextEdit_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextBold)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextBold)
     ///
-    /// ``` self: QtC.KRichTextEdit, bold: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` bold: bool `
+    ///
     pub fn SetTextBold(self: ?*anyopaque, bold: bool) void {
         qtc.KRichTextEdit_SetTextBold(@ptrCast(self), bold);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextItalic)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextItalic)
     ///
-    /// ``` self: QtC.KRichTextEdit, italic: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` italic: bool `
+    ///
     pub fn SetTextItalic(self: ?*anyopaque, italic: bool) void {
         qtc.KRichTextEdit_SetTextItalic(@ptrCast(self), italic);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextUnderline)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextUnderline)
     ///
-    /// ``` self: QtC.KRichTextEdit, underline: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` underline: bool `
+    ///
     pub fn SetTextUnderline(self: ?*anyopaque, underline: bool) void {
         qtc.KRichTextEdit_SetTextUnderline(@ptrCast(self), underline);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextStrikeOut)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextStrikeOut)
     ///
-    /// ``` self: QtC.KRichTextEdit, strikeOut: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` strikeOut: bool `
+    ///
     pub fn SetTextStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
         qtc.KRichTextEdit_SetTextStrikeOut(@ptrCast(self), strikeOut);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextForegroundColor)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextForegroundColor)
     ///
-    /// ``` self: QtC.KRichTextEdit, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetTextForegroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KRichTextEdit_SetTextForegroundColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextBackgroundColor)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextBackgroundColor)
     ///
-    /// ``` self: QtC.KRichTextEdit, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetTextBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KRichTextEdit_SetTextBackgroundColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#insertHorizontalRule)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#insertHorizontalRule)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn InsertHorizontalRule(self: ?*anyopaque) void {
         qtc.KRichTextEdit_InsertHorizontalRule(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#switchToPlainText)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#switchToPlainText)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SwitchToPlainText(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SwitchToPlainText(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#toCleanHtml)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#toCleanHtml)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToCleanHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KRichTextEdit_ToCleanHtml(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -357,76 +537,126 @@ pub const krichtextedit = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextSuperScript)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextSuperScript)
     ///
-    /// ``` self: QtC.KRichTextEdit, superscript: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` superscript: bool `
+    ///
     pub fn SetTextSuperScript(self: ?*anyopaque, superscript: bool) void {
         qtc.KRichTextEdit_SetTextSuperScript(@ptrCast(self), superscript);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextSubScript)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setTextSubScript)
     ///
-    /// ``` self: QtC.KRichTextEdit, subscript: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` subscript: bool `
+    ///
     pub fn SetTextSubScript(self: ?*anyopaque, subscript: bool) void {
         qtc.KRichTextEdit_SetTextSubScript(@ptrCast(self), subscript);
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setHeadingLevel)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#setHeadingLevel)
     ///
-    /// ``` self: QtC.KRichTextEdit, level: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` level: i32 `
+    ///
     pub fn SetHeadingLevel(self: ?*anyopaque, level: i32) void {
         qtc.KRichTextEdit_SetHeadingLevel(@ptrCast(self), @intCast(level));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#insertPlainTextImplementation)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#insertPlainTextImplementation)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn InsertPlainTextImplementation(self: ?*anyopaque) void {
         qtc.KRichTextEdit_InsertPlainTextImplementation(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#textModeChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, mode: krichtextedit_enums.Mode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` mode: krichtextedit_enums.Mode `
+    ///
     pub fn TextModeChanged(self: ?*anyopaque, mode: i32) void {
         qtc.KRichTextEdit_TextModeChanged(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textModeChanged)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#textModeChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, mode: krichtextedit_enums.Mode) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditmode: krichtextedit_enums.Mode) callconv(.c) void `
+    ///
     pub fn OnTextModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KRichTextEdit_Connect_TextModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QKeyEvent `
+    ///
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QKeyEvent) callconv(.c) void `
+    ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QKeyEvent `
+    ///
     pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -437,9 +667,18 @@ pub const krichtextedit = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -452,45 +691,70 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#highlightWord)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#highlightWord)
     ///
-    /// ``` self: QtC.KRichTextEdit, length: i32, pos: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` length: i32 `
+    ///
+    /// ` pos: i32 `
+    ///
     pub fn HighlightWord(self: ?*anyopaque, length: i32, pos: i32) void {
         qtc.KTextEdit_HighlightWord(@ptrCast(self), @intCast(length), @intCast(pos));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#highlighter)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#highlighter)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Highlighter(self: ?*anyopaque) QtC.Sonnet__Highlighter {
         return qtc.KTextEdit_Highlighter(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setHighlighter)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setHighlighter)
     ///
-    /// ``` self: QtC.KRichTextEdit, _highLighter: QtC.Sonnet__Highlighter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` _highLighter: QtC.Sonnet__Highlighter `
+    ///
     pub fn SetHighlighter(self: ?*anyopaque, _highLighter: ?*anyopaque) void {
         qtc.KTextEdit_SetHighlighter(@ptrCast(self), @ptrCast(_highLighter));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#enableFindReplace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#enableFindReplace)
     ///
-    /// ``` self: QtC.KRichTextEdit, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn EnableFindReplace(self: ?*anyopaque, enabled: bool) void {
         qtc.KTextEdit_EnableFindReplace(@ptrCast(self), enabled);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingLanguage)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingLanguage)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SpellCheckingLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KTextEdit_SpellCheckingLanguage(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -501,54 +765,82 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#showTabAction)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#showTabAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, show: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` show: bool `
+    ///
     pub fn ShowTabAction(self: ?*anyopaque, show: bool) void {
         qtc.KTextEdit_ShowTabAction(@ptrCast(self), show);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#showAutoCorrectButton)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#showAutoCorrectButton)
     ///
-    /// ``` self: QtC.KRichTextEdit, show: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` show: bool `
+    ///
     pub fn ShowAutoCorrectButton(self: ?*anyopaque, show: bool) void {
         qtc.KTextEdit_ShowAutoCorrectButton(@ptrCast(self), show);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#forceSpellChecking)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#forceSpellChecking)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ForceSpellChecking(self: ?*anyopaque) void {
         qtc.KTextEdit_ForceSpellChecking(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: bool `
+    ///
     pub fn CheckSpellingChanged(self: ?*anyopaque, param1: bool) void {
         qtc.KTextEdit_CheckSpellingChanged(@ptrCast(self), param1);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditparam1: bool) callconv(.c) void `
+    ///
     pub fn OnCheckSpellingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTextEdit_Connect_CheckSpellingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckStatus)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn SpellCheckStatus(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -559,18 +851,28 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckStatus)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditparam1: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSpellCheckStatus(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckStatus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#languageChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#languageChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, language: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` language: []const u8 `
+    ///
     pub fn LanguageChanged(self: ?*anyopaque, language: []const u8) void {
         const language_str = qtc.libqt_string{
             .len = language.len,
@@ -581,36 +883,58 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#languageChanged)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#languageChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, language: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditlanguage: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_LanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
-    /// ``` self: QtC.KRichTextEdit, menu: QtC.QMenu ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` menu: QtC.QMenu `
+    ///
     pub fn AboutToShowContextMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
         qtc.KTextEdit_AboutToShowContextMenu(@ptrCast(self), @ptrCast(menu));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, menu: QtC.QMenu) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditmenu: QtC.QMenu) callconv(.c) void `
+    ///
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
-    /// ``` self: QtC.KRichTextEdit, currentWord: []const u8, autoCorrectWord: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` currentWord: []const u8 `
+    ///
+    /// ` autoCorrectWord: []const u8 `
+    ///
     pub fn SpellCheckerAutoCorrect(self: ?*anyopaque, currentWord: []const u8, autoCorrectWord: []const u8) void {
         const currentWord_str = qtc.libqt_string{
             .len = currentWord.len,
@@ -625,54 +949,80 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditcurrentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckerAutoCorrect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingFinished)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SpellCheckingFinished(self: ?*anyopaque) void {
         qtc.KTextEdit_SpellCheckingFinished(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingFinished)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void `
+    ///
     pub fn OnSpellCheckingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SpellCheckingCanceled(self: ?*anyopaque) void {
         qtc.KTextEdit_SpellCheckingCanceled(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void `
+    ///
     pub fn OnSpellCheckingCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckingCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setSpellCheckingLanguage)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setSpellCheckingLanguage)
     ///
-    /// ``` self: QtC.KRichTextEdit, language: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` language: []const u8 `
+    ///
     pub fn SetSpellCheckingLanguage(self: ?*anyopaque, language: []const u8) void {
         const language_str = qtc.libqt_string{
             .len = language.len,
@@ -683,54 +1033,76 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpelling)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpelling)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CheckSpelling(self: ?*anyopaque) void {
         qtc.KTextEdit_CheckSpelling(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ShowSpellConfigDialog(self: ?*anyopaque) void {
         qtc.KTextEdit_ShowSpellConfigDialog(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#replace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#replace)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Replace(self: ?*anyopaque) void {
         qtc.KTextEdit_Replace(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#addTextDecorator)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#addTextDecorator)
     ///
-    /// ``` self: QtC.KRichTextEdit, decorator: QtC.Sonnet__SpellCheckDecorator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` decorator: QtC.Sonnet__SpellCheckDecorator `
+    ///
     pub fn AddTextDecorator(self: ?*anyopaque, decorator: ?*anyopaque) void {
         qtc.KTextEdit_AddTextDecorator(@ptrCast(self), @ptrCast(decorator));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#clearDecorator)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#clearDecorator)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ClearDecorator(self: ?*anyopaque) void {
         qtc.KTextEdit_ClearDecorator(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
-    /// ``` self: QtC.KRichTextEdit, windowIcon: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` windowIcon: []const u8 `
+    ///
     pub fn ShowSpellConfigDialog1(self: ?*anyopaque, windowIcon: []const u8) void {
         const windowIcon_str = qtc.libqt_string{
             .len = windowIcon.len,
@@ -741,27 +1113,40 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocument)
     ///
-    /// ``` self: QtC.KRichTextEdit, document: QtC.QTextDocument ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` document: QtC.QTextDocument `
+    ///
     pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.QTextEdit_SetDocument(@ptrCast(self), @ptrCast(document));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#document)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#document)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
         return qtc.QTextEdit_Document(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlaceholderText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlaceholderText)
     ///
-    /// ``` self: QtC.KRichTextEdit, placeholderText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` placeholderText: []const u8 `
+    ///
     pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
             .len = placeholderText.len,
@@ -772,9 +1157,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#placeholderText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#placeholderText)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_PlaceholderText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -785,65 +1175,94 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextCursor)
     ///
-    /// ``` self: QtC.KRichTextEdit, cursor: QtC.QTextCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` cursor: QtC.QTextCursor `
+    ///
     pub fn SetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QTextEdit_SetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textCursor)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn TextCursor(self: ?*anyopaque) QtC.QTextCursor {
         return qtc.QTextEdit_TextCursor(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isReadOnly)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isReadOnly)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.QTextEdit_IsReadOnly(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
     ///
-    /// ``` self: QtC.KRichTextEdit, flags: flag of qnamespace_enums.TextInteractionFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
+    ///
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textInteractionFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textInteractionFlags)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.TextInteractionFlag ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.TextInteractionFlag `
+    ///
     pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontPointSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontPointSize)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FontPointSize(self: ?*anyopaque) f64 {
         return qtc.QTextEdit_FontPointSize(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontFamily)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontFamily)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_FontFamily(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -854,139 +1273,198 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontWeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontWeight)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FontWeight(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_FontWeight(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontUnderline)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontUnderline)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FontUnderline(self: ?*anyopaque) bool {
         return qtc.QTextEdit_FontUnderline(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontItalic)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontItalic)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FontItalic(self: ?*anyopaque) bool {
         return qtc.QTextEdit_FontItalic(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textColor)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn TextColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QTextEdit_TextColor(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textBackgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textBackgroundColor)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn TextBackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QTextEdit_TextBackgroundColor(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentFont)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CurrentFont(self: ?*anyopaque) QtC.QFont {
         return qtc.QTextEdit_CurrentFont(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#alignment)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_Alignment(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mergeCurrentCharFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mergeCurrentCharFormat)
     ///
-    /// ``` self: QtC.KRichTextEdit, modifier: QtC.QTextCharFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` modifier: QtC.QTextCharFormat `
+    ///
     pub fn MergeCurrentCharFormat(self: ?*anyopaque, modifier: ?*anyopaque) void {
         qtc.QTextEdit_MergeCurrentCharFormat(@ptrCast(self), @ptrCast(modifier));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentCharFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentCharFormat)
     ///
-    /// ``` self: QtC.KRichTextEdit, format: QtC.QTextCharFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` format: QtC.QTextCharFormat `
+    ///
     pub fn SetCurrentCharFormat(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QTextEdit_SetCurrentCharFormat(@ptrCast(self), @ptrCast(format));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormat)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CurrentCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
         return qtc.QTextEdit_CurrentCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#autoFormatting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#autoFormatting)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qtextedit_enums.AutoFormattingFlag ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qtextedit_enums.AutoFormattingFlag `
+    ///
     pub fn AutoFormatting(self: ?*anyopaque) i64 {
         return qtc.QTextEdit_AutoFormatting(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAutoFormatting)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAutoFormatting)
     ///
-    /// ``` self: QtC.KRichTextEdit, features: flag of qtextedit_enums.AutoFormattingFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` features: flag of qtextedit_enums.AutoFormattingFlag `
+    ///
     pub fn SetAutoFormatting(self: ?*anyopaque, features: i64) void {
         qtc.QTextEdit_SetAutoFormatting(@ptrCast(self), @intCast(features));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabChangesFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabChangesFocus)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn TabChangesFocus(self: ?*anyopaque) bool {
         return qtc.QTextEdit_TabChangesFocus(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabChangesFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabChangesFocus)
     ///
-    /// ``` self: QtC.KRichTextEdit, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` b: bool `
+    ///
     pub fn SetTabChangesFocus(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_SetTabChangesFocus(@ptrCast(self), b);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocumentTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocumentTitle)
     ///
-    /// ``` self: QtC.KRichTextEdit, title: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` title: []const u8 `
+    ///
     pub fn SetDocumentTitle(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -997,9 +1475,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#documentTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#documentTitle)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DocumentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_DocumentTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1010,85 +1493,126 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isUndoRedoEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isUndoRedoEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsUndoRedoEnabled(self: ?*anyopaque) bool {
         return qtc.QTextEdit_IsUndoRedoEnabled(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setUndoRedoEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setUndoRedoEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetUndoRedoEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QTextEdit_SetUndoRedoEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapMode)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qtextedit_enums.LineWrapMode ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qtextedit_enums.LineWrapMode `
+    ///
     pub fn LineWrapMode(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_LineWrapMode(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapMode)
     ///
-    /// ``` self: QtC.KRichTextEdit, mode: qtextedit_enums.LineWrapMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` mode: qtextedit_enums.LineWrapMode `
+    ///
     pub fn SetLineWrapMode(self: ?*anyopaque, mode: i32) void {
         qtc.QTextEdit_SetLineWrapMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapColumnOrWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapColumnOrWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn LineWrapColumnOrWidth(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_LineWrapColumnOrWidth(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapColumnOrWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapColumnOrWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit, w: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` w: i32 `
+    ///
     pub fn SetLineWrapColumnOrWidth(self: ?*anyopaque, w: i32) void {
         qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wordWrapMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wordWrapMode)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qtextoption_enums.WrapMode ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qtextoption_enums.WrapMode `
+    ///
     pub fn WordWrapMode(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_WordWrapMode(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setWordWrapMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setWordWrapMode)
     ///
-    /// ``` self: QtC.KRichTextEdit, policy: qtextoption_enums.WrapMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` policy: qtextoption_enums.WrapMode `
+    ///
     pub fn SetWordWrapMode(self: ?*anyopaque, policy: i32) void {
         qtc.QTextEdit_SetWordWrapMode(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
-    /// ``` self: QtC.KRichTextEdit, exp: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` exp: []const u8 `
+    ///
     pub fn Find(self: ?*anyopaque, exp: []const u8) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
@@ -1099,18 +1623,28 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
-    /// ``` self: QtC.KRichTextEdit, exp: QtC.QRegularExpression ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` exp: QtC.QRegularExpression `
+    ///
     pub fn Find2(self: ?*anyopaque, exp: ?*anyopaque) bool {
         return qtc.QTextEdit_Find2(@ptrCast(self), @ptrCast(exp));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toPlainText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toPlainText)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_ToPlainText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1121,9 +1655,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toHtml)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toHtml)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_ToHtml(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1134,9 +1673,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToMarkdown(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_ToMarkdown(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1147,63 +1691,94 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#ensureCursorVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#ensureCursorVisible)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn EnsureCursorVisible(self: ?*anyopaque) void {
         qtc.QTextEdit_EnsureCursorVisible(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.QTextEdit_CreateStandardContextMenu(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
     ///
-    /// ``` self: QtC.KRichTextEdit, position: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` position: QtC.QPoint `
+    ///
     pub fn CreateStandardContextMenu2(self: ?*anyopaque, position: ?*anyopaque) QtC.QMenu {
         return qtc.QTextEdit_CreateStandardContextMenu2(@ptrCast(self), @ptrCast(position));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorForPosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorForPosition)
     ///
-    /// ``` self: QtC.KRichTextEdit, pos: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
     pub fn CursorForPosition(self: ?*anyopaque, pos: ?*anyopaque) QtC.QTextCursor {
         return qtc.QTextEdit_CursorForPosition(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
     ///
-    /// ``` self: QtC.KRichTextEdit, cursor: QtC.QTextCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` cursor: QtC.QTextCursor `
+    ///
     pub fn CursorRect(self: ?*anyopaque, cursor: ?*anyopaque) QtC.QRect {
         return qtc.QTextEdit_CursorRect(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CursorRect2(self: ?*anyopaque) QtC.QRect {
         return qtc.QTextEdit_CursorRect2(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#anchorAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#anchorAt)
     ///
-    /// ``` self: QtC.KRichTextEdit, pos: QtC.QPoint, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AnchorAt(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_AnchorAt(@ptrCast(self), @ptrCast(pos));
         defer qtc.libqt_string_free(&_str);
@@ -1214,81 +1789,118 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#overwriteMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#overwriteMode)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn OverwriteMode(self: ?*anyopaque) bool {
         return qtc.QTextEdit_OverwriteMode(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setOverwriteMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setOverwriteMode)
     ///
-    /// ``` self: QtC.KRichTextEdit, overwrite: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` overwrite: bool `
+    ///
     pub fn SetOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
         qtc.QTextEdit_SetOverwriteMode(@ptrCast(self), overwrite);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabStopDistance)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabStopDistance)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn TabStopDistance(self: ?*anyopaque) f64 {
         return qtc.QTextEdit_TabStopDistance(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabStopDistance)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabStopDistance)
     ///
-    /// ``` self: QtC.KRichTextEdit, distance: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` distance: f64 `
+    ///
     pub fn SetTabStopDistance(self: ?*anyopaque, distance: f64) void {
         qtc.QTextEdit_SetTabStopDistance(@ptrCast(self), @floatCast(distance));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CursorWidth(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_CursorWidth(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCursorWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCursorWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit, width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` width: i32 `
+    ///
     pub fn SetCursorWidth(self: ?*anyopaque, width: i32) void {
         qtc.QTextEdit_SetCursorWidth(@ptrCast(self), @intCast(width));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#acceptRichText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#acceptRichText)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AcceptRichText(self: ?*anyopaque) bool {
         return qtc.QTextEdit_AcceptRichText(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAcceptRichText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAcceptRichText)
     ///
-    /// ``` self: QtC.KRichTextEdit, accept: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` accept: bool `
+    ///
     pub fn SetAcceptRichText(self: ?*anyopaque, accept: bool) void {
         qtc.QTextEdit_SetAcceptRichText(@ptrCast(self), accept);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setExtraSelections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setExtraSelections)
     ///
-    /// ``` self: QtC.KRichTextEdit, selections: []QtC.QTextEdit__ExtraSelection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` selections: []QtC.QTextEdit__ExtraSelection `
+    ///
     pub fn SetExtraSelections(self: ?*anyopaque, selections: []QtC.QTextEdit__ExtraSelection) void {
         const selections_list = qtc.libqt_list{
             .len = selections.len,
@@ -1299,9 +1911,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#extraSelections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#extraSelections)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ExtraSelections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextEdit__ExtraSelection {
         const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1313,108 +1930,168 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
     ///
-    /// ``` self: QtC.KRichTextEdit, operation: qtextcursor_enums.MoveOperation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` operation: qtextcursor_enums.MoveOperation `
+    ///
     pub fn MoveCursor(self: ?*anyopaque, operation: i32) void {
         qtc.QTextEdit_MoveCursor(@ptrCast(self), @intCast(operation));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canPaste)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canPaste)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CanPaste(self: ?*anyopaque) bool {
         return qtc.QTextEdit_CanPaste(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#print)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#print)
     ///
-    /// ``` self: QtC.KRichTextEdit, printer: QtC.QPagedPaintDevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` printer: QtC.QPagedPaintDevice `
+    ///
     pub fn Print(self: ?*anyopaque, printer: ?*anyopaque) void {
         qtc.QTextEdit_Print(@ptrCast(self), @ptrCast(printer));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
-    /// ``` self: QtC.KRichTextEdit, query: qnamespace_enums.InputMethodQuery, argument: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` query: qnamespace_enums.InputMethodQuery `
+    ///
+    /// ` argument: QtC.QVariant `
+    ///
     pub fn InputMethodQuery2(self: ?*anyopaque, query: i64, argument: QtC.QVariant) QtC.QVariant {
         return qtc.QTextEdit_InputMethodQuery2(@ptrCast(self), @intCast(query), @ptrCast(argument));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontPointSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontPointSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, s: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` s: f64 `
+    ///
     pub fn SetFontPointSize(self: ?*anyopaque, s: f64) void {
         qtc.QTextEdit_SetFontPointSize(@ptrCast(self), @floatCast(s));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontWeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontWeight)
     ///
-    /// ``` self: QtC.KRichTextEdit, w: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` w: i32 `
+    ///
     pub fn SetFontWeight(self: ?*anyopaque, w: i32) void {
         qtc.QTextEdit_SetFontWeight(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontUnderline)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontUnderline)
     ///
-    /// ``` self: QtC.KRichTextEdit, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` b: bool `
+    ///
     pub fn SetFontUnderline(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_SetFontUnderline(@ptrCast(self), b);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontItalic)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontItalic)
     ///
-    /// ``` self: QtC.KRichTextEdit, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` b: bool `
+    ///
     pub fn SetFontItalic(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_SetFontItalic(@ptrCast(self), b);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextColor)
     ///
-    /// ``` self: QtC.KRichTextEdit, c: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` c: QtC.QColor `
+    ///
     pub fn SetTextColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QTextEdit_SetTextColor(@ptrCast(self), @ptrCast(c));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentFont)
     ///
-    /// ``` self: QtC.KRichTextEdit, f: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` f: QtC.QFont `
+    ///
     pub fn SetCurrentFont(self: ?*anyopaque, f: ?*anyopaque) void {
         qtc.QTextEdit_SetCurrentFont(@ptrCast(self), @ptrCast(f));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
     ///
-    /// ``` self: QtC.KRichTextEdit, a: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` a: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QTextEdit_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlainText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlainText)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1425,9 +2102,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setHtml)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setHtml)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetHtml(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1438,9 +2120,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setMarkdown)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setMarkdown)
     ///
-    /// ``` self: QtC.KRichTextEdit, markdown: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` markdown: []const u8 `
+    ///
     pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
@@ -1451,9 +2138,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setText)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1464,72 +2156,98 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cut)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Cut(self: ?*anyopaque) void {
         qtc.QTextEdit_Cut(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Copy(self: ?*anyopaque) void {
         qtc.QTextEdit_Copy(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paste)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paste)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Paste(self: ?*anyopaque) void {
         qtc.QTextEdit_Paste(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undo)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Undo(self: ?*anyopaque) void {
         qtc.QTextEdit_Undo(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redo)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Redo(self: ?*anyopaque) void {
         qtc.QTextEdit_Redo(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#clear)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QTextEdit_Clear(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectAll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectAll)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SelectAll(self: ?*anyopaque) void {
         qtc.QTextEdit_SelectAll(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertPlainText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertPlainText)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn InsertPlainText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1540,9 +2258,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertHtml)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertHtml)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn InsertHtml(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1553,9 +2276,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#append)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn Append(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1566,9 +2294,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollToAnchor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollToAnchor)
     ///
-    /// ``` self: QtC.KRichTextEdit, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn ScrollToAnchor(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1579,153 +2312,230 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ZoomIn(self: ?*anyopaque) void {
         qtc.QTextEdit_ZoomIn(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ZoomOut(self: ?*anyopaque) void {
         qtc.QTextEdit_ZoomOut(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn TextChanged(self: ?*anyopaque) void {
         qtc.QTextEdit_TextChanged(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void `
+    ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` b: bool `
+    ///
     pub fn UndoAvailable(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_UndoAvailable(@ptrCast(self), b);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditb: bool) callconv(.c) void `
+    ///
     pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` b: bool `
+    ///
     pub fn RedoAvailable(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_RedoAvailable(@ptrCast(self), b);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditb: bool) callconv(.c) void `
+    ///
     pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, format: QtC.QTextCharFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` format: QtC.QTextCharFormat `
+    ///
     pub fn CurrentCharFormatChanged(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QTextEdit_CurrentCharFormatChanged(@ptrCast(self), @ptrCast(format));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, format: QtC.QTextCharFormat) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditformat: QtC.QTextCharFormat) callconv(.c) void `
+    ///
     pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` b: bool `
+    ///
     pub fn CopyAvailable(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_CopyAvailable(@ptrCast(self), b);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditb: bool) callconv(.c) void `
+    ///
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SelectionChanged(self: ?*anyopaque) void {
         qtc.QTextEdit_SelectionChanged(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void `
+    ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CursorPositionChanged(self: ?*anyopaque) void {
         qtc.QTextEdit_CursorPositionChanged(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void `
+    ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
-    /// ``` self: QtC.KRichTextEdit, exp: []const u8, options: flag of qtextdocument_enums.FindFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` exp: []const u8 `
+    ///
+    /// ` options: flag of qtextdocument_enums.FindFlag `
+    ///
     pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
@@ -1736,18 +2546,32 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
-    /// ``` self: QtC.KRichTextEdit, exp: QtC.QRegularExpression, options: flag of qtextdocument_enums.FindFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` exp: QtC.QRegularExpression `
+    ///
+    /// ` options: flag of qtextdocument_enums.FindFlag `
+    ///
     pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i32) bool {
         return qtc.QTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @intCast(options));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
-    /// ``` self: QtC.KRichTextEdit, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` features: flag of qtextdocument_enums.MarkdownFeature `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self), @intCast(features));
         defer qtc.libqt_string_free(&_str);
@@ -1758,139 +2582,214 @@ pub const krichtextedit = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
     ///
-    /// ``` self: QtC.KRichTextEdit, operation: qtextcursor_enums.MoveOperation, mode: qtextcursor_enums.MoveMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` operation: qtextcursor_enums.MoveOperation `
+    ///
+    /// ` mode: qtextcursor_enums.MoveMode `
+    ///
     pub fn MoveCursor2(self: ?*anyopaque, operation: i32, mode: i32) void {
         qtc.QTextEdit_MoveCursor2(@ptrCast(self), @intCast(operation), @intCast(mode));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
     ///
-    /// ``` self: QtC.KRichTextEdit, range: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` range: i32 `
+    ///
     pub fn ZoomIn1(self: ?*anyopaque, range: i32) void {
         qtc.QTextEdit_ZoomIn1(@ptrCast(self), @intCast(range));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
     ///
-    /// ``` self: QtC.KRichTextEdit, range: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` range: i32 `
+    ///
     pub fn ZoomOut1(self: ?*anyopaque, range: i32) void {
         qtc.QTextEdit_ZoomOut1(@ptrCast(self), @intCast(range));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
         return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
-    /// ``` self: QtC.KRichTextEdit, scrollbar: QtC.QScrollBar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` scrollbar: QtC.QScrollBar `
+    ///
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    ///
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
         return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
-    /// ``` self: QtC.KRichTextEdit, scrollbar: QtC.QScrollBar ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` scrollbar: QtC.QScrollBar `
+    ///
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
-    /// ``` self: QtC.KRichTextEdit, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
@@ -1902,1047 +2801,1534 @@ pub const krichtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
         return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
-    /// ``` self: QtC.KRichTextEdit, widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
+    ///
     pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
+    ///
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FrameStyle(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
-    /// ``` self: QtC.KRichTextEdit, frameStyle: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` frameStyle: i32 `
+    ///
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
         qtc.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FrameWidth(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qframe_enums.Shape ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qframe_enums.Shape `
+    ///
     pub fn FrameShape(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
-    /// ``` self: QtC.KRichTextEdit, frameShape: qframe_enums.Shape ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` frameShape: qframe_enums.Shape `
+    ///
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
         qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qframe_enums.Shadow ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qframe_enums.Shadow `
+    ///
     pub fn FrameShadow(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
-    /// ``` self: QtC.KRichTextEdit, frameShadow: qframe_enums.Shadow ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` frameShadow: qframe_enums.Shadow `
+    ///
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
         qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn LineWidth(self: ?*anyopaque) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit, lineWidth: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` lineWidth: i32 `
+    ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
         qtc.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit, midLineWidth: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` midLineWidth: i32 `
+    ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
         qtc.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QFrame_FrameRect(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
-    /// ``` self: QtC.KRichTextEdit, frameRect: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` frameRect: QtC.QRect `
+    ///
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
         qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn WinId(self: ?*anyopaque) usize {
         return qtc.QWidget_WinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CreateWinId(self: ?*anyopaque) void {
         qtc.QWidget_CreateWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn InternalWinId(self: ?*anyopaque) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
         return qtc.QWidget_Style(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
-    /// ``` self: QtC.KRichTextEdit, style: QtC.QStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` style: QtC.QStyle `
+    ///
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
         qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsTopLevel(self: ?*anyopaque) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsWindow(self: ?*anyopaque) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsModal(self: ?*anyopaque) bool {
         return qtc.QWidget_IsModal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.WindowModality ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.WindowModality `
+    ///
     pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
-    /// ``` self: QtC.KRichTextEdit, windowModality: qnamespace_enums.WindowModality ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` windowModality: qnamespace_enums.WindowModality `
+    ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
-    /// ``` self: QtC.KRichTextEdit, disabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` disabled: bool `
+    ///
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
-    /// ``` self: QtC.KRichTextEdit, windowModified: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` windowModified: bool `
+    ///
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_FrameGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_NormalGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn X(self: ?*anyopaque) i32 {
         return qtc.QWidget_X(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Y(self: ?*anyopaque) i32 {
         return qtc.QWidget_Y(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_Pos(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_FrameSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_Size(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.QWidget_Width(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.QWidget_Height(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_Rect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_ChildrenRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_ChildrenRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_MinimumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_MaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, minimumSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` minimumSize: QtC.QSize `
+    ///
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
         qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, minw: i32, minh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` minw: i32 `
+    ///
+    /// ` minh: i32 `
+    ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, maximumSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` maximumSize: QtC.QSize `
+    ///
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
         qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, maxw: i32, maxh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` maxw: i32 `
+    ///
+    /// ` maxh: i32 `
+    ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit, minw: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` minw: i32 `
+    ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
-    /// ``` self: QtC.KRichTextEdit, minh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` minh: i32 `
+    ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit, maxw: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` maxw: i32 `
+    ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
-    /// ``` self: QtC.KRichTextEdit, maxh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` maxh: i32 `
+    ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_SizeIncrement(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: QtC.KRichTextEdit, sizeIncrement: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` sizeIncrement: QtC.QSize `
+    ///
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
         qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: QtC.KRichTextEdit, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidget_BaseSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, baseSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` baseSize: QtC.QSize `
+    ///
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
         qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, basew: i32, baseh: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` basew: i32 `
+    ///
+    /// ` baseh: i32 `
+    ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, fixedSize: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` fixedSize: QtC.QSize `
+    ///
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
         qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: QtC.KRichTextEdit, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
-    /// ``` self: QtC.KRichTextEdit, w: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` w: i32 `
+    ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
-    /// ``` self: QtC.KRichTextEdit, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPointF `
+    ///
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QWidget, param2: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPointF `
+    ///
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QWidget, param2: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPoint `
+    ///
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QWidget, param2: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPointF `
+    ///
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
         return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QWidget, param2: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QPoint `
+    ///
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
         return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_Window(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_NativeParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_TopLevelWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
         return qtc.QWidget_Palette(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
-    /// ``` self: QtC.KRichTextEdit, palette: QtC.QPalette ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` palette: QtC.QPalette `
+    ///
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
         qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
-    /// ``` self: QtC.KRichTextEdit, backgroundRole: qpalette_enums.ColorRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` backgroundRole: qpalette_enums.ColorRole `
+    ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpalette_enums.ColorRole ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpalette_enums.ColorRole `
+    ///
     pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
-    /// ``` self: QtC.KRichTextEdit, foregroundRole: qpalette_enums.ColorRole ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` foregroundRole: qpalette_enums.ColorRole `
+    ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qpalette_enums.ColorRole ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qpalette_enums.ColorRole `
+    ///
     pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QWidget_Font(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
         return qtc.QWidget_FontMetrics(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
         return qtc.QWidget_FontInfo(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
         return qtc.QWidget_Cursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
-    /// ``` self: QtC.KRichTextEdit, cursor: QtC.QCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` cursor: QtC.QCursor `
+    ///
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn UnsetCursor(self: ?*anyopaque) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
-    /// ``` self: QtC.KRichTextEdit, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn UnderMouse(self: ?*anyopaque) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
-    /// ``` self: QtC.KRichTextEdit, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: QtC.KRichTextEdit, mask: QtC.QBitmap ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` mask: QtC.QBitmap `
+    ///
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: QtC.KRichTextEdit, mask: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` mask: QtC.QRegion `
+    ///
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_Mask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ClearMask(self: ?*anyopaque) void {
         qtc.QWidget_ClearMask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, target: QtC.QPaintDevice ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
         qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QWidget_Grab(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
         return qtc.QWidget_GraphicsEffect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
-    /// ``` self: QtC.KRichTextEdit, effect: QtC.QGraphicsEffect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` effect: QtC.QGraphicsEffect `
+    ///
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.KRichTextEdit, typeVal: qnamespace_enums.GestureType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
-    /// ``` self: QtC.KRichTextEdit, typeVal: qnamespace_enums.GestureType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
-    /// ``` self: QtC.KRichTextEdit, windowTitle: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` windowTitle: []const u8 `
+    ///
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
@@ -2953,9 +4339,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
-    /// ``` self: QtC.KRichTextEdit, styleSheet: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` styleSheet: []const u8 `
+    ///
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
@@ -2966,9 +4357,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2979,9 +4375,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2992,27 +4393,40 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
-    /// ``` self: QtC.KRichTextEdit, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QWidget_WindowIcon(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
-    /// ``` self: QtC.KRichTextEdit, windowIconText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` windowIconText: []const u8 `
+    ///
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
@@ -3023,9 +4437,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3036,9 +4455,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
-    /// ``` self: QtC.KRichTextEdit, windowRole: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` windowRole: []const u8 `
+    ///
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
@@ -3049,9 +4473,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3062,9 +4491,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
-    /// ``` self: QtC.KRichTextEdit, filePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` filePath: []const u8 `
+    ///
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -3075,9 +4509,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3088,36 +4527,52 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
-    /// ``` self: QtC.KRichTextEdit, level: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` level: f64 `
+    ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsWindowModified(self: ?*anyopaque) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
-    /// ``` self: QtC.KRichTextEdit, toolTip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` toolTip: []const u8 `
+    ///
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
@@ -3128,9 +4583,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3141,27 +4601,40 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
-    /// ``` self: QtC.KRichTextEdit, msec: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` msec: i32 `
+    ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
-    /// ``` self: QtC.KRichTextEdit, statusTip: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` statusTip: []const u8 `
+    ///
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
@@ -3172,9 +4645,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3185,9 +4663,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
-    /// ``` self: QtC.KRichTextEdit, whatsThis: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` whatsThis: []const u8 `
+    ///
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
@@ -3198,9 +4681,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3211,9 +4699,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3224,9 +4717,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
-    /// ``` self: QtC.KRichTextEdit, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -3237,9 +4735,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3250,9 +4753,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
-    /// ``` self: QtC.KRichTextEdit, description: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` description: []const u8 `
+    ///
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
@@ -3263,284 +4771,403 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
-    /// ``` self: QtC.KRichTextEdit, direction: qnamespace_enums.LayoutDirection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` direction: qnamespace_enums.LayoutDirection `
+    ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.LayoutDirection ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.LayoutDirection `
+    ///
     pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
-    /// ``` self: QtC.KRichTextEdit, locale: QtC.QLocale ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` locale: QtC.QLocale `
+    ///
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
         qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
         return qtc.QWidget_Locale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn UnsetLocale(self: ?*anyopaque) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SetFocus(self: ?*anyopaque) void {
         qtc.QWidget_SetFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ActivateWindow(self: ?*anyopaque) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ClearFocus(self: ?*anyopaque) void {
         qtc.QWidget_ClearFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: QtC.KRichTextEdit, reason: qnamespace_enums.FocusReason ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` reason: qnamespace_enums.FocusReason `
+    ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.FocusPolicy ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.FocusPolicy `
+    ///
     pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit, policy: qnamespace_enums.FocusPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` policy: qnamespace_enums.FocusPolicy `
+    ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn HasFocus(self: ?*anyopaque) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
-    /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` param2: QtC.QWidget `
+    ///
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
         qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
-    /// ``` self: QtC.KRichTextEdit, focusProxy: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` focusProxy: QtC.QWidget `
+    ///
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
         qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_FocusProxy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.ContextMenuPolicy `
+    ///
     pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit, policy: qnamespace_enums.ContextMenuPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` policy: qnamespace_enums.ContextMenuPolicy `
+    ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn GrabMouse(self: ?*anyopaque) void {
         qtc.QWidget_GrabMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QCursor `
+    ///
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ReleaseMouse(self: ?*anyopaque) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn GrabKeyboard(self: ?*anyopaque) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: QtC.KRichTextEdit, key: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` key: QtC.QKeySequence `
+    ///
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
         return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
-    /// ``` self: QtC.KRichTextEdit, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: QtC.KRichTextEdit, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     pub fn MouseGrabber() QtC.QWidget {
         return qtc.QWidget_MouseGrabber();
@@ -3548,8 +5175,7 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
         return qtc.QWidget_KeyboardGrabber();
@@ -3557,261 +5183,402 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
         return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QWidget_Update(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Repaint(self: ?*anyopaque) void {
         qtc.QWidget_Repaint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KRichTextEdit, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QRegion `
+    ///
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KRichTextEdit, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QRegion `
+    ///
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
-    /// ``` self: QtC.KRichTextEdit, hidden: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` hidden: bool `
+    ///
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self), hidden);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Show(self: ?*anyopaque) void {
         qtc.QWidget_Show(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QWidget_Hide(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ShowMinimized(self: ?*anyopaque) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ShowMaximized(self: ?*anyopaque) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ShowFullScreen(self: ?*anyopaque) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ShowNormal(self: ?*anyopaque) void {
         qtc.QWidget_ShowNormal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Close(self: ?*anyopaque) bool {
         return qtc.QWidget_Close(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Raise(self: ?*anyopaque) void {
         qtc.QWidget_Raise(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Lower(self: ?*anyopaque) void {
         qtc.QWidget_Lower(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: QtC.KRichTextEdit, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
         qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPoint `
+    ///
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: QtC.KRichTextEdit, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QSize `
+    ///
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: QtC.KRichTextEdit, x: i32, y: i32, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: QtC.KRichTextEdit, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -3822,9 +5589,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
-    /// ``` self: QtC.KRichTextEdit, geometry: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` geometry: []u8 `
+    ///
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
@@ -3835,290 +5607,434 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AdjustSize(self: ?*anyopaque) void {
         qtc.QWidget_AdjustSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsHidden(self: ?*anyopaque) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsMinimized(self: ?*anyopaque) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsMaximized(self: ?*anyopaque) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsFullScreen(self: ?*anyopaque) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.WindowState ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.WindowState `
+    ///
     pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.KRichTextEdit, state: flag of qnamespace_enums.WindowState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` state: flag of qnamespace_enums.WindowState `
+    ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.KRichTextEdit, state: flag of qnamespace_enums.WindowState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` state: flag of qnamespace_enums.WindowState `
+    ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
         return qtc.QWidget_SizePolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit, sizePolicy: QtC.QSizePolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` sizePolicy: QtC.QSizePolicy `
+    ///
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
         qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: QtC.KRichTextEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` horizontal: qsizepolicy_enums.Policy `
+    ///
+    /// ` vertical: qsizepolicy_enums.Policy `
+    ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWidget_VisibleRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: QtC.KRichTextEdit, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: QtC.KRichTextEdit, margins: QtC.QMargins ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` margins: QtC.QMargins `
+    ///
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
         qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.QWidget_ContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidget_ContentsRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QWidget_Layout(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
-    /// ``` self: QtC.KRichTextEdit, layout: QtC.QLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` layout: QtC.QLayout `
+    ///
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
         qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn UpdateGeometry(self: ?*anyopaque) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.KRichTextEdit, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.KRichTextEdit, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` f: flag of qnamespace_enums.WindowType `
+    ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: QtC.KRichTextEdit, dx: i32, dy: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: QtC.KRichTextEdit, dx: i32, dy: i32, param3: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
+    /// ` param3: QtC.QRect `
+    ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
         qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_FocusWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_NextInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AcceptDrops(self: ?*anyopaque) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
-    /// ``` self: QtC.KRichTextEdit, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
-    /// ``` self: QtC.KRichTextEdit, actions: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` actions: []QtC.QAction `
+    ///
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
@@ -4129,9 +6045,16 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
-    /// ``` self: QtC.KRichTextEdit, before: QtC.QAction, actions: []QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` actions: []QtC.QAction `
+    ///
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
@@ -4142,27 +6065,44 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, before: QtC.QAction, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` before: QtC.QAction `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, action: QtC.QAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` action: QtC.QAction `
+    ///
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4174,9 +6114,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4187,9 +6132,16 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, icon: QtC.QIcon, text: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4200,9 +6152,16 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, text: []const u8, shortcut: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` shortcut: QtC.QKeySequence `
+    ///
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4213,9 +6172,18 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: QtC.KRichTextEdit, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` shortcut: QtC.QKeySequence `
+    ///
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4226,193 +6194,286 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.KRichTextEdit, typeVal: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` typeVal: flag of qnamespace_enums.WindowType `
+    ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.WindowType ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.WindowType `
+    ///
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qnamespace_enums.WindowType `
+    ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.KRichTextEdit, typeVal: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` typeVal: flag of qnamespace_enums.WindowType `
+    ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.WindowType ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.WindowType `
+    ///
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KRichTextEdit, x: i32, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
         return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KRichTextEdit, p: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` p: QtC.QPoint `
+    ///
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: QtC.KRichTextEdit, p: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` p: QtC.QPointF `
+    ///
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qnamespace_enums.WidgetAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qnamespace_enums.WidgetAttribute ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn EnsurePolished(self: ?*anyopaque) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
-    /// ``` self: QtC.KRichTextEdit, child: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` child: QtC.QWidget `
+    ///
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
         return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
-    /// ``` self: QtC.KRichTextEdit, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
         return qtc.QWidget_BackingStore(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
         return qtc.QWidget_WindowHandle(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
         return qtc.QWidget_Screen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
-    /// ``` self: QtC.KRichTextEdit, screen: QtC.QScreen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` screen: QtC.QScreen `
+    ///
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
         qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, title: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` title: []const u8 `
+    ///
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -4423,36 +6484,56 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, title: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdittitle: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, icon: QtC.QIcon) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditicon: QtC.QIcon) callconv(.c) void `
+    ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, iconText: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` iconText: []const u8 `
+    ///
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
@@ -4463,191 +6544,334 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditiconText: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KRichTextEdit, pos: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` pos: QtC.QPoint `
+    ///
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, pos: QtC.QPoint) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditpos: QtC.QPoint) callconv(.c) void `
+    ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.InputMethodHint `
+    ///
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.KRichTextEdit, hints: flag of qnamespace_enums.InputMethodHint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` hints: flag of qnamespace_enums.InputMethodHint `
+    ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
         qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
         qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` target: QtC.QPaintDevice `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
+    /// ` renderFlags: flag of qwidget_enums.RenderFlag `
+    ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
         qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
         qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.KRichTextEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` targetOffset: QtC.QPoint `
+    ///
+    /// ` sourceRegion: QtC.QRegion `
+    ///
+    /// ` renderFlags: flag of qwidget_enums.RenderFlag `
+    ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: QtC.KRichTextEdit, rectangle: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` rectangle: QtC.QRect `
+    ///
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
         return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.KRichTextEdit, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` typeVal: qnamespace_enums.GestureType `
+    ///
+    /// ` flags: flag of qnamespace_enums.GestureFlag `
+    ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: QtC.KRichTextEdit, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` key: QtC.QKeySequence `
+    ///
+    /// ` context: qnamespace_enums.ShortcutContext `
+    ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: QtC.KRichTextEdit, id: i32, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: QtC.KRichTextEdit, id: i32, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` id: i32 `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qnamespace_enums.WindowType, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qnamespace_enums.WindowType `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qnamespace_enums.WidgetAttribute `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` window: QtC.QWindow `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` flags: flag of qnamespace_enums.WindowType `
+    ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -4658,9 +6882,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KRichTextEdit, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -4671,99 +6900,144 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KRichTextEdit, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KRichTextEdit, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KRichTextEdit, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KRichTextEdit, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KRichTextEdit, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4775,36 +7049,64 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KRichTextEdit, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KRichTextEdit, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KRichTextEdit, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -4813,45 +7115,70 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KRichTextEdit, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -4859,9 +7186,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KRichTextEdit, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -4869,9 +7201,14 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KRichTextEdit, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -4893,54 +7230,76 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KRichTextEdit, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -4948,45 +7307,84 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KRichTextEdit, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KRichTextEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KRichTextEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -4995,125 +7393,167 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn PaintingActive(self: ?*anyopaque) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn WidthMM(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn HeightMM(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ColorCount(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Depth(self: ?*anyopaque) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
@@ -5121,119 +7561,170 @@ pub const krichtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
-    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    ///
+    /// ` value: f64 `
+    ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, readOnly: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` readOnly: bool `
+    ///
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
         qtc.KRichTextEdit_SetReadOnly(@ptrCast(self), readOnly);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, readOnly: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` readOnly: bool `
+    ///
     pub fn QBaseSetReadOnly(self: ?*anyopaque, readOnly: bool) void {
         qtc.KRichTextEdit_QBaseSetReadOnly(@ptrCast(self), readOnly);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, readOnly: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, readOnly: bool) callconv(.c) void `
+    ///
     pub fn OnSetReadOnly(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KRichTextEdit_OnSetReadOnly(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, check: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` check: bool `
+    ///
     pub fn SetCheckSpellingEnabled(self: ?*anyopaque, check: bool) void {
         qtc.KRichTextEdit_SetCheckSpellingEnabled(@ptrCast(self), check);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, check: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` check: bool `
+    ///
     pub fn QBaseSetCheckSpellingEnabled(self: ?*anyopaque, check: bool) void {
         qtc.KRichTextEdit_QBaseSetCheckSpellingEnabled(@ptrCast(self), check);
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, check: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, check: bool) callconv(.c) void `
+    ///
     pub fn OnSetCheckSpellingEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KRichTextEdit_OnSetCheckSpellingEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CheckSpellingEnabled(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_CheckSpellingEnabled(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseCheckSpellingEnabled(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseCheckSpellingEnabled(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnCheckSpellingEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KRichTextEdit_OnCheckSpellingEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, block: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` block: []const u8 `
+    ///
     pub fn ShouldBlockBeSpellChecked(self: ?*anyopaque, block: []const u8) bool {
         const block_str = qtc.libqt_string{
             .len = block.len,
@@ -5244,11 +7735,16 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, block: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` block: []const u8 `
+    ///
     pub fn QBaseShouldBlockBeSpellChecked(self: ?*anyopaque, block: []const u8) bool {
         const block_str = qtc.libqt_string{
             .len = block.len,
@@ -5259,1705 +7755,2452 @@ pub const krichtextedit = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, block: [*:0]const u8) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, block: [*:0]const u8) callconv(.c) bool `
+    ///
     pub fn OnShouldBlockBeSpellChecked(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnShouldBlockBeSpellChecked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CreateHighlighter(self: ?*anyopaque) void {
         qtc.KRichTextEdit_CreateHighlighter(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseCreateHighlighter(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseCreateHighlighter(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnCreateHighlighter(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnCreateHighlighter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MousePopupMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KRichTextEdit_MousePopupMenu(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseMousePopupMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KRichTextEdit_QBaseMousePopupMenu(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QMenu ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMenu `
+    ///
     pub fn OnMousePopupMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
         qtc.KRichTextEdit_OnMousePopupMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#event)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KRichTextEdit_Event(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#event)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#event)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QFocusEvent `
+    ///
     pub fn FocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_FocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QFocusEvent `
+    ///
     pub fn QBaseFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QFocusEvent) callconv(.c) void `
+    ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DeleteWordBack(self: ?*anyopaque) void {
         qtc.KRichTextEdit_DeleteWordBack(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseDeleteWordBack(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDeleteWordBack(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnDeleteWordBack(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnDeleteWordBack(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DeleteWordForward(self: ?*anyopaque) void {
         qtc.KRichTextEdit_DeleteWordForward(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseDeleteWordForward(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDeleteWordForward(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnDeleteWordForward(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnDeleteWordForward(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QContextMenuEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QContextMenuEvent `
+    ///
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QContextMenuEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QContextMenuEvent `
+    ///
     pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QContextMenuEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, typeVal: i32, name: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` typeVal: i32 `
+    ///
+    /// ` name: QtC.QUrl `
+    ///
     pub fn LoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
         return qtc.KRichTextEdit_LoadResource(@ptrCast(self), @intCast(typeVal), @ptrCast(name));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, typeVal: i32, name: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` typeVal: i32 `
+    ///
+    /// ` name: QtC.QUrl `
+    ///
     pub fn QBaseLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
         return qtc.KRichTextEdit_QBaseLoadResource(@ptrCast(self), @intCast(typeVal), @ptrCast(name));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant `
+    ///
     pub fn OnLoadResource(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
         qtc.KRichTextEdit_OnLoadResource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, property: qnamespace_enums.InputMethodQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` property: qnamespace_enums.InputMethodQuery `
+    ///
     pub fn InputMethodQuery(self: ?*anyopaque, property: i64) QtC.QVariant {
         return qtc.KRichTextEdit_InputMethodQuery(@ptrCast(self), @intCast(property));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, property: qnamespace_enums.InputMethodQuery ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` property: qnamespace_enums.InputMethodQuery `
+    ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, property: i64) QtC.QVariant {
         return qtc.KRichTextEdit_QBaseInputMethodQuery(@ptrCast(self), @intCast(property));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
         qtc.KRichTextEdit_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_TimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseTimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QKeyEvent `
+    ///
     pub fn KeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_KeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QKeyEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QKeyEvent `
+    ///
     pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QKeyEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QKeyEvent) callconv(.c) void `
+    ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QResizeEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QResizeEvent `
+    ///
     pub fn ResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_ResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QResizeEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QResizeEvent `
+    ///
     pub fn QBaseResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QResizeEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QResizeEvent) callconv(.c) void `
+    ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QPaintEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QPaintEvent `
+    ///
     pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QPaintEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QPaintEvent `
+    ///
     pub fn QBasePaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QPaintEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QPaintEvent) callconv(.c) void `
+    ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn QBaseMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn MouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QMouseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QMouseEvent `
+    ///
     pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void `
+    ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, next: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` next: bool `
+    ///
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
         return qtc.KRichTextEdit_FocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, next: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` next: bool `
+    ///
     pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
         return qtc.KRichTextEdit_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, next: bool) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, next: bool) callconv(.c) bool `
+    ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDragEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDragEnterEvent `
+    ///
     pub fn DragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_DragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDragEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDragEnterEvent `
+    ///
     pub fn QBaseDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragEnterEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragEnterEvent) callconv(.c) void `
+    ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDragLeaveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDragLeaveEvent `
+    ///
     pub fn DragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDragLeaveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDragLeaveEvent `
+    ///
     pub fn QBaseDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragLeaveEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragLeaveEvent) callconv(.c) void `
+    ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDragMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDragMoveEvent `
+    ///
     pub fn DragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_DragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDragMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDragMoveEvent `
+    ///
     pub fn QBaseDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragMoveEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragMoveEvent) callconv(.c) void `
+    ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDropEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDropEvent `
+    ///
     pub fn DropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_DropEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QDropEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QDropEvent `
+    ///
     pub fn QBaseDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDropEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDropEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDropEvent) callconv(.c) void `
+    ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QFocusEvent `
+    ///
     pub fn FocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_FocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QFocusEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QFocusEvent `
+    ///
     pub fn QBaseFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QFocusEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QFocusEvent) callconv(.c) void `
+    ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QShowEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QShowEvent `
+    ///
     pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QShowEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QShowEvent `
+    ///
     pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QShowEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QShowEvent) callconv(.c) void `
+    ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QEvent `
+    ///
     pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_ChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QEvent `
+    ///
     pub fn QBaseChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QWheelEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QWheelEvent `
+    ///
     pub fn WheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_WheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, e: QtC.QWheelEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` e: QtC.QWheelEvent `
+    ///
     pub fn QBaseWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseWheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QWheelEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QWheelEvent) callconv(.c) void `
+    ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn CreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
         return qtc.KRichTextEdit_CreateMimeDataFromSelection(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
         return qtc.KRichTextEdit_QBaseCreateMimeDataFromSelection(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QMimeData ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMimeData `
+    ///
     pub fn OnCreateMimeDataFromSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMimeData) void {
         qtc.KRichTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, source: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` source: QtC.QMimeData `
+    ///
     pub fn CanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
         return qtc.KRichTextEdit_CanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, source: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` source: QtC.QMimeData `
+    ///
     pub fn QBaseCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) bool `
+    ///
     pub fn OnCanInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnCanInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, source: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` source: QtC.QMimeData `
+    ///
     pub fn InsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
         qtc.KRichTextEdit_InsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, source: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` source: QtC.QMimeData `
+    ///
     pub fn QBaseInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) void `
+    ///
     pub fn OnInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QInputMethodEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QInputMethodEvent `
+    ///
     pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QInputMethodEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QInputMethodEvent `
+    ///
     pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, dx: i32, dy: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.KRichTextEdit_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, dx: i32, dy: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` dx: i32 `
+    ///
+    /// ` dy: i32 `
+    ///
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.KRichTextEdit_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, dx: i32, dy: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, dx: i32, dy: i32) callconv(.c) void `
+    ///
     pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KRichTextEdit_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, cursor: QtC.QTextCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` cursor: QtC.QTextCursor `
+    ///
     pub fn DoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.KRichTextEdit_DoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, cursor: QtC.QTextCursor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` cursor: QtC.QTextCursor `
+    ///
     pub fn QBaseDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, cursor: QtC.QTextCursor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, cursor: QtC.QTextCursor) callconv(.c) void `
+    ///
     pub fn OnDoSetTextCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnDoSetTextCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KRichTextEdit_MinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KRichTextEdit_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.KRichTextEdit_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KRichTextEdit_SizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KRichTextEdit_QBaseSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.KRichTextEdit_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, viewport: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` viewport: QtC.QWidget `
+    ///
     pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
         qtc.KRichTextEdit_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, viewport: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` viewport: QtC.QWidget `
+    ///
     pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, viewport: QtC.QWidget) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, viewport: QtC.QWidget) callconv(.c) void `
+    ///
     pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QObject, param2: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
+    /// ` param2: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
         return qtc.KRichTextEdit_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QObject, param2: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
+    /// ` param2: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn ViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KRichTextEdit_ViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn QBaseViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KRichTextEdit_ViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KRichTextEdit_QBaseViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.KRichTextEdit_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, option: QtC.QStyleOptionFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` option: QtC.QStyleOptionFrame `
+    ///
     pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
         qtc.KRichTextEdit_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, option: QtC.QStyleOptionFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` option: QtC.QStyleOptionFrame `
+    ///
     pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, option: QtC.QStyleOptionFrame) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn DevType(self: ?*anyopaque) i32 {
         return qtc.KRichTextEdit_DevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseDevType(self: ?*anyopaque) i32 {
         return qtc.KRichTextEdit_QBaseDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KRichTextEdit_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KRichTextEdit_SetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KRichTextEdit_QBaseSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, visible: bool) callconv(.c) void `
+    ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KRichTextEdit_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KRichTextEdit_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KRichTextEdit_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.KRichTextEdit_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_HasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KRichTextEdit_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.KRichTextEdit_PaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.KRichTextEdit_QBasePaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
         qtc.KRichTextEdit_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QEnterEvent `
+    ///
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QEnterEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QEnterEvent `
+    ///
     pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEnterEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEnterEvent) callconv(.c) void `
+    ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QMoveEvent `
+    ///
     pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QMoveEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QMoveEvent `
+    ///
     pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QMoveEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QMoveEvent) callconv(.c) void `
+    ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QCloseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QCloseEvent `
+    ///
     pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QCloseEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QCloseEvent `
+    ///
     pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QCloseEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QCloseEvent) callconv(.c) void `
+    ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QTabletEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QTabletEvent `
+    ///
     pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QTabletEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QTabletEvent `
+    ///
     pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QTabletEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QTabletEvent) callconv(.c) void `
+    ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QActionEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QActionEvent `
+    ///
     pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QActionEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QActionEvent `
+    ///
     pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QActionEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QActionEvent) callconv(.c) void `
+    ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QHideEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QHideEvent `
+    ///
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QHideEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QHideEvent `
+    ///
     pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QHideEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QHideEvent) callconv(.c) void `
+    ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` eventType: []u8 `
+    ///
+    /// ` message: ?*anyopaque `
+    ///
+    /// ` result: *isize `
+    ///
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
@@ -6968,11 +10211,20 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` eventType: []u8 `
+    ///
+    /// ` message: ?*anyopaque `
+    ///
+    /// ` result: *isize `
+    ///
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
@@ -6983,913 +10235,1272 @@ pub const krichtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KRichTextEdit_Metric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.KRichTextEdit_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.KRichTextEdit_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.KRichTextEdit_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, painter: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
     pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, painter: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, painter: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, offset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
     pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
         return qtc.KRichTextEdit_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, offset: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` offset: QtC.QPoint `
+    ///
     pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
         return qtc.KRichTextEdit_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
         qtc.KRichTextEdit_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
         return qtc.KRichTextEdit_SharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
         return qtc.KRichTextEdit_QBaseSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QPainter ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
         qtc.KRichTextEdit_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KRichTextEdit_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KRichTextEdit_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotDoReplace(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotDoReplace(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotDoReplace(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotDoReplace(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotDoReplace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotDoReplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotReplaceNext(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotReplaceNext(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotReplaceNext(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotReplaceNext(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotReplaceNext(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotReplaceNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotDoFind(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotDoFind(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotDoFind(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotDoFind(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotDoFind(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotDoFind(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotFind(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotFind(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotFind(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotFind(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotFind(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotFind(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotFindNext(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotFindNext(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotFindNext(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotFindNext(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotFindNext(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotFindNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotFindPrevious(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotFindPrevious(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotFindPrevious(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotFindPrevious(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotFindPrevious(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotFindPrevious(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotReplace(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotReplace(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotReplace(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotReplace(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotReplace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotReplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SlotSpeakText(self: ?*anyopaque) void {
         qtc.KRichTextEdit_SlotSpeakText(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSlotSpeakText(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseSlotSpeakText(@ptrCast(self));
     }
 
     /// Inherited from KTextEdit
     ///
-    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
+    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnSlotSpeakText(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnSlotSpeakText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, range: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` range: f32 `
+    ///
     pub fn ZoomInF(self: ?*anyopaque, range: f32) void {
         qtc.KRichTextEdit_ZoomInF(@ptrCast(self), @floatCast(range));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, range: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` range: f32 `
+    ///
     pub fn QBaseZoomInF(self: ?*anyopaque, range: f32) void {
         qtc.KRichTextEdit_QBaseZoomInF(@ptrCast(self), @floatCast(range));
     }
 
     /// Inherited from QTextEdit
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, range: f32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, range: f32) callconv(.c) void `
+    ///
     pub fn OnZoomInF(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.KRichTextEdit_OnZoomInF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KRichTextEdit_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KRichTextEdit_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
+    ///
     pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.KRichTextEdit_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.KRichTextEdit_ViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.KRichTextEdit_QBaseViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QMargins ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMargins `
+    ///
     pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
         qtc.KRichTextEdit_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPainter `
+    ///
     pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, param1: QtC.QPainter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` param1: QtC.QPainter `
+    ///
     pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QPainter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QPainter) callconv(.c) void `
+    ///
     pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRichTextEdit_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn UpdateMicroFocus(self: ?*anyopaque) void {
         qtc.KRichTextEdit_UpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Create(self: ?*anyopaque) void {
         qtc.KRichTextEdit_Create(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseCreate(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Destroy(self: ?*anyopaque) void {
         qtc.KRichTextEdit_Destroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseDestroy(self: ?*anyopaque) void {
         qtc.KRichTextEdit_QBaseDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KRichTextEdit_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FocusNextChild(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_FocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KRichTextEdit_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn FocusPreviousChild(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_FocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KRichTextEdit_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KRichTextEdit_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KRichTextEdit_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KRichTextEdit_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KRichTextEdit_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KRichTextEdit_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KRichTextEdit_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KRichTextEdit_Receivers(@ptrCast(self), signal_Cstring);
@@ -7897,11 +11508,16 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KRichTextEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -7909,103 +11525,150 @@ pub const krichtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KRichTextEdit_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KRichTextEdit_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KRichTextEdit_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
+    ///
+    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.KRichTextEdit_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
+    ///
+    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
+    ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.KRichTextEdit_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
     /// Inherited from QPaintDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit`
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.KRichTextEdit_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
+    /// ` callback: *const fn (self: QtC.KRichTextEditobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/krichtextedit.html#dtor.KRichTextEdit)
+    /// ### [Upstream resources](https://api.kde.org/krichtextedit.html#dtor.KRichTextEdit)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KRichTextEdit ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KRichTextEdit `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KRichTextEdit_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/krichtextedit.html#types
+/// ### [Upstream resources](https://api.kde.org/krichtextedit.html#public-types)
 pub const enums = struct {
     pub const Mode = enum {
         pub const Plain: i32 = 0;

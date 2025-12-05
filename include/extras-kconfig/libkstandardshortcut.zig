@@ -3,11 +3,16 @@ const qtc = @import("qt6c");
 const kstandardshortcut_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kstandardshortcut.html
+/// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html)
 pub const kstandardshortcut = struct {
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#shortcut)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#shortcut)
     ///
-    /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Shortcut(param1: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Shortcut(@intCast(param1));
         defer qtc.libqt_free(_arr.data);
@@ -17,9 +22,14 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#name)
     ///
-    /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KStandardShortcut_Name(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -28,9 +38,14 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#label)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#label)
     ///
-    /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Label(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KStandardShortcut_Label(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -39,9 +54,14 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#whatsThis)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#whatsThis)
     ///
-    /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WhatsThis(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KStandardShortcut_WhatsThis(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -50,20 +70,30 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#find)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#find)
     ///
-    /// ``` param1: QtC.QKeySequence ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kstandardshortcut_enums.StandardShortcut ```
+    /// ` param1: QtC.QKeySequence `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kstandardshortcut_enums.StandardShortcut `
+    ///
     pub fn Find(param1: ?*anyopaque) i32 {
         return qtc.KStandardShortcut_Find(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#findByName)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#findByName)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kstandardshortcut_enums.StandardShortcut ```
+    /// ` param1: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kstandardshortcut_enums.StandardShortcut `
+    ///
     pub fn FindByName(param1: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -72,9 +102,14 @@ pub const kstandardshortcut = struct {
         return qtc.KStandardShortcut_FindByName(param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#hardcodedDefaultShortcut)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#hardcodedDefaultShortcut)
     ///
-    /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HardcodedDefaultShortcut(param1: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_HardcodedDefaultShortcut(@intCast(param1));
         defer qtc.libqt_free(_arr.data);
@@ -84,9 +119,14 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#saveShortcut)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#saveShortcut)
     ///
-    /// ``` param1: kstandardshortcut_enums.StandardShortcut, param2: []QtC.QKeySequence ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    ///
+    /// ` param2: []QtC.QKeySequence `
+    ///
     pub fn SaveShortcut(param1: i32, param2: []QtC.QKeySequence) void {
         const param2_list = qtc.libqt_list{
             .len = param2.len,
@@ -95,18 +135,26 @@ pub const kstandardshortcut = struct {
         qtc.KStandardShortcut_SaveShortcut(@intCast(param1), param2_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#category)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#category)
     ///
-    /// ``` param1: kstandardshortcut_enums.StandardShortcut ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kstandardshortcut_enums.Category ```
+    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kstandardshortcut_enums.Category `
+    ///
     pub fn Category(param1: i32) i32 {
         return qtc.KStandardShortcut_Category(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#open)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#open)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Open(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Open();
         defer qtc.libqt_free(_arr.data);
@@ -116,9 +164,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#openNew)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#openNew)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn OpenNew(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_OpenNew();
         defer qtc.libqt_free(_arr.data);
@@ -128,9 +179,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#close)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#close)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Close(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Close();
         defer qtc.libqt_free(_arr.data);
@@ -140,9 +194,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#save)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#save)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Save(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Save();
         defer qtc.libqt_free(_arr.data);
@@ -152,9 +209,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#print)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#print)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Print(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Print();
         defer qtc.libqt_free(_arr.data);
@@ -164,9 +224,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#quit)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#quit)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Quit(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Quit();
         defer qtc.libqt_free(_arr.data);
@@ -176,9 +239,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#undo)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#undo)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Undo(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Undo();
         defer qtc.libqt_free(_arr.data);
@@ -188,9 +254,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#redo)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#redo)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Redo(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Redo();
         defer qtc.libqt_free(_arr.data);
@@ -200,9 +269,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#cut)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#cut)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Cut(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Cut();
         defer qtc.libqt_free(_arr.data);
@@ -212,9 +284,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#copy)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#copy)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Copy(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Copy();
         defer qtc.libqt_free(_arr.data);
@@ -224,9 +299,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#paste)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#paste)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Paste(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Paste();
         defer qtc.libqt_free(_arr.data);
@@ -236,9 +314,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#pasteSelection)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#pasteSelection)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PasteSelection(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_PasteSelection();
         defer qtc.libqt_free(_arr.data);
@@ -248,9 +329,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#selectAll)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#selectAll)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectAll(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_SelectAll();
         defer qtc.libqt_free(_arr.data);
@@ -260,9 +344,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteWordBack)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteWordBack)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DeleteWordBack(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_DeleteWordBack();
         defer qtc.libqt_free(_arr.data);
@@ -272,9 +359,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteWordForward)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteWordForward)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DeleteWordForward(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_DeleteWordForward();
         defer qtc.libqt_free(_arr.data);
@@ -284,9 +374,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#find)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#find)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Find2(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Find2();
         defer qtc.libqt_free(_arr.data);
@@ -296,9 +389,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#findNext)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#findNext)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindNext(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_FindNext();
         defer qtc.libqt_free(_arr.data);
@@ -308,9 +404,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#findPrev)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#findPrev)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FindPrev(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_FindPrev();
         defer qtc.libqt_free(_arr.data);
@@ -320,9 +419,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#replace)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#replace)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Replace(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Replace();
         defer qtc.libqt_free(_arr.data);
@@ -332,9 +434,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#zoomIn)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#zoomIn)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ZoomIn(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ZoomIn();
         defer qtc.libqt_free(_arr.data);
@@ -344,9 +449,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#zoomOut)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#zoomOut)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ZoomOut(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ZoomOut();
         defer qtc.libqt_free(_arr.data);
@@ -356,9 +464,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#home)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#home)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Home(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Home();
         defer qtc.libqt_free(_arr.data);
@@ -368,9 +479,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#begin)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#begin)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Begin(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Begin();
         defer qtc.libqt_free(_arr.data);
@@ -380,9 +494,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#end)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#end)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn End(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_End();
         defer qtc.libqt_free(_arr.data);
@@ -392,9 +509,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#beginningOfLine)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#beginningOfLine)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BeginningOfLine(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_BeginningOfLine();
         defer qtc.libqt_free(_arr.data);
@@ -404,9 +524,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#endOfLine)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#endOfLine)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn EndOfLine(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_EndOfLine();
         defer qtc.libqt_free(_arr.data);
@@ -416,9 +539,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#prior)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#prior)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Prior(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Prior();
         defer qtc.libqt_free(_arr.data);
@@ -428,9 +554,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#next)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#next)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Next(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Next();
         defer qtc.libqt_free(_arr.data);
@@ -440,9 +569,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#gotoLine)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#gotoLine)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn GotoLine(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_GotoLine();
         defer qtc.libqt_free(_arr.data);
@@ -452,9 +584,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#addBookmark)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#addBookmark)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AddBookmark(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_AddBookmark();
         defer qtc.libqt_free(_arr.data);
@@ -464,9 +599,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#tabNext)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#tabNext)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TabNext(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_TabNext();
         defer qtc.libqt_free(_arr.data);
@@ -476,9 +614,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#tabPrev)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#tabPrev)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TabPrev(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_TabPrev();
         defer qtc.libqt_free(_arr.data);
@@ -488,9 +629,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#fullScreen)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#fullScreen)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FullScreen(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_FullScreen();
         defer qtc.libqt_free(_arr.data);
@@ -500,9 +644,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#help)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#help)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Help(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Help();
         defer qtc.libqt_free(_arr.data);
@@ -512,9 +659,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#completion)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#completion)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Completion(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Completion();
         defer qtc.libqt_free(_arr.data);
@@ -524,9 +674,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#prevCompletion)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#prevCompletion)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PrevCompletion(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_PrevCompletion();
         defer qtc.libqt_free(_arr.data);
@@ -536,9 +689,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#nextCompletion)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#nextCompletion)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NextCompletion(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_NextCompletion();
         defer qtc.libqt_free(_arr.data);
@@ -548,9 +704,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#substringCompletion)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#substringCompletion)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SubstringCompletion(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_SubstringCompletion();
         defer qtc.libqt_free(_arr.data);
@@ -560,9 +719,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#rotateUp)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#rotateUp)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RotateUp(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_RotateUp();
         defer qtc.libqt_free(_arr.data);
@@ -572,9 +734,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#rotateDown)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#rotateDown)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RotateDown(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_RotateDown();
         defer qtc.libqt_free(_arr.data);
@@ -584,9 +749,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#whatsThis)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#whatsThis)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn WhatsThis2(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_WhatsThis2();
         defer qtc.libqt_free(_arr.data);
@@ -596,9 +764,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#reload)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#reload)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Reload(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Reload();
         defer qtc.libqt_free(_arr.data);
@@ -608,9 +779,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#up)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#up)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Up(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Up();
         defer qtc.libqt_free(_arr.data);
@@ -620,9 +794,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#back)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#back)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Back(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Back();
         defer qtc.libqt_free(_arr.data);
@@ -632,9 +809,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#forward)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#forward)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Forward(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Forward();
         defer qtc.libqt_free(_arr.data);
@@ -644,9 +824,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#backwardWord)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#backwardWord)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn BackwardWord(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_BackwardWord();
         defer qtc.libqt_free(_arr.data);
@@ -656,9 +839,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#forwardWord)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#forwardWord)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ForwardWord(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ForwardWord();
         defer qtc.libqt_free(_arr.data);
@@ -668,9 +854,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#showMenubar)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#showMenubar)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ShowMenubar(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ShowMenubar();
         defer qtc.libqt_free(_arr.data);
@@ -680,9 +869,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteFile)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteFile)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DeleteFile(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_DeleteFile();
         defer qtc.libqt_free(_arr.data);
@@ -692,9 +884,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#renameFile)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#renameFile)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RenameFile(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_RenameFile();
         defer qtc.libqt_free(_arr.data);
@@ -704,9 +899,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#createFolder)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#createFolder)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CreateFolder(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_CreateFolder();
         defer qtc.libqt_free(_arr.data);
@@ -716,9 +914,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#moveToTrash)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#moveToTrash)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MoveToTrash(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_MoveToTrash();
         defer qtc.libqt_free(_arr.data);
@@ -728,9 +929,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#preferences)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#preferences)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Preferences(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Preferences();
         defer qtc.libqt_free(_arr.data);
@@ -740,9 +944,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#showHideHiddenFiles)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#showHideHiddenFiles)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ShowHideHiddenFiles(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ShowHideHiddenFiles();
         defer qtc.libqt_free(_arr.data);
@@ -752,9 +959,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#openMainMenu)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#openMainMenu)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn OpenMainMenu(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_OpenMainMenu();
         defer qtc.libqt_free(_arr.data);
@@ -764,9 +974,12 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kstandardshortcut.html#openContextMenu)
+    /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#openContextMenu)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn OpenContextMenu(allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_OpenContextMenu();
         defer qtc.libqt_free(_arr.data);
@@ -777,7 +990,7 @@ pub const kstandardshortcut = struct {
     }
 };
 
-/// https://api.kde.org/kstandardshortcut.html#types
+/// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#public-types)
 pub const enums = struct {
     pub const StandardShortcut = enum {
         pub const AccelNone: i32 = 0;

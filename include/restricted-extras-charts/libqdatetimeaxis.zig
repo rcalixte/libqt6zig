@@ -5,10 +5,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html)
 pub const qdatetimeaxis = struct {
     /// New constructs a new QDateTimeAxis object.
-    ///
     ///
     pub fn New() QtC.QDateTimeAxis {
         return qtc.QDateTimeAxis_new();
@@ -16,46 +15,85 @@ pub const qdatetimeaxis = struct {
 
     /// New2 constructs a new QDateTimeAxis object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QDateTimeAxis {
         return qtc.QDateTimeAxis_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QDateTimeAxis_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QDateTimeAxis, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDateTimeAxis_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QDateTimeAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDateTimeAxis_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDateTimeAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDateTimeAxis_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -65,73 +103,116 @@ pub const qdatetimeaxis = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractaxis_enums.AxisType ```
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractaxis_enums.AxisType `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QDateTimeAxis_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractaxis_enums.AxisType ```
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractaxis_enums.AxisType `
+    ///
     pub fn QBaseType(self: ?*anyopaque) i32 {
         return qtc.QDateTimeAxis_QBaseType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setMin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setMin)
     ///
-    /// ``` self: QtC.QDateTimeAxis, min: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` min: QtC.QDateTime `
+    ///
     pub fn SetMin(self: ?*anyopaque, min: QtC.QDateTime) void {
         qtc.QDateTimeAxis_SetMin(@ptrCast(self), @ptrCast(min));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#min)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#min)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Min(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QDateTimeAxis_Min(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setMax)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setMax)
     ///
-    /// ``` self: QtC.QDateTimeAxis, max: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` max: QtC.QDateTime `
+    ///
     pub fn SetMax(self: ?*anyopaque, max: QtC.QDateTime) void {
         qtc.QDateTimeAxis_SetMax(@ptrCast(self), @ptrCast(max));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#max)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#max)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Max(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QDateTimeAxis_Max(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setRange)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setRange)
     ///
-    /// ``` self: QtC.QDateTimeAxis, min: QtC.QDateTime, max: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` min: QtC.QDateTime `
+    ///
+    /// ` max: QtC.QDateTime `
+    ///
     pub fn SetRange(self: ?*anyopaque, min: QtC.QDateTime, max: QtC.QDateTime) void {
         qtc.QDateTimeAxis_SetRange(@ptrCast(self), @ptrCast(min), @ptrCast(max));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setFormat)
     ///
-    /// ``` self: QtC.QDateTimeAxis, format: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` format: []const u8 `
+    ///
     pub fn SetFormat(self: ?*anyopaque, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -140,9 +221,14 @@ pub const qdatetimeaxis = struct {
         qtc.QDateTimeAxis_SetFormat(@ptrCast(self), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#format)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#format)
     ///
-    /// ``` self: QtC.QDateTimeAxis, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeAxis_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -151,65 +237,110 @@ pub const qdatetimeaxis = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setTickCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setTickCount)
     ///
-    /// ``` self: QtC.QDateTimeAxis, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn SetTickCount(self: ?*anyopaque, count: i32) void {
         qtc.QDateTimeAxis_SetTickCount(@ptrCast(self), @intCast(count));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCount)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn TickCount(self: ?*anyopaque) i32 {
         return qtc.QDateTimeAxis_TickCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#minChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#minChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, min: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` min: QtC.QDateTime `
+    ///
     pub fn MinChanged(self: ?*anyopaque, min: QtC.QDateTime) void {
         qtc.QDateTimeAxis_MinChanged(@ptrCast(self), @ptrCast(min));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#minChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#minChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, min: QtC.QDateTime) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxismin: QtC.QDateTime) callconv(.c) void `
+    ///
     pub fn OnMinChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDateTime) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_MinChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#maxChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#maxChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, max: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` max: QtC.QDateTime `
+    ///
     pub fn MaxChanged(self: ?*anyopaque, max: QtC.QDateTime) void {
         qtc.QDateTimeAxis_MaxChanged(@ptrCast(self), @ptrCast(max));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#maxChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#maxChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, max: QtC.QDateTime) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxismax: QtC.QDateTime) callconv(.c) void `
+    ///
     pub fn OnMaxChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDateTime) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_MaxChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#rangeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#rangeChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, min: QtC.QDateTime, max: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` min: QtC.QDateTime `
+    ///
+    /// ` max: QtC.QDateTime `
+    ///
     pub fn RangeChanged(self: ?*anyopaque, min: QtC.QDateTime, max: QtC.QDateTime) void {
         qtc.QDateTimeAxis_RangeChanged(@ptrCast(self), @ptrCast(min), @ptrCast(max));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#rangeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#rangeChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, min: QtC.QDateTime, max: QtC.QDateTime) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxismin: QtC.QDateTime, max: QtC.QDateTime) callconv(.c) void `
+    ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDateTime, QtC.QDateTime) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, format: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` format: []const u8 `
+    ///
     pub fn FormatChanged(self: ?*anyopaque, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
@@ -218,30 +349,52 @@ pub const qdatetimeaxis = struct {
         qtc.QDateTimeAxis_FormatChanged(@ptrCast(self), format_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, format: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisformat: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_FormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, tick: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` tick: i32 `
+    ///
     pub fn TickCountChanged(self: ?*anyopaque, tick: i32) void {
         qtc.QDateTimeAxis_TickCountChanged(@ptrCast(self), @intCast(tick));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, tick: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxistick: i32) callconv(.c) void `
+    ///
     pub fn OnTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_TickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -252,9 +405,18 @@ pub const qdatetimeaxis = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -267,351 +429,494 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetVisible(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#show)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#show)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Show(self: ?*anyopaque) void {
         qtc.QAbstractAxis_Show(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#hide)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#hide)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QAbstractAxis_Hide(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsLineVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_IsLineVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetLineVisible(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetLineVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePen)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn SetLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_SetLinePen(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePen)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LinePen(self: ?*anyopaque) QtC.QPen {
         return qtc.QAbstractAxis_LinePen(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePenColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePenColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetLinePenColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_SetLinePenColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LinePenColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAbstractAxis_LinePenColor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isGridLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isGridLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsGridLineVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_IsGridLineVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetGridLineVisible(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetGridLineVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLinePen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLinePen)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn SetGridLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_SetGridLinePen(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePen)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn GridLinePen(self: ?*anyopaque) QtC.QPen {
         return qtc.QAbstractAxis_GridLinePen(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isMinorGridLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isMinorGridLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsMinorGridLineVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_IsMinorGridLineVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetMinorGridLineVisible(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetMinorGridLineVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLinePen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLinePen)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn SetMinorGridLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_SetMinorGridLinePen(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePen)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn MinorGridLinePen(self: ?*anyopaque) QtC.QPen {
         return qtc.QAbstractAxis_MinorGridLinePen(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetGridLineColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QAbstractAxis_SetGridLineColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn GridLineColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAbstractAxis_GridLineColor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetMinorGridLineColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QAbstractAxis_SetMinorGridLineColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn MinorGridLineColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAbstractAxis_MinorGridLineColor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LabelsVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_LabelsVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetLabelsVisible(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetLabelsVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsBrush)
     ///
-    /// ``` self: QtC.QDateTimeAxis, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetLabelsBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QAbstractAxis_SetLabelsBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrush)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LabelsBrush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QAbstractAxis_LabelsBrush(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsFont)
     ///
-    /// ``` self: QtC.QDateTimeAxis, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn SetLabelsFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QAbstractAxis_SetLabelsFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFont)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LabelsFont(self: ?*anyopaque) QtC.QFont {
         return qtc.QAbstractAxis_LabelsFont(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsAngle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsAngle)
     ///
-    /// ``` self: QtC.QDateTimeAxis, angle: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` angle: i32 `
+    ///
     pub fn SetLabelsAngle(self: ?*anyopaque, angle: i32) void {
         qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self), @intCast(angle));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngle)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LabelsAngle(self: ?*anyopaque) i32 {
         return qtc.QAbstractAxis_LabelsAngle(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetLabelsColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_SetLabelsColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LabelsColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAbstractAxis_LabelsColor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isTitleVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isTitleVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsTitleVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_IsTitleVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetTitleVisible(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetTitleVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleBrush)
     ///
-    /// ``` self: QtC.QDateTimeAxis, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetTitleBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QAbstractAxis_SetTitleBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrush)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn TitleBrush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QAbstractAxis_TitleBrush(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleFont)
     ///
-    /// ``` self: QtC.QDateTimeAxis, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn SetTitleFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QAbstractAxis_SetTitleFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFont)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFont)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn TitleFont(self: ?*anyopaque) QtC.QFont {
         return qtc.QAbstractAxis_TitleFont(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleText)
     ///
-    /// ``` self: QtC.QDateTimeAxis, title: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` title: []const u8 `
+    ///
     pub fn SetTitleText(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -622,9 +927,14 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleText)
     ///
-    /// ``` self: QtC.QDateTimeAxis, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TitleText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractAxis_TitleText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -635,454 +945,678 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn ShadesVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_ShadesVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetShadesVisible(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetShadesVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesPen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesPen)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn SetShadesPen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_SetShadesPen(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPen)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn ShadesPen(self: ?*anyopaque) QtC.QPen {
         return qtc.QAbstractAxis_ShadesPen(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBrush)
     ///
-    /// ``` self: QtC.QDateTimeAxis, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetShadesBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QAbstractAxis_SetShadesBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrush)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn ShadesBrush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QAbstractAxis_ShadesBrush(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetShadesColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_SetShadesColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn ShadesColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAbstractAxis_ShadesColor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBorderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBorderColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetShadesBorderColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_SetShadesBorderColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColor)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn ShadesBorderColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAbstractAxis_ShadesBorderColor(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#orientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#orientation)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.Orientation ```
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.Orientation `
+    ///
     pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QAbstractAxis_Orientation(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#alignment)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetReverse(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetReverse(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isReverse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isReverse)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsReverse(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_IsReverse(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetLabelsEditable(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetLabelsEditable(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditable)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LabelsEditable(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_LabelsEditable(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncated)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn LabelsTruncated(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_LabelsTruncated(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SetTruncateLabels(self: ?*anyopaque) void {
         qtc.QAbstractAxis_SetTruncateLabels(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabels)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn TruncateLabels(self: ?*anyopaque) bool {
         return qtc.QAbstractAxis_TruncateLabels(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn VisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_VisibleChanged(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisvisible: bool) callconv(.c) void `
+    ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn LinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_LinePenChanged(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxispen: QtC.QPen) callconv(.c) void `
+    ///
     pub fn OnLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn LineVisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_LineVisibleChanged(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisvisible: bool) callconv(.c) void `
+    ///
     pub fn OnLineVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn LabelsVisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_LabelsVisibleChanged(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisvisible: bool) callconv(.c) void `
+    ///
     pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn LabelsBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QAbstractAxis_LabelsBrushChanged(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, brush: QtC.QBrush) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisbrush: QtC.QBrush) callconv(.c) void `
+    ///
     pub fn OnLabelsBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QFont `
+    ///
     pub fn LabelsFontChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_LabelsFontChanged(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QFont) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxispen: QtC.QFont) callconv(.c) void `
+    ///
     pub fn OnLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, angle: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` angle: i32 `
+    ///
     pub fn LabelsAngleChanged(self: ?*anyopaque, angle: i32) void {
         qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self), @intCast(angle));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, angle: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisangle: i32) callconv(.c) void `
+    ///
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn GridLinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_GridLinePenChanged(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxispen: QtC.QPen) callconv(.c) void `
+    ///
     pub fn OnGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn GridVisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_GridVisibleChanged(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisvisible: bool) callconv(.c) void `
+    ///
     pub fn OnGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn MinorGridVisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_MinorGridVisibleChanged(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisvisible: bool) callconv(.c) void `
+    ///
     pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn MinorGridLinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_MinorGridLinePenChanged(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxispen: QtC.QPen) callconv(.c) void `
+    ///
     pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn GridLineColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QAbstractAxis_GridLineColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxiscolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn MinorGridLineColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QAbstractAxis_MinorGridLineColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxiscolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn ColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_ColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxiscolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn LabelsColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_LabelsColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxiscolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, title: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` title: []const u8 `
+    ///
     pub fn TitleTextChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1093,324 +1627,504 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, title: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxistitle: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnTitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn TitleBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QAbstractAxis_TitleBrushChanged(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, brush: QtC.QBrush) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisbrush: QtC.QBrush) callconv(.c) void `
+    ///
     pub fn OnTitleBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn TitleVisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_TitleVisibleChanged(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisvisible: bool) callconv(.c) void `
+    ///
     pub fn OnTitleVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, font: QtC.QFont ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` font: QtC.QFont `
+    ///
     pub fn TitleFontChanged(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QAbstractAxis_TitleFontChanged(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, font: QtC.QFont) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisfont: QtC.QFont) callconv(.c) void `
+    ///
     pub fn OnTitleFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn ShadesVisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_ShadesVisibleChanged(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisvisible: bool) callconv(.c) void `
+    ///
     pub fn OnShadesVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn ShadesColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_ShadesColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxiscolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnShadesColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn ShadesBorderColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QAbstractAxis_ShadesBorderColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxiscolor: QtC.QColor) callconv(.c) void `
+    ///
     pub fn OnShadesBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn ShadesPenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QAbstractAxis_ShadesPenChanged(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxispen: QtC.QPen) callconv(.c) void `
+    ///
     pub fn OnShadesPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn ShadesBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QAbstractAxis_ShadesBrushChanged(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, brush: QtC.QBrush) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisbrush: QtC.QBrush) callconv(.c) void `
+    ///
     pub fn OnShadesBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, reverse: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` reverse: bool `
+    ///
     pub fn ReverseChanged(self: ?*anyopaque, reverse: bool) void {
         qtc.QAbstractAxis_ReverseChanged(@ptrCast(self), reverse);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, reverse: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisreverse: bool) callconv(.c) void `
+    ///
     pub fn OnReverseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, editable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` editable: bool `
+    ///
     pub fn LabelsEditableChanged(self: ?*anyopaque, editable: bool) void {
         qtc.QAbstractAxis_LabelsEditableChanged(@ptrCast(self), editable);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, editable: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxiseditable: bool) callconv(.c) void `
+    ///
     pub fn OnLabelsEditableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, labelsTruncated: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` labelsTruncated: bool `
+    ///
     pub fn LabelsTruncatedChanged(self: ?*anyopaque, labelsTruncated: bool) void {
         qtc.QAbstractAxis_LabelsTruncatedChanged(@ptrCast(self), labelsTruncated);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, labelsTruncated: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxislabelsTruncated: bool) callconv(.c) void `
+    ///
     pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, truncateLabels: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` truncateLabels: bool `
+    ///
     pub fn TruncateLabelsChanged(self: ?*anyopaque, truncateLabels: bool) void {
         qtc.QAbstractAxis_TruncateLabelsChanged(@ptrCast(self), truncateLabels);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, truncateLabels: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxistruncateLabels: bool) callconv(.c) void `
+    ///
     pub fn OnTruncateLabelsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_SetVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetLineVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_SetLineVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetGridLineVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_SetGridLineVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetMinorGridLineVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_SetMinorGridLineVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetLabelsVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_SetLabelsVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetTitleVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_SetTitleVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
     ///
-    /// ``` self: QtC.QDateTimeAxis, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetShadesVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractAxis_SetShadesVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
     ///
-    /// ``` self: QtC.QDateTimeAxis, reverse: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` reverse: bool `
+    ///
     pub fn SetReverse1(self: ?*anyopaque, reverse: bool) void {
         qtc.QAbstractAxis_SetReverse1(@ptrCast(self), reverse);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
     ///
-    /// ``` self: QtC.QDateTimeAxis, editable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` editable: bool `
+    ///
     pub fn SetLabelsEditable1(self: ?*anyopaque, editable: bool) void {
         qtc.QAbstractAxis_SetLabelsEditable1(@ptrCast(self), editable);
     }
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
     ///
-    /// ``` self: QtC.QDateTimeAxis, truncateLabels: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` truncateLabels: bool `
+    ///
     pub fn SetTruncateLabels1(self: ?*anyopaque, truncateLabels: bool) void {
         qtc.QAbstractAxis_SetTruncateLabels1(@ptrCast(self), truncateLabels);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QDateTimeAxis, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1421,9 +2135,14 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QDateTimeAxis, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1434,99 +2153,144 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QDateTimeAxis, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDateTimeAxis, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDateTimeAxis, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDateTimeAxis, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QDateTimeAxis, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QDateTimeAxis, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1538,45 +2302,78 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QDateTimeAxis, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QDateTimeAxis, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QDateTimeAxis, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDateTimeAxis, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1585,45 +2382,70 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QDateTimeAxis, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1631,9 +2453,14 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QDateTimeAxis, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1641,9 +2468,14 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QDateTimeAxis, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1665,54 +2497,76 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QDateTimeAxis, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1720,45 +2574,84 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QDateTimeAxis, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QDateTimeAxis, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QDateTimeAxis, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1767,326 +2660,472 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateTimeAxis, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDateTimeAxis_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDateTimeAxis_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDateTimeAxis_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDateTimeAxis_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QDateTimeAxis_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDateTimeAxis_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDateTimeAxis_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDateTimeAxis_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDateTimeAxis_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDateTimeAxis_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDateTimeAxis_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QDateTimeAxis_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDateTimeAxis_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDateTimeAxis_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDateTimeAxis_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QDateTimeAxis_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDateTimeAxis_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QDateTimeAxis_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QDateTimeAxis_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDateTimeAxis_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QDateTimeAxis_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDateTimeAxis_Receivers(@ptrCast(self), signal_Cstring);
@@ -2094,11 +3133,16 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDateTimeAxis_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2106,64 +3150,92 @@ pub const qdatetimeaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDateTimeAxis_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QDateTimeAxis_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis`
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDateTimeAxis_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateTimeAxis, callback: *const fn (self: QtC.QDateTimeAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
+    /// ` callback: *const fn (self: QtC.QDateTimeAxisobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#dtor.QDateTimeAxis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#dtor.QDateTimeAxis)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QDateTimeAxis ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDateTimeAxis `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDateTimeAxis_Delete(@ptrCast(self));
     }

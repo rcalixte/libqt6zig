@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api.kde.org/ksycocatype.html#types
+/// ### [Upstream resources](https://api.kde.org/ksycocatype.html#public-types)
 pub const enums = struct {
     pub const KSycocaType = enum {
         pub const KST_KSycocaEntry: i32 = 0;

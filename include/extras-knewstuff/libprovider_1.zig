@@ -6,50 +6,85 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/knscore-provider.html
+/// ### [Upstream resources](https://api.kde.org/knscore-provider.html)
 pub const knscore__provider = struct {
     /// New constructs a new KNSCore::Provider object.
-    ///
     ///
     pub fn New() QtC.KNSCore__Provider {
         return qtc.KNSCore__Provider_new();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KNSCore__Provider_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KNSCore__Provider, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KNSCore__Provider_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KNSCore__Provider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KNSCore__Provider_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -59,9 +94,14 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#id)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#id)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__Provider_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -70,20 +110,30 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#id)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#id)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnId(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KNSCore__Provider_OnId(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#id)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#id)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__Provider_QBaseId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -92,59 +142,90 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
     ///
-    /// ``` self: QtC.KNSCore__Provider, xmldata: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` xmldata: QtC.QDomElement `
+    ///
     pub fn SetProviderXML(self: ?*anyopaque, xmldata: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_SetProviderXML(@ptrCast(self), @ptrCast(xmldata));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, xmldata: QtC.QDomElement) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, xmldata: QtC.QDomElement) callconv(.c) bool `
+    ///
     pub fn OnSetProviderXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnSetProviderXML(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, xmldata: QtC.QDomElement ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` xmldata: QtC.QDomElement `
+    ///
     pub fn QBaseSetProviderXML(self: ?*anyopaque, xmldata: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_QBaseSetProviderXML(@ptrCast(self), @ptrCast(xmldata));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn IsInitialized(self: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_IsInitialized(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsInitialized(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnIsInitialized(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QBaseIsInitialized(self: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_QBaseIsInitialized(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
     ///
-    /// ``` self: QtC.KNSCore__Provider, cachedEntries: []QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` cachedEntries: []QtC.KNSCore__Entry `
+    ///
     pub fn SetCachedEntries(self: ?*anyopaque, cachedEntries: []QtC.KNSCore__Entry) void {
         const cachedEntries_list = qtc.libqt_list{
             .len = cachedEntries.len,
@@ -153,20 +234,30 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SetCachedEntries(@ptrCast(self), cachedEntries_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, cachedEntries: [*]QtC.KNSCore__Entry) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, cachedEntries: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    ///
     pub fn OnSetCachedEntries(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnSetCachedEntries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, cachedEntries: []QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` cachedEntries: []QtC.KNSCore__Entry `
+    ///
     pub fn QBaseSetCachedEntries(self: ?*anyopaque, cachedEntries: []QtC.KNSCore__Entry) void {
         const cachedEntries_list = qtc.libqt_list{
             .len = cachedEntries.len,
@@ -175,9 +266,14 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_QBaseSetCachedEntries(@ptrCast(self), cachedEntries_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#name)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#name)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__Provider_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -186,20 +282,30 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#name)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#name)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KNSCore__Provider_OnName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#name)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#name)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__Provider_QBaseName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -208,134 +314,222 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#icon)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#icon)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn Icon(self: ?*anyopaque) QtC.QUrl {
         return qtc.KNSCore__Provider_Icon(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#icon)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#icon)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) QtC.QUrl ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QUrl `
+    ///
     pub fn OnIcon(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QUrl) void {
         qtc.KNSCore__Provider_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#icon)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#icon)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QBaseIcon(self: ?*anyopaque) QtC.QUrl {
         return qtc.KNSCore__Provider_QBaseIcon(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
     ///
-    /// ``` self: QtC.KNSCore__Provider, request: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` request: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn LoadEntries(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.KNSCore__Provider_LoadEntries(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, request: QtC.KNSCore__Provider__SearchRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, request: QtC.KNSCore__Provider__SearchRequest) callconv(.c) void `
+    ///
     pub fn OnLoadEntries(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadEntries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, request: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` request: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn QBaseLoadEntries(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseLoadEntries(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
     pub fn LoadEntryDetails(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_LoadEntryDetails(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void `
+    ///
     pub fn OnLoadEntryDetails(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadEntryDetails(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
     pub fn QBaseLoadEntryDetails(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseLoadEntryDetails(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
     ///
-    /// ``` self: QtC.KNSCore__Provider, entry: QtC.KNSCore__Entry, linkId: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` entry: QtC.KNSCore__Entry `
+    ///
+    /// ` linkId: i32 `
+    ///
     pub fn LoadPayloadLink(self: ?*anyopaque, entry: ?*anyopaque, linkId: i32) void {
         qtc.KNSCore__Provider_LoadPayloadLink(@ptrCast(self), @ptrCast(entry), @intCast(linkId));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, entry: QtC.KNSCore__Entry, linkId: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, entry: QtC.KNSCore__Entry, linkId: i32) callconv(.c) void `
+    ///
     pub fn OnLoadPayloadLink(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadPayloadLink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, entry: QtC.KNSCore__Entry, linkId: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` entry: QtC.KNSCore__Entry `
+    ///
+    /// ` linkId: i32 `
+    ///
     pub fn QBaseLoadPayloadLink(self: ?*anyopaque, entry: ?*anyopaque, linkId: i32) void {
         qtc.KNSCore__Provider_QBaseLoadPayloadLink(@ptrCast(self), @ptrCast(entry), @intCast(linkId));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: i32, param3: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: i32 `
+    ///
     pub fn LoadComments(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
         qtc.KNSCore__Provider_LoadComments(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: i32, param3: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: i32, param3: i32) callconv(.c) void `
+    ///
     pub fn OnLoadComments(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadComments(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: i32, param3: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: i32 `
+    ///
     pub fn QBaseLoadComments(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
         qtc.KNSCore__Provider_QBaseLoadComments(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn LoadPerson(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -344,20 +538,30 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_LoadPerson(@ptrCast(self), param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnLoadPerson(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadPerson(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn QBaseLoadPerson(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -366,34 +570,50 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_QBaseLoadPerson(@ptrCast(self), param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn LoadBasics(self: ?*anyopaque) void {
         qtc.KNSCore__Provider_LoadBasics(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnLoadBasics(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadBasics(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QBaseLoadBasics(self: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseLoadBasics(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#version)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#version)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__Provider_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -402,9 +622,14 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setVersion)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setVersion)
     ///
-    /// ``` self: QtC.KNSCore__Provider, version: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` version: []const u8 `
+    ///
     pub fn SetVersion(self: ?*anyopaque, version: []const u8) void {
         const version_str = qtc.libqt_string{
             .len = version.len,
@@ -413,37 +638,58 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SetVersion(@ptrCast(self), version_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#website)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#website)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn Website(self: ?*anyopaque) QtC.QUrl {
         return qtc.KNSCore__Provider_Website(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setWebsite)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setWebsite)
     ///
-    /// ``` self: QtC.KNSCore__Provider, website: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` website: QtC.QUrl `
+    ///
     pub fn SetWebsite(self: ?*anyopaque, website: ?*anyopaque) void {
         qtc.KNSCore__Provider_SetWebsite(@ptrCast(self), @ptrCast(website));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#host)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#host)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn Host(self: ?*anyopaque) QtC.QUrl {
         return qtc.KNSCore__Provider_Host(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setHost)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setHost)
     ///
-    /// ``` self: QtC.KNSCore__Provider, host: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` host: QtC.QUrl `
+    ///
     pub fn SetHost(self: ?*anyopaque, host: ?*anyopaque) void {
         qtc.KNSCore__Provider_SetHost(@ptrCast(self), @ptrCast(host));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#contactEmail)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#contactEmail)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ContactEmail(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__Provider_ContactEmail(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -452,9 +698,14 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setContactEmail)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setContactEmail)
     ///
-    /// ``` self: QtC.KNSCore__Provider, contactEmail: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` contactEmail: []const u8 `
+    ///
     pub fn SetContactEmail(self: ?*anyopaque, contactEmail: []const u8) void {
         const contactEmail_str = qtc.libqt_string{
             .len = contactEmail.len,
@@ -463,123 +714,194 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SetContactEmail(@ptrCast(self), contactEmail_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#supportsSsl)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#supportsSsl)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn SupportsSsl(self: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_SupportsSsl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setSupportsSsl)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setSupportsSsl)
     ///
-    /// ``` self: QtC.KNSCore__Provider, supportsSsl: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` supportsSsl: bool `
+    ///
     pub fn SetSupportsSsl(self: ?*anyopaque, supportsSsl: bool) void {
         qtc.KNSCore__Provider_SetSupportsSsl(@ptrCast(self), supportsSsl);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#userCanVote)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanVote)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn UserCanVote(self: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_UserCanVote(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#userCanVote)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanVote)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnUserCanVote(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnUserCanVote(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#userCanVote)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanVote)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QBaseUserCanVote(self: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_QBaseUserCanVote(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
+    /// ` param2: u32 `
+    ///
     pub fn Vote(self: ?*anyopaque, param1: ?*anyopaque, param2: u32) void {
         qtc.KNSCore__Provider_Vote(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: u32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: u32) callconv(.c) void `
+    ///
     pub fn OnVote(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u32) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnVote(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry, param2: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
+    /// ` param2: u32 `
+    ///
     pub fn QBaseVote(self: ?*anyopaque, param1: ?*anyopaque, param2: u32) void {
         qtc.KNSCore__Provider_QBaseVote(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn UserCanBecomeFan(self: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_UserCanBecomeFan(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnUserCanBecomeFan(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnUserCanBecomeFan(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QBaseUserCanBecomeFan(self: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_QBaseUserCanBecomeFan(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
     pub fn BecomeFan(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_BecomeFan(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void `
+    ///
     pub fn OnBecomeFan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnBecomeFan(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
     pub fn QBaseBecomeFan(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseBecomeFan(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setTagFilter)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setTagFilter)
     ///
-    /// ``` self: QtC.KNSCore__Provider, tagFilter: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` tagFilter: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetTagFilter(self: ?*anyopaque, tagFilter: [][]const u8, allocator: std.mem.Allocator) void {
         var tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("knscore::provider.SetTagFilter: Memory allocation failed");
         defer allocator.free(tagFilter_arr);
@@ -596,9 +918,14 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SetTagFilter(@ptrCast(self), tagFilter_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#tagFilter)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#tagFilter)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Provider_TagFilter(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -618,9 +945,16 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setDownloadTagFilter)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setDownloadTagFilter)
     ///
-    /// ``` self: QtC.KNSCore__Provider, downloadTagFilter: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` downloadTagFilter: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetDownloadTagFilter(self: ?*anyopaque, downloadTagFilter: [][]const u8, allocator: std.mem.Allocator) void {
         var downloadTagFilter_arr = allocator.alloc(qtc.libqt_string, downloadTagFilter.len) catch @panic("knscore::provider.SetDownloadTagFilter: Memory allocation failed");
         defer allocator.free(downloadTagFilter_arr);
@@ -637,9 +971,14 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SetDownloadTagFilter(@ptrCast(self), downloadTagFilter_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#downloadTagFilter)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#downloadTagFilter)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DownloadTagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Provider_DownloadTagFilter(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -659,23 +998,40 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#providerInitialized)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#providerInitialized)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Provider `
+    ///
     pub fn ProviderInitialized(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_ProviderInitialized(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#providerInitialized)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#providerInitialized)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Provider) callconv(.c) void `
+    ///
     pub fn OnProviderInitialized(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_ProviderInitialized(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFinished)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFinished)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest, param2: []QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` param2: []QtC.KNSCore__Entry `
+    ///
     pub fn LoadingFinished(self: ?*anyopaque, param1: ?*anyopaque, param2: []QtC.KNSCore__Entry) void {
         const param2_list = qtc.libqt_list{
             .len = param2.len,
@@ -684,72 +1040,120 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_LoadingFinished(@ptrCast(self), @ptrCast(param1), param2_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFinished)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFinished)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest, param2: [*]QtC.KNSCore__Entry) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Provider__SearchRequest, param2: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    ///
     pub fn OnLoadingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_LoadingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFailed)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFailed)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn LoadingFailed(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_LoadingFailed(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFailed)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadingFailed)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Provider__SearchRequest) callconv(.c) void `
+    ///
     pub fn OnLoadingFailed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_LoadingFailed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#entryDetailsLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#entryDetailsLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
     pub fn EntryDetailsLoaded(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_EntryDetailsLoaded(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#entryDetailsLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#entryDetailsLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Entry) callconv(.c) void `
+    ///
     pub fn OnEntryDetailsLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_EntryDetailsLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#payloadLinkLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#payloadLinkLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.KNSCore__Entry `
+    ///
     pub fn PayloadLinkLoaded(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider_PayloadLinkLoaded(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#payloadLinkLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#payloadLinkLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Entry) callconv(.c) void `
+    ///
     pub fn OnPayloadLinkLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_PayloadLinkLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#basicsLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#basicsLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn BasicsLoaded(self: ?*anyopaque) void {
         qtc.KNSCore__Provider_BasicsLoaded(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#basicsLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#basicsLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void `
+    ///
     pub fn OnBasicsLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_BasicsLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#searchPresetsLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#searchPresetsLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, presets: []QtC.KNSCore__Provider__SearchPreset ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` presets: []QtC.KNSCore__Provider__SearchPreset `
+    ///
     pub fn SearchPresetsLoaded(self: ?*anyopaque, presets: []QtC.KNSCore__Provider__SearchPreset) void {
         const presets_list = qtc.libqt_list{
             .len = presets.len,
@@ -758,16 +1162,26 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SearchPresetsLoaded(@ptrCast(self), presets_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#searchPresetsLoaded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#searchPresetsLoaded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, presets: [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerpresets: [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void `
+    ///
     pub fn OnSearchPresetsLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SearchPresetsLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#signalInformation)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#signalInformation)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn SignalInformation(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -776,16 +1190,26 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SignalInformation(@ptrCast(self), param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#signalInformation)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#signalInformation)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSignalInformation(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SignalInformation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#signalError)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#signalError)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn SignalError(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -794,16 +1218,30 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SignalError(@ptrCast(self), param1_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#signalError)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#signalError)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSignalError(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SignalError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#signalErrorCode)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#signalErrorCode)
     ///
-    /// ``` self: QtC.KNSCore__Provider, errorCode: errorcode_enums.ErrorCode, message: []const u8, metadata: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` errorCode: errorcode_enums.ErrorCode `
+    ///
+    /// ` message: []const u8 `
+    ///
+    /// ` metadata: QtC.QVariant `
+    ///
     pub fn SignalErrorCode(self: ?*anyopaque, errorCode: i32, message: []const u8, metadata: ?*anyopaque) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -812,16 +1250,26 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SignalErrorCode(@ptrCast(self), @intCast(errorCode), message_str, @ptrCast(metadata));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#signalErrorCode)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#signalErrorCode)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, errorCode: errorcode_enums.ErrorCode, message: [*:0]const u8, metadata: QtC.QVariant) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__ProvidererrorCode: errorcode_enums.ErrorCode, message: [*:0]const u8, metadata: QtC.QVariant) callconv(.c) void `
+    ///
     pub fn OnSignalErrorCode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SignalErrorCode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#categoriesMetadataLoded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#categoriesMetadataLoded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, categories: []QtC.KNSCore__Provider__CategoryMetadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` categories: []QtC.KNSCore__Provider__CategoryMetadata `
+    ///
     pub fn CategoriesMetadataLoded(self: ?*anyopaque, categories: []QtC.KNSCore__Provider__CategoryMetadata) void {
         const categories_list = qtc.libqt_list{
             .len = categories.len,
@@ -830,44 +1278,70 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_CategoriesMetadataLoded(@ptrCast(self), categories_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#categoriesMetadataLoded)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#categoriesMetadataLoded)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, categories: [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providercategories: [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void `
+    ///
     pub fn OnCategoriesMetadataLoded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_CategoriesMetadataLoded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#tagFilterChanged)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#tagFilterChanged)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn TagFilterChanged(self: ?*anyopaque) void {
         qtc.KNSCore__Provider_TagFilterChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#tagFilterChanged)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#tagFilterChanged)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void `
+    ///
     pub fn OnTagFilterChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_TagFilterChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#downloadTagFilterChanged)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#downloadTagFilterChanged)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn DownloadTagFilterChanged(self: ?*anyopaque) void {
         qtc.KNSCore__Provider_DownloadTagFilterChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#downloadTagFilterChanged)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#downloadTagFilterChanged)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void `
+    ///
     pub fn OnDownloadTagFilterChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_DownloadTagFilterChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
     ///
-    /// ``` self: QtC.KNSCore__Provider, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -876,20 +1350,30 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, name: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, name: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnSetName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn QBaseSetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -898,34 +1382,56 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_QBaseSetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
     ///
-    /// ``` self: QtC.KNSCore__Provider, icon: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` icon: QtC.QUrl `
+    ///
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KNSCore__Provider_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, icon: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, icon: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnSetIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnSetIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KNSCore__Provider, icon: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` icon: QtC.QUrl `
+    ///
     pub fn QBaseSetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseSetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -936,9 +1442,18 @@ pub const knscore__provider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -951,9 +1466,14 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -964,9 +1484,14 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KNSCore__Provider, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -977,99 +1502,144 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KNSCore__Provider, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KNSCore__Provider, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KNSCore__Provider, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KNSCore__Provider, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KNSCore__Provider, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1081,45 +1651,78 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KNSCore__Provider, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KNSCore__Provider, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KNSCore__Provider, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KNSCore__Provider, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1128,45 +1731,70 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KNSCore__Provider, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1174,9 +1802,14 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KNSCore__Provider, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1184,9 +1817,14 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KNSCore__Provider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1208,54 +1846,76 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KNSCore__Provider, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1263,45 +1923,84 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KNSCore__Provider, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KNSCore__Provider, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KNSCore__Provider, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1310,326 +2009,472 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KNSCore__Provider, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KNSCore__Provider_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KNSCore__Provider_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KNSCore__Provider_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KNSCore__Provider_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KNSCore__Provider_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KNSCore__Provider_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KNSCore__Provider_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KNSCore__Provider_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KNSCore__Provider_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KNSCore__Provider_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KNSCore__Provider_Receivers(@ptrCast(self), signal_Cstring);
@@ -1637,11 +2482,16 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KNSCore__Provider_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1649,71 +2499,98 @@ pub const knscore__provider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KNSCore__Provider_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KNSCore__Provider_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider`
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KNSCore__Provider, callback: *const fn (self: QtC.KNSCore__Provider, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
+    /// ` callback: *const fn (self: QtC.KNSCore__ProviderobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KNSCore__Provider ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KNSCore__Provider `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/knscore-provider-searchrequest.html
+/// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html)
 pub const knscore__provider__searchrequest = struct {
     /// New constructs a new KNSCore::Provider::SearchRequest object.
-    ///
     ///
     pub fn New() QtC.KNSCore__Provider__SearchRequest {
         return qtc.KNSCore__Provider__SearchRequest_new();
@@ -1721,28 +2598,46 @@ pub const knscore__provider__searchrequest = struct {
 
     /// New2 constructs a new KNSCore::Provider::SearchRequest object.
     ///
-    /// ``` param1: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.KNSCore__Provider__SearchRequest {
         return qtc.KNSCore__Provider__SearchRequest_new2(@ptrCast(param1));
     }
 
     /// New3 constructs a new KNSCore::Provider::SearchRequest object.
     ///
-    /// ``` sortMode_: provider_enums.SortMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` sortMode_: provider_enums.SortMode `
+    ///
     pub fn New3(sortMode_: i32) QtC.KNSCore__Provider__SearchRequest {
         return qtc.KNSCore__Provider__SearchRequest_new3(@intCast(sortMode_));
     }
 
     /// New4 constructs a new KNSCore::Provider::SearchRequest object.
     ///
-    /// ``` sortMode_: provider_enums.SortMode, filter_: provider_enums.Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` sortMode_: provider_enums.SortMode `
+    ///
+    /// ` filter_: provider_enums.Filter `
+    ///
     pub fn New4(sortMode_: i32, filter_: i32) QtC.KNSCore__Provider__SearchRequest {
         return qtc.KNSCore__Provider__SearchRequest_new4(@intCast(sortMode_), @intCast(filter_));
     }
 
     /// New5 constructs a new KNSCore::Provider::SearchRequest object.
     ///
-    /// ``` sortMode_: provider_enums.SortMode, filter_: provider_enums.Filter, searchTerm_: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` sortMode_: provider_enums.SortMode `
+    ///
+    /// ` filter_: provider_enums.Filter `
+    ///
+    /// ` searchTerm_: []const u8 `
+    ///
     pub fn New5(sortMode_: i32, filter_: i32, searchTerm_: []const u8) QtC.KNSCore__Provider__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
@@ -1754,7 +2649,18 @@ pub const knscore__provider__searchrequest = struct {
 
     /// New6 constructs a new KNSCore::Provider::SearchRequest object.
     ///
-    /// ``` sortMode_: provider_enums.SortMode, filter_: provider_enums.Filter, searchTerm_: []const u8, categories_: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` sortMode_: provider_enums.SortMode `
+    ///
+    /// ` filter_: provider_enums.Filter `
+    ///
+    /// ` searchTerm_: []const u8 `
+    ///
+    /// ` categories_: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New6(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
@@ -1778,7 +2684,20 @@ pub const knscore__provider__searchrequest = struct {
 
     /// New7 constructs a new KNSCore::Provider::SearchRequest object.
     ///
-    /// ``` sortMode_: provider_enums.SortMode, filter_: provider_enums.Filter, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` sortMode_: provider_enums.SortMode `
+    ///
+    /// ` filter_: provider_enums.Filter `
+    ///
+    /// ` searchTerm_: []const u8 `
+    ///
+    /// ` categories_: [][]const u8 `
+    ///
+    /// ` page_: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New7(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
@@ -1802,7 +2721,22 @@ pub const knscore__provider__searchrequest = struct {
 
     /// New8 constructs a new KNSCore::Provider::SearchRequest object.
     ///
-    /// ``` sortMode_: provider_enums.SortMode, filter_: provider_enums.Filter, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, pageSize_: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` sortMode_: provider_enums.SortMode `
+    ///
+    /// ` filter_: provider_enums.Filter `
+    ///
+    /// ` searchTerm_: []const u8 `
+    ///
+    /// ` categories_: [][]const u8 `
+    ///
+    /// ` page_: i32 `
+    ///
+    /// ` pageSize_: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New8(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, pageSize_: i32, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
@@ -1824,41 +2758,66 @@ pub const knscore__provider__searchrequest = struct {
         return qtc.KNSCore__Provider__SearchRequest_new8(@intCast(sortMode_), @intCast(filter_), searchTerm__str, categories__list, @intCast(page_), @intCast(pageSize_));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#sortMode-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#sortMode-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` provider_enums.SortMode ```
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` provider_enums.SortMode `
+    ///
     pub fn SortMode(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider__SearchRequest_SortMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#sortMode-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#sortMode-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, sortMode: provider_enums.SortMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` sortMode: provider_enums.SortMode `
+    ///
     pub fn SetSortMode(self: ?*anyopaque, sortMode: i32) void {
         qtc.KNSCore__Provider__SearchRequest_SetSortMode(@ptrCast(self), @intCast(sortMode));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#filter-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#filter-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` provider_enums.Filter ```
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` provider_enums.Filter `
+    ///
     pub fn Filter(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider__SearchRequest_Filter(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#filter-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#filter-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, filter: provider_enums.Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` filter: provider_enums.Filter `
+    ///
     pub fn SetFilter(self: ?*anyopaque, filter: i32) void {
         qtc.KNSCore__Provider__SearchRequest_SetFilter(@ptrCast(self), @intCast(filter));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#searchTerm-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#searchTerm-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SearchTerm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const searchTerm_str = qtc.KNSCore__Provider__SearchRequest_SearchTerm(@ptrCast(self));
         defer qtc.libqt_string_free(&searchTerm_str);
@@ -1867,9 +2826,14 @@ pub const knscore__provider__searchrequest = struct {
         return searchTerm_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#searchTerm-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#searchTerm-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, searchTerm: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` searchTerm: []const u8 `
+    ///
     pub fn SetSearchTerm(self: ?*anyopaque, searchTerm: []const u8) void {
         const searchTerm_str = qtc.libqt_string{
             .len = searchTerm.len,
@@ -1878,9 +2842,14 @@ pub const knscore__provider__searchrequest = struct {
         qtc.KNSCore__Provider__SearchRequest_SetSearchTerm(@ptrCast(self), searchTerm_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#categories-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#categories-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const categories_arr: qtc.libqt_list = qtc.KNSCore__Provider__SearchRequest_Categories(@ptrCast(self));
         const categories_str: [*]qtc.libqt_string = @ptrCast(@alignCast(categories_arr.data));
@@ -1900,9 +2869,16 @@ pub const knscore__provider__searchrequest = struct {
         return categories_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#categories-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#categories-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, categories: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` categories: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetCategories(self: ?*anyopaque, categories: [][]const u8, allocator: std.mem.Allocator) void {
         var categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("knscore::provider::searchrequest.SetCategories: Memory allocation failed");
         defer allocator.free(categories_arr);
@@ -1919,37 +2895,58 @@ pub const knscore__provider__searchrequest = struct {
         qtc.KNSCore__Provider__SearchRequest_SetCategories(@ptrCast(self), categories_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#page-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#page-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn Page(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider__SearchRequest_Page(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#page-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#page-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, page: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` page: i32 `
+    ///
     pub fn SetPage(self: ?*anyopaque, page: i32) void {
         qtc.KNSCore__Provider__SearchRequest_SetPage(@ptrCast(self), @intCast(page));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#pageSize-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#pageSize-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn PageSize(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider__SearchRequest_PageSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#pageSize-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#pageSize-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, pageSize: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` pageSize: i32 `
+    ///
     pub fn SetPageSize(self: ?*anyopaque, pageSize: i32) void {
         qtc.KNSCore__Provider__SearchRequest_SetPageSize(@ptrCast(self), @intCast(pageSize));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#hashForRequest)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#hashForRequest)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HashForRequest(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KNSCore__Provider__SearchRequest_HashForRequest(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1958,40 +2955,61 @@ pub const knscore__provider__searchrequest = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#operator-eq-eq)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, other: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` other: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KNSCore__Provider__SearchRequest_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchrequest.html#operator-eq)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest, param1: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
+    /// ` param1: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider__SearchRequest_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider__SearchRequest_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/knscore-provider-categorymetadata.html
+/// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html)
 pub const knscore__provider__categorymetadata = struct {
     /// New constructs a new KNSCore::Provider::CategoryMetadata object.
     ///
-    /// ``` param1: QtC.KNSCore__Provider__CategoryMetadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.KNSCore__Provider__CategoryMetadata {
         return qtc.KNSCore__Provider__CategoryMetadata_new(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#id-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#id-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const id_str = qtc.KNSCore__Provider__CategoryMetadata_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&id_str);
@@ -2000,9 +3018,14 @@ pub const knscore__provider__categorymetadata = struct {
         return id_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#id-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#id-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata, id: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
+    /// ` id: []const u8 `
+    ///
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
@@ -2011,9 +3034,14 @@ pub const knscore__provider__categorymetadata = struct {
         qtc.KNSCore__Provider__CategoryMetadata_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#name-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#name-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.KNSCore__Provider__CategoryMetadata_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
@@ -2022,9 +3050,14 @@ pub const knscore__provider__categorymetadata = struct {
         return name_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#name-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#name-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2033,9 +3066,14 @@ pub const knscore__provider__categorymetadata = struct {
         qtc.KNSCore__Provider__CategoryMetadata_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#displayName-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#displayName-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const displayName_str = qtc.KNSCore__Provider__CategoryMetadata_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&displayName_str);
@@ -2044,9 +3082,14 @@ pub const knscore__provider__categorymetadata = struct {
         return displayName_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#displayName-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#displayName-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata, displayName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
+    /// ` displayName: []const u8 `
+    ///
     pub fn SetDisplayName(self: ?*anyopaque, displayName: []const u8) void {
         const displayName_str = qtc.libqt_string{
             .len = displayName.len,
@@ -2055,47 +3098,71 @@ pub const knscore__provider__categorymetadata = struct {
         qtc.KNSCore__Provider__CategoryMetadata_SetDisplayName(@ptrCast(self), displayName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#operator-eq)
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata, param1: QtC.KNSCore__Provider__CategoryMetadata ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
+    /// ` param1: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider__CategoryMetadata_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KNSCore__Provider__CategoryMetadata ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider__CategoryMetadata_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/knscore-provider-searchpreset.html
+/// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html)
 pub const knscore__provider__searchpreset = struct {
     /// New constructs a new KNSCore::Provider::SearchPreset object.
     ///
-    /// ``` param1: QtC.KNSCore__Provider__SearchPreset ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KNSCore__Provider__SearchPreset `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.KNSCore__Provider__SearchPreset {
         return qtc.KNSCore__Provider__SearchPreset_new(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#request-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#request-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
     pub fn Request(self: ?*anyopaque) QtC.KNSCore__Provider__SearchRequest {
         return qtc.KNSCore__Provider__SearchPreset_Request(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#request-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#request-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, request: QtC.KNSCore__Provider__SearchRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` request: QtC.KNSCore__Provider__SearchRequest `
+    ///
     pub fn SetRequest(self: ?*anyopaque, request: QtC.KNSCore__Provider__SearchRequest) void {
         qtc.KNSCore__Provider__SearchPreset_SetRequest(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#displayName-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#displayName-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const displayName_str = qtc.KNSCore__Provider__SearchPreset_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&displayName_str);
@@ -2104,9 +3171,14 @@ pub const knscore__provider__searchpreset = struct {
         return displayName_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#displayName-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#displayName-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, displayName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` displayName: []const u8 `
+    ///
     pub fn SetDisplayName(self: ?*anyopaque, displayName: []const u8) void {
         const displayName_str = qtc.libqt_string{
             .len = displayName.len,
@@ -2115,9 +3187,14 @@ pub const knscore__provider__searchpreset = struct {
         qtc.KNSCore__Provider__SearchPreset_SetDisplayName(@ptrCast(self), displayName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#iconName-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#iconName-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const iconName_str = qtc.KNSCore__Provider__SearchPreset_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&iconName_str);
@@ -2126,9 +3203,14 @@ pub const knscore__provider__searchpreset = struct {
         return iconName_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#iconName-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#iconName-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, iconName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` iconName: []const u8 `
+    ///
     pub fn SetIconName(self: ?*anyopaque, iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
@@ -2137,25 +3219,40 @@ pub const knscore__provider__searchpreset = struct {
         qtc.KNSCore__Provider__SearchPreset_SetIconName(@ptrCast(self), iconName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#type-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#type-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` provider_enums.SearchPresetTypes ```
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ## Returns:
+    ///
+    /// ` provider_enums.SearchPresetTypes `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Provider__SearchPreset_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#type-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#type-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, type: provider_enums.SearchPresetTypes ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` type: provider_enums.SearchPresetTypes `
+    ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
         qtc.KNSCore__Provider__SearchPreset_SetType(@ptrCast(self), @intCast(_type));
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#providerId-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#providerId-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const providerId_str = qtc.KNSCore__Provider__SearchPreset_ProviderId(@ptrCast(self));
         defer qtc.libqt_string_free(&providerId_str);
@@ -2164,9 +3261,14 @@ pub const knscore__provider__searchpreset = struct {
         return providerId_ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#providerId-var)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#providerId-var)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, providerId: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` providerId: []const u8 `
+    ///
     pub fn SetProviderId(self: ?*anyopaque, providerId: []const u8) void {
         const providerId_str = qtc.libqt_string{
             .len = providerId.len,
@@ -2175,22 +3277,30 @@ pub const knscore__provider__searchpreset = struct {
         qtc.KNSCore__Provider__SearchPreset_SetProviderId(@ptrCast(self), providerId_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#operator-eq)
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset, param1: QtC.KNSCore__Provider__SearchPreset ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
+    /// ` param1: QtC.KNSCore__Provider__SearchPreset `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KNSCore__Provider__SearchPreset_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KNSCore__Provider__SearchPreset ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KNSCore__Provider__SearchPreset `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider__SearchPreset_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/knscore-provider.html#types
+/// ### [Upstream resources](https://api.kde.org/knscore-provider.html#public-types)
 pub const enums = struct {
     pub const SortMode = enum {
         pub const Newest: i32 = 0;

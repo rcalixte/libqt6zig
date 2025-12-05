@@ -5,10 +5,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html)
 pub const qcandlestickseries = struct {
     /// New constructs a new QCandlestickSeries object.
-    ///
     ///
     pub fn New() QtC.QCandlestickSeries {
         return qtc.QCandlestickSeries_new();
@@ -16,46 +15,85 @@ pub const qcandlestickseries = struct {
 
     /// New2 constructs a new QCandlestickSeries object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QCandlestickSeries {
         return qtc.QCandlestickSeries_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QCandlestickSeries_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QCandlestickSeries, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCandlestickSeries_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QCandlestickSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCandlestickSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QCandlestickSeries_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QCandlestickSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCandlestickSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -65,23 +103,38 @@ pub const qcandlestickseries = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#append)
     ///
-    /// ``` self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Append(self: ?*anyopaque, set: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_Append(@ptrCast(self), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#remove)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#remove)
     ///
-    /// ``` self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Remove(self: ?*anyopaque, set: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_Remove(@ptrCast(self), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#append)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#append)
     ///
-    /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` sets: []QtC.QCandlestickSet `
+    ///
     pub fn Append2(self: ?*anyopaque, sets: []?*anyopaque) bool {
         const sets_list = qtc.libqt_list{
             .len = sets.len,
@@ -90,9 +143,14 @@ pub const qcandlestickseries = struct {
         return qtc.QCandlestickSeries_Append2(@ptrCast(self), sets_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#remove)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#remove)
     ///
-    /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` sets: []QtC.QCandlestickSet `
+    ///
     pub fn Remove2(self: ?*anyopaque, sets: []?*anyopaque) bool {
         const sets_list = qtc.libqt_list{
             .len = sets.len,
@@ -101,30 +159,50 @@ pub const qcandlestickseries = struct {
         return qtc.QCandlestickSeries_Remove2(@ptrCast(self), sets_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#insert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#insert)
     ///
-    /// ``` self: QtC.QCandlestickSeries, index: i32, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Insert(self: ?*anyopaque, index: i32, set: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_Insert(@ptrCast(self), @intCast(index), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#take)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#take)
     ///
-    /// ``` self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Take(self: ?*anyopaque, set: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_Take(@ptrCast(self), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#clear)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#sets)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#sets)
     ///
-    /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Sets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QCandlestickSet {
         const _arr: qtc.libqt_list = qtc.QCandlestickSeries_Sets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -134,255 +212,410 @@ pub const qcandlestickseries = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#count)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QCandlestickSeries_Count(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractseries_enums.SeriesType ```
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractseries_enums.SeriesType `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QCandlestickSeries_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QCandlestickSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractseries_enums.SeriesType ```
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractseries_enums.SeriesType `
+    ///
     pub fn QBaseType(self: ?*anyopaque) i32 {
         return qtc.QCandlestickSeries_QBaseType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setMaximumColumnWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setMaximumColumnWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries, maximumColumnWidth: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` maximumColumnWidth: f64 `
+    ///
     pub fn SetMaximumColumnWidth(self: ?*anyopaque, maximumColumnWidth: f64) void {
         qtc.QCandlestickSeries_SetMaximumColumnWidth(@ptrCast(self), @floatCast(maximumColumnWidth));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn MaximumColumnWidth(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSeries_MaximumColumnWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setMinimumColumnWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setMinimumColumnWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries, minimumColumnWidth: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` minimumColumnWidth: f64 `
+    ///
     pub fn SetMinimumColumnWidth(self: ?*anyopaque, minimumColumnWidth: f64) void {
         qtc.QCandlestickSeries_SetMinimumColumnWidth(@ptrCast(self), @floatCast(minimumColumnWidth));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn MinimumColumnWidth(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSeries_MinimumColumnWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setBodyWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setBodyWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries, bodyWidth: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` bodyWidth: f64 `
+    ///
     pub fn SetBodyWidth(self: ?*anyopaque, bodyWidth: f64) void {
         qtc.QCandlestickSeries_SetBodyWidth(@ptrCast(self), @floatCast(bodyWidth));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn BodyWidth(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSeries_BodyWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setBodyOutlineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setBodyOutlineVisible)
     ///
-    /// ``` self: QtC.QCandlestickSeries, bodyOutlineVisible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` bodyOutlineVisible: bool `
+    ///
     pub fn SetBodyOutlineVisible(self: ?*anyopaque, bodyOutlineVisible: bool) void {
         qtc.QCandlestickSeries_SetBodyOutlineVisible(@ptrCast(self), bodyOutlineVisible);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisible)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn BodyOutlineVisible(self: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_BodyOutlineVisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setCapsWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setCapsWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries, capsWidth: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` capsWidth: f64 `
+    ///
     pub fn SetCapsWidth(self: ?*anyopaque, capsWidth: f64) void {
         qtc.QCandlestickSeries_SetCapsWidth(@ptrCast(self), @floatCast(capsWidth));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidth)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn CapsWidth(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSeries_CapsWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setCapsVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setCapsVisible)
     ///
-    /// ``` self: QtC.QCandlestickSeries, capsVisible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` capsVisible: bool `
+    ///
     pub fn SetCapsVisible(self: ?*anyopaque, capsVisible: bool) void {
         qtc.QCandlestickSeries_SetCapsVisible(@ptrCast(self), capsVisible);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisible)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn CapsVisible(self: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_CapsVisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setIncreasingColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setIncreasingColor)
     ///
-    /// ``` self: QtC.QCandlestickSeries, increasingColor: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` increasingColor: QtC.QColor `
+    ///
     pub fn SetIncreasingColor(self: ?*anyopaque, increasingColor: ?*anyopaque) void {
         qtc.QCandlestickSeries_SetIncreasingColor(@ptrCast(self), @ptrCast(increasingColor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColor)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn IncreasingColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QCandlestickSeries_IncreasingColor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setDecreasingColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setDecreasingColor)
     ///
-    /// ``` self: QtC.QCandlestickSeries, decreasingColor: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` decreasingColor: QtC.QColor `
+    ///
     pub fn SetDecreasingColor(self: ?*anyopaque, decreasingColor: ?*anyopaque) void {
         qtc.QCandlestickSeries_SetDecreasingColor(@ptrCast(self), @ptrCast(decreasingColor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColor)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn DecreasingColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QCandlestickSeries_DecreasingColor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setBrush)
     ///
-    /// ``` self: QtC.QCandlestickSeries, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QCandlestickSeries_SetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brush)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QCandlestickSeries_Brush(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setPen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#setPen)
     ///
-    /// ``` self: QtC.QCandlestickSeries, pen: QtC.QPen ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` pen: QtC.QPen `
+    ///
     pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QCandlestickSeries_SetPen(@ptrCast(self), @ptrCast(pen));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pen)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
         return qtc.QCandlestickSeries_Pen(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#clicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Clicked(self: ?*anyopaque, set: ?*anyopaque) void {
         qtc.QCandlestickSeries_Clicked(@ptrCast(self), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#clicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriesset: QtC.QCandlestickSet) callconv(.c) void `
+    ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QCandlestickSeries, status: bool, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` status: bool `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Hovered(self: ?*anyopaque, status: bool, set: ?*anyopaque) void {
         qtc.QCandlestickSeries_Hovered(@ptrCast(self), status, @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#hovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, status: bool, set: QtC.QCandlestickSet) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriesstatus: bool, set: QtC.QCandlestickSet) callconv(.c) void `
+    ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pressed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pressed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Pressed(self: ?*anyopaque, set: ?*anyopaque) void {
         qtc.QCandlestickSeries_Pressed(@ptrCast(self), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pressed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pressed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriesset: QtC.QCandlestickSet) callconv(.c) void `
+    ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#released)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#released)
     ///
-    /// ``` self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn Released(self: ?*anyopaque, set: ?*anyopaque) void {
         qtc.QCandlestickSeries_Released(@ptrCast(self), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#released)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#released)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriesset: QtC.QCandlestickSet) callconv(.c) void `
+    ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#doubleClicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` set: QtC.QCandlestickSet `
+    ///
     pub fn DoubleClicked(self: ?*anyopaque, set: ?*anyopaque) void {
         qtc.QCandlestickSeries_DoubleClicked(@ptrCast(self), @ptrCast(set));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#doubleClicked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriesset: QtC.QCandlestickSet) callconv(.c) void `
+    ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsAdded)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsAdded)
     ///
-    /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` sets: []QtC.QCandlestickSet `
+    ///
     pub fn CandlestickSetsAdded(self: ?*anyopaque, sets: []?*anyopaque) void {
         const sets_list = qtc.libqt_list{
             .len = sets.len,
@@ -391,16 +624,26 @@ pub const qcandlestickseries = struct {
         qtc.QCandlestickSeries_CandlestickSetsAdded(@ptrCast(self), sets_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsAdded)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsAdded)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriessets: [*]QtC.QCandlestickSet) callconv(.c) void `
+    ///
     pub fn OnCandlestickSetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CandlestickSetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsRemoved)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsRemoved)
     ///
-    /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` sets: []QtC.QCandlestickSet `
+    ///
     pub fn CandlestickSetsRemoved(self: ?*anyopaque, sets: []?*anyopaque) void {
         const sets_list = qtc.libqt_list{
             .len = sets.len,
@@ -409,170 +652,270 @@ pub const qcandlestickseries = struct {
         qtc.QCandlestickSeries_CandlestickSetsRemoved(@ptrCast(self), sets_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsRemoved)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsRemoved)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriessets: [*]QtC.QCandlestickSet) callconv(.c) void `
+    ///
     pub fn OnCandlestickSetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CandlestickSetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#countChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#countChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn CountChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_CountChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#countChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#countChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn MaximumColumnWidthChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_MaximumColumnWidthChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnMaximumColumnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_MaximumColumnWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn MinimumColumnWidthChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_MinimumColumnWidthChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnMinimumColumnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_MinimumColumnWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn BodyWidthChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_BodyWidthChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnBodyWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_BodyWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisibilityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisibilityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn BodyOutlineVisibilityChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_BodyOutlineVisibilityChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisibilityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisibilityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnBodyOutlineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_BodyOutlineVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn CapsWidthChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_CapsWidthChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidthChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnCapsWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CapsWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisibilityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisibilityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn CapsVisibilityChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_CapsVisibilityChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisibilityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisibilityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnCapsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CapsVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColorChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn IncreasingColorChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_IncreasingColorChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColorChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnIncreasingColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_IncreasingColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColorChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn DecreasingColorChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_DecreasingColorChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColorChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnDecreasingColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_DecreasingColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn BrushChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_BrushChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brushChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#penChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn PenChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_PenChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#penChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -583,9 +926,18 @@ pub const qcandlestickseries = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -598,9 +950,14 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setName)
     ///
-    /// ``` self: QtC.QCandlestickSeries, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -611,9 +968,14 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#name)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#name)
     ///
-    /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSeries_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -624,90 +986,128 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn SetVisible(self: ?*anyopaque) void {
         qtc.QAbstractSeries_SetVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#isVisible)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractSeries_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacity)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Opacity(self: ?*anyopaque) f64 {
         return qtc.QAbstractSeries_Opacity(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setOpacity)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setOpacity)
     ///
-    /// ``` self: QtC.QCandlestickSeries, opacity: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` opacity: f64 `
+    ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
         qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @floatCast(opacity));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn SetUseOpenGL(self: ?*anyopaque) void {
         qtc.QAbstractSeries_SetUseOpenGL(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGL)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGL)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn UseOpenGL(self: ?*anyopaque) bool {
         return qtc.QAbstractSeries_UseOpenGL(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#chart)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#chart)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Chart(self: ?*anyopaque) QtC.QChart {
         return qtc.QAbstractSeries_Chart(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachAxis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachAxis)
     ///
-    /// ``` self: QtC.QCandlestickSeries, axis: QtC.QAbstractAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` axis: QtC.QAbstractAxis `
+    ///
     pub fn AttachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
         return qtc.QAbstractSeries_AttachAxis(@ptrCast(self), @ptrCast(axis));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#detachAxis)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#detachAxis)
     ///
-    /// ``` self: QtC.QCandlestickSeries, axis: QtC.QAbstractAxis ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` axis: QtC.QAbstractAxis `
+    ///
     pub fn DetachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
         return qtc.QAbstractSeries_DetachAxis(@ptrCast(self), @ptrCast(axis));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachedAxes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachedAxes)
     ///
-    /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -719,117 +1119,170 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#show)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#show)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Show(self: ?*anyopaque) void {
         qtc.QAbstractSeries_Show(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#hide)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#hide)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QAbstractSeries_Hide(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn NameChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_NameChanged(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn VisibleChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_VisibleChanged(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn OpacityChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_OpacityChanged(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn UseOpenGLChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_UseOpenGLChanged(@ptrCast(self));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
     ///
-    /// ``` self: QtC.QCandlestickSeries, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractSeries_SetVisible1(@ptrCast(self), visible);
     }
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
     ///
-    /// ``` self: QtC.QCandlestickSeries, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetUseOpenGL1(self: ?*anyopaque, enable: bool) void {
         qtc.QAbstractSeries_SetUseOpenGL1(@ptrCast(self), enable);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -840,9 +1293,14 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QCandlestickSeries, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -853,99 +1311,144 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QCandlestickSeries, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QCandlestickSeries, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QCandlestickSeries, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QCandlestickSeries, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QCandlestickSeries, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -957,45 +1460,78 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QCandlestickSeries, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QCandlestickSeries, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QCandlestickSeries, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QCandlestickSeries, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1004,45 +1540,70 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QCandlestickSeries, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1050,9 +1611,14 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QCandlestickSeries, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1060,9 +1626,14 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1084,54 +1655,76 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QCandlestickSeries, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1139,45 +1732,84 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QCandlestickSeries, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QCandlestickSeries, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QCandlestickSeries, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1186,326 +1818,472 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriesparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QCandlestickSeries_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QCandlestickSeries_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCandlestickSeries_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCandlestickSeries_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCandlestickSeries_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCandlestickSeries_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCandlestickSeries_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCandlestickSeries_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCandlestickSeries_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCandlestickSeries_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCandlestickSeries_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QCandlestickSeries_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QCandlestickSeries_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QCandlestickSeries_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QCandlestickSeries_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QCandlestickSeries_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QCandlestickSeries_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QCandlestickSeries_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCandlestickSeries_Receivers(@ptrCast(self), signal_Cstring);
@@ -1513,11 +2291,16 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCandlestickSeries_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1525,64 +2308,92 @@ pub const qcandlestickseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCandlestickSeries_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QCandlestickSeries_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries`
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QCandlestickSeries_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
+    /// ` callback: *const fn (self: QtC.QCandlestickSeriesobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#dtor.QCandlestickSeries)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#dtor.QCandlestickSeries)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QCandlestickSeries ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QCandlestickSeries `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QCandlestickSeries_Delete(@ptrCast(self));
     }

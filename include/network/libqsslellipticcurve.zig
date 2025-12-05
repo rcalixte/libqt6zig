@@ -2,24 +2,29 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qsslellipticcurve.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html)
 pub const qsslellipticcurve = struct {
     /// New constructs a new QSslEllipticCurve object.
     ///
-    /// ``` other: QtC.QSslEllipticCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSslEllipticCurve `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QSslEllipticCurve {
         return qtc.QSslEllipticCurve_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QSslEllipticCurve object and invalidates the source QSslEllipticCurve object.
     ///
-    /// ``` other: QtC.QSslEllipticCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSslEllipticCurve `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QSslEllipticCurve {
         return qtc.QSslEllipticCurve_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QSslEllipticCurve object.
-    ///
     ///
     pub fn New3() QtC.QSslEllipticCurve {
         return qtc.QSslEllipticCurve_new3();
@@ -27,28 +32,44 @@ pub const qsslellipticcurve = struct {
 
     /// New4 constructs a new QSslEllipticCurve object.
     ///
-    /// ``` param1: QtC.QSslEllipticCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QSslEllipticCurve `
+    ///
     pub fn New4(param1: ?*anyopaque) QtC.QSslEllipticCurve {
         return qtc.QSslEllipticCurve_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QSslEllipticCurve, other: QtC.QSslEllipticCurve ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSslEllipticCurve `
+    ///
+    /// ` other: QtC.QSslEllipticCurve `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslEllipticCurve_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QSslEllipticCurve, other: QtC.QSslEllipticCurve ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSslEllipticCurve `
+    ///
+    /// ` other: QtC.QSslEllipticCurve `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslEllipticCurve_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromShortName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromShortName)
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn FromShortName(name: []const u8) QtC.QSslEllipticCurve {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -57,9 +78,12 @@ pub const qsslellipticcurve = struct {
         return qtc.QSslEllipticCurve_FromShortName(name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromLongName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromLongName)
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn FromLongName(name: []const u8) QtC.QSslEllipticCurve {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -68,9 +92,14 @@ pub const qsslellipticcurve = struct {
         return qtc.QSslEllipticCurve_FromLongName(name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#shortName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#shortName)
     ///
-    /// ``` self: QtC.QSslEllipticCurve, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslEllipticCurve `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ShortName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslEllipticCurve_ShortName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -79,9 +108,14 @@ pub const qsslellipticcurve = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#longName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#longName)
     ///
-    /// ``` self: QtC.QSslEllipticCurve, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslEllipticCurve `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LongName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslEllipticCurve_LongName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -90,25 +124,34 @@ pub const qsslellipticcurve = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#isValid)
     ///
-    /// ``` self: QtC.QSslEllipticCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslEllipticCurve `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QSslEllipticCurve_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#isTlsNamedCurve)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#isTlsNamedCurve)
     ///
-    /// ``` self: QtC.QSslEllipticCurve ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslEllipticCurve `
+    ///
     pub fn IsTlsNamedCurve(self: ?*anyopaque) bool {
         return qtc.QSslEllipticCurve_IsTlsNamedCurve(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#dtor.QSslEllipticCurve)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#dtor.QSslEllipticCurve)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSslEllipticCurve ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSslEllipticCurve `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSslEllipticCurve_Delete(@ptrCast(self));
     }

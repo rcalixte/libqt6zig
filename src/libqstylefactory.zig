@@ -2,39 +2,58 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qstylefactory.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html)
 pub const qstylefactory = struct {
     /// New constructs a new QStyleFactory object.
     ///
-    /// ``` other: QtC.QStyleFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QStyleFactory `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QStyleFactory {
         return qtc.QStyleFactory_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QStyleFactory object and invalidates the source QStyleFactory object.
     ///
-    /// ``` other: QtC.QStyleFactory ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QStyleFactory `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QStyleFactory {
         return qtc.QStyleFactory_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.QStyleFactory, other: QtC.QStyleFactory ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QStyleFactory `
+    ///
+    /// ` other: QtC.QStyleFactory `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QStyleFactory_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.QStyleFactory, other: QtC.QStyleFactory ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QStyleFactory `
+    ///
+    /// ` other: QtC.QStyleFactory `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QStyleFactory_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#keys)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#keys)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Keys(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QStyleFactory_Keys();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -54,9 +73,12 @@ pub const qstylefactory = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#create)
     ///
-    /// ``` param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Create(param1: []const u8) QtC.QStyle {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -65,11 +87,14 @@ pub const qstylefactory = struct {
         return qtc.QStyleFactory_Create(param1_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#dtor.QStyleFactory)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#dtor.QStyleFactory)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QStyleFactory ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QStyleFactory `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QStyleFactory_Delete(@ptrCast(self));
     }

@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 
-/// https://doc.qt.io/qt-6/qlayoutitem.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html)
 pub const qlayoutitem = struct {
     /// New constructs a new QLayoutItem object.
-    ///
     ///
     pub fn New() QtC.QLayoutItem {
         return qtc.QLayoutItem_new();
@@ -14,1930 +13,2803 @@ pub const qlayoutitem = struct {
 
     /// New2 constructs a new QLayoutItem object.
     ///
-    /// ``` param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.QLayoutItem {
         return qtc.QLayoutItem_new2(@ptrCast(param1));
     }
 
     /// New3 constructs a new QLayoutItem object.
     ///
-    /// ``` alignment: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn New3(alignment: i32) QtC.QLayoutItem {
         return qtc.QLayoutItem_new3(@intCast(alignment));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_SizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QLayoutItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_MinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QLayoutItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_MaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QLayoutItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn ExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QLayoutItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
-    /// ``` self: QtC.QLayoutItem, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QLayoutItem_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, geometry: QtC.QRect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QLayoutItem, geometry: QtC.QRect) callconv(.c) void `
+    ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QLayoutItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QLayoutItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QLayoutItem_Geometry(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QLayoutItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QLayoutItem_QBaseGeometry(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QLayoutItem_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QLayoutItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
         return qtc.QLayoutItem_QBaseIsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QLayoutItem_HasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QLayoutItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QLayoutItem_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
-    /// ``` self: QtC.QLayoutItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QLayoutItem_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QLayoutItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QLayoutItem_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
-    /// ``` self: QtC.QLayoutItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QLayoutItem_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QLayoutItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QLayoutItem_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QLayoutItem_Invalidate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QLayoutItem_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseInvalidate(self: ?*anyopaque) void {
         qtc.QLayoutItem_QBaseInvalidate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QLayoutItem_Widget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
         qtc.QLayoutItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QLayoutItem_QBaseWidget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QLayoutItem_Layout(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QLayout ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QLayout `
+    ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
         qtc.QLayoutItem_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QLayoutItem_QBaseLayout(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn SpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QLayoutItem_SpacerItem(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
+    ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QLayoutItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QLayoutItem_QBaseSpacerItem(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QLayoutItem, a: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` a: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn ControlTypes(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_ControlTypes(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QLayoutItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_QBaseControlTypes(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
-    /// ``` self: QtC.QLayoutItem, param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QLayoutItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, param1: QtC.QLayoutItem) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QLayoutItem, param1: QtC.QLayoutItem) callconv(.c) void `
+    ///
     pub fn OnOperatorAssign(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QLayoutItem_OnOperatorAssign(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayoutItem, param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn QBaseOperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QLayoutItem_QBaseOperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#dtor.QLayoutItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#dtor.QLayoutItem)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QLayoutItem ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QLayoutItem `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QLayoutItem_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qspaceritem.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html)
 pub const qspaceritem = struct {
     /// New constructs a new QSpacerItem object.
     ///
-    /// ``` w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn New(w: i32, h: i32) QtC.QSpacerItem {
         return qtc.QSpacerItem_new(@intCast(w), @intCast(h));
     }
 
     /// New2 constructs a new QSpacerItem object.
     ///
-    /// ``` param1: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QSpacerItem `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QSpacerItem_new2(@ptrCast(param1));
     }
 
     /// New3 constructs a new QSpacerItem object.
     ///
-    /// ``` w: i32, h: i32, hData: qsizepolicy_enums.Policy ```
+    /// ## Parameter(s):
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
+    /// ` hData: qsizepolicy_enums.Policy `
+    ///
     pub fn New3(w: i32, h: i32, hData: i32) QtC.QSpacerItem {
         return qtc.QSpacerItem_new3(@intCast(w), @intCast(h), @intCast(hData));
     }
 
     /// New4 constructs a new QSpacerItem object.
     ///
-    /// ``` w: i32, h: i32, hData: qsizepolicy_enums.Policy, vData: qsizepolicy_enums.Policy ```
+    /// ## Parameter(s):
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
+    /// ` hData: qsizepolicy_enums.Policy `
+    ///
+    /// ` vData: qsizepolicy_enums.Policy `
+    ///
     pub fn New4(w: i32, h: i32, hData: i32, vData: i32) QtC.QSpacerItem {
         return qtc.QSpacerItem_new4(@intCast(w), @intCast(h), @intCast(hData), @intCast(vData));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
-    /// ``` self: QtC.QSpacerItem, w: i32, h: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
     pub fn ChangeSize(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QSpacerItem_ChangeSize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_SizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QSpacerItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_MinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QSpacerItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_MaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QSpacerItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn ExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QSpacerItem_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QSpacerItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QSpacerItem_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QSpacerItem_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QSpacerItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
         return qtc.QSpacerItem_QBaseIsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
-    /// ``` self: QtC.QSpacerItem, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QSpacerItem_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn (self: QtC.QSpacerItem, geometry: QtC.QRect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QSpacerItem, geometry: QtC.QRect) callconv(.c) void `
+    ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSpacerItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QSpacerItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QSpacerItem_Geometry(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QSpacerItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QSpacerItem_QBaseGeometry(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn SpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QSpacerItem_SpacerItem(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
+    ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QSpacerItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QSpacerItem_QBaseSpacerItem(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizePolicy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizePolicy)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
         return qtc.QSpacerItem_SizePolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
-    /// ``` self: QtC.QSpacerItem, w: i32, h: i32, hData: qsizepolicy_enums.Policy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
+    /// ` hData: qsizepolicy_enums.Policy `
+    ///
     pub fn ChangeSize3(self: ?*anyopaque, w: i32, h: i32, hData: i32) void {
         qtc.QSpacerItem_ChangeSize3(@ptrCast(self), @intCast(w), @intCast(h), @intCast(hData));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
-    /// ``` self: QtC.QSpacerItem, w: i32, h: i32, hData: qsizepolicy_enums.Policy, vData: qsizepolicy_enums.Policy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
+    /// ` hData: qsizepolicy_enums.Policy `
+    ///
+    /// ` vData: qsizepolicy_enums.Policy `
+    ///
     pub fn ChangeSize4(self: ?*anyopaque, w: i32, h: i32, hData: i32, vData: i32) void {
         qtc.QSpacerItem_ChangeSize4(@ptrCast(self), @intCast(w), @intCast(h), @intCast(hData), @intCast(vData));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QSpacerItem, a: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` a: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QSpacerItem_HasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QSpacerItem_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QSpacerItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QSpacerItem_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QSpacerItem_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem`
+    ///
+    /// ` callback: *const fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QSpacerItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QSpacerItem_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QSpacerItem_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem`
+    ///
+    /// ` callback: *const fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QSpacerItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QSpacerItem_Invalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseInvalidate(self: ?*anyopaque) void {
         qtc.QSpacerItem_QBaseInvalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QSpacerItem_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QSpacerItem_Widget(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QSpacerItem_QBaseWidget(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
         qtc.QSpacerItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QSpacerItem_Layout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QSpacerItem_QBaseLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QLayout ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QLayout `
+    ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
         qtc.QSpacerItem_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn ControlTypes(self: ?*anyopaque) i32 {
         return qtc.QSpacerItem_ControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QSpacerItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
         return qtc.QSpacerItem_QBaseControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSpacerItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QSpacerItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#dtor.QSpacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#dtor.QSpacerItem)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSpacerItem ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSpacerItem `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSpacerItem_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwidgetitem.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html)
 pub const qwidgetitem = struct {
     /// New constructs a new QWidgetItem object.
     ///
-    /// ``` w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn New(w: ?*anyopaque) QtC.QWidgetItem {
         return qtc.QWidgetItem_new(@ptrCast(w));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_SizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QWidgetItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_MinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QWidgetItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_MaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QWidgetItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn ExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QWidgetItem_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QWidgetItem_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QWidgetItem_IsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
         return qtc.QWidgetItem_QBaseIsEmpty(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
-    /// ``` self: QtC.QWidgetItem, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidgetItem_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn (self: QtC.QWidgetItem, geometry: QtC.QRect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QWidgetItem, geometry: QtC.QRect) callconv(.c) void `
+    ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidgetItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidgetItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidgetItem_Geometry(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QWidgetItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidgetItem_QBaseGeometry(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidgetItem_Widget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
         qtc.QWidgetItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidgetItem_QBaseWidget(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QWidgetItem_HasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QWidgetItem_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
-    /// ``` self: QtC.QWidgetItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItem_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QWidgetItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItem_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
-    /// ``` self: QtC.QWidgetItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItem_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QWidgetItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItem_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn ControlTypes(self: ?*anyopaque) i32 {
         return qtc.QWidgetItem_ControlTypes(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
         return qtc.QWidgetItem_QBaseControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QWidgetItem, a: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
+    /// ` a: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QWidgetItem_Invalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseInvalidate(self: ?*anyopaque) void {
         qtc.QWidgetItem_QBaseInvalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QWidgetItem_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QWidgetItem_Layout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QWidgetItem_QBaseLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QLayout ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QLayout `
+    ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
         qtc.QWidgetItem_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn SpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QWidgetItem_SpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QWidgetItem_QBaseSpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItem`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
+    ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QWidgetItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#dtor.QWidgetItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#dtor.QWidgetItem)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWidgetItem ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWidgetItem `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWidgetItem_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwidgetitemv2.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html)
 pub const qwidgetitemv2 = struct {
     /// New constructs a new QWidgetItemV2 object.
     ///
-    /// ``` widget: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
     pub fn New(widget: ?*anyopaque) QtC.QWidgetItemV2 {
         return qtc.QWidgetItemV2_new(@ptrCast(widget));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_SizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QWidgetItemV2_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_MinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QWidgetItemV2_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_MaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QWidgetItemV2_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
-    /// ``` self: QtC.QWidgetItemV2, width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` width: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, width: i32) i32 {
         return qtc.QWidgetItemV2_HeightForWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn (self: QtC.QWidgetItemV2, width: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` callback: *const fn (self: QtC.QWidgetItemV2, width: i32) callconv(.c) i32 `
+    ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWidgetItemV2, width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` width: i32 `
+    ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, width: i32) i32 {
         return qtc.QWidgetItemV2_QBaseHeightForWidth(@ptrCast(self), @intCast(width));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QWidgetItemV2, a: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` a: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn ExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QWidgetItemV2_ExpandingDirections(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QWidgetItemV2_QBaseExpandingDirections(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QWidgetItemV2_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
         return qtc.QWidgetItemV2_QBaseIsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItemV2_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidgetItemV2_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidgetItemV2_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn (self: QtC.QWidgetItemV2, geometry: QtC.QRect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn (self: QtC.QWidgetItemV2, geometry: QtC.QRect) callconv(.c) void `
+    ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidgetItemV2_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidgetItemV2_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidgetItemV2_QBaseGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QWidgetItemV2_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidgetItemV2_Widget(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidgetItemV2_QBaseWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
         qtc.QWidgetItemV2_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QWidgetItemV2_HasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QWidgetItemV2_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItemV2_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItemV2_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItemV2_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn (self: QtC.QWidgetItemV2, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn (self: QtC.QWidgetItemV2, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn ControlTypes(self: ?*anyopaque) i32 {
         return qtc.QWidgetItemV2_ControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
         return qtc.QWidgetItemV2_QBaseControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QWidgetItemV2_Invalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseInvalidate(self: ?*anyopaque) void {
         qtc.QWidgetItemV2_QBaseInvalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QWidgetItemV2_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QWidgetItemV2_Layout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QWidgetItemV2_QBaseLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QLayout ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QLayout `
+    ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
         qtc.QWidgetItemV2_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn SpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QWidgetItemV2_SpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QWidgetItemV2_QBaseSpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWidgetItemV2`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
+    ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#dtor.QWidgetItemV2)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#dtor.QWidgetItemV2)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWidgetItemV2 ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWidgetItemV2 `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWidgetItemV2_Delete(@ptrCast(self));
     }

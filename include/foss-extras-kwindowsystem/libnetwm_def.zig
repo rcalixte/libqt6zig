@@ -1,24 +1,29 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api.kde.org/netpoint.html
+/// ### [Upstream resources](https://api.kde.org/netpoint.html)
 pub const netpoint = struct {
     /// New constructs a new NETPoint object.
     ///
-    /// ``` other: QtC.NETPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETPoint `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NETPoint {
         return qtc.NETPoint_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NETPoint object and invalidates the source NETPoint object.
     ///
-    /// ``` other: QtC.NETPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETPoint `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NETPoint {
         return qtc.NETPoint_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new NETPoint object.
-    ///
     ///
     pub fn New3() QtC.NETPoint {
         return qtc.NETPoint_new3();
@@ -26,95 +31,138 @@ pub const netpoint = struct {
 
     /// New4 constructs a new NETPoint object.
     ///
-    /// ``` p: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` p: QtC.QPoint `
+    ///
     pub fn New4(p: ?*anyopaque) QtC.NETPoint {
         return qtc.NETPoint_new4(@ptrCast(p));
     }
 
     /// New5 constructs a new NETPoint object.
     ///
-    /// ``` param1: QtC.NETPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.NETPoint `
+    ///
     pub fn New5(param1: ?*anyopaque) QtC.NETPoint {
         return qtc.NETPoint_new5(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NETPoint, other: QtC.NETPoint ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
+    /// ` other: QtC.NETPoint `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETPoint_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NETPoint, other: QtC.NETPoint ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
+    /// ` other: QtC.NETPoint `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETPoint_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/netpoint.html#toPoint)
+    /// ### [Upstream resources](https://api.kde.org/netpoint.html#toPoint)
     ///
-    /// ``` self: QtC.NETPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
     pub fn ToPoint(self: ?*anyopaque) QtC.QPoint {
         return qtc.NETPoint_ToPoint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netpoint.html#x-var)
+    /// ### [Upstream resources](https://api.kde.org/netpoint.html#x-var)
     ///
-    /// ``` self: QtC.NETPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
     pub fn X(self: ?*anyopaque) i32 {
         return qtc.NETPoint_X(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netpoint.html#x-var)
+    /// ### [Upstream resources](https://api.kde.org/netpoint.html#x-var)
     ///
-    /// ``` self: QtC.NETPoint, x: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
+    /// ` x: i32 `
+    ///
     pub fn SetX(self: ?*anyopaque, x: i32) void {
         qtc.NETPoint_SetX(@ptrCast(self), @intCast(x));
     }
 
-    /// [Upstream resources](https://api.kde.org/netpoint.html#y-var)
+    /// ### [Upstream resources](https://api.kde.org/netpoint.html#y-var)
     ///
-    /// ``` self: QtC.NETPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
     pub fn Y(self: ?*anyopaque) i32 {
         return qtc.NETPoint_Y(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netpoint.html#y-var)
+    /// ### [Upstream resources](https://api.kde.org/netpoint.html#y-var)
     ///
-    /// ``` self: QtC.NETPoint, y: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
+    /// ` y: i32 `
+    ///
     pub fn SetY(self: ?*anyopaque, y: i32) void {
         qtc.NETPoint_SetY(@ptrCast(self), @intCast(y));
     }
 
-    /// [Upstream resources](https://api.kde.org/netpoint.html#dtor.NETPoint)
+    /// ### [Upstream resources](https://api.kde.org/netpoint.html#dtor.NETPoint)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NETPoint ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NETPoint `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NETPoint_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/netsize.html
+/// ### [Upstream resources](https://api.kde.org/netsize.html)
 pub const netsize = struct {
     /// New constructs a new NETSize object.
     ///
-    /// ``` other: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETSize `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NETSize {
         return qtc.NETSize_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NETSize object and invalidates the source NETSize object.
     ///
-    /// ``` other: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETSize `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NETSize {
         return qtc.NETSize_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new NETSize object.
-    ///
     ///
     pub fn New3() QtC.NETSize {
         return qtc.NETSize_new3();
@@ -122,95 +170,138 @@ pub const netsize = struct {
 
     /// New4 constructs a new NETSize object.
     ///
-    /// ``` size: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` size: QtC.QSize `
+    ///
     pub fn New4(size: ?*anyopaque) QtC.NETSize {
         return qtc.NETSize_new4(@ptrCast(size));
     }
 
     /// New5 constructs a new NETSize object.
     ///
-    /// ``` param1: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.NETSize `
+    ///
     pub fn New5(param1: ?*anyopaque) QtC.NETSize {
         return qtc.NETSize_new5(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NETSize, other: QtC.NETSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETSize `
+    ///
+    /// ` other: QtC.NETSize `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETSize_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NETSize, other: QtC.NETSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETSize `
+    ///
+    /// ` other: QtC.NETSize `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETSize_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/netsize.html#toSize)
+    /// ### [Upstream resources](https://api.kde.org/netsize.html#toSize)
     ///
-    /// ``` self: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETSize `
+    ///
     pub fn ToSize(self: ?*anyopaque) QtC.QSize {
         return qtc.NETSize_ToSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netsize.html#width-var)
+    /// ### [Upstream resources](https://api.kde.org/netsize.html#width-var)
     ///
-    /// ``` self: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETSize `
+    ///
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.NETSize_Width(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netsize.html#width-var)
+    /// ### [Upstream resources](https://api.kde.org/netsize.html#width-var)
     ///
-    /// ``` self: QtC.NETSize, width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETSize `
+    ///
+    /// ` width: i32 `
+    ///
     pub fn SetWidth(self: ?*anyopaque, width: i32) void {
         qtc.NETSize_SetWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Upstream resources](https://api.kde.org/netsize.html#height-var)
+    /// ### [Upstream resources](https://api.kde.org/netsize.html#height-var)
     ///
-    /// ``` self: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETSize `
+    ///
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.NETSize_Height(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netsize.html#height-var)
+    /// ### [Upstream resources](https://api.kde.org/netsize.html#height-var)
     ///
-    /// ``` self: QtC.NETSize, height: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETSize `
+    ///
+    /// ` height: i32 `
+    ///
     pub fn SetHeight(self: ?*anyopaque, height: i32) void {
         qtc.NETSize_SetHeight(@ptrCast(self), @intCast(height));
     }
 
-    /// [Upstream resources](https://api.kde.org/netsize.html#dtor.NETSize)
+    /// ### [Upstream resources](https://api.kde.org/netsize.html#dtor.NETSize)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NETSize ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NETSize `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NETSize_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/netrect.html
+/// ### [Upstream resources](https://api.kde.org/netrect.html)
 pub const netrect = struct {
     /// New constructs a new NETRect object.
     ///
-    /// ``` other: QtC.NETRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETRect `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NETRect {
         return qtc.NETRect_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NETRect object and invalidates the source NETRect object.
     ///
-    /// ``` other: QtC.NETRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETRect `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NETRect {
         return qtc.NETRect_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new NETRect object.
-    ///
     ///
     pub fn New3() QtC.NETRect {
         return qtc.NETRect_new3();
@@ -218,88 +309,128 @@ pub const netrect = struct {
 
     /// New4 constructs a new NETRect object.
     ///
-    /// ``` rect: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` rect: QtC.QRect `
+    ///
     pub fn New4(rect: ?*anyopaque) QtC.NETRect {
         return qtc.NETRect_new4(@ptrCast(rect));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NETRect, other: QtC.NETRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETRect `
+    ///
+    /// ` other: QtC.NETRect `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETRect_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NETRect, other: QtC.NETRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETRect `
+    ///
+    /// ` other: QtC.NETRect `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETRect_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/netrect.html#toRect)
+    /// ### [Upstream resources](https://api.kde.org/netrect.html#toRect)
     ///
-    /// ``` self: QtC.NETRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETRect `
+    ///
     pub fn ToRect(self: ?*anyopaque) QtC.QRect {
         return qtc.NETRect_ToRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netrect.html#pos-var)
+    /// ### [Upstream resources](https://api.kde.org/netrect.html#pos-var)
     ///
-    /// ``` self: QtC.NETRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETRect `
+    ///
     pub fn Pos(self: ?*anyopaque) QtC.NETPoint {
         return qtc.NETRect_Pos(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netrect.html#pos-var)
+    /// ### [Upstream resources](https://api.kde.org/netrect.html#pos-var)
     ///
-    /// ``` self: QtC.NETRect, pos: QtC.NETPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETRect `
+    ///
+    /// ` pos: QtC.NETPoint `
+    ///
     pub fn SetPos(self: ?*anyopaque, pos: QtC.NETPoint) void {
         qtc.NETRect_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Upstream resources](https://api.kde.org/netrect.html#size-var)
+    /// ### [Upstream resources](https://api.kde.org/netrect.html#size-var)
     ///
-    /// ``` self: QtC.NETRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETRect `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.NETSize {
         return qtc.NETRect_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netrect.html#size-var)
+    /// ### [Upstream resources](https://api.kde.org/netrect.html#size-var)
     ///
-    /// ``` self: QtC.NETRect, size: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETRect `
+    ///
+    /// ` size: QtC.NETSize `
+    ///
     pub fn SetSize(self: ?*anyopaque, size: QtC.NETSize) void {
         qtc.NETRect_SetSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Upstream resources](https://api.kde.org/netrect.html#dtor.NETRect)
+    /// ### [Upstream resources](https://api.kde.org/netrect.html#dtor.NETRect)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NETRect ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NETRect `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NETRect_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/neticon.html
+/// ### [Upstream resources](https://api.kde.org/neticon.html)
 pub const neticon = struct {
     /// New constructs a new NETIcon object.
     ///
-    /// ``` other: QtC.NETIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETIcon `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NETIcon {
         return qtc.NETIcon_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NETIcon object and invalidates the source NETIcon object.
     ///
-    /// ``` other: QtC.NETIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETIcon `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NETIcon {
         return qtc.NETIcon_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new NETIcon object.
-    ///
     ///
     pub fn New3() QtC.NETIcon {
         return qtc.NETIcon_new3();
@@ -307,74 +438,108 @@ pub const neticon = struct {
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NETIcon, other: QtC.NETIcon ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETIcon `
+    ///
+    /// ` other: QtC.NETIcon `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETIcon_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NETIcon, other: QtC.NETIcon ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETIcon `
+    ///
+    /// ` other: QtC.NETIcon `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETIcon_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/neticon.html#size-var)
+    /// ### [Upstream resources](https://api.kde.org/neticon.html#size-var)
     ///
-    /// ``` self: QtC.NETIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETIcon `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.NETSize {
         return qtc.NETIcon_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/neticon.html#size-var)
+    /// ### [Upstream resources](https://api.kde.org/neticon.html#size-var)
     ///
-    /// ``` self: QtC.NETIcon, size: QtC.NETSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETIcon `
+    ///
+    /// ` size: QtC.NETSize `
+    ///
     pub fn SetSize(self: ?*anyopaque, size: QtC.NETSize) void {
         qtc.NETIcon_SetSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Upstream resources](https://api.kde.org/neticon.html#data-var)
+    /// ### [Upstream resources](https://api.kde.org/neticon.html#data-var)
     ///
-    /// ``` self: QtC.NETIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETIcon `
+    ///
     pub fn Data(self: ?*anyopaque) ?*u8 {
         return @ptrCast(qtc.NETIcon_Data(@ptrCast(self)));
     }
 
-    /// [Upstream resources](https://api.kde.org/neticon.html#data-var)
+    /// ### [Upstream resources](https://api.kde.org/neticon.html#data-var)
     ///
-    /// ``` self: QtC.NETIcon, data: *u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETIcon `
+    ///
+    /// ` data: *u8 `
+    ///
     pub fn SetData(self: ?*anyopaque, data: *u8) void {
         qtc.NETIcon_SetData(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://api.kde.org/neticon.html#dtor.NETIcon)
+    /// ### [Upstream resources](https://api.kde.org/neticon.html#dtor.NETIcon)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NETIcon ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NETIcon `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NETIcon_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/netextendedstrut.html
+/// ### [Upstream resources](https://api.kde.org/netextendedstrut.html)
 pub const netextendedstrut = struct {
     /// New constructs a new NETExtendedStrut object.
     ///
-    /// ``` other: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETExtendedStrut `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NETExtendedStrut {
         return qtc.NETExtendedStrut_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NETExtendedStrut object and invalidates the source NETExtendedStrut object.
     ///
-    /// ``` other: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETExtendedStrut `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NETExtendedStrut {
         return qtc.NETExtendedStrut_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new NETExtendedStrut object.
-    ///
     ///
     pub fn New3() QtC.NETExtendedStrut {
         return qtc.NETExtendedStrut_new3();
@@ -382,214 +547,328 @@ pub const netextendedstrut = struct {
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NETExtendedStrut, other: QtC.NETExtendedStrut ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` other: QtC.NETExtendedStrut `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETExtendedStrut_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NETExtendedStrut, other: QtC.NETExtendedStrut ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` other: QtC.NETExtendedStrut `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETExtendedStrut_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#left_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn LeftWidth(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_LeftWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#left_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, left_width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` left_width: i32 `
+    ///
     pub fn SetLeftWidth(self: ?*anyopaque, left_width: i32) void {
         qtc.NETExtendedStrut_SetLeftWidth(@ptrCast(self), @intCast(left_width));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#left_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn LeftStart(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_LeftStart(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#left_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, left_start: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` left_start: i32 `
+    ///
     pub fn SetLeftStart(self: ?*anyopaque, left_start: i32) void {
         qtc.NETExtendedStrut_SetLeftStart(@ptrCast(self), @intCast(left_start));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#left_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn LeftEnd(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_LeftEnd(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#left_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, left_end: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` left_end: i32 `
+    ///
     pub fn SetLeftEnd(self: ?*anyopaque, left_end: i32) void {
         qtc.NETExtendedStrut_SetLeftEnd(@ptrCast(self), @intCast(left_end));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#right_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn RightWidth(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_RightWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#right_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, right_width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` right_width: i32 `
+    ///
     pub fn SetRightWidth(self: ?*anyopaque, right_width: i32) void {
         qtc.NETExtendedStrut_SetRightWidth(@ptrCast(self), @intCast(right_width));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#right_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn RightStart(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_RightStart(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#right_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, right_start: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` right_start: i32 `
+    ///
     pub fn SetRightStart(self: ?*anyopaque, right_start: i32) void {
         qtc.NETExtendedStrut_SetRightStart(@ptrCast(self), @intCast(right_start));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#right_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn RightEnd(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_RightEnd(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#right_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, right_end: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` right_end: i32 `
+    ///
     pub fn SetRightEnd(self: ?*anyopaque, right_end: i32) void {
         qtc.NETExtendedStrut_SetRightEnd(@ptrCast(self), @intCast(right_end));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#top_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn TopWidth(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_TopWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#top_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, top_width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` top_width: i32 `
+    ///
     pub fn SetTopWidth(self: ?*anyopaque, top_width: i32) void {
         qtc.NETExtendedStrut_SetTopWidth(@ptrCast(self), @intCast(top_width));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#top_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn TopStart(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_TopStart(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#top_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, top_start: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` top_start: i32 `
+    ///
     pub fn SetTopStart(self: ?*anyopaque, top_start: i32) void {
         qtc.NETExtendedStrut_SetTopStart(@ptrCast(self), @intCast(top_start));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#top_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn TopEnd(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_TopEnd(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#top_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, top_end: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` top_end: i32 `
+    ///
     pub fn SetTopEnd(self: ?*anyopaque, top_end: i32) void {
         qtc.NETExtendedStrut_SetTopEnd(@ptrCast(self), @intCast(top_end));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn BottomWidth(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_BottomWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_width-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_width-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, bottom_width: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` bottom_width: i32 `
+    ///
     pub fn SetBottomWidth(self: ?*anyopaque, bottom_width: i32) void {
         qtc.NETExtendedStrut_SetBottomWidth(@ptrCast(self), @intCast(bottom_width));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn BottomStart(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_BottomStart(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_start-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_start-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, bottom_start: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` bottom_start: i32 `
+    ///
     pub fn SetBottomStart(self: ?*anyopaque, bottom_start: i32) void {
         qtc.NETExtendedStrut_SetBottomStart(@ptrCast(self), @intCast(bottom_start));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn BottomEnd(self: ?*anyopaque) i32 {
         return qtc.NETExtendedStrut_BottomEnd(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_end-var)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_end-var)
     ///
-    /// ``` self: QtC.NETExtendedStrut, bottom_end: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
+    /// ` bottom_end: i32 `
+    ///
     pub fn SetBottomEnd(self: ?*anyopaque, bottom_end: i32) void {
         qtc.NETExtendedStrut_SetBottomEnd(@ptrCast(self), @intCast(bottom_end));
     }
 
-    /// [Upstream resources](https://api.kde.org/netextendedstrut.html#dtor.NETExtendedStrut)
+    /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#dtor.NETExtendedStrut)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NETExtendedStrut ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NETExtendedStrut `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NETExtendedStrut_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/netstrut.html
+/// ### [Upstream resources](https://api.kde.org/netstrut.html)
 pub const netstrut = struct {
     /// New constructs a new NETStrut object.
     ///
-    /// ``` other: QtC.NETStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETStrut `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NETStrut {
         return qtc.NETStrut_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NETStrut object and invalidates the source NETStrut object.
     ///
-    /// ``` other: QtC.NETStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETStrut `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NETStrut {
         return qtc.NETStrut_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new NETStrut object.
-    ///
     ///
     pub fn New3() QtC.NETStrut {
         return qtc.NETStrut_new3();
@@ -597,102 +876,152 @@ pub const netstrut = struct {
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NETStrut, other: QtC.NETStrut ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
+    /// ` other: QtC.NETStrut `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETStrut_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NETStrut, other: QtC.NETStrut ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
+    /// ` other: QtC.NETStrut `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETStrut_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#left-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#left-var)
     ///
-    /// ``` self: QtC.NETStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
     pub fn Left(self: ?*anyopaque) i32 {
         return qtc.NETStrut_Left(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#left-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#left-var)
     ///
-    /// ``` self: QtC.NETStrut, left: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
+    /// ` left: i32 `
+    ///
     pub fn SetLeft(self: ?*anyopaque, left: i32) void {
         qtc.NETStrut_SetLeft(@ptrCast(self), @intCast(left));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#right-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#right-var)
     ///
-    /// ``` self: QtC.NETStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
     pub fn Right(self: ?*anyopaque) i32 {
         return qtc.NETStrut_Right(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#right-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#right-var)
     ///
-    /// ``` self: QtC.NETStrut, right: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
+    /// ` right: i32 `
+    ///
     pub fn SetRight(self: ?*anyopaque, right: i32) void {
         qtc.NETStrut_SetRight(@ptrCast(self), @intCast(right));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#top-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#top-var)
     ///
-    /// ``` self: QtC.NETStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
     pub fn Top(self: ?*anyopaque) i32 {
         return qtc.NETStrut_Top(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#top-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#top-var)
     ///
-    /// ``` self: QtC.NETStrut, top: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
+    /// ` top: i32 `
+    ///
     pub fn SetTop(self: ?*anyopaque, top: i32) void {
         qtc.NETStrut_SetTop(@ptrCast(self), @intCast(top));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#bottom-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#bottom-var)
     ///
-    /// ``` self: QtC.NETStrut ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
     pub fn Bottom(self: ?*anyopaque) i32 {
         return qtc.NETStrut_Bottom(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#bottom-var)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#bottom-var)
     ///
-    /// ``` self: QtC.NETStrut, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetBottom(self: ?*anyopaque, bottom: i32) void {
         qtc.NETStrut_SetBottom(@ptrCast(self), @intCast(bottom));
     }
 
-    /// [Upstream resources](https://api.kde.org/netstrut.html#dtor.NETStrut)
+    /// ### [Upstream resources](https://api.kde.org/netstrut.html#dtor.NETStrut)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NETStrut ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NETStrut `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NETStrut_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/netfullscreenmonitors.html
+/// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html)
 pub const netfullscreenmonitors = struct {
     /// New constructs a new NETFullscreenMonitors object.
     ///
-    /// ``` other: QtC.NETFullscreenMonitors ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETFullscreenMonitors `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NETFullscreenMonitors {
         return qtc.NETFullscreenMonitors_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NETFullscreenMonitors object and invalidates the source NETFullscreenMonitors object.
     ///
-    /// ``` other: QtC.NETFullscreenMonitors ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NETFullscreenMonitors `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NETFullscreenMonitors {
         return qtc.NETFullscreenMonitors_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new NETFullscreenMonitors object.
-    ///
     ///
     pub fn New3() QtC.NETFullscreenMonitors {
         return qtc.NETFullscreenMonitors_new3();
@@ -700,146 +1029,223 @@ pub const netfullscreenmonitors = struct {
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NETFullscreenMonitors, other: QtC.NETFullscreenMonitors ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
+    /// ` other: QtC.NETFullscreenMonitors `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETFullscreenMonitors_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NETFullscreenMonitors, other: QtC.NETFullscreenMonitors ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
+    /// ` other: QtC.NETFullscreenMonitors `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NETFullscreenMonitors_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#top-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#top-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
     pub fn Top(self: ?*anyopaque) i32 {
         return qtc.NETFullscreenMonitors_Top(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#top-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#top-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors, top: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
+    /// ` top: i32 `
+    ///
     pub fn SetTop(self: ?*anyopaque, top: i32) void {
         qtc.NETFullscreenMonitors_SetTop(@ptrCast(self), @intCast(top));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#bottom-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#bottom-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
     pub fn Bottom(self: ?*anyopaque) i32 {
         return qtc.NETFullscreenMonitors_Bottom(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#bottom-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#bottom-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetBottom(self: ?*anyopaque, bottom: i32) void {
         qtc.NETFullscreenMonitors_SetBottom(@ptrCast(self), @intCast(bottom));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#left-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#left-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
     pub fn Left(self: ?*anyopaque) i32 {
         return qtc.NETFullscreenMonitors_Left(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#left-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#left-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors, left: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
+    /// ` left: i32 `
+    ///
     pub fn SetLeft(self: ?*anyopaque, left: i32) void {
         qtc.NETFullscreenMonitors_SetLeft(@ptrCast(self), @intCast(left));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#right-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#right-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
     pub fn Right(self: ?*anyopaque) i32 {
         return qtc.NETFullscreenMonitors_Right(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#right-var)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#right-var)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors, right: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
+    /// ` right: i32 `
+    ///
     pub fn SetRight(self: ?*anyopaque, right: i32) void {
         qtc.NETFullscreenMonitors_SetRight(@ptrCast(self), @intCast(right));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#isSet)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#isSet)
     ///
-    /// ``` self: QtC.NETFullscreenMonitors ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
     pub fn IsSet(self: ?*anyopaque) bool {
         return qtc.NETFullscreenMonitors_IsSet(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#dtor.NETFullscreenMonitors)
+    /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#dtor.NETFullscreenMonitors)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NETFullscreenMonitors ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NETFullscreenMonitors `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NETFullscreenMonitors_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/net.html
+/// ### [Upstream resources](https://api.kde.org/net.html)
 pub const net = struct {
     /// New constructs a new NET object.
     ///
-    /// ``` other: QtC.NET ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NET `
+    ///
     pub fn New(other: ?*anyopaque) QtC.NET {
         return qtc.NET_new(@ptrCast(other));
     }
 
     /// New2 constructs a new NET object and invalidates the source NET object.
     ///
-    /// ``` other: QtC.NET ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.NET `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.NET {
         return qtc.NET_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: QtC.NET, other: QtC.NET ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NET `
+    ///
+    /// ` other: QtC.NET `
+    ///
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NET_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: QtC.NET, other: QtC.NET ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.NET `
+    ///
+    /// ` other: QtC.NET `
+    ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.NET_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/net.html#timestampCompare)
+    /// ### [Upstream resources](https://api.kde.org/net.html#timestampCompare)
     ///
-    /// ``` time1: u64, time2: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` time1: u64 `
+    ///
+    /// ` time2: u64 `
+    ///
     pub fn TimestampCompare(time1: u64, time2: u64) i32 {
         return qtc.NET_TimestampCompare(@intCast(time1), @intCast(time2));
     }
 
-    /// [Upstream resources](https://api.kde.org/net.html#timestampDiff)
+    /// ### [Upstream resources](https://api.kde.org/net.html#timestampDiff)
     ///
-    /// ``` time1: u64, time2: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` time1: u64 `
+    ///
+    /// ` time2: u64 `
+    ///
     pub fn TimestampDiff(time1: u64, time2: u64) i32 {
         return qtc.NET_TimestampDiff(@intCast(time1), @intCast(time2));
     }
 
-    /// [Upstream resources](https://api.kde.org/net.html#dtor.NET)
+    /// ### [Upstream resources](https://api.kde.org/net.html#dtor.NET)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.NET ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.NET `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.NET_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/netwm-def.html#types
+/// ### [Upstream resources](https://api.kde.org/netwm-def.html#public-types)
 pub const enums = struct {
     pub const Role = enum {
         pub const Client: i32 = 0;

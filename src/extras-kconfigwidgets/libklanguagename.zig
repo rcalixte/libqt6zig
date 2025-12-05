@@ -2,11 +2,16 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/klanguagename.html
+/// ### [Upstream resources](https://api.kde.org/klanguagename.html)
 pub const klanguagename = struct {
-    /// [Upstream resources](https://api.kde.org/klanguagename.html#nameForCode)
+    /// ### [Upstream resources](https://api.kde.org/klanguagename.html#nameForCode)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NameForCode(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -19,9 +24,16 @@ pub const klanguagename = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/klanguagename.html#nameForCodeInLocale)
+    /// ### [Upstream resources](https://api.kde.org/klanguagename.html#nameForCodeInLocale)
     ///
-    /// ``` param1: []const u8, param2: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NameForCodeInLocale(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -38,9 +50,12 @@ pub const klanguagename = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/klanguagename.html#allLanguageCodes)
+    /// ### [Upstream resources](https://api.kde.org/klanguagename.html#allLanguageCodes)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllLanguageCodes(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KLanguageName_AllLanguageCodes();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));

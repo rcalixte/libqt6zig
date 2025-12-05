@@ -4,10 +4,9 @@ const qvariant_enums = enums;
 const std = @import("std");
 pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
-/// https://doc.qt.io/qt-6/qvariant.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html)
 pub const qvariant = struct {
     /// New constructs a new QVariant object.
-    ///
     ///
     pub fn New() QtC.QVariant {
         return qtc.QVariant_new();
@@ -15,98 +14,140 @@ pub const qvariant = struct {
 
     /// New2 constructs a new QVariant object.
     ///
-    /// ``` typeVal: QtC.QMetaType ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: QtC.QMetaType `
+    ///
     pub fn New2(typeVal: QtC.QMetaType) QtC.QVariant {
         return qtc.QVariant_new2(@ptrCast(typeVal));
     }
 
     /// New3 constructs a new QVariant object.
     ///
-    /// ``` other: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QVariant `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new3(@ptrCast(other));
     }
 
     /// New4 constructs a new QVariant object.
     ///
-    /// ``` i: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` i: i32 `
+    ///
     pub fn New4(i: i32) QtC.QVariant {
         return qtc.QVariant_new4(@intCast(i));
     }
 
     /// New5 constructs a new QVariant object.
     ///
-    /// ``` ui: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` ui: u32 `
+    ///
     pub fn New5(ui: u32) QtC.QVariant {
         return qtc.QVariant_new5(@intCast(ui));
     }
 
     /// New6 constructs a new QVariant object.
     ///
-    /// ``` ll: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` ll: i64 `
+    ///
     pub fn New6(ll: i64) QtC.QVariant {
         return qtc.QVariant_new6(@intCast(ll));
     }
 
     /// New7 constructs a new QVariant object.
     ///
-    /// ``` ull: u64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` ull: u64 `
+    ///
     pub fn New7(ull: u64) QtC.QVariant {
         return qtc.QVariant_new7(@intCast(ull));
     }
 
     /// New8 constructs a new QVariant object.
     ///
-    /// ``` b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` b: bool `
+    ///
     pub fn New8(b: bool) QtC.QVariant {
         return qtc.QVariant_new8(b);
     }
 
     /// New9 constructs a new QVariant object.
     ///
-    /// ``` d: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` d: f64 `
+    ///
     pub fn New9(d: f64) QtC.QVariant {
         return qtc.QVariant_new9(@floatCast(d));
     }
 
     /// New10 constructs a new QVariant object.
     ///
-    /// ``` f: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` f: f32 `
+    ///
     pub fn New10(f: f32) QtC.QVariant {
         return qtc.QVariant_new10(@floatCast(f));
     }
 
     /// New11 constructs a new QVariant object.
     ///
-    /// ``` qchar: QtC.QChar ```
+    /// ## Parameter(s):
+    ///
+    /// ` qchar: QtC.QChar `
+    ///
     pub fn New11(qchar: QtC.QChar) QtC.QVariant {
         return qtc.QVariant_new11(@ptrCast(qchar));
     }
 
     /// New12 constructs a new QVariant object.
     ///
-    /// ``` date: QtC.QDate ```
+    /// ## Parameter(s):
+    ///
+    /// ` date: QtC.QDate `
+    ///
     pub fn New12(date: QtC.QDate) QtC.QVariant {
         return qtc.QVariant_new12(@ptrCast(date));
     }
 
     /// New13 constructs a new QVariant object.
     ///
-    /// ``` time: QtC.QTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` time: QtC.QTime `
+    ///
     pub fn New13(time: QtC.QTime) QtC.QVariant {
         return qtc.QVariant_new13(@ptrCast(time));
     }
 
     /// New14 constructs a new QVariant object.
     ///
-    /// ``` bitarray: QtC.QBitArray ```
+    /// ## Parameter(s):
+    ///
+    /// ` bitarray: QtC.QBitArray `
+    ///
     pub fn New14(bitarray: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new14(@ptrCast(bitarray));
     }
 
     /// New15 constructs a new QVariant object.
     ///
-    /// ``` bytearray: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` bytearray: []u8 `
+    ///
     pub fn New15(bytearray: []u8) QtC.QVariant {
         const bytearray_str = qtc.libqt_string{
             .len = bytearray.len,
@@ -118,14 +159,22 @@ pub const qvariant = struct {
 
     /// New16 constructs a new QVariant object.
     ///
-    /// ``` datetime: QtC.QDateTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` datetime: QtC.QDateTime `
+    ///
     pub fn New16(datetime: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new16(@ptrCast(datetime));
     }
 
     /// New17 constructs a new QVariant object.
     ///
-    /// ``` hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` hash: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New17(hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
         const hash_keys = allocator.alloc(qtc.libqt_string, hash.count()) catch @panic("qvariant.New17: Memory allocation failed");
         defer allocator.free(hash_keys);
@@ -153,21 +202,30 @@ pub const qvariant = struct {
 
     /// New18 constructs a new QVariant object.
     ///
-    /// ``` jsonArray: QtC.QJsonArray ```
+    /// ## Parameter(s):
+    ///
+    /// ` jsonArray: QtC.QJsonArray `
+    ///
     pub fn New18(jsonArray: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new18(@ptrCast(jsonArray));
     }
 
     /// New19 constructs a new QVariant object.
     ///
-    /// ``` jsonObject: QtC.QJsonObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` jsonObject: QtC.QJsonObject `
+    ///
     pub fn New19(jsonObject: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new19(@ptrCast(jsonObject));
     }
 
     /// New20 constructs a new QVariant object.
     ///
-    /// ``` list: []QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` list: []QtC.QVariant `
+    ///
     pub fn New20(list: []QtC.QVariant) QtC.QVariant {
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -179,14 +237,22 @@ pub const qvariant = struct {
 
     /// New21 constructs a new QVariant object.
     ///
-    /// ``` locale: QtC.QLocale ```
+    /// ## Parameter(s):
+    ///
+    /// ` locale: QtC.QLocale `
+    ///
     pub fn New21(locale: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new21(@ptrCast(locale));
     }
 
     /// New22 constructs a new QVariant object.
     ///
-    /// ``` mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` mapVal: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New22(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
         const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal.count()) catch @panic("qvariant.New22: Memory allocation failed");
         defer allocator.free(mapVal_keys);
@@ -214,14 +280,20 @@ pub const qvariant = struct {
 
     /// New23 constructs a new QVariant object.
     ///
-    /// ``` re: QtC.QRegularExpression ```
+    /// ## Parameter(s):
+    ///
+    /// ` re: QtC.QRegularExpression `
+    ///
     pub fn New23(re: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new23(@ptrCast(re));
     }
 
     /// New24 constructs a new QVariant object.
     ///
-    /// ``` stringVal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` stringVal: []const u8 `
+    ///
     pub fn New24(stringVal: []const u8) QtC.QVariant {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
@@ -233,7 +305,12 @@ pub const qvariant = struct {
 
     /// New25 constructs a new QVariant object.
     ///
-    /// ``` stringlist: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` stringlist: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New25(stringlist: [][]const u8, allocator: std.mem.Allocator) QtC.QVariant {
         var stringlist_arr = allocator.alloc(qtc.libqt_string, stringlist.len) catch @panic("qvariant.New25: Memory allocation failed");
         defer allocator.free(stringlist_arr);
@@ -253,211 +330,319 @@ pub const qvariant = struct {
 
     /// New26 constructs a new QVariant object.
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn New26(url: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new26(@ptrCast(url));
     }
 
     /// New27 constructs a new QVariant object.
     ///
-    /// ``` size: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` size: QtC.QSize `
+    ///
     pub fn New27(size: QtC.QSize) QtC.QVariant {
         return qtc.QVariant_new27(@ptrCast(size));
     }
 
     /// New28 constructs a new QVariant object.
     ///
-    /// ``` pt: QtC.QPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` pt: QtC.QPoint `
+    ///
     pub fn New28(pt: QtC.QPoint) QtC.QVariant {
         return qtc.QVariant_new28(@ptrCast(pt));
     }
 
     /// New29 constructs a new QVariant object.
     ///
-    /// ``` typeVal: qvariant_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qvariant_enums.Type `
+    ///
     pub fn New29(typeVal: i64) QtC.QVariant {
         return qtc.QVariant_new29(@intCast(typeVal));
     }
 
     /// New30 constructs a new QVariant object.
     ///
-    /// ``` typeVal: QtC.QMetaType, copyVal: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: QtC.QMetaType `
+    ///
+    /// ` copyVal: ?*anyopaque `
+    ///
     pub fn New30(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_new30(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
     ///
-    /// ``` self: QtC.QVariant, other: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` other: QtC.QVariant `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QVariant_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#swap)
     ///
-    /// ``` self: QtC.QVariant, other: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` other: QtC.QVariant `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QVariant_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#userType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#userType)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn UserType(self: ?*anyopaque) i32 {
         return qtc.QVariant_UserType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeId)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn TypeId(self: ?*anyopaque) i32 {
         return qtc.QVariant_TypeId(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeName)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn TypeName(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QVariant_TypeName(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#metaType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#metaType)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn MetaType(self: ?*anyopaque) QtC.QMetaType {
         return qtc.QVariant_MetaType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canConvert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canConvert)
     ///
-    /// ``` self: QtC.QVariant, targetType: QtC.QMetaType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` targetType: QtC.QMetaType `
+    ///
     pub fn CanConvert(self: ?*anyopaque, targetType: QtC.QMetaType) bool {
         return qtc.QVariant_CanConvert(@ptrCast(self), @ptrCast(targetType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#convert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#convert)
     ///
-    /// ``` self: QtC.QVariant, typeVal: QtC.QMetaType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` typeVal: QtC.QMetaType `
+    ///
     pub fn Convert(self: ?*anyopaque, typeVal: QtC.QMetaType) bool {
         return qtc.QVariant_Convert(@ptrCast(self), @ptrCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canView)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canView)
     ///
-    /// ``` self: QtC.QVariant, targetType: QtC.QMetaType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` targetType: QtC.QMetaType `
+    ///
     pub fn CanView(self: ?*anyopaque, targetType: QtC.QMetaType) bool {
         return qtc.QVariant_CanView(@ptrCast(self), @ptrCast(targetType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canConvert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canConvert)
     ///
-    /// ``` self: QtC.QVariant, targetTypeId: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` targetTypeId: i32 `
+    ///
     pub fn CanConvert2(self: ?*anyopaque, targetTypeId: i32) bool {
         return qtc.QVariant_CanConvert2(@ptrCast(self), @intCast(targetTypeId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#convert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#convert)
     ///
-    /// ``` self: QtC.QVariant, targetTypeId: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` targetTypeId: i32 `
+    ///
     pub fn Convert2(self: ?*anyopaque, targetTypeId: i32) bool {
         return qtc.QVariant_Convert2(@ptrCast(self), @intCast(targetTypeId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isValid)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QVariant_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isNull)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isNull)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QVariant_IsNull(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#clear)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QVariant_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#detach)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#detach)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn Detach(self: ?*anyopaque) void {
         qtc.QVariant_Detach(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isDetached)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isDetached)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn IsDetached(self: ?*anyopaque) bool {
         return qtc.QVariant_IsDetached(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toInt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toInt)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QVariant_ToInt(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUInt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUInt)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToUInt(self: ?*anyopaque) u32 {
         return qtc.QVariant_ToUInt(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToLongLong(self: ?*anyopaque) i64 {
         return qtc.QVariant_ToLongLong(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToULongLong(self: ?*anyopaque) u64 {
         return qtc.QVariant_ToULongLong(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toBool)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toBool)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QVariant_ToBool(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDouble)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDouble)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QVariant_ToDouble(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toFloat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toFloat)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToFloat(self: ?*anyopaque) f32 {
         return qtc.QVariant_ToFloat(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toReal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toReal)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToReal(self: ?*anyopaque) f64 {
         return qtc.QVariant_ToReal(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toByteArray)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toByteArray)
     ///
-    /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QVariant_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -466,16 +651,24 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toBitArray)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toBitArray)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToBitArray(self: ?*anyopaque) QtC.QBitArray {
         return qtc.QVariant_ToBitArray(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toString)
     ///
-    /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QVariant_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -484,9 +677,14 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toStringList)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toStringList)
     ///
-    /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QVariant_ToStringList(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -506,37 +704,54 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toChar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toChar)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToChar(self: ?*anyopaque) QtC.QChar {
         return qtc.QVariant_ToChar(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDate)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToDate(self: ?*anyopaque) QtC.QDate {
         return qtc.QVariant_ToDate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toTime)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToTime(self: ?*anyopaque) QtC.QTime {
         return qtc.QVariant_ToTime(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDateTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDateTime)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QVariant_ToDateTime(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toList)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toList)
     ///
-    /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
         const _arr: qtc.libqt_list = qtc.QVariant_ToList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -546,9 +761,14 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toMap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toMap)
     ///
-    /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToMap(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
@@ -572,9 +792,14 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toHash)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toHash)
     ///
-    /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToHash(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToHash(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
@@ -598,289 +823,434 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPoint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPoint)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToPoint(self: ?*anyopaque) QtC.QPoint {
         return qtc.QVariant_ToPoint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPointF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPointF)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToPointF(self: ?*anyopaque) QtC.QPointF {
         return qtc.QVariant_ToPointF(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRect)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QVariant_ToRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toSize)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QVariant_ToSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toSizeF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toSizeF)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToSizeF(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QVariant_ToSizeF(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLine)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToLine(self: ?*anyopaque) QtC.QLine {
         return qtc.QVariant_ToLine(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLineF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLineF)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToLineF(self: ?*anyopaque) QtC.QLineF {
         return qtc.QVariant_ToLineF(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRectF)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRectF)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToRectF(self: ?*anyopaque) QtC.QRectF {
         return qtc.QVariant_ToRectF(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLocale)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLocale)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToLocale(self: ?*anyopaque) QtC.QLocale {
         return qtc.QVariant_ToLocale(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRegularExpression)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRegularExpression)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToRegularExpression(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QVariant_ToRegularExpression(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toEasingCurve)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toEasingCurve)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToEasingCurve(self: ?*anyopaque) QtC.QEasingCurve {
         return qtc.QVariant_ToEasingCurve(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUuid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUuid)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToUuid(self: ?*anyopaque) QtC.QUuid {
         return qtc.QVariant_ToUuid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUrl)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUrl)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QVariant_ToUrl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonValue)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonValue)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToJsonValue(self: ?*anyopaque) QtC.QJsonValue {
         return qtc.QVariant_ToJsonValue(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonObject)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToJsonObject(self: ?*anyopaque) QtC.QJsonObject {
         return qtc.QVariant_ToJsonObject(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonArray)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonArray)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToJsonArray(self: ?*anyopaque) QtC.QJsonArray {
         return qtc.QVariant_ToJsonArray(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonDocument)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonDocument)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToJsonDocument(self: ?*anyopaque) QtC.QJsonDocument {
         return qtc.QVariant_ToJsonDocument(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toModelIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toModelIndex)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToModelIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QVariant_ToModelIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPersistentModelIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPersistentModelIndex)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ToPersistentModelIndex(self: ?*anyopaque) QtC.QPersistentModelIndex {
         return qtc.QVariant_ToPersistentModelIndex(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#load)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#load)
     ///
-    /// ``` self: QtC.QVariant, ds: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ds: QtC.QDataStream `
+    ///
     pub fn Load(self: ?*anyopaque, ds: ?*anyopaque) void {
         qtc.QVariant_Load(@ptrCast(self), @ptrCast(ds));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#save)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#save)
     ///
-    /// ``` self: QtC.QVariant, ds: QtC.QDataStream ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ds: QtC.QDataStream `
+    ///
     pub fn Save(self: ?*anyopaque, ds: ?*anyopaque) void {
         qtc.QVariant_Save(@ptrCast(self), @ptrCast(ds));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#type)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qvariant_enums.Type ```
+    /// ` self: QtC.QVariant `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qvariant_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QVariant_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeToName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeToName)
     ///
-    /// ``` typeId: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeId: i32 `
+    ///
     pub fn TypeToName(typeId: i32) []const u8 {
         const _ret = qtc.QVariant_TypeToName(@intCast(typeId));
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#nameToType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#nameToType)
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qvariant_enums.Type ```
+    /// ` name: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qvariant_enums.Type `
+    ///
     pub fn NameToType(name: []const u8) i64 {
         const name_Cstring = name.ptr;
         return qtc.QVariant_NameToType(name_Cstring);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#data)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#data)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn Data(self: ?*anyopaque) ?*anyopaque {
         return qtc.QVariant_Data(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#constData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#constData)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn ConstData(self: ?*anyopaque) ?*const anyopaque {
         return qtc.QVariant_ConstData(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#data)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#data)
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn Data2(self: ?*anyopaque) ?*const anyopaque {
         return qtc.QVariant_Data2(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#setValue)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#setValue)
     ///
-    /// ``` self: QtC.QVariant, avalue: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` avalue: QtC.QVariant `
+    ///
     pub fn SetValue(self: ?*anyopaque, avalue: ?*anyopaque) void {
         qtc.QVariant_SetValue(@ptrCast(self), @ptrCast(avalue));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
     ///
-    /// ``` typeVal: QtC.QMetaType ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: QtC.QMetaType `
+    ///
     pub fn FromMetaType(typeVal: QtC.QMetaType) QtC.QVariant {
         return qtc.QVariant_FromMetaType(@ptrCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#compare)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#compare)
     ///
-    /// ``` lhs: QtC.QVariant, rhs: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` lhs: QtC.QVariant `
+    ///
+    /// ` rhs: QtC.QVariant `
+    ///
     pub fn Compare(lhs: ?*anyopaque, rhs: ?*anyopaque) QtC.QPartialOrdering {
         return qtc.QVariant_Compare(@ptrCast(lhs), @ptrCast(rhs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toInt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toInt)
     ///
-    /// ``` self: QtC.QVariant, ok: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ok: *bool `
+    ///
     pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QVariant_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUInt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUInt)
     ///
-    /// ``` self: QtC.QVariant, ok: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ok: *bool `
+    ///
     pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QVariant_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
     ///
-    /// ``` self: QtC.QVariant, ok: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ok: *bool `
+    ///
     pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QVariant_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
     ///
-    /// ``` self: QtC.QVariant, ok: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ok: *bool `
+    ///
     pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QVariant_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDouble)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDouble)
     ///
-    /// ``` self: QtC.QVariant, ok: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ok: *bool `
+    ///
     pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toFloat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toFloat)
     ///
-    /// ``` self: QtC.QVariant, ok: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ok: *bool `
+    ///
     pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QVariant_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toReal)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toReal)
     ///
-    /// ``` self: QtC.QVariant, ok: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariant `
+    ///
+    /// ` ok: *bool `
+    ///
     pub fn ToReal1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToReal1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
     ///
-    /// ``` typeVal: QtC.QMetaType, copyVal: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: QtC.QMetaType `
+    ///
+    /// ` copyVal: ?*anyopaque `
+    ///
     pub fn FromMetaType2(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_FromMetaType2(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#dtor.QVariant)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#dtor.QVariant)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QVariant ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QVariant `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QVariant_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qvariant.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const Invalid: i32 = 0;

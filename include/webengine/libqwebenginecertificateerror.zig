@@ -3,48 +3,72 @@ const qtc = @import("qt6c");
 const qwebenginecertificateerror_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebenginecertificateerror.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html)
 pub const qwebenginecertificateerror = struct {
     /// New constructs a new QWebEngineCertificateError object.
     ///
-    /// ``` other: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QWebEngineCertificateError `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QWebEngineCertificateError {
         return qtc.QWebEngineCertificateError_new(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#operator-eq)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError, other: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
+    /// ` other: QtC.QWebEngineCertificateError `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#type)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginecertificateerror_enums.Type ```
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginecertificateerror_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QWebEngineCertificateError_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#url)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#url)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineCertificateError_Url(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isOverridable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isOverridable)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
     pub fn IsOverridable(self: ?*anyopaque) bool {
         return qtc.QWebEngineCertificateError_IsOverridable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#description)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#description)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineCertificateError_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -53,37 +77,54 @@ pub const qwebenginecertificateerror = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isMainFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isMainFrame)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
     pub fn IsMainFrame(self: ?*anyopaque) bool {
         return qtc.QWebEngineCertificateError_IsMainFrame(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#defer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#defer)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
     pub fn Defer(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_Defer(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#rejectCertificate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#rejectCertificate)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
     pub fn RejectCertificate(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_RejectCertificate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#acceptCertificate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#acceptCertificate)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
     pub fn AcceptCertificate(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_AcceptCertificate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#certificateChain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#certificateChain)
     ///
-    /// ``` self: QtC.QWebEngineCertificateError, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QWebEngineCertificateError_CertificateChain(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -93,17 +134,20 @@ pub const qwebenginecertificateerror = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#dtor.QWebEngineCertificateError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#dtor.QWebEngineCertificateError)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineCertificateError ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineCertificateError `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebenginecertificateerror.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const SslPinnedKeyNotInCertificateChain: i32 = -150;

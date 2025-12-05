@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qsurfaceformat_enums = enums;
 pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
-/// https://doc.qt.io/qt-6/qsurfaceformat.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html)
 pub const qsurfaceformat = struct {
     /// New constructs a new QSurfaceFormat object.
-    ///
     ///
     pub fn New() QtC.QSurfaceFormat {
         return qtc.QSurfaceFormat_new();
@@ -14,209 +13,328 @@ pub const qsurfaceformat = struct {
 
     /// New2 constructs a new QSurfaceFormat object.
     ///
-    /// ``` options: flag of qsurfaceformat_enums.FormatOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` options: flag of qsurfaceformat_enums.FormatOption `
+    ///
     pub fn New2(options: i32) QtC.QSurfaceFormat {
         return qtc.QSurfaceFormat_new2(@intCast(options));
     }
 
     /// New3 constructs a new QSurfaceFormat object.
     ///
-    /// ``` other: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QSurfaceFormat `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QSurfaceFormat {
         return qtc.QSurfaceFormat_new3(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#operator-eq)
     ///
-    /// ``` self: QtC.QSurfaceFormat, other: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` other: QtC.QSurfaceFormat `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSurfaceFormat_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setDepthBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setDepthBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetDepthBufferSize(self: ?*anyopaque, size: i32) void {
         qtc.QSurfaceFormat_SetDepthBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#depthBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#depthBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn DepthBufferSize(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_DepthBufferSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setStencilBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setStencilBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetStencilBufferSize(self: ?*anyopaque, size: i32) void {
         qtc.QSurfaceFormat_SetStencilBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#stencilBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#stencilBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn StencilBufferSize(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_StencilBufferSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setRedBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setRedBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetRedBufferSize(self: ?*anyopaque, size: i32) void {
         qtc.QSurfaceFormat_SetRedBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#redBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#redBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn RedBufferSize(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_RedBufferSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setGreenBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setGreenBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetGreenBufferSize(self: ?*anyopaque, size: i32) void {
         qtc.QSurfaceFormat_SetGreenBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#greenBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#greenBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn GreenBufferSize(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_GreenBufferSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setBlueBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setBlueBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetBlueBufferSize(self: ?*anyopaque, size: i32) void {
         qtc.QSurfaceFormat_SetBlueBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#blueBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#blueBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn BlueBufferSize(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_BlueBufferSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setAlphaBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setAlphaBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat, size: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` size: i32 `
+    ///
     pub fn SetAlphaBufferSize(self: ?*anyopaque, size: i32) void {
         qtc.QSurfaceFormat_SetAlphaBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#alphaBufferSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#alphaBufferSize)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn AlphaBufferSize(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_AlphaBufferSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSamples)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSamples)
     ///
-    /// ``` self: QtC.QSurfaceFormat, numSamples: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` numSamples: i32 `
+    ///
     pub fn SetSamples(self: ?*anyopaque, numSamples: i32) void {
         qtc.QSurfaceFormat_SetSamples(@ptrCast(self), @intCast(numSamples));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#samples)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#samples)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn Samples(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_Samples(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSwapBehavior)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSwapBehavior)
     ///
-    /// ``` self: QtC.QSurfaceFormat, behavior: qsurfaceformat_enums.SwapBehavior ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` behavior: qsurfaceformat_enums.SwapBehavior `
+    ///
     pub fn SetSwapBehavior(self: ?*anyopaque, behavior: i32) void {
         qtc.QSurfaceFormat_SetSwapBehavior(@ptrCast(self), @intCast(behavior));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#swapBehavior)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#swapBehavior)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qsurfaceformat_enums.SwapBehavior ```
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qsurfaceformat_enums.SwapBehavior `
+    ///
     pub fn SwapBehavior(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_SwapBehavior(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#hasAlpha)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#hasAlpha)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn HasAlpha(self: ?*anyopaque) bool {
         return qtc.QSurfaceFormat_HasAlpha(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setProfile)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setProfile)
     ///
-    /// ``` self: QtC.QSurfaceFormat, profile: qsurfaceformat_enums.OpenGLContextProfile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` profile: qsurfaceformat_enums.OpenGLContextProfile `
+    ///
     pub fn SetProfile(self: ?*anyopaque, profile: i32) void {
         qtc.QSurfaceFormat_SetProfile(@ptrCast(self), @intCast(profile));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#profile)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#profile)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qsurfaceformat_enums.OpenGLContextProfile ```
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qsurfaceformat_enums.OpenGLContextProfile `
+    ///
     pub fn Profile(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_Profile(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setRenderableType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setRenderableType)
     ///
-    /// ``` self: QtC.QSurfaceFormat, typeVal: qsurfaceformat_enums.RenderableType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` typeVal: qsurfaceformat_enums.RenderableType `
+    ///
     pub fn SetRenderableType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QSurfaceFormat_SetRenderableType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#renderableType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#renderableType)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qsurfaceformat_enums.RenderableType ```
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qsurfaceformat_enums.RenderableType `
+    ///
     pub fn RenderableType(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_RenderableType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setMajorVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setMajorVersion)
     ///
-    /// ``` self: QtC.QSurfaceFormat, majorVersion: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` majorVersion: i32 `
+    ///
     pub fn SetMajorVersion(self: ?*anyopaque, majorVersion: i32) void {
         qtc.QSurfaceFormat_SetMajorVersion(@ptrCast(self), @intCast(majorVersion));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#majorVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#majorVersion)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn MajorVersion(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_MajorVersion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setMinorVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setMinorVersion)
     ///
-    /// ``` self: QtC.QSurfaceFormat, minorVersion: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` minorVersion: i32 `
+    ///
     pub fn SetMinorVersion(self: ?*anyopaque, minorVersion: i32) void {
         qtc.QSurfaceFormat_SetMinorVersion(@ptrCast(self), @intCast(minorVersion));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#minorVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#minorVersion)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn MinorVersion(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_MinorVersion(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#version)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#version)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn Version(self: ?*anyopaque) struct_i32_i32 {
         const _pair: qtc.libqt_pair = qtc.QSurfaceFormat_Version(@ptrCast(self));
         return struct_i32_i32{
@@ -225,124 +343,192 @@ pub const qsurfaceformat = struct {
         };
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setVersion)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setVersion)
     ///
-    /// ``` self: QtC.QSurfaceFormat, major: i32, minor: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` major: i32 `
+    ///
+    /// ` minor: i32 `
+    ///
     pub fn SetVersion(self: ?*anyopaque, major: i32, minor: i32) void {
         qtc.QSurfaceFormat_SetVersion(@ptrCast(self), @intCast(major), @intCast(minor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#stereo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#stereo)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn Stereo(self: ?*anyopaque) bool {
         return qtc.QSurfaceFormat_Stereo(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setStereo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setStereo)
     ///
-    /// ``` self: QtC.QSurfaceFormat, enable: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` enable: bool `
+    ///
     pub fn SetStereo(self: ?*anyopaque, enable: bool) void {
         qtc.QSurfaceFormat_SetStereo(@ptrCast(self), enable);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOptions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOptions)
     ///
-    /// ``` self: QtC.QSurfaceFormat, options: flag of qsurfaceformat_enums.FormatOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` options: flag of qsurfaceformat_enums.FormatOption `
+    ///
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QSurfaceFormat_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
     ///
-    /// ``` self: QtC.QSurfaceFormat, option: qsurfaceformat_enums.FormatOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` option: qsurfaceformat_enums.FormatOption `
+    ///
     pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QSurfaceFormat_SetOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#testOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#testOption)
     ///
-    /// ``` self: QtC.QSurfaceFormat, option: qsurfaceformat_enums.FormatOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` option: qsurfaceformat_enums.FormatOption `
+    ///
     pub fn TestOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QSurfaceFormat_TestOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#options)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#options)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsurfaceformat_enums.FormatOption ```
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsurfaceformat_enums.FormatOption `
+    ///
     pub fn Options(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_Options(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#swapInterval)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#swapInterval)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn SwapInterval(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_SwapInterval(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSwapInterval)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSwapInterval)
     ///
-    /// ``` self: QtC.QSurfaceFormat, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn SetSwapInterval(self: ?*anyopaque, interval: i32) void {
         qtc.QSurfaceFormat_SetSwapInterval(@ptrCast(self), @intCast(interval));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#colorSpace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#colorSpace)
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn ColorSpace(self: ?*anyopaque) QtC.QColorSpace {
         return qtc.QSurfaceFormat_ColorSpace(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
     ///
-    /// ``` self: QtC.QSurfaceFormat, colorSpace: QtC.QColorSpace ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` colorSpace: QtC.QColorSpace `
+    ///
     pub fn SetColorSpace(self: ?*anyopaque, colorSpace: ?*anyopaque) void {
         qtc.QSurfaceFormat_SetColorSpace(@ptrCast(self), @ptrCast(colorSpace));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
     ///
-    /// ``` self: QtC.QSurfaceFormat, colorSpace: qsurfaceformat_enums.ColorSpace ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` colorSpace: qsurfaceformat_enums.ColorSpace `
+    ///
     pub fn SetColorSpace2(self: ?*anyopaque, colorSpace: i32) void {
         qtc.QSurfaceFormat_SetColorSpace2(@ptrCast(self), @intCast(colorSpace));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setDefaultFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setDefaultFormat)
     ///
-    /// ``` format: QtC.QSurfaceFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` format: QtC.QSurfaceFormat `
+    ///
     pub fn SetDefaultFormat(format: ?*anyopaque) void {
         qtc.QSurfaceFormat_SetDefaultFormat(@ptrCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#defaultFormat)
-    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#defaultFormat)
     ///
     pub fn DefaultFormat() QtC.QSurfaceFormat {
         return qtc.QSurfaceFormat_DefaultFormat();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
     ///
-    /// ``` self: QtC.QSurfaceFormat, option: qsurfaceformat_enums.FormatOption, on: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
+    /// ` option: qsurfaceformat_enums.FormatOption `
+    ///
+    /// ` on: bool `
+    ///
     pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
         qtc.QSurfaceFormat_SetOption2(@ptrCast(self), @intCast(option), on);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#dtor.QSurfaceFormat)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#dtor.QSurfaceFormat)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSurfaceFormat ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSurfaceFormat `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSurfaceFormat_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qsurfaceformat.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#public-types)
 pub const enums = struct {
     pub const FormatOption = enum {
         pub const StereoBuffers: i32 = 1;

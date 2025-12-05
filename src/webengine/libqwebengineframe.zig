@@ -2,25 +2,36 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebengineframe.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html)
 pub const qwebengineframe = struct {
     /// New constructs a new QWebEngineFrame object.
     ///
-    /// ``` param1: QtC.QWebEngineFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QWebEngineFrame `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.QWebEngineFrame {
         return qtc.QWebEngineFrame_new(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#isValid)
     ///
-    /// ``` self: QtC.QWebEngineFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QWebEngineFrame_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#name)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#name)
     ///
-    /// ``` self: QtC.QWebEngineFrame, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineFrame_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -29,9 +40,14 @@ pub const qwebengineframe = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#htmlName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#htmlName)
     ///
-    /// ``` self: QtC.QWebEngineFrame, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HtmlName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineFrame_HtmlName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -40,9 +56,14 @@ pub const qwebengineframe = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#children)
     ///
-    /// ``` self: QtC.QWebEngineFrame, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEngineFrame {
         const _arr: qtc.libqt_list = qtc.QWebEngineFrame_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -52,30 +73,44 @@ pub const qwebengineframe = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#url)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#url)
     ///
-    /// ``` self: QtC.QWebEngineFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineFrame_Url(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#size)
     ///
-    /// ``` self: QtC.QWebEngineFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
     pub fn Size(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QWebEngineFrame_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#isMainFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#isMainFrame)
     ///
-    /// ``` self: QtC.QWebEngineFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
     pub fn IsMainFrame(self: ?*anyopaque) bool {
         return qtc.QWebEngineFrame_IsMainFrame(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
     ///
-    /// ``` self: QtC.QWebEngineFrame, script: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` script: []const u8 `
+    ///
     pub fn RunJavaScript(self: ?*anyopaque, script: []const u8) void {
         const script_str = qtc.libqt_string{
             .len = script.len,
@@ -84,9 +119,14 @@ pub const qwebengineframe = struct {
         qtc.QWebEngineFrame_RunJavaScript(@ptrCast(self), script_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#printToPdf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#printToPdf)
     ///
-    /// ``` self: QtC.QWebEngineFrame, filePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` filePath: []const u8 `
+    ///
     pub fn PrintToPdf(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -95,9 +135,16 @@ pub const qwebengineframe = struct {
         qtc.QWebEngineFrame_PrintToPdf(@ptrCast(self), filePath_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
     ///
-    /// ``` self: QtC.QWebEngineFrame, script: []const u8, worldId: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` script: []const u8 `
+    ///
+    /// ` worldId: u32 `
+    ///
     pub fn RunJavaScript22(self: ?*anyopaque, script: []const u8, worldId: u32) void {
         const script_str = qtc.libqt_string{
             .len = script.len,
@@ -106,11 +153,14 @@ pub const qwebengineframe = struct {
         qtc.QWebEngineFrame_RunJavaScript22(@ptrCast(self), script_str, @intCast(worldId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#dtor.QWebEngineFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#dtor.QWebEngineFrame)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineFrame ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineFrame_Delete(@ptrCast(self));
     }

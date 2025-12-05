@@ -5,82 +5,122 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__filter = struct {
     /// New constructs a new Konsole::Filter object.
-    ///
     ///
     pub fn New() QtC.Konsole__Filter {
         return qtc.Konsole__Filter_new();
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Process(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.Konsole__Filter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn QBaseProcess(self: ?*anyopaque) void {
         qtc.Konsole__Filter_QBaseProcess(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Reset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter, line: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn AddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__Filter_AddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void `
+    ///
     pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn QBaseAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__Filter_QBaseAddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Buffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Konsole__Filter_Buffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -89,20 +129,30 @@ pub const konsole__filter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.Konsole__Filter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Konsole__Filter_QBaseBuffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -111,43 +161,74 @@ pub const konsole__filter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` position: i32 `
+    ///
+    /// ` startLine: *i32 `
+    ///
+    /// ` startColumn: *i32 `
+    ///
     pub fn GetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__Filter_GetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
+    ///
     pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
         qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` position: i32 `
+    ///
+    /// ` startLine: *i32 `
+    ///
+    /// ` startColumn: *i32 `
+    ///
     pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__Filter_QBaseGetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QObject_MetaObject(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: QtC.Konsole__Filter, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QObject_Metacast(@ptrCast(self), param1_Cstring);
@@ -155,9 +236,14 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -169,9 +255,14 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -182,9 +273,14 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.Konsole__Filter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -195,99 +291,144 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.Konsole__Filter, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__Filter, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__Filter, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__Filter, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__Filter, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -299,45 +440,78 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.Konsole__Filter, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.Konsole__Filter, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.Konsole__Filter, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__Filter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -346,45 +520,70 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.Konsole__Filter, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -392,9 +591,14 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.Konsole__Filter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -402,9 +606,14 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -426,54 +635,76 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.Konsole__Filter, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -481,18 +712,28 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -505,9 +746,18 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -520,36 +770,72 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__Filter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__Filter, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__Filter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -558,359 +844,528 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__Filter, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filterparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__Filter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__Filter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.Konsole__Filter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__Filter_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__Filter_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__Filter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__Filter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__Filter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__Filter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__Filter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__Filter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Filter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__Filter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__Filter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Filter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__Filter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__Filter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Filter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__Filter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__Filter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Filter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__Filter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__Filter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Filter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__Filter_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__Filter_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.Konsole__Filter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.Konsole__Filter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__Filter_Receivers(@ptrCast(self), signal_Cstring);
@@ -918,11 +1373,16 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__Filter_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -930,170 +1390,261 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.Konsole__Filter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__Filter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__Filter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__Filter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__Filter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__regexpfilter = struct {
     /// New constructs a new Konsole::RegExpFilter object.
-    ///
     ///
     pub fn New() QtC.Konsole__RegExpFilter {
         return qtc.Konsole__RegExpFilter_new();
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, text: QtC.QRegularExpression ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` text: QtC.QRegularExpression `
+    ///
     pub fn SetRegExp(self: ?*anyopaque, text: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_SetRegExp(@ptrCast(self), @ptrCast(text));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn RegExp(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.Konsole__RegExpFilter_RegExp(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_Process(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn QBaseProcess(self: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_QBaseProcess(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` startLine: i32 `
+    ///
+    /// ` startColumn: i32 `
+    ///
+    /// ` endLine: i32 `
+    ///
+    /// ` endColumn: i32 `
+    ///
     pub fn NewHotSpot(self: ?*anyopaque, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__RegExpFilter_NewHotSpot(@ptrCast(self), @intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn OnNewHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
         qtc.Konsole__RegExpFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` startLine: i32 `
+    ///
+    /// ` startColumn: i32 `
+    ///
+    /// ` endLine: i32 `
+    ///
+    /// ` endColumn: i32 `
+    ///
     pub fn QBaseNewHotSpot(self: ?*anyopaque, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__RegExpFilter_QBaseNewHotSpot(@ptrCast(self), @intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Reset(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, line: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QObject_MetaObject(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QObject_Metacast(@ptrCast(self), param1_Cstring);
@@ -1101,9 +1652,14 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -1115,9 +1671,14 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1128,9 +1689,14 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1141,99 +1707,144 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1245,45 +1856,78 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1292,45 +1936,70 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1338,9 +2007,14 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1348,9 +2022,14 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1372,54 +2051,76 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1427,18 +2128,28 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1451,9 +2162,18 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1466,36 +2186,72 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1504,326 +2260,488 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilterparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__RegExpFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__RegExpFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.Konsole__RegExpFilter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__RegExpFilter_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__RegExpFilter_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__RegExpFilter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__RegExpFilter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__RegExpFilter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__RegExpFilter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, param1: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn AddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_AddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, param1: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn QBaseAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_QBaseAddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void `
+    ///
     pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Buffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Konsole__RegExpFilter_Buffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1834,11 +2752,16 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Konsole__RegExpFilter_QBaseBuffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1849,121 +2772,176 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.Konsole__RegExpFilter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` position: i32 `
+    ///
+    /// ` startLine: *i32 `
+    ///
+    /// ` startColumn: *i32 `
+    ///
     pub fn GetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__RegExpFilter_GetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` position: i32 `
+    ///
+    /// ` startLine: *i32 `
+    ///
+    /// ` startColumn: *i32 `
+    ///
     pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__RegExpFilter_QBaseGetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
+    ///
     pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__RegExpFilter_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__RegExpFilter_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.Konsole__RegExpFilter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__RegExpFilter_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__RegExpFilter_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.Konsole__RegExpFilter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__RegExpFilter_Receivers(@ptrCast(self), signal_Cstring);
@@ -1971,11 +2949,16 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__RegExpFilter_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1983,111 +2966,174 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.Konsole__RegExpFilter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__RegExpFilter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__RegExpFilter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__RegExpFilter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilterobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__urlfilter = struct {
     /// New constructs a new Konsole::UrlFilter object.
-    ///
     ///
     pub fn New() QtC.Konsole__UrlFilter {
         return qtc.Konsole__UrlFilter_new();
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.Konsole__UrlFilter_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.Konsole__UrlFilter, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Konsole__UrlFilter_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__UrlFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.Konsole__UrlFilter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -2097,48 +3143,94 @@ pub const konsole__urlfilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: i32 `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: i32 `
+    ///
+    /// ` param4: i32 `
+    ///
     pub fn NewHotSpot(self: ?*anyopaque, param1: i32, param2: i32, param3: i32, param4: i32) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__UrlFilter_NewHotSpot(@ptrCast(self), @intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn OnNewHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
         qtc.Konsole__UrlFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: i32 `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: i32 `
+    ///
+    /// ` param4: i32 `
+    ///
     pub fn QBaseNewHotSpot(self: ?*anyopaque, param1: i32, param2: i32, param3: i32, param4: i32) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__UrlFilter_QBaseNewHotSpot(@ptrCast(self), @intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` fromContextMenu: bool `
+    ///
     pub fn Activated(self: ?*anyopaque, url: ?*anyopaque, fromContextMenu: bool) void {
         qtc.Konsole__UrlFilter_Activated(@ptrCast(self), @ptrCast(url), fromContextMenu);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilterurl: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
+    ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -2149,9 +3241,18 @@ pub const konsole__urlfilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -2164,45 +3265,68 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, text: QtC.QRegularExpression ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` text: QtC.QRegularExpression `
+    ///
     pub fn SetRegExp(self: ?*anyopaque, text: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_SetRegExp(@ptrCast(self), @ptrCast(text));
     }
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn RegExp(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.Konsole__RegExpFilter_RegExp(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Reset(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, line: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2213,9 +3337,14 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -2226,99 +3355,144 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -2330,45 +3504,78 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -2377,45 +3584,70 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -2423,9 +3655,14 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -2433,9 +3670,14 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -2457,54 +3699,76 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -2512,45 +3776,84 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -2559,326 +3862,476 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilterparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_Process(@ptrCast(self));
     }
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn QBaseProcess(self: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_QBaseProcess(@ptrCast(self));
     }
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__UrlFilter_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__UrlFilter_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__UrlFilter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__UrlFilter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__UrlFilter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__UrlFilter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, param1: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn AddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_AddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, param1: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn QBaseAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_QBaseAddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void `
+    ///
     pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Buffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Konsole__UrlFilter_Buffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2889,11 +4342,16 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.Konsole__UrlFilter_QBaseBuffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -2904,121 +4362,176 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.Konsole__UrlFilter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` position: i32 `
+    ///
+    /// ` startLine: *i32 `
+    ///
+    /// ` startColumn: *i32 `
+    ///
     pub fn GetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__UrlFilter_GetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` position: i32 `
+    ///
+    /// ` startLine: *i32 `
+    ///
+    /// ` startColumn: *i32 `
+    ///
     pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__UrlFilter_QBaseGetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
+    ///
     pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__UrlFilter_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__UrlFilter_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.Konsole__UrlFilter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__UrlFilter_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__UrlFilter_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.Konsole__UrlFilter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__UrlFilter_Receivers(@ptrCast(self), signal_Cstring);
@@ -3026,11 +4539,16 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__UrlFilter_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -3038,111 +4556,178 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.Konsole__UrlFilter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__UrlFilter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__UrlFilter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__UrlFilter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilterobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__UrlFilter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__filterobject = struct {
     /// New constructs a new Konsole::FilterObject object.
     ///
-    /// ``` filter: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` filter: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn New(filter: ?*anyopaque) QtC.Konsole__FilterObject {
         return qtc.Konsole__FilterObject_new(@ptrCast(filter));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.Konsole__FilterObject_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.Konsole__FilterObject, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Konsole__FilterObject_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__FilterObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.Konsole__FilterObject_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -3152,37 +4737,66 @@ pub const konsole__filterobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` fromContextMenu: bool `
+    ///
     pub fn EmitActivated(self: ?*anyopaque, url: ?*anyopaque, fromContextMenu: bool) void {
         qtc.Konsole__FilterObject_EmitActivated(@ptrCast(self), @ptrCast(url), fromContextMenu);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn Activate(self: ?*anyopaque) void {
         qtc.Konsole__FilterObject_Activate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` fromContextMenu: bool `
+    ///
     pub fn Activated(self: ?*anyopaque, url: ?*anyopaque, fromContextMenu: bool) void {
         qtc.Konsole__FilterObject_Activated(@ptrCast(self), @ptrCast(url), fromContextMenu);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObjecturl: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
+    ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -3193,9 +4807,18 @@ pub const konsole__filterobject = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -3208,9 +4831,14 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -3221,9 +4849,14 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -3234,99 +4867,144 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -3338,45 +5016,78 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -3385,45 +5096,70 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -3431,9 +5167,14 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -3441,9 +5182,14 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -3465,54 +5211,76 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -3520,45 +5288,84 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -3567,326 +5374,472 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObjectparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__FilterObject_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__FilterObject_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__FilterObject_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__FilterObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Konsole__FilterObject_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__FilterObject_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__FilterObject_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__FilterObject_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__FilterObject_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__FilterObject_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__FilterObject_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__FilterObject_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__FilterObject_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.Konsole__FilterObject_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__FilterObject_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__FilterObject_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__FilterObject_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__FilterObject_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__FilterObject_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.Konsole__FilterObject_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__FilterObject_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__FilterObject_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.Konsole__FilterObject_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.Konsole__FilterObject_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__FilterObject_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.Konsole__FilterObject_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.Konsole__FilterObject_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__FilterObject_Receivers(@ptrCast(self), signal_Cstring);
@@ -3894,11 +5847,16 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Konsole__FilterObject_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -3906,128 +5864,195 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.Konsole__FilterObject_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__FilterObject_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.Konsole__FilterObject_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.Konsole__FilterObject_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObjectobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__FilterObject ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__FilterObject_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__filterchain = struct {
     /// New constructs a new Konsole::FilterChain object.
     ///
-    /// ``` param1: QtC.Konsole__FilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.Konsole__FilterChain `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.Konsole__FilterChain {
         return qtc.Konsole__FilterChain_new(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain, filter: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
+    /// ` filter: QtC.Konsole__Filter `
+    ///
     pub fn AddFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
         qtc.Konsole__FilterChain_AddFilter(@ptrCast(self), @ptrCast(filter));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain, filter: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
+    /// ` filter: QtC.Konsole__Filter `
+    ///
     pub fn RemoveFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
         qtc.Konsole__FilterChain_RemoveFilter(@ptrCast(self), @ptrCast(filter));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain, filter: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
+    /// ` filter: QtC.Konsole__Filter `
+    ///
     pub fn ContainsFilter(self: ?*anyopaque, filter: ?*anyopaque) bool {
         return qtc.Konsole__FilterChain_ContainsFilter(@ptrCast(self), @ptrCast(filter));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Clear(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Reset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Process(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain, line: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__FilterChain_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HotSpots(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Konsole__Filter__HotSpot {
         const _arr: qtc.libqt_list = qtc.Konsole__FilterChain_HotSpots(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4037,25 +6062,32 @@ pub const konsole__filterchain = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterChain, param1: QtC.Konsole__FilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
+    /// ` param1: QtC.Konsole__FilterChain `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__FilterChain_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__FilterChain ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__FilterChain `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__terminalimagefilterchain = struct {
     /// New constructs a new Konsole::TerminalImageFilterChain object.
-    ///
     ///
     pub fn New() QtC.Konsole__TerminalImageFilterChain {
         return qtc.Konsole__TerminalImageFilterChain_new();
@@ -4063,79 +6095,118 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// New2 constructs a new Konsole::TerminalImageFilterChain object.
     ///
-    /// ``` param1: QtC.Konsole__TerminalImageFilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.Konsole__TerminalImageFilterChain `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.Konsole__TerminalImageFilterChain {
         return qtc.Konsole__TerminalImageFilterChain_new2(@ptrCast(param1));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain, filter: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
+    /// ` filter: QtC.Konsole__Filter `
+    ///
     pub fn AddFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
         qtc.Konsole__FilterChain_AddFilter(@ptrCast(self), @ptrCast(filter));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain, filter: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
+    /// ` filter: QtC.Konsole__Filter `
+    ///
     pub fn RemoveFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
         qtc.Konsole__FilterChain_RemoveFilter(@ptrCast(self), @ptrCast(filter));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain, filter: QtC.Konsole__Filter ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
+    /// ` filter: QtC.Konsole__Filter `
+    ///
     pub fn ContainsFilter(self: ?*anyopaque, filter: ?*anyopaque) bool {
         return qtc.Konsole__FilterChain_ContainsFilter(@ptrCast(self), @ptrCast(filter));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Clear(@ptrCast(self));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Reset(@ptrCast(self));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Process(@ptrCast(self));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain, line: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
+    /// ` line: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__FilterChain_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HotSpots(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Konsole__Filter__HotSpot {
         const _arr: qtc.libqt_list = qtc.Konsole__FilterChain_HotSpots(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4147,77 +6218,119 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain, param1: QtC.Konsole__FilterChain ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
+    /// ` param1: QtC.Konsole__FilterChain `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__FilterChain_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__TerminalImageFilterChain ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__TerminalImageFilterChain `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__TerminalImageFilterChain_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__filter__hotspot = struct {
     /// New constructs a new Konsole::Filter::HotSpot object.
     ///
-    /// ``` startLine: i32, startColumn: i32, endLine: i32, endColumn: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` startLine: i32 `
+    ///
+    /// ` startColumn: i32 `
+    ///
+    /// ` endLine: i32 `
+    ///
+    /// ` endColumn: i32 `
+    ///
     pub fn New(startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__Filter__HotSpot_new(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
     }
 
     /// New2 constructs a new Konsole::Filter::HotSpot object.
     ///
-    /// ``` param1: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__Filter__HotSpot_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn StartLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartLine(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn EndLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndLine(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn StartColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartColumn(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn EndColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndColumn(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` Filter_enums.Type ```
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ## Returns:
+    ///
+    /// ` Filter_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn Activate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
@@ -4226,20 +6339,30 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_Activate(@ptrCast(self), action_str);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, callback: *const fn (self: QtC.Konsole__Filter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter__HotSpot, action: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn QBaseActivate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
@@ -4248,9 +6371,14 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_QBaseActivate(@ptrCast(self), action_str);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__Filter__HotSpot_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4260,20 +6388,30 @@ pub const konsole__filter__hotspot = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, callback: *const fn () callconv(.c) [*:null]QtC.QAction ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QAction `
+    ///
     pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
         qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__Filter__HotSpot_QBaseActions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4283,58 +6421,93 @@ pub const konsole__filter__hotspot = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` typeVal: Filter_enums.Type `
+    ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Konsole__Filter__HotSpot_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, callback: *const fn (self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
+    ///
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
+    /// ` typeVal: Filter_enums.Type `
+    ///
     pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Konsole__Filter__HotSpot_QBaseSetType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__Filter__HotSpot `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__Filter__HotSpot_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__regexpfilter__hotspot = struct {
     /// New constructs a new Konsole::RegExpFilter::HotSpot object.
     ///
-    /// ``` startLine: i32, startColumn: i32, endLine: i32, endColumn: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` startLine: i32 `
+    ///
+    /// ` startColumn: i32 `
+    ///
+    /// ` endLine: i32 `
+    ///
+    /// ` endColumn: i32 `
+    ///
     pub fn New(startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__RegExpFilter__HotSpot_new(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
     }
 
     /// New2 constructs a new Konsole::RegExpFilter::HotSpot object.
     ///
-    /// ``` param1: QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__RegExpFilter__HotSpot_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn Activate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
@@ -4343,20 +6516,30 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_Activate(@ptrCast(self), action_str);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, action: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn QBaseActivate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
@@ -4365,9 +6548,16 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_QBaseActivate(@ptrCast(self), action_str);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, texts: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` texts: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetCapturedTexts(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole::regexpfilter::hotspot.SetCapturedTexts: Memory allocation failed");
         defer allocator.free(texts_arr);
@@ -4384,9 +6574,14 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_SetCapturedTexts(@ptrCast(self), texts_list);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CapturedTexts(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_CapturedTexts(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -4408,58 +6603,80 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn StartLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartLine(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn EndLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndLine(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn StartColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartColumn(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn EndColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndColumn(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` Filter_enums.Type ```
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ## Returns:
+    ///
+    /// ` Filter_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_Type(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4471,11 +6688,16 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_QBaseActions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4487,75 +6709,115 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, callback: *const fn () callconv(.c) [*:null]QtC.QAction ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QAction `
+    ///
     pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
         qtc.Konsole__RegExpFilter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` typeVal: Filter_enums.Type `
+    ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Konsole__RegExpFilter__HotSpot_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
+    /// ` typeVal: Filter_enums.Type `
+    ///
     pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Konsole__RegExpFilter__HotSpot_QBaseSetType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
+    ///
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter__HotSpot_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const konsole__urlfilter__hotspot = struct {
     /// New constructs a new Konsole::UrlFilter::HotSpot object.
     ///
-    /// ``` startLine: i32, startColumn: i32, endLine: i32, endColumn: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` startLine: i32 `
+    ///
+    /// ` startColumn: i32 `
+    ///
+    /// ` endLine: i32 `
+    ///
+    /// ` endColumn: i32 `
+    ///
     pub fn New(startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__UrlFilter__HotSpot {
         return qtc.Konsole__UrlFilter__HotSpot_new(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
     pub fn GetUrlObject(self: ?*anyopaque) QtC.Konsole__FilterObject {
         return qtc.Konsole__UrlFilter__HotSpot_GetUrlObject(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__UrlFilter__HotSpot_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4565,20 +6827,30 @@ pub const konsole__urlfilter__hotspot = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, callback: *const fn () callconv(.c) [*:null]QtC.QAction ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QAction `
+    ///
     pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
         qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__UrlFilter__HotSpot_QBaseActions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -4588,9 +6860,14 @@ pub const konsole__urlfilter__hotspot = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn Activate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
@@ -4599,20 +6876,30 @@ pub const konsole__urlfilter__hotspot = struct {
         qtc.Konsole__UrlFilter__HotSpot_Activate(@ptrCast(self), action_str);
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, action: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__UrlFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, action: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` action: []const u8 `
+    ///
     pub fn QBaseActivate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
@@ -4623,9 +6910,16 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::RegExpFilter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, texts: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` texts: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetCapturedTexts(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole::urlfilter::hotspot.SetCapturedTexts: Memory allocation failed");
         defer allocator.free(texts_arr);
@@ -4644,9 +6938,14 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::RegExpFilter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn CapturedTexts(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_CapturedTexts(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -4668,93 +6967,128 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
     pub fn StartLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartLine(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
     pub fn EndLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndLine(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
     pub fn StartColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartColumn(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
     pub fn EndColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndColumn(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` Filter_enums.Type ```
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ## Returns:
+    ///
+    /// ` Filter_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_Type(@ptrCast(self));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` typeVal: Filter_enums.Type `
+    ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Konsole__UrlFilter__HotSpot_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
+    /// ` typeVal: Filter_enums.Type `
+    ///
     pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Konsole__UrlFilter__HotSpot_QBaseSetType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
+    ///
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__UrlFilter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter__HotSpot `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.Konsole__UrlFilter__HotSpot_Delete(@ptrCast(self));
     }
 };
 
-/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
+/// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const enums = struct {
     pub const Type = enum {
         pub const NotSpecified: i32 = 0;

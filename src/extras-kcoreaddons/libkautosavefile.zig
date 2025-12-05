@@ -6,17 +6,19 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kautosavefile.html
+/// ### [Upstream resources](https://api.kde.org/kautosavefile.html)
 pub const kautosavefile = struct {
     /// New constructs a new KAutoSaveFile object.
     ///
-    /// ``` filename: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` filename: QtC.QUrl `
+    ///
     pub fn New(filename: ?*anyopaque) QtC.KAutoSaveFile {
         return qtc.KAutoSaveFile_new(@ptrCast(filename));
     }
 
     /// New2 constructs a new KAutoSaveFile object.
-    ///
     ///
     pub fn New2() QtC.KAutoSaveFile {
         return qtc.KAutoSaveFile_new2();
@@ -24,53 +26,97 @@ pub const kautosavefile = struct {
 
     /// New3 constructs a new KAutoSaveFile object.
     ///
-    /// ``` filename: QtC.QUrl, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` filename: QtC.QUrl `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New3(filename: ?*anyopaque, parent: ?*anyopaque) QtC.KAutoSaveFile {
         return qtc.KAutoSaveFile_new3(@ptrCast(filename), @ptrCast(parent));
     }
 
     /// New4 constructs a new KAutoSaveFile object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New4(parent: ?*anyopaque) QtC.KAutoSaveFile {
         return qtc.KAutoSaveFile_new4(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KAutoSaveFile_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KAutoSaveFile, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KAutoSaveFile_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KAutoSaveFile_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KAutoSaveFile_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KAutoSaveFile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -80,73 +126,112 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#managedFile)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#managedFile)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn ManagedFile(self: ?*anyopaque) QtC.QUrl {
         return qtc.KAutoSaveFile_ManagedFile(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#setManagedFile)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#setManagedFile)
     ///
-    /// ``` self: QtC.KAutoSaveFile, filename: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` filename: QtC.QUrl `
+    ///
     pub fn SetManagedFile(self: ?*anyopaque, filename: ?*anyopaque) void {
         qtc.KAutoSaveFile_SetManagedFile(@ptrCast(self), @ptrCast(filename));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn ReleaseLock(self: ?*anyopaque) void {
         qtc.KAutoSaveFile_ReleaseLock(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnReleaseLock(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseReleaseLock(self: ?*anyopaque) void {
         qtc.KAutoSaveFile_QBaseReleaseLock(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#open)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#open)
     ///
-    /// ``` self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` openmode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn Open(self: ?*anyopaque, openmode: i32) bool {
         return qtc.KAutoSaveFile_Open(@ptrCast(self), @intCast(openmode));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#open)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#open)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#open)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#open)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` openmode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn QBaseOpen(self: ?*anyopaque, openmode: i32) bool {
         return qtc.KAutoSaveFile_QBaseOpen(@ptrCast(self), @intCast(openmode));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#staleFiles)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#staleFiles)
     ///
-    /// ``` url: QtC.QUrl, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StaleFiles(url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
         const _arr: qtc.libqt_list = qtc.KAutoSaveFile_StaleFiles(@ptrCast(url));
         defer qtc.libqt_free(_arr.data);
@@ -156,9 +241,12 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#allStaleFiles)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#allStaleFiles)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllStaleFiles(allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
         const _arr: qtc.libqt_list = qtc.KAutoSaveFile_AllStaleFiles();
         defer qtc.libqt_free(_arr.data);
@@ -168,9 +256,16 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -181,9 +276,18 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -194,9 +298,16 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#staleFiles)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#staleFiles)
     ///
-    /// ``` url: QtC.QUrl, applicationName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` applicationName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn StaleFiles2(url: ?*anyopaque, applicationName: []const u8, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
         const applicationName_str = qtc.libqt_string{
             .len = applicationName.len,
@@ -210,9 +321,14 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#allStaleFiles)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#allStaleFiles)
     ///
-    /// ``` applicationName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` applicationName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllStaleFiles1(applicationName: []const u8, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
         const applicationName_str = qtc.libqt_string{
             .len = applicationName.len,
@@ -228,9 +344,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setFileName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setFileName)
     ///
-    /// ``` self: QtC.KAutoSaveFile, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetFileName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -241,9 +362,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#encodeName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#encodeName)
     ///
-    /// ``` fileName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn EncodeName(fileName: []const u8, allocator: std.mem.Allocator) []u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -258,9 +384,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#decodeName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#decodeName)
     ///
-    /// ``` localFileName: []u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` localFileName: []u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DecodeName(localFileName: []u8, allocator: std.mem.Allocator) []const u8 {
         const localFileName_str = qtc.libqt_string{
             .len = localFileName.len,
@@ -275,9 +406,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#decodeName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#decodeName)
     ///
-    /// ``` localFileName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` localFileName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DecodeName2(localFileName: []const u8, allocator: std.mem.Allocator) []const u8 {
         const localFileName_Cstring = localFileName.ptr;
         const _str = qtc.QFile_DecodeName2(localFileName_Cstring);
@@ -289,18 +425,24 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#exists)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#exists)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Exists(self: ?*anyopaque) bool {
         return qtc.QFile_Exists(@ptrCast(self));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#exists)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#exists)
     ///
-    /// ``` fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn Exists2(fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -311,9 +453,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SymLinkTarget(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFile_SymLinkTarget(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -324,9 +471,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
     ///
-    /// ``` fileName: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SymLinkTarget2(fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -341,18 +493,24 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#remove)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#remove)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Remove(self: ?*anyopaque) bool {
         return qtc.QFile_Remove(@ptrCast(self));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#remove)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#remove)
     ///
-    /// ``` fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn Remove2(fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -363,18 +521,24 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn MoveToTrash(self: ?*anyopaque) bool {
         return qtc.QFile_MoveToTrash(@ptrCast(self));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
     ///
-    /// ``` fileName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
     pub fn MoveToTrash2(fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -385,9 +549,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#rename)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#rename)
     ///
-    /// ``` self: QtC.KAutoSaveFile, newName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` newName: []const u8 `
+    ///
     pub fn Rename(self: ?*anyopaque, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
@@ -398,9 +567,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#rename)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#rename)
     ///
-    /// ``` oldName: []const u8, newName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` oldName: []const u8 `
+    ///
+    /// ` newName: []const u8 `
+    ///
     pub fn Rename2(oldName: []const u8, newName: []const u8) bool {
         const oldName_str = qtc.libqt_string{
             .len = oldName.len,
@@ -415,9 +589,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
     ///
-    /// ``` self: QtC.KAutoSaveFile, newName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` newName: []const u8 `
+    ///
     pub fn Link(self: ?*anyopaque, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
@@ -428,9 +607,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
     ///
-    /// ``` fileName: []const u8, newName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` newName: []const u8 `
+    ///
     pub fn Link2(fileName: []const u8, newName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -445,9 +629,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
     ///
-    /// ``` self: QtC.KAutoSaveFile, newName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` newName: []const u8 `
+    ///
     pub fn Copy(self: ?*anyopaque, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
@@ -458,9 +647,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
     ///
-    /// ``` fileName: []const u8, newName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` newName: []const u8 `
+    ///
     pub fn Copy2(fileName: []const u8, newName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -475,27 +669,46 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
     ///
-    /// ``` self: QtC.KAutoSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag, permissions: flag of qfiledevice_enums.Permission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
+    /// ` permissions: flag of qfiledevice_enums.Permission `
+    ///
     pub fn Open2(self: ?*anyopaque, flags: i32, permissions: i32) bool {
         return qtc.QFile_Open2(@ptrCast(self), @intCast(flags), @intCast(permissions));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
     ///
-    /// ``` self: QtC.KAutoSaveFile, fd: i32, ioFlags: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` fd: i32 `
+    ///
+    /// ` ioFlags: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn Open4(self: ?*anyopaque, fd: i32, ioFlags: i32) bool {
         return qtc.QFile_Open4(@ptrCast(self), @intCast(fd), @intCast(ioFlags));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
-    /// ``` filename: []const u8, sz: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` filename: []const u8 `
+    ///
+    /// ` sz: i64 `
+    ///
     pub fn Resize2(filename: []const u8, sz: i64) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
@@ -506,11 +719,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
-    /// ``` filename: []const u8 ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qfiledevice_enums.Permission ```
+    /// ` filename: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qfiledevice_enums.Permission `
+    ///
     pub fn Permissions2(filename: []const u8) i32 {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
@@ -521,9 +739,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
-    /// ``` filename: []const u8, permissionSpec: flag of qfiledevice_enums.Permission ```
+    /// ## Parameter(s):
+    ///
+    /// ` filename: []const u8 `
+    ///
+    /// ` permissionSpec: flag of qfiledevice_enums.Permission `
+    ///
     pub fn SetPermissions2(filename: []const u8, permissionSpec: i32) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
@@ -534,211 +757,318 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
     ///
-    /// ``` self: QtC.KAutoSaveFile, fd: i32, ioFlags: flag of qiodevicebase_enums.OpenModeFlag, handleFlags: flag of qfiledevice_enums.FileHandleFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` fd: i32 `
+    ///
+    /// ` ioFlags: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
+    /// ` handleFlags: flag of qfiledevice_enums.FileHandleFlag `
+    ///
     pub fn Open33(self: ?*anyopaque, fd: i32, ioFlags: i32, handleFlags: i32) bool {
         return qtc.QFile_Open33(@ptrCast(self), @intCast(fd), @intCast(ioFlags), @intCast(handleFlags));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#error)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#error)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qfiledevice_enums.FileError ```
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qfiledevice_enums.FileError `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QFileDevice_Error(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn UnsetError(self: ?*anyopaque) void {
         qtc.QFileDevice_UnsetError(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#handle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#handle)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Handle(self: ?*anyopaque) i32 {
         return qtc.QFileDevice_Handle(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#flush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#flush)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Flush(self: ?*anyopaque) bool {
         return qtc.QFileDevice_Flush(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
-    /// ``` self: QtC.KAutoSaveFile, offset: i64, size: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` offset: i64 `
+    ///
+    /// ` size: i64 `
+    ///
     pub fn Map(self: ?*anyopaque, offset: i64, size: i64) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self), @intCast(offset), @intCast(size)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
     ///
-    /// ``` self: QtC.KAutoSaveFile, address: *u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` address: *u8 `
+    ///
     pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
         return qtc.QFileDevice_Unmap(@ptrCast(self), @ptrCast(address));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
     ///
-    /// ``` self: QtC.KAutoSaveFile, time: qfiledevice_enums.FileTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` time: qfiledevice_enums.FileTime `
+    ///
     pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
         return qtc.QFileDevice_FileTime(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
     ///
-    /// ``` self: QtC.KAutoSaveFile, newDate: QtC.QDateTime, fileTime: qfiledevice_enums.FileTime ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` newDate: QtC.QDateTime `
+    ///
+    /// ` fileTime: qfiledevice_enums.FileTime `
+    ///
     pub fn SetFileTime(self: ?*anyopaque, newDate: ?*anyopaque, fileTime: i32) bool {
         return qtc.QFileDevice_SetFileTime(@ptrCast(self), @ptrCast(newDate), @intCast(fileTime));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
-    /// ``` self: QtC.KAutoSaveFile, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` offset: i64 `
+    ///
+    /// ` size: i64 `
+    ///
+    /// ` flags: flag of qfiledevice_enums.MemoryMapFlag `
+    ///
     pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @intCast(offset), @intCast(size), @intCast(flags)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
-    /// ``` self: QtC.KAutoSaveFile, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsOpen(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsOpen(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsReadable(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsReadable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsWritable(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsWritable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
         return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
         return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
         return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
-    /// ``` self: QtC.KAutoSaveFile, channel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` channel: i32 `
+    ///
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @intCast(channel));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
         return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
-    /// ``` self: QtC.KAutoSaveFile, channel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` channel: i32 `
+    ///
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @intCast(channel));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -746,9 +1076,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
-    /// ``` self: QtC.KAutoSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` maxlen: i64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
@@ -759,9 +1096,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -772,9 +1114,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -782,9 +1131,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
@@ -795,45 +1149,64 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn StartTransaction(self: ?*anyopaque) void {
         qtc.QIODevice_StartTransaction(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn CommitTransaction(self: ?*anyopaque) void {
         qtc.QIODevice_CommitTransaction(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn RollbackTransaction(self: ?*anyopaque) void {
         qtc.QIODevice_RollbackTransaction(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
         return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @intCast(lenVal));
@@ -841,9 +1214,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []const u8 `
+    ///
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
@@ -851,9 +1229,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -864,9 +1247,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -874,9 +1264,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
-    /// ``` self: QtC.KAutoSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` maxlen: i64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
@@ -887,36 +1284,56 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
-    /// ``` self: QtC.KAutoSaveFile, maxSize: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` maxSize: i64 `
+    ///
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.QIODevice_Skip(@ptrCast(self), @intCast(maxSize));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
-    /// ``` self: QtC.KAutoSaveFile, c: u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` c: u8 `
+    ///
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self), @intCast(c));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
-    /// ``` self: QtC.KAutoSaveFile, c: u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` c: u8 `
+    ///
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self), @intCast(c));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
-    /// ``` self: QtC.KAutoSaveFile, c: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` c: []u8 `
+    ///
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
@@ -924,9 +1341,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QIODevice_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -937,117 +1359,180 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn ReadyRead(self: ?*anyopaque) void {
         qtc.QIODevice_ReadyRead(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    ///
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.KAutoSaveFile, channel: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` channel: i32 `
+    ///
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
         qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @intCast(channel));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, channel: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFilechannel: i32) callconv(.c) void `
+    ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.KAutoSaveFile, bytes: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` bytes: i64 `
+    ///
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
         qtc.QIODevice_BytesWritten(@ptrCast(self), @intCast(bytes));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, bytes: i64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFilebytes: i64) callconv(.c) void `
+    ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.KAutoSaveFile, channel: i32, bytes: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` channel: i32 `
+    ///
+    /// ` bytes: i64 `
+    ///
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
         qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @intCast(channel), @intCast(bytes));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, channel: i32, bytes: i64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFilechannel: i32, bytes: i64) callconv(.c) void `
+    ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn AboutToClose(self: ?*anyopaque) void {
         qtc.QIODevice_AboutToClose(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    ///
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
         qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    ///
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.KAutoSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` maxlen: i64 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
@@ -1058,9 +1543,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1071,9 +1561,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KAutoSaveFile, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1084,99 +1579,144 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KAutoSaveFile, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KAutoSaveFile, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KAutoSaveFile, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KAutoSaveFile, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KAutoSaveFile, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1188,45 +1728,78 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KAutoSaveFile, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KAutoSaveFile, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KAutoSaveFile, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KAutoSaveFile, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1235,45 +1808,70 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KAutoSaveFile, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1281,9 +1879,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KAutoSaveFile, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1291,9 +1894,14 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1315,54 +1923,76 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KAutoSaveFile, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1370,45 +2000,84 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KAutoSaveFile, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KAutoSaveFile, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KAutoSaveFile, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1417,29 +2086,44 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAutoSaveFile, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFileparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#fileName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#fileName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KAutoSaveFile_FileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1450,11 +2134,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#fileName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#fileName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KAutoSaveFile_QBaseFileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1465,323 +2154,450 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#fileName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#fileName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnFileName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KAutoSaveFile_OnFileName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Size(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_Size(@ptrCast(self));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseSize(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_QBaseSize(@ptrCast(self));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, sz: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` sz: i64 `
+    ///
     pub fn Resize(self: ?*anyopaque, sz: i64) bool {
         return qtc.KAutoSaveFile_Resize(@ptrCast(self), @intCast(sz));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, sz: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` sz: i64 `
+    ///
     pub fn QBaseResize(self: ?*anyopaque, sz: i64) bool {
         return qtc.KAutoSaveFile_QBaseResize(@ptrCast(self), @intCast(sz));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, sz: i64) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, sz: i64) callconv(.c) bool `
+    ///
     pub fn OnResize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnResize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qfiledevice_enums.Permission ```
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qfiledevice_enums.Permission `
+    ///
     pub fn Permissions(self: ?*anyopaque) i32 {
         return qtc.KAutoSaveFile_Permissions(@ptrCast(self));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qfiledevice_enums.Permission ```
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qfiledevice_enums.Permission `
+    ///
     pub fn QBasePermissions(self: ?*anyopaque) i32 {
         return qtc.KAutoSaveFile_QBasePermissions(@ptrCast(self));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnPermissions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KAutoSaveFile_OnPermissions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` permissionSpec: flag of qfiledevice_enums.Permission `
+    ///
     pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
         return qtc.KAutoSaveFile_SetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` permissionSpec: flag of qfiledevice_enums.Permission `
+    ///
     pub fn QBaseSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
         return qtc.KAutoSaveFile_QBaseSetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
 
     /// Inherited from QFile
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool `
+    ///
     pub fn OnSetPermissions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnSetPermissions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Close(self: ?*anyopaque) void {
         qtc.KAutoSaveFile_Close(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseClose(self: ?*anyopaque) void {
         qtc.KAutoSaveFile_QBaseClose(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KAutoSaveFile_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn IsSequential(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_IsSequential(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseIsSequential(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_QBaseIsSequential(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Pos(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_Pos(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBasePos(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_QBasePos(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, offset: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` offset: i64 `
+    ///
     pub fn Seek(self: ?*anyopaque, offset: i64) bool {
         return qtc.KAutoSaveFile_Seek(@ptrCast(self), @intCast(offset));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, offset: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` offset: i64 `
+    ///
     pub fn QBaseSeek(self: ?*anyopaque, offset: i64) bool {
         return qtc.KAutoSaveFile_QBaseSeek(@ptrCast(self), @intCast(offset));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, offset: i64) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, offset: i64) callconv(.c) bool `
+    ///
     pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_AtEnd(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseAtEnd(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_QBaseAtEnd(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn ReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KAutoSaveFile_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1789,11 +2605,18 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn QBaseReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KAutoSaveFile_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1801,22 +2624,34 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]u8, maxlen: i64) callconv(.c) i64 `
+    ///
     pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn WriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KAutoSaveFile_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
@@ -1824,11 +2659,18 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []const u8, lenVal: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []const u8 `
+    ///
+    /// ` lenVal: i64 `
+    ///
     pub fn QBaseWriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KAutoSaveFile_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
@@ -1836,22 +2678,34 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    ///
     pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn ReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KAutoSaveFile_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1859,11 +2713,18 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, data: []u8, maxlen: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` maxlen: i64 `
+    ///
     pub fn QBaseReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KAutoSaveFile_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
@@ -1871,517 +2732,740 @@ pub const kautosavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]u8, maxlen: i64) callconv(.c) i64 `
+    ///
     pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Reset(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_Reset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseReset(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_QBaseReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn BytesAvailable(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_BytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_QBaseBytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn BytesToWrite(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_BytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
         return qtc.KAutoSaveFile_QBaseBytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) i64 `
+    ///
     pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn CanReadLine(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_CanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_QBaseCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
         return qtc.KAutoSaveFile_WaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
         return qtc.KAutoSaveFile_QBaseWaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool `
+    ///
     pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
         return qtc.KAutoSaveFile_WaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
         return qtc.KAutoSaveFile_QBaseWaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool `
+    ///
     pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, maxSize: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` maxSize: i64 `
+    ///
     pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.KAutoSaveFile_SkipData(@ptrCast(self), @intCast(maxSize));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, maxSize: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` maxSize: i64 `
+    ///
     pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.KAutoSaveFile_QBaseSkipData(@ptrCast(self), @intCast(maxSize));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, maxSize: i64) callconv(.c) i64 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, maxSize: i64) callconv(.c) i64 `
+    ///
     pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAutoSaveFile_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAutoSaveFile_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAutoSaveFile_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAutoSaveFile_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAutoSaveFile_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAutoSaveFile_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAutoSaveFile_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAutoSaveFile_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAutoSaveFile_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KAutoSaveFile_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.KAutoSaveFile_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    ///
     pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.KAutoSaveFile_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    ///
     pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, errorString: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` errorString: []const u8 `
+    ///
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -2392,11 +3476,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, errorString: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` errorString: []const u8 `
+    ///
     pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -2407,88 +3496,120 @@ pub const kautosavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, errorString: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, errorString: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KAutoSaveFile_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KAutoSaveFile_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KAutoSaveFile_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KAutoSaveFile_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KAutoSaveFile_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KAutoSaveFile_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAutoSaveFile_Receivers(@ptrCast(self), signal_Cstring);
@@ -2496,11 +3617,16 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAutoSaveFile_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2508,64 +3634,92 @@ pub const kautosavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KAutoSaveFile_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KAutoSaveFile_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile`
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
+    /// ` callback: *const fn (self: QtC.KAutoSaveFileobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kautosavefile.html#dtor.KAutoSaveFile)
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#dtor.KAutoSaveFile)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KAutoSaveFile ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KAutoSaveFile `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KAutoSaveFile_Delete(@ptrCast(self));
     }

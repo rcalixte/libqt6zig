@@ -6,10 +6,9 @@ const qwebenginedownloadrequest_enums = @import("libqwebenginedownloadrequest.zi
 const qwebenginepage_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebenginepage.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html)
 pub const qwebenginepage = struct {
     /// New constructs a new QWebEnginePage object.
-    ///
     ///
     pub fn New() QtC.QWebEnginePage {
         return qtc.QWebEnginePage_new();
@@ -17,60 +16,107 @@ pub const qwebenginepage = struct {
 
     /// New2 constructs a new QWebEnginePage object.
     ///
-    /// ``` profile: QtC.QWebEngineProfile ```
+    /// ## Parameter(s):
+    ///
+    /// ` profile: QtC.QWebEngineProfile `
+    ///
     pub fn New2(profile: ?*anyopaque) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_new2(@ptrCast(profile));
     }
 
     /// New3 constructs a new QWebEnginePage object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New3(parent: ?*anyopaque) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_new3(@ptrCast(parent));
     }
 
     /// New4 constructs a new QWebEnginePage object.
     ///
-    /// ``` profile: QtC.QWebEngineProfile, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` profile: QtC.QWebEngineProfile `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New4(profile: ?*anyopaque, parent: ?*anyopaque) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_new4(@ptrCast(profile), @ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QWebEnginePage_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QWebEnginePage, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebEnginePage_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QWebEnginePage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QWebEnginePage_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -80,23 +126,34 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#history)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#history)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn History(self: ?*anyopaque) QtC.QWebEngineHistory {
         return qtc.QWebEnginePage_History(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#hasSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#hasSelection)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn HasSelection(self: ?*anyopaque) bool {
         return qtc.QWebEnginePage_HasSelection(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectedText)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectedText)
     ///
-    /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEnginePage_SelectedText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -105,48 +162,80 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#profile)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#profile)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Profile(self: ?*anyopaque) QtC.QWebEngineProfile {
         return qtc.QWebEnginePage_Profile(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#action)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#action)
     ///
-    /// ``` self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` action: qwebenginepage_enums.WebAction `
+    ///
     pub fn Action(self: ?*anyopaque, action: i32) QtC.QAction {
         return qtc.QWebEnginePage_Action(@ptrCast(self), @intCast(action));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
     ///
-    /// ``` self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction, checked: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` action: qwebenginepage_enums.WebAction `
+    ///
+    /// ` checked: bool `
+    ///
     pub fn TriggerAction(self: ?*anyopaque, action: i32, checked: bool) void {
         qtc.QWebEnginePage_TriggerAction(@ptrCast(self), @intCast(action), checked);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction, checked: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction, checked: bool) callconv(.c) void `
+    ///
     pub fn OnTriggerAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_OnTriggerAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction, checked: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` action: qwebenginepage_enums.WebAction `
+    ///
+    /// ` checked: bool `
+    ///
     pub fn QBaseTriggerAction(self: ?*anyopaque, action: i32, checked: bool) void {
         qtc.QWebEnginePage_QBaseTriggerAction(@ptrCast(self), @intCast(action), checked);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#replaceMisspelledWord)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#replaceMisspelledWord)
     ///
-    /// ``` self: QtC.QWebEnginePage, replacement: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` replacement: []const u8 `
+    ///
     pub fn ReplaceMisspelledWord(self: ?*anyopaque, replacement: []const u8) void {
         const replacement_str = qtc.libqt_string{
             .len = replacement.len,
@@ -155,62 +244,100 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_ReplaceMisspelledWord(@ptrCast(self), replacement_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#event)
     ///
-    /// ``` self: QtC.QWebEnginePage, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWebEnginePage_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#event)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, param1: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, param1: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QWebEnginePage_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#event)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWebEnginePage_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#isLoading)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#isLoading)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn IsLoading(self: ?*anyopaque) bool {
         return qtc.QWebEnginePage_IsLoading(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#load)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#load)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn Load(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEnginePage_Load(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#load)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#load)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineHttpRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineHttpRequest `
+    ///
     pub fn Load2(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.QWebEnginePage_Load2(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#download)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#download)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn Download(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEnginePage_Download(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setHtml)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setHtml)
     ///
-    /// ``` self: QtC.QWebEnginePage, html: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` html: []const u8 `
+    ///
     pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
@@ -219,9 +346,14 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_SetHtml(@ptrCast(self), html_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setContent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setContent)
     ///
-    /// ``` self: QtC.QWebEnginePage, data: []u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` data: []u8 `
+    ///
     pub fn SetContent(self: ?*anyopaque, data: []u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -230,9 +362,14 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_SetContent(@ptrCast(self), data_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#title)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#title)
     ///
-    /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEnginePage_Title(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -241,114 +378,172 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setUrl)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setUrl)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEnginePage_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#url)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#url)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEnginePage_Url(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#requestedUrl)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#requestedUrl)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn RequestedUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEnginePage_RequestedUrl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconUrl)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconUrl)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn IconUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEnginePage_IconUrl(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#icon)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#icon)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QWebEnginePage_Icon(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactor)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn ZoomFactor(self: ?*anyopaque) f64 {
         return qtc.QWebEnginePage_ZoomFactor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setZoomFactor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setZoomFactor)
     ///
-    /// ``` self: QtC.QWebEnginePage, factor: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` factor: f64 `
+    ///
     pub fn SetZoomFactor(self: ?*anyopaque, factor: f64) void {
         qtc.QWebEnginePage_SetZoomFactor(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scrollPosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scrollPosition)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn ScrollPosition(self: ?*anyopaque) QtC.QPointF {
         return qtc.QWebEnginePage_ScrollPosition(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#contentsSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#contentsSize)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn ContentsSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QWebEnginePage_ContentsSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scripts)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scripts)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Scripts(self: ?*anyopaque) QtC.QWebEngineScriptCollection {
         return qtc.QWebEnginePage_Scripts(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#settings)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#settings)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Settings(self: ?*anyopaque) QtC.QWebEngineSettings {
         return qtc.QWebEnginePage_Settings(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#webChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#webChannel)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn WebChannel(self: ?*anyopaque) QtC.QWebChannel {
         return qtc.QWebEnginePage_WebChannel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setWebChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setWebChannel)
     ///
-    /// ``` self: QtC.QWebEnginePage, param1: QtC.QWebChannel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: QtC.QWebChannel `
+    ///
     pub fn SetWebChannel(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWebEnginePage_SetWebChannel(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#backgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#backgroundColor)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QWebEnginePage_BackgroundColor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setBackgroundColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setBackgroundColor)
     ///
-    /// ``` self: QtC.QWebEnginePage, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QWebEnginePage_SetBackgroundColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#save)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#save)
     ///
-    /// ``` self: QtC.QWebEnginePage, filePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` filePath: []const u8 `
+    ///
     pub fn Save(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -357,37 +552,56 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_Save(@ptrCast(self), filePath_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#isAudioMuted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#isAudioMuted)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn IsAudioMuted(self: ?*anyopaque) bool {
         return qtc.QWebEnginePage_IsAudioMuted(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setAudioMuted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setAudioMuted)
     ///
-    /// ``` self: QtC.QWebEnginePage, muted: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` muted: bool `
+    ///
     pub fn SetAudioMuted(self: ?*anyopaque, muted: bool) void {
         qtc.QWebEnginePage_SetAudioMuted(@ptrCast(self), muted);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recentlyAudible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recentlyAudible)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn RecentlyAudible(self: ?*anyopaque) bool {
         return qtc.QWebEnginePage_RecentlyAudible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessPid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessPid)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn RenderProcessPid(self: ?*anyopaque) i64 {
         return qtc.QWebEnginePage_RenderProcessPid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printToPdf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printToPdf)
     ///
-    /// ``` self: QtC.QWebEnginePage, filePath: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` filePath: []const u8 `
+    ///
     pub fn PrintToPdf(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -396,37 +610,58 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_PrintToPdf(@ptrCast(self), filePath_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setInspectedPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setInspectedPage)
     ///
-    /// ``` self: QtC.QWebEnginePage, page: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` page: QtC.QWebEnginePage `
+    ///
     pub fn SetInspectedPage(self: ?*anyopaque, page: ?*anyopaque) void {
         qtc.QWebEnginePage_SetInspectedPage(@ptrCast(self), @ptrCast(page));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#inspectedPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#inspectedPage)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn InspectedPage(self: ?*anyopaque) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_InspectedPage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setDevToolsPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setDevToolsPage)
     ///
-    /// ``` self: QtC.QWebEnginePage, page: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` page: QtC.QWebEnginePage `
+    ///
     pub fn SetDevToolsPage(self: ?*anyopaque, page: ?*anyopaque) void {
         qtc.QWebEnginePage_SetDevToolsPage(@ptrCast(self), @ptrCast(page));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#devToolsPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#devToolsPage)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn DevToolsPage(self: ?*anyopaque) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_DevToolsPage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#devToolsId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#devToolsId)
     ///
-    /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DevToolsId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEnginePage_DevToolsId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -435,125 +670,204 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setUrlRequestInterceptor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setUrlRequestInterceptor)
     ///
-    /// ``` self: QtC.QWebEnginePage, interceptor: QtC.QWebEngineUrlRequestInterceptor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` interceptor: QtC.QWebEngineUrlRequestInterceptor `
+    ///
     pub fn SetUrlRequestInterceptor(self: ?*anyopaque, interceptor: ?*anyopaque) void {
         qtc.QWebEnginePage_SetUrlRequestInterceptor(@ptrCast(self), @ptrCast(interceptor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleState)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginepage_enums.LifecycleState ```
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginepage_enums.LifecycleState `
+    ///
     pub fn LifecycleState(self: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_LifecycleState(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setLifecycleState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setLifecycleState)
     ///
-    /// ``` self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` state: qwebenginepage_enums.LifecycleState `
+    ///
     pub fn SetLifecycleState(self: ?*anyopaque, state: i32) void {
         qtc.QWebEnginePage_SetLifecycleState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedState)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginepage_enums.LifecycleState ```
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginepage_enums.LifecycleState `
+    ///
     pub fn RecommendedState(self: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_RecommendedState(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#isVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#isVisible)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QWebEnginePage_IsVisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setVisible)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setVisible)
     ///
-    /// ``` self: QtC.QWebEnginePage, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QWebEnginePage_SetVisible(@ptrCast(self), visible);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#mainFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#mainFrame)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn MainFrame(self: ?*anyopaque) QtC.QWebEngineFrame {
         return qtc.QWebEnginePage_MainFrame(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptAsNewWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptAsNewWindow)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineNewWindowRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineNewWindowRequest `
+    ///
     pub fn AcceptAsNewWindow(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.QWebEnginePage_AcceptAsNewWindow(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadStarted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadStarted)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn LoadStarted(self: ?*anyopaque) void {
         qtc.QWebEnginePage_LoadStarted(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadStarted)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadStarted)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void `
+    ///
     pub fn OnLoadStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LoadStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadProgress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadProgress)
     ///
-    /// ``` self: QtC.QWebEnginePage, progress: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` progress: i32 `
+    ///
     pub fn LoadProgress(self: ?*anyopaque, progress: i32) void {
         qtc.QWebEnginePage_LoadProgress(@ptrCast(self), @intCast(progress));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadProgress)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadProgress)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, progress: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageprogress: i32) callconv(.c) void `
+    ///
     pub fn OnLoadProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LoadProgress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadFinished)
     ///
-    /// ``` self: QtC.QWebEnginePage, ok: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` ok: bool `
+    ///
     pub fn LoadFinished(self: ?*anyopaque, ok: bool) void {
         qtc.QWebEnginePage_LoadFinished(@ptrCast(self), ok);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadFinished)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, ok: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageok: bool) callconv(.c) void `
+    ///
     pub fn OnLoadFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LoadFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadingChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadingChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, loadingInfo: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` loadingInfo: QtC.QWebEngineLoadingInfo `
+    ///
     pub fn LoadingChanged(self: ?*anyopaque, loadingInfo: ?*anyopaque) void {
         qtc.QWebEnginePage_LoadingChanged(@ptrCast(self), @ptrCast(loadingInfo));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadingChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#loadingChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, loadingInfo: QtC.QWebEngineLoadingInfo) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageloadingInfo: QtC.QWebEngineLoadingInfo) callconv(.c) void `
+    ///
     pub fn OnLoadingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LoadingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#linkHovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#linkHovered)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: []const u8 `
+    ///
     pub fn LinkHovered(self: ?*anyopaque, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
@@ -562,184 +876,320 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_LinkHovered(@ptrCast(self), url_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#linkHovered)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#linkHovered)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, url: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageurl: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LinkHovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectionChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn SelectionChanged(self: ?*anyopaque) void {
         qtc.QWebEnginePage_SelectionChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectionChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void `
+    ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#geometryChangeRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#geometryChangeRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, geom: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` geom: QtC.QRect `
+    ///
     pub fn GeometryChangeRequested(self: ?*anyopaque, geom: ?*anyopaque) void {
         qtc.QWebEnginePage_GeometryChangeRequested(@ptrCast(self), @ptrCast(geom));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#geometryChangeRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#geometryChangeRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, geom: QtC.QRect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagegeom: QtC.QRect) callconv(.c) void `
+    ///
     pub fn OnGeometryChangeRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_GeometryChangeRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#windowCloseRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#windowCloseRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn WindowCloseRequested(self: ?*anyopaque) void {
         qtc.QWebEnginePage_WindowCloseRequested(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#windowCloseRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#windowCloseRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void `
+    ///
     pub fn OnWindowCloseRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_WindowCloseRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` securityOrigin: QtC.QUrl `
+    ///
+    /// ` feature: qwebenginepage_enums.Feature `
+    ///
     pub fn FeaturePermissionRequested(self: ?*anyopaque, securityOrigin: ?*anyopaque, feature: i32) void {
         qtc.QWebEnginePage_FeaturePermissionRequested(@ptrCast(self), @ptrCast(securityOrigin), @intCast(feature));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagesecurityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void `
+    ///
     pub fn OnFeaturePermissionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FeaturePermissionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequestCanceled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequestCanceled)
     ///
-    /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` securityOrigin: QtC.QUrl `
+    ///
+    /// ` feature: qwebenginepage_enums.Feature `
+    ///
     pub fn FeaturePermissionRequestCanceled(self: ?*anyopaque, securityOrigin: ?*anyopaque, feature: i32) void {
         qtc.QWebEnginePage_FeaturePermissionRequestCanceled(@ptrCast(self), @ptrCast(securityOrigin), @intCast(feature));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequestCanceled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequestCanceled)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagesecurityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void `
+    ///
     pub fn OnFeaturePermissionRequestCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FeaturePermissionRequestCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fullScreenRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fullScreenRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, fullScreenRequest: QtC.QWebEngineFullScreenRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` fullScreenRequest: QtC.QWebEngineFullScreenRequest `
+    ///
     pub fn FullScreenRequested(self: ?*anyopaque, fullScreenRequest: QtC.QWebEngineFullScreenRequest) void {
         qtc.QWebEnginePage_FullScreenRequested(@ptrCast(self), @ptrCast(fullScreenRequest));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fullScreenRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fullScreenRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, fullScreenRequest: QtC.QWebEngineFullScreenRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagefullScreenRequest: QtC.QWebEngineFullScreenRequest) callconv(.c) void `
+    ///
     pub fn OnFullScreenRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineFullScreenRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FullScreenRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#permissionRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#permissionRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, permissionRequest: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` permissionRequest: QtC.QWebEnginePermission `
+    ///
     pub fn PermissionRequested(self: ?*anyopaque, permissionRequest: QtC.QWebEnginePermission) void {
         qtc.QWebEnginePage_PermissionRequested(@ptrCast(self), @ptrCast(permissionRequest));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#permissionRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#permissionRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, permissionRequest: QtC.QWebEnginePermission) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagepermissionRequest: QtC.QWebEnginePermission) callconv(.c) void `
+    ///
     pub fn OnPermissionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEnginePermission) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PermissionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#quotaRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#quotaRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, quotaRequest: QtC.QWebEngineQuotaRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` quotaRequest: QtC.QWebEngineQuotaRequest `
+    ///
     pub fn QuotaRequested(self: ?*anyopaque, quotaRequest: QtC.QWebEngineQuotaRequest) void {
         qtc.QWebEnginePage_QuotaRequested(@ptrCast(self), @ptrCast(quotaRequest));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#quotaRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#quotaRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, quotaRequest: QtC.QWebEngineQuotaRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagequotaRequest: QtC.QWebEngineQuotaRequest) callconv(.c) void `
+    ///
     pub fn OnQuotaRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineQuotaRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_QuotaRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#registerProtocolHandlerRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#registerProtocolHandlerRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineRegisterProtocolHandlerRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    ///
     pub fn RegisterProtocolHandlerRequested(self: ?*anyopaque, request: QtC.QWebEngineRegisterProtocolHandlerRequest) void {
         qtc.QWebEnginePage_RegisterProtocolHandlerRequested(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#registerProtocolHandlerRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#registerProtocolHandlerRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineRegisterProtocolHandlerRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineRegisterProtocolHandlerRequest) callconv(.c) void `
+    ///
     pub fn OnRegisterProtocolHandlerRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineRegisterProtocolHandlerRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RegisterProtocolHandlerRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fileSystemAccessRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fileSystemAccessRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineFileSystemAccessRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineFileSystemAccessRequest `
+    ///
     pub fn FileSystemAccessRequested(self: ?*anyopaque, request: QtC.QWebEngineFileSystemAccessRequest) void {
         qtc.QWebEnginePage_FileSystemAccessRequested(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fileSystemAccessRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#fileSystemAccessRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineFileSystemAccessRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineFileSystemAccessRequest) callconv(.c) void `
+    ///
     pub fn OnFileSystemAccessRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineFileSystemAccessRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FileSystemAccessRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectClientCertificate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectClientCertificate)
     ///
-    /// ``` self: QtC.QWebEnginePage, clientCertSelection: QtC.QWebEngineClientCertificateSelection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` clientCertSelection: QtC.QWebEngineClientCertificateSelection `
+    ///
     pub fn SelectClientCertificate(self: ?*anyopaque, clientCertSelection: QtC.QWebEngineClientCertificateSelection) void {
         qtc.QWebEnginePage_SelectClientCertificate(@ptrCast(self), @ptrCast(clientCertSelection));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectClientCertificate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#selectClientCertificate)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, clientCertSelection: QtC.QWebEngineClientCertificateSelection) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageclientCertSelection: QtC.QWebEngineClientCertificateSelection) callconv(.c) void `
+    ///
     pub fn OnSelectClientCertificate(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineClientCertificateSelection) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_SelectClientCertificate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#authenticationRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#authenticationRequired)
     ///
-    /// ``` self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` requestUrl: QtC.QUrl `
+    ///
+    /// ` authenticator: QtC.QAuthenticator `
+    ///
     pub fn AuthenticationRequired(self: ?*anyopaque, requestUrl: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QWebEnginePage_AuthenticationRequired(@ptrCast(self), @ptrCast(requestUrl), @ptrCast(authenticator));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#authenticationRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#authenticationRequired)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    ///
     pub fn OnAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_AuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#proxyAuthenticationRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#proxyAuthenticationRequired)
     ///
-    /// ``` self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` requestUrl: QtC.QUrl `
+    ///
+    /// ` authenticator: QtC.QAuthenticator `
+    ///
+    /// ` proxyHost: []const u8 `
+    ///
     pub fn ProxyAuthenticationRequired(self: ?*anyopaque, requestUrl: ?*anyopaque, authenticator: ?*anyopaque, proxyHost: []const u8) void {
         const proxyHost_str = qtc.libqt_string{
             .len = proxyHost.len,
@@ -748,86 +1198,148 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_ProxyAuthenticationRequired(@ptrCast(self), @ptrCast(requestUrl), @ptrCast(authenticator), proxyHost_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#proxyAuthenticationRequired)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#proxyAuthenticationRequired)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessTerminated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessTerminated)
     ///
-    /// ``` self: QtC.QWebEnginePage, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus `
+    ///
+    /// ` exitCode: i32 `
+    ///
     pub fn RenderProcessTerminated(self: ?*anyopaque, terminationStatus: i32, exitCode: i32) void {
         qtc.QWebEnginePage_RenderProcessTerminated(@ptrCast(self), @intCast(terminationStatus), @intCast(exitCode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessTerminated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessTerminated)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageterminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void `
+    ///
     pub fn OnRenderProcessTerminated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RenderProcessTerminated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#desktopMediaRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#desktopMediaRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineDesktopMediaRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineDesktopMediaRequest `
+    ///
     pub fn DesktopMediaRequested(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.QWebEnginePage_DesktopMediaRequested(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#desktopMediaRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#desktopMediaRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineDesktopMediaRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineDesktopMediaRequest) callconv(.c) void `
+    ///
     pub fn OnDesktopMediaRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_DesktopMediaRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#certificateError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#certificateError)
     ///
-    /// ``` self: QtC.QWebEnginePage, certificateError: QtC.QWebEngineCertificateError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` certificateError: QtC.QWebEngineCertificateError `
+    ///
     pub fn CertificateError(self: ?*anyopaque, certificateError: ?*anyopaque) void {
         qtc.QWebEnginePage_CertificateError(@ptrCast(self), @ptrCast(certificateError));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#certificateError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#certificateError)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, certificateError: QtC.QWebEngineCertificateError) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagecertificateError: QtC.QWebEngineCertificateError) callconv(.c) void `
+    ///
     pub fn OnCertificateError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_CertificateError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#navigationRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#navigationRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineNavigationRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineNavigationRequest `
+    ///
     pub fn NavigationRequested(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.QWebEnginePage_NavigationRequested(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#navigationRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#navigationRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineNavigationRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineNavigationRequest) callconv(.c) void `
+    ///
     pub fn OnNavigationRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_NavigationRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#newWindowRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#newWindowRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineNewWindowRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineNewWindowRequest `
+    ///
     pub fn NewWindowRequested(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.QWebEnginePage_NewWindowRequested(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#newWindowRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#newWindowRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineNewWindowRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineNewWindowRequest) callconv(.c) void `
+    ///
     pub fn OnNewWindowRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_NewWindowRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#titleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#titleChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, title: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` title: []const u8 `
+    ///
     pub fn TitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -836,142 +1348,244 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_TitleChanged(@ptrCast(self), title_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#titleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#titleChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, title: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagetitle: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#urlChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#urlChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn UrlChanged(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEnginePage_UrlChanged(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#urlChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#urlChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, url: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageurl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconUrlChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconUrlChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn IconUrlChanged(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEnginePage_IconUrlChanged(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconUrlChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconUrlChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, url: QtC.QUrl) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageurl: QtC.QUrl) callconv(.c) void `
+    ///
     pub fn OnIconUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_IconUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, icon: QtC.QIcon ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` icon: QtC.QIcon `
+    ///
     pub fn IconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWebEnginePage_IconChanged(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#iconChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, icon: QtC.QIcon) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageicon: QtC.QIcon) callconv(.c) void `
+    ///
     pub fn OnIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_IconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactorChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, factor: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` factor: f64 `
+    ///
     pub fn ZoomFactorChanged(self: ?*anyopaque, factor: f64) void {
         qtc.QWebEnginePage_ZoomFactorChanged(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactorChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactorChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, factor: f64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagefactor: f64) callconv(.c) void `
+    ///
     pub fn OnZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ZoomFactorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scrollPositionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scrollPositionChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, position: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` position: QtC.QPointF `
+    ///
     pub fn ScrollPositionChanged(self: ?*anyopaque, position: ?*anyopaque) void {
         qtc.QWebEnginePage_ScrollPositionChanged(@ptrCast(self), @ptrCast(position));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scrollPositionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scrollPositionChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, position: QtC.QPointF) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageposition: QtC.QPointF) callconv(.c) void `
+    ///
     pub fn OnScrollPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ScrollPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#contentsSizeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#contentsSizeChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, size: QtC.QSizeF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` size: QtC.QSizeF `
+    ///
     pub fn ContentsSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QWebEnginePage_ContentsSizeChanged(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#contentsSizeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#contentsSizeChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, size: QtC.QSizeF) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagesize: QtC.QSizeF) callconv(.c) void `
+    ///
     pub fn OnContentsSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ContentsSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#audioMutedChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#audioMutedChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, muted: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` muted: bool `
+    ///
     pub fn AudioMutedChanged(self: ?*anyopaque, muted: bool) void {
         qtc.QWebEnginePage_AudioMutedChanged(@ptrCast(self), muted);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#audioMutedChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#audioMutedChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, muted: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagemuted: bool) callconv(.c) void `
+    ///
     pub fn OnAudioMutedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_AudioMutedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recentlyAudibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recentlyAudibleChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, recentlyAudible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` recentlyAudible: bool `
+    ///
     pub fn RecentlyAudibleChanged(self: ?*anyopaque, recentlyAudible: bool) void {
         qtc.QWebEnginePage_RecentlyAudibleChanged(@ptrCast(self), recentlyAudible);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recentlyAudibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recentlyAudibleChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, recentlyAudible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerecentlyAudible: bool) callconv(.c) void `
+    ///
     pub fn OnRecentlyAudibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RecentlyAudibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessPidChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessPidChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, pid: i64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` pid: i64 `
+    ///
     pub fn RenderProcessPidChanged(self: ?*anyopaque, pid: i64) void {
         qtc.QWebEnginePage_RenderProcessPidChanged(@ptrCast(self), @intCast(pid));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessPidChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessPidChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, pid: i64) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagepid: i64) callconv(.c) void `
+    ///
     pub fn OnRenderProcessPidChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RenderProcessPidChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#pdfPrintingFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#pdfPrintingFinished)
     ///
-    /// ``` self: QtC.QWebEnginePage, filePath: []const u8, success: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` filePath: []const u8 `
+    ///
+    /// ` success: bool `
+    ///
     pub fn PdfPrintingFinished(self: ?*anyopaque, filePath: []const u8, success: bool) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -980,153 +1594,260 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_PdfPrintingFinished(@ptrCast(self), filePath_str, success);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#pdfPrintingFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#pdfPrintingFinished)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, filePath: [*:0]const u8, success: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagefilePath: [*:0]const u8, success: bool) callconv(.c) void `
+    ///
     pub fn OnPdfPrintingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PdfPrintingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn PrintRequested(self: ?*anyopaque) void {
         qtc.QWebEnginePage_PrintRequested(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void `
+    ///
     pub fn OnPrintRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PrintRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequestedByFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequestedByFrame)
     ///
-    /// ``` self: QtC.QWebEnginePage, frame: QtC.QWebEngineFrame ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` frame: QtC.QWebEngineFrame `
+    ///
     pub fn PrintRequestedByFrame(self: ?*anyopaque, frame: QtC.QWebEngineFrame) void {
         qtc.QWebEnginePage_PrintRequestedByFrame(@ptrCast(self), @ptrCast(frame));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequestedByFrame)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printRequestedByFrame)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, frame: QtC.QWebEngineFrame) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageframe: QtC.QWebEngineFrame) callconv(.c) void `
+    ///
     pub fn OnPrintRequestedByFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineFrame) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PrintRequestedByFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#visibleChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, visible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` visible: bool `
+    ///
     pub fn VisibleChanged(self: ?*anyopaque, visible: bool) void {
         qtc.QWebEnginePage_VisibleChanged(@ptrCast(self), visible);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#visibleChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#visibleChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, visible: bool) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagevisible: bool) callconv(.c) void `
+    ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleStateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleStateChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` state: qwebenginepage_enums.LifecycleState `
+    ///
     pub fn LifecycleStateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QWebEnginePage_LifecycleStateChanged(@ptrCast(self), @intCast(state));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleStateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleStateChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagestate: qwebenginepage_enums.LifecycleState) callconv(.c) void `
+    ///
     pub fn OnLifecycleStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LifecycleStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedStateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedStateChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` state: qwebenginepage_enums.LifecycleState `
+    ///
     pub fn RecommendedStateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QWebEnginePage_RecommendedStateChanged(@ptrCast(self), @intCast(state));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedStateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedStateChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagestate: qwebenginepage_enums.LifecycleState) callconv(.c) void `
+    ///
     pub fn OnRecommendedStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RecommendedStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findTextFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findTextFinished)
     ///
-    /// ``` self: QtC.QWebEnginePage, result: QtC.QWebEngineFindTextResult ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` result: QtC.QWebEngineFindTextResult `
+    ///
     pub fn FindTextFinished(self: ?*anyopaque, result: ?*anyopaque) void {
         qtc.QWebEnginePage_FindTextFinished(@ptrCast(self), @ptrCast(result));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findTextFinished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findTextFinished)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, result: QtC.QWebEngineFindTextResult) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageresult: QtC.QWebEngineFindTextResult) callconv(.c) void `
+    ///
     pub fn OnFindTextFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FindTextFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#_q_aboutToDelete)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#_q_aboutToDelete)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn QAboutToDelete(self: ?*anyopaque) void {
         qtc.QWebEnginePage_QAboutToDelete(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#_q_aboutToDelete)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#_q_aboutToDelete)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void `
+    ///
     pub fn OnQAboutToDelete(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_QAboutToDelete(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#webAuthUxRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#webAuthUxRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineWebAuthUxRequest ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` request: QtC.QWebEngineWebAuthUxRequest `
+    ///
     pub fn WebAuthUxRequested(self: ?*anyopaque, request: ?*anyopaque) void {
         qtc.QWebEnginePage_WebAuthUxRequested(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#webAuthUxRequested)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#webAuthUxRequested)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void `
+    ///
     pub fn OnWebAuthUxRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_WebAuthUxRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
     ///
-    /// ``` self: QtC.QWebEnginePage, typeVal: qwebenginepage_enums.WebWindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` typeVal: qwebenginepage_enums.WebWindowType `
+    ///
     pub fn CreateWindow(self: ?*anyopaque, typeVal: i32) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_CreateWindow(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, typeVal: qwebenginepage_enums.WebWindowType) callconv(.c) QtC.QWebEnginePage ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, typeVal: qwebenginepage_enums.WebWindowType) callconv(.c) QtC.QWebEnginePage `
+    ///
     pub fn OnCreateWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QWebEnginePage) void {
         qtc.QWebEnginePage_OnCreateWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, typeVal: qwebenginepage_enums.WebWindowType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` typeVal: qwebenginepage_enums.WebWindowType `
+    ///
     pub fn QBaseCreateWindow(self: ?*anyopaque, typeVal: i32) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_QBaseCreateWindow(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
     ///
-    /// ``` self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` mode: qwebenginepage_enums.FileSelectionMode `
+    ///
+    /// ` oldFiles: [][]const u8 `
+    ///
+    /// ` acceptedMimeTypes: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
@@ -1170,20 +1891,36 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [*][*:0]const u8, acceptedMimeTypes: [*][*:0]const u8) callconv(.c) [*][*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [*][*:0]const u8, acceptedMimeTypes: [*][*:0]const u8) callconv(.c) [*][*:0]const u8 `
+    ///
     pub fn OnChooseFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*][*:0]const u8, [*][*:0]const u8) callconv(.c) [*][*:0]const u8) void {
         qtc.QWebEnginePage_OnChooseFiles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` mode: qwebenginepage_enums.FileSelectionMode `
+    ///
+    /// ` oldFiles: [][]const u8 `
+    ///
+    /// ` acceptedMimeTypes: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
@@ -1227,9 +1964,16 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptAlert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptAlert)
     ///
-    /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` securityOrigin: QtC.QUrl `
+    ///
+    /// ` msg: []const u8 `
+    ///
     pub fn JavaScriptAlert(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
@@ -1238,20 +1982,32 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_JavaScriptAlert(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptAlert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptAlert)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnJavaScriptAlert(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_OnJavaScriptAlert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptAlert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptAlert)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` securityOrigin: QtC.QUrl `
+    ///
+    /// ` msg: []const u8 `
+    ///
     pub fn QBaseJavaScriptAlert(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
@@ -1260,9 +2016,16 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_QBaseJavaScriptAlert(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
     ///
-    /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` securityOrigin: QtC.QUrl `
+    ///
+    /// ` msg: []const u8 `
+    ///
     pub fn JavaScriptConfirm(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) bool {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
@@ -1271,20 +2034,32 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_JavaScriptConfirm(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: [*:0]const u8) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: [*:0]const u8) callconv(.c) bool `
+    ///
     pub fn OnJavaScriptConfirm(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QWebEnginePage_OnJavaScriptConfirm(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` securityOrigin: QtC.QUrl `
+    ///
+    /// ` msg: []const u8 `
+    ///
     pub fn QBaseJavaScriptConfirm(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) bool {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
@@ -1293,9 +2068,20 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_QBaseJavaScriptConfirm(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
     ///
-    /// ``` self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` level: qwebenginepage_enums.JavaScriptConsoleMessageLevel `
+    ///
+    /// ` message: []const u8 `
+    ///
+    /// ` lineNumber: i32 `
+    ///
+    /// ` sourceID: []const u8 `
+    ///
     pub fn JavaScriptConsoleMessage(self: ?*anyopaque, level: i32, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -1308,20 +2094,36 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_JavaScriptConsoleMessage(@ptrCast(self), @intCast(level), message_str, @intCast(lineNumber), sourceID_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: [*:0]const u8, lineNumber: i32, sourceID: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: [*:0]const u8, lineNumber: i32, sourceID: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnJavaScriptConsoleMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_OnJavaScriptConsoleMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` level: qwebenginepage_enums.JavaScriptConsoleMessageLevel `
+    ///
+    /// ` message: []const u8 `
+    ///
+    /// ` lineNumber: i32 `
+    ///
+    /// ` sourceID: []const u8 `
+    ///
     pub fn QBaseJavaScriptConsoleMessage(self: ?*anyopaque, level: i32, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -1334,34 +2136,64 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_QBaseJavaScriptConsoleMessage(@ptrCast(self), @intCast(level), message_str, @intCast(lineNumber), sourceID_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl, typeVal: qwebenginepage_enums.NavigationType, isMainFrame: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` typeVal: qwebenginepage_enums.NavigationType `
+    ///
+    /// ` isMainFrame: bool `
+    ///
     pub fn AcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i32, isMainFrame: bool) bool {
         return qtc.QWebEnginePage_AcceptNavigationRequest(@ptrCast(self), @ptrCast(url), @intCast(typeVal), isMainFrame);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, url: QtC.QUrl, typeVal: qwebenginepage_enums.NavigationType, isMainFrame: bool) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, url: QtC.QUrl, typeVal: qwebenginepage_enums.NavigationType, isMainFrame: bool) callconv(.c) bool `
+    ///
     pub fn OnAcceptNavigationRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, bool) callconv(.c) bool) void {
         qtc.QWebEnginePage_OnAcceptNavigationRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl, typeVal: qwebenginepage_enums.NavigationType, isMainFrame: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` typeVal: qwebenginepage_enums.NavigationType `
+    ///
+    /// ` isMainFrame: bool `
+    ///
     pub fn QBaseAcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i32, isMainFrame: bool) bool {
         return qtc.QWebEnginePage_QBaseAcceptNavigationRequest(@ptrCast(self), @ptrCast(url), @intCast(typeVal), isMainFrame);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1372,9 +2204,18 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -1385,9 +2226,16 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#download)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#download)
     ///
-    /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl, filename: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` filename: []const u8 `
+    ///
     pub fn Download2(self: ?*anyopaque, url: ?*anyopaque, filename: []const u8) void {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
@@ -1396,9 +2244,16 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_Download2(@ptrCast(self), @ptrCast(url), filename_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setHtml)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setHtml)
     ///
-    /// ``` self: QtC.QWebEnginePage, html: []const u8, baseUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` html: []const u8 `
+    ///
+    /// ` baseUrl: QtC.QUrl `
+    ///
     pub fn SetHtml2(self: ?*anyopaque, html: []const u8, baseUrl: ?*anyopaque) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
@@ -1407,9 +2262,16 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_SetHtml2(@ptrCast(self), html_str, @ptrCast(baseUrl));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setContent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setContent)
     ///
-    /// ``` self: QtC.QWebEnginePage, data: []u8, mimeType: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` mimeType: []const u8 `
+    ///
     pub fn SetContent2(self: ?*anyopaque, data: []u8, mimeType: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -1422,9 +2284,18 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_SetContent2(@ptrCast(self), data_str, mimeType_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setContent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setContent)
     ///
-    /// ``` self: QtC.QWebEnginePage, data: []u8, mimeType: []const u8, baseUrl: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ` mimeType: []const u8 `
+    ///
+    /// ` baseUrl: QtC.QUrl `
+    ///
     pub fn SetContent3(self: ?*anyopaque, data: []u8, mimeType: []const u8, baseUrl: ?*anyopaque) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -1437,16 +2308,30 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_SetContent3(@ptrCast(self), data_str, mimeType_str, @ptrCast(baseUrl));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setWebChannel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setWebChannel)
     ///
-    /// ``` self: QtC.QWebEnginePage, param1: QtC.QWebChannel, worldId: u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: QtC.QWebChannel `
+    ///
+    /// ` worldId: u32 `
+    ///
     pub fn SetWebChannel2(self: ?*anyopaque, param1: ?*anyopaque, worldId: u32) void {
         qtc.QWebEnginePage_SetWebChannel2(@ptrCast(self), @ptrCast(param1), @intCast(worldId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#save)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#save)
     ///
-    /// ``` self: QtC.QWebEnginePage, filePath: []const u8, format: qwebenginedownloadrequest_enums.SavePageFormat ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` filePath: []const u8 `
+    ///
+    /// ` format: qwebenginedownloadrequest_enums.SavePageFormat `
+    ///
     pub fn Save2(self: ?*anyopaque, filePath: []const u8, format: i32) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -1455,9 +2340,16 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_Save2(@ptrCast(self), filePath_str, @intCast(format));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printToPdf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printToPdf)
     ///
-    /// ``` self: QtC.QWebEnginePage, filePath: []const u8, layout: QtC.QPageLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` filePath: []const u8 `
+    ///
+    /// ` layout: QtC.QPageLayout `
+    ///
     pub fn PrintToPdf2(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -1466,9 +2358,18 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_PrintToPdf2(@ptrCast(self), filePath_str, @ptrCast(layout));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printToPdf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printToPdf)
     ///
-    /// ``` self: QtC.QWebEnginePage, filePath: []const u8, layout: QtC.QPageLayout, ranges: QtC.QPageRanges ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` filePath: []const u8 `
+    ///
+    /// ` layout: QtC.QPageLayout `
+    ///
+    /// ` ranges: QtC.QPageRanges `
+    ///
     pub fn PrintToPdf3(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque, ranges: ?*anyopaque) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
@@ -1479,9 +2380,14 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -1492,9 +2398,14 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QWebEnginePage, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1505,99 +2416,144 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QWebEnginePage, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QWebEnginePage, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QWebEnginePage, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QWebEnginePage, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QWebEnginePage, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1609,45 +2565,78 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QWebEnginePage, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QWebEnginePage, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QWebEnginePage, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QWebEnginePage, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1656,45 +2645,70 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QWebEnginePage, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1702,9 +2716,14 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QWebEnginePage, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1712,9 +2731,14 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1736,54 +2760,76 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QWebEnginePage, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1791,45 +2837,84 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QWebEnginePage, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QWebEnginePage, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QWebEnginePage, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1838,293 +2923,424 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEnginePage, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QWebEnginePage_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QWebEnginePage_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QWebEnginePage_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QWebEnginePage_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QWebEnginePage_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QWebEnginePage_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QWebEnginePage_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QWebEnginePage_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QWebEnginePage_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QWebEnginePage_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QWebEnginePage_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QWebEnginePage_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QWebEnginePage_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QWebEnginePage_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QWebEnginePage_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QWebEnginePage_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QWebEnginePage_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWebEnginePage_Receivers(@ptrCast(self), signal_Cstring);
@@ -2132,11 +3348,16 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWebEnginePage_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2144,70 +3365,98 @@ pub const qwebenginepage = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWebEnginePage_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QWebEnginePage_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QWebEnginePage_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage`
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QWebEnginePage_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWebEnginePage, callback: *const fn (self: QtC.QWebEnginePage, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` callback: *const fn (self: QtC.QWebEnginePageobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#dtor.QWebEnginePage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#dtor.QWebEnginePage)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEnginePage ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEnginePage_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebenginepage.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#public-types)
 pub const enums = struct {
     pub const WebAction = enum {
         pub const NoWebAction: i32 = -1;

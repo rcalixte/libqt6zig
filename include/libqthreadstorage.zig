@@ -1,48 +1,70 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://doc.qt.io/qt-6/qthreadstoragedata.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html)
 pub const qthreadstoragedata = struct {
     /// New constructs a new QThreadStorageData object.
     ///
-    /// ``` param1: QtC.QThreadStorageData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QThreadStorageData `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.QThreadStorageData {
         return qtc.QThreadStorageData_new(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#get)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#get)
     ///
-    /// ``` self: QtC.QThreadStorageData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QThreadStorageData `
+    ///
     pub fn Get(self: ?*anyopaque) ?*anyopaque {
         return qtc.QThreadStorageData_Get(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#set)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#set)
     ///
-    /// ``` self: QtC.QThreadStorageData, p: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QThreadStorageData `
+    ///
+    /// ` p: ?*anyopaque `
+    ///
     pub fn Set(self: ?*anyopaque, p: ?*anyopaque) ?*anyopaque {
         return qtc.QThreadStorageData_Set(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#id-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#id-var)
     ///
-    /// ``` self: QtC.QThreadStorageData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QThreadStorageData `
+    ///
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.QThreadStorageData_Id(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#id-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#id-var)
     ///
-    /// ``` self: QtC.QThreadStorageData, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QThreadStorageData `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetId(self: ?*anyopaque, id: i32) void {
         qtc.QThreadStorageData_SetId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#dtor.QThreadStorageData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadstoragedata.html#dtor.QThreadStorageData)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QThreadStorageData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QThreadStorageData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QThreadStorageData_Delete(@ptrCast(self));
     }

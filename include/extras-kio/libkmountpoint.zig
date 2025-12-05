@@ -3,25 +3,28 @@ const qtc = @import("qt6c");
 const kmountpoint_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kmountpoint.html
+/// ### [Upstream resources](https://api.kde.org/kmountpoint.html)
 pub const kmountpoint = struct {
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#possibleMountPoints)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#possibleMountPoints)
     ///
     pub fn PossibleMountPoints() QtC.KMountPoint__List {
         return qtc.KMountPoint_PossibleMountPoints();
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#currentMountPoints)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#currentMountPoints)
     ///
     pub fn CurrentMountPoints() QtC.KMountPoint__List {
         return qtc.KMountPoint_CurrentMountPoints();
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#mountedFrom)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#mountedFrom)
     ///
-    /// ``` self: QtC.KMountPoint, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MountedFrom(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KMountPoint_MountedFrom(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -30,23 +33,34 @@ pub const kmountpoint = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#isOnNetwork)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#isOnNetwork)
     ///
-    /// ``` self: QtC.KMountPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
     pub fn IsOnNetwork(self: ?*anyopaque) bool {
         return qtc.KMountPoint_IsOnNetwork(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#deviceId)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#deviceId)
     ///
-    /// ``` self: QtC.KMountPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
     pub fn DeviceId(self: ?*anyopaque) u32 {
         return @intCast(qtc.KMountPoint_DeviceId(@ptrCast(self)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#realDeviceName)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#realDeviceName)
     ///
-    /// ``` self: QtC.KMountPoint, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RealDeviceName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KMountPoint_RealDeviceName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -55,9 +69,14 @@ pub const kmountpoint = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#mountPoint)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#mountPoint)
     ///
-    /// ``` self: QtC.KMountPoint, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MountPoint(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KMountPoint_MountPoint(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -66,9 +85,14 @@ pub const kmountpoint = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#mountType)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#mountType)
     ///
-    /// ``` self: QtC.KMountPoint, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MountType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KMountPoint_MountType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -77,9 +101,14 @@ pub const kmountpoint = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#mountOptions)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#mountOptions)
     ///
-    /// ``` self: QtC.KMountPoint, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MountOptions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KMountPoint_MountOptions(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -99,39 +128,56 @@ pub const kmountpoint = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#probablySlow)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#probablySlow)
     ///
-    /// ``` self: QtC.KMountPoint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
     pub fn ProbablySlow(self: ?*anyopaque) bool {
         return qtc.KMountPoint_ProbablySlow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#testFileSystemFlag)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#testFileSystemFlag)
     ///
-    /// ``` self: QtC.KMountPoint, flag: kmountpoint_enums.FileSystemFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
+    /// ` flag: kmountpoint_enums.FileSystemFlag `
+    ///
     pub fn TestFileSystemFlag(self: ?*anyopaque, flag: i32) bool {
         return qtc.KMountPoint_TestFileSystemFlag(@ptrCast(self), @intCast(flag));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#possibleMountPoints)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#possibleMountPoints)
     ///
-    /// ``` infoNeeded: flag of kmountpoint_enums.DetailsNeededFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` infoNeeded: flag of kmountpoint_enums.DetailsNeededFlag `
+    ///
     pub fn PossibleMountPoints1(infoNeeded: i32) QtC.KMountPoint__List {
         return qtc.KMountPoint_PossibleMountPoints1(@intCast(infoNeeded));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#currentMountPoints)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#currentMountPoints)
     ///
-    /// ``` infoNeeded: flag of kmountpoint_enums.DetailsNeededFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` infoNeeded: flag of kmountpoint_enums.DetailsNeededFlag `
+    ///
     pub fn CurrentMountPoints1(infoNeeded: i32) QtC.KMountPoint__List {
         return qtc.KMountPoint_CurrentMountPoints1(@intCast(infoNeeded));
     }
 
-    /// [Upstream resources](https://api.kde.org/kmountpoint.html#dtor.KMountPoint)
+    /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#dtor.KMountPoint)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KMountPoint ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KMountPoint `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KMountPoint_Delete(@ptrCast(self));
     }
@@ -139,10 +185,9 @@ pub const kmountpoint = struct {
 
 // Also inherits unprojectable QList<Ptr>
 
-/// https://api.kde.org/kmountpoint-list.html
+/// ### [Upstream resources](https://api.kde.org/kmountpoint-list.html)
 pub const kmountpoint__list = struct {
     /// New constructs a new KMountPoint::List object.
-    ///
     ///
     pub fn New() QtC.KMountPoint__List {
         return qtc.KMountPoint__List_new();
@@ -150,13 +195,16 @@ pub const kmountpoint__list = struct {
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KMountPoint__List ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KMountPoint__List `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KMountPoint__List_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kmountpoint.html#types
+/// ### [Upstream resources](https://api.kde.org/kmountpoint.html#public-types)
 pub const enums = struct {
     pub const DetailsNeededFlag = enum {
         pub const BasicInfoNeeded: i32 = 0;

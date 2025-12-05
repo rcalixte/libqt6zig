@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const kcolorcollection_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kcolorcollection.html
+/// ### [Upstream resources](https://api.kde.org/kcolorcollection.html)
 pub const kcolorcollection = struct {
     /// New constructs a new KColorCollection object.
-    ///
     ///
     pub fn New() QtC.KColorCollection {
         return qtc.KColorCollection_new();
@@ -14,14 +13,20 @@ pub const kcolorcollection = struct {
 
     /// New2 constructs a new KColorCollection object.
     ///
-    /// ``` param1: QtC.KColorCollection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KColorCollection `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.KColorCollection {
         return qtc.KColorCollection_new2(@ptrCast(param1));
     }
 
     /// New3 constructs a new KColorCollection object.
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn New3(name: []const u8) QtC.KColorCollection {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -31,9 +36,12 @@ pub const kcolorcollection = struct {
         return qtc.KColorCollection_new3(name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#installedCollections)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#installedCollections)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn InstalledCollections(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KColorCollection_InstalledCollections();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -53,23 +61,36 @@ pub const kcolorcollection = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#operator-eq)
     ///
-    /// ``` self: QtC.KColorCollection, param1: QtC.KColorCollection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` param1: QtC.KColorCollection `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KColorCollection_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#save)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#save)
     ///
-    /// ``` self: QtC.KColorCollection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
     pub fn Save(self: ?*anyopaque) bool {
         return qtc.KColorCollection_Save(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#description)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#description)
     ///
-    /// ``` self: QtC.KColorCollection, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KColorCollection_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -78,9 +99,14 @@ pub const kcolorcollection = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#setDescription)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#setDescription)
     ///
-    /// ``` self: QtC.KColorCollection, desc: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` desc: []const u8 `
+    ///
     pub fn SetDescription(self: ?*anyopaque, desc: []const u8) void {
         const desc_str = qtc.libqt_string{
             .len = desc.len,
@@ -89,9 +115,14 @@ pub const kcolorcollection = struct {
         qtc.KColorCollection_SetDescription(@ptrCast(self), desc_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#name)
     ///
-    /// ``` self: QtC.KColorCollection, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KColorCollection_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -100,9 +131,14 @@ pub const kcolorcollection = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#setName)
     ///
-    /// ``` self: QtC.KColorCollection, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -111,46 +147,76 @@ pub const kcolorcollection = struct {
         qtc.KColorCollection_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#editable)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#editable)
     ///
-    /// ``` self: QtC.KColorCollection ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kcolorcollection_enums.Editable ```
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kcolorcollection_enums.Editable `
+    ///
     pub fn Editable(self: ?*anyopaque) i32 {
         return qtc.KColorCollection_Editable(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#setEditable)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#setEditable)
     ///
-    /// ``` self: QtC.KColorCollection, editable: kcolorcollection_enums.Editable ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` editable: kcolorcollection_enums.Editable `
+    ///
     pub fn SetEditable(self: ?*anyopaque, editable: i32) void {
         qtc.KColorCollection_SetEditable(@ptrCast(self), @intCast(editable));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#count)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#count)
     ///
-    /// ``` self: QtC.KColorCollection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.KColorCollection_Count(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#color)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#color)
     ///
-    /// ``` self: QtC.KColorCollection, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn Color(self: ?*anyopaque, index: i32) QtC.QColor {
         return qtc.KColorCollection_Color(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#findColor)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#findColor)
     ///
-    /// ``` self: QtC.KColorCollection, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn FindColor(self: ?*anyopaque, color: ?*anyopaque) i32 {
         return qtc.KColorCollection_FindColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#name)
     ///
-    /// ``` self: QtC.KColorCollection, index: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name2(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KColorCollection_Name2(@ptrCast(self), @intCast(index));
         defer qtc.libqt_string_free(&_str);
@@ -159,9 +225,16 @@ pub const kcolorcollection = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#name)
     ///
-    /// ``` self: QtC.KColorCollection, color: QtC.QColor, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` color: QtC.QColor `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name3(self: ?*anyopaque, color: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KColorCollection_Name3(@ptrCast(self), @ptrCast(color));
         defer qtc.libqt_string_free(&_str);
@@ -170,30 +243,56 @@ pub const kcolorcollection = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#addColor)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#addColor)
     ///
-    /// ``` self: QtC.KColorCollection, newColor: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` newColor: QtC.QColor `
+    ///
     pub fn AddColor(self: ?*anyopaque, newColor: ?*anyopaque) i32 {
         return qtc.KColorCollection_AddColor(@ptrCast(self), @ptrCast(newColor));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
     ///
-    /// ``` self: QtC.KColorCollection, index: i32, newColor: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` newColor: QtC.QColor `
+    ///
     pub fn ChangeColor(self: ?*anyopaque, index: i32, newColor: ?*anyopaque) i32 {
         return qtc.KColorCollection_ChangeColor(@ptrCast(self), @intCast(index), @ptrCast(newColor));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
     ///
-    /// ``` self: QtC.KColorCollection, oldColor: QtC.QColor, newColor: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` oldColor: QtC.QColor `
+    ///
+    /// ` newColor: QtC.QColor `
+    ///
     pub fn ChangeColor2(self: ?*anyopaque, oldColor: ?*anyopaque, newColor: ?*anyopaque) i32 {
         return qtc.KColorCollection_ChangeColor2(@ptrCast(self), @ptrCast(oldColor), @ptrCast(newColor));
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#addColor)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#addColor)
     ///
-    /// ``` self: QtC.KColorCollection, newColor: QtC.QColor, newColorName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` newColor: QtC.QColor `
+    ///
+    /// ` newColorName: []const u8 `
+    ///
     pub fn AddColor2(self: ?*anyopaque, newColor: ?*anyopaque, newColorName: []const u8) i32 {
         const newColorName_str = qtc.libqt_string{
             .len = newColorName.len,
@@ -202,9 +301,18 @@ pub const kcolorcollection = struct {
         return qtc.KColorCollection_AddColor2(@ptrCast(self), @ptrCast(newColor), newColorName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
     ///
-    /// ``` self: QtC.KColorCollection, index: i32, newColor: QtC.QColor, newColorName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` newColor: QtC.QColor `
+    ///
+    /// ` newColorName: []const u8 `
+    ///
     pub fn ChangeColor3(self: ?*anyopaque, index: i32, newColor: ?*anyopaque, newColorName: []const u8) i32 {
         const newColorName_str = qtc.libqt_string{
             .len = newColorName.len,
@@ -213,9 +321,18 @@ pub const kcolorcollection = struct {
         return qtc.KColorCollection_ChangeColor3(@ptrCast(self), @intCast(index), @ptrCast(newColor), newColorName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
     ///
-    /// ``` self: QtC.KColorCollection, oldColor: QtC.QColor, newColor: QtC.QColor, newColorName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
+    /// ` oldColor: QtC.QColor `
+    ///
+    /// ` newColor: QtC.QColor `
+    ///
+    /// ` newColorName: []const u8 `
+    ///
     pub fn ChangeColor32(self: ?*anyopaque, oldColor: ?*anyopaque, newColor: ?*anyopaque, newColorName: []const u8) i32 {
         const newColorName_str = qtc.libqt_string{
             .len = newColorName.len,
@@ -224,17 +341,20 @@ pub const kcolorcollection = struct {
         return qtc.KColorCollection_ChangeColor32(@ptrCast(self), @ptrCast(oldColor), @ptrCast(newColor), newColorName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kcolorcollection.html#dtor.KColorCollection)
+    /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#dtor.KColorCollection)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KColorCollection ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KColorCollection `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KColorCollection_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kcolorcollection.html#types
+/// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#public-types)
 pub const enums = struct {
     pub const Editable = enum {
         pub const Yes: i32 = 0;

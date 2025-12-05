@@ -4,11 +4,18 @@ const kurlmimedata_enums = enums;
 const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
-/// https://api.kde.org/kurlmimedata.html
+/// ### [Upstream resources](https://api.kde.org/kurlmimedata.html)
 pub const kurlmimedata = struct {
-    /// [Upstream resources](https://api.kde.org/kurlmimedata.html#setUrls)
+    /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#setUrls)
     ///
-    /// ``` param1: []QtC.QUrl, param2: []QtC.QUrl, param3: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []QtC.QUrl `
+    ///
+    /// ` param2: []QtC.QUrl `
+    ///
+    /// ` param3: QtC.QMimeData `
+    ///
     pub fn SetUrls(param1: []QtC.QUrl, param2: []QtC.QUrl, param3: ?*anyopaque) void {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
@@ -21,16 +28,26 @@ pub const kurlmimedata = struct {
         qtc.KUrlMimeData_SetUrls(param1_list, param2_list, @ptrCast(param3));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurlmimedata.html#exportUrlsToPortal)
+    /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#exportUrlsToPortal)
     ///
-    /// ``` param1: QtC.QMimeData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMimeData `
+    ///
     pub fn ExportUrlsToPortal(param1: ?*anyopaque) bool {
         return qtc.KUrlMimeData_ExportUrlsToPortal(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurlmimedata.html#setMetaData)
+    /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#setMetaData)
     ///
-    /// ``` param1: map_constu8_constu8, param2: QtC.QMimeData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: map_constu8_constu8 `
+    ///
+    /// ` param2: QtC.QMimeData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetMetaData(param1: map_constu8_constu8, param2: ?*anyopaque, allocator: std.mem.Allocator) void {
         const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -55,9 +72,12 @@ pub const kurlmimedata = struct {
         qtc.KUrlMimeData_SetMetaData(param1_map, @ptrCast(param2));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurlmimedata.html#mimeDataTypes)
+    /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#mimeDataTypes)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn MimeDataTypes(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlMimeData_MimeDataTypes();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -77,9 +97,18 @@ pub const kurlmimedata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurlmimedata.html#urlsFromMimeData)
+    /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#urlsFromMimeData)
     ///
-    /// ``` param1: QtC.QMimeData, param2: flag of kurlmimedata_enums.DecodeOption, param3: *map_constu8_constu8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMimeData `
+    ///
+    /// ` param2: flag of kurlmimedata_enums.DecodeOption `
+    ///
+    /// ` param3: *map_constu8_constu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: *map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
         const param3_keys = allocator.alloc(qtc.libqt_string, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(param3_keys);
@@ -110,7 +139,7 @@ pub const kurlmimedata = struct {
     }
 };
 
-/// https://api.kde.org/kurlmimedata.html#types
+/// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#public-types)
 pub const enums = struct {
     pub const DecodeOption = enum {
         pub const PreferKdeUrls: i32 = 0;

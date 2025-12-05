@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qwebenginepermission_enums = enums;
 
-/// https://doc.qt.io/qt-6/qwebenginepermission.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html)
 pub const qwebenginepermission = struct {
     /// New constructs a new QWebEnginePermission object.
-    ///
     ///
     pub fn New() QtC.QWebEnginePermission {
         return qtc.QWebEnginePermission_new();
@@ -13,96 +12,140 @@ pub const qwebenginepermission = struct {
 
     /// New2 constructs a new QWebEnginePermission object.
     ///
-    /// ``` other: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QWebEnginePermission `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.QWebEnginePermission {
         return qtc.QWebEnginePermission_new2(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#operator-eq)
     ///
-    /// ``` self: QtC.QWebEnginePermission, other: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
+    /// ` other: QtC.QWebEnginePermission `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEnginePermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#swap)
     ///
-    /// ``` self: QtC.QWebEnginePermission, other: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
+    /// ` other: QtC.QWebEnginePermission `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEnginePermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#origin)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#origin)
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
     pub fn Origin(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEnginePermission_Origin(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#permissionType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#permissionType)
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginepermission_enums.PermissionType ```
+    /// ` self: QtC.QWebEnginePermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginepermission_enums.PermissionType `
+    ///
     pub fn PermissionType(self: ?*anyopaque) u8 {
         return qtc.QWebEnginePermission_PermissionType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#state)
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebenginepermission_enums.State ```
+    /// ` self: QtC.QWebEnginePermission `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebenginepermission_enums.State `
+    ///
     pub fn State(self: ?*anyopaque) u8 {
         return qtc.QWebEnginePermission_State(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isValid)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isValid)
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QWebEnginePermission_IsValid(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#grant)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#grant)
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
     pub fn Grant(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Grant(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#deny)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#deny)
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
     pub fn Deny(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Deny(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#reset)
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Reset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isPersistent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isPersistent)
     ///
-    /// ``` permissionType: qwebenginepermission_enums.PermissionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` permissionType: qwebenginepermission_enums.PermissionType `
+    ///
     pub fn IsPersistent(permissionType: u8) bool {
         return qtc.QWebEnginePermission_IsPersistent(@intCast(permissionType));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#dtor.QWebEnginePermission)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#dtor.QWebEnginePermission)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEnginePermission ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEnginePermission `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebenginepermission.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#public-types)
 pub const enums = struct {
     pub const PermissionType = enum {
         pub const Unsupported: u8 = 0;

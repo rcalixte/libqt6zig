@@ -5,17 +5,21 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/klinkitemselectionmodel.html
+/// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html)
 pub const klinkitemselectionmodel = struct {
     /// New constructs a new KLinkItemSelectionModel object.
     ///
-    /// ``` targetModel: QtC.QAbstractItemModel, linkedItemSelectionModel: QtC.QItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` targetModel: QtC.QAbstractItemModel `
+    ///
+    /// ` linkedItemSelectionModel: QtC.QItemSelectionModel `
+    ///
     pub fn New(targetModel: ?*anyopaque, linkedItemSelectionModel: ?*anyopaque) QtC.KLinkItemSelectionModel {
         return qtc.KLinkItemSelectionModel_new(@ptrCast(targetModel), @ptrCast(linkedItemSelectionModel));
     }
 
     /// New2 constructs a new KLinkItemSelectionModel object.
-    ///
     ///
     pub fn New2() QtC.KLinkItemSelectionModel {
         return qtc.KLinkItemSelectionModel_new2();
@@ -23,53 +27,99 @@ pub const klinkitemselectionmodel = struct {
 
     /// New3 constructs a new KLinkItemSelectionModel object.
     ///
-    /// ``` targetModel: QtC.QAbstractItemModel, linkedItemSelectionModel: QtC.QItemSelectionModel, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` targetModel: QtC.QAbstractItemModel `
+    ///
+    /// ` linkedItemSelectionModel: QtC.QItemSelectionModel `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New3(targetModel: ?*anyopaque, linkedItemSelectionModel: ?*anyopaque, parent: ?*anyopaque) QtC.KLinkItemSelectionModel {
         return qtc.KLinkItemSelectionModel_new3(@ptrCast(targetModel), @ptrCast(linkedItemSelectionModel), @ptrCast(parent));
     }
 
     /// New4 constructs a new KLinkItemSelectionModel object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New4(parent: ?*anyopaque) QtC.KLinkItemSelectionModel {
         return qtc.KLinkItemSelectionModel_new4(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KLinkItemSelectionModel_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KLinkItemSelectionModel, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KLinkItemSelectionModel_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KLinkItemSelectionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KLinkItemSelectionModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KLinkItemSelectionModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KLinkItemSelectionModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -79,87 +129,148 @@ pub const klinkitemselectionmodel = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModel)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModel)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn LinkedItemSelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
         return qtc.KLinkItemSelectionModel_LinkedItemSelectionModel(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#setLinkedItemSelectionModel)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#setLinkedItemSelectionModel)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, selectionModel: QtC.QItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` selectionModel: QtC.QItemSelectionModel `
+    ///
     pub fn SetLinkedItemSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_SetLinkedItemSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
+    ///
     pub fn Select(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_Select(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
+    ///
     pub fn OnSelect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnSelect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
+    ///
     pub fn QBaseSelect(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_QBaseSelect(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` selection: QtC.QItemSelection `
+    ///
+    /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
+    ///
     pub fn Select2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_Select2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
+    ///
     pub fn OnSelect2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnSelect2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` selection: QtC.QItemSelection `
+    ///
+    /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
+    ///
     pub fn QBaseSelect2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_QBaseSelect2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn LinkedItemSelectionModelChanged(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_LinkedItemSelectionModelChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel) callconv(.c) void `
+    ///
     pub fn OnLinkedItemSelectionModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_Connect_LinkedItemSelectionModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -170,9 +281,18 @@ pub const klinkitemselectionmodel = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -185,72 +305,108 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentIndex)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QItemSelectionModel_CurrentIndex(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isSelected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isSelected)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn IsSelected(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QItemSelectionModel_IsSelected(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, row: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` row: i32 `
+    ///
     pub fn IsRowSelected(self: ?*anyopaque, row: i32) bool {
         return qtc.QItemSelectionModel_IsRowSelected(@ptrCast(self), @intCast(row));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn IsColumnSelected(self: ?*anyopaque, column: i32) bool {
         return qtc.QItemSelectionModel_IsColumnSelected(@ptrCast(self), @intCast(column));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, row: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` row: i32 `
+    ///
     pub fn RowIntersectsSelection(self: ?*anyopaque, row: i32) bool {
         return qtc.QItemSelectionModel_RowIntersectsSelection(@ptrCast(self), @intCast(row));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn ColumnIntersectsSelection(self: ?*anyopaque, column: i32) bool {
         return qtc.QItemSelectionModel_ColumnIntersectsSelection(@ptrCast(self), @intCast(column));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#hasSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#hasSelection)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn HasSelection(self: ?*anyopaque) bool {
         return qtc.QItemSelectionModel_HasSelection(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedIndexes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedIndexes)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -262,9 +418,14 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectedRows(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -276,9 +437,14 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectedColumns(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -290,180 +456,290 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selection)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Selection(self: ?*anyopaque) QtC.QItemSelection {
         return qtc.QItemSelectionModel_Selection(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QItemSelectionModel_Model(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Model2(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QItemSelectionModel_Model2(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setModel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setModel)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, model: QtC.QAbstractItemModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.QItemSelectionModel_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearSelection)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn ClearSelection(self: ?*anyopaque) void {
         qtc.QItemSelectionModel_ClearSelection(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, selected: QtC.QItemSelection, deselected: QtC.QItemSelection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` selected: QtC.QItemSelection `
+    ///
+    /// ` deselected: QtC.QItemSelection `
+    ///
     pub fn SelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
         qtc.QItemSelectionModel_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModelselected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
+    ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` current: QtC.QModelIndex `
+    ///
+    /// ` previous: QtC.QModelIndex `
+    ///
     pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.QItemSelectionModel_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModelcurrent: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` current: QtC.QModelIndex `
+    ///
+    /// ` previous: QtC.QModelIndex `
+    ///
     pub fn CurrentRowChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.QItemSelectionModel_CurrentRowChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModelcurrent: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnCurrentRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` current: QtC.QModelIndex `
+    ///
+    /// ` previous: QtC.QModelIndex `
+    ///
     pub fn CurrentColumnChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.QItemSelectionModel_CurrentColumnChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModelcurrent: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnCurrentColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, model: QtC.QAbstractItemModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
     pub fn ModelChanged(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.QItemSelectionModel_ModelChanged(@ptrCast(self), @ptrCast(model));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, model: QtC.QAbstractItemModel) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModelmodel: QtC.QAbstractItemModel) callconv(.c) void `
+    ///
     pub fn OnModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_ModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, row: i32, parent: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` parent: QtC.QModelIndex `
+    ///
     pub fn IsRowSelected2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
         return qtc.QItemSelectionModel_IsRowSelected2(@ptrCast(self), @intCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, column: i32, parent: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` parent: QtC.QModelIndex `
+    ///
     pub fn IsColumnSelected2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
         return qtc.QItemSelectionModel_IsColumnSelected2(@ptrCast(self), @intCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, row: i32, parent: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` parent: QtC.QModelIndex `
+    ///
     pub fn RowIntersectsSelection2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
         return qtc.QItemSelectionModel_RowIntersectsSelection2(@ptrCast(self), @intCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, column: i32, parent: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` parent: QtC.QModelIndex `
+    ///
     pub fn ColumnIntersectsSelection2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
         return qtc.QItemSelectionModel_ColumnIntersectsSelection2(@ptrCast(self), @intCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, column: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectedRows1(self: ?*anyopaque, column: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows1(@ptrCast(self), @intCast(column));
         defer qtc.libqt_free(_arr.data);
@@ -475,9 +751,16 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, row: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SelectedColumns1(self: ?*anyopaque, row: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns1(@ptrCast(self), @intCast(row));
         defer qtc.libqt_free(_arr.data);
@@ -489,9 +772,14 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -502,9 +790,14 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -515,99 +808,144 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -619,45 +957,78 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -666,45 +1037,70 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -712,9 +1108,14 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -722,9 +1123,14 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -746,54 +1152,76 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -801,45 +1229,84 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -848,491 +1315,708 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModelparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
+    ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_SetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
+    ///
     pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_QBaseSetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
+    ///
     pub fn OnSetCurrentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnSetCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_Clear(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn QBaseClear(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseClear(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Reset(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_Reset(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn QBaseReset(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseReset(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn ClearCurrentIndex(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_ClearCurrentIndex(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn QBaseClearCurrentIndex(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseClearCurrentIndex(@ptrCast(self));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnClearCurrentIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnClearCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KLinkItemSelectionModel_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KLinkItemSelectionModel_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KLinkItemSelectionModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KLinkItemSelectionModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KLinkItemSelectionModel_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KLinkItemSelectionModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, newSelection: QtC.QItemSelection, oldSelection: QtC.QItemSelection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` newSelection: QtC.QItemSelection `
+    ///
+    /// ` oldSelection: QtC.QItemSelection `
+    ///
     pub fn EmitSelectionChanged(self: ?*anyopaque, newSelection: ?*anyopaque, oldSelection: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_EmitSelectionChanged(@ptrCast(self), @ptrCast(newSelection), @ptrCast(oldSelection));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, newSelection: QtC.QItemSelection, oldSelection: QtC.QItemSelection ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` newSelection: QtC.QItemSelection `
+    ///
+    /// ` oldSelection: QtC.QItemSelection `
+    ///
     pub fn QBaseEmitSelectionChanged(self: ?*anyopaque, newSelection: ?*anyopaque, oldSelection: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_QBaseEmitSelectionChanged(@ptrCast(self), @ptrCast(newSelection), @ptrCast(oldSelection));
     }
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, newSelection: QtC.QItemSelection, oldSelection: QtC.QItemSelection) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, newSelection: QtC.QItemSelection, oldSelection: QtC.QItemSelection) callconv(.c) void `
+    ///
     pub fn OnEmitSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_OnEmitSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KLinkItemSelectionModel_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KLinkItemSelectionModel_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KLinkItemSelectionModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KLinkItemSelectionModel_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KLinkItemSelectionModel_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KLinkItemSelectionModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KLinkItemSelectionModel_Receivers(@ptrCast(self), signal_Cstring);
@@ -1340,11 +2024,16 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KLinkItemSelectionModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1352,64 +2041,92 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KLinkItemSelectionModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KLinkItemSelectionModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KLinkItemSelectionModel_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KLinkItemSelectionModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
+    /// ` callback: *const fn (self: QtC.KLinkItemSelectionModelobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#dtor.KLinkItemSelectionModel)
+    /// ### [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#dtor.KLinkItemSelectionModel)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KLinkItemSelectionModel ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KLinkItemSelectionModel `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_Delete(@ptrCast(self));
     }

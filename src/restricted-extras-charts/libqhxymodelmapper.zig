@@ -4,10 +4,9 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html)
 pub const qhxymodelmapper = struct {
     /// New constructs a new QHXYModelMapper object.
-    ///
     ///
     pub fn New() QtC.QHXYModelMapper {
         return qtc.QHXYModelMapper_new();
@@ -15,46 +14,85 @@ pub const qhxymodelmapper = struct {
 
     /// New2 constructs a new QHXYModelMapper object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QHXYModelMapper {
         return qtc.QHXYModelMapper_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QHXYModelMapper_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QHXYModelMapper, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QHXYModelMapper_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QHXYModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QHXYModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -64,177 +102,280 @@ pub const qhxymodelmapper = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#model)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#model)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QHXYModelMapper_Model(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setModel)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setModel)
     ///
-    /// ``` self: QtC.QHXYModelMapper, model: QtC.QAbstractItemModel ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.QHXYModelMapper_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#series)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#series)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn Series(self: ?*anyopaque) QtC.QXYSeries {
         return qtc.QHXYModelMapper_Series(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setSeries)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setSeries)
     ///
-    /// ``` self: QtC.QHXYModelMapper, series: QtC.QXYSeries ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` series: QtC.QXYSeries `
+    ///
     pub fn SetSeries(self: ?*anyopaque, series: ?*anyopaque) void {
         qtc.QHXYModelMapper_SetSeries(@ptrCast(self), @ptrCast(series));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#xRow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#xRow)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn XRow(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_XRow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setXRow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setXRow)
     ///
-    /// ``` self: QtC.QHXYModelMapper, xRow: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` xRow: i32 `
+    ///
     pub fn SetXRow(self: ?*anyopaque, xRow: i32) void {
         qtc.QHXYModelMapper_SetXRow(@ptrCast(self), @intCast(xRow));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#yRow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#yRow)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn YRow(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_YRow(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setYRow)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setYRow)
     ///
-    /// ``` self: QtC.QHXYModelMapper, yRow: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` yRow: i32 `
+    ///
     pub fn SetYRow(self: ?*anyopaque, yRow: i32) void {
         qtc.QHXYModelMapper_SetYRow(@ptrCast(self), @intCast(yRow));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#firstColumn)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#firstColumn)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn FirstColumn(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_FirstColumn(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setFirstColumn)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setFirstColumn)
     ///
-    /// ``` self: QtC.QHXYModelMapper, firstColumn: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` firstColumn: i32 `
+    ///
     pub fn SetFirstColumn(self: ?*anyopaque, firstColumn: i32) void {
         qtc.QHXYModelMapper_SetFirstColumn(@ptrCast(self), @intCast(firstColumn));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#columnCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#columnCount)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn ColumnCount(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_ColumnCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setColumnCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#setColumnCount)
     ///
-    /// ``` self: QtC.QHXYModelMapper, columnCount: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` columnCount: i32 `
+    ///
     pub fn SetColumnCount(self: ?*anyopaque, columnCount: i32) void {
         qtc.QHXYModelMapper_SetColumnCount(@ptrCast(self), @intCast(columnCount));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#seriesReplaced)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#seriesReplaced)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn SeriesReplaced(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_SeriesReplaced(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#seriesReplaced)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#seriesReplaced)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void `
+    ///
     pub fn OnSeriesReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_Connect_SeriesReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#modelReplaced)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#modelReplaced)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn ModelReplaced(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_ModelReplaced(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#modelReplaced)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#modelReplaced)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void `
+    ///
     pub fn OnModelReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_Connect_ModelReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#xRowChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#xRowChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn XRowChanged(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_XRowChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#xRowChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#xRowChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void `
+    ///
     pub fn OnXRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_Connect_XRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#yRowChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#yRowChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn YRowChanged(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_YRowChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#yRowChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#yRowChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void `
+    ///
     pub fn OnYRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_Connect_YRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#firstColumnChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#firstColumnChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn FirstColumnChanged(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_FirstColumnChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#firstColumnChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#firstColumnChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void `
+    ///
     pub fn OnFirstColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_Connect_FirstColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#columnCountChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#columnCountChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn ColumnCountChanged(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_ColumnCountChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#columnCountChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#columnCountChanged)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void `
+    ///
     pub fn OnColumnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_Connect_ColumnCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -245,9 +386,18 @@ pub const qhxymodelmapper = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -260,9 +410,14 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QHXYModelMapper, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -273,9 +428,14 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QHXYModelMapper, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -286,99 +446,144 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QHXYModelMapper, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QHXYModelMapper, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QHXYModelMapper, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QHXYModelMapper, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QHXYModelMapper, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QHXYModelMapper, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -390,45 +595,78 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QHXYModelMapper, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QHXYModelMapper, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QHXYModelMapper, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QHXYModelMapper, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -437,45 +675,70 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QHXYModelMapper, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -483,9 +746,14 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QHXYModelMapper, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -493,9 +761,14 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QHXYModelMapper, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -517,54 +790,76 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QHXYModelMapper, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -572,45 +867,84 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QHXYModelMapper, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QHXYModelMapper, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QHXYModelMapper, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -619,660 +953,940 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHXYModelMapper, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapperparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHXYModelMapper_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHXYModelMapper_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QHXYModelMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHXYModelMapper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QHXYModelMapper_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QHXYModelMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHXYModelMapper_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHXYModelMapper_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHXYModelMapper_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHXYModelMapper_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHXYModelMapper_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QHXYModelMapper_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHXYModelMapper_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHXYModelMapper_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHXYModelMapper_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QHXYModelMapper_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn First(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_First(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn QBaseFirst(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_QBaseFirst(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnFirst(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, first: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` first: i32 `
+    ///
     pub fn SetFirst(self: ?*anyopaque, first: i32) void {
         qtc.QHXYModelMapper_SetFirst(@ptrCast(self), @intCast(first));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, first: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` first: i32 `
+    ///
     pub fn QBaseSetFirst(self: ?*anyopaque, first: i32) void {
         qtc.QHXYModelMapper_QBaseSetFirst(@ptrCast(self), @intCast(first));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, first: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, first: i32) callconv(.c) void `
+    ///
     pub fn OnSetFirst(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnSetFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_Count(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn QBaseCount(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_QBaseCount(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn SetCount(self: ?*anyopaque, count: i32) void {
         qtc.QHXYModelMapper_SetCount(@ptrCast(self), @intCast(count));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn QBaseSetCount(self: ?*anyopaque, count: i32) void {
         qtc.QHXYModelMapper_QBaseSetCount(@ptrCast(self), @intCast(count));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, count: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, count: i32) callconv(.c) void `
+    ///
     pub fn OnSetCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnSetCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.Orientation ```
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.Orientation `
+    ///
     pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_Orientation(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.Orientation ```
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.Orientation `
+    ///
     pub fn QBaseOrientation(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_QBaseOrientation(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnOrientation(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, orientation: qnamespace_enums.Orientation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` orientation: qnamespace_enums.Orientation `
+    ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QHXYModelMapper_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, orientation: qnamespace_enums.Orientation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` orientation: qnamespace_enums.Orientation `
+    ///
     pub fn QBaseSetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QHXYModelMapper_QBaseSetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
+    ///
     pub fn OnSetOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnSetOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn XSection(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_XSection(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn QBaseXSection(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_QBaseXSection(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnXSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnXSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, xSection: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` xSection: i32 `
+    ///
     pub fn SetXSection(self: ?*anyopaque, xSection: i32) void {
         qtc.QHXYModelMapper_SetXSection(@ptrCast(self), @intCast(xSection));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, xSection: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` xSection: i32 `
+    ///
     pub fn QBaseSetXSection(self: ?*anyopaque, xSection: i32) void {
         qtc.QHXYModelMapper_QBaseSetXSection(@ptrCast(self), @intCast(xSection));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, xSection: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, xSection: i32) callconv(.c) void `
+    ///
     pub fn OnSetXSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnSetXSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn YSection(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_YSection(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn QBaseYSection(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_QBaseYSection(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnYSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnYSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, ySection: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` ySection: i32 `
+    ///
     pub fn SetYSection(self: ?*anyopaque, ySection: i32) void {
         qtc.QHXYModelMapper_SetYSection(@ptrCast(self), @intCast(ySection));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, ySection: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` ySection: i32 `
+    ///
     pub fn QBaseSetYSection(self: ?*anyopaque, ySection: i32) void {
         qtc.QHXYModelMapper_QBaseSetYSection(@ptrCast(self), @intCast(ySection));
     }
 
     /// Inherited from QXYModelMapper
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, ySection: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, ySection: i32) callconv(.c) void `
+    ///
     pub fn OnSetYSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHXYModelMapper_OnSetYSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QHXYModelMapper_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QHXYModelMapper_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QHXYModelMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QHXYModelMapper_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHXYModelMapper_Receivers(@ptrCast(self), signal_Cstring);
@@ -1280,11 +1894,16 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHXYModelMapper_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1292,64 +1911,92 @@ pub const qhxymodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QHXYModelMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QHXYModelMapper_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QHXYModelMapper_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper`
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QHXYModelMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QHXYModelMapper, callback: *const fn (self: QtC.QHXYModelMapper, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
+    /// ` callback: *const fn (self: QtC.QHXYModelMapperobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#dtor.QHXYModelMapper)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#dtor.QHXYModelMapper)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QHXYModelMapper ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QHXYModelMapper `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_Delete(@ptrCast(self));
     }

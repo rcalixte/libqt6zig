@@ -6,57 +6,95 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qgridlayout.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html)
 pub const qgridlayout = struct {
     /// New constructs a new QGridLayout object.
     ///
-    /// ``` parent: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
     pub fn New(parent: ?*anyopaque) QtC.QGridLayout {
         return qtc.QGridLayout_new(@ptrCast(parent));
     }
 
     /// New2 constructs a new QGridLayout object.
     ///
-    ///
     pub fn New2() QtC.QGridLayout {
         return qtc.QGridLayout_new2();
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QGridLayout_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QGridLayout, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGridLayout_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QGridLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGridLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGridLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGridLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -66,572 +104,948 @@ pub const qgridlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#sizeHint)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QGridLayout_SizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QGridLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#sizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#sizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QGridLayout_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumSize)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QGridLayout_MinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QGridLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QGridLayout_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#maximumSize)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QGridLayout_MaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
         qtc.QGridLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#maximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#maximumSize)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QGridLayout_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setHorizontalSpacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setHorizontalSpacing)
     ///
-    /// ``` self: QtC.QGridLayout, spacing: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` spacing: i32 `
+    ///
     pub fn SetHorizontalSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QGridLayout_SetHorizontalSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#horizontalSpacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#horizontalSpacing)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn HorizontalSpacing(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_HorizontalSpacing(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setVerticalSpacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setVerticalSpacing)
     ///
-    /// ``` self: QtC.QGridLayout, spacing: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` spacing: i32 `
+    ///
     pub fn SetVerticalSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QGridLayout_SetVerticalSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#verticalSpacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#verticalSpacing)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn VerticalSpacing(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_VerticalSpacing(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
     ///
-    /// ``` self: QtC.QGridLayout, spacing: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` spacing: i32 `
+    ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QGridLayout_SetSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, spacing: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, spacing: i32) callconv(.c) void `
+    ///
     pub fn OnSetSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGridLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, spacing: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` spacing: i32 `
+    ///
     pub fn QBaseSetSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QGridLayout_QBaseSetSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Spacing(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_Spacing(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSpacing(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGridLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseSpacing(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_QBaseSpacing(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setRowStretch)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setRowStretch)
     ///
-    /// ``` self: QtC.QGridLayout, row: i32, stretch: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` stretch: i32 `
+    ///
     pub fn SetRowStretch(self: ?*anyopaque, row: i32, stretch: i32) void {
         qtc.QGridLayout_SetRowStretch(@ptrCast(self), @intCast(row), @intCast(stretch));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setColumnStretch)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setColumnStretch)
     ///
-    /// ``` self: QtC.QGridLayout, column: i32, stretch: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` stretch: i32 `
+    ///
     pub fn SetColumnStretch(self: ?*anyopaque, column: i32, stretch: i32) void {
         qtc.QGridLayout_SetColumnStretch(@ptrCast(self), @intCast(column), @intCast(stretch));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowStretch)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowStretch)
     ///
-    /// ``` self: QtC.QGridLayout, row: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` row: i32 `
+    ///
     pub fn RowStretch(self: ?*anyopaque, row: i32) i32 {
         return qtc.QGridLayout_RowStretch(@ptrCast(self), @intCast(row));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnStretch)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnStretch)
     ///
-    /// ``` self: QtC.QGridLayout, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn ColumnStretch(self: ?*anyopaque, column: i32) i32 {
         return qtc.QGridLayout_ColumnStretch(@ptrCast(self), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setRowMinimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setRowMinimumHeight)
     ///
-    /// ``` self: QtC.QGridLayout, row: i32, minSize: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` minSize: i32 `
+    ///
     pub fn SetRowMinimumHeight(self: ?*anyopaque, row: i32, minSize: i32) void {
         qtc.QGridLayout_SetRowMinimumHeight(@ptrCast(self), @intCast(row), @intCast(minSize));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setColumnMinimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setColumnMinimumWidth)
     ///
-    /// ``` self: QtC.QGridLayout, column: i32, minSize: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` minSize: i32 `
+    ///
     pub fn SetColumnMinimumWidth(self: ?*anyopaque, column: i32, minSize: i32) void {
         qtc.QGridLayout_SetColumnMinimumWidth(@ptrCast(self), @intCast(column), @intCast(minSize));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowMinimumHeight)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowMinimumHeight)
     ///
-    /// ``` self: QtC.QGridLayout, row: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` row: i32 `
+    ///
     pub fn RowMinimumHeight(self: ?*anyopaque, row: i32) i32 {
         return qtc.QGridLayout_RowMinimumHeight(@ptrCast(self), @intCast(row));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnMinimumWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnMinimumWidth)
     ///
-    /// ``` self: QtC.QGridLayout, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn ColumnMinimumWidth(self: ?*anyopaque, column: i32) i32 {
         return qtc.QGridLayout_ColumnMinimumWidth(@ptrCast(self), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnCount)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn ColumnCount(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_ColumnCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowCount)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn RowCount(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_RowCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#cellRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#cellRect)
     ///
-    /// ``` self: QtC.QGridLayout, row: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn CellRect(self: ?*anyopaque, row: i32, column: i32) QtC.QRect {
         return qtc.QGridLayout_CellRect(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QGridLayout_HasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QGridLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QGridLayout_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
     ///
-    /// ``` self: QtC.QGridLayout, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QGridLayout_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QGridLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QGridLayout_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
     ///
-    /// ``` self: QtC.QGridLayout, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QGridLayout_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: i32) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: i32) callconv(.c) i32 `
+    ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QGridLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QGridLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn ExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGridLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.Orientation ```
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.Orientation `
+    ///
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#invalidate)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QGridLayout_Invalidate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#invalidate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
         qtc.QGridLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#invalidate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#invalidate)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseInvalidate(self: ?*anyopaque) void {
         qtc.QGridLayout_QBaseInvalidate(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QGridLayout, w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn AddWidget(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QGridLayout_AddWidget(@ptrCast(self), @ptrCast(w));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QWidget, row: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn AddWidget2(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32) void {
         qtc.QGridLayout_AddWidget2(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QWidget, row: i32, column: i32, rowSpan: i32, columnSpan: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` rowSpan: i32 `
+    ///
+    /// ` columnSpan: i32 `
+    ///
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
         qtc.QGridLayout_AddWidget3(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayout, row: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn AddLayout(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32) void {
         qtc.QGridLayout_AddLayout(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayout, row: i32, column: i32, rowSpan: i32, columnSpan: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` rowSpan: i32 `
+    ///
+    /// ` columnSpan: i32 `
+    ///
     pub fn AddLayout2(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
         qtc.QGridLayout_AddLayout2(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setOriginCorner)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setOriginCorner)
     ///
-    /// ``` self: QtC.QGridLayout, originCorner: qnamespace_enums.Corner ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` originCorner: qnamespace_enums.Corner `
+    ///
     pub fn SetOriginCorner(self: ?*anyopaque, originCorner: i32) void {
         qtc.QGridLayout_SetOriginCorner(@ptrCast(self), @intCast(originCorner));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#originCorner)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#originCorner)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.Corner ```
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.Corner `
+    ///
     pub fn OriginCorner(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_OriginCorner(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
     ///
-    /// ``` self: QtC.QGridLayout, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn ItemAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
         return qtc.QGridLayout_ItemAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, index: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, index: i32) callconv(.c) QtC.QLayoutItem `
+    ///
     pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
         qtc.QGridLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn QBaseItemAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
         return qtc.QGridLayout_QBaseItemAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAtPosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAtPosition)
     ///
-    /// ``` self: QtC.QGridLayout, row: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn ItemAtPosition(self: ?*anyopaque, row: i32, column: i32) QtC.QLayoutItem {
         return qtc.QGridLayout_ItemAtPosition(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
     ///
-    /// ``` self: QtC.QGridLayout, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn TakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
         return qtc.QGridLayout_TakeAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, index: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, index: i32) callconv(.c) QtC.QLayoutItem `
+    ///
     pub fn OnTakeAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
         qtc.QGridLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn QBaseTakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
         return qtc.QGridLayout_QBaseTakeAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_Count(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGridLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseCount(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_QBaseCount(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setGeometry)
     ///
-    /// ``` self: QtC.QGridLayout, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QGridLayout_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, geometry: QtC.QRect) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, geometry: QtC.QRect) callconv(.c) void `
+    ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setGeometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setGeometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, geometry: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` geometry: QtC.QRect `
+    ///
     pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QGridLayout_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
     ///
-    /// ``` self: QtC.QGridLayout, item: QtC.QLayoutItem, row: i32, column: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` item: QtC.QLayoutItem `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
     pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32) void {
         qtc.QGridLayout_AddItem(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setDefaultPositioning)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setDefaultPositioning)
     ///
-    /// ``` self: QtC.QGridLayout, n: i32, orient: qnamespace_enums.Orientation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` orient: qnamespace_enums.Orientation `
+    ///
     pub fn SetDefaultPositioning(self: ?*anyopaque, n: i32, orient: i32) void {
         qtc.QGridLayout_SetDefaultPositioning(@ptrCast(self), @intCast(n), @intCast(orient));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#getItemPosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#getItemPosition)
     ///
-    /// ``` self: QtC.QGridLayout, idx: i32, row: *i32, column: *i32, rowSpan: *i32, columnSpan: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` idx: i32 `
+    ///
+    /// ` row: *i32 `
+    ///
+    /// ` column: *i32 `
+    ///
+    /// ` rowSpan: *i32 `
+    ///
+    /// ` columnSpan: *i32 `
+    ///
     pub fn GetItemPosition(self: ?*anyopaque, idx: i32, row: *i32, column: *i32, rowSpan: *i32, columnSpan: *i32) void {
         qtc.QGridLayout_GetItemPosition(@ptrCast(self), @intCast(idx), @ptrCast(row), @ptrCast(column), @ptrCast(rowSpan), @ptrCast(columnSpan));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn AddItem2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QGridLayout_AddItem2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: QtC.QLayoutItem) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QLayoutItem) callconv(.c) void `
+    ///
     pub fn OnAddItem2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnAddItem2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn QBaseAddItem2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QGridLayout_QBaseAddItem2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -642,9 +1056,18 @@ pub const qgridlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -655,318 +1078,548 @@ pub const qgridlayout = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QWidget, row: i32, column: i32, param4: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` param4: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn AddWidget4(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, param4: i32) void {
         qtc.QGridLayout_AddWidget4(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(param4));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QWidget, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` rowSpan: i32 `
+    ///
+    /// ` columnSpan: i32 `
+    ///
+    /// ` param6: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn AddWidget6(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: i32) void {
         qtc.QGridLayout_AddWidget6(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(param6));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayout, row: i32, column: i32, param4: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` param4: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn AddLayout4(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, param4: i32) void {
         qtc.QGridLayout_AddLayout4(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(param4));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayout, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` rowSpan: i32 `
+    ///
+    /// ` columnSpan: i32 `
+    ///
+    /// ` param6: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn AddLayout6(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: i32) void {
         qtc.QGridLayout_AddLayout6(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(param6));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
     ///
-    /// ``` self: QtC.QGridLayout, item: QtC.QLayoutItem, row: i32, column: i32, rowSpan: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` item: QtC.QLayoutItem `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` rowSpan: i32 `
+    ///
     pub fn AddItem4(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32) void {
         qtc.QGridLayout_AddItem4(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
     ///
-    /// ``` self: QtC.QGridLayout, item: QtC.QLayoutItem, row: i32, column: i32, rowSpan: i32, columnSpan: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` item: QtC.QLayoutItem `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` rowSpan: i32 `
+    ///
+    /// ` columnSpan: i32 `
+    ///
     pub fn AddItem5(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
         qtc.QGridLayout_AddItem5(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
     ///
-    /// ``` self: QtC.QGridLayout, item: QtC.QLayoutItem, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` item: QtC.QLayoutItem `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` column: i32 `
+    ///
+    /// ` rowSpan: i32 `
+    ///
+    /// ` columnSpan: i32 `
+    ///
+    /// ` param6: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn AddItem6(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: i32) void {
         qtc.QGridLayout_AddItem6(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(param6));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
-    /// ``` self: QtC.QGridLayout, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` left: i32 `
+    ///
+    /// ` top: i32 `
+    ///
+    /// ` right: i32 `
+    ///
+    /// ` bottom: i32 `
+    ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QLayout_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
-    /// ``` self: QtC.QGridLayout, margins: QtC.QMargins ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` margins: QtC.QMargins `
+    ///
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
         qtc.QLayout_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn UnsetContentsMargins(self: ?*anyopaque) void {
         qtc.QLayout_UnsetContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QGridLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` left: *i32 `
+    ///
+    /// ` top: *i32 `
+    ///
+    /// ` right: *i32 `
+    ///
+    /// ` bottom: *i32 `
+    ///
     pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
         qtc.QLayout_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.QLayout_ContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QLayout_ContentsRect(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QGridLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QGridLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` l: QtC.QLayout `
+    ///
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
-    /// ``` self: QtC.QGridLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` sizeConstraint: qlayout_enums.SizeConstraint `
+    ///
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
         qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qlayout_enums.SizeConstraint ```
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlayout_enums.SizeConstraint `
+    ///
     pub fn SizeConstraint(self: ?*anyopaque) i32 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
     ///
-    /// ``` self: QtC.QGridLayout, w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn SetMenuBar(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QLayout_SetMenuBar(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#menuBar)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#menuBar)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn MenuBar(self: ?*anyopaque) QtC.QWidget {
         return qtc.QLayout_MenuBar(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QLayout_ParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#activate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#activate)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Activate(self: ?*anyopaque) bool {
         return qtc.QLayout_Activate(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#update)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#update)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Update(self: ?*anyopaque) void {
         qtc.QLayout_Update(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
     ///
-    /// ``` self: QtC.QGridLayout, w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn RemoveWidget(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QLayout_RemoveWidget(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeItem)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn RemoveItem(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QLayout_RemoveItem(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn IndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QLayout_IndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QLayoutItem) callconv(.c) i32 `
+    ///
     pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QLayout_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QLayoutItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QLayoutItem `
+    ///
     pub fn QBaseIndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QLayout_QBaseIndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
     ///
-    /// ``` self: QtC.QGridLayout, w: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: i32 `
+    ///
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
         return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
     ///
-    /// ``` self: QtC.QGridLayout, w: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: i32 `
+    ///
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
         return qtc.QLayout_TotalHeightForWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn TotalMinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayout_TotalMinimumSize(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn TotalMaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayout_TotalMaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn TotalSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayout_TotalSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
     ///
-    /// ``` self: QtC.QGridLayout, enabled: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` enabled: bool `
+    ///
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QLayout_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QLayout_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
     ///
-    /// ``` w: QtC.QWidget, s: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` w: QtC.QWidget `
+    ///
+    /// ` s: QtC.QSize `
+    ///
     pub fn ClosestAcceptableSize(w: ?*anyopaque, s: ?*anyopaque) QtC.QSize {
         return qtc.QLayout_ClosestAcceptableSize(@ptrCast(w), @ptrCast(s));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QGridLayout, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -977,9 +1630,14 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QGridLayout, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -990,99 +1648,144 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QGridLayout, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGridLayout, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGridLayout, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGridLayout, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QGridLayout, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QGridLayout, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1094,45 +1797,78 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QGridLayout, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QGridLayout, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QGridLayout, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGridLayout, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1141,45 +1877,70 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QGridLayout, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -1187,9 +1948,14 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QGridLayout, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -1197,9 +1963,14 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QGridLayout, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -1221,54 +1992,76 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QGridLayout, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -1276,45 +2069,84 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QGridLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QGridLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QGridLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -1323,770 +2155,1104 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayoutparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qnamespace_enums.AlignmentFlag `
+    ///
     pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QGridLayout_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QGridLayout_QBaseGeometry(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
         qtc.QGridLayout_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn IndexOf(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QGridLayout_IndexOf(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QWidget `
+    ///
     pub fn QBaseIndexOf(self: ?*anyopaque, param1: ?*anyopaque) i32 {
         return qtc.QGridLayout_QBaseIndexOf(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: QtC.QWidget) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QWidget) callconv(.c) i32 `
+    ///
     pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGridLayout_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QGridLayout_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
         return qtc.QGridLayout_QBaseIsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) bool `
+    ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
         qtc.QGridLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn ControlTypes(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_ControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of qsizepolicy_enums.ControlType `
+    ///
     pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_QBaseControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGridLayout_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` from: QtC.QWidget `
+    ///
+    /// ` to: QtC.QWidget `
+    ///
+    /// ` options: flag of qnamespace_enums.FindChildOption `
+    ///
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
         return qtc.QGridLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` from: QtC.QWidget `
+    ///
+    /// ` to: QtC.QWidget `
+    ///
+    /// ` options: flag of qnamespace_enums.FindChildOption `
+    ///
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
         return qtc.QGridLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem `
+    ///
     pub fn OnReplaceWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
         qtc.QGridLayout_OnReplaceWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QGridLayout_Layout(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QGridLayout_QBaseLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QLayout ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QLayout `
+    ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
         qtc.QGridLayout_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, e: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` e: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QGridLayout_ChildEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, e: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` e: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QGridLayout_QBaseChildEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, e: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, e: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGridLayout_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGridLayout_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGridLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGridLayout_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGridLayout_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGridLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGridLayout_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGridLayout_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGridLayout_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGridLayout_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGridLayout_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGridLayout_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGridLayout_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QGridLayout_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QGridLayout_Widget(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QGridLayout_QBaseWidget(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
         qtc.QGridLayout_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn SpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QGridLayout_SpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QGridLayout_QBaseSpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
+    ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QGridLayout_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn WidgetEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QGridLayout_WidgetEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QEvent `
+    ///
     pub fn QBaseWidgetEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QGridLayout_QBaseWidgetEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, l: QtC.QLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` l: QtC.QLayout `
+    ///
     pub fn AddChildLayout(self: ?*anyopaque, l: ?*anyopaque) void {
         qtc.QGridLayout_AddChildLayout(@ptrCast(self), @ptrCast(l));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, l: QtC.QLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` l: QtC.QLayout `
+    ///
     pub fn QBaseAddChildLayout(self: ?*anyopaque, l: ?*anyopaque) void {
         qtc.QGridLayout_QBaseAddChildLayout(@ptrCast(self), @ptrCast(l));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, l: QtC.QLayout) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, l: QtC.QLayout) callconv(.c) void `
+    ///
     pub fn OnAddChildLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnAddChildLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn AddChildWidget(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QGridLayout_AddChildWidget(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, w: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` w: QtC.QWidget `
+    ///
     pub fn QBaseAddChildWidget(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QGridLayout_QBaseAddChildWidget(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, w: QtC.QWidget) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, w: QtC.QWidget) callconv(.c) void `
+    ///
     pub fn OnAddChildWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGridLayout_OnAddChildWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, layout: QtC.QLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` layout: QtC.QLayout `
+    ///
     pub fn AdoptLayout(self: ?*anyopaque, layout: ?*anyopaque) bool {
         return qtc.QGridLayout_AdoptLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, layout: QtC.QLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` layout: QtC.QLayout `
+    ///
     pub fn QBaseAdoptLayout(self: ?*anyopaque, layout: ?*anyopaque) bool {
         return qtc.QGridLayout_QBaseAdoptLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, layout: QtC.QLayout) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, layout: QtC.QLayout) callconv(.c) bool `
+    ///
     pub fn OnAdoptLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGridLayout_OnAdoptLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn AlignmentRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRect {
         return qtc.QGridLayout_AlignmentRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, param1: QtC.QRect ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` param1: QtC.QRect `
+    ///
     pub fn QBaseAlignmentRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRect {
         return qtc.QGridLayout_QBaseAlignmentRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, param1: QtC.QRect) callconv(.c) QtC.QRect ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QRect) callconv(.c) QtC.QRect `
+    ///
     pub fn OnAlignmentRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
         qtc.QGridLayout_OnAlignmentRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGridLayout_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QGridLayout_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QGridLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QGridLayout_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QGridLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGridLayout_Receivers(@ptrCast(self), signal_Cstring);
@@ -2094,11 +3260,16 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGridLayout_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -2106,64 +3277,92 @@ pub const qgridlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGridLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGridLayout_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QGridLayout_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout`
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QGridLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGridLayout, callback: *const fn (self: QtC.QGridLayout, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
+    /// ` callback: *const fn (self: QtC.QGridLayoutobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#dtor.QGridLayout)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#dtor.QGridLayout)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGridLayout ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGridLayout `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGridLayout_Delete(@ptrCast(self));
     }

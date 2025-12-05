@@ -3,11 +3,20 @@ const qtc = @import("qt6c");
 const jobuidelegateextension_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kio-jobuidelegateextension.html
+/// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html)
 pub const kio__jobuidelegateextension = struct {
-    /// [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#askDeleteConfirmation)
+    /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#askDeleteConfirmation)
     ///
-    /// ``` self: QtC.KIO__JobUiDelegateExtension, urls: []QtC.QUrl, deletionType: jobuidelegateextension_enums.DeletionType, confirmationType: jobuidelegateextension_enums.ConfirmationType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__JobUiDelegateExtension `
+    ///
+    /// ` urls: []QtC.QUrl `
+    ///
+    /// ` deletionType: jobuidelegateextension_enums.DeletionType `
+    ///
+    /// ` confirmationType: jobuidelegateextension_enums.ConfirmationType `
+    ///
     pub fn AskDeleteConfirmation(self: ?*anyopaque, urls: []QtC.QUrl, deletionType: i32, confirmationType: i32) bool {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
@@ -16,32 +25,41 @@ pub const kio__jobuidelegateextension = struct {
         return qtc.KIO__JobUiDelegateExtension_AskDeleteConfirmation(@ptrCast(self), urls_list, @intCast(deletionType), @intCast(confirmationType));
     }
 
-    /// [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#updateUrlInClipboard)
+    /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#updateUrlInClipboard)
     ///
-    /// ``` self: QtC.KIO__JobUiDelegateExtension, src: QtC.QUrl, dest: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__JobUiDelegateExtension `
+    ///
+    /// ` src: QtC.QUrl `
+    ///
+    /// ` dest: QtC.QUrl `
+    ///
     pub fn UpdateUrlInClipboard(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque) void {
         qtc.KIO__JobUiDelegateExtension_UpdateUrlInClipboard(@ptrCast(self), @ptrCast(src), @ptrCast(dest));
     }
 };
 
-/// https://api.kde.org/kio.html
+/// ### [Upstream resources](https://api.kde.org/kio.html)
 pub const kio = struct {
-    /// [Upstream resources](https://api.kde.org/kio.html#defaultJobUiDelegateExtension)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kio.html#defaultJobUiDelegateExtension)
     ///
     pub fn DefaultJobUiDelegateExtension() QtC.KIO__JobUiDelegateExtension {
         return qtc.KIO_DefaultJobUiDelegateExtension();
     }
 
-    /// [Upstream resources](https://api.kde.org/kio.html#setDefaultJobUiDelegateExtension)
+    /// ### [Upstream resources](https://api.kde.org/kio.html#setDefaultJobUiDelegateExtension)
     ///
-    /// ``` param1: QtC.KIO__JobUiDelegateExtension ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KIO__JobUiDelegateExtension `
+    ///
     pub fn SetDefaultJobUiDelegateExtension(param1: ?*anyopaque) void {
         qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(param1));
     }
 };
 
-/// https://api.kde.org/kio-jobuidelegateextension.html#types
+/// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#public-types)
 pub const enums = struct {
     pub const RenameDialog_Option = enum {
         pub const RenameDialog_Overwrite: i32 = 1;

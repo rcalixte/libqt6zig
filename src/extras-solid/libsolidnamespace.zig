@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api.kde.org/solid-solidnamespace.html#types
+/// ### [Upstream resources](https://api.kde.org/solid-solidnamespace.html#public-types)
 pub const enums = struct {
     pub const ErrorType = enum {
         pub const NoError: i32 = 0;

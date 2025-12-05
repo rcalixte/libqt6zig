@@ -5,10 +5,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qsequentialanimationgroup.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html)
 pub const qsequentialanimationgroup = struct {
     /// New constructs a new QSequentialAnimationGroup object.
-    ///
     ///
     pub fn New() QtC.QSequentialAnimationGroup {
         return qtc.QSequentialAnimationGroup_new();
@@ -16,46 +15,85 @@ pub const qsequentialanimationgroup = struct {
 
     /// New2 constructs a new QSequentialAnimationGroup object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.QSequentialAnimationGroup {
         return qtc.QSequentialAnimationGroup_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QSequentialAnimationGroup_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QSequentialAnimationGroup, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSequentialAnimationGroup_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QSequentialAnimationGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSequentialAnimationGroup_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QSequentialAnimationGroup_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSequentialAnimationGroup_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -65,169 +103,276 @@ pub const qsequentialanimationgroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#addPause)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#addPause)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn AddPause(self: ?*anyopaque, msecs: i32) QtC.QPauseAnimation {
         return qtc.QSequentialAnimationGroup_AddPause(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#insertPause)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#insertPause)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, index: i32, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn InsertPause(self: ?*anyopaque, index: i32, msecs: i32) QtC.QPauseAnimation {
         return qtc.QSequentialAnimationGroup_InsertPause(@ptrCast(self), @intCast(index), @intCast(msecs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimation)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn CurrentAnimation(self: ?*anyopaque) QtC.QAbstractAnimation {
         return qtc.QSequentialAnimationGroup_CurrentAnimation(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Duration(self: ?*anyopaque) i32 {
         return qtc.QSequentialAnimationGroup_Duration(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnDuration(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QSequentialAnimationGroup_OnDuration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn QBaseDuration(self: ?*anyopaque) i32 {
         return qtc.QSequentialAnimationGroup_QBaseDuration(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, current: QtC.QAbstractAnimation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` current: QtC.QAbstractAnimation `
+    ///
     pub fn CurrentAnimationChanged(self: ?*anyopaque, current: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_CurrentAnimationChanged(@ptrCast(self), @ptrCast(current));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, current: QtC.QAbstractAnimation) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroupcurrent: QtC.QAbstractAnimation) callconv(.c) void `
+    ///
     pub fn OnCurrentAnimationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_Connect_CurrentAnimationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSequentialAnimationGroup_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QSequentialAnimationGroup_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSequentialAnimationGroup_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn UpdateCurrentTime(self: ?*anyopaque, param1: i32) void {
         qtc.QSequentialAnimationGroup_UpdateCurrentTime(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: i32) callconv(.c) void `
+    ///
     pub fn OnUpdateCurrentTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnUpdateCurrentTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn QBaseUpdateCurrentTime(self: ?*anyopaque, param1: i32) void {
         qtc.QSequentialAnimationGroup_QBaseUpdateCurrentTime(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` newState: qabstractanimation_enums.State `
+    ///
+    /// ` oldState: qabstractanimation_enums.State `
+    ///
     pub fn UpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QSequentialAnimationGroup_UpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
+    ///
     pub fn OnUpdateState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` newState: qabstractanimation_enums.State `
+    ///
+    /// ` oldState: qabstractanimation_enums.State `
+    ///
     pub fn QBaseUpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QSequentialAnimationGroup_QBaseUpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` direction: qabstractanimation_enums.Direction `
+    ///
     pub fn UpdateDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QSequentialAnimationGroup_UpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction) callconv(.c) void `
+    ///
     pub fn OnUpdateDirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnUpdateDirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` direction: qabstractanimation_enums.Direction `
+    ///
     pub fn QBaseUpdateDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QSequentialAnimationGroup_QBaseUpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -238,9 +383,18 @@ pub const qsequentialanimationgroup = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -253,310 +407,458 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#animationAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#animationAt)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn AnimationAt(self: ?*anyopaque, index: i32) QtC.QAbstractAnimation {
         return qtc.QAnimationGroup_AnimationAt(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#animationCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#animationCount)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn AnimationCount(self: ?*anyopaque) i32 {
         return qtc.QAnimationGroup_AnimationCount(@ptrCast(self));
     }
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#indexOfAnimation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#indexOfAnimation)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, animation: QtC.QAbstractAnimation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` animation: QtC.QAbstractAnimation `
+    ///
     pub fn IndexOfAnimation(self: ?*anyopaque, animation: ?*anyopaque) i32 {
         return qtc.QAnimationGroup_IndexOfAnimation(@ptrCast(self), @ptrCast(animation));
     }
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#addAnimation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#addAnimation)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, animation: QtC.QAbstractAnimation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` animation: QtC.QAbstractAnimation `
+    ///
     pub fn AddAnimation(self: ?*anyopaque, animation: ?*anyopaque) void {
         qtc.QAnimationGroup_AddAnimation(@ptrCast(self), @ptrCast(animation));
     }
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#insertAnimation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#insertAnimation)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, index: i32, animation: QtC.QAbstractAnimation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` animation: QtC.QAbstractAnimation `
+    ///
     pub fn InsertAnimation(self: ?*anyopaque, index: i32, animation: ?*anyopaque) void {
         qtc.QAnimationGroup_InsertAnimation(@ptrCast(self), @intCast(index), @ptrCast(animation));
     }
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#removeAnimation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#removeAnimation)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, animation: QtC.QAbstractAnimation ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` animation: QtC.QAbstractAnimation `
+    ///
     pub fn RemoveAnimation(self: ?*anyopaque, animation: ?*anyopaque) void {
         qtc.QAnimationGroup_RemoveAnimation(@ptrCast(self), @ptrCast(animation));
     }
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#takeAnimation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#takeAnimation)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, index: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` index: i32 `
+    ///
     pub fn TakeAnimation(self: ?*anyopaque, index: i32) QtC.QAbstractAnimation {
         return qtc.QAnimationGroup_TakeAnimation(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#clear)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#clear)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QAnimationGroup_Clear(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#state)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#state)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractanimation_enums.State ```
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractanimation_enums.State `
+    ///
     pub fn State(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_State(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#group)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#group)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Group(self: ?*anyopaque) QtC.QAnimationGroup {
         return qtc.QAbstractAnimation_Group(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qabstractanimation_enums.Direction ```
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qabstractanimation_enums.Direction `
+    ///
     pub fn Direction(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_Direction(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` direction: qabstractanimation_enums.Direction `
+    ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QAbstractAnimation_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn CurrentTime(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_CurrentTime(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn CurrentLoopTime(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_CurrentLoopTime(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn LoopCount(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_LoopCount(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, loopCount: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` loopCount: i32 `
+    ///
     pub fn SetLoopCount(self: ?*anyopaque, loopCount: i32) void {
         qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self), @intCast(loopCount));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn CurrentLoop(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_CurrentLoop(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn TotalDuration(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_TotalDuration(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Finished(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Finished(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void `
+    ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` newState: qabstractanimation_enums.State `
+    ///
+    /// ` oldState: qabstractanimation_enums.State `
+    ///
     pub fn StateChanged(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QAbstractAnimation_StateChanged(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroupnewState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
+    ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, currentLoop: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` currentLoop: i32 `
+    ///
     pub fn CurrentLoopChanged(self: ?*anyopaque, currentLoop: i32) void {
         qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self), @intCast(currentLoop));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, currentLoop: i32) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroupcurrentLoop: i32) callconv(.c) void `
+    ///
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, param1: qabstractanimation_enums.Direction ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` param1: qabstractanimation_enums.Direction `
+    ///
     pub fn DirectionChanged(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: qabstractanimation_enums.Direction) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroupparam1: qabstractanimation_enums.Direction) callconv(.c) void `
+    ///
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Start(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Start(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Pause(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Pause(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Resume(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, paused: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` paused: bool `
+    ///
     pub fn SetPaused(self: ?*anyopaque, paused: bool) void {
         qtc.QAbstractAnimation_SetPaused(@ptrCast(self), paused);
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Stop(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, msecs: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` msecs: i32 `
+    ///
     pub fn SetCurrentTime(self: ?*anyopaque, msecs: i32) void {
         qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self), @intCast(msecs));
     }
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, policy: qabstractanimation_enums.DeletionPolicy ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` policy: qabstractanimation_enums.DeletionPolicy `
+    ///
     pub fn Start1(self: ?*anyopaque, policy: i32) void {
         qtc.QAbstractAnimation_Start1(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -567,9 +869,14 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -580,99 +887,144 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -684,45 +1036,78 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -731,45 +1116,70 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -777,9 +1187,14 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -787,9 +1202,14 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -811,54 +1231,76 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -866,45 +1308,84 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -913,293 +1394,424 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroupparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSequentialAnimationGroup_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSequentialAnimationGroup_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QSequentialAnimationGroup_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QSequentialAnimationGroup_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QSequentialAnimationGroup_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QSequentialAnimationGroup_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QSequentialAnimationGroup_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QSequentialAnimationGroup_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QSequentialAnimationGroup_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSequentialAnimationGroup_Receivers(@ptrCast(self), signal_Cstring);
@@ -1207,11 +1819,16 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSequentialAnimationGroup_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1219,64 +1836,92 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSequentialAnimationGroup_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QSequentialAnimationGroup_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QSequentialAnimationGroup_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup`
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QSequentialAnimationGroup_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
+    /// ` callback: *const fn (self: QtC.QSequentialAnimationGroupobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#dtor.QSequentialAnimationGroup)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#dtor.QSequentialAnimationGroup)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QSequentialAnimationGroup ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QSequentialAnimationGroup `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_Delete(@ptrCast(self));
     }

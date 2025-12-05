@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const std = @import("std");
 pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
-/// https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html
+/// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
 pub const signon__sessiondata = struct {
     /// New constructs a new SignOn::SessionData object.
-    ///
     ///
     pub fn New() QtC.SignOn__SessionData {
         return qtc.SignOn__SessionData_new();
@@ -14,14 +13,22 @@ pub const signon__sessiondata = struct {
 
     /// New2 constructs a new SignOn::SessionData object.
     ///
-    /// ``` other: QtC.SignOn__SessionData ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.SignOn__SessionData `
+    ///
     pub fn New2(other: ?*anyopaque) QtC.SignOn__SessionData {
         return qtc.SignOn__SessionData_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new SignOn::SessionData object.
     ///
-    /// ``` data: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` data: map_constu8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn New3(data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.SignOn__SessionData {
         const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("signon::sessiondata.New3: Memory allocation failed");
         defer allocator.free(data_keys);
@@ -47,23 +54,38 @@ pub const signon__sessiondata = struct {
         return qtc.SignOn__SessionData_new3(data_map);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, other: QtC.SignOn__SessionData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` other: QtC.SignOn__SessionData `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.SignOn__SessionData_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, other: QtC.SignOn__SessionData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` other: QtC.SignOn__SessionData `
+    ///
     pub fn OperatorPlusAssign(self: ?*anyopaque, other: ?*anyopaque) QtC.SignOn__SessionData {
         return qtc.SignOn__SessionData_OperatorPlusAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__SessionData_PropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -83,9 +105,14 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, propertyName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` propertyName: []const u8 `
+    ///
     pub fn GetProperty(self: ?*anyopaque, propertyName: []const u8) QtC.QVariant {
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
@@ -94,9 +121,14 @@ pub const signon__sessiondata = struct {
         return qtc.SignOn__SessionData_GetProperty(@ptrCast(self), propertyName_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn GetAccessControlTokens(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__SessionData_GetAccessControlTokens(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -116,9 +148,14 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.SignOn__SessionData_ToMap(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
@@ -142,9 +179,14 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn SetSecret(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -153,9 +195,14 @@ pub const signon__sessiondata = struct {
         qtc.SignOn__SessionData_SetSecret(@ptrCast(self), value_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Secret(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.SignOn__SessionData_Secret(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -164,9 +211,14 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn SetUserName(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -175,9 +227,14 @@ pub const signon__sessiondata = struct {
         qtc.SignOn__SessionData_SetUserName(@ptrCast(self), value_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.SignOn__SessionData_UserName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -186,9 +243,14 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn SetRealm(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -197,9 +259,14 @@ pub const signon__sessiondata = struct {
         qtc.SignOn__SessionData_SetRealm(@ptrCast(self), value_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Realm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.SignOn__SessionData_Realm(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -208,9 +275,14 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn SetNetworkProxy(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -219,9 +291,14 @@ pub const signon__sessiondata = struct {
         qtc.SignOn__SessionData_SetNetworkProxy(@ptrCast(self), value_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn NetworkProxy(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.SignOn__SessionData_NetworkProxy(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -230,23 +307,36 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: *const i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: *const i32 `
+    ///
     pub fn SetUiPolicy(self: ?*anyopaque, value: *const i32) void {
         qtc.SignOn__SessionData_SetUiPolicy(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
     pub fn UiPolicy(self: ?*anyopaque) i32 {
         return qtc.SignOn__SessionData_UiPolicy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: []const u8 `
+    ///
     pub fn SetCaption(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -255,9 +345,14 @@ pub const signon__sessiondata = struct {
         qtc.SignOn__SessionData_SetCaption(@ptrCast(self), value_str);
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.SignOn__SessionData_Caption(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -266,59 +361,86 @@ pub const signon__sessiondata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: *const u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: *const u32 `
+    ///
     pub fn SetNetworkTimeout(self: ?*anyopaque, value: *const u32) void {
         qtc.SignOn__SessionData_SetNetworkTimeout(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
     pub fn NetworkTimeout(self: ?*anyopaque) u32 {
         return qtc.SignOn__SessionData_NetworkTimeout(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: *const u32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: *const u32 `
+    ///
     pub fn SetWindowId(self: ?*anyopaque, value: *const u32) void {
         qtc.SignOn__SessionData_SetWindowId(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
     pub fn WindowId(self: ?*anyopaque) u32 {
         return qtc.SignOn__SessionData_WindowId(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData, value: *bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
+    /// ` value: *bool `
+    ///
     pub fn SetRenewToken(self: ?*anyopaque, value: *const bool) void {
         qtc.SignOn__SessionData_SetRenewToken(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// ``` self: QtC.SignOn__SessionData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
     pub fn RenewToken(self: ?*anyopaque) bool {
         return qtc.SignOn__SessionData_RenewToken(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.SignOn__SessionData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.SignOn__SessionData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.SignOn__SessionData_Delete(@ptrCast(self));
     }
 };
 
-/// https://accounts-sso.gitlab.io/signond/classSignOn_1_1Sessiondata.html
+/// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Sessiondata.html)
 pub const enums = struct {
     pub const SignonUiPolicy = enum {
         pub const DefaultPolicy: i32 = 0;

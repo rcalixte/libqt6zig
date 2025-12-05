@@ -5,10 +5,9 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
 pub const struct_f64_qtcqcolor = extern struct { first: f64, second: QtC.QColor };
 
-/// https://doc.qt.io/qt-6/qbrush.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html)
 pub const qbrush = struct {
     /// New constructs a new QBrush object.
-    ///
     ///
     pub fn New() QtC.QBrush {
         return qtc.QBrush_new();
@@ -16,277 +15,425 @@ pub const qbrush = struct {
 
     /// New2 constructs a new QBrush object.
     ///
-    /// ``` bs: qnamespace_enums.BrushStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` bs: qnamespace_enums.BrushStyle `
+    ///
     pub fn New2(bs: i32) QtC.QBrush {
         return qtc.QBrush_new2(@intCast(bs));
     }
 
     /// New3 constructs a new QBrush object.
     ///
-    /// ``` color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn New3(color: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new3(@ptrCast(color));
     }
 
     /// New4 constructs a new QBrush object.
     ///
-    /// ``` color: qnamespace_enums.GlobalColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` color: qnamespace_enums.GlobalColor `
+    ///
     pub fn New4(color: i32) QtC.QBrush {
         return qtc.QBrush_new4(@intCast(color));
     }
 
     /// New5 constructs a new QBrush object.
     ///
-    /// ``` color: QtC.QColor, pixmap: QtC.QPixmap ```
+    /// ## Parameter(s):
+    ///
+    /// ` color: QtC.QColor `
+    ///
+    /// ` pixmap: QtC.QPixmap `
+    ///
     pub fn New5(color: ?*anyopaque, pixmap: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new5(@ptrCast(color), @ptrCast(pixmap));
     }
 
     /// New6 constructs a new QBrush object.
     ///
-    /// ``` color: qnamespace_enums.GlobalColor, pixmap: QtC.QPixmap ```
+    /// ## Parameter(s):
+    ///
+    /// ` color: qnamespace_enums.GlobalColor `
+    ///
+    /// ` pixmap: QtC.QPixmap `
+    ///
     pub fn New6(color: i32, pixmap: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new6(@intCast(color), @ptrCast(pixmap));
     }
 
     /// New7 constructs a new QBrush object.
     ///
-    /// ``` pixmap: QtC.QPixmap ```
+    /// ## Parameter(s):
+    ///
+    /// ` pixmap: QtC.QPixmap `
+    ///
     pub fn New7(pixmap: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new7(@ptrCast(pixmap));
     }
 
     /// New8 constructs a new QBrush object.
     ///
-    /// ``` image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn New8(image: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new8(@ptrCast(image));
     }
 
     /// New9 constructs a new QBrush object.
     ///
-    /// ``` brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn New9(brush: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new9(@ptrCast(brush));
     }
 
     /// New10 constructs a new QBrush object.
     ///
-    /// ``` gradient: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` gradient: QtC.QGradient `
+    ///
     pub fn New10(gradient: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new10(@ptrCast(gradient));
     }
 
     /// New11 constructs a new QBrush object.
     ///
-    /// ``` color: QtC.QColor, bs: qnamespace_enums.BrushStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` color: QtC.QColor `
+    ///
+    /// ` bs: qnamespace_enums.BrushStyle `
+    ///
     pub fn New11(color: ?*anyopaque, bs: i32) QtC.QBrush {
         return qtc.QBrush_new11(@ptrCast(color), @intCast(bs));
     }
 
     /// New12 constructs a new QBrush object.
     ///
-    /// ``` color: qnamespace_enums.GlobalColor, bs: qnamespace_enums.BrushStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` color: qnamespace_enums.GlobalColor `
+    ///
+    /// ` bs: qnamespace_enums.BrushStyle `
+    ///
     pub fn New12(color: i32, bs: i32) QtC.QBrush {
         return qtc.QBrush_new12(@intCast(color), @intCast(bs));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-eq)
     ///
-    /// ``` self: QtC.QBrush, brush: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` brush: QtC.QBrush `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QBrush_OperatorAssign(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#swap)
     ///
-    /// ``` self: QtC.QBrush, other: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` other: QtC.QBrush `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QBrush_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QBrush_ToQVariant(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#style)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#style)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.BrushStyle ```
+    /// ` self: QtC.QBrush `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.BrushStyle `
+    ///
     pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QBrush_Style(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setStyle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setStyle)
     ///
-    /// ``` self: QtC.QBrush, style: qnamespace_enums.BrushStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` style: qnamespace_enums.BrushStyle `
+    ///
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.QBrush_SetStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#transform)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#transform)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn Transform(self: ?*anyopaque) QtC.QTransform {
         return qtc.QBrush_Transform(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTransform)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTransform)
     ///
-    /// ``` self: QtC.QBrush, transform: QtC.QTransform ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` transform: QtC.QTransform `
+    ///
     pub fn SetTransform(self: ?*anyopaque, transform: ?*anyopaque) void {
         qtc.QBrush_SetTransform(@ptrCast(self), @ptrCast(transform));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#texture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#texture)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn Texture(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QBrush_Texture(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTexture)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTexture)
     ///
-    /// ``` self: QtC.QBrush, pixmap: QtC.QPixmap ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` pixmap: QtC.QPixmap `
+    ///
     pub fn SetTexture(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.QBrush_SetTexture(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#textureImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#textureImage)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn TextureImage(self: ?*anyopaque) QtC.QImage {
         return qtc.QBrush_TextureImage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTextureImage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTextureImage)
     ///
-    /// ``` self: QtC.QBrush, image: QtC.QImage ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` image: QtC.QImage `
+    ///
     pub fn SetTextureImage(self: ?*anyopaque, image: ?*anyopaque) void {
         qtc.QBrush_SetTextureImage(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#color)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#color)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QBrush_Color(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setColor)
     ///
-    /// ``` self: QtC.QBrush, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QBrush_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setColor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setColor)
     ///
-    /// ``` self: QtC.QBrush, color: qnamespace_enums.GlobalColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` color: qnamespace_enums.GlobalColor `
+    ///
     pub fn SetColor2(self: ?*anyopaque, color: i32) void {
         qtc.QBrush_SetColor2(@ptrCast(self), @intCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#gradient)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#gradient)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn Gradient(self: ?*anyopaque) QtC.QGradient {
         return qtc.QBrush_Gradient(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#isOpaque)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#isOpaque)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn IsOpaque(self: ?*anyopaque) bool {
         return qtc.QBrush_IsOpaque(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QBrush, b: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` b: QtC.QBrush `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, b: ?*anyopaque) bool {
         return qtc.QBrush_OperatorEqual(@ptrCast(self), @ptrCast(b));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QBrush, b: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
+    /// ` b: QtC.QBrush `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, b: ?*anyopaque) bool {
         return qtc.QBrush_OperatorNotEqual(@ptrCast(self), @ptrCast(b));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#isDetached)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#isDetached)
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn IsDetached(self: ?*anyopaque) bool {
         return qtc.QBrush_IsDetached(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#dtor.QBrush)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#dtor.QBrush)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QBrush ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QBrush `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QBrush_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qbrushdata.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html)
 pub const qbrushdata = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#style-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#style-var)
     ///
-    /// ``` self: QtC.QBrushData ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qnamespace_enums.BrushStyle ```
+    /// ` self: QtC.QBrushData `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.BrushStyle `
+    ///
     pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QBrushData_Style(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#style-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#style-var)
     ///
-    /// ``` self: QtC.QBrushData, style: qnamespace_enums.BrushStyle ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrushData `
+    ///
+    /// ` style: qnamespace_enums.BrushStyle `
+    ///
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.QBrushData_SetStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#color-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#color-var)
     ///
-    /// ``` self: QtC.QBrushData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrushData `
+    ///
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QBrushData_Color(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#color-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#color-var)
     ///
-    /// ``` self: QtC.QBrushData, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrushData `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColor(self: ?*anyopaque, color: QtC.QColor) void {
         qtc.QBrushData_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#transform-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#transform-var)
     ///
-    /// ``` self: QtC.QBrushData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrushData `
+    ///
     pub fn Transform(self: ?*anyopaque) QtC.QTransform {
         return qtc.QBrushData_Transform(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#transform-var)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrushdata.html#transform-var)
     ///
-    /// ``` self: QtC.QBrushData, transform: QtC.QTransform ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBrushData `
+    ///
+    /// ` transform: QtC.QTransform `
+    ///
     pub fn SetTransform(self: ?*anyopaque, transform: QtC.QTransform) void {
         qtc.QBrushData_SetTransform(@ptrCast(self), @ptrCast(transform));
     }
 };
 
-/// https://doc.qt.io/qt-6/qgradient.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html)
 pub const qgradient = struct {
     /// New constructs a new QGradient object.
-    ///
     ///
     pub fn New() QtC.QGradient {
         return qtc.QGradient_new();
@@ -294,53 +441,86 @@ pub const qgradient = struct {
 
     /// New2 constructs a new QGradient object.
     ///
-    /// ``` param1: qbrush_enums.Preset ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: qbrush_enums.Preset `
+    ///
     pub fn New2(param1: i32) QtC.QGradient {
         return qtc.QGradient_new2(@intCast(param1));
     }
 
     /// New3 constructs a new QGradient object.
     ///
-    /// ``` param1: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QGradient `
+    ///
     pub fn New3(param1: ?*anyopaque) QtC.QGradient {
         return qtc.QGradient_new3(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
     ///
-    /// ``` self: QtC.QGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Type ```
+    /// ` self: QtC.QGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
-    /// ``` self: QtC.QGradient, spread: qbrush_enums.Spread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` spread: qbrush_enums.Spread `
+    ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
     ///
-    /// ``` self: QtC.QGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Spread ```
+    /// ` self: QtC.QGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Spread `
+    ///
     pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
     ///
-    /// ``` self: QtC.QGradient, pos: f64, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` pos: f64 `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
         qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
     ///
-    /// ``` self: QtC.QGradient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Stops(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqcolor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
@@ -357,66 +537,98 @@ pub const qgradient = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
     ///
-    /// ``` self: QtC.QGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.CoordinateMode ```
+    /// ` self: QtC.QGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.CoordinateMode `
+    ///
     pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
-    /// ``` self: QtC.QGradient, mode: qbrush_enums.CoordinateMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` mode: qbrush_enums.CoordinateMode `
+    ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
     ///
-    /// ``` self: QtC.QGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.InterpolationMode ```
+    /// ` self: QtC.QGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.InterpolationMode `
+    ///
     pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
-    /// ``` self: QtC.QGradient, mode: qbrush_enums.InterpolationMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` mode: qbrush_enums.InterpolationMode `
+    ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QGradient, gradient: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` gradient: QtC.QGradient `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
         return qtc.QGradient_OperatorEqual(@ptrCast(self), @ptrCast(gradient));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QGradient, other: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` other: QtC.QGradient `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#dtor.QGradient)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#dtor.QGradient)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGradient ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGradient `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGradient_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qlineargradient.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html)
 pub const qlineargradient = struct {
     /// New constructs a new QLinearGradient object.
-    ///
     ///
     pub fn New() QtC.QLinearGradient {
         return qtc.QLinearGradient_new();
@@ -424,112 +636,186 @@ pub const qlineargradient = struct {
 
     /// New2 constructs a new QLinearGradient object.
     ///
-    /// ``` start: QtC.QPointF, finalStop: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` start: QtC.QPointF `
+    ///
+    /// ` finalStop: QtC.QPointF `
+    ///
     pub fn New2(start: ?*anyopaque, finalStop: ?*anyopaque) QtC.QLinearGradient {
         return qtc.QLinearGradient_new2(@ptrCast(start), @ptrCast(finalStop));
     }
 
     /// New3 constructs a new QLinearGradient object.
     ///
-    /// ``` xStart: f64, yStart: f64, xFinalStop: f64, yFinalStop: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` xStart: f64 `
+    ///
+    /// ` yStart: f64 `
+    ///
+    /// ` xFinalStop: f64 `
+    ///
+    /// ` yFinalStop: f64 `
+    ///
     pub fn New3(xStart: f64, yStart: f64, xFinalStop: f64, yFinalStop: f64) QtC.QLinearGradient {
         return qtc.QLinearGradient_new3(@floatCast(xStart), @floatCast(yStart), @floatCast(xFinalStop), @floatCast(yFinalStop));
     }
 
     /// New4 constructs a new QLinearGradient object.
     ///
-    /// ``` param1: QtC.QLinearGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QLinearGradient `
+    ///
     pub fn New4(param1: ?*anyopaque) QtC.QLinearGradient {
         return qtc.QLinearGradient_new4(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#start)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#start)
     ///
-    /// ``` self: QtC.QLinearGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
     pub fn Start(self: ?*anyopaque) QtC.QPointF {
         return qtc.QLinearGradient_Start(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setStart)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setStart)
     ///
-    /// ``` self: QtC.QLinearGradient, start: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` start: QtC.QPointF `
+    ///
     pub fn SetStart(self: ?*anyopaque, start: ?*anyopaque) void {
         qtc.QLinearGradient_SetStart(@ptrCast(self), @ptrCast(start));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setStart)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setStart)
     ///
-    /// ``` self: QtC.QLinearGradient, x: f64, y: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
     pub fn SetStart2(self: ?*anyopaque, x: f64, y: f64) void {
         qtc.QLinearGradient_SetStart2(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#finalStop)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#finalStop)
     ///
-    /// ``` self: QtC.QLinearGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
     pub fn FinalStop(self: ?*anyopaque) QtC.QPointF {
         return qtc.QLinearGradient_FinalStop(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setFinalStop)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setFinalStop)
     ///
-    /// ``` self: QtC.QLinearGradient, stop: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` stop: QtC.QPointF `
+    ///
     pub fn SetFinalStop(self: ?*anyopaque, stop: ?*anyopaque) void {
         qtc.QLinearGradient_SetFinalStop(@ptrCast(self), @ptrCast(stop));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setFinalStop)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setFinalStop)
     ///
-    /// ``` self: QtC.QLinearGradient, x: f64, y: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
     pub fn SetFinalStop2(self: ?*anyopaque, x: f64, y: f64) void {
         qtc.QLinearGradient_SetFinalStop2(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
     ///
-    /// ``` self: QtC.QLinearGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Type ```
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
-    /// ``` self: QtC.QLinearGradient, spread: qbrush_enums.Spread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` spread: qbrush_enums.Spread `
+    ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
     ///
-    /// ``` self: QtC.QLinearGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Spread ```
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Spread `
+    ///
     pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
     ///
-    /// ``` self: QtC.QLinearGradient, pos: f64, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` pos: f64 `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
         qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
     ///
-    /// ``` self: QtC.QLinearGradient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Stops(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqcolor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
@@ -548,76 +834,108 @@ pub const qlineargradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
     ///
-    /// ``` self: QtC.QLinearGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.CoordinateMode ```
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.CoordinateMode `
+    ///
     pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
-    /// ``` self: QtC.QLinearGradient, mode: qbrush_enums.CoordinateMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` mode: qbrush_enums.CoordinateMode `
+    ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
     ///
-    /// ``` self: QtC.QLinearGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.InterpolationMode ```
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.InterpolationMode `
+    ///
     pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
-    /// ``` self: QtC.QLinearGradient, mode: qbrush_enums.InterpolationMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` mode: qbrush_enums.InterpolationMode `
+    ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QLinearGradient, gradient: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` gradient: QtC.QGradient `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
         return qtc.QGradient_OperatorEqual(@ptrCast(self), @ptrCast(gradient));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QLinearGradient, other: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` other: QtC.QGradient `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#dtor.QLinearGradient)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#dtor.QLinearGradient)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QLinearGradient ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QLinearGradient_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qradialgradient.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html)
 pub const qradialgradient = struct {
     /// New constructs a new QRadialGradient object.
-    ///
     ///
     pub fn New() QtC.QRadialGradient {
         return qtc.QRadialGradient_new();
@@ -625,182 +943,318 @@ pub const qradialgradient = struct {
 
     /// New2 constructs a new QRadialGradient object.
     ///
-    /// ``` center: QtC.QPointF, radius: f64, focalPoint: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` center: QtC.QPointF `
+    ///
+    /// ` radius: f64 `
+    ///
+    /// ` focalPoint: QtC.QPointF `
+    ///
     pub fn New2(center: ?*anyopaque, radius: f64, focalPoint: ?*anyopaque) QtC.QRadialGradient {
         return qtc.QRadialGradient_new2(@ptrCast(center), @floatCast(radius), @ptrCast(focalPoint));
     }
 
     /// New3 constructs a new QRadialGradient object.
     ///
-    /// ``` cx: f64, cy: f64, radius: f64, fx: f64, fy: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` cx: f64 `
+    ///
+    /// ` cy: f64 `
+    ///
+    /// ` radius: f64 `
+    ///
+    /// ` fx: f64 `
+    ///
+    /// ` fy: f64 `
+    ///
     pub fn New3(cx: f64, cy: f64, radius: f64, fx: f64, fy: f64) QtC.QRadialGradient {
         return qtc.QRadialGradient_new3(@floatCast(cx), @floatCast(cy), @floatCast(radius), @floatCast(fx), @floatCast(fy));
     }
 
     /// New4 constructs a new QRadialGradient object.
     ///
-    /// ``` center: QtC.QPointF, radius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` center: QtC.QPointF `
+    ///
+    /// ` radius: f64 `
+    ///
     pub fn New4(center: ?*anyopaque, radius: f64) QtC.QRadialGradient {
         return qtc.QRadialGradient_new4(@ptrCast(center), @floatCast(radius));
     }
 
     /// New5 constructs a new QRadialGradient object.
     ///
-    /// ``` cx: f64, cy: f64, radius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` cx: f64 `
+    ///
+    /// ` cy: f64 `
+    ///
+    /// ` radius: f64 `
+    ///
     pub fn New5(cx: f64, cy: f64, radius: f64) QtC.QRadialGradient {
         return qtc.QRadialGradient_new5(@floatCast(cx), @floatCast(cy), @floatCast(radius));
     }
 
     /// New6 constructs a new QRadialGradient object.
     ///
-    /// ``` center: QtC.QPointF, centerRadius: f64, focalPoint: QtC.QPointF, focalRadius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` center: QtC.QPointF `
+    ///
+    /// ` centerRadius: f64 `
+    ///
+    /// ` focalPoint: QtC.QPointF `
+    ///
+    /// ` focalRadius: f64 `
+    ///
     pub fn New6(center: ?*anyopaque, centerRadius: f64, focalPoint: ?*anyopaque, focalRadius: f64) QtC.QRadialGradient {
         return qtc.QRadialGradient_new6(@ptrCast(center), @floatCast(centerRadius), @ptrCast(focalPoint), @floatCast(focalRadius));
     }
 
     /// New7 constructs a new QRadialGradient object.
     ///
-    /// ``` cx: f64, cy: f64, centerRadius: f64, fx: f64, fy: f64, focalRadius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` cx: f64 `
+    ///
+    /// ` cy: f64 `
+    ///
+    /// ` centerRadius: f64 `
+    ///
+    /// ` fx: f64 `
+    ///
+    /// ` fy: f64 `
+    ///
+    /// ` focalRadius: f64 `
+    ///
     pub fn New7(cx: f64, cy: f64, centerRadius: f64, fx: f64, fy: f64, focalRadius: f64) QtC.QRadialGradient {
         return qtc.QRadialGradient_new7(@floatCast(cx), @floatCast(cy), @floatCast(centerRadius), @floatCast(fx), @floatCast(fy), @floatCast(focalRadius));
     }
 
     /// New8 constructs a new QRadialGradient object.
     ///
-    /// ``` param1: QtC.QRadialGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QRadialGradient `
+    ///
     pub fn New8(param1: ?*anyopaque) QtC.QRadialGradient {
         return qtc.QRadialGradient_new8(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#center)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#center)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
     pub fn Center(self: ?*anyopaque) QtC.QPointF {
         return qtc.QRadialGradient_Center(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenter)
     ///
-    /// ``` self: QtC.QRadialGradient, center: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` center: QtC.QPointF `
+    ///
     pub fn SetCenter(self: ?*anyopaque, center: ?*anyopaque) void {
         qtc.QRadialGradient_SetCenter(@ptrCast(self), @ptrCast(center));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenter)
     ///
-    /// ``` self: QtC.QRadialGradient, x: f64, y: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
     pub fn SetCenter2(self: ?*anyopaque, x: f64, y: f64) void {
         qtc.QRadialGradient_SetCenter2(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalPoint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalPoint)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
     pub fn FocalPoint(self: ?*anyopaque) QtC.QPointF {
         return qtc.QRadialGradient_FocalPoint(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalPoint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalPoint)
     ///
-    /// ``` self: QtC.QRadialGradient, focalPoint: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` focalPoint: QtC.QPointF `
+    ///
     pub fn SetFocalPoint(self: ?*anyopaque, focalPoint: ?*anyopaque) void {
         qtc.QRadialGradient_SetFocalPoint(@ptrCast(self), @ptrCast(focalPoint));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalPoint)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalPoint)
     ///
-    /// ``` self: QtC.QRadialGradient, x: f64, y: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
     pub fn SetFocalPoint2(self: ?*anyopaque, x: f64, y: f64) void {
         qtc.QRadialGradient_SetFocalPoint2(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#radius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#radius)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
     pub fn Radius(self: ?*anyopaque) f64 {
         return qtc.QRadialGradient_Radius(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setRadius)
     ///
-    /// ``` self: QtC.QRadialGradient, radius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` radius: f64 `
+    ///
     pub fn SetRadius(self: ?*anyopaque, radius: f64) void {
         qtc.QRadialGradient_SetRadius(@ptrCast(self), @floatCast(radius));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#centerRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#centerRadius)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
     pub fn CenterRadius(self: ?*anyopaque) f64 {
         return qtc.QRadialGradient_CenterRadius(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenterRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenterRadius)
     ///
-    /// ``` self: QtC.QRadialGradient, radius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` radius: f64 `
+    ///
     pub fn SetCenterRadius(self: ?*anyopaque, radius: f64) void {
         qtc.QRadialGradient_SetCenterRadius(@ptrCast(self), @floatCast(radius));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalRadius)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
     pub fn FocalRadius(self: ?*anyopaque) f64 {
         return qtc.QRadialGradient_FocalRadius(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalRadius)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalRadius)
     ///
-    /// ``` self: QtC.QRadialGradient, radius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` radius: f64 `
+    ///
     pub fn SetFocalRadius(self: ?*anyopaque, radius: f64) void {
         qtc.QRadialGradient_SetFocalRadius(@ptrCast(self), @floatCast(radius));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Type ```
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
-    /// ``` self: QtC.QRadialGradient, spread: qbrush_enums.Spread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` spread: qbrush_enums.Spread `
+    ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Spread ```
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Spread `
+    ///
     pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
     ///
-    /// ``` self: QtC.QRadialGradient, pos: f64, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` pos: f64 `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
         qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
     ///
-    /// ``` self: QtC.QRadialGradient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Stops(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqcolor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
@@ -819,76 +1273,108 @@ pub const qradialgradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.CoordinateMode ```
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.CoordinateMode `
+    ///
     pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
-    /// ``` self: QtC.QRadialGradient, mode: qbrush_enums.CoordinateMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` mode: qbrush_enums.CoordinateMode `
+    ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.InterpolationMode ```
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.InterpolationMode `
+    ///
     pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
-    /// ``` self: QtC.QRadialGradient, mode: qbrush_enums.InterpolationMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` mode: qbrush_enums.InterpolationMode `
+    ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QRadialGradient, gradient: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` gradient: QtC.QGradient `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
         return qtc.QGradient_OperatorEqual(@ptrCast(self), @ptrCast(gradient));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QRadialGradient, other: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` other: QtC.QGradient `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#dtor.QRadialGradient)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#dtor.QRadialGradient)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QRadialGradient ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QRadialGradient_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qconicalgradient.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html)
 pub const qconicalgradient = struct {
     /// New constructs a new QConicalGradient object.
-    ///
     ///
     pub fn New() QtC.QConicalGradient {
         return qtc.QConicalGradient_new();
@@ -896,105 +1382,170 @@ pub const qconicalgradient = struct {
 
     /// New2 constructs a new QConicalGradient object.
     ///
-    /// ``` center: QtC.QPointF, startAngle: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` center: QtC.QPointF `
+    ///
+    /// ` startAngle: f64 `
+    ///
     pub fn New2(center: ?*anyopaque, startAngle: f64) QtC.QConicalGradient {
         return qtc.QConicalGradient_new2(@ptrCast(center), @floatCast(startAngle));
     }
 
     /// New3 constructs a new QConicalGradient object.
     ///
-    /// ``` cx: f64, cy: f64, startAngle: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` cx: f64 `
+    ///
+    /// ` cy: f64 `
+    ///
+    /// ` startAngle: f64 `
+    ///
     pub fn New3(cx: f64, cy: f64, startAngle: f64) QtC.QConicalGradient {
         return qtc.QConicalGradient_new3(@floatCast(cx), @floatCast(cy), @floatCast(startAngle));
     }
 
     /// New4 constructs a new QConicalGradient object.
     ///
-    /// ``` param1: QtC.QConicalGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QConicalGradient `
+    ///
     pub fn New4(param1: ?*anyopaque) QtC.QConicalGradient {
         return qtc.QConicalGradient_new4(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#center)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#center)
     ///
-    /// ``` self: QtC.QConicalGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
     pub fn Center(self: ?*anyopaque) QtC.QPointF {
         return qtc.QConicalGradient_Center(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setCenter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setCenter)
     ///
-    /// ``` self: QtC.QConicalGradient, center: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` center: QtC.QPointF `
+    ///
     pub fn SetCenter(self: ?*anyopaque, center: ?*anyopaque) void {
         qtc.QConicalGradient_SetCenter(@ptrCast(self), @ptrCast(center));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setCenter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setCenter)
     ///
-    /// ``` self: QtC.QConicalGradient, x: f64, y: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` x: f64 `
+    ///
+    /// ` y: f64 `
+    ///
     pub fn SetCenter2(self: ?*anyopaque, x: f64, y: f64) void {
         qtc.QConicalGradient_SetCenter2(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#angle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#angle)
     ///
-    /// ``` self: QtC.QConicalGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
     pub fn Angle(self: ?*anyopaque) f64 {
         return qtc.QConicalGradient_Angle(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setAngle)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setAngle)
     ///
-    /// ``` self: QtC.QConicalGradient, angle: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` angle: f64 `
+    ///
     pub fn SetAngle(self: ?*anyopaque, angle: f64) void {
         qtc.QConicalGradient_SetAngle(@ptrCast(self), @floatCast(angle));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
     ///
-    /// ``` self: QtC.QConicalGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Type ```
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
-    /// ``` self: QtC.QConicalGradient, spread: qbrush_enums.Spread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` spread: qbrush_enums.Spread `
+    ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
     ///
-    /// ``` self: QtC.QConicalGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.Spread ```
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.Spread `
+    ///
     pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
     ///
-    /// ``` self: QtC.QConicalGradient, pos: f64, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` pos: f64 `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
         qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
     ///
-    /// ``` self: QtC.QConicalGradient, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Stops(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqcolor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
@@ -1013,90 +1564,129 @@ pub const qconicalgradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
     ///
-    /// ``` self: QtC.QConicalGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.CoordinateMode ```
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.CoordinateMode `
+    ///
     pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
-    /// ``` self: QtC.QConicalGradient, mode: qbrush_enums.CoordinateMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` mode: qbrush_enums.CoordinateMode `
+    ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
     ///
-    /// ``` self: QtC.QConicalGradient ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qbrush_enums.InterpolationMode ```
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qbrush_enums.InterpolationMode `
+    ///
     pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
-    /// ``` self: QtC.QConicalGradient, mode: qbrush_enums.InterpolationMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` mode: qbrush_enums.InterpolationMode `
+    ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
-    /// ``` self: QtC.QConicalGradient, gradient: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` gradient: QtC.QGradient `
+    ///
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
         return qtc.QGradient_OperatorEqual(@ptrCast(self), @ptrCast(gradient));
     }
 
     /// Inherited from QGradient
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
-    /// ``` self: QtC.QConicalGradient, other: QtC.QGradient ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` other: QtC.QGradient `
+    ///
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#dtor.QConicalGradient)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#dtor.QConicalGradient)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QConicalGradient ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QConicalGradient_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qgradient-qgradientdata.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient-qgradientdata.html)
 pub const qgradient__qgradientdata = struct {
     /// New constructs a new QGradient::QGradientData object.
     ///
-    /// ``` param1: QtC.QGradient__QGradientData ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QGradient__QGradientData `
+    ///
     pub fn New(param1: ?*anyopaque) QtC.QGradient__QGradientData {
         return qtc.QGradient__QGradientData_new(@ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QGradient__QGradientData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QGradient__QGradientData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QGradient__QGradientData_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qbrush.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const LinearGradient: i32 = 0;

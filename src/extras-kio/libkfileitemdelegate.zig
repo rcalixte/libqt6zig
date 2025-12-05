@@ -7,10 +7,9 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qtextoption_enums = @import("../libqtextoption.zig").enums;
 const std = @import("std");
 
-/// https://api.kde.org/kfileitemdelegate.html
+/// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html)
 pub const kfileitemdelegate = struct {
     /// New constructs a new KFileItemDelegate object.
-    ///
     ///
     pub fn New() QtC.KFileItemDelegate {
         return qtc.KFileItemDelegate_new();
@@ -18,46 +17,85 @@ pub const kfileitemdelegate = struct {
 
     /// New2 constructs a new KFileItemDelegate object.
     ///
-    /// ``` parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn New2(parent: ?*anyopaque) QtC.KFileItemDelegate {
         return qtc.KFileItemDelegate_new2(@ptrCast(parent));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.KFileItemDelegate_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.KFileItemDelegate, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFileItemDelegate_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.KFileItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KFileItemDelegate_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.KFileItemDelegate_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.KFileItemDelegate_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -67,184 +105,346 @@ pub const kfileitemdelegate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
-    /// ``` self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn SizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
         return qtc.KFileItemDelegate_SizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QSize ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
+    ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
         qtc.KFileItemDelegate_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseSizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
         return qtc.KFileItemDelegate_QBaseSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
-    /// ``` self: QtC.KFileItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
-    /// ``` self: QtC.KFileItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn CreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
         return qtc.KFileItemDelegate_CreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QWidget ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QWidget `
+    ///
     pub fn OnCreateEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
         qtc.KFileItemDelegate_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseCreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
         return qtc.KFileItemDelegate_QBaseCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn EditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_EditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool `
+    ///
     pub fn OnEditorEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnEditorEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseEditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_QBaseEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn SetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnSetEditorData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnSetEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseSetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn SetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnSetModelData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnSetModelData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` model: QtC.QAbstractItemModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseSetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn UpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_UpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnUpdateEditorGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseUpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
     ///
-    /// ``` self: QtC.KFileItemDelegate, list: []kfileitemdelegate_enums.Information ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` list: []kfileitemdelegate_enums.Information `
+    ///
     pub fn SetShowInformation(self: ?*anyopaque, list: []i32) void {
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -253,18 +453,30 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_SetShowInformation(@ptrCast(self), list_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
     ///
-    /// ``` self: QtC.KFileItemDelegate, information: kfileitemdelegate_enums.Information ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` information: kfileitemdelegate_enums.Information `
+    ///
     pub fn SetShowInformation2(self: ?*anyopaque, information: i32) void {
         qtc.KFileItemDelegate_SetShowInformation2(@ptrCast(self), @intCast(information));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showInformation)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showInformation)
     ///
-    /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` []kfileitemdelegate_enums.Information ```
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` []kfileitemdelegate_enums.Information `
+    ///
     pub fn ShowInformation(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KFileItemDelegate_ShowInformation(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -274,194 +486,334 @@ pub const kfileitemdelegate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowColor)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowColor)
     ///
-    /// ``` self: QtC.KFileItemDelegate, color: QtC.QColor ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` color: QtC.QColor `
+    ///
     pub fn SetShadowColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetShadowColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowColor)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowColor)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn ShadowColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KFileItemDelegate_ShadowColor(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowOffset)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowOffset)
     ///
-    /// ``` self: QtC.KFileItemDelegate, offset: QtC.QPointF ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` offset: QtC.QPointF `
+    ///
     pub fn SetShadowOffset(self: ?*anyopaque, offset: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetShadowOffset(@ptrCast(self), @ptrCast(offset));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowOffset)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowOffset)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn ShadowOffset(self: ?*anyopaque) QtC.QPointF {
         return qtc.KFileItemDelegate_ShadowOffset(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowBlur)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowBlur)
     ///
-    /// ``` self: QtC.KFileItemDelegate, radius: f64 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` radius: f64 `
+    ///
     pub fn SetShadowBlur(self: ?*anyopaque, radius: f64) void {
         qtc.KFileItemDelegate_SetShadowBlur(@ptrCast(self), @floatCast(radius));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowBlur)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowBlur)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn ShadowBlur(self: ?*anyopaque) f64 {
         return qtc.KFileItemDelegate_ShadowBlur(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setMaximumSize)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setMaximumSize)
     ///
-    /// ``` self: QtC.KFileItemDelegate, size: QtC.QSize ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` size: QtC.QSize `
+    ///
     pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetMaximumSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#maximumSize)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#maximumSize)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.KFileItemDelegate_MaximumSize(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowToolTipWhenElided)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowToolTipWhenElided)
     ///
-    /// ``` self: QtC.KFileItemDelegate, showToolTip: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` showToolTip: bool `
+    ///
     pub fn SetShowToolTipWhenElided(self: ?*anyopaque, showToolTip: bool) void {
         qtc.KFileItemDelegate_SetShowToolTipWhenElided(@ptrCast(self), showToolTip);
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showToolTipWhenElided)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showToolTipWhenElided)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn ShowToolTipWhenElided(self: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_ShowToolTipWhenElided(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#iconRect)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#iconRect)
     ///
-    /// ``` self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn IconRect(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
         return qtc.KFileItemDelegate_IconRect(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setWrapMode)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setWrapMode)
     ///
-    /// ``` self: QtC.KFileItemDelegate, wrapMode: qtextoption_enums.WrapMode ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` wrapMode: qtextoption_enums.WrapMode `
+    ///
     pub fn SetWrapMode(self: ?*anyopaque, wrapMode: i32) void {
         qtc.KFileItemDelegate_SetWrapMode(@ptrCast(self), @intCast(wrapMode));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#wrapMode)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#wrapMode)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qtextoption_enums.WrapMode ```
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qtextoption_enums.WrapMode `
+    ///
     pub fn WrapMode(self: ?*anyopaque) i32 {
         return qtc.KFileItemDelegate_WrapMode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setJobTransfersVisible)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setJobTransfersVisible)
     ///
-    /// ``` self: QtC.KFileItemDelegate, jobTransfersVisible: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` jobTransfersVisible: bool `
+    ///
     pub fn SetJobTransfersVisible(self: ?*anyopaque, jobTransfersVisible: bool) void {
         qtc.KFileItemDelegate_SetJobTransfersVisible(@ptrCast(self), jobTransfersVisible);
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#jobTransfersVisible)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#jobTransfersVisible)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn JobTransfersVisible(self: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_JobTransfersVisible(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
-    /// ``` self: QtC.KFileItemDelegate, object: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` object: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, object: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` object: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#selectionEmblemRect)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#selectionEmblemRect)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn SelectionEmblemRect(self: ?*anyopaque) QtC.QRect {
         return qtc.KFileItemDelegate_SelectionEmblemRect(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setSelectionEmblemRect)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setSelectionEmblemRect)
     ///
-    /// ``` self: QtC.KFileItemDelegate, rect: QtC.QRect, iconSize: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` rect: QtC.QRect `
+    ///
+    /// ` iconSize: i32 `
+    ///
     pub fn SetSelectionEmblemRect(self: ?*anyopaque, rect: QtC.QRect, iconSize: i32) void {
         qtc.KFileItemDelegate_SetSelectionEmblemRect(@ptrCast(self), @ptrCast(rect), @intCast(iconSize));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#fileItem)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#fileItem)
     ///
-    /// ``` self: QtC.KFileItemDelegate, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn FileItem(self: ?*anyopaque, index: ?*anyopaque) QtC.KFileItem {
         return qtc.KFileItemDelegate_FileItem(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QHelpEvent `
+    ///
+    /// ` view: QtC.QAbstractItemView `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn HelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_HelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool `
+    ///
     pub fn OnHelpEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnHelpEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QHelpEvent `
+    ///
+    /// ` view: QtC.QAbstractItemView `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseHelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_QBaseHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shape)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shape)
     ///
-    /// ``` self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` option: QtC.QStyleOptionViewItem `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn Shape(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QRegion {
         return qtc.KFileItemDelegate_Shape(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -472,9 +824,18 @@ pub const kfileitemdelegate = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -487,81 +848,128 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
     pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
         qtc.QAbstractItemDelegate_CommitData(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegateeditor: QtC.QWidget) callconv(.c) void `
+    ///
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
         qtc.QAbstractItemDelegate_CloseEditor(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegateeditor: QtC.QWidget) callconv(.c) void `
+    ///
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
-    /// ``` self: QtC.KFileItemDelegate, param1: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` param1: QtC.QModelIndex `
+    ///
     pub fn SizeHintChanged(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QAbstractItemDelegate_SizeHintChanged(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegateparam1: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` hint: qabstractitemdelegate_enums.EndEditHint `
+    ///
     pub fn CloseEditor2(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
         qtc.QAbstractItemDelegate_CloseEditor2(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegateeditor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
+    ///
     pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -572,9 +980,14 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.KFileItemDelegate, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -585,99 +998,144 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.KFileItemDelegate, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KFileItemDelegate, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KFileItemDelegate, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KFileItemDelegate, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.KFileItemDelegate, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -689,45 +1147,78 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.KFileItemDelegate, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.KFileItemDelegate, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.KFileItemDelegate, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KFileItemDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -736,45 +1227,70 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.KFileItemDelegate, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -782,9 +1298,14 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.KFileItemDelegate, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -792,9 +1313,14 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -816,54 +1342,76 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.KFileItemDelegate, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -871,45 +1419,84 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.KFileItemDelegate, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.KFileItemDelegate, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.KFileItemDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -918,62 +1505,96 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFileItemDelegate, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegateparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn DestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_DestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` editor: QtC.QWidget `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
     pub fn QBaseDestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseDestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
+    ///
     pub fn OnDestroyEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnDestroyEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KFileItemDelegate_PaintingRoles(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -985,11 +1606,16 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBasePaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KFileItemDelegate_QBasePaintingRoles(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -1001,286 +1627,408 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn () callconv(.c) [*:-1]i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:-1]i32 `
+    ///
     pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:-1]i32) void {
         qtc.KFileItemDelegate_OnPaintingRoles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFileItemDelegate_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFileItemDelegate_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFileItemDelegate_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFileItemDelegate_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFileItemDelegate_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KFileItemDelegate_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.KFileItemDelegate_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.KFileItemDelegate_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.KFileItemDelegate_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KFileItemDelegate_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.KFileItemDelegate_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.KFileItemDelegate_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFileItemDelegate_Receivers(@ptrCast(self), signal_Cstring);
@@ -1288,11 +2036,16 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFileItemDelegate_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1300,70 +2053,98 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.KFileItemDelegate_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate`
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegate, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QtC.KFileItemDelegateobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#dtor.KFileItemDelegate)
+    /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#dtor.KFileItemDelegate)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KFileItemDelegate ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KFileItemDelegate `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KFileItemDelegate_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kfileitemdelegate.html#types
+/// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#public-types)
 pub const enums = struct {
     pub const Information = enum {
         pub const NoInformation: i32 = 0;

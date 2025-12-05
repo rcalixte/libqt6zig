@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const qhostinfo_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qhostinfo.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html)
 pub const qhostinfo = struct {
     /// New constructs a new QHostInfo object.
-    ///
     ///
     pub fn New() QtC.QHostInfo {
         return qtc.QHostInfo_new();
@@ -14,35 +13,56 @@ pub const qhostinfo = struct {
 
     /// New2 constructs a new QHostInfo object.
     ///
-    /// ``` d: QtC.QHostInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` d: QtC.QHostInfo `
+    ///
     pub fn New2(d: ?*anyopaque) QtC.QHostInfo {
         return qtc.QHostInfo_new2(@ptrCast(d));
     }
 
     /// New3 constructs a new QHostInfo object.
     ///
-    /// ``` lookupId: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` lookupId: i32 `
+    ///
     pub fn New3(lookupId: i32) QtC.QHostInfo {
         return qtc.QHostInfo_new3(@intCast(lookupId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#operator-eq)
     ///
-    /// ``` self: QtC.QHostInfo, d: QtC.QHostInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` d: QtC.QHostInfo `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, d: ?*anyopaque) void {
         qtc.QHostInfo_OperatorAssign(@ptrCast(self), @ptrCast(d));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#swap)
     ///
-    /// ``` self: QtC.QHostInfo, other: QtC.QHostInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` other: QtC.QHostInfo `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QHostInfo_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#hostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#hostName)
     ///
-    /// ``` self: QtC.QHostInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn HostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHostInfo_HostName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -51,9 +71,14 @@ pub const qhostinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setHostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setHostName)
     ///
-    /// ``` self: QtC.QHostInfo, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetHostName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -62,9 +87,14 @@ pub const qhostinfo = struct {
         qtc.QHostInfo_SetHostName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#addresses)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#addresses)
     ///
-    /// ``` self: QtC.QHostInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Addresses(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QHostAddress {
         const _arr: qtc.libqt_list = qtc.QHostInfo_Addresses(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -74,9 +104,14 @@ pub const qhostinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setAddresses)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setAddresses)
     ///
-    /// ``` self: QtC.QHostInfo, addresses: []QtC.QHostAddress ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` addresses: []QtC.QHostAddress `
+    ///
     pub fn SetAddresses(self: ?*anyopaque, addresses: []QtC.QHostAddress) void {
         const addresses_list = qtc.libqt_list{
             .len = addresses.len,
@@ -85,25 +120,40 @@ pub const qhostinfo = struct {
         qtc.QHostInfo_SetAddresses(@ptrCast(self), addresses_list);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#error)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#error)
     ///
-    /// ``` self: QtC.QHostInfo ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qhostinfo_enums.HostInfoError ```
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qhostinfo_enums.HostInfoError `
+    ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QHostInfo_Error(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setError)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setError)
     ///
-    /// ``` self: QtC.QHostInfo, errorVal: qhostinfo_enums.HostInfoError ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` errorVal: qhostinfo_enums.HostInfoError `
+    ///
     pub fn SetError(self: ?*anyopaque, errorVal: i32) void {
         qtc.QHostInfo_SetError(@ptrCast(self), @intCast(errorVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#errorString)
     ///
-    /// ``` self: QtC.QHostInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHostInfo_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -112,9 +162,14 @@ pub const qhostinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setErrorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setErrorString)
     ///
-    /// ``` self: QtC.QHostInfo, errorString: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` errorString: []const u8 `
+    ///
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -123,30 +178,44 @@ pub const qhostinfo = struct {
         qtc.QHostInfo_SetErrorString(@ptrCast(self), errorString_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setLookupId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setLookupId)
     ///
-    /// ``` self: QtC.QHostInfo, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn SetLookupId(self: ?*anyopaque, id: i32) void {
         qtc.QHostInfo_SetLookupId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#lookupId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#lookupId)
     ///
-    /// ``` self: QtC.QHostInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
     pub fn LookupId(self: ?*anyopaque) i32 {
         return qtc.QHostInfo_LookupId(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#abortHostLookup)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#abortHostLookup)
     ///
-    /// ``` lookupId: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` lookupId: i32 `
+    ///
     pub fn AbortHostLookup(lookupId: i32) void {
         qtc.QHostInfo_AbortHostLookup(@intCast(lookupId));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#fromName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#fromName)
     ///
-    /// ``` name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn FromName(name: []const u8) QtC.QHostInfo {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -155,9 +224,12 @@ pub const qhostinfo = struct {
         return qtc.QHostInfo_FromName(name_str);
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#localHostName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#localHostName)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LocalHostName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHostInfo_LocalHostName();
         defer qtc.libqt_string_free(&_str);
@@ -166,9 +238,12 @@ pub const qhostinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#localDomainName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#localDomainName)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn LocalDomainName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHostInfo_LocalDomainName();
         defer qtc.libqt_string_free(&_str);
@@ -177,17 +252,20 @@ pub const qhostinfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#dtor.QHostInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#dtor.QHostInfo)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QHostInfo ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QHostInfo `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QHostInfo_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qhostinfo.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#public-types)
 pub const enums = struct {
     pub const HostInfoError = enum {
         pub const NoError: i32 = 0;

@@ -3,48 +3,72 @@ const qtc = @import("qt6c");
 const qwebengineloadinginfo_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qwebengineloadinginfo.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html)
 pub const qwebengineloadinginfo = struct {
     /// New constructs a new QWebEngineLoadingInfo object.
     ///
-    /// ``` other: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QWebEngineLoadingInfo `
+    ///
     pub fn New(other: ?*anyopaque) QtC.QWebEngineLoadingInfo {
         return qtc.QWebEngineLoadingInfo_new(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator-eq)
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo, other: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
+    /// ` other: QtC.QWebEngineLoadingInfo `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineLoadingInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#url)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#url)
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineLoadingInfo_Url(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#isErrorPage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#isErrorPage)
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
     pub fn IsErrorPage(self: ?*anyopaque) bool {
         return qtc.QWebEngineLoadingInfo_IsErrorPage(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#status)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#status)
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebengineloadinginfo_enums.LoadStatus ```
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebengineloadinginfo_enums.LoadStatus `
+    ///
     pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QWebEngineLoadingInfo_Status(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorString)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorString)
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineLoadingInfo_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -53,33 +77,44 @@ pub const qwebengineloadinginfo = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorDomain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorDomain)
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qwebengineloadinginfo_enums.ErrorDomain ```
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qwebengineloadinginfo_enums.ErrorDomain `
+    ///
     pub fn ErrorDomain(self: ?*anyopaque) i32 {
         return qtc.QWebEngineLoadingInfo_ErrorDomain(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorCode)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorCode)
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
     pub fn ErrorCode(self: ?*anyopaque) i32 {
         return qtc.QWebEngineLoadingInfo_ErrorCode(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#dtor.QWebEngineLoadingInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#dtor.QWebEngineLoadingInfo)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QWebEngineLoadingInfo ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineLoadingInfo_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qwebengineloadinginfo.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#public-types)
 pub const enums = struct {
     pub const LoadStatus = enum {
         pub const LoadStartedStatus: i32 = 0;

@@ -2,10 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qopenglbuffer_enums = enums;
 
-/// https://doc.qt.io/qt-6/qopenglbuffer.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html)
 pub const qopenglbuffer = struct {
     /// New constructs a new QOpenGLBuffer object.
-    ///
     ///
     pub fn New() QtC.QOpenGLBuffer {
         return qtc.QOpenGLBuffer_new();
@@ -13,173 +12,278 @@ pub const qopenglbuffer = struct {
 
     /// New2 constructs a new QOpenGLBuffer object.
     ///
-    /// ``` typeVal: qopenglbuffer_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qopenglbuffer_enums.Type `
+    ///
     pub fn New2(typeVal: i32) QtC.QOpenGLBuffer {
         return qtc.QOpenGLBuffer_new2(@intCast(typeVal));
     }
 
     /// New3 constructs a new QOpenGLBuffer object.
     ///
-    /// ``` other: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QOpenGLBuffer `
+    ///
     pub fn New3(other: ?*anyopaque) QtC.QOpenGLBuffer {
         return qtc.QOpenGLBuffer_new3(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#operator-eq)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, other: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` other: QtC.QOpenGLBuffer `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QOpenGLBuffer_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#swap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#swap)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, other: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` other: QtC.QOpenGLBuffer `
+    ///
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QOpenGLBuffer_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#type)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#type)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopenglbuffer_enums.Type ```
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopenglbuffer_enums.Type `
+    ///
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QOpenGLBuffer_Type(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#usagePattern)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#usagePattern)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qopenglbuffer_enums.UsagePattern ```
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qopenglbuffer_enums.UsagePattern `
+    ///
     pub fn UsagePattern(self: ?*anyopaque) i32 {
         return qtc.QOpenGLBuffer_UsagePattern(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#setUsagePattern)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#setUsagePattern)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, value: qopenglbuffer_enums.UsagePattern ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` value: qopenglbuffer_enums.UsagePattern `
+    ///
     pub fn SetUsagePattern(self: ?*anyopaque, value: i32) void {
         qtc.QOpenGLBuffer_SetUsagePattern(@ptrCast(self), @intCast(value));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#create)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#create)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn Create(self: ?*anyopaque) bool {
         return qtc.QOpenGLBuffer_Create(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#isCreated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#isCreated)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn IsCreated(self: ?*anyopaque) bool {
         return qtc.QOpenGLBuffer_IsCreated(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#destroy)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#destroy)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn Destroy(self: ?*anyopaque) void {
         qtc.QOpenGLBuffer_Destroy(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#bind)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#bind)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn Bind(self: ?*anyopaque) bool {
         return qtc.QOpenGLBuffer_Bind(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#release)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#release)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn Release(self: ?*anyopaque) void {
         qtc.QOpenGLBuffer_Release(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#release)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#release)
     ///
-    /// ``` typeVal: qopenglbuffer_enums.Type ```
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qopenglbuffer_enums.Type `
+    ///
     pub fn Release2(typeVal: i32) void {
         qtc.QOpenGLBuffer_Release2(@intCast(typeVal));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#bufferId)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#bufferId)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn BufferId(self: ?*anyopaque) u32 {
         return qtc.QOpenGLBuffer_BufferId(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#size)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#size)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn Size(self: ?*anyopaque) i32 {
         return qtc.QOpenGLBuffer_Size(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#read)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#read)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, offset: i32, data: ?*anyopaque, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` offset: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn Read(self: ?*anyopaque, offset: i32, data: ?*anyopaque, count: i32) bool {
         return qtc.QOpenGLBuffer_Read(@ptrCast(self), @intCast(offset), @ptrCast(data), @intCast(count));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#write)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#write)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, offset: i32, data: ?*anyopaque, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` offset: i32 `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn Write(self: ?*anyopaque, offset: i32, data: ?*anyopaque, count: i32) void {
         qtc.QOpenGLBuffer_Write(@ptrCast(self), @intCast(offset), @ptrCast(data), @intCast(count));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, data: ?*anyopaque, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` data: ?*anyopaque `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn Allocate(self: ?*anyopaque, data: ?*anyopaque, count: i32) void {
         qtc.QOpenGLBuffer_Allocate(@ptrCast(self), @ptrCast(data), @intCast(count));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, count: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` count: i32 `
+    ///
     pub fn Allocate2(self: ?*anyopaque, count: i32) void {
         qtc.QOpenGLBuffer_Allocate2(@ptrCast(self), @intCast(count));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#map)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#map)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, access: qopenglbuffer_enums.Access ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` access: qopenglbuffer_enums.Access `
+    ///
     pub fn Map(self: ?*anyopaque, access: i32) ?*anyopaque {
         return qtc.QOpenGLBuffer_Map(@ptrCast(self), @intCast(access));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#mapRange)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#mapRange)
     ///
-    /// ``` self: QtC.QOpenGLBuffer, offset: i32, count: i32, access: flag of qopenglbuffer_enums.RangeAccessFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
+    /// ` offset: i32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` access: flag of qopenglbuffer_enums.RangeAccessFlag `
+    ///
     pub fn MapRange(self: ?*anyopaque, offset: i32, count: i32, access: i32) ?*anyopaque {
         return qtc.QOpenGLBuffer_MapRange(@ptrCast(self), @intCast(offset), @intCast(count), @intCast(access));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#unmap)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#unmap)
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn Unmap(self: ?*anyopaque) bool {
         return qtc.QOpenGLBuffer_Unmap(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#dtor.QOpenGLBuffer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#dtor.QOpenGLBuffer)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QOpenGLBuffer ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLBuffer `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QOpenGLBuffer_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qopenglbuffer.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#public-types)
 pub const enums = struct {
     pub const Type = enum {
         pub const VertexBuffer: i32 = 34962;

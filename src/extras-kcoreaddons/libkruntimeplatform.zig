@@ -2,11 +2,14 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/kruntimeplatform.html
+/// ### [Upstream resources](https://api.kde.org/kruntimeplatform.html)
 pub const kruntimeplatform = struct {
-    /// [Upstream resources](https://api.kde.org/kruntimeplatform.html#runtimePlatform)
+    /// ### [Upstream resources](https://api.kde.org/kruntimeplatform.html#runtimePlatform)
     ///
-    /// ``` allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn RuntimePlatform(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KRuntimePlatform_RuntimePlatform();
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));

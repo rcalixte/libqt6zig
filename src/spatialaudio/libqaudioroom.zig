@@ -5,50 +5,89 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qaudioroom.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html)
 pub const qaudioroom = struct {
     /// New constructs a new QAudioRoom object.
     ///
-    /// ``` engine: QtC.QAudioEngine ```
+    /// ## Parameter(s):
+    ///
+    /// ` engine: QtC.QAudioEngine `
+    ///
     pub fn New(engine: ?*anyopaque) QtC.QAudioRoom {
         return qtc.QAudioRoom_new(@ptrCast(engine));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QAudioRoom_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: QtC.QAudioRoom, param1: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` param1: []const u8 `
+    ///
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAudioRoom_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: QtC.QAudioRoom, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAudioRoom_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAudioRoom_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAudioRoom, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: ?*anyopaque `
+    ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAudioRoom_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const _str = qtc.QObject_Tr(s_Cstring);
@@ -58,235 +97,376 @@ pub const qaudioroom = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setPosition)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setPosition)
     ///
-    /// ``` self: QtC.QAudioRoom, pos: QtC.QVector3D ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` pos: QtC.QVector3D `
+    ///
     pub fn SetPosition(self: ?*anyopaque, pos: QtC.QVector3D) void {
         qtc.QAudioRoom_SetPosition(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#position)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#position)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn Position(self: ?*anyopaque) QtC.QVector3D {
         return qtc.QAudioRoom_Position(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setDimensions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setDimensions)
     ///
-    /// ``` self: QtC.QAudioRoom, dim: QtC.QVector3D ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` dim: QtC.QVector3D `
+    ///
     pub fn SetDimensions(self: ?*anyopaque, dim: QtC.QVector3D) void {
         qtc.QAudioRoom_SetDimensions(@ptrCast(self), @ptrCast(dim));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensions)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensions)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn Dimensions(self: ?*anyopaque) QtC.QVector3D {
         return qtc.QAudioRoom_Dimensions(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setRotation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setRotation)
     ///
-    /// ``` self: QtC.QAudioRoom, q: QtC.QQuaternion ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` q: QtC.QQuaternion `
+    ///
     pub fn SetRotation(self: ?*anyopaque, q: ?*anyopaque) void {
         qtc.QAudioRoom_SetRotation(@ptrCast(self), @ptrCast(q));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotation)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotation)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn Rotation(self: ?*anyopaque) QtC.QQuaternion {
         return qtc.QAudioRoom_Rotation(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setWallMaterial)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setWallMaterial)
     ///
-    /// ``` self: QtC.QAudioRoom, wall: qaudioroom_enums.Wall, material: qaudioroom_enums.Material ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` wall: qaudioroom_enums.Wall `
+    ///
+    /// ` material: qaudioroom_enums.Material `
+    ///
     pub fn SetWallMaterial(self: ?*anyopaque, wall: i32, material: i32) void {
         qtc.QAudioRoom_SetWallMaterial(@ptrCast(self), @intCast(wall), @intCast(material));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallMaterial)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallMaterial)
     ///
-    /// ``` self: QtC.QAudioRoom, wall: qaudioroom_enums.Wall ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` qaudioroom_enums.Material ```
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` wall: qaudioroom_enums.Wall `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qaudioroom_enums.Material `
+    ///
     pub fn WallMaterial(self: ?*anyopaque, wall: i32) i32 {
         return qtc.QAudioRoom_WallMaterial(@ptrCast(self), @intCast(wall));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReflectionGain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReflectionGain)
     ///
-    /// ``` self: QtC.QAudioRoom, factor: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` factor: f32 `
+    ///
     pub fn SetReflectionGain(self: ?*anyopaque, factor: f32) void {
         qtc.QAudioRoom_SetReflectionGain(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGain)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReflectionGain(self: ?*anyopaque) f32 {
         return qtc.QAudioRoom_ReflectionGain(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbGain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbGain)
     ///
-    /// ``` self: QtC.QAudioRoom, factor: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` factor: f32 `
+    ///
     pub fn SetReverbGain(self: ?*anyopaque, factor: f32) void {
         qtc.QAudioRoom_SetReverbGain(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGain)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGain)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReverbGain(self: ?*anyopaque) f32 {
         return qtc.QAudioRoom_ReverbGain(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbTime)
     ///
-    /// ``` self: QtC.QAudioRoom, factor: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` factor: f32 `
+    ///
     pub fn SetReverbTime(self: ?*anyopaque, factor: f32) void {
         qtc.QAudioRoom_SetReverbTime(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTime)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTime)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReverbTime(self: ?*anyopaque) f32 {
         return qtc.QAudioRoom_ReverbTime(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbBrightness)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbBrightness)
     ///
-    /// ``` self: QtC.QAudioRoom, factor: f32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` factor: f32 `
+    ///
     pub fn SetReverbBrightness(self: ?*anyopaque, factor: f32) void {
         qtc.QAudioRoom_SetReverbBrightness(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightness)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightness)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReverbBrightness(self: ?*anyopaque) f32 {
         return qtc.QAudioRoom_ReverbBrightness(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#positionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#positionChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn PositionChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_PositionChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#positionChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#positionChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_PositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensionsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensionsChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn DimensionsChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_DimensionsChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensionsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensionsChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnDimensionsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_DimensionsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotationChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotationChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn RotationChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_RotationChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotationChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotationChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallsChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn WallsChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_WallsChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallsChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallsChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnWallsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_WallsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGainChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGainChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReflectionGainChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_ReflectionGainChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGainChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGainChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnReflectionGainChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReflectionGainChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGainChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGainChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReverbGainChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_ReverbGainChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGainChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGainChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnReverbGainChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReverbGainChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTimeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTimeChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReverbTimeChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_ReverbTimeChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTimeChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTimeChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnReverbTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReverbTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightnessChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightnessChanged)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn ReverbBrightnessChanged(self: ?*anyopaque) void {
         qtc.QAudioRoom_ReverbBrightnessChanged(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightnessChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightnessChanged)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnReverbBrightnessChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReverbBrightnessChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -297,9 +477,18 @@ pub const qaudioroom = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` c: []const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -312,9 +501,14 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: QtC.QAudioRoom, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -325,9 +519,14 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: QtC.QAudioRoom, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -338,99 +537,144 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn IsWidgetType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn IsWindowType(self: ?*anyopaque) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: QtC.QAudioRoom, b: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` b: bool `
+    ///
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
         return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QAudioRoom, thread: QtC.QThread ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
         return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QAudioRoom, interval: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` interval: i32 `
+    ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QAudioRoom, id: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` id: i32 `
+    ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: QtC.QAudioRoom, id: qnamespace_enums.TimerId ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` id: qnamespace_enums.TimerId `
+    ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: QtC.QAudioRoom, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
@@ -442,45 +686,78 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: QtC.QAudioRoom, parent: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: QtC.QAudioRoom, filterObj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` filterObj: QtC.QObject `
+    ///
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: QtC.QAudioRoom, obj: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
         qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QAudioRoom, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -489,45 +766,70 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: QtC.QMetaMethod `
+    ///
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
         return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: QtC.QMetaObject__Connection ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QMetaObject__Connection `
+    ///
     pub fn Disconnect2(param1: ?*anyopaque) bool {
         return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn DumpObjectTree(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: QtC.QAudioRoom, name: []const u8, value: QtC.QVariant ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
@@ -535,9 +837,14 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: QtC.QAudioRoom, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
@@ -545,9 +852,14 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: QtC.QAudioRoom, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -569,54 +881,76 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
         return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn Destroyed(self: ?*anyopaque) void {
         qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom) callconv(.c) void `
+    ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
         return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: QtC.QAudioRoom, classname: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` classname: []const u8 `
+    ///
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
@@ -624,45 +958,84 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: QtC.QAudioRoom, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` thread: QtC.QThread `
+    ///
+    /// ` param2: QtC.Disambiguated_t `
+    ///
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
         return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: QtC.QAudioRoom, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` interval: i32 `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` method: QtC.QMetaMethod `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: QtC.QAudioRoom, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: []const u8 `
+    ///
+    /// ` member: []const u8 `
+    ///
+    /// ` typeVal: qnamespace_enums.ConnectionType `
+    ///
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
@@ -671,326 +1044,472 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAudioRoom, param1: QtC.QObject ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` param1: QtC.QObject `
+    ///
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, param1: QtC.QObject) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoomparam1: QtC.QObject) callconv(.c) void `
+    ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAudioRoom_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAudioRoom_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAudioRoom_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAudioRoom_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, watched: QtC.QObject, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` watched: QtC.QObject `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAudioRoom_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAudioRoom_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAudioRoom_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QTimerEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QTimerEvent `
+    ///
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAudioRoom_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, event: QtC.QTimerEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, event: QtC.QTimerEvent) callconv(.c) void `
+    ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAudioRoom_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QChildEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QChildEvent `
+    ///
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAudioRoom_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, event: QtC.QChildEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, event: QtC.QChildEvent) callconv(.c) void `
+    ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAudioRoom_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, event: QtC.QEvent ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` event: QtC.QEvent `
+    ///
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAudioRoom_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, event: QtC.QEvent) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, event: QtC.QEvent) callconv(.c) void `
+    ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAudioRoom_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAudioRoom_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAudioRoom_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.QAudioRoom_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, signal: QtC.QMetaMethod) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, signal: QtC.QMetaMethod) callconv(.c) void `
+    ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAudioRoom_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn Sender(self: ?*anyopaque) QtC.QObject {
         return qtc.QAudioRoom_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
         return qtc.QAudioRoom_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn () callconv(.c) QtC.QObject ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
         qtc.QAudioRoom_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QAudioRoom_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
         return qtc.QAudioRoom_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn () callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QAudioRoom_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAudioRoom_Receivers(@ptrCast(self), signal_Cstring);
@@ -998,11 +1517,16 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: []const u8 `
+    ///
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAudioRoom_QBaseReceivers(@ptrCast(self), signal_Cstring);
@@ -1010,70 +1534,98 @@ pub const qaudioroom = struct {
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, signal: [*:0]const u8) callconv(.c) i32 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAudioRoom_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QAudioRoom_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, signal: QtC.QMetaMethod ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` signal: QtC.QMetaMethod `
+    ///
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
         return qtc.QAudioRoom_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom`
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoom, signal: QtC.QMetaMethod) callconv(.c) bool `
+    ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAudioRoom_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
     ///
-    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAudioRoom, callback: *const fn (self: QtC.QAudioRoom, objectName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
+    /// ` callback: *const fn (self: QtC.QAudioRoomobjectName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dtor.QAudioRoom)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dtor.QAudioRoom)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QAudioRoom ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QAudioRoom `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QAudioRoom_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qaudioroom.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#public-types)
 pub const enums = struct {
     pub const Material = enum {
         pub const Transparent: i32 = 0;

@@ -3,10 +3,9 @@ const qtc = @import("qt6c");
 const kurifilter_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kurifiltersearchprovider.html
+/// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html)
 pub const kurifiltersearchprovider = struct {
     /// New constructs a new KUriFilterSearchProvider object.
-    ///
     ///
     pub fn New() QtC.KUriFilterSearchProvider {
         return qtc.KUriFilterSearchProvider_new();
@@ -14,14 +13,22 @@ pub const kurifiltersearchprovider = struct {
 
     /// New2 constructs a new KUriFilterSearchProvider object.
     ///
-    /// ``` param1: QtC.KUriFilterSearchProvider ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KUriFilterSearchProvider `
+    ///
     pub fn New2(param1: ?*anyopaque) QtC.KUriFilterSearchProvider {
         return qtc.KUriFilterSearchProvider_new2(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#desktopEntryName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#desktopEntryName)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DesktopEntryName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterSearchProvider_DesktopEntryName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -30,9 +37,14 @@ pub const kurifiltersearchprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#name)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#name)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterSearchProvider_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -41,9 +53,14 @@ pub const kurifiltersearchprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterSearchProvider_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -52,20 +69,30 @@ pub const kurifiltersearchprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    ///
     pub fn OnIconName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterSearchProvider_QBaseIconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -74,9 +101,14 @@ pub const kurifiltersearchprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#keys)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#keys)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterSearchProvider_Keys(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -96,9 +128,14 @@ pub const kurifiltersearchprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#defaultKey)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#defaultKey)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DefaultKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterSearchProvider_DefaultKey(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -107,16 +144,26 @@ pub const kurifiltersearchprovider = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#operator-eq)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, param1: QtC.KUriFilterSearchProvider ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` param1: QtC.KUriFilterSearchProvider `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KUriFilterSearchProvider_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, desktopEntryName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` desktopEntryName: []const u8 `
+    ///
     pub fn SetDesktopEntryName(self: ?*anyopaque, desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
@@ -125,20 +172,30 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_SetDesktopEntryName(@ptrCast(self), desktopEntryName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, desktopEntryName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, desktopEntryName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetDesktopEntryName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, desktopEntryName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` desktopEntryName: []const u8 `
+    ///
     pub fn QBaseSetDesktopEntryName(self: ?*anyopaque, desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
@@ -147,9 +204,14 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_QBaseSetDesktopEntryName(@ptrCast(self), desktopEntryName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, iconName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` iconName: []const u8 `
+    ///
     pub fn SetIconName(self: ?*anyopaque, iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
@@ -158,20 +220,30 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_SetIconName(@ptrCast(self), iconName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, iconName: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, iconName: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetIconName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, iconName: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` iconName: []const u8 `
+    ///
     pub fn QBaseSetIconName(self: ?*anyopaque, iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
@@ -180,9 +252,16 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_QBaseSetIconName(@ptrCast(self), iconName_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, keys: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` keys: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetKeys(self: ?*anyopaque, keys: [][]const u8, allocator: std.mem.Allocator) void {
         var keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("kurifiltersearchprovider.SetKeys: Memory allocation failed");
         defer allocator.free(keys_arr);
@@ -199,20 +278,32 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_SetKeys(@ptrCast(self), keys_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, keys: [*][*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, keys: [*][*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetKeys(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, keys: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` keys: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QBaseSetKeys(self: ?*anyopaque, keys: [][]const u8, allocator: std.mem.Allocator) void {
         var keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("kurifiltersearchprovider.SetKeys: Memory allocation failed");
         defer allocator.free(keys_arr);
@@ -229,9 +320,14 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_QBaseSetKeys(@ptrCast(self), keys_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -240,20 +336,30 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, name: [*:0]const u8) callconv(.c) void ```
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, name: [*:0]const u8) callconv(.c) void `
+    ///
     pub fn OnSetName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, name: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
+    /// ` name: []const u8 `
+    ///
     pub fn QBaseSetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -262,20 +368,22 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_QBaseSetName(@ptrCast(self), name_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#dtor.KUriFilterSearchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#dtor.KUriFilterSearchProvider)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KUriFilterSearchProvider `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KUriFilterSearchProvider_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kurifilterdata.html
+/// ### [Upstream resources](https://api.kde.org/kurifilterdata.html)
 pub const kurifilterdata = struct {
     /// New constructs a new KUriFilterData object.
-    ///
     ///
     pub fn New() QtC.KUriFilterData {
         return qtc.KUriFilterData_new();
@@ -283,14 +391,20 @@ pub const kurifilterdata = struct {
 
     /// New2 constructs a new KUriFilterData object.
     ///
-    /// ``` url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn New2(url: ?*anyopaque) QtC.KUriFilterData {
         return qtc.KUriFilterData_new2(@ptrCast(url));
     }
 
     /// New3 constructs a new KUriFilterData object.
     ///
-    /// ``` url: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` url: []const u8 `
+    ///
     pub fn New3(url: []const u8) QtC.KUriFilterData {
         const url_str = qtc.libqt_string{
             .len = url.len,
@@ -302,21 +416,32 @@ pub const kurifilterdata = struct {
 
     /// New4 constructs a new KUriFilterData object.
     ///
-    /// ``` other: QtC.KUriFilterData ```
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.KUriFilterData `
+    ///
     pub fn New4(other: ?*anyopaque) QtC.KUriFilterData {
         return qtc.KUriFilterData_new4(@ptrCast(other));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#uri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#uri)
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
     pub fn Uri(self: ?*anyopaque) QtC.QUrl {
         return qtc.KUriFilterData_Uri(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#errorMsg)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#errorMsg)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ErrorMsg(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_ErrorMsg(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -325,18 +450,28 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#uriType)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#uriType)
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` kurifilter_enums.UriTypes ```
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kurifilter_enums.UriTypes `
+    ///
     pub fn UriType(self: ?*anyopaque) i32 {
         return qtc.KUriFilterData_UriType(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#absolutePath)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#absolutePath)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AbsolutePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_AbsolutePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -345,16 +480,24 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#hasAbsolutePath)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#hasAbsolutePath)
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
     pub fn HasAbsolutePath(self: ?*anyopaque) bool {
         return qtc.KUriFilterData_HasAbsolutePath(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#argsAndOptions)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#argsAndOptions)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn ArgsAndOptions(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_ArgsAndOptions(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -363,23 +506,34 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#hasArgsAndOptions)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#hasArgsAndOptions)
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
     pub fn HasArgsAndOptions(self: ?*anyopaque) bool {
         return qtc.KUriFilterData_HasArgsAndOptions(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#checkForExecutables)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#checkForExecutables)
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
     pub fn CheckForExecutables(self: ?*anyopaque) bool {
         return qtc.KUriFilterData_CheckForExecutables(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#typedString)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#typedString)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn TypedString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_TypedString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -388,9 +542,14 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#searchTerm)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchTerm)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SearchTerm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_SearchTerm(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -399,16 +558,24 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#searchTermSeparator)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchTermSeparator)
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
     pub fn SearchTermSeparator(self: ?*anyopaque) QtC.QChar {
         return qtc.KUriFilterData_SearchTermSeparator(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#searchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchProvider)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SearchProvider(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_SearchProvider(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -417,9 +584,14 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#preferredSearchProviders)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#preferredSearchProviders)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PreferredSearchProviders(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterData_PreferredSearchProviders(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -439,9 +611,14 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#queryForSearchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#queryForSearchProvider)
     ///
-    /// ``` self: QtC.KUriFilterData, provider: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` provider: []const u8 `
+    ///
     pub fn QueryForSearchProvider(self: ?*anyopaque, provider: []const u8) QtC.KUriFilterSearchProvider {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
@@ -450,9 +627,16 @@ pub const kurifilterdata = struct {
         return qtc.KUriFilterData_QueryForSearchProvider(@ptrCast(self), provider_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#queryForPreferredSearchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#queryForPreferredSearchProvider)
     ///
-    /// ``` self: QtC.KUriFilterData, provider: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` provider: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn QueryForPreferredSearchProvider(self: ?*anyopaque, provider: []const u8, allocator: std.mem.Allocator) []const u8 {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
@@ -465,9 +649,16 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#allQueriesForSearchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#allQueriesForSearchProvider)
     ///
-    /// ``` self: QtC.KUriFilterData, provider: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` provider: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AllQueriesForSearchProvider(self: ?*anyopaque, provider: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
@@ -491,9 +682,16 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#iconNameForPreferredSearchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#iconNameForPreferredSearchProvider)
     ///
-    /// ``` self: QtC.KUriFilterData, provider: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` provider: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconNameForPreferredSearchProvider(self: ?*anyopaque, provider: []const u8, allocator: std.mem.Allocator) []const u8 {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
@@ -506,9 +704,14 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#alternateSearchProviders)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#alternateSearchProviders)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AlternateSearchProviders(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterData_AlternateSearchProviders(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -528,9 +731,14 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#alternateDefaultSearchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#alternateDefaultSearchProvider)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn AlternateDefaultSearchProvider(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_AlternateDefaultSearchProvider(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -539,9 +747,14 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#defaultUrlScheme)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#defaultUrlScheme)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn DefaultUrlScheme(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_DefaultUrlScheme(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -550,18 +763,28 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#searchFilteringOptions)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchFilteringOptions)
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of kurifilter_enums.SearchFilterOption ```
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of kurifilter_enums.SearchFilterOption `
+    ///
     pub fn SearchFilteringOptions(self: ?*anyopaque) i32 {
         return qtc.KUriFilterData_SearchFilteringOptions(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#iconName)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#iconName)
     ///
-    /// ``` self: QtC.KUriFilterData, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KUriFilterData_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
@@ -570,23 +793,38 @@ pub const kurifilterdata = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setCheckForExecutables)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setCheckForExecutables)
     ///
-    /// ``` self: QtC.KUriFilterData, check: bool ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` check: bool `
+    ///
     pub fn SetCheckForExecutables(self: ?*anyopaque, check: bool) void {
         qtc.KUriFilterData_SetCheckForExecutables(@ptrCast(self), check);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setData)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setData)
     ///
-    /// ``` self: QtC.KUriFilterData, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn SetData(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KUriFilterData_SetData(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setData)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setData)
     ///
-    /// ``` self: QtC.KUriFilterData, url: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` url: []const u8 `
+    ///
     pub fn SetData2(self: ?*anyopaque, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
@@ -595,9 +833,14 @@ pub const kurifilterdata = struct {
         qtc.KUriFilterData_SetData2(@ptrCast(self), url_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setAbsolutePath)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setAbsolutePath)
     ///
-    /// ``` self: QtC.KUriFilterData, abs_path: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` abs_path: []const u8 `
+    ///
     pub fn SetAbsolutePath(self: ?*anyopaque, abs_path: []const u8) bool {
         const abs_path_str = qtc.libqt_string{
             .len = abs_path.len,
@@ -606,9 +849,16 @@ pub const kurifilterdata = struct {
         return qtc.KUriFilterData_SetAbsolutePath(@ptrCast(self), abs_path_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setAlternateSearchProviders)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setAlternateSearchProviders)
     ///
-    /// ``` self: QtC.KUriFilterData, providers: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` providers: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn SetAlternateSearchProviders(self: ?*anyopaque, providers: [][]const u8, allocator: std.mem.Allocator) void {
         var providers_arr = allocator.alloc(qtc.libqt_string, providers.len) catch @panic("kurifilterdata.SetAlternateSearchProviders: Memory allocation failed");
         defer allocator.free(providers_arr);
@@ -625,9 +875,14 @@ pub const kurifilterdata = struct {
         qtc.KUriFilterData_SetAlternateSearchProviders(@ptrCast(self), providers_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setAlternateDefaultSearchProvider)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setAlternateDefaultSearchProvider)
     ///
-    /// ``` self: QtC.KUriFilterData, provider: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` provider: []const u8 `
+    ///
     pub fn SetAlternateDefaultSearchProvider(self: ?*anyopaque, provider: []const u8) void {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
@@ -636,9 +891,14 @@ pub const kurifilterdata = struct {
         qtc.KUriFilterData_SetAlternateDefaultSearchProvider(@ptrCast(self), provider_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setDefaultUrlScheme)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setDefaultUrlScheme)
     ///
-    /// ``` self: QtC.KUriFilterData, defaultUrlScheme: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` defaultUrlScheme: []const u8 `
+    ///
     pub fn SetDefaultUrlScheme(self: ?*anyopaque, defaultUrlScheme: []const u8) void {
         const defaultUrlScheme_str = qtc.libqt_string{
             .len = defaultUrlScheme.len,
@@ -647,23 +907,38 @@ pub const kurifilterdata = struct {
         qtc.KUriFilterData_SetDefaultUrlScheme(@ptrCast(self), defaultUrlScheme_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#setSearchFilteringOptions)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setSearchFilteringOptions)
     ///
-    /// ``` self: QtC.KUriFilterData, options: flag of kurifilter_enums.SearchFilterOption ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` options: flag of kurifilter_enums.SearchFilterOption `
+    ///
     pub fn SetSearchFilteringOptions(self: ?*anyopaque, options: i32) void {
         qtc.KUriFilterData_SetSearchFilteringOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#operator-eq)
     ///
-    /// ``` self: QtC.KUriFilterData, url: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KUriFilterData_OperatorAssign(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#operator-eq)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#operator-eq)
     ///
-    /// ``` self: QtC.KUriFilterData, url: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
+    /// ` url: []const u8 `
+    ///
     pub fn OperatorAssign2(self: ?*anyopaque, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
@@ -672,42 +947,59 @@ pub const kurifilterdata = struct {
         qtc.KUriFilterData_OperatorAssign2(@ptrCast(self), url_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilterdata.html#dtor.KUriFilterData)
+    /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#dtor.KUriFilterData)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KUriFilterData ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KUriFilterData `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KUriFilterData_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kurifilter.html
+/// ### [Upstream resources](https://api.kde.org/kurifilter.html)
 pub const kurifilter = struct {
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#self)
-    ///
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#self)
     ///
     pub fn Self() QtC.KUriFilter {
         return qtc.KUriFilter_Self();
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
-    /// ``` self: QtC.KUriFilter, data: QtC.KUriFilterData ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` data: QtC.KUriFilterData `
+    ///
     pub fn FilterUri(self: ?*anyopaque, data: ?*anyopaque) bool {
         return qtc.KUriFilter_FilterUri(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: QtC.QUrl `
+    ///
     pub fn FilterUri2(self: ?*anyopaque, uri: ?*anyopaque) bool {
         return qtc.KUriFilter_FilterUri2(@ptrCast(self), @ptrCast(uri));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: []const u8 `
+    ///
     pub fn FilterUri3(self: ?*anyopaque, uri: []const u8) bool {
         const uri_str = qtc.libqt_string{
             .len = uri.len,
@@ -716,16 +1008,28 @@ pub const kurifilter = struct {
         return qtc.KUriFilter_FilterUri3(@ptrCast(self), uri_str);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: QtC.QUrl ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: QtC.QUrl `
+    ///
     pub fn FilteredUri(self: ?*anyopaque, uri: ?*anyopaque) QtC.QUrl {
         return qtc.KUriFilter_FilteredUri(@ptrCast(self), @ptrCast(uri));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilteredUri2(self: ?*anyopaque, uri: []const u8, allocator: std.mem.Allocator) []const u8 {
         const uri_str = qtc.libqt_string{
             .len = uri.len,
@@ -738,16 +1042,28 @@ pub const kurifilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filterSearchUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterSearchUri)
     ///
-    /// ``` self: QtC.KUriFilter, data: QtC.KUriFilterData, types: flag of kurifilter_enums.SearchFilterType ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` data: QtC.KUriFilterData `
+    ///
+    /// ` types: flag of kurifilter_enums.SearchFilterType `
+    ///
     pub fn FilterSearchUri(self: ?*anyopaque, data: ?*anyopaque, types: i32) bool {
         return qtc.KUriFilter_FilterSearchUri(@ptrCast(self), @ptrCast(data), @intCast(types));
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#pluginNames)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#pluginNames)
     ///
-    /// ``` self: QtC.KUriFilter, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PluginNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilter_PluginNames(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -767,9 +1083,18 @@ pub const kurifilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
-    /// ``` self: QtC.KUriFilter, data: QtC.KUriFilterData, filters: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` data: QtC.KUriFilterData `
+    ///
+    /// ` filters: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilterUri22(self: ?*anyopaque, data: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) bool {
         var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri22: Memory allocation failed");
         defer allocator.free(filters_arr);
@@ -786,9 +1111,18 @@ pub const kurifilter = struct {
         return qtc.KUriFilter_FilterUri22(@ptrCast(self), @ptrCast(data), filters_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: QtC.QUrl, filters: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: QtC.QUrl `
+    ///
+    /// ` filters: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilterUri23(self: ?*anyopaque, uri: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) bool {
         var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri23: Memory allocation failed");
         defer allocator.free(filters_arr);
@@ -805,9 +1139,18 @@ pub const kurifilter = struct {
         return qtc.KUriFilter_FilterUri23(@ptrCast(self), @ptrCast(uri), filters_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: []const u8, filters: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: []const u8 `
+    ///
+    /// ` filters: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilterUri24(self: ?*anyopaque, uri: []const u8, filters: [][]const u8, allocator: std.mem.Allocator) bool {
         const uri_str = qtc.libqt_string{
             .len = uri.len,
@@ -828,9 +1171,18 @@ pub const kurifilter = struct {
         return qtc.KUriFilter_FilterUri24(@ptrCast(self), uri_str, filters_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: QtC.QUrl, filters: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: QtC.QUrl `
+    ///
+    /// ` filters: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilteredUri22(self: ?*anyopaque, uri: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) QtC.QUrl {
         var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilteredUri22: Memory allocation failed");
         defer allocator.free(filters_arr);
@@ -847,9 +1199,18 @@ pub const kurifilter = struct {
         return qtc.KUriFilter_FilteredUri22(@ptrCast(self), @ptrCast(uri), filters_list);
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
     ///
-    /// ``` self: QtC.KUriFilter, uri: []const u8, filters: [][]const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
+    /// ` uri: []const u8 `
+    ///
+    /// ` filters: [][]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn FilteredUri23(self: ?*anyopaque, uri: []const u8, filters: [][]const u8, allocator: std.mem.Allocator) []const u8 {
         const uri_str = qtc.libqt_string{
             .len = uri.len,
@@ -874,17 +1235,20 @@ pub const kurifilter = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/kurifilter.html#dtor.KUriFilter)
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#dtor.KUriFilter)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.KUriFilter ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.KUriFilter `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KUriFilter_Delete(@ptrCast(self));
     }
 };
 
-/// https://api.kde.org/kurifilter.html#types
+/// ### [Upstream resources](https://api.kde.org/kurifilter.html#public-types)
 pub const enums = struct {
     pub const UriTypes = enum {
         pub const NetProtocol: i32 = 0;

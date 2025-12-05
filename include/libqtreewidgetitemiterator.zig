@@ -2,110 +2,166 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qtreewidgetitemiterator_enums = enums;
 
-/// https://doc.qt.io/qt-6/qtreewidgetitemiterator.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html)
 pub const qtreewidgetitemiterator = struct {
     /// New constructs a new QTreeWidgetItemIterator object.
     ///
-    /// ``` it: QtC.QTreeWidgetItemIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` it: QtC.QTreeWidgetItemIterator `
+    ///
     pub fn New(it: ?*anyopaque) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_new(@ptrCast(it));
     }
 
     /// New2 constructs a new QTreeWidgetItemIterator object.
     ///
-    /// ``` widget: QtC.QTreeWidget ```
+    /// ## Parameter(s):
+    ///
+    /// ` widget: QtC.QTreeWidget `
+    ///
     pub fn New2(widget: ?*anyopaque) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_new2(@ptrCast(widget));
     }
 
     /// New3 constructs a new QTreeWidgetItemIterator object.
     ///
-    /// ``` item: QtC.QTreeWidgetItem ```
+    /// ## Parameter(s):
+    ///
+    /// ` item: QtC.QTreeWidgetItem `
+    ///
     pub fn New3(item: ?*anyopaque) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_new3(@ptrCast(item));
     }
 
     /// New4 constructs a new QTreeWidgetItemIterator object.
     ///
-    /// ``` widget: QtC.QTreeWidget, flags: flag of qtreewidgetitemiterator_enums.IteratorFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` widget: QtC.QTreeWidget `
+    ///
+    /// ` flags: flag of qtreewidgetitemiterator_enums.IteratorFlag `
+    ///
     pub fn New4(widget: ?*anyopaque, flags: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_new4(@ptrCast(widget), @intCast(flags));
     }
 
     /// New5 constructs a new QTreeWidgetItemIterator object.
     ///
-    /// ``` item: QtC.QTreeWidgetItem, flags: flag of qtreewidgetitemiterator_enums.IteratorFlag ```
+    /// ## Parameter(s):
+    ///
+    /// ` item: QtC.QTreeWidgetItem `
+    ///
+    /// ` flags: flag of qtreewidgetitemiterator_enums.IteratorFlag `
+    ///
     pub fn New5(item: ?*anyopaque, flags: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_new5(@ptrCast(item), @intCast(flags));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-eq)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator, it: QtC.QTreeWidgetItemIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
+    /// ` it: QtC.QTreeWidgetItemIterator `
+    ///
     pub fn OperatorAssign(self: ?*anyopaque, it: ?*anyopaque) void {
         qtc.QTreeWidgetItemIterator_OperatorAssign(@ptrCast(self), @ptrCast(it));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-eq)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator, n: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
+    /// ` n: i32 `
+    ///
     pub fn OperatorPlusAssign(self: ?*anyopaque, n: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorPlusAssign(@ptrCast(self), @intCast(n));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
     pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorMinusMinus(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator, param1: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
+    /// ` param1: i32 `
+    ///
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--eq)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator, n: i32 ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
+    /// ` n: i32 `
+    ///
     pub fn OperatorMinusAssign(self: ?*anyopaque, n: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorMinusAssign(@ptrCast(self), @intCast(n));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2a)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2a)
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
     pub fn OperatorMultiply(self: ?*anyopaque) QtC.QTreeWidgetItem {
         return qtc.QTreeWidgetItemIterator_OperatorMultiply(@ptrCast(self));
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#dtor.QTreeWidgetItemIterator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#dtor.QTreeWidgetItemIterator)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QTreeWidgetItemIterator ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QTreeWidgetItemIterator `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QTreeWidgetItemIterator_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#types
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#public-types)
 pub const enums = struct {
     pub const IteratorFlag = enum {
         pub const All: i32 = 0;

@@ -3,53 +3,75 @@ const qtc = @import("qt6c");
 const partloader_enums = enums;
 const std = @import("std");
 
-/// https://api.kde.org/kparts.html
+/// ### [Upstream resources](https://api.kde.org/kparts.html)
 pub const kparts = struct {
-    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
+    /// ### [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
     ///
-    /// ``` param1: partloader_enums.PartCapability ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: partloader_enums.PartCapability `
+    ///
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
         return qtc.KParts_GetEnumMetaObject(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
+    /// ### [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
     ///
-    /// ``` param1: partloader_enums.PartCapability ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: partloader_enums.PartCapability `
+    ///
     pub fn GetEnumName(param1: i32) []const u8 {
         const _ret = qtc.KParts_GetEnumName(@intCast(param1));
         return std.mem.span(_ret);
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
+    /// ### [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
     ///
-    /// ``` param1: flag of partloader_enums.PartCapability ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: flag of partloader_enums.PartCapability `
+    ///
     pub fn GetEnumMetaObject2(param1: i32) QtC.QMetaObject {
         return qtc.KParts_GetEnumMetaObject2(@intCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
+    /// ### [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
     ///
-    /// ``` param1: flag of partloader_enums.PartCapability ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: flag of partloader_enums.PartCapability `
+    ///
     pub fn GetEnumName2(param1: i32) []const u8 {
         const _ret = qtc.KParts_GetEnumName2(@intCast(param1));
         return std.mem.span(_ret);
     }
 };
 
-/// https://api.kde.org/kparts-partloader.html
+/// ### [Upstream resources](https://api.kde.org/kparts-partloader.html)
 pub const kparts__partloader = struct {
-    /// [Upstream resources](https://api.kde.org/kparts-partloader.html#partCapabilities)
+    /// ### [Upstream resources](https://api.kde.org/kparts-partloader.html#partCapabilities)
     ///
-    /// ``` param1: QtC.KPluginMetaData ```
+    /// ## Parameter(s):
     ///
-    /// Returns: ``` flag of partloader_enums.PartCapability ```
+    /// ` param1: QtC.KPluginMetaData `
+    ///
+    /// ## Returns:
+    ///
+    /// ` flag of partloader_enums.PartCapability `
+    ///
     pub fn PartCapabilities(param1: ?*anyopaque) i32 {
         return qtc.KParts__PartLoader_PartCapabilities(@ptrCast(param1));
     }
 
-    /// [Upstream resources](https://api.kde.org/kparts-partloader.html#partsForMimeType)
+    /// ### [Upstream resources](https://api.kde.org/kparts-partloader.html#partsForMimeType)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn PartsForMimeType(param1: []const u8, allocator: std.mem.Allocator) []QtC.KPluginMetaData {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -64,7 +86,7 @@ pub const kparts__partloader = struct {
     }
 };
 
-/// https://api.kde.org/kparts-partloader.html#types
+/// ### [Upstream resources](https://api.kde.org/kparts-partloader.html#public-types)
 pub const enums = struct {
     pub const PartCapability = enum {
         pub const ReadOnly: i32 = 1;

@@ -2,11 +2,16 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api.kde.org/krecentdirs.html
+/// ### [Upstream resources](https://api.kde.org/krecentdirs.html)
 pub const krecentdirs = struct {
-    /// [Upstream resources](https://api.kde.org/krecentdirs.html#list)
+    /// ### [Upstream resources](https://api.kde.org/krecentdirs.html#list)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn List(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -30,9 +35,14 @@ pub const krecentdirs = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdirs.html#dir)
+    /// ### [Upstream resources](https://api.kde.org/krecentdirs.html#dir)
     ///
-    /// ``` param1: []const u8, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Dir(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -45,9 +55,14 @@ pub const krecentdirs = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://api.kde.org/krecentdirs.html#add)
+    /// ### [Upstream resources](https://api.kde.org/krecentdirs.html#add)
     ///
-    /// ``` param1: []const u8, param2: []const u8 ```
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
     pub fn Add(param1: []const u8, param2: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

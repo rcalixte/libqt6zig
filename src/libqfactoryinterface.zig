@@ -2,11 +2,16 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qfactoryinterface.html
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html)
 pub const qfactoryinterface = struct {
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#keys)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#keys)
     ///
-    /// ``` self: QtC.QFactoryInterface, allocator: std.mem.Allocator ```
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFactoryInterface `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QFactoryInterface_Keys(@ptrCast(self));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -26,11 +31,14 @@ pub const qfactoryinterface = struct {
         return _ret;
     }
 
-    /// [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#dtor.QFactoryInterface)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#dtor.QFactoryInterface)
     ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: QtC.QFactoryInterface ```
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QFactoryInterface `
+    ///
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QFactoryInterface_Delete(@ptrCast(self));
     }
