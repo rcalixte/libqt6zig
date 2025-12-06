@@ -43,6 +43,7 @@ typedef struct QTime QTime;
 typedef struct QUrl QUrl;
 typedef struct QUuid QUuid;
 typedef struct QVariant QVariant;
+typedef struct QVariantConstPointer QVariantConstPointer;
 #endif
 
 QVariant* QVariant_new();
@@ -149,6 +150,13 @@ float QVariant_ToFloat1(const QVariant* self, bool* ok);
 double QVariant_ToReal1(const QVariant* self, bool* ok);
 QVariant* QVariant_FromMetaType2(QMetaType* typeVal, const void* copyVal);
 void QVariant_Delete(QVariant* self);
+
+QVariantConstPointer* QVariantConstPointer_new(QVariant* variant);
+QVariantConstPointer* QVariantConstPointer_new2(const QVariantConstPointer* param1);
+QVariant* QVariantConstPointer_OperatorMultiply(const QVariantConstPointer* self);
+QVariant* QVariantConstPointer_OperatorMinusGreater(const QVariantConstPointer* self);
+void QVariantConstPointer_OperatorAssign(QVariantConstPointer* self, const QVariantConstPointer* param1);
+void QVariantConstPointer_Delete(QVariantConstPointer* self);
 
 #ifdef __cplusplus
 } /* extern C */

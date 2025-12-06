@@ -33,6 +33,7 @@
 #include <QUrl>
 #include <QUuid>
 #include <QVariant>
+#include <QVariantConstPointer>
 #include <qvariant.h>
 #include "libqvariant.h"
 #include "libqvariant.hxx"
@@ -564,5 +565,29 @@ QVariant* QVariant_FromMetaType2(QMetaType* typeVal, const void* copyVal) {
 }
 
 void QVariant_Delete(QVariant* self) {
+    delete self;
+}
+
+QVariantConstPointer* QVariantConstPointer_new(QVariant* variant) {
+    return new QVariantConstPointer(*variant);
+}
+
+QVariantConstPointer* QVariantConstPointer_new2(const QVariantConstPointer* param1) {
+    return new QVariantConstPointer(*param1);
+}
+
+QVariant* QVariantConstPointer_OperatorMultiply(const QVariantConstPointer* self) {
+    return new QVariant(self->operator*());
+}
+
+QVariant* QVariantConstPointer_OperatorMinusGreater(const QVariantConstPointer* self) {
+    return (QVariant*)self->operator->();
+}
+
+void QVariantConstPointer_OperatorAssign(QVariantConstPointer* self, const QVariantConstPointer* param1) {
+    self->operator=(*param1);
+}
+
+void QVariantConstPointer_Delete(QVariantConstPointer* self) {
     delete self;
 }

@@ -2288,6 +2288,7 @@ pub const qvalueaxis_enums = @import("restricted-extras-charts/libqvalueaxis.zig
 pub const qvariant = @import("libqvariant.zig").qvariant;
 pub const qvariant_enums = @import("libqvariant.zig").enums;
 pub const qvariantanimation = @import("libqvariantanimation.zig").qvariantanimation;
+pub const qvariantconstpointer = @import("libqvariant.zig").qvariantconstpointer;
 pub const qvbarmodelmapper = @import("restricted-extras-charts/libqvbarmodelmapper.zig").qvbarmodelmapper;
 pub const qvboxlayout = @import("libqboxlayout.zig").qvboxlayout;
 pub const qvboxplotmodelmapper = @import("restricted-extras-charts/libqvboxplotmodelmapper.zig").qvboxplotmodelmapper;
