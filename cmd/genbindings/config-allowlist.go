@@ -206,7 +206,6 @@ func AllowClass(className string) bool {
 		"QSequentialIterable",        // Qt 6. Extends a QIterator<>, too hard
 		"QBrushDataPointerDeleter",   // Qt 6 qbrush.h. Appears in header but cannot be linked
 		"QPropertyBindingPrivatePtr", // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
-		"QVariantConstPointer",       // Qt 6, possible to bind but yields little value
 		"KCompletionMatchesWrapper",  // Qt 6 kcompletionmatches.h, incomplete forward declaration
 		"KGroupId",                   // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
 		"KUserId",                    // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>

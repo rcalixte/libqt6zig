@@ -319,7 +319,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	switch p.ParameterType {
 	case "GLvoid":
-		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "void"
+		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "anyopaque"
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
 	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte", "GLchar":
@@ -483,7 +483,7 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 	}
 
 	if ret == "void" || ret == "GLvoid" {
-		ret = maybeConst + ifv(p.Pointer || p.ByRef, "?*anyopaque", "void")
+		ret = ifv(p.Pointer || p.ByRef, "?*"+maybeConst+"anyopaque", "void")
 	}
 
 	if ret == "int" {
@@ -557,7 +557,7 @@ func (p CppParameter) parameterTypeZig() string {
 
 	// Zig binds void* as ?*anyopaque
 	if (p.ParameterType == "void" || p.ParameterType == "GLvoid") && p.Pointer {
-		return "?*anyopaque"
+		return ifv(p.Pointer || p.ByRef, "?*", "") + ifv(p.Const, "const ", "") + "anyopaque"
 	}
 
 	tmp := strings.ReplaceAll(p.RenderTypeCabi(false), "*", "")
@@ -617,6 +617,10 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				if !p.GlIntType() {
 					paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
 				}
+			}
+			// TODO handle void double pointers
+			if p.ParameterType == "GLvoid" && (p.Pointer || p.ByRef) {
+				paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + "anyopaque"
 			}
 			if isSlot {
 				// C calling convention limitations

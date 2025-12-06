@@ -1250,6 +1250,73 @@ pub const qvariant = struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantconstpointer.html)
+pub const qvariantconstpointer = struct {
+    /// New constructs a new QVariantConstPointer object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` variant: QtC.QVariant `
+    ///
+    pub fn New(variant: QtC.QVariant) QtC.QVariantConstPointer {
+        return qtc.QVariantConstPointer_new(@ptrCast(variant));
+    }
+
+    /// New2 constructs a new QVariantConstPointer object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QVariantConstPointer `
+    ///
+    pub fn New2(param1: ?*anyopaque) QtC.QVariantConstPointer {
+        return qtc.QVariantConstPointer_new2(@ptrCast(param1));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantconstpointer.html#operator-2a)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariantConstPointer `
+    ///
+    pub fn OperatorMultiply(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariantConstPointer_OperatorMultiply(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantconstpointer.html#operator--gt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariantConstPointer `
+    ///
+    pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariantConstPointer_OperatorMinusGreater(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantconstpointer.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QVariantConstPointer `
+    ///
+    /// ` param1: QtC.QVariantConstPointer `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QVariantConstPointer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantconstpointer.html#dtor.QVariantConstPointer)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QVariantConstPointer `
+    ///
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QVariantConstPointer_Delete(@ptrCast(self));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#public-types)
 pub const enums = struct {
     pub const Type = enum {

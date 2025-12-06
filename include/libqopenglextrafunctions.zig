@@ -3763,9 +3763,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` indices: *void `
+    /// ` indices: *const anyopaque `
     ///
-    pub fn GlDrawElements(self: ?*anyopaque, mode: u32, count: i32, typeVal: u32, indices: *const void) void {
+    pub fn GlDrawElements(self: ?*anyopaque, mode: u32, count: i32, typeVal: u32, indices: *const anyopaque) void {
         qtc.QOpenGLFunctions_GlDrawElements(@ptrCast(self), @intCast(mode), @intCast(count), @intCast(typeVal), indices);
     }
 
@@ -4049,9 +4049,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` pixels: *void `
+    /// ` pixels: *anyopaque `
     ///
-    pub fn GlReadPixels(self: ?*anyopaque, x: i32, y: i32, width: i32, height: i32, format: u32, typeVal: u32, pixels: *void) void {
+    pub fn GlReadPixels(self: ?*anyopaque, x: i32, y: i32, width: i32, height: i32, format: u32, typeVal: u32, pixels: *anyopaque) void {
         qtc.QOpenGLFunctions_GlReadPixels(@ptrCast(self), @intCast(x), @intCast(y), @intCast(width), @intCast(height), @intCast(format), @intCast(typeVal), pixels);
     }
 
@@ -4149,9 +4149,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` pixels: *void `
+    /// ` pixels: *const anyopaque `
     ///
-    pub fn GlTexImage2D(self: ?*anyopaque, target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, typeVal: u32, pixels: *const void) void {
+    pub fn GlTexImage2D(self: ?*anyopaque, target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, typeVal: u32, pixels: *const anyopaque) void {
         qtc.QOpenGLFunctions_GlTexImage2D(@ptrCast(self), @intCast(target), @intCast(level), @intCast(internalformat), @intCast(width), @intCast(height), @intCast(border), @intCast(format), @intCast(typeVal), pixels);
     }
 
@@ -4251,9 +4251,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` pixels: *void `
+    /// ` pixels: *const anyopaque `
     ///
-    pub fn GlTexSubImage2D(self: ?*anyopaque, target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, typeVal: u32, pixels: *const void) void {
+    pub fn GlTexSubImage2D(self: ?*anyopaque, target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, typeVal: u32, pixels: *const anyopaque) void {
         qtc.QOpenGLFunctions_GlTexSubImage2D(@ptrCast(self), @intCast(target), @intCast(level), @intCast(xoffset), @intCast(yoffset), @intCast(width), @intCast(height), @intCast(format), @intCast(typeVal), pixels);
     }
 

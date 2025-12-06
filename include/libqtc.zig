@@ -1690,6 +1690,7 @@ pub const QValidator = ?*C.QValidator;
 pub const QValueAxis = ?*C.QValueAxis;
 pub const QVariant = ?*C.QVariant;
 pub const QVariantAnimation = ?*C.QVariantAnimation;
+pub const QVariantConstPointer = ?*C.QVariantConstPointer;
 pub const QVector2D = ?*C.QVector2D;
 pub const QVector3D = ?*C.QVector3D;
 pub const QVector4D = ?*C.QVector4D;
