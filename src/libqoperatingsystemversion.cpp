@@ -97,6 +97,10 @@ QOperatingSystemVersionUnexported* QOperatingSystemVersionUnexported_new3(const 
     return new QOperatingSystemVersionUnexported(*param1);
 }
 
+QOperatingSystemVersionUnexported* QOperatingSystemVersionUnexported_new4(int param1, int param2, int param3, int param4) {
+    return new QOperatingSystemVersionUnexported(static_cast<QOperatingSystemVersionBase::OSType>(param1), static_cast<int>(param2), static_cast<int>(param3), static_cast<int>(param4));
+}
+
 void QOperatingSystemVersionUnexported_Delete(QOperatingSystemVersionUnexported* self) {
     delete self;
 }

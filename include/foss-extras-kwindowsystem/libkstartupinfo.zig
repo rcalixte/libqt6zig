@@ -58,10 +58,10 @@ pub const kstartupinfo = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KStartupInfo_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KStartupInfo_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -70,9 +70,9 @@ pub const kstartupinfo = struct {
     ///
     /// ` self: QtC.KStartupInfo `
     ///
-    /// ` callback: *const fn (self: QtC.KStartupInfo, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KStartupInfo, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.KStartupInfo_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -86,10 +86,10 @@ pub const kstartupinfo = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KStartupInfo_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KStartupInfo_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -102,7 +102,7 @@ pub const kstartupinfo = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfo.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -166,7 +166,7 @@ pub const kstartupinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CreateNewStartupId(allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KStartupInfo_CreateNewStartupId();
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfo_CreateNewStartupId();
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfo.CreateNewStartupId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -182,7 +182,7 @@ pub const kstartupinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CreateNewStartupIdForTimestamp(timestamp: u32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KStartupInfo_CreateNewStartupIdForTimestamp(@intCast(timestamp));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfo_CreateNewStartupIdForTimestamp(@intCast(timestamp));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfo.CreateNewStartupIdForTimestamp: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -334,7 +334,7 @@ pub const kstartupinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowStartupId(w: usize, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KStartupInfo_WindowStartupId(@intCast(w));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfo_WindowStartupId(@intCast(w));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfo.WindowStartupId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -472,7 +472,7 @@ pub const kstartupinfo = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfo.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -494,7 +494,7 @@ pub const kstartupinfo = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfo.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -512,7 +512,7 @@ pub const kstartupinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfo.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -864,7 +864,7 @@ pub const kstartupinfo = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1650,7 +1650,7 @@ pub const kstartupinfoid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KStartupInfoId_Id(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfoId_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfoid.Id: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1773,7 +1773,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Bin(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_Bin(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_Bin(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.Bin: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1805,7 +1805,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_FindName(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_FindName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.FindName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1821,7 +1821,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_Name(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1853,7 +1853,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_FindDescription(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_FindDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.FindDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1869,7 +1869,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_Description(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1901,7 +1901,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_FindIcon(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_FindIcon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.FindIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1917,7 +1917,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_Icon(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1971,7 +1971,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindWMClass(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KStartupInfoData_FindWMClass(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfoData_FindWMClass(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfodata.FindWMClass: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1987,7 +1987,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WMClass(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KStartupInfoData_WMClass(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfoData_WMClass(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfodata.WMClass: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2054,7 +2054,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Hostname(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KStartupInfoData_Hostname(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfoData_Hostname(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfodata.Hostname: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2140,7 +2140,7 @@ pub const kstartupinfodata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ApplicationId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KStartupInfoData_ApplicationId(@ptrCast(self));
+        var _str = qtc.KStartupInfoData_ApplicationId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfodata.ApplicationId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

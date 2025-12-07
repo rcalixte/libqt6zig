@@ -438,9 +438,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -462,9 +462,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData2(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData2(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData2(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -482,9 +482,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData3(self: ?*anyopaque, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData3(self: ?*anyopaque, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData3(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -500,9 +500,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData4(self: ?*anyopaque, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData4(self: ?*anyopaque, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData4(@ptrCast(self), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -516,9 +516,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData5(self: ?*anyopaque, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData5(self: ?*anyopaque, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData5(@ptrCast(self), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -544,9 +544,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData6(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData6(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData6(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -574,9 +574,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData7(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData7(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData7(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -606,9 +606,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData8(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData8(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData8(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -640,9 +640,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData9(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData9(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData9(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -676,9 +676,9 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetData10(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, layerCount: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque) void {
+    pub fn SetData10(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, layerCount: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetData10(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(layerCount), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data));
     }
 
@@ -696,9 +696,9 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetCompressedData(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque) void {
+    pub fn SetCompressedData(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, dataSize: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data));
     }
 
@@ -718,9 +718,9 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetCompressedData2(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque) void {
+    pub fn SetCompressedData2(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, dataSize: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData2(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data));
     }
 
@@ -736,9 +736,9 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetCompressedData3(self: ?*anyopaque, mipLevel: i32, layer: i32, dataSize: i32, data: ?*anyopaque) void {
+    pub fn SetCompressedData3(self: ?*anyopaque, mipLevel: i32, layer: i32, dataSize: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData3(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(dataSize), @ptrCast(data));
     }
 
@@ -752,9 +752,9 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetCompressedData4(self: ?*anyopaque, mipLevel: i32, dataSize: i32, data: ?*anyopaque) void {
+    pub fn SetCompressedData4(self: ?*anyopaque, mipLevel: i32, dataSize: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData4(@ptrCast(self), @intCast(mipLevel), @intCast(dataSize), @ptrCast(data));
     }
 
@@ -766,9 +766,9 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn SetCompressedData5(self: ?*anyopaque, dataSize: i32, data: ?*anyopaque) void {
+    pub fn SetCompressedData5(self: ?*anyopaque, dataSize: i32, data: ?*const anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData5(@ptrCast(self), @intCast(dataSize), @ptrCast(data));
     }
 
@@ -1460,11 +1460,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData72(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData72(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData72(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1486,11 +1486,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData82(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData82(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData82(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1508,11 +1508,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData62(self: ?*anyopaque, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData62(self: ?*anyopaque, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData62(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1528,11 +1528,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData52(self: ?*anyopaque, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData52(self: ?*anyopaque, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData52(@ptrCast(self), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1546,11 +1546,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData42(self: ?*anyopaque, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData42(self: ?*anyopaque, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData42(@ptrCast(self), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1576,11 +1576,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData102(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData102(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData102(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1608,11 +1608,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData112(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData112(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData112(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1642,11 +1642,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData12(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData12(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData12(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1678,11 +1678,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData13(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData13(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData13(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1716,11 +1716,11 @@ pub const qopengltexture = struct {
     ///
     /// ` sourceType: qopengltexture_enums.PixelType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetData14(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, layerCount: i32, sourceFormat: i32, sourceType: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetData14(self: ?*anyopaque, xOffset: i32, yOffset: i32, zOffset: i32, width: i32, height: i32, depth: i32, mipLevel: i32, layer: i32, cubeFace: i32, layerCount: i32, sourceFormat: i32, sourceType: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetData14(@ptrCast(self), @intCast(xOffset), @intCast(yOffset), @intCast(zOffset), @intCast(width), @intCast(height), @intCast(depth), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(layerCount), @intCast(sourceFormat), @intCast(sourceType), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1738,11 +1738,11 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetCompressedData6(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetCompressedData6(self: ?*anyopaque, mipLevel: i32, layer: i32, cubeFace: i32, dataSize: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData6(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1762,11 +1762,11 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetCompressedData7(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetCompressedData7(self: ?*anyopaque, mipLevel: i32, layer: i32, layerCount: i32, cubeFace: i32, dataSize: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData7(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(layerCount), @intCast(cubeFace), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1782,11 +1782,11 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetCompressedData52(self: ?*anyopaque, mipLevel: i32, layer: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetCompressedData52(self: ?*anyopaque, mipLevel: i32, layer: i32, dataSize: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData52(@ptrCast(self), @intCast(mipLevel), @intCast(layer), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1800,11 +1800,11 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetCompressedData42(self: ?*anyopaque, mipLevel: i32, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetCompressedData42(self: ?*anyopaque, mipLevel: i32, dataSize: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData42(@ptrCast(self), @intCast(mipLevel), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 
@@ -1816,11 +1816,11 @@ pub const qopengltexture = struct {
     ///
     /// ` dataSize: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` options: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn SetCompressedData32(self: ?*anyopaque, dataSize: i32, data: ?*anyopaque, options: ?*anyopaque) void {
+    pub fn SetCompressedData32(self: ?*anyopaque, dataSize: i32, data: ?*const anyopaque, options: ?*anyopaque) void {
         qtc.QOpenGLTexture_SetCompressedData32(@ptrCast(self), @intCast(dataSize), @ptrCast(data), @ptrCast(options));
     }
 

@@ -51,7 +51,7 @@ pub const ktexteditor__attribute = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KTextEditor__Attribute_Name(@ptrCast(self));
+        var _str = qtc.KTextEditor__Attribute_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::attribute.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -353,7 +353,7 @@ pub const ktexteditor__attribute = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
+        var _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::attribute.FontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1007,7 +1007,7 @@ pub const ktexteditor__attribute = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
+        var _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::attribute.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1147,7 +1147,7 @@ pub const ktexteditor__attribute = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
+        var _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::attribute.AnchorHref: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1194,7 +1194,7 @@ pub const ktexteditor__attribute = struct {
     ///
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1486,7 +1486,7 @@ pub const ktexteditor__attribute = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::attribute.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

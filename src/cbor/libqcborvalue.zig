@@ -103,7 +103,7 @@ pub const qcborparsererror = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborParserError_ErrorString(@ptrCast(self));
+        var _str = qtc.QCborParserError_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborparsererror.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -674,7 +674,7 @@ pub const qcborvalue = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -690,7 +690,7 @@ pub const qcborvalue = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValue_ToString(@ptrCast(self));
+        var _str = qtc.QCborValue_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalue.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -947,7 +947,7 @@ pub const qcborvalue = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -975,7 +975,7 @@ pub const qcborvalue = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDiagnosticNotation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValue_ToDiagnosticNotation(@ptrCast(self));
+        var _str = qtc.QCborValue_ToDiagnosticNotation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalue.ToDiagnosticNotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1077,7 +1077,7 @@ pub const qcborvalue = struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray1(@ptrCast(self), defaultValue_str);
+        var _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1099,7 +1099,7 @@ pub const qcborvalue = struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _str = qtc.QCborValue_ToString1(@ptrCast(self), defaultValue_str);
+        var _str = qtc.QCborValue_ToString1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalue.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1210,7 +1210,7 @@ pub const qcborvalue = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor1(@ptrCast(self), @intCast(opt));
+        var _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1242,7 +1242,7 @@ pub const qcborvalue = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opts: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValue_ToDiagnosticNotation1(@ptrCast(self), @intCast(opts));
+        var _str = qtc.QCborValue_ToDiagnosticNotation1(@ptrCast(self), @intCast(opts));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalue.ToDiagnosticNotation1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1587,7 +1587,7 @@ pub const qcborvalueconstref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1603,7 +1603,7 @@ pub const qcborvalueconstref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValueConstRef_ToString(@ptrCast(self));
+        var _str = qtc.QCborValueConstRef_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueconstref.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1763,7 +1763,7 @@ pub const qcborvalueconstref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1791,7 +1791,7 @@ pub const qcborvalueconstref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDiagnosticNotation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValueConstRef_ToDiagnosticNotation(@ptrCast(self));
+        var _str = qtc.QCborValueConstRef_ToDiagnosticNotation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueconstref.ToDiagnosticNotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1893,7 +1893,7 @@ pub const qcborvalueconstref = struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray1(@ptrCast(self), defaultValue_str);
+        var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1915,7 +1915,7 @@ pub const qcborvalueconstref = struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _str = qtc.QCborValueConstRef_ToString1(@ptrCast(self), defaultValue_str);
+        var _str = qtc.QCborValueConstRef_ToString1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueconstref.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1981,7 +1981,7 @@ pub const qcborvalueconstref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor1(@ptrCast(self), @intCast(opt));
+        var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2013,7 +2013,7 @@ pub const qcborvalueconstref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValueConstRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
+        var _str = qtc.QCborValueConstRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueconstref.ToDiagnosticNotation1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2420,7 +2420,7 @@ pub const qcborvalueref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2436,7 +2436,7 @@ pub const qcborvalueref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValueRef_ToString(@ptrCast(self));
+        var _str = qtc.QCborValueRef_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueref.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2596,7 +2596,7 @@ pub const qcborvalueref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2624,7 +2624,7 @@ pub const qcborvalueref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDiagnosticNotation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValueRef_ToDiagnosticNotation(@ptrCast(self));
+        var _str = qtc.QCborValueRef_ToDiagnosticNotation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueref.ToDiagnosticNotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2726,7 +2726,7 @@ pub const qcborvalueref = struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray1(@ptrCast(self), defaultValue_str);
+        var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2748,7 +2748,7 @@ pub const qcborvalueref = struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _str = qtc.QCborValueRef_ToString1(@ptrCast(self), defaultValue_str);
+        var _str = qtc.QCborValueRef_ToString1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueref.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2814,7 +2814,7 @@ pub const qcborvalueref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor1(@ptrCast(self), @intCast(opt));
+        var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2846,7 +2846,7 @@ pub const qcborvalueref = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborValueRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
+        var _str = qtc.QCborValueRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueref.ToDiagnosticNotation1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

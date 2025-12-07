@@ -52,7 +52,7 @@ pub const accounts__service = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__Service_Name(@ptrCast(self));
+        var _str = qtc.Accounts__Service_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::service.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -68,7 +68,7 @@ pub const accounts__service = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__Service_Description(@ptrCast(self));
+        var _str = qtc.Accounts__Service_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::service.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -84,7 +84,7 @@ pub const accounts__service = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__Service_DisplayName(@ptrCast(self));
+        var _str = qtc.Accounts__Service_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::service.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -100,7 +100,7 @@ pub const accounts__service = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TrCatalog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__Service_TrCatalog(@ptrCast(self));
+        var _str = qtc.Accounts__Service_TrCatalog(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::service.TrCatalog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -116,7 +116,7 @@ pub const accounts__service = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ServiceType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__Service_ServiceType(@ptrCast(self));
+        var _str = qtc.Accounts__Service_ServiceType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::service.ServiceType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -132,7 +132,7 @@ pub const accounts__service = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Provider(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__Service_Provider(@ptrCast(self));
+        var _str = qtc.Accounts__Service_Provider(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::service.Provider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -148,7 +148,7 @@ pub const accounts__service = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__Service_IconName(@ptrCast(self));
+        var _str = qtc.Accounts__Service_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::service.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

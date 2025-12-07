@@ -69,10 +69,10 @@ pub const qinputdialog = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QInputDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QInputDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -81,9 +81,9 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QInputDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QInputDialog_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -97,10 +97,10 @@ pub const qinputdialog = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QInputDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QInputDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -113,7 +113,7 @@ pub const qinputdialog = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -171,7 +171,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LabelText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QInputDialog_LabelText(@ptrCast(self));
+        var _str = qtc.QInputDialog_LabelText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.LabelText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -253,7 +253,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TextValue(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QInputDialog_TextValue(@ptrCast(self));
+        var _str = qtc.QInputDialog_TextValue(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.TextValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -344,7 +344,7 @@ pub const qinputdialog = struct {
     ///
     pub fn ComboBoxItems(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QInputDialog_ComboBoxItems(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -590,7 +590,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OkButtonText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QInputDialog_OkButtonText(@ptrCast(self));
+        var _str = qtc.QInputDialog_OkButtonText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.OkButtonText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -622,7 +622,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CancelButtonText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QInputDialog_CancelButtonText(@ptrCast(self));
+        var _str = qtc.QInputDialog_CancelButtonText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.CancelButtonText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -762,7 +762,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        const _str = qtc.QInputDialog_GetText(@ptrCast(parent), title_str, label_str);
+        var _str = qtc.QInputDialog_GetText(@ptrCast(parent), title_str, label_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -790,7 +790,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        const _str = qtc.QInputDialog_GetMultiLineText(@ptrCast(parent), title_str, label_str);
+        var _str = qtc.QInputDialog_GetMultiLineText(@ptrCast(parent), title_str, label_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -832,7 +832,7 @@ pub const qinputdialog = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        const _str = qtc.QInputDialog_GetItem(@ptrCast(parent), title_str, label_str, items_list);
+        var _str = qtc.QInputDialog_GetItem(@ptrCast(parent), title_str, label_str, items_list);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1110,7 +1110,7 @@ pub const qinputdialog = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1132,7 +1132,7 @@ pub const qinputdialog = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1176,7 +1176,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        const _str = qtc.QInputDialog_GetText4(@ptrCast(parent), title_str, label_str, @intCast(echo));
+        var _str = qtc.QInputDialog_GetText4(@ptrCast(parent), title_str, label_str, @intCast(echo));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1212,7 +1212,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetText5(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str);
+        var _str = qtc.QInputDialog_GetText5(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1250,7 +1250,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetText6(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str, @ptrCast(ok));
+        var _str = qtc.QInputDialog_GetText6(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str, @ptrCast(ok));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1290,7 +1290,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetText7(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str, @ptrCast(ok), @intCast(flags));
+        var _str = qtc.QInputDialog_GetText7(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str, @ptrCast(ok), @intCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1332,7 +1332,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetText8(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str, @ptrCast(ok), @intCast(flags), @intCast(inputMethodHints));
+        var _str = qtc.QInputDialog_GetText8(@ptrCast(parent), title_str, label_str, @intCast(echo), text_str, @ptrCast(ok), @intCast(flags), @intCast(inputMethodHints));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1366,7 +1366,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetMultiLineText4(@ptrCast(parent), title_str, label_str, text_str);
+        var _str = qtc.QInputDialog_GetMultiLineText4(@ptrCast(parent), title_str, label_str, text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1402,7 +1402,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetMultiLineText5(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok));
+        var _str = qtc.QInputDialog_GetMultiLineText5(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1440,7 +1440,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetMultiLineText6(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok), @intCast(flags));
+        var _str = qtc.QInputDialog_GetMultiLineText6(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok), @intCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1480,7 +1480,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QInputDialog_GetMultiLineText7(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok), @intCast(flags), @intCast(inputMethodHints));
+        var _str = qtc.QInputDialog_GetMultiLineText7(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok), @intCast(flags), @intCast(inputMethodHints));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1524,7 +1524,7 @@ pub const qinputdialog = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        const _str = qtc.QInputDialog_GetItem5(@ptrCast(parent), title_str, label_str, items_list, @intCast(current));
+        var _str = qtc.QInputDialog_GetItem5(@ptrCast(parent), title_str, label_str, items_list, @intCast(current));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1570,7 +1570,7 @@ pub const qinputdialog = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        const _str = qtc.QInputDialog_GetItem6(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable);
+        var _str = qtc.QInputDialog_GetItem6(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1618,7 +1618,7 @@ pub const qinputdialog = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        const _str = qtc.QInputDialog_GetItem7(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable, @ptrCast(ok));
+        var _str = qtc.QInputDialog_GetItem7(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable, @ptrCast(ok));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1668,7 +1668,7 @@ pub const qinputdialog = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        const _str = qtc.QInputDialog_GetItem8(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable, @ptrCast(ok), @intCast(flags));
+        var _str = qtc.QInputDialog_GetItem8(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable, @ptrCast(ok), @intCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1720,7 +1720,7 @@ pub const qinputdialog = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        const _str = qtc.QInputDialog_GetItem9(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable, @ptrCast(ok), @intCast(flags), @intCast(inputMethodHints));
+        var _str = qtc.QInputDialog_GetItem9(@ptrCast(parent), title_str, label_str, items_list, @intCast(current), editable, @ptrCast(ok), @intCast(flags), @intCast(inputMethodHints));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3594,7 +3594,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3612,7 +3612,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3674,7 +3674,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3710,7 +3710,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3746,7 +3746,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3820,7 +3820,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3882,7 +3882,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3918,7 +3918,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3936,7 +3936,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3972,7 +3972,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4808,7 +4808,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qinputdialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -6113,7 +6113,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6451,7 +6451,7 @@ pub const qinputdialog = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

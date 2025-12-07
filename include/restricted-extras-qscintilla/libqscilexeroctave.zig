@@ -51,10 +51,10 @@ pub const qscilexeroctave = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QsciLexerOctave_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QsciLexerOctave_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -63,9 +63,9 @@ pub const qscilexeroctave = struct {
     ///
     /// ` self: QtC.QsciLexerOctave `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerOctave, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QsciLexerOctave, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QsciLexerOctave_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -79,10 +79,10 @@ pub const qscilexeroctave = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QsciLexerOctave_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QsciLexerOctave_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -95,7 +95,7 @@ pub const qscilexeroctave = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -150,7 +150,7 @@ pub const qscilexeroctave = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -172,7 +172,7 @@ pub const qscilexeroctave = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -536,7 +536,7 @@ pub const qscilexeroctave = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -888,7 +888,7 @@ pub const qscilexeroctave = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1200,7 +1200,7 @@ pub const qscilexeroctave = struct {
     ///
     pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerOctave_AutoCompletionWordSeparators(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1231,7 +1231,7 @@ pub const qscilexeroctave = struct {
     ///
     pub fn QBaseAutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerOctave_QBaseAutoCompletionWordSeparators(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1793,7 +1793,7 @@ pub const qscilexeroctave = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QsciLexerOctave_Description(@ptrCast(self), @intCast(style));
+        var _str = qtc.QsciLexerOctave_Description(@ptrCast(self), @intCast(style));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1815,7 +1815,7 @@ pub const qscilexeroctave = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseDescription(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QsciLexerOctave_QBaseDescription(@ptrCast(self), @intCast(style));
+        var _str = qtc.QsciLexerOctave_QBaseDescription(@ptrCast(self), @intCast(style));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2995,7 +2995,7 @@ pub const qscilexeroctave = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QsciLexerOctave_TextAsBytes(@ptrCast(self), text_str);
+        var _bytearray: qtc.libqt_string = qtc.QsciLexerOctave_TextAsBytes(@ptrCast(self), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexeroctave.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3021,7 +3021,7 @@ pub const qscilexeroctave = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QsciLexerOctave_QBaseTextAsBytes(@ptrCast(self), text_str);
+        var _bytearray: qtc.libqt_string = qtc.QsciLexerOctave_QBaseTextAsBytes(@ptrCast(self), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexeroctave.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3062,7 +3062,7 @@ pub const qscilexeroctave = struct {
     ///
     pub fn BytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
-        const _str = qtc.QsciLexerOctave_BytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        var _str = qtc.QsciLexerOctave_BytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3087,7 +3087,7 @@ pub const qscilexeroctave = struct {
     ///
     pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
-        const _str = qtc.QsciLexerOctave_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        var _str = qtc.QsciLexerOctave_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexeroctave.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

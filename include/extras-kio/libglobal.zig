@@ -15,7 +15,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ConvertSize(param1: u64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_ConvertSize(@intCast(param1));
+        var _str = qtc.KIO_ConvertSize(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.ConvertSize: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -31,7 +31,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Number(param1: u64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_Number(@intCast(param1));
+        var _str = qtc.KIO_Number(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.Number: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -47,7 +47,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ConvertSizeFromKiB(param1: u64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_ConvertSizeFromKiB(@intCast(param1));
+        var _str = qtc.KIO_ConvertSizeFromKiB(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.ConvertSizeFromKiB: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -77,7 +77,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ConvertSeconds(param1: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_ConvertSeconds(@intCast(param1));
+        var _str = qtc.KIO_ConvertSeconds(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.ConvertSeconds: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -101,7 +101,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ItemsSummaryString(param1: u32, param2: u32, param3: u32, param4: u64, param5: bool, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_ItemsSummaryString(@intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4), param5);
+        var _str = qtc.KIO_ItemsSummaryString(@intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4), param5);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.ItemsSummaryString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -121,7 +121,7 @@ pub const kio = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KIO_EncodeFileName(param1_str);
+        var _str = qtc.KIO_EncodeFileName(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.EncodeFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -141,7 +141,7 @@ pub const kio = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KIO_DecodeFileName(param1_str);
+        var _str = qtc.KIO_DecodeFileName(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.DecodeFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -175,7 +175,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetCacheControlString(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_GetCacheControlString(@intCast(param1));
+        var _str = qtc.KIO_GetCacheControlString(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.GetCacheControlString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -191,7 +191,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FavIconForUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_FavIconForUrl(@ptrCast(param1));
+        var _str = qtc.KIO_FavIconForUrl(@ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.FavIconForUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -221,7 +221,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconNameForUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_IconNameForUrl(@ptrCast(param1));
+        var _str = qtc.KIO_IconNameForUrl(@ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.IconNameForUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

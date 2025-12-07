@@ -240,7 +240,7 @@ pub const kprotocolmanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DefaultMimetype(url: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KProtocolManager_DefaultMimetype(@ptrCast(url));
+        var _str = qtc.KProtocolManager_DefaultMimetype(@ptrCast(url));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolmanager.DefaultMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -285,7 +285,7 @@ pub const kprotocolmanager = struct {
     ///
     pub fn Listing(url: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KProtocolManager_Listing(@ptrCast(url));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -325,7 +325,7 @@ pub const kprotocolmanager = struct {
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
-        const _str = qtc.KProtocolManager_ProtocolForArchiveMimetype(mimeType_str);
+        var _str = qtc.KProtocolManager_ProtocolForArchiveMimetype(mimeType_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolmanager.ProtocolForArchiveMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -347,7 +347,7 @@ pub const kprotocolmanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CharsetFor(url: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KProtocolManager_CharsetFor(@ptrCast(url));
+        var _str = qtc.KProtocolManager_CharsetFor(@ptrCast(url));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolmanager.CharsetFor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

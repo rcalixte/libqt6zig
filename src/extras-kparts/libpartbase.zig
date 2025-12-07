@@ -271,7 +271,7 @@ pub const kparts__partbase = struct {
             .len = doc.len,
             .data = doc.ptr,
         };
-        const _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
+        var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.FindMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -423,7 +423,7 @@ pub const kparts__partbase = struct {
             .len = xml.len,
             .data = xml.ptr,
         };
-        const _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
+        var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.FindVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -561,7 +561,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_ComponentName(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -581,7 +581,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_QBaseComponentName(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_QBaseComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -661,7 +661,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_XmlFile(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -681,7 +681,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_QBaseXmlFile(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_QBaseXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -717,7 +717,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_LocalXMLFile(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -737,7 +737,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_QBaseLocalXMLFile(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_QBaseLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1133,7 +1133,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_StandardsXmlFileLocation(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_StandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1153,7 +1153,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__PartBase_QBaseStandardsXmlFileLocation(@ptrCast(self));
+        var _str = qtc.KParts__PartBase_QBaseStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::partbase.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

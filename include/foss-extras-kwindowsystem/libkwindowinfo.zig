@@ -63,7 +63,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn VisibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWindowInfo_VisibleName(@ptrCast(self));
+        var _str = qtc.KWindowInfo_VisibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwindowinfo.VisibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -79,7 +79,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn VisibleNameWithState(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWindowInfo_VisibleNameWithState(@ptrCast(self));
+        var _str = qtc.KWindowInfo_VisibleNameWithState(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwindowinfo.VisibleNameWithState: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -95,7 +95,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWindowInfo_Name(@ptrCast(self));
+        var _str = qtc.KWindowInfo_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwindowinfo.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -111,7 +111,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn VisibleIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWindowInfo_VisibleIconName(@ptrCast(self));
+        var _str = qtc.KWindowInfo_VisibleIconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwindowinfo.VisibleIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -127,7 +127,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn VisibleIconNameWithState(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWindowInfo_VisibleIconNameWithState(@ptrCast(self));
+        var _str = qtc.KWindowInfo_VisibleIconNameWithState(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwindowinfo.VisibleIconNameWithState: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -143,7 +143,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWindowInfo_IconName(@ptrCast(self));
+        var _str = qtc.KWindowInfo_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwindowinfo.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -202,7 +202,7 @@ pub const kwindowinfo = struct {
     ///
     pub fn Activities(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KWindowInfo_Activities(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -268,7 +268,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowClassClass(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_WindowClassClass(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_WindowClassClass(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.WindowClassClass: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -284,7 +284,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowClassName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_WindowClassName(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_WindowClassName(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.WindowClassName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -300,7 +300,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_WindowRole(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.WindowRole: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -316,7 +316,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ClientMachine(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_ClientMachine(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_ClientMachine(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.ClientMachine: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -332,7 +332,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DesktopFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_DesktopFileName(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_DesktopFileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.DesktopFileName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -348,7 +348,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GtkApplicationId(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_GtkApplicationId(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_GtkApplicationId(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.GtkApplicationId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -374,7 +374,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ApplicationMenuServiceName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_ApplicationMenuServiceName(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_ApplicationMenuServiceName(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.ApplicationMenuServiceName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -390,7 +390,7 @@ pub const kwindowinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ApplicationMenuObjectPath(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.KWindowInfo_ApplicationMenuObjectPath(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.KWindowInfo_ApplicationMenuObjectPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kwindowinfo.ApplicationMenuObjectPath: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

@@ -58,7 +58,7 @@ pub const qfontinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Family(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QFontInfo_Family(@ptrCast(self));
+        var _str = qtc.QFontInfo_Family(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontinfo.Family: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -74,7 +74,7 @@ pub const qfontinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QFontInfo_StyleName(@ptrCast(self));
+        var _str = qtc.QFontInfo_StyleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontinfo.StyleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

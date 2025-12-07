@@ -56,10 +56,10 @@ pub const kicondialog = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KIconDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KIconDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -68,9 +68,9 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KIconDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.KIconDialog_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -84,10 +84,10 @@ pub const kicondialog = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KIconDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KIconDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -100,7 +100,7 @@ pub const kicondialog = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -204,7 +204,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OpenDialog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_OpenDialog(@ptrCast(self));
+        var _str = qtc.KIconDialog_OpenDialog(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.OpenDialog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -228,7 +228,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetIcon(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_GetIcon();
+        var _str = qtc.KIconDialog_GetIcon();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -352,7 +352,7 @@ pub const kicondialog = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -374,7 +374,7 @@ pub const kicondialog = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -504,7 +504,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetIcon1(group: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_GetIcon1(@intCast(group));
+        var _str = qtc.KIconDialog_GetIcon1(@intCast(group));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -522,7 +522,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetIcon2(group: i32, context: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_GetIcon2(@intCast(group), @intCast(context));
+        var _str = qtc.KIconDialog_GetIcon2(@intCast(group), @intCast(context));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -542,7 +542,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetIcon3(group: i32, context: i32, strictIconSize: bool, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_GetIcon3(@intCast(group), @intCast(context), strictIconSize);
+        var _str = qtc.KIconDialog_GetIcon3(@intCast(group), @intCast(context), strictIconSize);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -564,7 +564,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetIcon4(group: i32, context: i32, strictIconSize: bool, iconSize: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_GetIcon4(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize));
+        var _str = qtc.KIconDialog_GetIcon4(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -588,7 +588,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetIcon5(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_GetIcon5(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user);
+        var _str = qtc.KIconDialog_GetIcon5(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -614,7 +614,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetIcon6(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, parent: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconDialog_GetIcon6(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user, @ptrCast(parent));
+        var _str = qtc.KIconDialog_GetIcon6(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user, @ptrCast(parent));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -646,7 +646,7 @@ pub const kicondialog = struct {
             .len = title.len,
             .data = title.ptr,
         };
-        const _str = qtc.KIconDialog_GetIcon7(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user, @ptrCast(parent), title_str);
+        var _str = qtc.KIconDialog_GetIcon7(@intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user, @ptrCast(parent), title_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2136,7 +2136,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2154,7 +2154,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2216,7 +2216,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2252,7 +2252,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2288,7 +2288,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2362,7 +2362,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2424,7 +2424,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2460,7 +2460,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2478,7 +2478,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2514,7 +2514,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3350,7 +3350,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kicondialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4655,7 +4655,7 @@ pub const kicondialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4993,7 +4993,7 @@ pub const kicondialog = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -63,7 +63,7 @@ pub const kserviceaction = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceAction_Name(@ptrCast(self));
+        var _str = qtc.KServiceAction_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -79,7 +79,7 @@ pub const kserviceaction = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceAction_Text(@ptrCast(self));
+        var _str = qtc.KServiceAction_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -95,7 +95,7 @@ pub const kserviceaction = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceAction_Icon(@ptrCast(self));
+        var _str = qtc.KServiceAction_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -111,7 +111,7 @@ pub const kserviceaction = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Exec(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceAction_Exec(@ptrCast(self));
+        var _str = qtc.KServiceAction_Exec(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Exec: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

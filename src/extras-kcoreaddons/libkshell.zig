@@ -23,7 +23,7 @@ pub const kshell = struct {
             .data = param1.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KShell_SplitArgs(param1_str, @intCast(param2), @ptrCast(param3));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -61,7 +61,7 @@ pub const kshell = struct {
             .len = param1.len,
             .data = param1_arr.ptr,
         };
-        const _str = qtc.KShell_JoinArgs(param1_list);
+        var _str = qtc.KShell_JoinArgs(param1_list);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -81,7 +81,7 @@ pub const kshell = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KShell_QuoteArg(param1_str);
+        var _str = qtc.KShell_QuoteArg(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.QuoteArg: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -101,7 +101,7 @@ pub const kshell = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KShell_TildeExpand(param1_str);
+        var _str = qtc.KShell_TildeExpand(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.TildeExpand: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -121,7 +121,7 @@ pub const kshell = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KShell_TildeCollapse(param1_str);
+        var _str = qtc.KShell_TildeCollapse(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.TildeCollapse: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

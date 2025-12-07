@@ -179,7 +179,7 @@ pub const qtextstream = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn String(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextStream_String(@ptrCast(self));
+        var _str = qtc.QTextStream_String(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.String: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -293,7 +293,7 @@ pub const qtextstream = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadLine(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextStream_ReadLine(@ptrCast(self));
+        var _str = qtc.QTextStream_ReadLine(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadLine: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -309,7 +309,7 @@ pub const qtextstream = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextStream_ReadAll(@ptrCast(self));
+        var _str = qtc.QTextStream_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadAll: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -327,7 +327,7 @@ pub const qtextstream = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Read(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextStream_Read(@ptrCast(self), @intCast(maxlen));
+        var _str = qtc.QTextStream_Read(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.Read: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -894,9 +894,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` ptr: ?*anyopaque `
+    /// ` ptr: ?*const anyopaque `
     ///
-    pub fn OperatorShiftLeft19(self: ?*anyopaque, ptr: ?*anyopaque) QtC.QTextStream {
+    pub fn OperatorShiftLeft19(self: ?*anyopaque, ptr: ?*const anyopaque) QtC.QTextStream {
         return qtc.QTextStream_OperatorShiftLeft19(@ptrCast(self), @ptrCast(ptr));
     }
 
@@ -911,7 +911,7 @@ pub const qtextstream = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextStream_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        var _str = qtc.QTextStream_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

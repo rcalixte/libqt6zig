@@ -60,7 +60,7 @@ pub const kio__workerresult = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO__WorkerResult_ErrorString(@ptrCast(self));
+        var _str = qtc.KIO__WorkerResult_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::workerresult.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -524,7 +524,7 @@ pub const kio__workerbase = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const _str = qtc.KIO__WorkerBase_MetaData(@ptrCast(self), key_str);
+        var _str = qtc.KIO__WorkerBase_MetaData(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::workerbase.MetaData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -623,7 +623,7 @@ pub const kio__workerbase = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const _str = qtc.KIO__WorkerBase_ConfigValue3(@ptrCast(self), key_str);
+        var _str = qtc.KIO__WorkerBase_ConfigValue3(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::workerbase.ConfigValue3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2357,7 +2357,7 @@ pub const kio__workerbase = struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _str = qtc.KIO__WorkerBase_ConfigValue22(@ptrCast(self), key_str, defaultValue_str);
+        var _str = qtc.KIO__WorkerBase_ConfigValue22(@ptrCast(self), key_str, defaultValue_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::workerbase.ConfigValue22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2450,7 +2450,7 @@ pub const kio = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KIO_UnsupportedActionErrorString(param1_str, @intCast(param2));
+        var _str = qtc.KIO_UnsupportedActionErrorString(param1_str, @intCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.UnsupportedActionErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

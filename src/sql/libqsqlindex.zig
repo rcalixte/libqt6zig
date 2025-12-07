@@ -105,7 +105,7 @@ pub const qsqlindex = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CursorName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlIndex_CursorName(@ptrCast(self));
+        var _str = qtc.QSqlIndex_CursorName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlindex.CursorName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -137,7 +137,7 @@ pub const qsqlindex = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlIndex_Name(@ptrCast(self));
+        var _str = qtc.QSqlIndex_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlindex.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -387,7 +387,7 @@ pub const qsqlindex = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FieldName(self: ?*anyopaque, i: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRecord_FieldName(@ptrCast(self), @intCast(i));
+        var _str = qtc.QSqlRecord_FieldName(@ptrCast(self), @intCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlindex.FieldName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

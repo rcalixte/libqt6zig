@@ -33,7 +33,7 @@ pub const qwebengineframe = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWebEngineFrame_Name(@ptrCast(self));
+        var _str = qtc.QWebEngineFrame_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineframe.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -49,7 +49,7 @@ pub const qwebengineframe = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HtmlName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWebEngineFrame_HtmlName(@ptrCast(self));
+        var _str = qtc.QWebEngineFrame_HtmlName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineframe.HtmlName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

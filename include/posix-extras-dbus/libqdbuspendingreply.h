@@ -19,6 +19,8 @@ typedef struct QDBusPendingCall QDBusPendingCall;
 typedef struct QDBusPendingReplyBase QDBusPendingReplyBase;
 #endif
 
+QDBusPendingReplyBase* QDBusPendingReplyBase_new(const QDBusPendingReplyBase* param1);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

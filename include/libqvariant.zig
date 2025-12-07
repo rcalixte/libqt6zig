@@ -342,42 +342,174 @@ pub const qvariant = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: QtC.QSize `
+    /// ` jsonValue: QtC.QJsonValue `
     ///
-    pub fn New27(size: QtC.QSize) QtC.QVariant {
-        return qtc.QVariant_new27(@ptrCast(size));
+    pub fn New27(jsonValue: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new27(@ptrCast(jsonValue));
     }
 
     /// New28 constructs a new QVariant object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` pt: QtC.QPoint `
+    /// ` modelIndex: QtC.QModelIndex `
     ///
-    pub fn New28(pt: QtC.QPoint) QtC.QVariant {
-        return qtc.QVariant_new28(@ptrCast(pt));
+    pub fn New28(modelIndex: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new28(@ptrCast(modelIndex));
     }
 
     /// New29 constructs a new QVariant object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` typeVal: qvariant_enums.Type `
+    /// ` uuid: QtC.QUuid `
     ///
-    pub fn New29(typeVal: i64) QtC.QVariant {
-        return qtc.QVariant_new29(@intCast(typeVal));
+    pub fn New29(uuid: QtC.QUuid) QtC.QVariant {
+        return qtc.QVariant_new29(@ptrCast(uuid));
     }
 
     /// New30 constructs a new QVariant object.
     ///
     /// ## Parameter(s):
     ///
+    /// ` size: QtC.QSize `
+    ///
+    pub fn New30(size: QtC.QSize) QtC.QVariant {
+        return qtc.QVariant_new30(@ptrCast(size));
+    }
+
+    /// New31 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` size: QtC.QSizeF `
+    ///
+    pub fn New31(size: QtC.QSizeF) QtC.QVariant {
+        return qtc.QVariant_new31(@ptrCast(size));
+    }
+
+    /// New32 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` pt: QtC.QPoint `
+    ///
+    pub fn New32(pt: QtC.QPoint) QtC.QVariant {
+        return qtc.QVariant_new32(@ptrCast(pt));
+    }
+
+    /// New33 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` pt: QtC.QPointF `
+    ///
+    pub fn New33(pt: QtC.QPointF) QtC.QVariant {
+        return qtc.QVariant_new33(@ptrCast(pt));
+    }
+
+    /// New34 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` line: QtC.QLine `
+    ///
+    pub fn New34(line: QtC.QLine) QtC.QVariant {
+        return qtc.QVariant_new34(@ptrCast(line));
+    }
+
+    /// New35 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` line: QtC.QLineF `
+    ///
+    pub fn New35(line: QtC.QLineF) QtC.QVariant {
+        return qtc.QVariant_new35(@ptrCast(line));
+    }
+
+    /// New36 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` rect: QtC.QRect `
+    ///
+    pub fn New36(rect: QtC.QRect) QtC.QVariant {
+        return qtc.QVariant_new36(@ptrCast(rect));
+    }
+
+    /// New37 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` rect: QtC.QRectF `
+    ///
+    pub fn New37(rect: QtC.QRectF) QtC.QVariant {
+        return qtc.QVariant_new37(@ptrCast(rect));
+    }
+
+    /// New38 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` easing: QtC.QEasingCurve `
+    ///
+    pub fn New38(easing: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new38(@ptrCast(easing));
+    }
+
+    /// New39 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` jsonDocument: QtC.QJsonDocument `
+    ///
+    pub fn New39(jsonDocument: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new39(@ptrCast(jsonDocument));
+    }
+
+    /// New40 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` modelIndex: QtC.QPersistentModelIndex `
+    ///
+    pub fn New40(modelIndex: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new40(@ptrCast(modelIndex));
+    }
+
+    /// New41 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn New41(str: []const u8) QtC.QVariant {
+        const str_Cstring = str.ptr;
+
+        return qtc.QVariant_new41(str_Cstring);
+    }
+
+    /// New42 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qvariant_enums.Type `
+    ///
+    pub fn New42(typeVal: i64) QtC.QVariant {
+        return qtc.QVariant_new42(@intCast(typeVal));
+    }
+
+    /// New43 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` typeVal: QtC.QMetaType `
     ///
-    /// ` copyVal: ?*anyopaque `
+    /// ` copyVal: ?*const anyopaque `
     ///
-    pub fn New30(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
-        return qtc.QVariant_new30(@ptrCast(typeVal), @ptrCast(copyVal));
+    pub fn New43(typeVal: QtC.QMetaType, copyVal: ?*const anyopaque) QtC.QVariant {
+        return qtc.QVariant_new43(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
@@ -644,7 +776,7 @@ pub const qvariant = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QVariant_ToByteArray(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QVariant_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qvariant.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -670,7 +802,7 @@ pub const qvariant = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QVariant_ToString(@ptrCast(self));
+        var _str = qtc.QVariant_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvariant.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -687,7 +819,7 @@ pub const qvariant = struct {
     ///
     pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QVariant_ToStringList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1231,9 +1363,9 @@ pub const qvariant = struct {
     ///
     /// ` typeVal: QtC.QMetaType `
     ///
-    /// ` copyVal: ?*anyopaque `
+    /// ` copyVal: ?*const anyopaque `
     ///
-    pub fn FromMetaType2(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
+    pub fn FromMetaType2(typeVal: QtC.QMetaType, copyVal: ?*const anyopaque) QtC.QVariant {
         return qtc.QVariant_FromMetaType2(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 

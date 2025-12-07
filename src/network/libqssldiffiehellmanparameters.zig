@@ -119,7 +119,7 @@ pub const qssldiffiehellmanparameters = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSslDiffieHellmanParameters_ErrorString(@ptrCast(self));
+        var _str = qtc.QSslDiffieHellmanParameters_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qssldiffiehellmanparameters.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -62,6 +62,16 @@ pub const qversionnumber = struct {
         return qtc.QVersionNumber_new5(@intCast(maj), @intCast(min), @intCast(mic));
     }
 
+    /// New6 constructs a new QVersionNumber object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QVersionNumber `
+    ///
+    pub fn New6(param1: ?*anyopaque) QtC.QVersionNumber {
+        return qtc.QVersionNumber_new6(@ptrCast(param1));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isNull)
     ///
     /// ## Parameter(s):
@@ -206,7 +216,7 @@ pub const qversionnumber = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QVersionNumber_ToString(@ptrCast(self));
+        var _str = qtc.QVersionNumber_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qversionnumber.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -48,10 +48,10 @@ pub const knewfilemenu = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KNewFileMenu_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KNewFileMenu_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -60,9 +60,9 @@ pub const knewfilemenu = struct {
     ///
     /// ` self: QtC.KNewFileMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KNewFileMenu, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KNewFileMenu, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.KNewFileMenu_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -76,10 +76,10 @@ pub const knewfilemenu = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KNewFileMenu_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KNewFileMenu_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -92,7 +92,7 @@ pub const knewfilemenu = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -191,7 +191,7 @@ pub const knewfilemenu = struct {
     ///
     pub fn SupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KNewFileMenu_SupportedMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -531,7 +531,7 @@ pub const knewfilemenu = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -553,7 +553,7 @@ pub const knewfilemenu = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -814,7 +814,7 @@ pub const knewfilemenu = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAction_Text(@ptrCast(self));
+        var _str = qtc.QAction_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -850,7 +850,7 @@ pub const knewfilemenu = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAction_IconText(@ptrCast(self));
+        var _str = qtc.QAction_IconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.IconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -886,7 +886,7 @@ pub const knewfilemenu = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAction_ToolTip(@ptrCast(self));
+        var _str = qtc.QAction_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -922,7 +922,7 @@ pub const knewfilemenu = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAction_StatusTip(@ptrCast(self));
+        var _str = qtc.QAction_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -958,7 +958,7 @@ pub const knewfilemenu = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAction_WhatsThis(@ptrCast(self));
+        var _str = qtc.QAction_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1721,7 +1721,7 @@ pub const knewfilemenu = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2073,7 +2073,7 @@ pub const knewfilemenu = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

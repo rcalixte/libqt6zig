@@ -132,7 +132,7 @@ pub const kconfig = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfig_Name(@ptrCast(self));
+        var _str = qtc.KConfig_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfig.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -375,7 +375,7 @@ pub const kconfig = struct {
     ///
     pub fn AdditionalConfigSources(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_AdditionalConfigSources(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -401,7 +401,7 @@ pub const kconfig = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Locale(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfig_Locale(@ptrCast(self));
+        var _str = qtc.KConfig_Locale(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfig.Locale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -492,7 +492,7 @@ pub const kconfig = struct {
     ///
     pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_GroupList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -535,7 +535,7 @@ pub const kconfig = struct {
     ///
     pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_QBaseGroupList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -604,7 +604,7 @@ pub const kconfig = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfig_MainConfigName();
+        var _str = qtc.KConfig_MainConfigName();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfig.MainConfigName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

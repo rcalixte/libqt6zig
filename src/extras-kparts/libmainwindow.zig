@@ -71,10 +71,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KParts__MainWindow_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -83,9 +83,9 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` self: QtC.KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.KParts__MainWindow_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -99,10 +99,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KParts__MainWindow_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -115,7 +115,7 @@ pub const kparts__mainwindow = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -375,7 +375,7 @@ pub const kparts__mainwindow = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -397,7 +397,7 @@ pub const kparts__mainwindow = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -528,7 +528,7 @@ pub const kparts__mainwindow = struct {
     ///
     pub fn ToolBarNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_ToolBarNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -756,7 +756,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ClassNameOfToplevel(instanceNumber: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KMainWindow_ClassNameOfToplevel(@intCast(instanceNumber));
+        var _str = qtc.KMainWindow_ClassNameOfToplevel(@intCast(instanceNumber));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.ClassNameOfToplevel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -898,7 +898,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AutoSaveGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KMainWindow_AutoSaveGroup(@ptrCast(self));
+        var _str = qtc.KMainWindow_AutoSaveGroup(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.AutoSaveGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -972,7 +972,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DbusName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KMainWindow_DbusName(@ptrCast(self));
+        var _str = qtc.KMainWindow_DbusName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.DbusName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1847,7 +1847,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kparts::mainwindow.SaveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2025,7 +2025,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveState1(self: ?*anyopaque, version: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState1(@ptrCast(self), @intCast(version));
+        var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState1(@ptrCast(self), @intCast(version));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kparts::mainwindow.SaveState1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3389,7 +3389,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3407,7 +3407,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3469,7 +3469,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3505,7 +3505,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3541,7 +3541,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3615,7 +3615,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3677,7 +3677,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3713,7 +3713,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3731,7 +3731,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3767,7 +3767,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4603,7 +4603,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kparts::mainwindow.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -5908,7 +5908,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6246,7 +6246,7 @@ pub const kparts__mainwindow = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -6884,7 +6884,7 @@ pub const kparts__mainwindow = struct {
             .len = doc.len,
             .data = doc.ptr,
         };
-        const _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
+        var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.FindMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7036,7 +7036,7 @@ pub const kparts__mainwindow = struct {
             .len = xml.len,
             .data = xml.ptr,
         };
-        const _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
+        var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.FindVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9901,7 +9901,7 @@ pub const kparts__mainwindow = struct {
     ///
     pub fn ContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KParts__MainWindow_ContainerTags(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -9932,7 +9932,7 @@ pub const kparts__mainwindow = struct {
     ///
     pub fn QBaseContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KParts__MainWindow_QBaseContainerTags(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -10099,7 +10099,7 @@ pub const kparts__mainwindow = struct {
     ///
     pub fn CustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KParts__MainWindow_CustomTags(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -10130,7 +10130,7 @@ pub const kparts__mainwindow = struct {
     ///
     pub fn QBaseCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KParts__MainWindow_QBaseCustomTags(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -10372,7 +10372,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_ComponentName(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10392,7 +10392,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_QBaseComponentName(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_QBaseComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10472,7 +10472,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_XmlFile(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10492,7 +10492,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_QBaseXmlFile(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_QBaseXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10528,7 +10528,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_LocalXMLFile(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10548,7 +10548,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_QBaseLocalXMLFile(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_QBaseLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11638,7 +11638,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_StandardsXmlFileLocation(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_StandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11658,7 +11658,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KParts__MainWindow_QBaseStandardsXmlFileLocation(@ptrCast(self));
+        var _str = qtc.KParts__MainWindow_QBaseStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::mainwindow.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

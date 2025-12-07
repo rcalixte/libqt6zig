@@ -57,7 +57,7 @@ pub const attica__accountbalance = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Currency(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__AccountBalance_Currency(@ptrCast(self));
+        var _str = qtc.Attica__AccountBalance_Currency(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::accountbalance.Currency: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -89,7 +89,7 @@ pub const attica__accountbalance = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Balance(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__AccountBalance_Balance(@ptrCast(self));
+        var _str = qtc.Attica__AccountBalance_Balance(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::accountbalance.Balance: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

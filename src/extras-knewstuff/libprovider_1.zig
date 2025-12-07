@@ -43,10 +43,10 @@ pub const knscore__provider = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KNSCore__Provider_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KNSCore__Provider_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -55,9 +55,9 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.KNSCore__Provider_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -71,10 +71,10 @@ pub const knscore__provider = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KNSCore__Provider_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KNSCore__Provider_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -87,7 +87,7 @@ pub const knscore__provider = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -103,7 +103,7 @@ pub const knscore__provider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__Provider_Id(@ptrCast(self));
+        var _str = qtc.KNSCore__Provider_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -135,7 +135,7 @@ pub const knscore__provider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__Provider_QBaseId(@ptrCast(self));
+        var _str = qtc.KNSCore__Provider_QBaseId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -275,7 +275,7 @@ pub const knscore__provider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__Provider_Name(@ptrCast(self));
+        var _str = qtc.KNSCore__Provider_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -307,7 +307,7 @@ pub const knscore__provider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__Provider_QBaseName(@ptrCast(self));
+        var _str = qtc.KNSCore__Provider_QBaseName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -615,7 +615,7 @@ pub const knscore__provider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__Provider_Version(@ptrCast(self));
+        var _str = qtc.KNSCore__Provider_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -691,7 +691,7 @@ pub const knscore__provider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ContactEmail(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__Provider_ContactEmail(@ptrCast(self));
+        var _str = qtc.KNSCore__Provider_ContactEmail(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.ContactEmail: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -928,7 +928,7 @@ pub const knscore__provider = struct {
     ///
     pub fn TagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Provider_TagFilter(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -981,7 +981,7 @@ pub const knscore__provider = struct {
     ///
     pub fn DownloadTagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Provider_DownloadTagFilter(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1435,7 +1435,7 @@ pub const knscore__provider = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1457,7 +1457,7 @@ pub const knscore__provider = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1475,7 +1475,7 @@ pub const knscore__provider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1827,7 +1827,7 @@ pub const knscore__provider = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2819,7 +2819,7 @@ pub const knscore__provider__searchrequest = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SearchTerm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const searchTerm_str = qtc.KNSCore__Provider__SearchRequest_SearchTerm(@ptrCast(self));
+        var searchTerm_str = qtc.KNSCore__Provider__SearchRequest_SearchTerm(@ptrCast(self));
         defer qtc.libqt_string_free(&searchTerm_str);
         const searchTerm_ret = allocator.alloc(u8, searchTerm_str.len) catch @panic("knscore::provider::searchrequest.SearchTerm: Memory allocation failed");
         @memcpy(searchTerm_ret, searchTerm_str.data[0..searchTerm_str.len]);
@@ -2852,7 +2852,7 @@ pub const knscore__provider__searchrequest = struct {
     ///
     pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const categories_arr: qtc.libqt_list = qtc.KNSCore__Provider__SearchRequest_Categories(@ptrCast(self));
-        const categories_str: [*]qtc.libqt_string = @ptrCast(@alignCast(categories_arr.data));
+        var categories_str: [*]qtc.libqt_string = @ptrCast(@alignCast(categories_arr.data));
         defer {
             for (0..categories_arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&categories_str[i]));
@@ -2948,7 +2948,7 @@ pub const knscore__provider__searchrequest = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HashForRequest(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__Provider__SearchRequest_HashForRequest(@ptrCast(self));
+        var _str = qtc.KNSCore__Provider__SearchRequest_HashForRequest(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::provider::searchrequest.HashForRequest: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3011,7 +3011,7 @@ pub const knscore__provider__categorymetadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const id_str = qtc.KNSCore__Provider__CategoryMetadata_Id(@ptrCast(self));
+        var id_str = qtc.KNSCore__Provider__CategoryMetadata_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&id_str);
         const id_ret = allocator.alloc(u8, id_str.len) catch @panic("knscore::provider::categorymetadata.Id: Memory allocation failed");
         @memcpy(id_ret, id_str.data[0..id_str.len]);
@@ -3043,7 +3043,7 @@ pub const knscore__provider__categorymetadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.KNSCore__Provider__CategoryMetadata_Name(@ptrCast(self));
+        var name_str = qtc.KNSCore__Provider__CategoryMetadata_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
         const name_ret = allocator.alloc(u8, name_str.len) catch @panic("knscore::provider::categorymetadata.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
@@ -3075,7 +3075,7 @@ pub const knscore__provider__categorymetadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const displayName_str = qtc.KNSCore__Provider__CategoryMetadata_DisplayName(@ptrCast(self));
+        var displayName_str = qtc.KNSCore__Provider__CategoryMetadata_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&displayName_str);
         const displayName_ret = allocator.alloc(u8, displayName_str.len) catch @panic("knscore::provider::categorymetadata.DisplayName: Memory allocation failed");
         @memcpy(displayName_ret, displayName_str.data[0..displayName_str.len]);
@@ -3164,7 +3164,7 @@ pub const knscore__provider__searchpreset = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const displayName_str = qtc.KNSCore__Provider__SearchPreset_DisplayName(@ptrCast(self));
+        var displayName_str = qtc.KNSCore__Provider__SearchPreset_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&displayName_str);
         const displayName_ret = allocator.alloc(u8, displayName_str.len) catch @panic("knscore::provider::searchpreset.DisplayName: Memory allocation failed");
         @memcpy(displayName_ret, displayName_str.data[0..displayName_str.len]);
@@ -3196,7 +3196,7 @@ pub const knscore__provider__searchpreset = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const iconName_str = qtc.KNSCore__Provider__SearchPreset_IconName(@ptrCast(self));
+        var iconName_str = qtc.KNSCore__Provider__SearchPreset_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&iconName_str);
         const iconName_ret = allocator.alloc(u8, iconName_str.len) catch @panic("knscore::provider::searchpreset.IconName: Memory allocation failed");
         @memcpy(iconName_ret, iconName_str.data[0..iconName_str.len]);
@@ -3254,7 +3254,7 @@ pub const knscore__provider__searchpreset = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const providerId_str = qtc.KNSCore__Provider__SearchPreset_ProviderId(@ptrCast(self));
+        var providerId_str = qtc.KNSCore__Provider__SearchPreset_ProviderId(@ptrCast(self));
         defer qtc.libqt_string_free(&providerId_str);
         const providerId_ret = allocator.alloc(u8, providerId_str.len) catch @panic("knscore::provider::searchpreset.ProviderId: Memory allocation failed");
         @memcpy(providerId_ret, providerId_str.data[0..providerId_str.len]);

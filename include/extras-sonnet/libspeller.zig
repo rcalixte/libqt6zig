@@ -84,7 +84,7 @@ pub const sonnet__speller = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Language(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Sonnet__Speller_Language(@ptrCast(self));
+        var _str = qtc.Sonnet__Speller_Language(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet::speller.Language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -139,7 +139,7 @@ pub const sonnet__speller = struct {
             .data = word.ptr,
         };
         const _arr: qtc.libqt_list = qtc.Sonnet__Speller_Suggest(@ptrCast(self), word_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -272,7 +272,7 @@ pub const sonnet__speller = struct {
     ///
     pub fn AvailableBackends(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableBackends(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -299,7 +299,7 @@ pub const sonnet__speller = struct {
     ///
     pub fn AvailableLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguages(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -326,7 +326,7 @@ pub const sonnet__speller = struct {
     ///
     pub fn AvailableLanguageNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguageNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -430,7 +430,7 @@ pub const sonnet__speller = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DefaultLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Sonnet__Speller_DefaultLanguage(@ptrCast(self));
+        var _str = qtc.Sonnet__Speller_DefaultLanguage(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet::speller.DefaultLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -462,7 +462,7 @@ pub const sonnet__speller = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DefaultClient(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Sonnet__Speller_DefaultClient(@ptrCast(self));
+        var _str = qtc.Sonnet__Speller_DefaultClient(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet::speller.DefaultClient: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

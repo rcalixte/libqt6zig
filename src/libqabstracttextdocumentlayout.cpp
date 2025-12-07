@@ -861,7 +861,11 @@ void QTextObjectInterface_Delete(QTextObjectInterface* self) {
     delete self;
 }
 
-QAbstractTextDocumentLayout__Selection* QAbstractTextDocumentLayout__Selection_new() {
+QAbstractTextDocumentLayout__Selection* QAbstractTextDocumentLayout__Selection_new(const QAbstractTextDocumentLayout__Selection* param1) {
+    return new QAbstractTextDocumentLayout::Selection(*param1);
+}
+
+QAbstractTextDocumentLayout__Selection* QAbstractTextDocumentLayout__Selection_new2() {
     return new QAbstractTextDocumentLayout::Selection();
 }
 
@@ -891,6 +895,10 @@ void QAbstractTextDocumentLayout__Selection_Delete(QAbstractTextDocumentLayout__
 
 QAbstractTextDocumentLayout__PaintContext* QAbstractTextDocumentLayout__PaintContext_new() {
     return new QAbstractTextDocumentLayout::PaintContext();
+}
+
+QAbstractTextDocumentLayout__PaintContext* QAbstractTextDocumentLayout__PaintContext_new2(const QAbstractTextDocumentLayout__PaintContext* param1) {
+    return new QAbstractTextDocumentLayout::PaintContext(*param1);
 }
 
 int QAbstractTextDocumentLayout__PaintContext_CursorPosition(const QAbstractTextDocumentLayout__PaintContext* self) {

@@ -158,6 +158,10 @@ void QStyleOptionFocusRect_SetBackgroundColor(QStyleOptionFocusRect* self, QColo
     self->backgroundColor = *backgroundColor;
 }
 
+void QStyleOptionFocusRect_OperatorAssign(QStyleOptionFocusRect* self, const QStyleOptionFocusRect* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionFocusRect_Delete(QStyleOptionFocusRect* self) {
     delete self;
 }
@@ -200,6 +204,10 @@ int QStyleOptionFrame_FrameShape(const QStyleOptionFrame* self) {
 
 void QStyleOptionFrame_SetFrameShape(QStyleOptionFrame* self, int frameShape) {
     self->frameShape = static_cast<QFrame::Shape>(frameShape);
+}
+
+void QStyleOptionFrame_OperatorAssign(QStyleOptionFrame* self, const QStyleOptionFrame* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionFrame_Delete(QStyleOptionFrame* self) {
@@ -278,6 +286,10 @@ void QStyleOptionTabWidgetFrame_SetSelectedTabRect(QStyleOptionTabWidgetFrame* s
     self->selectedTabRect = *selectedTabRect;
 }
 
+void QStyleOptionTabWidgetFrame_OperatorAssign(QStyleOptionTabWidgetFrame* self, const QStyleOptionTabWidgetFrame* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionTabWidgetFrame_Delete(QStyleOptionTabWidgetFrame* self) {
     delete self;
 }
@@ -320,6 +332,10 @@ bool QStyleOptionTabBarBase_DocumentMode(const QStyleOptionTabBarBase* self) {
 
 void QStyleOptionTabBarBase_SetDocumentMode(QStyleOptionTabBarBase* self, bool documentMode) {
     self->documentMode = documentMode;
+}
+
+void QStyleOptionTabBarBase_OperatorAssign(QStyleOptionTabBarBase* self, const QStyleOptionTabBarBase* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionTabBarBase_Delete(QStyleOptionTabBarBase* self) {
@@ -415,6 +431,10 @@ void QStyleOptionHeader_SetOrientation(QStyleOptionHeader* self, int orientation
     self->orientation = static_cast<Qt::Orientation>(orientation);
 }
 
+void QStyleOptionHeader_OperatorAssign(QStyleOptionHeader* self, const QStyleOptionHeader* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionHeader_Delete(QStyleOptionHeader* self) {
     delete self;
 }
@@ -425,6 +445,10 @@ QStyleOptionHeaderV2* QStyleOptionHeaderV2_new() {
 
 QStyleOptionHeaderV2* QStyleOptionHeaderV2_new2(const QStyleOptionHeaderV2* other) {
     return new QStyleOptionHeaderV2(*other);
+}
+
+void QStyleOptionHeaderV2_OperatorAssign(QStyleOptionHeaderV2* self, const QStyleOptionHeaderV2* param1) {
+    self->operator=(*param1);
 }
 
 int QStyleOptionHeaderV2_TextElideMode(const QStyleOptionHeaderV2* self) {
@@ -502,6 +526,10 @@ QSize* QStyleOptionButton_IconSize(const QStyleOptionButton* self) {
 
 void QStyleOptionButton_SetIconSize(QStyleOptionButton* self, QSize* iconSize) {
     self->iconSize = *iconSize;
+}
+
+void QStyleOptionButton_OperatorAssign(QStyleOptionButton* self, const QStyleOptionButton* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionButton_Delete(QStyleOptionButton* self) {
@@ -629,6 +657,10 @@ void QStyleOptionTab_SetTabIndex(QStyleOptionTab* self, int tabIndex) {
     self->tabIndex = static_cast<int>(tabIndex);
 }
 
+void QStyleOptionTab_OperatorAssign(QStyleOptionTab* self, const QStyleOptionTab* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionTab_Delete(QStyleOptionTab* self) {
     delete self;
 }
@@ -687,6 +719,10 @@ int QStyleOptionToolBar_MidLineWidth(const QStyleOptionToolBar* self) {
 
 void QStyleOptionToolBar_SetMidLineWidth(QStyleOptionToolBar* self, int midLineWidth) {
     self->midLineWidth = static_cast<int>(midLineWidth);
+}
+
+void QStyleOptionToolBar_OperatorAssign(QStyleOptionToolBar* self, const QStyleOptionToolBar* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionToolBar_Delete(QStyleOptionToolBar* self) {
@@ -772,6 +808,10 @@ bool QStyleOptionProgressBar_BottomToTop(const QStyleOptionProgressBar* self) {
 
 void QStyleOptionProgressBar_SetBottomToTop(QStyleOptionProgressBar* self, bool bottomToTop) {
     self->bottomToTop = bottomToTop;
+}
+
+void QStyleOptionProgressBar_OperatorAssign(QStyleOptionProgressBar* self, const QStyleOptionProgressBar* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionProgressBar_Delete(QStyleOptionProgressBar* self) {
@@ -875,6 +915,10 @@ void QStyleOptionMenuItem_SetFont(QStyleOptionMenuItem* self, QFont* font) {
     self->font = *font;
 }
 
+void QStyleOptionMenuItem_OperatorAssign(QStyleOptionMenuItem* self, const QStyleOptionMenuItem* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionMenuItem_Delete(QStyleOptionMenuItem* self) {
     delete self;
 }
@@ -934,6 +978,10 @@ bool QStyleOptionDockWidget_VerticalTitleBar(const QStyleOptionDockWidget* self)
 
 void QStyleOptionDockWidget_SetVerticalTitleBar(QStyleOptionDockWidget* self, bool verticalTitleBar) {
     self->verticalTitleBar = verticalTitleBar;
+}
+
+void QStyleOptionDockWidget_OperatorAssign(QStyleOptionDockWidget* self, const QStyleOptionDockWidget* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionDockWidget_Delete(QStyleOptionDockWidget* self) {
@@ -1085,6 +1133,10 @@ void QStyleOptionViewItem_SetBackgroundBrush(QStyleOptionViewItem* self, QBrush*
     self->backgroundBrush = *backgroundBrush;
 }
 
+void QStyleOptionViewItem_OperatorAssign(QStyleOptionViewItem* self, const QStyleOptionViewItem* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionViewItem_Delete(QStyleOptionViewItem* self) {
     delete self;
 }
@@ -1138,6 +1190,10 @@ void QStyleOptionToolBox_SetSelectedPosition(QStyleOptionToolBox* self, int sele
     self->selectedPosition = static_cast<QStyleOptionToolBox::SelectedPosition>(selectedPosition);
 }
 
+void QStyleOptionToolBox_OperatorAssign(QStyleOptionToolBox* self, const QStyleOptionToolBox* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionToolBox_Delete(QStyleOptionToolBox* self) {
     delete self;
 }
@@ -1164,6 +1220,10 @@ bool QStyleOptionRubberBand_Opaque(const QStyleOptionRubberBand* self) {
 
 void QStyleOptionRubberBand_SetOpaque(QStyleOptionRubberBand* self, bool opaque) {
     self->opaque = opaque;
+}
+
+void QStyleOptionRubberBand_OperatorAssign(QStyleOptionRubberBand* self, const QStyleOptionRubberBand* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionRubberBand_Delete(QStyleOptionRubberBand* self) {
@@ -1200,6 +1260,10 @@ int QStyleOptionComplex_ActiveSubControls(const QStyleOptionComplex* self) {
 
 void QStyleOptionComplex_SetActiveSubControls(QStyleOptionComplex* self, int activeSubControls) {
     self->activeSubControls = static_cast<QFlags<QStyle::SubControl>>(activeSubControls);
+}
+
+void QStyleOptionComplex_OperatorAssign(QStyleOptionComplex* self, const QStyleOptionComplex* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionComplex_Delete(QStyleOptionComplex* self) {
@@ -1318,6 +1382,10 @@ void QStyleOptionSlider_SetKeyboardModifiers(QStyleOptionSlider* self, int keybo
     self->keyboardModifiers = static_cast<QFlags<Qt::KeyboardModifier>>(keyboardModifiers);
 }
 
+void QStyleOptionSlider_OperatorAssign(QStyleOptionSlider* self, const QStyleOptionSlider* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionSlider_Delete(QStyleOptionSlider* self) {
     delete self;
 }
@@ -1352,6 +1420,10 @@ bool QStyleOptionSpinBox_Frame(const QStyleOptionSpinBox* self) {
 
 void QStyleOptionSpinBox_SetFrame(QStyleOptionSpinBox* self, bool frame) {
     self->frame = frame;
+}
+
+void QStyleOptionSpinBox_OperatorAssign(QStyleOptionSpinBox* self, const QStyleOptionSpinBox* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionSpinBox_Delete(QStyleOptionSpinBox* self) {
@@ -1439,6 +1511,10 @@ void QStyleOptionToolButton_SetFont(QStyleOptionToolButton* self, QFont* font) {
     self->font = *font;
 }
 
+void QStyleOptionToolButton_OperatorAssign(QStyleOptionToolButton* self, const QStyleOptionToolButton* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionToolButton_Delete(QStyleOptionToolButton* self) {
     delete self;
 }
@@ -1516,6 +1592,10 @@ void QStyleOptionComboBox_SetTextAlignment(QStyleOptionComboBox* self, int textA
     self->textAlignment = static_cast<QFlags<Qt::AlignmentFlag>>(textAlignment);
 }
 
+void QStyleOptionComboBox_OperatorAssign(QStyleOptionComboBox* self, const QStyleOptionComboBox* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionComboBox_Delete(QStyleOptionComboBox* self) {
     delete self;
 }
@@ -1567,6 +1647,10 @@ int QStyleOptionTitleBar_TitleBarFlags(const QStyleOptionTitleBar* self) {
 
 void QStyleOptionTitleBar_SetTitleBarFlags(QStyleOptionTitleBar* self, int titleBarFlags) {
     self->titleBarFlags = static_cast<QFlags<Qt::WindowType>>(titleBarFlags);
+}
+
+void QStyleOptionTitleBar_OperatorAssign(QStyleOptionTitleBar* self, const QStyleOptionTitleBar* param1) {
+    self->operator=(*param1);
 }
 
 void QStyleOptionTitleBar_Delete(QStyleOptionTitleBar* self) {
@@ -1638,6 +1722,10 @@ void QStyleOptionGroupBox_SetMidLineWidth(QStyleOptionGroupBox* self, int midLin
     self->midLineWidth = static_cast<int>(midLineWidth);
 }
 
+void QStyleOptionGroupBox_OperatorAssign(QStyleOptionGroupBox* self, const QStyleOptionGroupBox* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionGroupBox_Delete(QStyleOptionGroupBox* self) {
     delete self;
 }
@@ -1658,6 +1746,10 @@ void QStyleOptionSizeGrip_SetCorner(QStyleOptionSizeGrip* self, int corner) {
     self->corner = static_cast<Qt::Corner>(corner);
 }
 
+void QStyleOptionSizeGrip_OperatorAssign(QStyleOptionSizeGrip* self, const QStyleOptionSizeGrip* param1) {
+    self->operator=(*param1);
+}
+
 void QStyleOptionSizeGrip_Delete(QStyleOptionSizeGrip* self) {
     delete self;
 }
@@ -1676,6 +1768,10 @@ QRectF* QStyleOptionGraphicsItem_ExposedRect(const QStyleOptionGraphicsItem* sel
 
 void QStyleOptionGraphicsItem_SetExposedRect(QStyleOptionGraphicsItem* self, QRectF* exposedRect) {
     self->exposedRect = *exposedRect;
+}
+
+void QStyleOptionGraphicsItem_OperatorAssign(QStyleOptionGraphicsItem* self, const QStyleOptionGraphicsItem* param1) {
+    self->operator=(*param1);
 }
 
 double QStyleOptionGraphicsItem_LevelOfDetailFromTransform(const QTransform* worldTransform) {

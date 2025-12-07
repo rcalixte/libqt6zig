@@ -34,7 +34,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_Name(@ptrCast(self));
+        var _str = qtc.KOSRelease_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -50,7 +50,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_Version(@ptrCast(self));
+        var _str = qtc.KOSRelease_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -66,7 +66,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_Id(@ptrCast(self));
+        var _str = qtc.KOSRelease_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -83,7 +83,7 @@ pub const kosrelease = struct {
     ///
     pub fn IdLike(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KOSRelease_IdLike(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -109,7 +109,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn VersionCodename(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_VersionCodename(@ptrCast(self));
+        var _str = qtc.KOSRelease_VersionCodename(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.VersionCodename: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -125,7 +125,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn VersionId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_VersionId(@ptrCast(self));
+        var _str = qtc.KOSRelease_VersionId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.VersionId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -141,7 +141,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PrettyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_PrettyName(@ptrCast(self));
+        var _str = qtc.KOSRelease_PrettyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.PrettyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -157,7 +157,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AnsiColor(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_AnsiColor(@ptrCast(self));
+        var _str = qtc.KOSRelease_AnsiColor(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.AnsiColor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -173,7 +173,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CpeName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_CpeName(@ptrCast(self));
+        var _str = qtc.KOSRelease_CpeName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.CpeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -189,7 +189,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HomeUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_HomeUrl(@ptrCast(self));
+        var _str = qtc.KOSRelease_HomeUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.HomeUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -205,7 +205,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DocumentationUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_DocumentationUrl(@ptrCast(self));
+        var _str = qtc.KOSRelease_DocumentationUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.DocumentationUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -221,7 +221,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SupportUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_SupportUrl(@ptrCast(self));
+        var _str = qtc.KOSRelease_SupportUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.SupportUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -237,7 +237,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BugReportUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_BugReportUrl(@ptrCast(self));
+        var _str = qtc.KOSRelease_BugReportUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.BugReportUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -253,7 +253,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PrivacyPolicyUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_PrivacyPolicyUrl(@ptrCast(self));
+        var _str = qtc.KOSRelease_PrivacyPolicyUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.PrivacyPolicyUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -269,7 +269,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BuildId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_BuildId(@ptrCast(self));
+        var _str = qtc.KOSRelease_BuildId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.BuildId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -285,7 +285,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Variant(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_Variant(@ptrCast(self));
+        var _str = qtc.KOSRelease_Variant(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.Variant: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -301,7 +301,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn VariantId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_VariantId(@ptrCast(self));
+        var _str = qtc.KOSRelease_VariantId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.VariantId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -317,7 +317,7 @@ pub const kosrelease = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Logo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KOSRelease_Logo(@ptrCast(self));
+        var _str = qtc.KOSRelease_Logo(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.Logo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -334,7 +334,7 @@ pub const kosrelease = struct {
     ///
     pub fn ExtraKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KOSRelease_ExtraKeys(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -366,7 +366,7 @@ pub const kosrelease = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const _str = qtc.KOSRelease_ExtraValue(@ptrCast(self), key_str);
+        var _str = qtc.KOSRelease_ExtraValue(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kosrelease.ExtraValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

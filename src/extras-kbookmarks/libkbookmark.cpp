@@ -21,6 +21,10 @@ KBookmark* KBookmark_new2(const QDomElement* elem) {
     return new KBookmark(*elem);
 }
 
+KBookmark* KBookmark_new3(const KBookmark* param1) {
+    return new KBookmark(*param1);
+}
+
 KBookmark* KBookmark_StandaloneBookmark(const libqt_string text, const QUrl* url, const libqt_string icon) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QString icon_QString = QString::fromUtf8(icon.data, icon.len);

@@ -57,10 +57,10 @@ pub const qspinbox = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -69,9 +69,9 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QSpinBox_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -85,10 +85,10 @@ pub const qspinbox = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -101,7 +101,7 @@ pub const qspinbox = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -127,7 +127,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Prefix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSpinBox_Prefix(@ptrCast(self));
+        var _str = qtc.QSpinBox_Prefix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -159,7 +159,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Suffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSpinBox_Suffix(@ptrCast(self));
+        var _str = qtc.QSpinBox_Suffix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.Suffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -191,7 +191,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CleanText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSpinBox_CleanText(@ptrCast(self));
+        var _str = qtc.QSpinBox_CleanText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.CleanText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -485,7 +485,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TextFromValue(self: ?*anyopaque, val: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSpinBox_TextFromValue(@ptrCast(self), @intCast(val));
+        var _str = qtc.QSpinBox_TextFromValue(@ptrCast(self), @intCast(val));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.TextFromValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -519,7 +519,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseTextFromValue(self: ?*anyopaque, val: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSpinBox_QBaseTextFromValue(@ptrCast(self), @intCast(val));
+        var _str = qtc.QSpinBox_QBaseTextFromValue(@ptrCast(self), @intCast(val));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.TextFromValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -651,7 +651,7 @@ pub const qspinbox = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -673,7 +673,7 @@ pub const qspinbox = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -763,7 +763,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAbstractSpinBox_Text(@ptrCast(self));
+        var _str = qtc.QAbstractSpinBox_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -781,7 +781,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SpecialValueText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self));
+        var _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.SpecialValueText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2403,7 +2403,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2421,7 +2421,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2483,7 +2483,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2519,7 +2519,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2555,7 +2555,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2629,7 +2629,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2691,7 +2691,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2727,7 +2727,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2745,7 +2745,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2781,7 +2781,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3617,7 +3617,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qspinbox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4922,7 +4922,7 @@ pub const qspinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qspinbox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5260,7 +5260,7 @@ pub const qspinbox = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -8644,10 +8644,10 @@ pub const qdoublespinbox = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDoubleSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QDoubleSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -8656,9 +8656,9 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QDoubleSpinBox_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8672,10 +8672,10 @@ pub const qdoublespinbox = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDoubleSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QDoubleSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -8688,7 +8688,7 @@ pub const qdoublespinbox = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8714,7 +8714,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Prefix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDoubleSpinBox_Prefix(@ptrCast(self));
+        var _str = qtc.QDoubleSpinBox_Prefix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8746,7 +8746,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Suffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDoubleSpinBox_Suffix(@ptrCast(self));
+        var _str = qtc.QDoubleSpinBox_Suffix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.Suffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8778,7 +8778,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CleanText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDoubleSpinBox_CleanText(@ptrCast(self));
+        var _str = qtc.QDoubleSpinBox_CleanText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.CleanText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9032,7 +9032,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TextFromValue(self: ?*anyopaque, val: f64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDoubleSpinBox_TextFromValue(@ptrCast(self), @floatCast(val));
+        var _str = qtc.QDoubleSpinBox_TextFromValue(@ptrCast(self), @floatCast(val));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.TextFromValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9066,7 +9066,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseTextFromValue(self: ?*anyopaque, val: f64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDoubleSpinBox_QBaseTextFromValue(@ptrCast(self), @floatCast(val));
+        var _str = qtc.QDoubleSpinBox_QBaseTextFromValue(@ptrCast(self), @floatCast(val));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.TextFromValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9198,7 +9198,7 @@ pub const qdoublespinbox = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9220,7 +9220,7 @@ pub const qdoublespinbox = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9310,7 +9310,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAbstractSpinBox_Text(@ptrCast(self));
+        var _str = qtc.QAbstractSpinBox_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9328,7 +9328,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SpecialValueText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self));
+        var _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.SpecialValueText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10950,7 +10950,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10968,7 +10968,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11030,7 +11030,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11066,7 +11066,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11102,7 +11102,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11176,7 +11176,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11238,7 +11238,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11274,7 +11274,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11292,7 +11292,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11328,7 +11328,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -12164,7 +12164,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdoublespinbox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -13469,7 +13469,7 @@ pub const qdoublespinbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublespinbox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -13807,7 +13807,7 @@ pub const qdoublespinbox = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

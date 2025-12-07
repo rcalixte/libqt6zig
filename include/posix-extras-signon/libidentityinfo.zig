@@ -126,7 +126,7 @@ pub const signon__identityinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Secret(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__IdentityInfo_Secret(@ptrCast(self));
+        var _str = qtc.SignOn__IdentityInfo_Secret(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::identityinfo.Secret: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -180,7 +180,7 @@ pub const signon__identityinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__IdentityInfo_UserName(@ptrCast(self));
+        var _str = qtc.SignOn__IdentityInfo_UserName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::identityinfo.UserName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -212,7 +212,7 @@ pub const signon__identityinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__IdentityInfo_Caption(@ptrCast(self));
+        var _str = qtc.SignOn__IdentityInfo_Caption(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::identityinfo.Caption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -255,7 +255,7 @@ pub const signon__identityinfo = struct {
     ///
     pub fn Realms(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_Realms(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -297,7 +297,7 @@ pub const signon__identityinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Owner(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__IdentityInfo_Owner(@ptrCast(self));
+        var _str = qtc.SignOn__IdentityInfo_Owner(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::identityinfo.Owner: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -356,7 +356,7 @@ pub const signon__identityinfo = struct {
     ///
     pub fn AccessControlList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_AccessControlList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -474,7 +474,7 @@ pub const signon__identityinfo = struct {
     ///
     pub fn Methods(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_Methods(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -507,7 +507,7 @@ pub const signon__identityinfo = struct {
             .data = method.ptr,
         };
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_Mechanisms(@ptrCast(self), method_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

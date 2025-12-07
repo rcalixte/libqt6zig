@@ -122,7 +122,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -154,7 +154,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_QBaseComponentName(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_QBaseComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -206,7 +206,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -238,7 +238,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_QBaseXmlFile(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_QBaseXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -254,7 +254,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -286,7 +286,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_QBaseLocalXMLFile(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_QBaseLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -485,7 +485,7 @@ pub const kxmlguiclient = struct {
             .len = doc.len,
             .data = doc.ptr,
         };
-        const _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
+        var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.FindMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -621,7 +621,7 @@ pub const kxmlguiclient = struct {
             .len = xml.len,
             .data = xml.ptr,
         };
-        const _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
+        var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.FindVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -753,7 +753,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_StandardsXmlFileLocation(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_StandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -785,7 +785,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KXMLGUIClient_QBaseStandardsXmlFileLocation(@ptrCast(self));
+        var _str = qtc.KXMLGUIClient_QBaseStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1073,7 +1073,7 @@ pub const kxmlguiclient__statechange = struct {
     ///
     pub fn ActionsToEnable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const actionsToEnable_arr: qtc.libqt_list = qtc.KXMLGUIClient__StateChange_ActionsToEnable(@ptrCast(self));
-        const actionsToEnable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToEnable_arr.data));
+        var actionsToEnable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToEnable_arr.data));
         defer {
             for (0..actionsToEnable_arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&actionsToEnable_str[i]));
@@ -1126,7 +1126,7 @@ pub const kxmlguiclient__statechange = struct {
     ///
     pub fn ActionsToDisable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const actionsToDisable_arr: qtc.libqt_list = qtc.KXMLGUIClient__StateChange_ActionsToDisable(@ptrCast(self));
-        const actionsToDisable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToDisable_arr.data));
+        var actionsToDisable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToDisable_arr.data));
         defer {
             for (0..actionsToDisable_arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&actionsToDisable_str[i]));

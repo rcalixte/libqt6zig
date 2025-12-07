@@ -30,7 +30,7 @@ pub const ksambasharedata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSambaShareData_Name(@ptrCast(self));
+        var _str = qtc.KSambaShareData_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -46,7 +46,7 @@ pub const ksambasharedata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSambaShareData_Path(@ptrCast(self));
+        var _str = qtc.KSambaShareData_Path(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -62,7 +62,7 @@ pub const ksambasharedata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSambaShareData_Comment(@ptrCast(self));
+        var _str = qtc.KSambaShareData_Comment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -78,7 +78,7 @@ pub const ksambasharedata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Acl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSambaShareData_Acl(@ptrCast(self));
+        var _str = qtc.KSambaShareData_Acl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Acl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

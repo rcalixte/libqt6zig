@@ -265,7 +265,7 @@ pub const qdbusmessage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusMessage_Service(@ptrCast(self));
+        var _str = qtc.QDBusMessage_Service(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -281,7 +281,7 @@ pub const qdbusmessage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusMessage_Path(@ptrCast(self));
+        var _str = qtc.QDBusMessage_Path(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -297,7 +297,7 @@ pub const qdbusmessage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Interface(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusMessage_Interface(@ptrCast(self));
+        var _str = qtc.QDBusMessage_Interface(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Interface: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -313,7 +313,7 @@ pub const qdbusmessage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Member(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusMessage_Member(@ptrCast(self));
+        var _str = qtc.QDBusMessage_Member(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Member: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -329,7 +329,7 @@ pub const qdbusmessage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusMessage_ErrorName(@ptrCast(self));
+        var _str = qtc.QDBusMessage_ErrorName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.ErrorName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -345,7 +345,7 @@ pub const qdbusmessage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorMessage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusMessage_ErrorMessage(@ptrCast(self));
+        var _str = qtc.QDBusMessage_ErrorMessage(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.ErrorMessage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -375,7 +375,7 @@ pub const qdbusmessage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Signature(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusMessage_Signature(@ptrCast(self));
+        var _str = qtc.QDBusMessage_Signature(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

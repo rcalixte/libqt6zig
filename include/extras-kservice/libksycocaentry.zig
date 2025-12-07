@@ -46,7 +46,7 @@ pub const ksycocaentry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSycocaEntry_Name(@ptrCast(self));
+        var _str = qtc.KSycocaEntry_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksycocaentry.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -62,7 +62,7 @@ pub const ksycocaentry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn EntryPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self));
+        var _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksycocaentry.EntryPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -78,7 +78,7 @@ pub const ksycocaentry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StorageId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSycocaEntry_StorageId(@ptrCast(self));
+        var _str = qtc.KSycocaEntry_StorageId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksycocaentry.StorageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -59,7 +59,7 @@ pub const qwebengineregisterprotocolhandlerrequest = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Scheme(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWebEngineRegisterProtocolHandlerRequest_Scheme(@ptrCast(self));
+        var _str = qtc.QWebEngineRegisterProtocolHandlerRequest_Scheme(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineregisterprotocolhandlerrequest.Scheme: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

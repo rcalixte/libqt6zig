@@ -36,10 +36,10 @@ pub const qkeychain__job = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QKeychain__Job_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QKeychain__Job_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -52,7 +52,7 @@ pub const qkeychain__job = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::job.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -100,7 +100,7 @@ pub const qkeychain__job = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Service(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Service(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::job.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -130,7 +130,7 @@ pub const qkeychain__job = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::job.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -190,7 +190,7 @@ pub const qkeychain__job = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Key(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::job.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -278,7 +278,7 @@ pub const qkeychain__job = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::job.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -300,7 +300,7 @@ pub const qkeychain__job = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::job.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -348,7 +348,7 @@ pub const qkeychain__job = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::job.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -700,7 +700,7 @@ pub const qkeychain__job = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1000,10 +1000,10 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QKeychain__ReadPasswordJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QKeychain__ReadPasswordJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -1012,9 +1012,9 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QKeychain__ReadPasswordJob_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1028,10 +1028,10 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QKeychain__ReadPasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QKeychain__ReadPasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1044,7 +1044,7 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1060,7 +1060,7 @@ pub const qkeychain__readpasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BinaryData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QKeychain__ReadPasswordJob_BinaryData(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QKeychain__ReadPasswordJob_BinaryData(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qkeychain::readpasswordjob.BinaryData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1076,7 +1076,7 @@ pub const qkeychain__readpasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TextData(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__ReadPasswordJob_TextData(@ptrCast(self));
+        var _str = qtc.QKeychain__ReadPasswordJob_TextData(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.TextData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1096,7 +1096,7 @@ pub const qkeychain__readpasswordjob = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1118,7 +1118,7 @@ pub const qkeychain__readpasswordjob = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1174,7 +1174,7 @@ pub const qkeychain__readpasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Service(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Service(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1208,7 +1208,7 @@ pub const qkeychain__readpasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1278,7 +1278,7 @@ pub const qkeychain__readpasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Key(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1374,7 +1374,7 @@ pub const qkeychain__readpasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::readpasswordjob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1726,7 +1726,7 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2596,10 +2596,10 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QKeychain__WritePasswordJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QKeychain__WritePasswordJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -2608,9 +2608,9 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QKeychain__WritePasswordJob_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2624,10 +2624,10 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QKeychain__WritePasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QKeychain__WritePasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2640,7 +2640,7 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::writepasswordjob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2692,7 +2692,7 @@ pub const qkeychain__writepasswordjob = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::writepasswordjob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2714,7 +2714,7 @@ pub const qkeychain__writepasswordjob = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::writepasswordjob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2770,7 +2770,7 @@ pub const qkeychain__writepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Service(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Service(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::writepasswordjob.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2804,7 +2804,7 @@ pub const qkeychain__writepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::writepasswordjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2874,7 +2874,7 @@ pub const qkeychain__writepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Key(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::writepasswordjob.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2970,7 +2970,7 @@ pub const qkeychain__writepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::writepasswordjob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3322,7 +3322,7 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4192,10 +4192,10 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QKeychain__DeletePasswordJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QKeychain__DeletePasswordJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -4204,9 +4204,9 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QKeychain__DeletePasswordJob_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4220,10 +4220,10 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QKeychain__DeletePasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QKeychain__DeletePasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4236,7 +4236,7 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::deletepasswordjob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4256,7 +4256,7 @@ pub const qkeychain__deletepasswordjob = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::deletepasswordjob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4278,7 +4278,7 @@ pub const qkeychain__deletepasswordjob = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::deletepasswordjob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4334,7 +4334,7 @@ pub const qkeychain__deletepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Service(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Service(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::deletepasswordjob.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4368,7 +4368,7 @@ pub const qkeychain__deletepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::deletepasswordjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4438,7 +4438,7 @@ pub const qkeychain__deletepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeychain__Job_Key(@ptrCast(self));
+        var _str = qtc.QKeychain__Job_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::deletepasswordjob.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4534,7 +4534,7 @@ pub const qkeychain__deletepasswordjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain::deletepasswordjob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4886,7 +4886,7 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

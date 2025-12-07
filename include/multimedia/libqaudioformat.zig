@@ -280,9 +280,9 @@ pub const qaudioformat = struct {
     ///
     /// ` self: QtC.QAudioFormat `
     ///
-    /// ` sample: ?*anyopaque `
+    /// ` sample: ?*const anyopaque `
     ///
-    pub fn NormalizedSampleValue(self: ?*anyopaque, sample: ?*anyopaque) f32 {
+    pub fn NormalizedSampleValue(self: ?*anyopaque, sample: ?*const anyopaque) f32 {
         return qtc.QAudioFormat_NormalizedSampleValue(@ptrCast(self), @ptrCast(sample));
     }
 

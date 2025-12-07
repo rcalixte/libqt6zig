@@ -418,9 +418,9 @@ pub const qdebug = struct {
     ///
     /// ` self: QtC.QDebug `
     ///
-    /// ` t: ?*anyopaque `
+    /// ` t: ?*const anyopaque `
     ///
-    pub fn OperatorShiftLeft25(self: ?*anyopaque, t: ?*anyopaque) QtC.QDebug {
+    pub fn OperatorShiftLeft25(self: ?*anyopaque, t: ?*const anyopaque) QtC.QDebug {
         return qtc.QDebug_OperatorShiftLeft25(@ptrCast(self), @ptrCast(t));
     }
 

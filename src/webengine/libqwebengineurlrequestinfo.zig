@@ -72,7 +72,7 @@ pub const qwebengineurlrequestinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn RequestMethod(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebengineurlrequestinfo.RequestMethod: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

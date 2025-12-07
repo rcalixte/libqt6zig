@@ -83,7 +83,7 @@ pub const qtooltip = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QToolTip_Text();
+        var _str = qtc.QToolTip_Text();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtooltip.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

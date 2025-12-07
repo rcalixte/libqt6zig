@@ -90,7 +90,7 @@ pub const kcountry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Alpha2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KCountry_Alpha2(@ptrCast(self));
+        var _str = qtc.KCountry_Alpha2(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountry.Alpha2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -106,7 +106,7 @@ pub const kcountry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Alpha3(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KCountry_Alpha3(@ptrCast(self));
+        var _str = qtc.KCountry_Alpha3(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountry.Alpha3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -122,7 +122,7 @@ pub const kcountry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KCountry_Name(@ptrCast(self));
+        var _str = qtc.KCountry_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountry.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -138,7 +138,7 @@ pub const kcountry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn EmojiFlag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KCountry_EmojiFlag(@ptrCast(self));
+        var _str = qtc.KCountry_EmojiFlag(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountry.EmojiFlag: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -195,7 +195,7 @@ pub const kcountry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrencyCode(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KCountry_CurrencyCode(@ptrCast(self));
+        var _str = qtc.KCountry_CurrencyCode(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountry.CurrencyCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

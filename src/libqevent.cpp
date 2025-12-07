@@ -4730,6 +4730,10 @@ QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new2(int typ, int s, 
     return new QInputMethodEvent::Attribute(static_cast<QInputMethodEvent::AttributeType>(typ), static_cast<int>(s), static_cast<int>(l));
 }
 
+QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new3(const QInputMethodEvent__Attribute* param1) {
+    return new QInputMethodEvent::Attribute(*param1);
+}
+
 int QInputMethodEvent__Attribute_Type(const QInputMethodEvent__Attribute* self) {
     return static_cast<int>(self->type);
 }

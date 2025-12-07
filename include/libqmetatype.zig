@@ -191,9 +191,9 @@ pub const qmetatype = struct {
     ///
     /// ` where: ?*anyopaque `
     ///
-    /// ` copyVal: ?*anyopaque `
+    /// ` copyVal: ?*const anyopaque `
     ///
-    pub fn Construct(typeVal: i32, where: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
+    pub fn Construct(typeVal: i32, where: ?*anyopaque, copyVal: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaType_Construct(@intCast(typeVal), @ptrCast(where), @ptrCast(copyVal));
     }
 
@@ -366,11 +366,11 @@ pub const qmetatype = struct {
     ///
     /// ` self: QtC.QMetaType `
     ///
-    /// ` lhs: ?*anyopaque `
+    /// ` lhs: ?*const anyopaque `
     ///
-    /// ` rhs: ?*anyopaque `
+    /// ` rhs: ?*const anyopaque `
     ///
-    pub fn Compare(self: ?*anyopaque, lhs: ?*anyopaque, rhs: ?*anyopaque) QtC.QPartialOrdering {
+    pub fn Compare(self: ?*anyopaque, lhs: ?*const anyopaque, rhs: ?*const anyopaque) QtC.QPartialOrdering {
         return qtc.QMetaType_Compare(@ptrCast(self), @ptrCast(lhs), @ptrCast(rhs));
     }
 
@@ -380,11 +380,11 @@ pub const qmetatype = struct {
     ///
     /// ` self: QtC.QMetaType `
     ///
-    /// ` lhs: ?*anyopaque `
+    /// ` lhs: ?*const anyopaque `
     ///
-    /// ` rhs: ?*anyopaque `
+    /// ` rhs: ?*const anyopaque `
     ///
-    pub fn Equals(self: ?*anyopaque, lhs: ?*anyopaque, rhs: ?*anyopaque) bool {
+    pub fn Equals(self: ?*anyopaque, lhs: ?*const anyopaque, rhs: ?*const anyopaque) bool {
         return qtc.QMetaType_Equals(@ptrCast(self), @ptrCast(lhs), @ptrCast(rhs));
     }
 
@@ -456,9 +456,9 @@ pub const qmetatype = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn Save(self: ?*anyopaque, stream: ?*anyopaque, data: ?*anyopaque) bool {
+    pub fn Save(self: ?*anyopaque, stream: ?*anyopaque, data: ?*const anyopaque) bool {
         return qtc.QMetaType_Save(@ptrCast(self), @ptrCast(stream), @ptrCast(data));
     }
 
@@ -494,9 +494,9 @@ pub const qmetatype = struct {
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn Save2(stream: ?*anyopaque, typeVal: i32, data: ?*anyopaque) bool {
+    pub fn Save2(stream: ?*anyopaque, typeVal: i32, data: ?*const anyopaque) bool {
         return qtc.QMetaType_Save2(@ptrCast(stream), @intCast(typeVal), @ptrCast(data));
     }
 
@@ -546,9 +546,9 @@ pub const qmetatype = struct {
     ///
     /// ` dbg: QtC.QDebug `
     ///
-    /// ` rhs: ?*anyopaque `
+    /// ` rhs: ?*const anyopaque `
     ///
-    pub fn DebugStream(self: ?*anyopaque, dbg: ?*anyopaque, rhs: ?*anyopaque) bool {
+    pub fn DebugStream(self: ?*anyopaque, dbg: ?*anyopaque, rhs: ?*const anyopaque) bool {
         return qtc.QMetaType_DebugStream(@ptrCast(self), @ptrCast(dbg), @ptrCast(rhs));
     }
 
@@ -568,11 +568,11 @@ pub const qmetatype = struct {
     ///
     /// ` dbg: QtC.QDebug `
     ///
-    /// ` rhs: ?*anyopaque `
+    /// ` rhs: ?*const anyopaque `
     ///
     /// ` typeId: i32 `
     ///
-    pub fn DebugStream2(dbg: ?*anyopaque, rhs: ?*anyopaque, typeId: i32) bool {
+    pub fn DebugStream2(dbg: ?*anyopaque, rhs: ?*const anyopaque, typeId: i32) bool {
         return qtc.QMetaType_DebugStream2(@ptrCast(dbg), @ptrCast(rhs), @intCast(typeId));
     }
 
@@ -592,13 +592,13 @@ pub const qmetatype = struct {
     ///
     /// ` fromType: QtC.QMetaType `
     ///
-    /// ` from: ?*anyopaque `
+    /// ` from: ?*const anyopaque `
     ///
     /// ` toType: QtC.QMetaType `
     ///
     /// ` to: ?*anyopaque `
     ///
-    pub fn Convert(fromType: QtC.QMetaType, from: ?*anyopaque, toType: QtC.QMetaType, to: ?*anyopaque) bool {
+    pub fn Convert(fromType: QtC.QMetaType, from: ?*const anyopaque, toType: QtC.QMetaType, to: ?*anyopaque) bool {
         return qtc.QMetaType_Convert(@ptrCast(fromType), @ptrCast(from), @ptrCast(toType), @ptrCast(to));
     }
 
@@ -646,7 +646,7 @@ pub const qmetatype = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` from: ?*anyopaque `
+    /// ` from: ?*const anyopaque `
     ///
     /// ` fromTypeId: i32 `
     ///
@@ -654,7 +654,7 @@ pub const qmetatype = struct {
     ///
     /// ` toTypeId: i32 `
     ///
-    pub fn Convert2(from: ?*anyopaque, fromTypeId: i32, to: ?*anyopaque, toTypeId: i32) bool {
+    pub fn Convert2(from: ?*const anyopaque, fromTypeId: i32, to: ?*anyopaque, toTypeId: i32) bool {
         return qtc.QMetaType_Convert2(@ptrCast(from), @intCast(fromTypeId), @ptrCast(to), @intCast(toTypeId));
     }
 
@@ -662,15 +662,15 @@ pub const qmetatype = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` lhs: ?*anyopaque `
+    /// ` lhs: ?*const anyopaque `
     ///
-    /// ` rhs: ?*anyopaque `
+    /// ` rhs: ?*const anyopaque `
     ///
     /// ` typeId: i32 `
     ///
     /// ` result: *i32 `
     ///
-    pub fn Compare2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32) bool {
+    pub fn Compare2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
         return qtc.QMetaType_Compare2(@ptrCast(lhs), @ptrCast(rhs), @intCast(typeId), @ptrCast(result));
     }
 
@@ -678,15 +678,15 @@ pub const qmetatype = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` lhs: ?*anyopaque `
+    /// ` lhs: ?*const anyopaque `
     ///
-    /// ` rhs: ?*anyopaque `
+    /// ` rhs: ?*const anyopaque `
     ///
     /// ` typeId: i32 `
     ///
     /// ` result: *i32 `
     ///
-    pub fn Equals2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32) bool {
+    pub fn Equals2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
         return qtc.QMetaType_Equals2(@ptrCast(lhs), @ptrCast(rhs), @intCast(typeId), @ptrCast(result));
     }
 
@@ -754,9 +754,9 @@ pub const qmetatype = struct {
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` copyVal: ?*anyopaque `
+    /// ` copyVal: ?*const anyopaque `
     ///
-    pub fn Create22(typeVal: i32, copyVal: ?*anyopaque) ?*anyopaque {
+    pub fn Create22(typeVal: i32, copyVal: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaType_Create22(@intCast(typeVal), @ptrCast(copyVal));
     }
 
@@ -778,9 +778,9 @@ pub const qmetatype = struct {
     ///
     /// ` self: QtC.QMetaType `
     ///
-    /// ` copyVal: ?*anyopaque `
+    /// ` copyVal: ?*const anyopaque `
     ///
-    pub fn Create1(self: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
+    pub fn Create1(self: ?*anyopaque, copyVal: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaType_Create1(@ptrCast(self), @ptrCast(copyVal));
     }
 
@@ -792,9 +792,9 @@ pub const qmetatype = struct {
     ///
     /// ` where: ?*anyopaque `
     ///
-    /// ` copyVal: ?*anyopaque `
+    /// ` copyVal: ?*const anyopaque `
     ///
-    pub fn Construct22(self: ?*anyopaque, where: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
+    pub fn Construct22(self: ?*anyopaque, where: ?*anyopaque, copyVal: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaType_Construct22(@ptrCast(self), @ptrCast(where), @ptrCast(copyVal));
     }
 

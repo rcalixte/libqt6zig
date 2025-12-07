@@ -18,7 +18,7 @@ pub const krecentdirs = struct {
             .data = param1.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KRecentDirs_List(param1_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -48,7 +48,7 @@ pub const krecentdirs = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KRecentDirs_Dir(param1_str);
+        var _str = qtc.KRecentDirs_Dir(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("krecentdirs.Dir: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -69,7 +69,7 @@ pub const attica__privatedata = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const _str = qtc.Attica__PrivateData_Attribute(@ptrCast(self), key_str);
+        var _str = qtc.Attica__PrivateData_Attribute(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::privatedata.Attribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -120,7 +120,7 @@ pub const attica__privatedata = struct {
     ///
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__PrivateData_Keys(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

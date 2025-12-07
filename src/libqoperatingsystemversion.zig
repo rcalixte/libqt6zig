@@ -72,7 +72,7 @@ pub const qoperatingsystemversionbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
+        var _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionbase.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -162,7 +162,7 @@ pub const qoperatingsystemversionbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
+        var _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionbase.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -210,6 +210,22 @@ pub const qoperatingsystemversionunexported = struct {
         return qtc.QOperatingSystemVersionUnexported_new3(@ptrCast(param1));
     }
 
+    /// New4 constructs a new QOperatingSystemVersionUnexported object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: qoperatingsystemversion_enums.OSType `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: i32 `
+    ///
+    /// ` param4: i32 `
+    ///
+    pub fn New4(param1: i32, param2: i32, param3: i32, param4: i32) QtC.QOperatingSystemVersionUnexported {
+        return qtc.QOperatingSystemVersionUnexported_new4(@intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
+    }
+
     /// Inherited from QOperatingSystemVersionBase
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
@@ -229,7 +245,7 @@ pub const qoperatingsystemversionunexported = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
+        var _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionunexported.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -335,7 +351,7 @@ pub const qoperatingsystemversionunexported = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
+        var _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionunexported.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -462,7 +478,7 @@ pub const qoperatingsystemversion = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
+        var _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversion.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -540,7 +556,7 @@ pub const qoperatingsystemversion = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
+        var _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversion.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -19,7 +19,7 @@ pub const kemailaddress = struct {
             .data = param1.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KEmailAddress_SplitAddressList(param1_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -159,7 +159,7 @@ pub const kemailaddress = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn EmailParseResultToString(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KEmailAddress_EmailParseResultToString(@intCast(param1));
+        var _str = qtc.KEmailAddress_EmailParseResultToString(@intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.EmailParseResultToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -187,7 +187,7 @@ pub const kemailaddress = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SimpleEmailAddressErrorMsg(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KEmailAddress_SimpleEmailAddressErrorMsg();
+        var _str = qtc.KEmailAddress_SimpleEmailAddressErrorMsg();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.SimpleEmailAddressErrorMsg: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -207,7 +207,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.KEmailAddress_ExtractEmailAddress(param1_str);
+        var _bytearray: qtc.libqt_string = qtc.KEmailAddress_ExtractEmailAddress(param1_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kemailaddress.ExtractEmailAddress: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -233,7 +233,7 @@ pub const kemailaddress = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.KEmailAddress_ExtractEmailAddress2(param1_str, param2_str);
+        var _bytearray: qtc.libqt_string = qtc.KEmailAddress_ExtractEmailAddress2(param1_str, param2_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kemailaddress.ExtractEmailAddress2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -253,7 +253,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KEmailAddress_ExtractEmailAddress3(param1_str);
+        var _str = qtc.KEmailAddress_ExtractEmailAddress3(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.ExtractEmailAddress3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -279,7 +279,7 @@ pub const kemailaddress = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _str = qtc.KEmailAddress_ExtractEmailAddress4(param1_str, param2_str);
+        var _str = qtc.KEmailAddress_ExtractEmailAddress4(param1_str, param2_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.ExtractEmailAddress4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -299,7 +299,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.KEmailAddress_FirstEmailAddress(param1_str);
+        var _bytearray: qtc.libqt_string = qtc.KEmailAddress_FirstEmailAddress(param1_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kemailaddress.FirstEmailAddress: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -325,7 +325,7 @@ pub const kemailaddress = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.KEmailAddress_FirstEmailAddress2(param1_str, param2_str);
+        var _bytearray: qtc.libqt_string = qtc.KEmailAddress_FirstEmailAddress2(param1_str, param2_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kemailaddress.FirstEmailAddress2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -345,7 +345,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KEmailAddress_FirstEmailAddress3(param1_str);
+        var _str = qtc.KEmailAddress_FirstEmailAddress3(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.FirstEmailAddress3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -371,7 +371,7 @@ pub const kemailaddress = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _str = qtc.KEmailAddress_FirstEmailAddress4(param1_str, param2_str);
+        var _str = qtc.KEmailAddress_FirstEmailAddress4(param1_str, param2_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.FirstEmailAddress4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -451,7 +451,7 @@ pub const kemailaddress = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        const _str = qtc.KEmailAddress_NormalizedAddress(param1_str, param2_str, param3_str);
+        var _str = qtc.KEmailAddress_NormalizedAddress(param1_str, param2_str, param3_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.NormalizedAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -471,7 +471,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KEmailAddress_FromIdn(param1_str);
+        var _str = qtc.KEmailAddress_FromIdn(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.FromIdn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -491,7 +491,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KEmailAddress_ToIdn(param1_str);
+        var _str = qtc.KEmailAddress_ToIdn(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.ToIdn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -511,7 +511,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KEmailAddress_NormalizeAddressesAndDecodeIdn(param1_str);
+        var _str = qtc.KEmailAddress_NormalizeAddressesAndDecodeIdn(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.NormalizeAddressesAndDecodeIdn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -531,7 +531,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KEmailAddress_NormalizeAddressesAndEncodeIdn(param1_str);
+        var _str = qtc.KEmailAddress_NormalizeAddressesAndEncodeIdn(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.NormalizeAddressesAndEncodeIdn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -551,7 +551,7 @@ pub const kemailaddress = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KEmailAddress_QuoteNameIfNecessary(param1_str);
+        var _str = qtc.KEmailAddress_QuoteNameIfNecessary(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.QuoteNameIfNecessary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -581,7 +581,7 @@ pub const kemailaddress = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DecodeMailtoUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KEmailAddress_DecodeMailtoUrl(@ptrCast(param1));
+        var _str = qtc.KEmailAddress_DecodeMailtoUrl(@ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.DecodeMailtoUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

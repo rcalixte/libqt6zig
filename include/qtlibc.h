@@ -71,7 +71,7 @@ static inline void libqt_free(const void* ptr) { free((void*)ptr); }
 
 // Helper functions for common cases
 
-static inline void libqt_string_free(const libqt_string* str) {
+static inline void libqt_string_free(libqt_string* str) {
     if (str && str->data) {
         free((void*)str->data);
         *(const char**)&str->data = NULL;

@@ -244,7 +244,7 @@ pub const qnetworkdatagram = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QNetworkDatagram_Data(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QNetworkDatagram_Data(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkdatagram.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

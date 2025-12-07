@@ -63,18 +63,28 @@ pub const qbitmap = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` param1: QtC.QBitmap `
+    ///
+    pub fn New6(param1: ?*anyopaque) QtC.QBitmap {
+        return qtc.QBitmap_new6(@ptrCast(param1));
+    }
+
+    /// New7 constructs a new QBitmap object.
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` fileName: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
-    pub fn New6(fileName: []const u8, format: []const u8) QtC.QBitmap {
+    pub fn New7(fileName: []const u8, format: []const u8) QtC.QBitmap {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
 
-        return qtc.QBitmap_new6(fileName_str, format_Cstring);
+        return qtc.QBitmap_new7(fileName_str, format_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)

@@ -17,7 +17,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KStringHandler_Capwords(param1_str);
+        var _str = qtc.KStringHandler_Capwords(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Capwords: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -46,7 +46,7 @@ pub const kstringhandler = struct {
             .data = param1_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KStringHandler_Capwords2(param1_list);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -78,7 +78,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KStringHandler_Lsqueeze(param1_str, @intCast(param2));
+        var _str = qtc.KStringHandler_Lsqueeze(param1_str, @intCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Lsqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -100,7 +100,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KStringHandler_Csqueeze(param1_str, @intCast(param2));
+        var _str = qtc.KStringHandler_Csqueeze(param1_str, @intCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Csqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -122,7 +122,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KStringHandler_Rsqueeze(param1_str, @intCast(param2));
+        var _str = qtc.KStringHandler_Rsqueeze(param1_str, @intCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Rsqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -151,7 +151,7 @@ pub const kstringhandler = struct {
             .data = param2.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit2(param1_str, param2_str, @intCast(param3));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -186,7 +186,7 @@ pub const kstringhandler = struct {
             .data = param2.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit3(@ptrCast(param1), param2_str, @intCast(param3));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -221,7 +221,7 @@ pub const kstringhandler = struct {
             .data = param2.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit4(@ptrCast(param1), param2_str, @intCast(param3));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -251,7 +251,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KStringHandler_TagUrls(param1_str);
+        var _str = qtc.KStringHandler_TagUrls(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.TagUrls: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -271,7 +271,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KStringHandler_Obscure(param1_str);
+        var _str = qtc.KStringHandler_Obscure(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Obscure: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -291,7 +291,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KStringHandler_PreProcessWrap(param1_str);
+        var _str = qtc.KStringHandler_PreProcessWrap(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.PreProcessWrap: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

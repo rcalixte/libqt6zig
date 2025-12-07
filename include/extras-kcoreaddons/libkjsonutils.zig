@@ -43,7 +43,7 @@ pub const kjsonutils = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        const _str = qtc.KJsonUtils_ReadTranslatedString(@ptrCast(param1), param2_str, param3_str);
+        var _str = qtc.KJsonUtils_ReadTranslatedString(@ptrCast(param1), param2_str, param3_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kjsonutils.ReadTranslatedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

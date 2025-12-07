@@ -21,7 +21,7 @@ pub const kbookmarkowner = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmarkOwner_CurrentTitle(@ptrCast(self));
+        var _str = qtc.KBookmarkOwner_CurrentTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -53,7 +53,7 @@ pub const kbookmarkowner = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseCurrentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmarkOwner_QBaseCurrentTitle(@ptrCast(self));
+        var _str = qtc.KBookmarkOwner_QBaseCurrentTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -105,7 +105,7 @@ pub const kbookmarkowner = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrentIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmarkOwner_CurrentIcon(@ptrCast(self));
+        var _str = qtc.KBookmarkOwner_CurrentIcon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -137,7 +137,7 @@ pub const kbookmarkowner = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseCurrentIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmarkOwner_QBaseCurrentIcon(@ptrCast(self));
+        var _str = qtc.KBookmarkOwner_QBaseCurrentIcon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -507,7 +507,7 @@ pub const kbookmarkowner__futurebookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmarkOwner__FutureBookmark_Title(@ptrCast(self));
+        var _str = qtc.KBookmarkOwner__FutureBookmark_Title(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner::futurebookmark.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -533,7 +533,7 @@ pub const kbookmarkowner__futurebookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmarkOwner__FutureBookmark_Icon(@ptrCast(self));
+        var _str = qtc.KBookmarkOwner__FutureBookmark_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner::futurebookmark.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -94,7 +94,7 @@ pub const kplotaxis = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KPlotAxis_Label(@ptrCast(self));
+        var _str = qtc.KPlotAxis_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kplotaxis.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -112,7 +112,7 @@ pub const kplotaxis = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TickLabel(self: ?*anyopaque, value: f64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KPlotAxis_TickLabel(@ptrCast(self), @floatCast(value));
+        var _str = qtc.KPlotAxis_TickLabel(@ptrCast(self), @floatCast(value));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kplotaxis.TickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

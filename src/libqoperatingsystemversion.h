@@ -40,6 +40,7 @@ void QOperatingSystemVersionBase_Delete(QOperatingSystemVersionBase* self);
 QOperatingSystemVersionUnexported* QOperatingSystemVersionUnexported_new(QOperatingSystemVersionBase* other);
 QOperatingSystemVersionUnexported* QOperatingSystemVersionUnexported_new2();
 QOperatingSystemVersionUnexported* QOperatingSystemVersionUnexported_new3(const QOperatingSystemVersionUnexported* param1);
+QOperatingSystemVersionUnexported* QOperatingSystemVersionUnexported_new4(int param1, int param2, int param3, int param4);
 void QOperatingSystemVersionUnexported_Delete(QOperatingSystemVersionUnexported* self);
 
 QOperatingSystemVersion* QOperatingSystemVersion_new(const QOperatingSystemVersionBase* osversion);

@@ -186,7 +186,7 @@ pub const kaboutperson = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutPerson_Name(@ptrCast(self));
+        var _str = qtc.KAboutPerson_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -202,7 +202,7 @@ pub const kaboutperson = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Task(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutPerson_Task(@ptrCast(self));
+        var _str = qtc.KAboutPerson_Task(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.Task: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -218,7 +218,7 @@ pub const kaboutperson = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn EmailAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutPerson_EmailAddress(@ptrCast(self));
+        var _str = qtc.KAboutPerson_EmailAddress(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.EmailAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -234,7 +234,7 @@ pub const kaboutperson = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WebAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutPerson_WebAddress(@ptrCast(self));
+        var _str = qtc.KAboutPerson_WebAddress(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.WebAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -313,7 +313,7 @@ pub const kaboutlicense = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutLicense_Text(@ptrCast(self));
+        var _str = qtc.KAboutLicense_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -329,7 +329,7 @@ pub const kaboutlicense = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutLicense_Name(@ptrCast(self));
+        var _str = qtc.KAboutLicense_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -359,7 +359,7 @@ pub const kaboutlicense = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Spdx(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutLicense_Spdx(@ptrCast(self));
+        var _str = qtc.KAboutLicense_Spdx(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Spdx: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -391,7 +391,7 @@ pub const kaboutlicense = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name1(self: ?*anyopaque, formatName: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutLicense_Name1(@ptrCast(self), @intCast(formatName));
+        var _str = qtc.KAboutLicense_Name1(@ptrCast(self), @intCast(formatName));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -620,7 +620,7 @@ pub const kaboutcomponent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutComponent_Name(@ptrCast(self));
+        var _str = qtc.KAboutComponent_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -636,7 +636,7 @@ pub const kaboutcomponent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutComponent_Description(@ptrCast(self));
+        var _str = qtc.KAboutComponent_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -652,7 +652,7 @@ pub const kaboutcomponent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutComponent_Version(@ptrCast(self));
+        var _str = qtc.KAboutComponent_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -668,7 +668,7 @@ pub const kaboutcomponent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WebAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutComponent_WebAddress(@ptrCast(self));
+        var _str = qtc.KAboutComponent_WebAddress(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.WebAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1565,7 +1565,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_ComponentName(@ptrCast(self));
+        var _str = qtc.KAboutData_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1581,7 +1581,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ProductName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_ProductName(@ptrCast(self));
+        var _str = qtc.KAboutData_ProductName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.ProductName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1608,7 +1608,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_DisplayName(@ptrCast(self));
+        var _str = qtc.KAboutData_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1624,7 +1624,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OrganizationDomain(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_OrganizationDomain(@ptrCast(self));
+        var _str = qtc.KAboutData_OrganizationDomain(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.OrganizationDomain: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1661,7 +1661,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_Version(@ptrCast(self));
+        var _str = qtc.KAboutData_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1688,7 +1688,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ShortDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_ShortDescription(@ptrCast(self));
+        var _str = qtc.KAboutData_ShortDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.ShortDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1704,7 +1704,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Homepage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_Homepage(@ptrCast(self));
+        var _str = qtc.KAboutData_Homepage(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.Homepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1720,7 +1720,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BugAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_BugAddress(@ptrCast(self));
+        var _str = qtc.KAboutData_BugAddress(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.BugAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1796,7 +1796,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AboutTranslationTeam(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_AboutTranslationTeam();
+        var _str = qtc.KAboutData_AboutTranslationTeam();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.AboutTranslationTeam: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1829,7 +1829,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OtherText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_OtherText(@ptrCast(self));
+        var _str = qtc.KAboutData_OtherText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.OtherText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1862,7 +1862,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CopyrightStatement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_CopyrightStatement(@ptrCast(self));
+        var _str = qtc.KAboutData_CopyrightStatement(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.CopyrightStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1878,7 +1878,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CustomAuthorPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_CustomAuthorPlainText(@ptrCast(self));
+        var _str = qtc.KAboutData_CustomAuthorPlainText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.CustomAuthorPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1894,7 +1894,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CustomAuthorRichText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_CustomAuthorRichText(@ptrCast(self));
+        var _str = qtc.KAboutData_CustomAuthorRichText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.CustomAuthorRichText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1992,7 +1992,7 @@ pub const kaboutdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DesktopFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KAboutData_DesktopFileName(@ptrCast(self));
+        var _str = qtc.KAboutData_DesktopFileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.DesktopFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

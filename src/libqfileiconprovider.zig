@@ -106,7 +106,7 @@ pub const qfileiconprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Type(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QFileIconProvider_Type(@ptrCast(self), @ptrCast(param1));
+        var _str = qtc.QFileIconProvider_Type(@ptrCast(self), @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileiconprovider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -128,7 +128,7 @@ pub const qfileiconprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseType(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QFileIconProvider_QBaseType(@ptrCast(self), @ptrCast(param1));
+        var _str = qtc.QFileIconProvider_QBaseType(@ptrCast(self), @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileiconprovider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

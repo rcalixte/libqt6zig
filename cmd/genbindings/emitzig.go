@@ -281,10 +281,6 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		return "struct_" + f + "_" + s
 	}
 
-	if p.ParameterType == "void" && p.Pointer {
-		return "?*anyopaque"
-	}
-
 	ret := ""
 
 	if p.IsKnownEnum() {
@@ -318,8 +314,8 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 	}
 
 	switch p.ParameterType {
-	case "GLvoid":
-		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "anyopaque"
+	case "GLvoid", "void":
+		ret += ifv((p.Pointer || p.ByRef), "?"+strings.Repeat("*", max(p.PointerCount, 1))+ifv(p.Const, "const ", "")+"anyopaque", "void")
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
 	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte", "GLchar":
@@ -445,7 +441,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		} else if p.QtClassType() {
 			maybeExtraPointer := ifv(p.ByRef && p.Pointer, "*", "")
 			ret = "?*" + maybeExtraPointer + "anyopaque"
-		} else {
+		} else if !(p.ParameterType == "GLvoid" || p.ParameterType == "void") {
 			ret = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + ret
 		}
 	}
@@ -459,7 +455,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret = "i32"
 	}
 
-	return ret // ignore const
+	return ret
 }
 
 func maybeDotsPath(zigImport, zfsName string) string {
@@ -483,7 +479,7 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 	}
 
 	if ret == "void" || ret == "GLvoid" {
-		ret = ifv(p.Pointer || p.ByRef, "?*"+maybeConst+"anyopaque", "void")
+		ret = ifv(p.Pointer || p.ByRef, "?"+strings.Repeat("*", max(p.PointerCount, 1))+maybeConst+"anyopaque", "void")
 	}
 
 	if ret == "int" {
@@ -508,10 +504,6 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 
 	if p.IntType() && (p.Pointer || p.ByRef) {
 		ret = "?*" + maybeConst + ret
-	}
-
-	if p.Const && ret == "?*anyopaque" {
-		ret = "?*const anyopaque"
 	}
 
 	if isSlot {
@@ -555,9 +547,9 @@ func (p CppParameter) parameterTypeZig() string {
 		return "i32"
 	}
 
-	// Zig binds void* as ?*anyopaque
-	if (p.ParameterType == "void" || p.ParameterType == "GLvoid") && p.Pointer {
-		return ifv(p.Pointer || p.ByRef, "?*", "") + ifv(p.Const, "const ", "") + "anyopaque"
+	// Zig binds void* as *anyopaque
+	if (p.ParameterType == "void" || p.ParameterType == "GLvoid") && (p.Pointer || p.ByRef) {
+		return ifv(p.Pointer || p.ByRef, "?"+strings.Repeat("*", max(p.PointerCount, 1)), "") + ifv(p.Const, "const ", "") + "anyopaque"
 	}
 
 	tmp := strings.ReplaceAll(p.RenderTypeCabi(false), "*", "")
@@ -618,9 +610,8 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 					paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
 				}
 			}
-			// TODO handle void double pointers
-			if p.ParameterType == "GLvoid" && (p.Pointer || p.ByRef) {
-				paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + "anyopaque"
+			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
+				paramType = "?" + strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + "anyopaque"
 			}
 			if isSlot {
 				// C calling convention limitations
@@ -671,6 +662,9 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 			}
 			if p.needsPointer(paramType) {
 				paramType = "QtC." + paramType
+			}
+			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
+				paramType = "?" + strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + "anyopaque"
 			}
 			if isSlot {
 				// C calling convention limitations
@@ -751,12 +745,8 @@ func (zfs *zigFileState) emitParametersZig2CABIForwarding(m CppMethod) (preamble
 			addPreamble, rvalue := zfs.emitParameterZig2CABIForwarding(p)
 
 			preamble += addPreamble
-			if p.PointerCount == 2 && p.ParameterType == "void" {
-				// qt_metacall
-				// TODO revisit void** params
-				rvalue = "@ptrCast(@alignCast(" + rvalue + "))"
-			} else if p.PointerCount == 1 && p.ParameterType == "void" {
-				// void* param
+			if (p.Pointer || p.ByRef) && (p.ParameterType == "GLvoid" || p.ParameterType == "void") {
+				// void*, void**
 				rvalue = "@ptrCast(" + rvalue + ")"
 			}
 			tmp = append(tmp, rvalue)
@@ -1021,7 +1011,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		rt.ParameterType == "SignOn::MethodName" {
 		zfs.imports["std"] = struct{}{}
 
-		shouldReturn = "const " + namePrefix + "_str ="
+		shouldReturn = "var " + namePrefix + "_str ="
 		afterword += "defer qtc.libqt_string_free(&" + namePrefix + "_str);\n"
 		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_str.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_str.data[0.." + namePrefix + "_str.len]);\n"
@@ -1034,7 +1024,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		// not an alias.
 		zfs.imports["std"] = struct{}{}
 
-		shouldReturn = "const " + namePrefix + "_bytearray: qtc.libqt_string = "
+		shouldReturn = "var " + namePrefix + "_bytearray: qtc.libqt_string = "
 		afterword += "defer qtc.libqt_string_free(&" + namePrefix + "_bytearray);\n"
 		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_bytearray.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_bytearray.data[0.." + namePrefix + "_bytearray.len]);\n"
@@ -1097,7 +1087,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "}\n"
 
 		} else if strings.Contains(rt.ParameterType, "<QString>") || strings.Contains(rt.ParameterType, "<QByteArray>") {
-			afterword += "const " + namePrefix + "_str: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
+			afterword += "var " + namePrefix + "_str: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 			afterword += "defer {\n"
 			afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 			afterword += "qtc.libqt_string_free(@ptrCast(&" + namePrefix + "_str[i]));\n"
@@ -1117,7 +1107,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			switch pair {
 			case "QByteArray, QByteArray", "QString, QString":
 				afterword += "defer {\n"
-				afterword += "const " + namePrefix + "_pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
+				afterword += "var " + namePrefix + "_pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 				afterword += "qtc.libqt_string_free(@ptrCast(&" + namePrefix + "_pair[i].first));\n"
 				afterword += "qtc.libqt_free(" + namePrefix + "_pair[i].first);\n\n"

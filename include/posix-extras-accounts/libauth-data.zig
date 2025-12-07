@@ -34,7 +34,7 @@ pub const accounts__authdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Method(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__AuthData_Method(@ptrCast(self));
+        var _str = qtc.Accounts__AuthData_Method(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::authdata.Method: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -50,7 +50,7 @@ pub const accounts__authdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Mechanism(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Accounts__AuthData_Mechanism(@ptrCast(self));
+        var _str = qtc.Accounts__AuthData_Mechanism(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts::authdata.Mechanism: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

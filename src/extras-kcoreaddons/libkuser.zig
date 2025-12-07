@@ -133,7 +133,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LoginName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUser_LoginName(@ptrCast(self));
+        var _str = qtc.KUser_LoginName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.LoginName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -149,7 +149,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HomeDir(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUser_HomeDir(@ptrCast(self));
+        var _str = qtc.KUser_HomeDir(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.HomeDir: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -165,7 +165,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FaceIconPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUser_FaceIconPath(@ptrCast(self));
+        var _str = qtc.KUser_FaceIconPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.FaceIconPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -181,7 +181,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Shell(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUser_Shell(@ptrCast(self));
+        var _str = qtc.KUser_Shell(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.Shell: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -215,7 +215,7 @@ pub const kuser = struct {
     ///
     pub fn GroupNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -267,7 +267,7 @@ pub const kuser = struct {
     ///
     pub fn AllUserNames(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -315,7 +315,7 @@ pub const kuser = struct {
     ///
     pub fn GroupNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames1(@ptrCast(self), @intCast(maxCount));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -359,7 +359,7 @@ pub const kuser = struct {
     ///
     pub fn AllUserNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames1(@intCast(maxCount));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -509,7 +509,7 @@ pub const kusergroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUserGroup_Name(@ptrCast(self));
+        var _str = qtc.KUserGroup_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kusergroup.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -543,7 +543,7 @@ pub const kusergroup = struct {
     ///
     pub fn UserNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -583,7 +583,7 @@ pub const kusergroup = struct {
     ///
     pub fn AllGroupNames(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -631,7 +631,7 @@ pub const kusergroup = struct {
     ///
     pub fn UserNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames1(@ptrCast(self), @intCast(maxCount));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -675,7 +675,7 @@ pub const kusergroup = struct {
     ///
     pub fn AllGroupNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames1(@intCast(maxCount));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

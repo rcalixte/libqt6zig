@@ -32,6 +32,7 @@ typedef struct QTimerEvent QTimerEvent;
 QItemSelectionRange* QItemSelectionRange_new();
 QItemSelectionRange* QItemSelectionRange_new2(const QModelIndex* topL, const QModelIndex* bottomR);
 QItemSelectionRange* QItemSelectionRange_new3(const QModelIndex* index);
+QItemSelectionRange* QItemSelectionRange_new4(const QItemSelectionRange* param1);
 void QItemSelectionRange_Swap(QItemSelectionRange* self, QItemSelectionRange* other);
 int QItemSelectionRange_Top(const QItemSelectionRange* self);
 int QItemSelectionRange_Left(const QItemSelectionRange* self);

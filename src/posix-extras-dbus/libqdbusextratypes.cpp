@@ -105,6 +105,10 @@ QDBusVariant* QDBusVariant_new2(const QVariant* variant) {
     return new QDBusVariant(*variant);
 }
 
+QDBusVariant* QDBusVariant_new3(const QDBusVariant* param1) {
+    return new QDBusVariant(*param1);
+}
+
 void QDBusVariant_Swap(QDBusVariant* self, QDBusVariant* other) {
     self->swap(*other);
 }

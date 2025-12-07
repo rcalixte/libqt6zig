@@ -260,7 +260,7 @@ pub const qnetworkproxyquery = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PeerHostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkProxyQuery_PeerHostName(@ptrCast(self));
+        var _str = qtc.QNetworkProxyQuery_PeerHostName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkproxyquery.PeerHostName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -314,7 +314,7 @@ pub const qnetworkproxyquery = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkProxyQuery_ProtocolTag(@ptrCast(self));
+        var _str = qtc.QNetworkProxyQuery_ProtocolTag(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkproxyquery.ProtocolTag: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -637,7 +637,7 @@ pub const qnetworkproxy = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkProxy_User(@ptrCast(self));
+        var _str = qtc.QNetworkProxy_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkproxy.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -669,7 +669,7 @@ pub const qnetworkproxy = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkProxy_Password(@ptrCast(self));
+        var _str = qtc.QNetworkProxy_Password(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkproxy.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -701,7 +701,7 @@ pub const qnetworkproxy = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkProxy_HostName(@ptrCast(self));
+        var _str = qtc.QNetworkProxy_HostName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkproxy.HostName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -820,7 +820,7 @@ pub const qnetworkproxy = struct {
     ///
     pub fn RawHeaderList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkProxy_RawHeaderList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -852,7 +852,7 @@ pub const qnetworkproxy = struct {
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QNetworkProxy_RawHeader(@ptrCast(self), headerName_str);
+        var _bytearray: qtc.libqt_string = qtc.QNetworkProxy_RawHeader(@ptrCast(self), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkproxy.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

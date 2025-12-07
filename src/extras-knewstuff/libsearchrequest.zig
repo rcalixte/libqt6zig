@@ -255,7 +255,7 @@ pub const knscore__searchrequest = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SearchTerm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KNSCore__SearchRequest_SearchTerm(@ptrCast(self));
+        var _str = qtc.KNSCore__SearchRequest_SearchTerm(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::searchrequest.SearchTerm: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -272,7 +272,7 @@ pub const knscore__searchrequest = struct {
     ///
     pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__SearchRequest_Categories(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -154,7 +154,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_Path(@ptrCast(self));
+        var _str = qtc.QDir_Path(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -170,7 +170,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AbsolutePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_AbsolutePath(@ptrCast(self));
+        var _str = qtc.QDir_AbsolutePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.AbsolutePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -186,7 +186,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CanonicalPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_CanonicalPath(@ptrCast(self));
+        var _str = qtc.QDir_CanonicalPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.CanonicalPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -257,7 +257,7 @@ pub const qdir = struct {
             .data = prefix.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_SearchPaths(prefix_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -283,7 +283,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DirName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_DirName(@ptrCast(self));
+        var _str = qtc.QDir_DirName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.DirName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -305,7 +305,7 @@ pub const qdir = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _str = qtc.QDir_FilePath(@ptrCast(self), fileName_str);
+        var _str = qtc.QDir_FilePath(@ptrCast(self), fileName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.FilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -327,7 +327,7 @@ pub const qdir = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _str = qtc.QDir_AbsoluteFilePath(@ptrCast(self), fileName_str);
+        var _str = qtc.QDir_AbsoluteFilePath(@ptrCast(self), fileName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.AbsoluteFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -349,7 +349,7 @@ pub const qdir = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _str = qtc.QDir_RelativeFilePath(@ptrCast(self), fileName_str);
+        var _str = qtc.QDir_RelativeFilePath(@ptrCast(self), fileName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.RelativeFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -369,7 +369,7 @@ pub const qdir = struct {
             .len = pathName.len,
             .data = pathName.ptr,
         };
-        const _str = qtc.QDir_ToNativeSeparators(pathName_str);
+        var _str = qtc.QDir_ToNativeSeparators(pathName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.ToNativeSeparators: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -389,7 +389,7 @@ pub const qdir = struct {
             .len = pathName.len,
             .data = pathName.ptr,
         };
-        const _str = qtc.QDir_FromNativeSeparators(pathName_str);
+        var _str = qtc.QDir_FromNativeSeparators(pathName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.FromNativeSeparators: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -432,7 +432,7 @@ pub const qdir = struct {
     ///
     pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_NameFilters(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -558,7 +558,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_OperatorSubscript(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QDir_OperatorSubscript(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.OperatorSubscript: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -579,7 +579,7 @@ pub const qdir = struct {
             .data = nameFilter.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_NameFiltersFromString(nameFilter_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -606,7 +606,7 @@ pub const qdir = struct {
     ///
     pub fn EntryList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -647,7 +647,7 @@ pub const qdir = struct {
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryList2(@ptrCast(self), nameFilters_list);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -950,7 +950,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrentPath(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_CurrentPath();
+        var _str = qtc.QDir_CurrentPath();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.CurrentPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -970,7 +970,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HomePath(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_HomePath();
+        var _str = qtc.QDir_HomePath();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.HomePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -990,7 +990,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn RootPath(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_RootPath();
+        var _str = qtc.QDir_RootPath();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.RootPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1010,7 +1010,7 @@ pub const qdir = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TempPath(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDir_TempPath();
+        var _str = qtc.QDir_TempPath();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.TempPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1080,7 +1080,7 @@ pub const qdir = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        const _str = qtc.QDir_CleanPath(path_str);
+        var _str = qtc.QDir_CleanPath(path_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.CleanPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1133,7 +1133,7 @@ pub const qdir = struct {
     ///
     pub fn EntryList1(self: ?*anyopaque, filters: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList1(@ptrCast(self), @intCast(filters));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1164,7 +1164,7 @@ pub const qdir = struct {
     ///
     pub fn EntryList22(self: ?*anyopaque, filters: i32, sort: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList22(@ptrCast(self), @intCast(filters), @intCast(sort));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1207,7 +1207,7 @@ pub const qdir = struct {
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryList23(@ptrCast(self), nameFilters_list, @intCast(filters));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1252,7 +1252,7 @@ pub const qdir = struct {
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryList3(@ptrCast(self), nameFilters_list, @intCast(filters), @intCast(sort));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
