@@ -1,4 +1,10 @@
 
+### 6.8.2 rev47 (7 December 2025)
+
+* **BREAKING CHANGE:** Update parsing for noexcept, void type pointers, and use consistent constness (#92)
+* Unblock QVariantConstPointer and fix void pointer parameters (#91)
+* Update documentation comments for consistency and readability (#90)
+
 ### 6.8.2 rev46 (30 November 2025)
 
 * Update hyperlink terminology and add documentation generation (#89)
