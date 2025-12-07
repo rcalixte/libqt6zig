@@ -1155,6 +1155,9 @@ func parseTypeString(typeString, className string) (CppParameter, []CppParameter
 		return CppParameter{}, nil, false, ErrTooComplex
 	}
 
+	// Trim away "noexcept" if present
+	typeString = strings.Split(typeString, "noexcept")[0]
+
 	// Cut to exterior-most (, ) pair
 	opos := strings.Index(typeString, "(")
 	epos := strings.LastIndex(typeString, ")")
@@ -1261,10 +1264,10 @@ func tokenizeSingleParameter(p string) []string {
 // CppParameter intermediate format.
 func parseSingleTypeString(p, className string) CppParameter {
 
-	isSigned := false
-
+	var isSigned bool
 	tokens := tokenizeSingleParameter(p)
 	insert := CppParameter{}
+
 	for _, tok := range tokens {
 
 		if tok == "" {
