@@ -30,7 +30,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DesktopEntryName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterSearchProvider_DesktopEntryName(@ptrCast(self));
+        var _str = qtc.KUriFilterSearchProvider_DesktopEntryName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifiltersearchprovider.DesktopEntryName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -46,7 +46,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterSearchProvider_Name(@ptrCast(self));
+        var _str = qtc.KUriFilterSearchProvider_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifiltersearchprovider.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -62,7 +62,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterSearchProvider_IconName(@ptrCast(self));
+        var _str = qtc.KUriFilterSearchProvider_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifiltersearchprovider.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -94,7 +94,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterSearchProvider_QBaseIconName(@ptrCast(self));
+        var _str = qtc.KUriFilterSearchProvider_QBaseIconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifiltersearchprovider.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -111,7 +111,7 @@ pub const kurifiltersearchprovider = struct {
     ///
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterSearchProvider_Keys(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -137,7 +137,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DefaultKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterSearchProvider_DefaultKey(@ptrCast(self));
+        var _str = qtc.KUriFilterSearchProvider_DefaultKey(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifiltersearchprovider.DefaultKey: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -443,7 +443,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorMsg(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_ErrorMsg(@ptrCast(self));
+        var _str = qtc.KUriFilterData_ErrorMsg(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.ErrorMsg: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -473,7 +473,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AbsolutePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_AbsolutePath(@ptrCast(self));
+        var _str = qtc.KUriFilterData_AbsolutePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.AbsolutePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -499,7 +499,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ArgsAndOptions(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_ArgsAndOptions(@ptrCast(self));
+        var _str = qtc.KUriFilterData_ArgsAndOptions(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.ArgsAndOptions: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -535,7 +535,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TypedString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_TypedString(@ptrCast(self));
+        var _str = qtc.KUriFilterData_TypedString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.TypedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -551,7 +551,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SearchTerm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_SearchTerm(@ptrCast(self));
+        var _str = qtc.KUriFilterData_SearchTerm(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.SearchTerm: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -577,7 +577,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SearchProvider(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_SearchProvider(@ptrCast(self));
+        var _str = qtc.KUriFilterData_SearchProvider(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.SearchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -594,7 +594,7 @@ pub const kurifilterdata = struct {
     ///
     pub fn PreferredSearchProviders(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterData_PreferredSearchProviders(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -642,7 +642,7 @@ pub const kurifilterdata = struct {
             .len = provider.len,
             .data = provider.ptr,
         };
-        const _str = qtc.KUriFilterData_QueryForPreferredSearchProvider(@ptrCast(self), provider_str);
+        var _str = qtc.KUriFilterData_QueryForPreferredSearchProvider(@ptrCast(self), provider_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.QueryForPreferredSearchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -665,7 +665,7 @@ pub const kurifilterdata = struct {
             .data = provider.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KUriFilterData_AllQueriesForSearchProvider(@ptrCast(self), provider_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -697,7 +697,7 @@ pub const kurifilterdata = struct {
             .len = provider.len,
             .data = provider.ptr,
         };
-        const _str = qtc.KUriFilterData_IconNameForPreferredSearchProvider(@ptrCast(self), provider_str);
+        var _str = qtc.KUriFilterData_IconNameForPreferredSearchProvider(@ptrCast(self), provider_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.IconNameForPreferredSearchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -714,7 +714,7 @@ pub const kurifilterdata = struct {
     ///
     pub fn AlternateSearchProviders(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterData_AlternateSearchProviders(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -740,7 +740,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AlternateDefaultSearchProvider(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_AlternateDefaultSearchProvider(@ptrCast(self));
+        var _str = qtc.KUriFilterData_AlternateDefaultSearchProvider(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.AlternateDefaultSearchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -756,7 +756,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DefaultUrlScheme(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_DefaultUrlScheme(@ptrCast(self));
+        var _str = qtc.KUriFilterData_DefaultUrlScheme(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.DefaultUrlScheme: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -786,7 +786,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KUriFilterData_IconName(@ptrCast(self));
+        var _str = qtc.KUriFilterData_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilterdata.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1035,7 +1035,7 @@ pub const kurifilter = struct {
             .len = uri.len,
             .data = uri.ptr,
         };
-        const _str = qtc.KUriFilter_FilteredUri2(@ptrCast(self), uri_str);
+        var _str = qtc.KUriFilter_FilteredUri2(@ptrCast(self), uri_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilter.FilteredUri2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1066,7 +1066,7 @@ pub const kurifilter = struct {
     ///
     pub fn PluginNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilter_PluginNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1228,7 +1228,7 @@ pub const kurifilter = struct {
             .len = filters.len,
             .data = filters_arr.ptr,
         };
-        const _str = qtc.KUriFilter_FilteredUri23(@ptrCast(self), uri_str, filters_list);
+        var _str = qtc.KUriFilter_FilteredUri23(@ptrCast(self), uri_str, filters_list);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifilter.FilteredUri23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

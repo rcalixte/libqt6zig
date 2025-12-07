@@ -102,7 +102,7 @@ pub const kio__openwith__acceptresult = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Error(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const error_str = qtc.KIO__OpenWith__AcceptResult_Error(@ptrCast(self));
+        var error_str = qtc.KIO__OpenWith__AcceptResult_Error(@ptrCast(self));
         defer qtc.libqt_string_free(&error_str);
         const error_ret = allocator.alloc(u8, error_str.len) catch @panic("kio::openwith::acceptresult.Error: Memory allocation failed");
         @memcpy(error_ret, error_str.data[0..error_str.len]);

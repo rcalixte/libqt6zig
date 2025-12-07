@@ -123,7 +123,7 @@ pub const qmediametadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringValue(self: ?*anyopaque, k: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QMediaMetaData_StringValue(@ptrCast(self), @intCast(k));
+        var _str = qtc.QMediaMetaData_StringValue(@ptrCast(self), @intCast(k));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediametadata.StringValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -139,7 +139,7 @@ pub const qmediametadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MetaDataKeyToString(k: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QMediaMetaData_MetaDataKeyToString(@intCast(k));
+        var _str = qtc.QMediaMetaData_MetaDataKeyToString(@intCast(k));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediametadata.MetaDataKeyToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -60,9 +60,9 @@ pub const qgenericargument = struct {
     ///
     /// ` aName: []const u8 `
     ///
-    /// ` aData: ?*anyopaque `
+    /// ` aData: ?*const anyopaque `
     ///
-    pub fn New6(aName: []const u8, aData: ?*anyopaque) QtC.QGenericArgument {
+    pub fn New6(aName: []const u8, aData: ?*const anyopaque) QtC.QGenericArgument {
         const aName_Cstring = aName.ptr;
 
         return qtc.QGenericArgument_new6(aName_Cstring, @ptrCast(aData));
@@ -420,7 +420,7 @@ pub const qmetaobject = struct {
     pub fn Tr(self: ?*anyopaque, s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QMetaObject_Tr(@ptrCast(self), s_Cstring, c_Cstring);
+        var _str = qtc.QMetaObject_Tr(@ptrCast(self), s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmetaobject.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -724,7 +724,7 @@ pub const qmetaobject = struct {
     ///
     pub fn NormalizedSignature(method: []const u8, allocator: std.mem.Allocator) []u8 {
         const method_Cstring = method.ptr;
-        const _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
+        var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedSignature: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -741,7 +741,7 @@ pub const qmetaobject = struct {
     ///
     pub fn NormalizedType(typeVal: []const u8, allocator: std.mem.Allocator) []u8 {
         const typeVal_Cstring = typeVal.ptr;
-        const _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
+        var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -814,10 +814,10 @@ pub const qmetaobject = struct {
     ///
     /// ` signal_index: i32 `
     ///
-    /// ` argv: ?*anyopaque `
+    /// ` argv: ?**anyopaque `
     ///
-    pub fn Activate(sender: ?*anyopaque, signal_index: i32, argv: ?*anyopaque) void {
-        qtc.QMetaObject_Activate(@ptrCast(sender), @intCast(signal_index), @ptrCast(@alignCast(argv)));
+    pub fn Activate(sender: ?*anyopaque, signal_index: i32, argv: ?**anyopaque) void {
+        qtc.QMetaObject_Activate(@ptrCast(sender), @intCast(signal_index), @ptrCast(argv));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#activate)
@@ -830,10 +830,10 @@ pub const qmetaobject = struct {
     ///
     /// ` local_signal_index: i32 `
     ///
-    /// ` argv: ?*anyopaque `
+    /// ` argv: ?**anyopaque `
     ///
-    pub fn Activate2(sender: ?*anyopaque, param2: ?*anyopaque, local_signal_index: i32, argv: ?*anyopaque) void {
-        qtc.QMetaObject_Activate2(@ptrCast(sender), @ptrCast(param2), @intCast(local_signal_index), @ptrCast(@alignCast(argv)));
+    pub fn Activate2(sender: ?*anyopaque, param2: ?*anyopaque, local_signal_index: i32, argv: ?**anyopaque) void {
+        qtc.QMetaObject_Activate2(@ptrCast(sender), @ptrCast(param2), @intCast(local_signal_index), @ptrCast(argv));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#activate)
@@ -846,10 +846,10 @@ pub const qmetaobject = struct {
     ///
     /// ` local_signal_index: i32 `
     ///
-    /// ` argv: ?*anyopaque `
+    /// ` argv: ?**anyopaque `
     ///
-    pub fn Activate3(sender: ?*anyopaque, signal_offset: i32, local_signal_index: i32, argv: ?*anyopaque) void {
-        qtc.QMetaObject_Activate3(@ptrCast(sender), @intCast(signal_offset), @intCast(local_signal_index), @ptrCast(@alignCast(argv)));
+    pub fn Activate3(sender: ?*anyopaque, signal_offset: i32, local_signal_index: i32, argv: ?**anyopaque) void {
+        qtc.QMetaObject_Activate3(@ptrCast(sender), @intCast(signal_offset), @intCast(local_signal_index), @ptrCast(argv));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
@@ -938,10 +938,10 @@ pub const qmetaobject = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn StaticMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QMetaObject_StaticMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn StaticMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QMetaObject_StaticMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#metacall)
@@ -954,10 +954,10 @@ pub const qmetaobject = struct {
     ///
     /// ` param3: i32 `
     ///
-    /// ` param4: ?*anyopaque `
+    /// ` param4: ?**anyopaque `
     ///
-    pub fn Metacall(param1: ?*anyopaque, param2: i32, param3: i32, param4: ?*anyopaque) i32 {
-        return qtc.QMetaObject_Metacall(@ptrCast(param1), @intCast(param2), @intCast(param3), @ptrCast(@alignCast(param4)));
+    pub fn Metacall(param1: ?*anyopaque, param2: i32, param3: i32, param4: ?**anyopaque) i32 {
+        return qtc.QMetaObject_Metacall(@ptrCast(param1), @intCast(param2), @intCast(param3), @ptrCast(param4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#d-var)
@@ -999,7 +999,7 @@ pub const qmetaobject = struct {
     pub fn Tr3(self: ?*anyopaque, s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QMetaObject_Tr3(@ptrCast(self), s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QMetaObject_Tr3(@ptrCast(self), s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmetaobject.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

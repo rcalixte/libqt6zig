@@ -26,7 +26,7 @@ pub const kmountpoint = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MountedFrom(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KMountPoint_MountedFrom(@ptrCast(self));
+        var _str = qtc.KMountPoint_MountedFrom(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.MountedFrom: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -62,7 +62,7 @@ pub const kmountpoint = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn RealDeviceName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KMountPoint_RealDeviceName(@ptrCast(self));
+        var _str = qtc.KMountPoint_RealDeviceName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.RealDeviceName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -78,7 +78,7 @@ pub const kmountpoint = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MountPoint(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KMountPoint_MountPoint(@ptrCast(self));
+        var _str = qtc.KMountPoint_MountPoint(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.MountPoint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -94,7 +94,7 @@ pub const kmountpoint = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MountType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KMountPoint_MountType(@ptrCast(self));
+        var _str = qtc.KMountPoint_MountType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.MountType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -111,7 +111,7 @@ pub const kmountpoint = struct {
     ///
     pub fn MountOptions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KMountPoint_MountOptions(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

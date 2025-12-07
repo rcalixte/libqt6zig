@@ -428,7 +428,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QFontMetrics_ElidedText(@ptrCast(self), text_str, @intCast(mode), @intCast(width));
+        var _str = qtc.QFontMetrics_ElidedText(@ptrCast(self), text_str, @intCast(mode), @intCast(width));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetrics.ElidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -694,7 +694,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QFontMetrics_ElidedText4(@ptrCast(self), text_str, @intCast(mode), @intCast(width), @intCast(flags));
+        var _str = qtc.QFontMetrics_ElidedText4(@ptrCast(self), text_str, @intCast(mode), @intCast(width), @intCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetrics.ElidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1135,7 +1135,7 @@ pub const qfontmetricsf = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QFontMetricsF_ElidedText(@ptrCast(self), text_str, @intCast(mode), @floatCast(width));
+        var _str = qtc.QFontMetricsF_ElidedText(@ptrCast(self), text_str, @intCast(mode), @floatCast(width));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetricsf.ElidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1343,7 +1343,7 @@ pub const qfontmetricsf = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _str = qtc.QFontMetricsF_ElidedText4(@ptrCast(self), text_str, @intCast(mode), @floatCast(width), @intCast(flags));
+        var _str = qtc.QFontMetricsF_ElidedText4(@ptrCast(self), text_str, @intCast(mode), @floatCast(width), @intCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetricsf.ElidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

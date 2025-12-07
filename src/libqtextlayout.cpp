@@ -587,6 +587,10 @@ QTextLayout__FormatRange* QTextLayout__FormatRange_new() {
     return new QTextLayout::FormatRange();
 }
 
+QTextLayout__FormatRange* QTextLayout__FormatRange_new2(const QTextLayout__FormatRange* param1) {
+    return new QTextLayout::FormatRange(*param1);
+}
+
 int QTextLayout__FormatRange_Start(const QTextLayout__FormatRange* self) {
     return self->start;
 }

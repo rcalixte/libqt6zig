@@ -351,7 +351,7 @@ pub const qnetworkinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkInterface_Name(@ptrCast(self));
+        var _str = qtc.QNetworkInterface_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -367,7 +367,7 @@ pub const qnetworkinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HumanReadableName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkInterface_HumanReadableName(@ptrCast(self));
+        var _str = qtc.QNetworkInterface_HumanReadableName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.HumanReadableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -411,7 +411,7 @@ pub const qnetworkinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HardwareAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkInterface_HardwareAddress(@ptrCast(self));
+        var _str = qtc.QNetworkInterface_HardwareAddress(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.HardwareAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -482,7 +482,7 @@ pub const qnetworkinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InterfaceNameFromIndex(index: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkInterface_InterfaceNameFromIndex(@intCast(index));
+        var _str = qtc.QNetworkInterface_InterfaceNameFromIndex(@intCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.InterfaceNameFromIndex: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

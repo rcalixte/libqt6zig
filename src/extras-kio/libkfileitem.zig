@@ -238,7 +238,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PermissionsString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_PermissionsString(@ptrCast(self));
+        var _str = qtc.KFileItem_PermissionsString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.PermissionsString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -314,7 +314,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_User(@ptrCast(self));
+        var _str = qtc.KFileItem_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -330,7 +330,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_Group(@ptrCast(self));
+        var _str = qtc.KFileItem_Group(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -426,7 +426,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LinkDest(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_LinkDest(@ptrCast(self));
+        var _str = qtc.KFileItem_LinkDest(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.LinkDest: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -452,7 +452,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LocalPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_LocalPath(@ptrCast(self));
+        var _str = qtc.KFileItem_LocalPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.LocalPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -500,7 +500,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TimeString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_TimeString(@ptrCast(self));
+        var _str = qtc.KFileItem_TimeString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.TimeString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -526,7 +526,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_Text(@ptrCast(self));
+        var _str = qtc.KFileItem_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -542,7 +542,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_Name(@ptrCast(self));
+        var _str = qtc.KFileItem_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -558,7 +558,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Mimetype(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_Mimetype(@ptrCast(self));
+        var _str = qtc.KFileItem_Mimetype(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Mimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -614,7 +614,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MimeComment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_MimeComment(@ptrCast(self));
+        var _str = qtc.KFileItem_MimeComment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.MimeComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -630,7 +630,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_IconName(@ptrCast(self));
+        var _str = qtc.KFileItem_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -647,7 +647,7 @@ pub const kfileitem = struct {
     ///
     pub fn Overlays(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KFileItem_Overlays(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -673,7 +673,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_Comment(@ptrCast(self));
+        var _str = qtc.KFileItem_Comment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -689,7 +689,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GetStatusBarInfo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_GetStatusBarInfo(@ptrCast(self));
+        var _str = qtc.KFileItem_GetStatusBarInfo(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.GetStatusBarInfo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -725,7 +725,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Suffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_Suffix(@ptrCast(self));
+        var _str = qtc.KFileItem_Suffix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Suffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -863,7 +863,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TimeString1(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_TimeString1(@ptrCast(self), @intCast(which));
+        var _str = qtc.KFileItem_TimeString1(@ptrCast(self), @intCast(which));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.TimeString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -881,7 +881,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name1(self: ?*anyopaque, lowerCase: bool, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItem_Name1(@ptrCast(self), lowerCase);
+        var _str = qtc.KFileItem_Name1(@ptrCast(self), lowerCase);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

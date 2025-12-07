@@ -64,7 +64,7 @@ pub const kconfigskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Group(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Group(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigskeletonitem.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -120,7 +120,7 @@ pub const kconfigskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Key(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigskeletonitem.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -152,7 +152,7 @@ pub const kconfigskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Name(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigskeletonitem.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -184,7 +184,7 @@ pub const kconfigskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Label(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigskeletonitem.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -216,7 +216,7 @@ pub const kconfigskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_ToolTip(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigskeletonitem.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -248,7 +248,7 @@ pub const kconfigskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_WhatsThis(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigskeletonitem.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1122,7 +1122,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Group(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Group(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpropertyskeletonitem.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1186,7 +1186,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Key(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpropertyskeletonitem.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1222,7 +1222,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Name(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpropertyskeletonitem.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1258,7 +1258,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Label(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpropertyskeletonitem.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1294,7 +1294,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_ToolTip(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpropertyskeletonitem.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1330,7 +1330,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_WhatsThis(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpropertyskeletonitem.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1737,7 +1737,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Group(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Group(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigcompilersignallingitem.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1787,7 +1787,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Key(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigcompilersignallingitem.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1823,7 +1823,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Name(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigcompilersignallingitem.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1859,7 +1859,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_Label(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigcompilersignallingitem.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1895,7 +1895,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_ToolTip(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigcompilersignallingitem.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1931,7 +1931,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfigSkeletonItem_WhatsThis(@ptrCast(self));
+        var _str = qtc.KConfigSkeletonItem_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigcompilersignallingitem.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2068,10 +2068,10 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KCoreConfigSkeleton_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KCoreConfigSkeleton_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -2080,9 +2080,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// ` self: QtC.KCoreConfigSkeleton `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.KCoreConfigSkeleton_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2096,10 +2096,10 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KCoreConfigSkeleton_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KCoreConfigSkeleton_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2112,7 +2112,7 @@ pub const kcoreconfigskeleton = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2220,7 +2220,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrentGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KCoreConfigSkeleton_CurrentGroup(@ptrCast(self));
+        var _str = qtc.KCoreConfigSkeleton_CurrentGroup(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton.CurrentGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2939,7 +2939,7 @@ pub const kcoreconfigskeleton = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2961,7 +2961,7 @@ pub const kcoreconfigskeleton = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3987,7 +3987,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4339,7 +4339,7 @@ pub const kcoreconfigskeleton = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -7344,7 +7344,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Name(@ptrCast(self));
+        var name_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
         const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
@@ -7376,7 +7376,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const label_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Label(@ptrCast(self));
+        var label_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&label_str);
         const label_ret = allocator.alloc(u8, label_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.Label: Memory allocation failed");
         @memcpy(label_ret, label_str.data[0..label_str.len]);
@@ -7408,7 +7408,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const toolTip_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_ToolTip(@ptrCast(self));
+        var toolTip_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&toolTip_str);
         const toolTip_ret = allocator.alloc(u8, toolTip_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.ToolTip: Memory allocation failed");
         @memcpy(toolTip_ret, toolTip_str.data[0..toolTip_str.len]);
@@ -7440,7 +7440,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const whatsThis_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_WhatsThis(@ptrCast(self));
+        var whatsThis_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&whatsThis_str);
         const whatsThis_ret = allocator.alloc(u8, whatsThis_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.WhatsThis: Memory allocation failed");
         @memcpy(whatsThis_ret, whatsThis_str.data[0..whatsThis_str.len]);
@@ -7472,7 +7472,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const value_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Value(@ptrCast(self));
+        var value_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Value(@ptrCast(self));
         defer qtc.libqt_string_free(&value_str);
         const value_ret = allocator.alloc(u8, value_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.Value: Memory allocation failed");
         @memcpy(value_ret, value_str.data[0..value_str.len]);
@@ -7692,7 +7692,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        const _str = qtc.KCoreConfigSkeleton__ItemEnum_ValueForChoice(@ptrCast(self), name_str);
+        var _str = qtc.KCoreConfigSkeleton__ItemEnum_ValueForChoice(@ptrCast(self), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton::itemenum.ValueForChoice: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

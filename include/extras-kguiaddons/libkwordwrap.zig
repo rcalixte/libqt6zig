@@ -53,7 +53,7 @@ pub const kwordwrap = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WrappedString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWordWrap_WrappedString(@ptrCast(self));
+        var _str = qtc.KWordWrap_WrappedString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwordwrap.WrappedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -69,7 +69,7 @@ pub const kwordwrap = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TruncatedString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWordWrap_TruncatedString(@ptrCast(self));
+        var _str = qtc.KWordWrap_TruncatedString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwordwrap.TruncatedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -181,7 +181,7 @@ pub const kwordwrap = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TruncatedString1(self: ?*anyopaque, dots: bool, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KWordWrap_TruncatedString1(@ptrCast(self), dots);
+        var _str = qtc.KWordWrap_TruncatedString1(@ptrCast(self), dots);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwordwrap.TruncatedString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

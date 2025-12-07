@@ -144,7 +144,7 @@ pub const qbytearraymatcher = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QByteArrayMatcher_Pattern(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayMatcher_Pattern(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearraymatcher.Pattern: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

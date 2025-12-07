@@ -46,7 +46,7 @@ pub const qrestreply = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadBody(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QRestReply_ReadBody(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QRestReply_ReadBody(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrestreply.ReadBody: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -62,7 +62,7 @@ pub const qrestreply = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QRestReply_ReadText(@ptrCast(self));
+        var _str = qtc.QRestReply_ReadText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qrestreply.ReadText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -132,7 +132,7 @@ pub const qrestreply = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QRestReply_ErrorString(@ptrCast(self));
+        var _str = qtc.QRestReply_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qrestreply.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

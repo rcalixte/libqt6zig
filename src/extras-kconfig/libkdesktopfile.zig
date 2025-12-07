@@ -81,7 +81,7 @@ pub const kdesktopfile = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        const _str = qtc.KDesktopFile_LocateLocal(path_str);
+        var _str = qtc.KDesktopFile_LocateLocal(path_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.LocateLocal: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -107,7 +107,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadType(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -123,7 +123,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadIcon(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadIcon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -139,7 +139,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadName(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -155,7 +155,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadComment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadComment(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadComment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -171,7 +171,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadGenericName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadGenericName(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadGenericName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadGenericName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -187,7 +187,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadPath(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -203,7 +203,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadUrl(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -220,7 +220,7 @@ pub const kdesktopfile = struct {
     ///
     pub fn ReadActions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_ReadActions(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -247,7 +247,7 @@ pub const kdesktopfile = struct {
     ///
     pub fn ReadMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_ReadMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -361,7 +361,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadDocPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_ReadDocPath(@ptrCast(self));
+        var _str = qtc.KDesktopFile_ReadDocPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadDocPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -403,7 +403,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KDesktopFile_FileName(@ptrCast(self));
+        var _str = qtc.KDesktopFile_FileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -454,7 +454,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfig_Name(@ptrCast(self));
+        var _str = qtc.KConfig_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -579,7 +579,7 @@ pub const kdesktopfile = struct {
     ///
     pub fn AdditionalConfigSources(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_AdditionalConfigSources(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -607,7 +607,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Locale(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfig_Locale(@ptrCast(self));
+        var _str = qtc.KConfig_Locale(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.Locale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -716,7 +716,7 @@ pub const kdesktopfile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KConfig_MainConfigName();
+        var _str = qtc.KConfig_MainConfigName();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.MainConfigName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1090,7 +1090,7 @@ pub const kdesktopfile = struct {
     ///
     pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_GroupList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1121,7 +1121,7 @@ pub const kdesktopfile = struct {
     ///
     pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_QBaseGroupList(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

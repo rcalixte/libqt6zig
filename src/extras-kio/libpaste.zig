@@ -27,7 +27,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PasteActionText(param1: ?*anyopaque, param2: *bool, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIO_PasteActionText(@ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KIO_PasteActionText(@ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.PasteActionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

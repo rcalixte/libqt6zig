@@ -97,7 +97,7 @@ pub const terminalinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ForegroundProcessName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.TerminalInterface_ForegroundProcessName(@ptrCast(self));
+        var _str = qtc.TerminalInterface_ForegroundProcessName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("terminalinterface.ForegroundProcessName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -113,7 +113,7 @@ pub const terminalinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrentWorkingDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.TerminalInterface_CurrentWorkingDirectory(@ptrCast(self));
+        var _str = qtc.TerminalInterface_CurrentWorkingDirectory(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("terminalinterface.CurrentWorkingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -130,7 +130,7 @@ pub const terminalinterface = struct {
     ///
     pub fn AvailableProfiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.TerminalInterface_AvailableProfiles(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -156,7 +156,7 @@ pub const terminalinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrentProfileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.TerminalInterface_CurrentProfileName(@ptrCast(self));
+        var _str = qtc.TerminalInterface_CurrentProfileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("terminalinterface.CurrentProfileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

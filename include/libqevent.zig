@@ -7400,7 +7400,7 @@ pub const qkeyevent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QKeyEvent_Text(@ptrCast(self));
+        var _str = qtc.QKeyEvent_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeyevent.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10718,7 +10718,7 @@ pub const qinputmethodevent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PreeditString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QInputMethodEvent_PreeditString(@ptrCast(self));
+        var _str = qtc.QInputMethodEvent_PreeditString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethodevent.PreeditString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10734,7 +10734,7 @@ pub const qinputmethodevent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CommitString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QInputMethodEvent_CommitString(@ptrCast(self));
+        var _str = qtc.QInputMethodEvent_CommitString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethodevent.CommitString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -13216,7 +13216,7 @@ pub const qstatustipevent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Tip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QStatusTipEvent_Tip(@ptrCast(self));
+        var _str = qtc.QStatusTipEvent_Tip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatustipevent.Tip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -13466,7 +13466,7 @@ pub const qwhatsthisclickedevent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Href(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWhatsThisClickedEvent_Href(@ptrCast(self));
+        var _str = qtc.QWhatsThisClickedEvent_Href(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwhatsthisclickedevent.Href: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -13991,7 +13991,7 @@ pub const qfileopenevent = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn File(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QFileOpenEvent_File(@ptrCast(self));
+        var _str = qtc.QFileOpenEvent_File(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileopenevent.File: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -17128,6 +17128,16 @@ pub const qinputmethodevent__attribute = struct {
     ///
     pub fn New2(typ: i32, s: i32, l: i32) QtC.QInputMethodEvent__Attribute {
         return qtc.QInputMethodEvent__Attribute_new2(@intCast(typ), @intCast(s), @intCast(l));
+    }
+
+    /// New3 constructs a new QInputMethodEvent::Attribute object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QInputMethodEvent__Attribute `
+    ///
+    pub fn New3(param1: ?*anyopaque) QtC.QInputMethodEvent__Attribute {
+        return qtc.QInputMethodEvent__Attribute_new3(@ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#type-var)

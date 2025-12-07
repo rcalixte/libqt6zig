@@ -101,7 +101,7 @@ pub const qsslellipticcurve = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ShortName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSslEllipticCurve_ShortName(@ptrCast(self));
+        var _str = qtc.QSslEllipticCurve_ShortName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslellipticcurve.ShortName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -117,7 +117,7 @@ pub const qsslellipticcurve = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LongName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSslEllipticCurve_LongName(@ptrCast(self));
+        var _str = qtc.QSslEllipticCurve_LongName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslellipticcurve.LongName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

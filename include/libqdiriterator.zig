@@ -204,7 +204,7 @@ pub const qdiriterator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Next(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDirIterator_Next(@ptrCast(self));
+        var _str = qtc.QDirIterator_Next(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.Next: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -240,7 +240,7 @@ pub const qdiriterator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDirIterator_FileName(@ptrCast(self));
+        var _str = qtc.QDirIterator_FileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -256,7 +256,7 @@ pub const qdiriterator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDirIterator_FilePath(@ptrCast(self));
+        var _str = qtc.QDirIterator_FilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.FilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -282,7 +282,7 @@ pub const qdiriterator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDirIterator_Path(@ptrCast(self));
+        var _str = qtc.QDirIterator_Path(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

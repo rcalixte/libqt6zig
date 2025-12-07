@@ -84,7 +84,7 @@ pub const qdbusobjectpath = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusObjectPath_Path(@ptrCast(self));
+        var _str = qtc.QDBusObjectPath_Path(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusobjectpath.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -196,7 +196,7 @@ pub const qdbussignature = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Signature(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusSignature_Signature(@ptrCast(self));
+        var _str = qtc.QDBusSignature_Signature(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbussignature.Signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -232,6 +232,16 @@ pub const qdbusvariant = struct {
     ///
     pub fn New2(variant: ?*anyopaque) QtC.QDBusVariant {
         return qtc.QDBusVariant_new2(@ptrCast(variant));
+    }
+
+    /// New3 constructs a new QDBusVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QDBusVariant `
+    ///
+    pub fn New3(param1: ?*anyopaque) QtC.QDBusVariant {
+        return qtc.QDBusVariant_new3(@ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#swap)

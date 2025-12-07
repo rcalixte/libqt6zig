@@ -281,7 +281,7 @@ pub const qcommandlineoption = struct {
     ///
     pub fn Names(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QCommandLineOption_Names(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -323,7 +323,7 @@ pub const qcommandlineoption = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ValueName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCommandLineOption_ValueName(@ptrCast(self));
+        var _str = qtc.QCommandLineOption_ValueName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineoption.ValueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -355,7 +355,7 @@ pub const qcommandlineoption = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCommandLineOption_Description(@ptrCast(self));
+        var _str = qtc.QCommandLineOption_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineoption.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -414,7 +414,7 @@ pub const qcommandlineoption = struct {
     ///
     pub fn DefaultValues(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QCommandLineOption_DefaultValues(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

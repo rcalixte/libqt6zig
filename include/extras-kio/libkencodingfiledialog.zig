@@ -39,10 +39,10 @@ pub const kencodingfiledialog = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KEncodingFileDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KEncodingFileDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
@@ -2310,7 +2310,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2328,7 +2328,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2390,7 +2390,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2426,7 +2426,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2462,7 +2462,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2536,7 +2536,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2598,7 +2598,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2634,7 +2634,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2652,7 +2652,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2688,7 +2688,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3524,7 +3524,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kencodingfiledialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4881,7 +4881,7 @@ pub const kencodingfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5219,7 +5219,7 @@ pub const kencodingfiledialog = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -5620,7 +5620,7 @@ pub const kencodingfiledialog__result = struct {
     ///
     pub fn FileNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const fileNames_arr: qtc.libqt_list = qtc.KEncodingFileDialog__Result_FileNames(@ptrCast(self));
-        const fileNames_str: [*]qtc.libqt_string = @ptrCast(@alignCast(fileNames_arr.data));
+        var fileNames_str: [*]qtc.libqt_string = @ptrCast(@alignCast(fileNames_arr.data));
         defer {
             for (0..fileNames_arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&fileNames_str[i]));
@@ -5705,7 +5705,7 @@ pub const kencodingfiledialog__result = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Encoding(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const encoding_str = qtc.KEncodingFileDialog__Result_Encoding(@ptrCast(self));
+        var encoding_str = qtc.KEncodingFileDialog__Result_Encoding(@ptrCast(self));
         defer qtc.libqt_string_free(&encoding_str);
         const encoding_ret = allocator.alloc(u8, encoding_str.len) catch @panic("kencodingfiledialog::result.Encoding: Memory allocation failed");
         @memcpy(encoding_ret, encoding_str.data[0..encoding_str.len]);

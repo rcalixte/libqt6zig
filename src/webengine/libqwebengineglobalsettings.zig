@@ -41,7 +41,7 @@ pub const qwebengineglobalsettings__dnsmode = struct {
     ///
     pub fn ServerTemplates(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const serverTemplates_arr: qtc.libqt_list = qtc.QWebEngineGlobalSettings__DnsMode_ServerTemplates(@ptrCast(self));
-        const serverTemplates_str: [*]qtc.libqt_string = @ptrCast(@alignCast(serverTemplates_arr.data));
+        var serverTemplates_str: [*]qtc.libqt_string = @ptrCast(@alignCast(serverTemplates_arr.data));
         defer {
             for (0..serverTemplates_arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&serverTemplates_str[i]));

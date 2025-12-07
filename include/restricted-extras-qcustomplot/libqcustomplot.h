@@ -1983,9 +1983,10 @@ QCPScatterStyle* QCPScatterStyle_new4(int shape, const QColor* color, const QCol
 QCPScatterStyle* QCPScatterStyle_new5(int shape, const QPen* pen, const QBrush* brush, double size);
 QCPScatterStyle* QCPScatterStyle_new6(const QPixmap* pixmap);
 QCPScatterStyle* QCPScatterStyle_new7(const QPainterPath* customPath, const QPen* pen);
-QCPScatterStyle* QCPScatterStyle_new8(int shape, double size);
-QCPScatterStyle* QCPScatterStyle_new9(const QPainterPath* customPath, const QPen* pen, const QBrush* brush);
-QCPScatterStyle* QCPScatterStyle_new10(const QPainterPath* customPath, const QPen* pen, const QBrush* brush, double size);
+QCPScatterStyle* QCPScatterStyle_new8(const QCPScatterStyle* param1);
+QCPScatterStyle* QCPScatterStyle_new9(int shape, double size);
+QCPScatterStyle* QCPScatterStyle_new10(const QPainterPath* customPath, const QPen* pen, const QBrush* brush);
+QCPScatterStyle* QCPScatterStyle_new11(const QPainterPath* customPath, const QPen* pen, const QBrush* brush, double size);
 double QCPScatterStyle_Size(const QCPScatterStyle* self);
 int QCPScatterStyle_Shape(const QCPScatterStyle* self);
 QPen* QCPScatterStyle_Pen(const QCPScatterStyle* self);

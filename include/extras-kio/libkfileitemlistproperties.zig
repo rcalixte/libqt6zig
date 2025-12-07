@@ -150,7 +150,7 @@ pub const kfileitemlistproperties = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItemListProperties_MimeType(@ptrCast(self));
+        var _str = qtc.KFileItemListProperties_MimeType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitemlistproperties.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -166,7 +166,7 @@ pub const kfileitemlistproperties = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MimeGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KFileItemListProperties_MimeGroup(@ptrCast(self));
+        var _str = qtc.KFileItemListProperties_MimeGroup(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitemlistproperties.MimeGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

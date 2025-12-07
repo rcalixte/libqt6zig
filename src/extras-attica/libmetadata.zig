@@ -91,7 +91,7 @@ pub const attica__metadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StatusString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__Metadata_StatusString(@ptrCast(self));
+        var _str = qtc.Attica__Metadata_StatusString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::metadata.StatusString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -123,7 +123,7 @@ pub const attica__metadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__Metadata_Message(@ptrCast(self));
+        var _str = qtc.Attica__Metadata_Message(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::metadata.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -199,7 +199,7 @@ pub const attica__metadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ResultingId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__Metadata_ResultingId(@ptrCast(self));
+        var _str = qtc.Attica__Metadata_ResultingId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::metadata.ResultingId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -233,7 +233,7 @@ pub const attica__metadata = struct {
     pub fn Headers(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Metadata_Headers(@ptrCast(self));
         defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
+            var _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_pair[i].first));
                 qtc.libqt_free(_pair[i].first);

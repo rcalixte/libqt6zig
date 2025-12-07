@@ -13,7 +13,7 @@ pub const kprotocolinfo = struct {
     ///
     pub fn Protocols(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_Protocols();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -67,7 +67,7 @@ pub const kprotocolinfo = struct {
             .len = protocol.len,
             .data = protocol.ptr,
         };
-        const _str = qtc.KProtocolInfo_Exec(protocol_str);
+        var _str = qtc.KProtocolInfo_Exec(protocol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolinfo.Exec: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -152,7 +152,7 @@ pub const kprotocolinfo = struct {
             .len = protocol.len,
             .data = protocol.ptr,
         };
-        const _str = qtc.KProtocolInfo_Icon(protocol_str);
+        var _str = qtc.KProtocolInfo_Icon(protocol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolinfo.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -172,7 +172,7 @@ pub const kprotocolinfo = struct {
             .len = protocol.len,
             .data = protocol.ptr,
         };
-        const _str = qtc.KProtocolInfo_Config(protocol_str);
+        var _str = qtc.KProtocolInfo_Config(protocol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolinfo.Config: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -234,7 +234,7 @@ pub const kprotocolinfo = struct {
             .len = protocol.len,
             .data = protocol.ptr,
         };
-        const _str = qtc.KProtocolInfo_DefaultMimetype(protocol_str);
+        var _str = qtc.KProtocolInfo_DefaultMimetype(protocol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolinfo.DefaultMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -254,7 +254,7 @@ pub const kprotocolinfo = struct {
             .len = protocol.len,
             .data = protocol.ptr,
         };
-        const _str = qtc.KProtocolInfo_DocPath(protocol_str);
+        var _str = qtc.KProtocolInfo_DocPath(protocol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolinfo.DocPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -274,7 +274,7 @@ pub const kprotocolinfo = struct {
             .len = protocol.len,
             .data = protocol.ptr,
         };
-        const _str = qtc.KProtocolInfo_ProtocolClass(protocol_str);
+        var _str = qtc.KProtocolInfo_ProtocolClass(protocol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolinfo.ProtocolClass: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -309,7 +309,7 @@ pub const kprotocolinfo = struct {
             .data = protocol.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_Capabilities(protocol_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -340,7 +340,7 @@ pub const kprotocolinfo = struct {
             .data = protocol.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_ArchiveMimetypes(protocol_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -370,7 +370,7 @@ pub const kprotocolinfo = struct {
             .len = protocol.len,
             .data = protocol.ptr,
         };
-        const _str = qtc.KProtocolInfo_ProxiedBy(protocol_str);
+        var _str = qtc.KProtocolInfo_ProxiedBy(protocol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolinfo.ProxiedBy: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -450,7 +450,7 @@ pub const kprotocolinfo__extrafield = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.KProtocolInfo__ExtraField_Name(@ptrCast(self));
+        var name_str = qtc.KProtocolInfo__ExtraField_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
         const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kprotocolinfo::extrafield.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);

@@ -44,7 +44,7 @@ pub const qstringview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QStringView_ToString(@ptrCast(self));
+        var _str = qtc.QStringView_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstringview.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -102,7 +102,7 @@ pub const qstringview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToLatin1(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QStringView_ToLatin1(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QStringView_ToLatin1(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstringview.ToLatin1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -118,7 +118,7 @@ pub const qstringview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToUtf8(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QStringView_ToUtf8(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QStringView_ToUtf8(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstringview.ToUtf8: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -134,7 +134,7 @@ pub const qstringview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToLocal8Bit(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QStringView_ToLocal8Bit(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QStringView_ToLocal8Bit(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstringview.ToLocal8Bit: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

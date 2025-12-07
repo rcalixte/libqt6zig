@@ -283,7 +283,7 @@ pub const qsslkey = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToPem(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToPem(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QSslKey_ToPem(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToPem: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -299,7 +299,7 @@ pub const qsslkey = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDer(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToDer(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QSslKey_ToDer(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToDer: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -355,7 +355,7 @@ pub const qsslkey = struct {
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToPem1(@ptrCast(self), passPhrase_str);
+        var _bytearray: qtc.libqt_string = qtc.QSslKey_ToPem1(@ptrCast(self), passPhrase_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToPem1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -377,7 +377,7 @@ pub const qsslkey = struct {
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToDer1(@ptrCast(self), passPhrase_str);
+        var _bytearray: qtc.libqt_string = qtc.QSslKey_ToDer1(@ptrCast(self), passPhrase_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToDer1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

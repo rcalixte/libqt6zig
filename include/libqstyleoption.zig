@@ -311,6 +311,18 @@ pub const qstyleoptionfocusrect = struct {
         qtc.QStyleOptionFocusRect_SetBackgroundColor(@ptrCast(self), @ptrCast(backgroundColor));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionFocusRect `
+    ///
+    /// ` param1: QtC.QStyleOptionFocusRect `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionFocusRect_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -539,20 +551,6 @@ pub const qstyleoptionfocusrect = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionFocusRect `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#dtor.QStyleOptionFocusRect)
@@ -682,6 +680,18 @@ pub const qstyleoptionframe = struct {
         qtc.QStyleOptionFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionFrame `
+    ///
+    /// ` param1: QtC.QStyleOptionFrame `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionFrame_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -910,20 +920,6 @@ pub const qstyleoptionframe = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionFrame `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#dtor.QStyleOptionFrame)
@@ -1137,6 +1133,18 @@ pub const qstyleoptiontabwidgetframe = struct {
         qtc.QStyleOptionTabWidgetFrame_SetSelectedTabRect(@ptrCast(self), @ptrCast(selectedTabRect));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionTabWidgetFrame `
+    ///
+    /// ` param1: QtC.QStyleOptionTabWidgetFrame `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionTabWidgetFrame_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -1365,20 +1373,6 @@ pub const qstyleoptiontabwidgetframe = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionTabWidgetFrame `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#dtor.QStyleOptionTabWidgetFrame)
@@ -1504,6 +1498,18 @@ pub const qstyleoptiontabbarbase = struct {
         qtc.QStyleOptionTabBarBase_SetDocumentMode(@ptrCast(self), documentMode);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionTabBarBase `
+    ///
+    /// ` param1: QtC.QStyleOptionTabBarBase `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionTabBarBase_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -1734,20 +1740,6 @@ pub const qstyleoptiontabbarbase = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionTabBarBase `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#dtor.QStyleOptionTabBarBase)
     ///
     /// Delete this object from C++ memory.
@@ -1810,7 +1802,7 @@ pub const qstyleoptionheader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionheader.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -2011,6 +2003,18 @@ pub const qstyleoptionheader = struct {
         qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionHeader `
+    ///
+    /// ` param1: QtC.QStyleOptionHeader `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionHeader_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -2241,20 +2245,6 @@ pub const qstyleoptionheader = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionHeader `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#dtor.QStyleOptionHeader)
     ///
     /// Delete this object from C++ memory.
@@ -2284,6 +2274,18 @@ pub const qstyleoptionheaderv2 = struct {
     ///
     pub fn New2(other: ?*anyopaque) QtC.QStyleOptionHeaderV2 {
         return qtc.QStyleOptionHeaderV2_new2(@ptrCast(other));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionHeaderV2 `
+    ///
+    /// ` param1: QtC.QStyleOptionHeaderV2 `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionHeaderV2_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#textElideMode-var)
@@ -2393,7 +2395,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionheaderv2.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -2854,20 +2856,6 @@ pub const qstyleoptionheaderv2 = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionHeaderV2 `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#dtor.QStyleOptionHeaderV2)
     ///
     /// Delete this object from C++ memory.
@@ -2934,7 +2922,7 @@ pub const qstyleoptionbutton = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionButton_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionButton_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionbutton.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -2999,6 +2987,18 @@ pub const qstyleoptionbutton = struct {
     ///
     pub fn SetIconSize(self: ?*anyopaque, iconSize: QtC.QSize) void {
         qtc.QStyleOptionButton_SetIconSize(@ptrCast(self), @ptrCast(iconSize));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionButton `
+    ///
+    /// ` param1: QtC.QStyleOptionButton `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionButton_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QStyleOption
@@ -3231,20 +3231,6 @@ pub const qstyleoptionbutton = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionButton `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#dtor.QStyleOptionButton)
     ///
     /// Delete this object from C++ memory.
@@ -3311,7 +3297,7 @@ pub const qstyleoptiontab = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionTab_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionTab_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontab.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -3592,6 +3578,18 @@ pub const qstyleoptiontab = struct {
         qtc.QStyleOptionTab_SetTabIndex(@ptrCast(self), @intCast(tabIndex));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionTab `
+    ///
+    /// ` param1: QtC.QStyleOptionTab `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionTab_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -3820,20 +3818,6 @@ pub const qstyleoptiontab = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionTab `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#dtor.QStyleOptionTab)
@@ -4015,6 +3999,18 @@ pub const qstyleoptiontoolbar = struct {
         qtc.QStyleOptionToolBar_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionToolBar `
+    ///
+    /// ` param1: QtC.QStyleOptionToolBar `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionToolBar_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -4245,20 +4241,6 @@ pub const qstyleoptiontoolbar = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionToolBar `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#dtor.QStyleOptionToolBar)
     ///
     /// Delete this object from C++ memory.
@@ -4365,7 +4347,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionProgressBar_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionProgressBar_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionprogressbar.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -4480,6 +4462,18 @@ pub const qstyleoptionprogressbar = struct {
         qtc.QStyleOptionProgressBar_SetBottomToTop(@ptrCast(self), bottomToTop);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionProgressBar `
+    ///
+    /// ` param1: QtC.QStyleOptionProgressBar `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionProgressBar_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -4708,20 +4702,6 @@ pub const qstyleoptionprogressbar = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionProgressBar `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#dtor.QStyleOptionProgressBar)
@@ -4882,7 +4862,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionMenuItem_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionMenuItem_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionmenuitem.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -4993,6 +4973,18 @@ pub const qstyleoptionmenuitem = struct {
         qtc.QStyleOptionMenuItem_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionMenuItem `
+    ///
+    /// ` param1: QtC.QStyleOptionMenuItem `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionMenuItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -5223,20 +5215,6 @@ pub const qstyleoptionmenuitem = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionMenuItem `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#dtor.QStyleOptionMenuItem)
     ///
     /// Delete this object from C++ memory.
@@ -5277,7 +5255,7 @@ pub const qstyleoptiondockwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const title_str = qtc.QStyleOptionDockWidget_Title(@ptrCast(self));
+        var title_str = qtc.QStyleOptionDockWidget_Title(@ptrCast(self));
         defer qtc.libqt_string_free(&title_str);
         const title_ret = allocator.alloc(u8, title_str.len) catch @panic("qstyleoptiondockwidget.Title: Memory allocation failed");
         @memcpy(title_ret, title_str.data[0..title_str.len]);
@@ -5388,6 +5366,18 @@ pub const qstyleoptiondockwidget = struct {
         qtc.QStyleOptionDockWidget_SetVerticalTitleBar(@ptrCast(self), verticalTitleBar);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionDockWidget `
+    ///
+    /// ` param1: QtC.QStyleOptionDockWidget `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionDockWidget_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -5616,20 +5606,6 @@ pub const qstyleoptiondockwidget = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionDockWidget `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#dtor.QStyleOptionDockWidget)
@@ -5982,7 +5958,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionViewItem_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionViewItem_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionviewitem.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -6051,6 +6027,18 @@ pub const qstyleoptionviewitem = struct {
     ///
     pub fn SetBackgroundBrush(self: ?*anyopaque, backgroundBrush: QtC.QBrush) void {
         qtc.QStyleOptionViewItem_SetBackgroundBrush(@ptrCast(self), @ptrCast(backgroundBrush));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionViewItem `
+    ///
+    /// ` param1: QtC.QStyleOptionViewItem `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionViewItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QStyleOption
@@ -6283,20 +6271,6 @@ pub const qstyleoptionviewitem = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionViewItem `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#dtor.QStyleOptionViewItem)
     ///
     /// Delete this object from C++ memory.
@@ -6337,7 +6311,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionToolBox_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionToolBox_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontoolbox.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -6434,6 +6408,18 @@ pub const qstyleoptiontoolbox = struct {
         qtc.QStyleOptionToolBox_SetSelectedPosition(@ptrCast(self), @intCast(selectedPosition));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionToolBox `
+    ///
+    /// ` param1: QtC.QStyleOptionToolBox `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionToolBox_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -6662,20 +6648,6 @@ pub const qstyleoptiontoolbox = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionToolBox `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#dtor.QStyleOptionToolBox)
@@ -6757,6 +6729,18 @@ pub const qstyleoptionrubberband = struct {
         qtc.QStyleOptionRubberBand_SetOpaque(@ptrCast(self), _opaque);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionRubberBand `
+    ///
+    /// ` param1: QtC.QStyleOptionRubberBand `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionRubberBand_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -6985,20 +6969,6 @@ pub const qstyleoptionrubberband = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionRubberBand `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#dtor.QStyleOptionRubberBand)
@@ -7106,6 +7076,18 @@ pub const qstyleoptioncomplex = struct {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionComplex `
+    ///
+    /// ` param1: QtC.QStyleOptionComplex `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionComplex_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -7334,20 +7316,6 @@ pub const qstyleoptioncomplex = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionComplex `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#dtor.QStyleOptionComplex)
@@ -7679,6 +7647,18 @@ pub const qstyleoptionslider = struct {
         qtc.QStyleOptionSlider_SetKeyboardModifiers(@ptrCast(self), @intCast(keyboardModifiers));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionSlider `
+    ///
+    /// ` param1: QtC.QStyleOptionSlider `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionSlider_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -7967,20 +7947,6 @@ pub const qstyleoptionslider = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionSlider `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#dtor.QStyleOptionSlider)
@@ -8088,6 +8054,18 @@ pub const qstyleoptionspinbox = struct {
         qtc.QStyleOptionSpinBox_SetFrame(@ptrCast(self), frame);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionSpinBox `
+    ///
+    /// ` param1: QtC.QStyleOptionSpinBox `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionSpinBox_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -8376,20 +8354,6 @@ pub const qstyleoptionspinbox = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionSpinBox `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#dtor.QStyleOptionSpinBox)
@@ -8502,7 +8466,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionToolButton_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionToolButton_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontoolbutton.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -8621,6 +8585,18 @@ pub const qstyleoptiontoolbutton = struct {
         qtc.QStyleOptionToolButton_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionToolButton `
+    ///
+    /// ` param1: QtC.QStyleOptionToolButton `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionToolButton_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -8909,20 +8885,6 @@ pub const qstyleoptiontoolbutton = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionToolButton `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#dtor.QStyleOptionToolButton)
@@ -9031,7 +8993,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const currentText_str = qtc.QStyleOptionComboBox_CurrentText(@ptrCast(self));
+        var currentText_str = qtc.QStyleOptionComboBox_CurrentText(@ptrCast(self));
         defer qtc.libqt_string_free(&currentText_str);
         const currentText_ret = allocator.alloc(u8, currentText_str.len) catch @panic("qstyleoptioncombobox.CurrentText: Memory allocation failed");
         @memcpy(currentText_ret, currentText_str.data[0..currentText_str.len]);
@@ -9124,6 +9086,18 @@ pub const qstyleoptioncombobox = struct {
         qtc.QStyleOptionComboBox_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionComboBox `
+    ///
+    /// ` param1: QtC.QStyleOptionComboBox `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionComboBox_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -9414,20 +9388,6 @@ pub const qstyleoptioncombobox = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionComboBox `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#dtor.QStyleOptionComboBox)
     ///
     /// Delete this object from C++ memory.
@@ -9468,7 +9428,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionTitleBar_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionTitleBar_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontitlebar.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -9561,6 +9521,18 @@ pub const qstyleoptiontitlebar = struct {
         qtc.QStyleOptionTitleBar_SetTitleBarFlags(@ptrCast(self), @intCast(titleBarFlags));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionTitleBar `
+    ///
+    /// ` param1: QtC.QStyleOptionTitleBar `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionTitleBar_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -9851,20 +9823,6 @@ pub const qstyleoptiontitlebar = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionTitleBar `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#dtor.QStyleOptionTitleBar)
     ///
     /// Delete this object from C++ memory.
@@ -9931,7 +9889,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.QStyleOptionGroupBox_Text(@ptrCast(self));
+        var text_str = qtc.QStyleOptionGroupBox_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&text_str);
         const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiongroupbox.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
@@ -10046,6 +10004,18 @@ pub const qstyleoptiongroupbox = struct {
         qtc.QStyleOptionGroupBox_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionGroupBox `
+    ///
+    /// ` param1: QtC.QStyleOptionGroupBox `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionGroupBox_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10334,20 +10304,6 @@ pub const qstyleoptiongroupbox = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionGroupBox `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#dtor.QStyleOptionGroupBox)
@@ -10407,6 +10363,18 @@ pub const qstyleoptionsizegrip = struct {
         qtc.QStyleOptionSizeGrip_SetCorner(@ptrCast(self), @intCast(corner));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionSizeGrip `
+    ///
+    /// ` param1: QtC.QStyleOptionSizeGrip `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionSizeGrip_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10697,20 +10665,6 @@ pub const qstyleoptionsizegrip = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionSizeGrip `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#dtor.QStyleOptionSizeGrip)
     ///
     /// Delete this object from C++ memory.
@@ -10762,6 +10716,18 @@ pub const qstyleoptiongraphicsitem = struct {
     ///
     pub fn SetExposedRect(self: ?*anyopaque, exposedRect: QtC.QRectF) void {
         qtc.QStyleOptionGraphicsItem_SetExposedRect(@ptrCast(self), @ptrCast(exposedRect));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStyleOptionGraphicsItem `
+    ///
+    /// ` param1: QtC.QStyleOptionGraphicsItem `
+    ///
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStyleOptionGraphicsItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#levelOfDetailFromTransform)
@@ -11002,20 +10968,6 @@ pub const qstyleoptiongraphicsitem = struct {
     ///
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
-    }
-
-    /// Inherited from QStyleOption
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStyleOptionGraphicsItem `
-    ///
-    /// ` other: QtC.QStyleOption `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#dtor.QStyleOptionGraphicsItem)

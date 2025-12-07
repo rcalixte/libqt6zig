@@ -183,7 +183,7 @@ pub const qwebenginehttprequest = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PostData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_PostData(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_PostData(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebenginehttprequest.PostData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -232,7 +232,7 @@ pub const qwebenginehttprequest = struct {
     ///
     pub fn Headers(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QWebEngineHttpRequest_Headers(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -264,7 +264,7 @@ pub const qwebenginehttprequest = struct {
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_Header(@ptrCast(self), headerName_str);
+        var _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_Header(@ptrCast(self), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebenginehttprequest.Header: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

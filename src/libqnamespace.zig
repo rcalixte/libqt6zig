@@ -129,10 +129,10 @@ pub const qinternal = struct {
     ///
     /// ` param1: qnamespace_enums.Callback `
     ///
-    /// ` param2: ?*anyopaque `
+    /// ` param2: ?**anyopaque `
     ///
-    pub fn ActivateCallbacks(param1: i32, param2: ?*anyopaque) bool {
-        return qtc.QInternal_ActivateCallbacks(@intCast(param1), @ptrCast(@alignCast(param2)));
+    pub fn ActivateCallbacks(param1: i32, param2: ?**anyopaque) bool {
+        return qtc.QInternal_ActivateCallbacks(@intCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinternal.html#dtor.QInternal)

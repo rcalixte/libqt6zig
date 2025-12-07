@@ -42,6 +42,7 @@ void QDBusSignature_Delete(QDBusSignature* self);
 
 QDBusVariant* QDBusVariant_new();
 QDBusVariant* QDBusVariant_new2(const QVariant* variant);
+QDBusVariant* QDBusVariant_new3(const QDBusVariant* param1);
 void QDBusVariant_Swap(QDBusVariant* self, QDBusVariant* other);
 void QDBusVariant_SetVariant(QDBusVariant* self, const QVariant* variant);
 QVariant* QDBusVariant_Variant(const QDBusVariant* self);

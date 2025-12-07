@@ -339,6 +339,10 @@ QTextCharFormat* QTextCharFormat_new() {
     return new QTextCharFormat();
 }
 
+QTextCharFormat* QTextCharFormat_new2(const QTextCharFormat* param1) {
+    return new QTextCharFormat(*param1);
+}
+
 bool QTextCharFormat_IsValid(const QTextCharFormat* self) {
     return self->isValid();
 }
@@ -682,6 +686,10 @@ QTextBlockFormat* QTextBlockFormat_new() {
     return new QTextBlockFormat();
 }
 
+QTextBlockFormat* QTextBlockFormat_new2(const QTextBlockFormat* param1) {
+    return new QTextBlockFormat(*param1);
+}
+
 bool QTextBlockFormat_IsValid(const QTextBlockFormat* self) {
     return self->isValid();
 }
@@ -821,6 +829,10 @@ QTextListFormat* QTextListFormat_new() {
     return new QTextListFormat();
 }
 
+QTextListFormat* QTextListFormat_new2(const QTextListFormat* param1) {
+    return new QTextListFormat(*param1);
+}
+
 bool QTextListFormat_IsValid(const QTextListFormat* self) {
     return self->isValid();
 }
@@ -891,6 +903,10 @@ QTextImageFormat* QTextImageFormat_new() {
     return new QTextImageFormat();
 }
 
+QTextImageFormat* QTextImageFormat_new2(const QTextImageFormat* param1) {
+    return new QTextImageFormat(*param1);
+}
+
 bool QTextImageFormat_IsValid(const QTextImageFormat* self) {
     return self->isValid();
 }
@@ -954,6 +970,10 @@ void QTextImageFormat_Delete(QTextImageFormat* self) {
 
 QTextFrameFormat* QTextFrameFormat_new() {
     return new QTextFrameFormat();
+}
+
+QTextFrameFormat* QTextFrameFormat_new2(const QTextFrameFormat* param1) {
+    return new QTextFrameFormat(*param1);
 }
 
 bool QTextFrameFormat_IsValid(const QTextFrameFormat* self) {
@@ -1080,6 +1100,10 @@ QTextTableFormat* QTextTableFormat_new() {
     return new QTextTableFormat();
 }
 
+QTextTableFormat* QTextTableFormat_new2(const QTextTableFormat* param1) {
+    return new QTextTableFormat(*param1);
+}
+
 bool QTextTableFormat_IsValid(const QTextTableFormat* self) {
     return self->isValid();
 }
@@ -1165,6 +1189,10 @@ void QTextTableFormat_Delete(QTextTableFormat* self) {
 
 QTextTableCellFormat* QTextTableCellFormat_new() {
     return new QTextTableCellFormat();
+}
+
+QTextTableCellFormat* QTextTableCellFormat_new2(const QTextTableCellFormat* param1) {
+    return new QTextTableCellFormat(*param1);
 }
 
 bool QTextTableCellFormat_IsValid(const QTextTableCellFormat* self) {

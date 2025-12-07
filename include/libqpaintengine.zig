@@ -120,7 +120,7 @@ pub const qtextitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTextItem_Text(@ptrCast(self));
+        var _str = qtc.QTextItem_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextitem.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

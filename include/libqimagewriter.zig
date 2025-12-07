@@ -75,7 +75,7 @@ pub const qimagewriter = struct {
     ///
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
-        const _str = qtc.QObject_Tr(sourceText_Cstring);
+        var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagewriter.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -107,7 +107,7 @@ pub const qimagewriter = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QImageWriter_Format(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QImageWriter_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagewriter.Format: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -161,7 +161,7 @@ pub const qimagewriter = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QImageWriter_FileName(@ptrCast(self));
+        var _str = qtc.QImageWriter_FileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagewriter.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -237,7 +237,7 @@ pub const qimagewriter = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SubType(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QImageWriter_SubType(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QImageWriter_SubType(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagewriter.SubType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -254,7 +254,7 @@ pub const qimagewriter = struct {
     ///
     pub fn SupportedSubTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QImageWriter_SupportedSubTypes(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -408,7 +408,7 @@ pub const qimagewriter = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QImageWriter_ErrorString(@ptrCast(self));
+        var _str = qtc.QImageWriter_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagewriter.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -435,7 +435,7 @@ pub const qimagewriter = struct {
     ///
     pub fn SupportedImageFormats(allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QImageWriter_SupportedImageFormats();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -460,7 +460,7 @@ pub const qimagewriter = struct {
     ///
     pub fn SupportedMimeTypes(allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QImageWriter_SupportedMimeTypes();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -491,7 +491,7 @@ pub const qimagewriter = struct {
             .data = mimeType.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QImageWriter_ImageFormatsForMimeType(mimeType_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -521,7 +521,7 @@ pub const qimagewriter = struct {
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        const _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
+        var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagewriter.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -543,7 +543,7 @@ pub const qimagewriter = struct {
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        const _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagewriter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -51,10 +51,10 @@ pub const klocalizedcontext = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KLocalizedContext_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KLocalizedContext_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -63,9 +63,9 @@ pub const klocalizedcontext = struct {
     ///
     /// ` self: QtC.KLocalizedContext `
     ///
-    /// ` callback: *const fn (self: QtC.KLocalizedContext, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KLocalizedContext, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.KLocalizedContext_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -79,10 +79,10 @@ pub const klocalizedcontext = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KLocalizedContext_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.KLocalizedContext_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -95,7 +95,7 @@ pub const klocalizedcontext = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -111,7 +111,7 @@ pub const klocalizedcontext = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TranslationDomain(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KLocalizedContext_TranslationDomain(@ptrCast(self));
+        var _str = qtc.KLocalizedContext_TranslationDomain(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.TranslationDomain: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -149,7 +149,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n(@ptrCast(self), message_str);
+        var _str = qtc.KLocalizedContext_I18n(@ptrCast(self), message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -177,7 +177,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc(@ptrCast(self), context_str, message_str);
+        var _str = qtc.KLocalizedContext_I18nc(@ptrCast(self), context_str, message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -205,7 +205,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np(@ptrCast(self), singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_I18np(@ptrCast(self), singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -239,7 +239,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp(@ptrCast(self), context_str, singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_I18ncp(@ptrCast(self), context_str, singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -267,7 +267,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd(@ptrCast(self), domain_str, message_str);
+        var _str = qtc.KLocalizedContext_I18nd(@ptrCast(self), domain_str, message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -301,7 +301,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc(@ptrCast(self), domain_str, context_str, message_str);
+        var _str = qtc.KLocalizedContext_I18ndc(@ptrCast(self), domain_str, context_str, message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -335,7 +335,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp(@ptrCast(self), domain_str, singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_I18ndp(@ptrCast(self), domain_str, singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -375,7 +375,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp(@ptrCast(self), domain_str, context_str, singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_I18ndcp(@ptrCast(self), domain_str, context_str, singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -397,7 +397,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n(@ptrCast(self), message_str);
+        var _str = qtc.KLocalizedContext_Xi18n(@ptrCast(self), message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -425,7 +425,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc(@ptrCast(self), context_str, message_str);
+        var _str = qtc.KLocalizedContext_Xi18nc(@ptrCast(self), context_str, message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -453,7 +453,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np(@ptrCast(self), singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_Xi18np(@ptrCast(self), singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -487,7 +487,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp(@ptrCast(self), context_str, singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_Xi18ncp(@ptrCast(self), context_str, singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -515,7 +515,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd(@ptrCast(self), domain_str, message_str);
+        var _str = qtc.KLocalizedContext_Xi18nd(@ptrCast(self), domain_str, message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -549,7 +549,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc(@ptrCast(self), domain_str, context_str, message_str);
+        var _str = qtc.KLocalizedContext_Xi18ndc(@ptrCast(self), domain_str, context_str, message_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -583,7 +583,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp(@ptrCast(self), domain_str, singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_Xi18ndp(@ptrCast(self), domain_str, singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -623,7 +623,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp(@ptrCast(self), domain_str, context_str, singular_str, plural_str);
+        var _str = qtc.KLocalizedContext_Xi18ndcp(@ptrCast(self), domain_str, context_str, singular_str, plural_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -671,7 +671,7 @@ pub const klocalizedcontext = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -693,7 +693,7 @@ pub const klocalizedcontext = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -717,7 +717,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n2(@ptrCast(self), message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18n2(@ptrCast(self), message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -743,7 +743,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n3(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18n3(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -771,7 +771,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n4(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18n4(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -801,7 +801,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n5(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18n5(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -833,7 +833,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n6(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18n6(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -867,7 +867,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n7(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18n7(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -903,7 +903,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n8(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18n8(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -941,7 +941,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n9(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18n9(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -981,7 +981,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n10(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18n10(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1023,7 +1023,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18n11(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18n11(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18n11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1053,7 +1053,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc3(@ptrCast(self), context_str, message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18nc3(@ptrCast(self), context_str, message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1085,7 +1085,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc4(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18nc4(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1119,7 +1119,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc5(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18nc5(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1155,7 +1155,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc6(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18nc6(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1193,7 +1193,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc7(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18nc7(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1233,7 +1233,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc8(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18nc8(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1275,7 +1275,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc9(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18nc9(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1319,7 +1319,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc10(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18nc10(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1365,7 +1365,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc11(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18nc11(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1413,7 +1413,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nc12(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18nc12(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nc12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1443,7 +1443,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np3(@ptrCast(self), singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18np3(@ptrCast(self), singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1475,7 +1475,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np4(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18np4(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1509,7 +1509,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np5(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18np5(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1545,7 +1545,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np6(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18np6(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1583,7 +1583,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np7(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18np7(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1623,7 +1623,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np8(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18np8(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1665,7 +1665,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np9(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18np9(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1709,7 +1709,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np10(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18np10(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1755,7 +1755,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np11(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18np11(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1803,7 +1803,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18np12(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18np12(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18np12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1839,7 +1839,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp4(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18ncp4(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1877,7 +1877,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp5(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18ncp5(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1917,7 +1917,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp6(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18ncp6(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1959,7 +1959,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp7(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18ncp7(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2003,7 +2003,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp8(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18ncp8(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2049,7 +2049,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp9(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18ncp9(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2097,7 +2097,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp10(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18ncp10(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2147,7 +2147,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp11(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18ncp11(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2199,7 +2199,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp12(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18ncp12(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2253,7 +2253,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ncp13(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18ncp13(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ncp13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2283,7 +2283,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd3(@ptrCast(self), domain_str, message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18nd3(@ptrCast(self), domain_str, message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2315,7 +2315,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd4(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18nd4(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2349,7 +2349,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd5(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18nd5(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2385,7 +2385,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd6(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18nd6(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2423,7 +2423,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd7(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18nd7(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2463,7 +2463,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd8(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18nd8(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2505,7 +2505,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd9(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18nd9(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2549,7 +2549,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd10(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18nd10(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2595,7 +2595,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd11(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18nd11(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2643,7 +2643,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18nd12(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18nd12(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18nd12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2679,7 +2679,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc4(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18ndc4(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2717,7 +2717,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc5(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18ndc5(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2757,7 +2757,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc6(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18ndc6(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2799,7 +2799,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc7(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18ndc7(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2843,7 +2843,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc8(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18ndc8(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2889,7 +2889,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc9(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18ndc9(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2937,7 +2937,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc10(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18ndc10(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2987,7 +2987,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc11(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18ndc11(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3039,7 +3039,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc12(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18ndc12(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3093,7 +3093,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndc13(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18ndc13(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndc13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3129,7 +3129,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp4(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18ndp4(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3167,7 +3167,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp5(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18ndp5(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3207,7 +3207,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp6(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18ndp6(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3249,7 +3249,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp7(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18ndp7(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3293,7 +3293,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp8(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18ndp8(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3339,7 +3339,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp9(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18ndp9(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3387,7 +3387,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp10(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18ndp10(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3437,7 +3437,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp11(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18ndp11(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3489,7 +3489,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp12(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18ndp12(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3543,7 +3543,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndp13(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18ndp13(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndp13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3585,7 +3585,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp5(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_I18ndcp5(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3629,7 +3629,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp6(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_I18ndcp6(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3675,7 +3675,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp7(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_I18ndcp7(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3723,7 +3723,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp8(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_I18ndcp8(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3773,7 +3773,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp9(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_I18ndcp9(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3825,7 +3825,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp10(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_I18ndcp10(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3879,7 +3879,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp11(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_I18ndcp11(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3935,7 +3935,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp12(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_I18ndcp12(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3993,7 +3993,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp13(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_I18ndcp13(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4053,7 +4053,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_I18ndcp14(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_I18ndcp14(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.I18ndcp14: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4077,7 +4077,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n2(@ptrCast(self), message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18n2(@ptrCast(self), message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4103,7 +4103,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n3(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18n3(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4131,7 +4131,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n4(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18n4(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4161,7 +4161,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n5(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18n5(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4193,7 +4193,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n6(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18n6(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4227,7 +4227,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n7(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18n7(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4263,7 +4263,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n8(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18n8(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4301,7 +4301,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n9(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18n9(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4341,7 +4341,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n10(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18n10(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4383,7 +4383,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18n11(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18n11(@ptrCast(self), message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18n11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4413,7 +4413,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc3(@ptrCast(self), context_str, message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18nc3(@ptrCast(self), context_str, message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4445,7 +4445,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc4(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18nc4(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4479,7 +4479,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc5(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18nc5(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4515,7 +4515,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc6(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18nc6(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4553,7 +4553,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc7(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18nc7(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4593,7 +4593,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc8(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18nc8(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4635,7 +4635,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc9(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18nc9(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4679,7 +4679,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc10(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18nc10(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4725,7 +4725,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc11(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18nc11(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4773,7 +4773,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nc12(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18nc12(@ptrCast(self), context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nc12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4803,7 +4803,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np3(@ptrCast(self), singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18np3(@ptrCast(self), singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4835,7 +4835,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np4(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18np4(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4869,7 +4869,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np5(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18np5(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4905,7 +4905,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np6(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18np6(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4943,7 +4943,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np7(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18np7(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4983,7 +4983,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np8(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18np8(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5025,7 +5025,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np9(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18np9(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5069,7 +5069,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np10(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18np10(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5115,7 +5115,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np11(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18np11(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5163,7 +5163,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18np12(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18np12(@ptrCast(self), singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18np12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5199,7 +5199,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp4(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18ncp4(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5237,7 +5237,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp5(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18ncp5(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5277,7 +5277,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp6(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18ncp6(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5319,7 +5319,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp7(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18ncp7(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5363,7 +5363,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp8(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18ncp8(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5409,7 +5409,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp9(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18ncp9(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5457,7 +5457,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp10(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18ncp10(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5507,7 +5507,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp11(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18ncp11(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5559,7 +5559,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp12(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18ncp12(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5613,7 +5613,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ncp13(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18ncp13(@ptrCast(self), context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ncp13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5643,7 +5643,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd3(@ptrCast(self), domain_str, message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18nd3(@ptrCast(self), domain_str, message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5675,7 +5675,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd4(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18nd4(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5709,7 +5709,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd5(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18nd5(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5745,7 +5745,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd6(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18nd6(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5783,7 +5783,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd7(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18nd7(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5823,7 +5823,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd8(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18nd8(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5865,7 +5865,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd9(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18nd9(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5909,7 +5909,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd10(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18nd10(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5955,7 +5955,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd11(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18nd11(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6003,7 +6003,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18nd12(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18nd12(@ptrCast(self), domain_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18nd12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6039,7 +6039,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc4(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18ndc4(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6077,7 +6077,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc5(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18ndc5(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6117,7 +6117,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc6(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18ndc6(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6159,7 +6159,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc7(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18ndc7(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6203,7 +6203,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc8(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18ndc8(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6249,7 +6249,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc9(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18ndc9(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6297,7 +6297,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc10(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18ndc10(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6347,7 +6347,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc11(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18ndc11(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6399,7 +6399,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc12(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18ndc12(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6453,7 +6453,7 @@ pub const klocalizedcontext = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndc13(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18ndc13(@ptrCast(self), domain_str, context_str, message_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndc13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6489,7 +6489,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp4(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18ndp4(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6527,7 +6527,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp5(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18ndp5(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6567,7 +6567,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp6(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18ndp6(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6609,7 +6609,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp7(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18ndp7(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6653,7 +6653,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp8(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18ndp8(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6699,7 +6699,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp9(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18ndp9(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6747,7 +6747,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp10(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18ndp10(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6797,7 +6797,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp11(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18ndp11(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6849,7 +6849,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp12(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18ndp12(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6903,7 +6903,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndp13(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18ndp13(@ptrCast(self), domain_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndp13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6945,7 +6945,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp5(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1));
+        var _str = qtc.KLocalizedContext_Xi18ndcp5(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6989,7 +6989,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp6(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
+        var _str = qtc.KLocalizedContext_Xi18ndcp6(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7035,7 +7035,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp7(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+        var _str = qtc.KLocalizedContext_Xi18ndcp7(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7083,7 +7083,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp8(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
+        var _str = qtc.KLocalizedContext_Xi18ndcp8(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7133,7 +7133,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp9(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        var _str = qtc.KLocalizedContext_Xi18ndcp9(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7185,7 +7185,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp10(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
+        var _str = qtc.KLocalizedContext_Xi18ndcp10(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7239,7 +7239,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp11(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
+        var _str = qtc.KLocalizedContext_Xi18ndcp11(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp11: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7295,7 +7295,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp12(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
+        var _str = qtc.KLocalizedContext_Xi18ndcp12(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7353,7 +7353,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp13(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
+        var _str = qtc.KLocalizedContext_Xi18ndcp13(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp13: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7413,7 +7413,7 @@ pub const klocalizedcontext = struct {
             .len = plural.len,
             .data = plural.ptr,
         };
-        const _str = qtc.KLocalizedContext_Xi18ndcp14(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
+        var _str = qtc.KLocalizedContext_Xi18ndcp14(@ptrCast(self), domain_str, context_str, singular_str, plural_str, @ptrCast(param1), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), @ptrCast(param8), @ptrCast(param9), @ptrCast(param10));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.Xi18ndcp14: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7431,7 +7431,7 @@ pub const klocalizedcontext = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedcontext.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7783,7 +7783,7 @@ pub const klocalizedcontext = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

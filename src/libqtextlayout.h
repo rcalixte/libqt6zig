@@ -149,6 +149,7 @@ libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns22(const QTextLine* self, int 
 void QTextLine_Delete(QTextLine* self);
 
 QTextLayout__FormatRange* QTextLayout__FormatRange_new();
+QTextLayout__FormatRange* QTextLayout__FormatRange_new2(const QTextLayout__FormatRange* param1);
 int QTextLayout__FormatRange_Start(const QTextLayout__FormatRange* self);
 void QTextLayout__FormatRange_SetStart(QTextLayout__FormatRange* self, int start);
 int QTextLayout__FormatRange_Length(const QTextLayout__FormatRange* self);

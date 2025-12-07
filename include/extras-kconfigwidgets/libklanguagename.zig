@@ -17,7 +17,7 @@ pub const klanguagename = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KLanguageName_NameForCode(param1_str);
+        var _str = qtc.KLanguageName_NameForCode(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klanguagename.NameForCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -43,7 +43,7 @@ pub const klanguagename = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _str = qtc.KLanguageName_NameForCodeInLocale(param1_str, param2_str);
+        var _str = qtc.KLanguageName_NameForCodeInLocale(param1_str, param2_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klanguagename.NameForCodeInLocale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -58,7 +58,7 @@ pub const klanguagename = struct {
     ///
     pub fn AllLanguageCodes(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KLanguageName_AllLanguageCodes();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

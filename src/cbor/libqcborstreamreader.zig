@@ -649,7 +649,7 @@ pub const qcborstreamreader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadAllString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCborStreamReader_ReadAllString(@ptrCast(self));
+        var _str = qtc.QCborStreamReader_ReadAllString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborstreamreader.ReadAllString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -665,7 +665,7 @@ pub const qcborstreamreader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadAllUtf8String(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllUtf8String(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllUtf8String(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllUtf8String: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -681,7 +681,7 @@ pub const qcborstreamreader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadAllByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllByteArray(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

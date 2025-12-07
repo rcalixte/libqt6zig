@@ -30,6 +30,10 @@ QItemSelectionRange* QItemSelectionRange_new3(const QModelIndex* index) {
     return new QItemSelectionRange(*index);
 }
 
+QItemSelectionRange* QItemSelectionRange_new4(const QItemSelectionRange* param1) {
+    return new QItemSelectionRange(*param1);
+}
+
 void QItemSelectionRange_Swap(QItemSelectionRange* self, QItemSelectionRange* other) {
     self->swap(*other);
 }

@@ -21,6 +21,16 @@ pub const kbookmark = struct {
         return qtc.KBookmark_new2(@ptrCast(elem));
     }
 
+    /// New3 constructs a new KBookmark object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.KBookmark `
+    ///
+    pub fn New3(param1: ?*anyopaque) QtC.KBookmark {
+        return qtc.KBookmark_new3(@ptrCast(param1));
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kbookmark.html#standaloneBookmark)
     ///
     /// ## Parameter(s):
@@ -92,7 +102,7 @@ pub const kbookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Text(@ptrCast(self));
+        var _str = qtc.KBookmark_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -108,7 +118,7 @@ pub const kbookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FullText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_FullText(@ptrCast(self));
+        var _str = qtc.KBookmark_FullText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.FullText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -162,7 +172,7 @@ pub const kbookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Icon(@ptrCast(self));
+        var _str = qtc.KBookmark_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -194,7 +204,7 @@ pub const kbookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Description(@ptrCast(self));
+        var _str = qtc.KBookmark_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -226,7 +236,7 @@ pub const kbookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_MimeType(@ptrCast(self));
+        var _str = qtc.KBookmark_MimeType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -300,7 +310,7 @@ pub const kbookmark = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Address(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Address(@ptrCast(self));
+        var _str = qtc.KBookmark_Address(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.Address: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -350,7 +360,7 @@ pub const kbookmark = struct {
             .len = address.len,
             .data = address.ptr,
         };
-        const _str = qtc.KBookmark_ParentAddress(address_str);
+        var _str = qtc.KBookmark_ParentAddress(address_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.ParentAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -384,7 +394,7 @@ pub const kbookmark = struct {
             .len = address.len,
             .data = address.ptr,
         };
-        const _str = qtc.KBookmark_PreviousAddress(address_str);
+        var _str = qtc.KBookmark_PreviousAddress(address_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.PreviousAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -404,7 +414,7 @@ pub const kbookmark = struct {
             .len = address.len,
             .data = address.ptr,
         };
-        const _str = qtc.KBookmark_NextAddress(address_str);
+        var _str = qtc.KBookmark_NextAddress(address_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.NextAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -430,7 +440,7 @@ pub const kbookmark = struct {
             .len = B.len,
             .data = B.ptr,
         };
-        const _str = qtc.KBookmark_CommonParent(A_str, B_str);
+        var _str = qtc.KBookmark_CommonParent(A_str, B_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.CommonParent: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -470,7 +480,7 @@ pub const kbookmark = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const _str = qtc.KBookmark_MetaDataItem(@ptrCast(self), key_str);
+        var _str = qtc.KBookmark_MetaDataItem(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmark.MetaDataItem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -842,7 +852,7 @@ pub const kbookmarkgroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Text(@ptrCast(self));
+        var _str = qtc.KBookmark_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -860,7 +870,7 @@ pub const kbookmarkgroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FullText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_FullText(@ptrCast(self));
+        var _str = qtc.KBookmark_FullText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.FullText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -922,7 +932,7 @@ pub const kbookmarkgroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Icon(@ptrCast(self));
+        var _str = qtc.KBookmark_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -958,7 +968,7 @@ pub const kbookmarkgroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Description(@ptrCast(self));
+        var _str = qtc.KBookmark_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -994,7 +1004,7 @@ pub const kbookmarkgroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_MimeType(@ptrCast(self));
+        var _str = qtc.KBookmark_MimeType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1080,7 +1090,7 @@ pub const kbookmarkgroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Address(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KBookmark_Address(@ptrCast(self));
+        var _str = qtc.KBookmark_Address(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.Address: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1138,7 +1148,7 @@ pub const kbookmarkgroup = struct {
             .len = address.len,
             .data = address.ptr,
         };
-        const _str = qtc.KBookmark_ParentAddress(address_str);
+        var _str = qtc.KBookmark_ParentAddress(address_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.ParentAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1176,7 +1186,7 @@ pub const kbookmarkgroup = struct {
             .len = address.len,
             .data = address.ptr,
         };
-        const _str = qtc.KBookmark_PreviousAddress(address_str);
+        var _str = qtc.KBookmark_PreviousAddress(address_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.PreviousAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1198,7 +1208,7 @@ pub const kbookmarkgroup = struct {
             .len = address.len,
             .data = address.ptr,
         };
-        const _str = qtc.KBookmark_NextAddress(address_str);
+        var _str = qtc.KBookmark_NextAddress(address_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.NextAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1226,7 +1236,7 @@ pub const kbookmarkgroup = struct {
             .len = B.len,
             .data = B.ptr,
         };
-        const _str = qtc.KBookmark_CommonParent(A_str, B_str);
+        var _str = qtc.KBookmark_CommonParent(A_str, B_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.CommonParent: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1270,7 +1280,7 @@ pub const kbookmarkgroup = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const _str = qtc.KBookmark_MetaDataItem(@ptrCast(self), key_str);
+        var _str = qtc.KBookmark_MetaDataItem(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkgroup.MetaDataItem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1408,7 +1418,7 @@ pub const kbookmark__list = struct {
     ///
     pub fn MimeDataTypes(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KBookmark__List_MimeDataTypes();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

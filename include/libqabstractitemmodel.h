@@ -35,6 +35,7 @@ typedef struct QVariant QVariant;
 #endif
 
 QModelRoleData* QModelRoleData_new(int role);
+QModelRoleData* QModelRoleData_new2(const QModelRoleData* param1);
 int QModelRoleData_Role(const QModelRoleData* self);
 QVariant* QModelRoleData_Data(QModelRoleData* self);
 QVariant* QModelRoleData_Data2(const QModelRoleData* self);

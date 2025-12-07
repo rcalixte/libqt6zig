@@ -88,7 +88,7 @@ pub const signon__sessiondata = struct {
     ///
     pub fn PropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__SessionData_PropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -131,7 +131,7 @@ pub const signon__sessiondata = struct {
     ///
     pub fn GetAccessControlTokens(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__SessionData_GetAccessControlTokens(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -204,7 +204,7 @@ pub const signon__sessiondata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Secret(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__SessionData_Secret(@ptrCast(self));
+        var _str = qtc.SignOn__SessionData_Secret(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::sessiondata.Secret: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -236,7 +236,7 @@ pub const signon__sessiondata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__SessionData_UserName(@ptrCast(self));
+        var _str = qtc.SignOn__SessionData_UserName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::sessiondata.UserName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -268,7 +268,7 @@ pub const signon__sessiondata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Realm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__SessionData_Realm(@ptrCast(self));
+        var _str = qtc.SignOn__SessionData_Realm(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::sessiondata.Realm: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -300,7 +300,7 @@ pub const signon__sessiondata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn NetworkProxy(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__SessionData_NetworkProxy(@ptrCast(self));
+        var _str = qtc.SignOn__SessionData_NetworkProxy(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::sessiondata.NetworkProxy: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -354,7 +354,7 @@ pub const signon__sessiondata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.SignOn__SessionData_Caption(@ptrCast(self));
+        var _str = qtc.SignOn__SessionData_Caption(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::sessiondata.Caption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

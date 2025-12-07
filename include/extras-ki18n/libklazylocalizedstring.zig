@@ -95,7 +95,7 @@ pub const klazylocalizedstring = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KLazyLocalizedString_ToString(@ptrCast(self));
+        var _str = qtc.KLazyLocalizedString_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klazylocalizedstring.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -125,7 +125,7 @@ pub const klazylocalizedstring = struct {
             .len = languages.len,
             .data = languages_arr.ptr,
         };
-        const _str = qtc.KLazyLocalizedString_ToString2(@ptrCast(self), languages_list);
+        var _str = qtc.KLazyLocalizedString_ToString2(@ptrCast(self), languages_list);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klazylocalizedstring.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -144,7 +144,7 @@ pub const klazylocalizedstring = struct {
     ///
     pub fn ToString3(self: ?*anyopaque, domain: []const u8, allocator: std.mem.Allocator) []const u8 {
         const domain_Cstring = domain.ptr;
-        const _str = qtc.KLazyLocalizedString_ToString3(@ptrCast(self), domain_Cstring);
+        var _str = qtc.KLazyLocalizedString_ToString3(@ptrCast(self), domain_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klazylocalizedstring.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -162,7 +162,7 @@ pub const klazylocalizedstring = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString4(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KLazyLocalizedString_ToString4(@ptrCast(self), @intCast(format));
+        var _str = qtc.KLazyLocalizedString_ToString4(@ptrCast(self), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klazylocalizedstring.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

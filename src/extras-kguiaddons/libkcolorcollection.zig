@@ -44,7 +44,7 @@ pub const kcolorcollection = struct {
     ///
     pub fn InstalledCollections(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KColorCollection_InstalledCollections();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -92,7 +92,7 @@ pub const kcolorcollection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KColorCollection_Description(@ptrCast(self));
+        var _str = qtc.KColorCollection_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcolorcollection.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -124,7 +124,7 @@ pub const kcolorcollection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KColorCollection_Name(@ptrCast(self));
+        var _str = qtc.KColorCollection_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcolorcollection.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -218,7 +218,7 @@ pub const kcolorcollection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name2(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KColorCollection_Name2(@ptrCast(self), @intCast(index));
+        var _str = qtc.KColorCollection_Name2(@ptrCast(self), @intCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcolorcollection.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -236,7 +236,7 @@ pub const kcolorcollection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name3(self: ?*anyopaque, color: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KColorCollection_Name3(@ptrCast(self), @ptrCast(color));
+        var _str = qtc.KColorCollection_Name3(@ptrCast(self), @ptrCast(color));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcolorcollection.Name3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

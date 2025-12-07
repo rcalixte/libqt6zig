@@ -165,7 +165,7 @@ pub const qsqlquery = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LastQuery(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlQuery_LastQuery(@ptrCast(self));
+        var _str = qtc.QSqlQuery_LastQuery(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlquery.LastQuery: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -553,7 +553,7 @@ pub const qsqlquery = struct {
     ///
     pub fn BoundValueNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlQuery_BoundValueNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -581,7 +581,7 @@ pub const qsqlquery = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BoundValueName(self: ?*anyopaque, pos: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlQuery_BoundValueName(@ptrCast(self), @intCast(pos));
+        var _str = qtc.QSqlQuery_BoundValueName(@ptrCast(self), @intCast(pos));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlquery.BoundValueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -597,7 +597,7 @@ pub const qsqlquery = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ExecutedQuery(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlQuery_ExecutedQuery(@ptrCast(self));
+        var _str = qtc.QSqlQuery_ExecutedQuery(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlquery.ExecutedQuery: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

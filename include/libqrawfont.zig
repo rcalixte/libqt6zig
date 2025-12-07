@@ -162,7 +162,7 @@ pub const qrawfont = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FamilyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QRawFont_FamilyName(@ptrCast(self));
+        var _str = qtc.QRawFont_FamilyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qrawfont.FamilyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -178,7 +178,7 @@ pub const qrawfont = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StyleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QRawFont_StyleName(@ptrCast(self));
+        var _str = qtc.QRawFont_StyleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qrawfont.StyleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -601,7 +601,7 @@ pub const qrawfont = struct {
     ///
     pub fn FontTable(self: ?*anyopaque, tagName: []const u8, allocator: std.mem.Allocator) []u8 {
         const tagName_Cstring = tagName.ptr;
-        const _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable(@ptrCast(self), tagName_Cstring);
+        var _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable(@ptrCast(self), tagName_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTable: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -619,7 +619,7 @@ pub const qrawfont = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FontTable2(self: ?*anyopaque, tag: QtC.QFont__Tag, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self), @ptrCast(tag));
+        var _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self), @ptrCast(tag));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTable2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

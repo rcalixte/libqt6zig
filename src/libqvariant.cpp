@@ -172,19 +172,71 @@ QVariant* QVariant_new26(const QUrl* url) {
     return new QVariant(*url);
 }
 
-QVariant* QVariant_new27(QSize* size) {
+QVariant* QVariant_new27(const QJsonValue* jsonValue) {
+    return new QVariant(*jsonValue);
+}
+
+QVariant* QVariant_new28(const QModelIndex* modelIndex) {
+    return new QVariant(*modelIndex);
+}
+
+QVariant* QVariant_new29(QUuid* uuid) {
+    return new QVariant(*uuid);
+}
+
+QVariant* QVariant_new30(QSize* size) {
     return new QVariant(*size);
 }
 
-QVariant* QVariant_new28(QPoint* pt) {
+QVariant* QVariant_new31(QSizeF* size) {
+    return new QVariant(*size);
+}
+
+QVariant* QVariant_new32(QPoint* pt) {
     return new QVariant(*pt);
 }
 
-QVariant* QVariant_new29(int typeVal) {
+QVariant* QVariant_new33(QPointF* pt) {
+    return new QVariant(*pt);
+}
+
+QVariant* QVariant_new34(QLine* line) {
+    return new QVariant(*line);
+}
+
+QVariant* QVariant_new35(QLineF* line) {
+    return new QVariant(*line);
+}
+
+QVariant* QVariant_new36(QRect* rect) {
+    return new QVariant(*rect);
+}
+
+QVariant* QVariant_new37(QRectF* rect) {
+    return new QVariant(*rect);
+}
+
+QVariant* QVariant_new38(const QEasingCurve* easing) {
+    return new QVariant(*easing);
+}
+
+QVariant* QVariant_new39(const QJsonDocument* jsonDocument) {
+    return new QVariant(*jsonDocument);
+}
+
+QVariant* QVariant_new40(const QPersistentModelIndex* modelIndex) {
+    return new QVariant(*modelIndex);
+}
+
+QVariant* QVariant_new41(const char* str) {
+    return new QVariant(str);
+}
+
+QVariant* QVariant_new42(int typeVal) {
     return new QVariant(static_cast<QVariant::Type>(typeVal));
 }
 
-QVariant* QVariant_new30(QMetaType* typeVal, const void* copyVal) {
+QVariant* QVariant_new43(QMetaType* typeVal, const void* copyVal) {
     return new QVariant(*typeVal, copyVal);
 }
 

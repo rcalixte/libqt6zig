@@ -118,7 +118,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Url(@ptrCast(self));
+        var _str = qtc.QUrl_Url(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -134,7 +134,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_ToString(@ptrCast(self));
+        var _str = qtc.QUrl_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -150,7 +150,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToDisplayString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_ToDisplayString(@ptrCast(self));
+        var _str = qtc.QUrl_ToDisplayString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.ToDisplayString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -166,7 +166,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToEncoded(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QUrl_ToEncoded(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QUrl_ToEncoded(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToEncoded: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -220,7 +220,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_ErrorString(@ptrCast(self));
+        var _str = qtc.QUrl_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -272,7 +272,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Scheme(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Scheme(@ptrCast(self));
+        var _str = qtc.QUrl_Scheme(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Scheme: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -304,7 +304,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Authority(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Authority(@ptrCast(self));
+        var _str = qtc.QUrl_Authority(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Authority: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -336,7 +336,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserInfo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_UserInfo(@ptrCast(self));
+        var _str = qtc.QUrl_UserInfo(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.UserInfo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -368,7 +368,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_UserName(@ptrCast(self));
+        var _str = qtc.QUrl_UserName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.UserName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -400,7 +400,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Password(@ptrCast(self));
+        var _str = qtc.QUrl_Password(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -432,7 +432,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Host(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Host(@ptrCast(self));
+        var _str = qtc.QUrl_Host(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Host: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -486,7 +486,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Path(@ptrCast(self));
+        var _str = qtc.QUrl_Path(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -502,7 +502,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_FileName(@ptrCast(self));
+        var _str = qtc.QUrl_FileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -556,7 +556,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Query(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Query(@ptrCast(self));
+        var _str = qtc.QUrl_Query(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Query: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -582,7 +582,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Fragment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Fragment(@ptrCast(self));
+        var _str = qtc.QUrl_Fragment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Fragment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -672,7 +672,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToLocalFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_ToLocalFile(@ptrCast(self));
+        var _str = qtc.QUrl_ToLocalFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.ToLocalFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -712,7 +712,7 @@ pub const qurl = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.QUrl_FromPercentEncoding(param1_str);
+        var _str = qtc.QUrl_FromPercentEncoding(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.FromPercentEncoding: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -732,7 +732,7 @@ pub const qurl = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding(param1_str);
+        var _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding(param1_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToPercentEncoding: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -752,7 +752,7 @@ pub const qurl = struct {
             .len = domain.len,
             .data = domain.ptr,
         };
-        const _str = qtc.QUrl_FromAce(domain_str);
+        var _str = qtc.QUrl_FromAce(domain_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.FromAce: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -772,7 +772,7 @@ pub const qurl = struct {
             .len = domain.len,
             .data = domain.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QUrl_ToAce(domain_str);
+        var _bytearray: qtc.libqt_string = qtc.QUrl_ToAce(domain_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToAce: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -787,7 +787,7 @@ pub const qurl = struct {
     ///
     pub fn IdnWhitelist(allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QUrl_IdnWhitelist();
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -818,7 +818,7 @@ pub const qurl = struct {
             .data = @ptrCast(uris.ptr),
         };
         const _arr: qtc.libqt_list = qtc.QUrl_ToStringList(uris_list);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -993,7 +993,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Authority1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Authority1(@ptrCast(self), @intCast(options));
+        var _str = qtc.QUrl_Authority1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Authority1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1029,7 +1029,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserInfo1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_UserInfo1(@ptrCast(self), @intCast(options));
+        var _str = qtc.QUrl_UserInfo1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.UserInfo1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1065,7 +1065,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserName1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_UserName1(@ptrCast(self), @intCast(options));
+        var _str = qtc.QUrl_UserName1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.UserName1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1101,7 +1101,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Password1(self: ?*anyopaque, param1: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Password1(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QUrl_Password1(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Password1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1137,7 +1137,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Host1(self: ?*anyopaque, param1: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Host1(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QUrl_Host1(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Host1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1185,7 +1185,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Path1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Path1(@ptrCast(self), @intCast(options));
+        var _str = qtc.QUrl_Path1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Path1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1203,7 +1203,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FileName1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_FileName1(@ptrCast(self), @intCast(options));
+        var _str = qtc.QUrl_FileName1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.FileName1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1239,7 +1239,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Query1(self: ?*anyopaque, param1: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Query1(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QUrl_Query1(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Query1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1257,7 +1257,7 @@ pub const qurl = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Fragment1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUrl_Fragment1(@ptrCast(self), @intCast(options));
+        var _str = qtc.QUrl_Fragment1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.Fragment1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1301,7 +1301,7 @@ pub const qurl = struct {
             .len = exclude.len,
             .data = exclude.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding2(param1_str, exclude_str);
+        var _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding2(param1_str, exclude_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToPercentEncoding2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1333,7 +1333,7 @@ pub const qurl = struct {
             .len = include.len,
             .data = include.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding3(param1_str, exclude_str, include_str);
+        var _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding3(param1_str, exclude_str, include_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToPercentEncoding3: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1355,7 +1355,7 @@ pub const qurl = struct {
             .len = domain.len,
             .data = domain.ptr,
         };
-        const _str = qtc.QUrl_FromAce2(domain_str, @intCast(options));
+        var _str = qtc.QUrl_FromAce2(domain_str, @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurl.FromAce2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1377,7 +1377,7 @@ pub const qurl = struct {
             .len = domain.len,
             .data = domain.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.QUrl_ToAce2(domain_str, @intCast(options));
+        var _bytearray: qtc.libqt_string = qtc.QUrl_ToAce2(domain_str, @intCast(options));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToAce2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

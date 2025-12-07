@@ -703,7 +703,7 @@ pub const qaccessibleobject = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleObject_Text(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleObject_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleobject.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -725,7 +725,7 @@ pub const qaccessibleobject = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleObject_QBaseText(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleObject_QBaseText(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleobject.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1276,7 +1276,7 @@ pub const qaccessibleapplication = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleApplication_Text(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleApplication_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1310,7 +1310,7 @@ pub const qaccessibleapplication = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleApplication_QBaseText(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleApplication_QBaseText(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

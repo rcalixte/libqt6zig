@@ -212,7 +212,7 @@ pub const qtermwidgetinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WorkingDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTermWidgetInterface_WorkingDirectory(@ptrCast(self));
+        var _str = qtc.QTermWidgetInterface_WorkingDirectory(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.WorkingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -271,7 +271,7 @@ pub const qtermwidgetinterface = struct {
     ///
     pub fn GetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidgetInterface_GetAvailableColorSchemes(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -403,7 +403,7 @@ pub const qtermwidgetinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn KeyBindings(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTermWidgetInterface_KeyBindings(@ptrCast(self));
+        var _str = qtc.QTermWidgetInterface_KeyBindings(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.KeyBindings: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -519,7 +519,7 @@ pub const qtermwidgetinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SelectedText(self: ?*anyopaque, preserveLineBreaks: bool, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTermWidgetInterface_SelectedText(@ptrCast(self), preserveLineBreaks);
+        var _str = qtc.QTermWidgetInterface_SelectedText(@ptrCast(self), preserveLineBreaks);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -646,7 +646,7 @@ pub const qtermwidgetinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTermWidgetInterface_Title(@ptrCast(self));
+        var _str = qtc.QTermWidgetInterface_Title(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -662,7 +662,7 @@ pub const qtermwidgetinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTermWidgetInterface_Icon(@ptrCast(self));
+        var _str = qtc.QTermWidgetInterface_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -796,7 +796,7 @@ pub const qtermwidgetinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WordCharacters(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QTermWidgetInterface_WordCharacters(@ptrCast(self));
+        var _str = qtc.QTermWidgetInterface_WordCharacters(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.WordCharacters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

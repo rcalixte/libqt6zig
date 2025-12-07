@@ -41,7 +41,7 @@ pub const attica__config = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Contact(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__Config_Contact(@ptrCast(self));
+        var _str = qtc.Attica__Config_Contact(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Contact: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -57,7 +57,7 @@ pub const attica__config = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Host(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__Config_Host(@ptrCast(self));
+        var _str = qtc.Attica__Config_Host(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Host: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -73,7 +73,7 @@ pub const attica__config = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__Config_Version(@ptrCast(self));
+        var _str = qtc.Attica__Config_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -99,7 +99,7 @@ pub const attica__config = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Website(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Attica__Config_Website(@ptrCast(self));
+        var _str = qtc.Attica__Config_Website(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Website: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -30,6 +30,10 @@ QModelRoleData* QModelRoleData_new(int role) {
     return new QModelRoleData(static_cast<int>(role));
 }
 
+QModelRoleData* QModelRoleData_new2(const QModelRoleData* param1) {
+    return new QModelRoleData(*param1);
+}
+
 int QModelRoleData_Role(const QModelRoleData* self) {
     return self->role();
 }

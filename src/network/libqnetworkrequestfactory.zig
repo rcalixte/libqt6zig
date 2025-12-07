@@ -196,7 +196,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BearerToken(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QNetworkRequestFactory_BearerToken(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QNetworkRequestFactory_BearerToken(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkrequestfactory.BearerToken: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -238,7 +238,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkRequestFactory_UserName(@ptrCast(self));
+        var _str = qtc.QNetworkRequestFactory_UserName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkrequestfactory.UserName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -280,7 +280,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QNetworkRequestFactory_Password(@ptrCast(self));
+        var _str = qtc.QNetworkRequestFactory_Password(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkrequestfactory.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

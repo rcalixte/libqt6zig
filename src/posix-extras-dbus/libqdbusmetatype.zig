@@ -56,9 +56,9 @@ pub const qdbusmetatype = struct {
     ///
     /// ` id: QtC.QMetaType `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
-    pub fn Marshall(param1: ?*anyopaque, id: QtC.QMetaType, data: ?*anyopaque) bool {
+    pub fn Marshall(param1: ?*anyopaque, id: QtC.QMetaType, data: ?*const anyopaque) bool {
         return qtc.QDBusMetaType_Marshall(@ptrCast(param1), @ptrCast(id), @ptrCast(data));
     }
 

@@ -64,7 +64,7 @@ pub const qhostinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QHostInfo_HostName(@ptrCast(self));
+        var _str = qtc.QHostInfo_HostName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostinfo.HostName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -155,7 +155,7 @@ pub const qhostinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QHostInfo_ErrorString(@ptrCast(self));
+        var _str = qtc.QHostInfo_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostinfo.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -231,7 +231,7 @@ pub const qhostinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LocalHostName(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QHostInfo_LocalHostName();
+        var _str = qtc.QHostInfo_LocalHostName();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostinfo.LocalHostName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -245,7 +245,7 @@ pub const qhostinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LocalDomainName(allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QHostInfo_LocalDomainName();
+        var _str = qtc.QHostInfo_LocalDomainName();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostinfo.LocalDomainName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

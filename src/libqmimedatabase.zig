@@ -173,7 +173,7 @@ pub const qmimedatabase = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _str = qtc.QMimeDatabase_SuffixForFileName(@ptrCast(self), fileName_str);
+        var _str = qtc.QMimeDatabase_SuffixForFileName(@ptrCast(self), fileName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimedatabase.SuffixForFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

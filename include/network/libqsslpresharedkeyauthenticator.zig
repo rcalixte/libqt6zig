@@ -53,7 +53,7 @@ pub const qsslpresharedkeyauthenticator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IdentityHint(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_IdentityHint(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_IdentityHint(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslpresharedkeyauthenticator.IdentityHint: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -85,7 +85,7 @@ pub const qsslpresharedkeyauthenticator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Identity(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_Identity(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_Identity(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslpresharedkeyauthenticator.Identity: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -127,7 +127,7 @@ pub const qsslpresharedkeyauthenticator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PreSharedKey(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_PreSharedKey(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_PreSharedKey(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslpresharedkeyauthenticator.PreSharedKey: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

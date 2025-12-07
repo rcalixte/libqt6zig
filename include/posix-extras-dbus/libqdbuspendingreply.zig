@@ -3,6 +3,16 @@ const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingreplybase.html)
 pub const qdbuspendingreplybase = struct {
+    /// New constructs a new QDBusPendingReplyBase object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QDBusPendingReplyBase `
+    ///
+    pub fn New(param1: ?*anyopaque) QtC.QDBusPendingReplyBase {
+        return qtc.QDBusPendingReplyBase_new(@ptrCast(param1));
+    }
+
     /// Inherited from QDBusPendingCall
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#operator-eq)

@@ -198,11 +198,11 @@ pub const qopenglbuffer = struct {
     ///
     /// ` offset: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` count: i32 `
     ///
-    pub fn Write(self: ?*anyopaque, offset: i32, data: ?*anyopaque, count: i32) void {
+    pub fn Write(self: ?*anyopaque, offset: i32, data: ?*const anyopaque, count: i32) void {
         qtc.QOpenGLBuffer_Write(@ptrCast(self), @intCast(offset), @ptrCast(data), @intCast(count));
     }
 
@@ -212,11 +212,11 @@ pub const qopenglbuffer = struct {
     ///
     /// ` self: QtC.QOpenGLBuffer `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` data: ?*const anyopaque `
     ///
     /// ` count: i32 `
     ///
-    pub fn Allocate(self: ?*anyopaque, data: ?*anyopaque, count: i32) void {
+    pub fn Allocate(self: ?*anyopaque, data: ?*const anyopaque, count: i32) void {
         qtc.QOpenGLBuffer_Allocate(@ptrCast(self), @ptrCast(data), @intCast(count));
     }
 

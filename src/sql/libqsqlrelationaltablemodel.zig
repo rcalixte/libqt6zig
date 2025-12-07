@@ -75,7 +75,7 @@ pub const qsqlrelation = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TableName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRelation_TableName(@ptrCast(self));
+        var _str = qtc.QSqlRelation_TableName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelation.TableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -91,7 +91,7 @@ pub const qsqlrelation = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IndexColumn(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRelation_IndexColumn(@ptrCast(self));
+        var _str = qtc.QSqlRelation_IndexColumn(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelation.IndexColumn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -107,7 +107,7 @@ pub const qsqlrelation = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayColumn(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRelation_DisplayColumn(@ptrCast(self));
+        var _str = qtc.QSqlRelation_DisplayColumn(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelation.DisplayColumn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -196,10 +196,10 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSqlRelationalTableModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QSqlRelationalTableModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -208,9 +208,9 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     /// ` self: QtC.QSqlRelationalTableModel `
     ///
-    /// ` callback: *const fn (self: QtC.QSqlRelationalTableModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QSqlRelationalTableModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QSqlRelationalTableModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -224,10 +224,10 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSqlRelationalTableModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QSqlRelationalTableModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -240,7 +240,7 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -664,7 +664,7 @@ pub const qsqlrelationaltablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SelectStatement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRelationalTableModel_SelectStatement(@ptrCast(self));
+        var _str = qtc.QSqlRelationalTableModel_SelectStatement(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.SelectStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -696,7 +696,7 @@ pub const qsqlrelationaltablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSelectStatement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRelationalTableModel_QBaseSelectStatement(@ptrCast(self));
+        var _str = qtc.QSqlRelationalTableModel_QBaseSelectStatement(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.SelectStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -796,7 +796,7 @@ pub const qsqlrelationaltablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OrderByClause(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRelationalTableModel_OrderByClause(@ptrCast(self));
+        var _str = qtc.QSqlRelationalTableModel_OrderByClause(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.OrderByClause: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -828,7 +828,7 @@ pub const qsqlrelationaltablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseOrderByClause(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlRelationalTableModel_QBaseOrderByClause(@ptrCast(self));
+        var _str = qtc.QSqlRelationalTableModel_QBaseOrderByClause(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.OrderByClause: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -848,7 +848,7 @@ pub const qsqlrelationaltablemodel = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -870,7 +870,7 @@ pub const qsqlrelationaltablemodel = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -888,7 +888,7 @@ pub const qsqlrelationaltablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TableName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlTableModel_TableName(@ptrCast(self));
+        var _str = qtc.QSqlTableModel_TableName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.TableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1016,7 +1016,7 @@ pub const qsqlrelationaltablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Filter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QSqlTableModel_Filter(@ptrCast(self));
+        var _str = qtc.QSqlTableModel_Filter(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Filter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1894,7 +1894,7 @@ pub const qsqlrelationaltablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2246,7 +2246,7 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3795,7 +3795,7 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlRelationalTableModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3826,7 +3826,7 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlRelationalTableModel_QBaseMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

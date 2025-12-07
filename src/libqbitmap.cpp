@@ -36,7 +36,11 @@ QBitmap* QBitmap_new5(const libqt_string fileName) {
     return new VirtualQBitmap(fileName_QString);
 }
 
-QBitmap* QBitmap_new6(const libqt_string fileName, const char* format) {
+QBitmap* QBitmap_new6(const QBitmap* param1) {
+    return new VirtualQBitmap(*param1);
+}
+
+QBitmap* QBitmap_new7(const libqt_string fileName, const char* format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new VirtualQBitmap(fileName_QString, format);
 }

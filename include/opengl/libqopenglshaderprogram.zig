@@ -58,10 +58,10 @@ pub const qopenglshader = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QOpenGLShader_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QOpenGLShader_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -70,9 +70,9 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLShader, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QOpenGLShader, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QOpenGLShader_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -86,10 +86,10 @@ pub const qopenglshader = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QOpenGLShader_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QOpenGLShader_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -102,7 +102,7 @@ pub const qopenglshader = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -193,7 +193,7 @@ pub const qopenglshader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SourceCode(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QOpenGLShader_SourceCode(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QOpenGLShader_SourceCode(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qopenglshader.SourceCode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -219,7 +219,7 @@ pub const qopenglshader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Log(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOpenGLShader_Log(@ptrCast(self));
+        var _str = qtc.QOpenGLShader_Log(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Log: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -259,7 +259,7 @@ pub const qopenglshader = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -281,7 +281,7 @@ pub const qopenglshader = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -311,7 +311,7 @@ pub const qopenglshader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -663,7 +663,7 @@ pub const qopenglshader = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1473,10 +1473,10 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QOpenGLShaderProgram_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QOpenGLShaderProgram_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -1485,9 +1485,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLShaderProgram, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QOpenGLShaderProgram, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
         qtc.QOpenGLShaderProgram_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1501,10 +1501,10 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?*anyopaque `
+    /// ` param3: ?**anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QOpenGLShaderProgram_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+        return qtc.QOpenGLShaderProgram_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1517,7 +1517,7 @@ pub const qopenglshaderprogram = struct {
     ///
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1768,7 +1768,7 @@ pub const qopenglshaderprogram = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Log(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QOpenGLShaderProgram_Log(@ptrCast(self));
+        var _str = qtc.QOpenGLShaderProgram_Log(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Log: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2370,11 +2370,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` values: ?*anyopaque `
+    /// ` values: ?*const anyopaque `
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray5(self: ?*anyopaque, location: i32, typeVal: u32, values: ?*anyopaque, tupleSize: i32) void {
+    pub fn SetAttributeArray5(self: ?*anyopaque, location: i32, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray5(@ptrCast(self), @intCast(location), @intCast(typeVal), @ptrCast(values), @intCast(tupleSize));
     }
 
@@ -2450,11 +2450,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` values: ?*anyopaque `
+    /// ` values: ?*const anyopaque `
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray10(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*anyopaque, tupleSize: i32) void {
+    pub fn SetAttributeArray10(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray10(@ptrCast(self), name_Cstring, @intCast(typeVal), @ptrCast(values), @intCast(tupleSize));
     }
@@ -3333,7 +3333,7 @@ pub const qopenglshaderprogram = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3355,7 +3355,7 @@ pub const qopenglshaderprogram = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3438,13 +3438,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` values: ?*anyopaque `
+    /// ` values: ?*const anyopaque `
     ///
     /// ` tupleSize: i32 `
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray52(self: ?*anyopaque, location: i32, typeVal: u32, values: ?*anyopaque, tupleSize: i32, stride: i32) void {
+    pub fn SetAttributeArray52(self: ?*anyopaque, location: i32, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray52(@ptrCast(self), @intCast(location), @intCast(typeVal), @ptrCast(values), @intCast(tupleSize), @intCast(stride));
     }
 
@@ -3528,13 +3528,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` values: ?*anyopaque `
+    /// ` values: ?*const anyopaque `
     ///
     /// ` tupleSize: i32 `
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray53(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*anyopaque, tupleSize: i32, stride: i32) void {
+    pub fn SetAttributeArray53(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray53(@ptrCast(self), name_Cstring, @intCast(typeVal), @ptrCast(values), @intCast(tupleSize), @intCast(stride));
     }
@@ -3601,7 +3601,7 @@ pub const qopenglshaderprogram = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3953,7 +3953,7 @@ pub const qopenglshaderprogram = struct {
     ///
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -19,7 +19,7 @@ pub const kio = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _str = qtc.KIO_BuildErrorString(@intCast(param1), param2_str);
+        var _str = qtc.KIO_BuildErrorString(@intCast(param1), param2_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.BuildErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -45,7 +45,7 @@ pub const kio = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _bytearray: qtc.libqt_string = qtc.KIO_RawErrorDetail(@intCast(param1), param2_str, @ptrCast(param3), @intCast(param4));
+        var _bytearray: qtc.libqt_string = qtc.KIO_RawErrorDetail(@intCast(param1), param2_str, @ptrCast(param3), @intCast(param4));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kio.RawErrorDetail: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

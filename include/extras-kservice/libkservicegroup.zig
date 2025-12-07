@@ -50,7 +50,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn RelPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceGroup_RelPath(@ptrCast(self));
+        var _str = qtc.KServiceGroup_RelPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.RelPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -66,7 +66,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceGroup_Caption(@ptrCast(self));
+        var _str = qtc.KServiceGroup_Caption(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.Caption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -82,7 +82,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceGroup_Icon(@ptrCast(self));
+        var _str = qtc.KServiceGroup_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -98,7 +98,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceGroup_Comment(@ptrCast(self));
+        var _str = qtc.KServiceGroup_Comment(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -245,7 +245,7 @@ pub const kservicegroup = struct {
     ///
     pub fn SuppressGenericNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_SuppressGenericNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -298,7 +298,7 @@ pub const kservicegroup = struct {
     ///
     pub fn LayoutInfo(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_LayoutInfo(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -324,7 +324,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BaseGroupName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceGroup_BaseGroupName(@ptrCast(self));
+        var _str = qtc.KServiceGroup_BaseGroupName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.BaseGroupName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -340,7 +340,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DirectoryEntryPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KServiceGroup_DirectoryEntryPath(@ptrCast(self));
+        var _str = qtc.KServiceGroup_DirectoryEntryPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.DirectoryEntryPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -388,7 +388,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSycocaEntry_Name(@ptrCast(self));
+        var _str = qtc.KSycocaEntry_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -406,7 +406,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn EntryPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self));
+        var _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.EntryPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -424,7 +424,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StorageId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KSycocaEntry_StorageId(@ptrCast(self));
+        var _str = qtc.KSycocaEntry_StorageId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kservicegroup.StorageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -16952,15 +16952,19 @@ QCPScatterStyle* QCPScatterStyle_new7(const QPainterPath* customPath, const QPen
     return new QCPScatterStyle(*customPath, *pen);
 }
 
-QCPScatterStyle* QCPScatterStyle_new8(int shape, double size) {
+QCPScatterStyle* QCPScatterStyle_new8(const QCPScatterStyle* param1) {
+    return new QCPScatterStyle(*param1);
+}
+
+QCPScatterStyle* QCPScatterStyle_new9(int shape, double size) {
     return new QCPScatterStyle(static_cast<QCPScatterStyle::ScatterShape>(shape), static_cast<double>(size));
 }
 
-QCPScatterStyle* QCPScatterStyle_new9(const QPainterPath* customPath, const QPen* pen, const QBrush* brush) {
+QCPScatterStyle* QCPScatterStyle_new10(const QPainterPath* customPath, const QPen* pen, const QBrush* brush) {
     return new QCPScatterStyle(*customPath, *pen, *brush);
 }
 
-QCPScatterStyle* QCPScatterStyle_new10(const QPainterPath* customPath, const QPen* pen, const QBrush* brush, double size) {
+QCPScatterStyle* QCPScatterStyle_new11(const QPainterPath* customPath, const QPen* pen, const QBrush* brush, double size) {
     return new QCPScatterStyle(*customPath, *pen, *brush, static_cast<double>(size));
 }
 

@@ -151,7 +151,7 @@ pub const solid__device = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Udi(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Solid__Device_Udi(@ptrCast(self));
+        var _str = qtc.Solid__Device_Udi(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::device.Udi: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -167,7 +167,7 @@ pub const solid__device = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ParentUdi(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Solid__Device_ParentUdi(@ptrCast(self));
+        var _str = qtc.Solid__Device_ParentUdi(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::device.ParentUdi: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -193,7 +193,7 @@ pub const solid__device = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Vendor(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Solid__Device_Vendor(@ptrCast(self));
+        var _str = qtc.Solid__Device_Vendor(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::device.Vendor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -209,7 +209,7 @@ pub const solid__device = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Product(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Solid__Device_Product(@ptrCast(self));
+        var _str = qtc.Solid__Device_Product(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::device.Product: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -225,7 +225,7 @@ pub const solid__device = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Solid__Device_Icon(@ptrCast(self));
+        var _str = qtc.Solid__Device_Icon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::device.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -242,7 +242,7 @@ pub const solid__device = struct {
     ///
     pub fn Emblems(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.Solid__Device_Emblems(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -268,7 +268,7 @@ pub const solid__device = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Solid__Device_DisplayName(@ptrCast(self));
+        var _str = qtc.Solid__Device_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::device.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -284,7 +284,7 @@ pub const solid__device = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.Solid__Device_Description(@ptrCast(self));
+        var _str = qtc.Solid__Device_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::device.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

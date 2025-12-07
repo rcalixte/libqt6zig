@@ -76,7 +76,7 @@ pub const qmetamethod = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MethodSignature(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QMetaMethod_MethodSignature(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QMetaMethod_MethodSignature(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetamethod.MethodSignature: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -92,7 +92,7 @@ pub const qmetamethod = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QMetaMethod_Name(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QMetaMethod_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetamethod.Name: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -186,7 +186,7 @@ pub const qmetamethod = struct {
     ///
     pub fn ParameterTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QMetaMethod_ParameterTypes(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -214,7 +214,7 @@ pub const qmetamethod = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ParameterTypeName(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QMetaMethod_ParameterTypeName(@ptrCast(self), @intCast(index));
+        var _bytearray: qtc.libqt_string = qtc.QMetaMethod_ParameterTypeName(@ptrCast(self), @intCast(index));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetamethod.ParameterTypeName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -231,7 +231,7 @@ pub const qmetamethod = struct {
     ///
     pub fn ParameterNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QMetaMethod_ParameterNames(@ptrCast(self));
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2104,7 +2104,7 @@ pub const qmetaenum = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ValueToKeys(self: ?*anyopaque, value: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QMetaEnum_ValueToKeys(@ptrCast(self), @intCast(value));
+        var _bytearray: qtc.libqt_string = qtc.QMetaEnum_ValueToKeys(@ptrCast(self), @intCast(value));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaenum.ValueToKeys: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2548,9 +2548,9 @@ pub const qmetaproperty = struct {
     ///
     /// ` self: QtC.QMetaProperty `
     ///
-    /// ` gadget: ?*anyopaque `
+    /// ` gadget: ?*const anyopaque `
     ///
-    pub fn ReadOnGadget(self: ?*anyopaque, gadget: ?*anyopaque) QtC.QVariant {
+    pub fn ReadOnGadget(self: ?*anyopaque, gadget: ?*const anyopaque) QtC.QVariant {
         return qtc.QMetaProperty_ReadOnGadget(@ptrCast(self), @ptrCast(gadget));
     }
 

@@ -19,7 +19,7 @@ pub const klibexec = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KLibexec_PathFromAddress(param1_str, @ptrCast(param2));
+        var _str = qtc.KLibexec_PathFromAddress(param1_str, @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klibexec.PathFromAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -40,7 +40,7 @@ pub const klibexec = struct {
             .data = param1.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KLibexec_PathCandidates(param1_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -70,7 +70,7 @@ pub const klibexec = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KLibexec_Path(param1_str);
+        var _str = qtc.KLibexec_Path(param1_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klibexec.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -91,7 +91,7 @@ pub const klibexec = struct {
             .data = param1.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KLibexec_KdeFrameworksPaths(param1_str);
-        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

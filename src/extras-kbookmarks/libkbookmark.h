@@ -30,6 +30,7 @@ typedef struct QUrl QUrl;
 
 KBookmark* KBookmark_new();
 KBookmark* KBookmark_new2(const QDomElement* elem);
+KBookmark* KBookmark_new3(const KBookmark* param1);
 KBookmark* KBookmark_StandaloneBookmark(const libqt_string text, const QUrl* url, const libqt_string icon);
 bool KBookmark_IsGroup(const KBookmark* self);
 bool KBookmark_IsSeparator(const KBookmark* self);

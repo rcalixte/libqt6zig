@@ -156,7 +156,7 @@ pub const quuid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUuid_ToString(@ptrCast(self));
+        var _str = qtc.QUuid_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -172,7 +172,7 @@ pub const quuid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -198,7 +198,7 @@ pub const quuid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToRfc4122(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QUuid_ToRfc4122(@ptrCast(self));
+        var _bytearray: qtc.libqt_string = qtc.QUuid_ToRfc4122(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToRfc4122: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -209,9 +209,9 @@ pub const quuid = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` bytes: ?*anyopaque `
+    /// ` bytes: ?*const anyopaque `
     ///
-    pub fn FromBytes(bytes: ?*anyopaque) QtC.QUuid {
+    pub fn FromBytes(bytes: ?*const anyopaque) QtC.QUuid {
         return qtc.QUuid_FromBytes(@ptrCast(bytes));
     }
 
@@ -382,7 +382,7 @@ pub const quuid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUuid_ToString1(@ptrCast(self), @intCast(mode));
+        var _str = qtc.QUuid_ToString1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -400,7 +400,7 @@ pub const quuid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self), @intCast(mode));
+        var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -423,11 +423,11 @@ pub const quuid = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` bytes: ?*anyopaque `
+    /// ` bytes: ?*const anyopaque `
     ///
     /// ` order: qsysinfo_enums.Endian `
     ///
-    pub fn FromBytes2(bytes: ?*anyopaque, order: i32) QtC.QUuid {
+    pub fn FromBytes2(bytes: ?*const anyopaque, order: i32) QtC.QUuid {
         return qtc.QUuid_FromBytes2(@ptrCast(bytes), @intCast(order));
     }
 
@@ -471,7 +471,7 @@ pub const quuid__id128bytes = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToQByteArrayView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QUuid__Id128Bytes_ToQByteArrayView(@ptrCast(self));
+        var _str = qtc.QUuid__Id128Bytes_ToQByteArrayView(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid::id128bytes.ToQByteArrayView: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

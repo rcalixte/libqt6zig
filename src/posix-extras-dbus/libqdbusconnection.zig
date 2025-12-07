@@ -73,7 +73,7 @@ pub const qdbusconnection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BaseService(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusConnection_BaseService(@ptrCast(self));
+        var _str = qtc.QDBusConnection_BaseService(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnection.BaseService: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -99,7 +99,7 @@ pub const qdbusconnection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QDBusConnection_Name(@ptrCast(self));
+        var _str = qtc.QDBusConnection_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnection.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -718,7 +718,7 @@ pub const qdbusconnection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LocalMachineId(allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.libqt_string = qtc.QDBusConnection_LocalMachineId();
+        var _bytearray: qtc.libqt_string = qtc.QDBusConnection_LocalMachineId();
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdbusconnection.LocalMachineId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

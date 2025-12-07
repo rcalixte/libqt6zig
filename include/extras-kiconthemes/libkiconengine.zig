@@ -328,7 +328,7 @@ pub const kiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconEngine_IconName(@ptrCast(self));
+        var _str = qtc.KIconEngine_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -360,7 +360,7 @@ pub const kiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconEngine_QBaseIconName(@ptrCast(self));
+        var _str = qtc.KIconEngine_QBaseIconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -470,7 +470,7 @@ pub const kiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconEngine_Key(@ptrCast(self));
+        var _str = qtc.KIconEngine_Key(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -502,7 +502,7 @@ pub const kiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.KIconEngine_QBaseKey(@ptrCast(self));
+        var _str = qtc.KIconEngine_QBaseKey(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
