@@ -79,9 +79,9 @@ pub const kselector = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSelector_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -91,9 +91,9 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KSelector_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -107,9 +107,9 @@ pub const kselector = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSelector_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -8260,9 +8260,9 @@ pub const kgradientselector = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KGradientSelector_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -8272,9 +8272,9 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KGradientSelector_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8288,9 +8288,9 @@ pub const kgradientselector = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KGradientSelector_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 

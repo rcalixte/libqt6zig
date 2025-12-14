@@ -53,9 +53,9 @@ pub const qgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -65,9 +65,9 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGesture_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -81,9 +81,9 @@ pub const qgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -1415,9 +1415,9 @@ pub const qpangesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPanGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -1427,9 +1427,9 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPanGesture_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1443,9 +1443,9 @@ pub const qpangesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPanGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -2869,9 +2869,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPinchGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -2881,9 +2881,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPinchGesture_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2897,9 +2897,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPinchGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -4497,9 +4497,9 @@ pub const qswipegesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSwipeGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -4509,9 +4509,9 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QSwipeGesture_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4525,9 +4525,9 @@ pub const qswipegesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSwipeGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -5925,9 +5925,9 @@ pub const qtapgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -5937,9 +5937,9 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTapGesture_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -5953,9 +5953,9 @@ pub const qtapgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -7325,9 +7325,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapAndHoldGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -7337,9 +7337,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTapAndHoldGesture_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -7353,9 +7353,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapAndHoldGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 

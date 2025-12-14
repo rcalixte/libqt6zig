@@ -1515,9 +1515,9 @@ pub const qopenglfunctions = struct {
     ///
     /// ` pname: u32 `
     ///
-    /// ` pointer: ?**anyopaque `
+    /// ` pointer: *?*anyopaque `
     ///
-    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: ?**anyopaque) void {
+    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: *?*anyopaque) void {
         qtc.QOpenGLFunctions_GlGetVertexAttribPointerv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(pointer));
     }
 

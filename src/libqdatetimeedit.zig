@@ -124,9 +124,9 @@ pub const qdatetimeedit = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDateTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -136,9 +136,9 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -152,9 +152,9 @@ pub const qdatetimeedit = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDateTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -8999,9 +8999,9 @@ pub const qtimeedit = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -9011,9 +9011,9 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTimeEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -9027,9 +9027,9 @@ pub const qtimeedit = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -18134,9 +18134,9 @@ pub const qdateedit = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDateEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -18146,9 +18146,9 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDateEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -18162,9 +18162,9 @@ pub const qdateedit = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDateEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 

@@ -315,7 +315,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	switch p.ParameterType {
 	case "GLvoid", "void":
-		ret += ifv((p.Pointer || p.ByRef), "?"+strings.Repeat("*", max(p.PointerCount, 1))+ifv(p.Const, "const ", "")+"anyopaque", "void")
+		ret += ifv((p.Pointer || p.ByRef), ifv(p.PointerCount > 1, "*", "")+"?*"+ifv(p.Const, "const ", "")+"anyopaque", "void")
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
 	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte", "GLchar":
@@ -479,7 +479,7 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 	}
 
 	if ret == "void" || ret == "GLvoid" {
-		ret = ifv(p.Pointer || p.ByRef, "?"+strings.Repeat("*", max(p.PointerCount, 1))+maybeConst+"anyopaque", "void")
+		ret = ifv(p.Pointer || p.ByRef, ifv(p.PointerCount > 1, "*", "")+"?*"+ifv(p.Const, "const ", "")+"anyopaque", "void")
 	}
 
 	if ret == "int" {
@@ -549,7 +549,7 @@ func (p CppParameter) parameterTypeZig() string {
 
 	// Zig binds void* as *anyopaque
 	if (p.ParameterType == "void" || p.ParameterType == "GLvoid") && (p.Pointer || p.ByRef) {
-		return ifv(p.Pointer || p.ByRef, "?"+strings.Repeat("*", max(p.PointerCount, 1)), "") + ifv(p.Const, "const ", "") + "anyopaque"
+		return ifv(p.Pointer || p.ByRef, ifv(p.PointerCount > 1, "*", "")+"?*", "") + ifv(p.Const, "const ", "") + "anyopaque"
 	}
 
 	tmp := strings.ReplaceAll(p.RenderTypeCabi(false), "*", "")
@@ -611,7 +611,7 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				}
 			}
 			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
-				paramType = "?" + strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + "anyopaque"
+				paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
 			}
 			if isSlot {
 				// C calling convention limitations
@@ -664,7 +664,7 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 				paramType = "QtC." + paramType
 			}
 			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
-				paramType = "?" + strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + "anyopaque"
+				paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
 			}
 			if isSlot {
 				// C calling convention limitations

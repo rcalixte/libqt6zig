@@ -52,9 +52,9 @@ pub const qvalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -64,9 +64,9 @@ pub const qvalidator = struct {
     ///
     /// ` self: QtC.QValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -80,9 +80,9 @@ pub const qvalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -1496,9 +1496,9 @@ pub const qintvalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QIntValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -1508,9 +1508,9 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QIntValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QIntValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QIntValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1524,9 +1524,9 @@ pub const qintvalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QIntValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -3058,9 +3058,9 @@ pub const qdoublevalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDoubleValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -3070,9 +3070,9 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDoubleValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3086,9 +3086,9 @@ pub const qdoublevalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDoubleValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -4724,9 +4724,9 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QRegularExpressionValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -4736,9 +4736,9 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QRegularExpressionValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4752,9 +4752,9 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QRegularExpressionValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 

@@ -68,9 +68,9 @@ pub const qwizard = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWizard_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -80,9 +80,9 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QWizard, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QWizard_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -96,9 +96,9 @@ pub const qwizard = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWizard_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -8644,9 +8644,9 @@ pub const qwizardpage = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWizardPage_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
@@ -8656,9 +8656,9 @@ pub const qwizardpage = struct {
     ///
     /// ` self: QtC.QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?**anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QWizardPage, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?**anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QWizardPage_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8672,9 +8672,9 @@ pub const qwizardpage = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: ?**anyopaque `
+    /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?**anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWizardPage_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 

@@ -335,9 +335,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` pname: u32 `
     ///
-    /// ` params: ?**anyopaque `
+    /// ` params: *?*anyopaque `
     ///
-    pub fn GlGetBufferPointerv(self: ?*anyopaque, target: u32, pname: u32, params: ?**anyopaque) void {
+    pub fn GlGetBufferPointerv(self: ?*anyopaque, target: u32, pname: u32, params: *?*anyopaque) void {
         qtc.QOpenGLExtraFunctions_GlGetBufferPointerv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
     }
 
@@ -2923,9 +2923,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` pname: u32 `
     ///
-    /// ` params: ?**anyopaque `
+    /// ` params: *?*anyopaque `
     ///
-    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: ?**anyopaque) void {
+    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: *?*anyopaque) void {
         qtc.QOpenGLExtraFunctions_GlGetPointerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
     }
 
@@ -5149,9 +5149,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` pname: u32 `
     ///
-    /// ` pointer: ?**anyopaque `
+    /// ` pointer: *?*anyopaque `
     ///
-    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: ?**anyopaque) void {
+    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: *?*anyopaque) void {
         qtc.QOpenGLFunctions_GlGetVertexAttribPointerv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(pointer));
     }
 

@@ -1414,11 +1414,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` indices: ?**const anyopaque `
+    /// ` indices: *?*const anyopaque `
     ///
     /// ` drawcount: i32 `
     ///
-    pub fn GlMultiDrawElements(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: ?**const anyopaque, drawcount: i32) void {
+    pub fn GlMultiDrawElements(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: *?*const anyopaque, drawcount: i32) void {
         qtc.QOpenGLFunctions_4_4_Compatibility_GlMultiDrawElements(@ptrCast(self), @intCast(mode), count.ptr, @intCast(typeVal), @ptrCast(indices), @intCast(drawcount));
     }
 
@@ -1468,9 +1468,9 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` pname: u32 `
     ///
-    /// ` params: ?**anyopaque `
+    /// ` params: *?*anyopaque `
     ///
-    pub fn GlGetBufferPointerv(self: ?*anyopaque, target: u32, pname: u32, params: ?**anyopaque) void {
+    pub fn GlGetBufferPointerv(self: ?*anyopaque, target: u32, pname: u32, params: *?*anyopaque) void {
         qtc.QOpenGLFunctions_4_4_Compatibility_GlGetBufferPointerv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
     }
 
@@ -2694,9 +2694,9 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` pname: u32 `
     ///
-    /// ` pointer: ?**anyopaque `
+    /// ` pointer: *?*anyopaque `
     ///
-    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: ?**anyopaque) void {
+    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: *?*anyopaque) void {
         qtc.QOpenGLFunctions_4_4_Compatibility_GlGetVertexAttribPointerv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(pointer));
     }
 
@@ -4848,13 +4848,13 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` typeVal: u32 `
     ///
-    /// ` indices: ?**const anyopaque `
+    /// ` indices: *?*const anyopaque `
     ///
     /// ` drawcount: i32 `
     ///
     /// ` basevertex: []const i32 `
     ///
-    pub fn GlMultiDrawElementsBaseVertex(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: ?**const anyopaque, drawcount: i32, basevertex: []const i32) void {
+    pub fn GlMultiDrawElementsBaseVertex(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: *?*const anyopaque, drawcount: i32, basevertex: []const i32) void {
         qtc.QOpenGLFunctions_4_4_Compatibility_GlMultiDrawElementsBaseVertex(@ptrCast(self), @intCast(mode), count.ptr, @intCast(typeVal), @ptrCast(indices), @intCast(drawcount), basevertex.ptr);
     }
 
@@ -12634,9 +12634,9 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` pname: u32 `
     ///
-    /// ` params: ?**anyopaque `
+    /// ` params: *?*anyopaque `
     ///
-    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: ?**anyopaque) void {
+    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: *?*anyopaque) void {
         qtc.QOpenGLFunctions_4_4_Compatibility_GlGetPointerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
     }
 
