@@ -293,6 +293,8 @@ const qt_modules = &.{
     "QtWebEngineWidgets",
     // Qt 6 XML
     "QtXml",
+    // Qt 6 KArchive
+    "KArchive",
     // Qt 6 Attica
     "Attica",
     "Attica/Attica",
