@@ -19,7 +19,7 @@ pub const qthreadstoragedata = struct {
     ///
     /// ` self: QtC.QThreadStorageData `
     ///
-    pub fn Get(self: ?*anyopaque) ?**anyopaque {
+    pub fn Get(self: ?*anyopaque) *?*anyopaque {
         return qtc.QThreadStorageData_Get(@ptrCast(self));
     }
 
@@ -31,7 +31,7 @@ pub const qthreadstoragedata = struct {
     ///
     /// ` p: ?*anyopaque `
     ///
-    pub fn Set(self: ?*anyopaque, p: ?*anyopaque) ?**anyopaque {
+    pub fn Set(self: ?*anyopaque, p: ?*anyopaque) *?*anyopaque {
         return qtc.QThreadStorageData_Set(@ptrCast(self), @ptrCast(p));
     }
 
