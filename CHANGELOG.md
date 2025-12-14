@@ -1,4 +1,8 @@
 
+### 6.8.2 rev48 (14 December 2025)
+
+* Add [KArchive](https://api.kde.org/karchive-index.html) and update double pointers (#94)
+
 ### 6.8.2 rev47 (7 December 2025)
 
 * **BREAKING CHANGE:** Update parsing for noexcept, void type pointers, and use consistent constness (#92)
