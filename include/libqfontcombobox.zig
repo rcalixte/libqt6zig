@@ -335,7 +335,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxf: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, f: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnCurrentFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QFontComboBox_Connect_CurrentFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1363,7 +1363,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnEditTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1391,7 +1391,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1423,7 +1423,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1451,7 +1451,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1483,7 +1483,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1511,7 +1511,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1543,7 +1543,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCurrentTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5212,7 +5212,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5240,7 +5240,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5272,7 +5272,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5300,7 +5300,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6135,7 +6135,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9107,7 +9107,7 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.QFontComboBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFontComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

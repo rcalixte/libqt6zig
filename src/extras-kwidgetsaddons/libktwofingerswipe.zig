@@ -911,7 +911,7 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` self: QtC.KTwoFingerSwipe `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerSwipeparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1453,7 +1453,7 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` self: QtC.KTwoFingerSwipe `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerSwipeobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -1028,7 +1028,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogfile: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, file: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFileSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FileSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1066,7 +1066,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogfiles: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, files: [*][*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFilesSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FilesSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1094,7 +1094,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogpath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1122,7 +1122,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogdirectory: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, directory: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnDirectoryEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_DirectoryEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1146,7 +1146,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QFileDialog_Connect_UrlSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1174,7 +1174,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogurls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, urls: [*]QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlsSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
         qtc.QFileDialog_Connect_UrlsSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1198,7 +1198,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnCurrentUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QFileDialog_Connect_CurrentUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1222,7 +1222,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogdirectory: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, directory: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnDirectoryUrlEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QFileDialog_Connect_DirectoryUrlEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1250,7 +1250,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogfilter: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, filter: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFilterSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FilterSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2430,7 +2430,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5961,7 +5961,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5989,7 +5989,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6021,7 +6021,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6049,7 +6049,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6884,7 +6884,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9848,7 +9848,7 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

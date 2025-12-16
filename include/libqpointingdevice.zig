@@ -463,7 +463,7 @@ pub const qpointingdevice = struct {
     ///
     /// ` self: QtC.QPointingDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QPointingDevicegrabber: QtC.QObject, transition: qpointingdevice_enums.GrabTransition, event: QtC.QPointerEvent, point: QtC.QEventPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPointingDevice, grabber: QtC.QObject, transition: qpointingdevice_enums.GrabTransition, event: QtC.QPointerEvent, point: QtC.QEventPoint) callconv(.c) void `
     ///
     pub fn OnGrabChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPointingDevice_Connect_GrabChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -705,7 +705,7 @@ pub const qpointingdevice = struct {
     ///
     /// ` self: QtC.QPointingDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QPointingDevicearea: QtC.QRect) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPointingDevice, area: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnAvailableVirtualGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QRect) callconv(.c) void) void {
         qtc.QInputDevice_Connect_AvailableVirtualGeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1292,7 +1292,7 @@ pub const qpointingdevice = struct {
     ///
     /// ` self: QtC.QPointingDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QPointingDeviceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPointingDevice, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1834,7 +1834,7 @@ pub const qpointingdevice = struct {
     ///
     /// ` self: QtC.QPointingDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QPointingDeviceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPointingDevice, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

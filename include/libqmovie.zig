@@ -576,7 +576,7 @@ pub const qmovie = struct {
     ///
     /// ` self: QtC.QMovie `
     ///
-    /// ` callback: *const fn (self: QtC.QMoviesize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMovie, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMovie_Connect_Resized(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -600,7 +600,7 @@ pub const qmovie = struct {
     ///
     /// ` self: QtC.QMovie `
     ///
-    /// ` callback: *const fn (self: QtC.QMovierect: QtC.QRect) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMovie, rect: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMovie_Connect_Updated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -624,7 +624,7 @@ pub const qmovie = struct {
     ///
     /// ` self: QtC.QMovie `
     ///
-    /// ` callback: *const fn (self: QtC.QMoviestate: qmovie_enums.MovieState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMovie, state: qmovie_enums.MovieState) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMovie_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -648,7 +648,7 @@ pub const qmovie = struct {
     ///
     /// ` self: QtC.QMovie `
     ///
-    /// ` callback: *const fn (self: QtC.QMovieerrorVal: qimagereader_enums.ImageReaderError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMovie, errorVal: qimagereader_enums.ImageReaderError) callconv(.c) void `
     ///
     pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMovie_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -694,7 +694,7 @@ pub const qmovie = struct {
     ///
     /// ` self: QtC.QMovie `
     ///
-    /// ` callback: *const fn (self: QtC.QMovieframeNumber: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMovie, frameNumber: i32) callconv(.c) void `
     ///
     pub fn OnFrameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMovie_Connect_FrameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1361,7 +1361,7 @@ pub const qmovie = struct {
     ///
     /// ` self: QtC.QMovie `
     ///
-    /// ` callback: *const fn (self: QtC.QMovieparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMovie, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1903,7 +1903,7 @@ pub const qmovie = struct {
     ///
     /// ` self: QtC.QMovie `
     ///
-    /// ` callback: *const fn (self: QtC.QMovieobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMovie, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -293,7 +293,7 @@ pub const kkeysequencerecorder = struct {
     ///
     /// ` self: QtC.KKeySequenceRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.KKeySequenceRecorderkeySequence: QtC.QKeySequence) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KKeySequenceRecorder, keySequence: QtC.QKeySequence) callconv(.c) void `
     ///
     pub fn OnGotKeySequence(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_GotKeySequence(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1060,7 +1060,7 @@ pub const kkeysequencerecorder = struct {
     ///
     /// ` self: QtC.KKeySequenceRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.KKeySequenceRecorderparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KKeySequenceRecorder, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1602,7 +1602,7 @@ pub const kkeysequencerecorder = struct {
     ///
     /// ` self: QtC.KKeySequenceRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.KKeySequenceRecorderobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KKeySequenceRecorder, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

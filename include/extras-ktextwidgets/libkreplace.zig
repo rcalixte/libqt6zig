@@ -382,7 +382,7 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    /// ` callback: *const fn (self: QtC.KReplacetext: [*:0]const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KReplace, text: [*:0]const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32) callconv(.c) void `
     ///
     pub fn OnTextReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32, i32) callconv(.c) void) void {
         qtc.KReplace_Connect_TextReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -664,7 +664,7 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    /// ` callback: *const fn (self: QtC.KReplacetext: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KReplace, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
     pub fn OnTextFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -696,7 +696,7 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    /// ` callback: *const fn (self: QtC.KReplaceid: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KReplace, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
     pub fn OnTextFoundAtId(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFoundAtId(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1401,7 +1401,7 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    /// ` callback: *const fn (self: QtC.KReplaceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KReplace, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2143,7 +2143,7 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    /// ` callback: *const fn (self: QtC.KReplaceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KReplace, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

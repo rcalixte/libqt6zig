@@ -309,7 +309,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxismin: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, min: f64) callconv(.c) void `
     ///
     pub fn OnMinChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QLogValueAxis_Connect_MinChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -333,7 +333,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxismax: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, max: f64) callconv(.c) void `
     ///
     pub fn OnMaxChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QLogValueAxis_Connect_MaxChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -359,7 +359,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxismin: f64, max: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, min: f64, max: f64) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, f64) callconv(.c) void) void {
         qtc.QLogValueAxis_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -387,7 +387,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisformat: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLabelFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLogValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -411,7 +411,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisbase: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, base: f64) callconv(.c) void `
     ///
     pub fn OnBaseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QLogValueAxis_Connect_BaseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -435,7 +435,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxistickCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, tickCount: i32) callconv(.c) void `
     ///
     pub fn OnTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QLogValueAxis_Connect_TickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -459,7 +459,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisminorTickCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, minorTickCount: i32) callconv(.c) void `
     ///
     pub fn OnMinorTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QLogValueAxis_Connect_MinorTickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1289,7 +1289,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1317,7 +1317,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxispen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1345,7 +1345,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnLineVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1373,7 +1373,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1401,7 +1401,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisbrush: QtC.QBrush) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnLabelsBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1429,7 +1429,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxispen: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, pen: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1457,7 +1457,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisangle: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, angle: i32) callconv(.c) void `
     ///
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1485,7 +1485,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxispen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1513,7 +1513,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1541,7 +1541,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1569,7 +1569,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxispen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1597,7 +1597,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxiscolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1625,7 +1625,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxiscolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1653,7 +1653,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxiscolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1681,7 +1681,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxiscolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1713,7 +1713,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxistitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1741,7 +1741,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisbrush: QtC.QBrush) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnTitleBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1769,7 +1769,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnTitleVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1797,7 +1797,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnTitleFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1825,7 +1825,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnShadesVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1853,7 +1853,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxiscolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnShadesColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1881,7 +1881,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxiscolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnShadesBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1909,7 +1909,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxispen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnShadesPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1937,7 +1937,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisbrush: QtC.QBrush) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnShadesBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1965,7 +1965,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisreverse: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, reverse: bool) callconv(.c) void `
     ///
     pub fn OnReverseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1993,7 +1993,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxiseditable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, editable: bool) callconv(.c) void `
     ///
     pub fn OnLabelsEditableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2021,7 +2021,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxislabelsTruncated: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, labelsTruncated: bool) callconv(.c) void `
     ///
     pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2049,7 +2049,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxistruncateLabels: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, truncateLabels: bool) callconv(.c) void `
     ///
     pub fn OnTruncateLabelsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2760,7 +2760,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3302,7 +3302,7 @@ pub const qlogvalueaxis = struct {
     ///
     /// ` self: QtC.QLogValueAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QLogValueAxisobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLogValueAxis, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -480,7 +480,7 @@ pub const qcandlesticklegendmarker = struct {
     ///
     /// ` self: QtC.QCandlestickLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QCandlestickLegendMarkerstatus: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCandlestickLegendMarker, status: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1233,7 +1233,7 @@ pub const qcandlesticklegendmarker = struct {
     ///
     /// ` self: QtC.QCandlestickLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QCandlestickLegendMarkerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCandlestickLegendMarker, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1775,7 +1775,7 @@ pub const qcandlesticklegendmarker = struct {
     ///
     /// ` self: QtC.QCandlestickLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QCandlestickLegendMarkerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCandlestickLegendMarker, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

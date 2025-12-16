@@ -224,7 +224,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineparam1: QtC.QTreeWidgetItem, param2: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidgetItem, param2: bool) callconv(.c) void `
     ///
     pub fn OnHiddenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_HiddenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -252,7 +252,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLinesearchString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, searchString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSearchUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_SearchUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -276,7 +276,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLinecaseSensitivity: qnamespace_enums.CaseSensitivity) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, caseSensitivity: qnamespace_enums.CaseSensitivity) callconv(.c) void `
     ///
     pub fn OnCaseSensitivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_CaseSensitivityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -300,7 +300,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLinekeepParentsVisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, keepParentsVisible: bool) callconv(.c) void `
     ///
     pub fn OnKeepParentsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_KeepParentsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1696,7 +1696,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1728,7 +1728,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1758,7 +1758,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineparam1: i32, param2: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: i32, param2: i32) callconv(.c) void `
     ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5357,7 +5357,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLinetitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5385,7 +5385,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5417,7 +5417,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5445,7 +5445,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLinepos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6280,7 +6280,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9156,7 +9156,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` self: QtC.KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLineobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

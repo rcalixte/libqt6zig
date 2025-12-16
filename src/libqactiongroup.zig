@@ -304,7 +304,7 @@ pub const qactiongroup = struct {
     ///
     /// ` self: QtC.QActionGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QActionGroupparam1: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QActionGroup, param1: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QActionGroup_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -328,7 +328,7 @@ pub const qactiongroup = struct {
     ///
     /// ` self: QtC.QActionGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QActionGroupparam1: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QActionGroup, param1: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QActionGroup_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -941,7 +941,7 @@ pub const qactiongroup = struct {
     ///
     /// ` self: QtC.QActionGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QActionGroupparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QActionGroup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1483,7 +1483,7 @@ pub const qactiongroup = struct {
     ///
     /// ` self: QtC.QActionGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QActionGroupobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QActionGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

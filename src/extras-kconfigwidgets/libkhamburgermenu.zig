@@ -1176,7 +1176,7 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KHamburgerMenuenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHamburgerMenu, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1204,7 +1204,7 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KHamburgerMenucheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHamburgerMenu, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1310,7 +1310,7 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KHamburgerMenuparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHamburgerMenu, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1352,7 +1352,7 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KHamburgerMenuchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHamburgerMenu, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1923,7 +1923,7 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KHamburgerMenuparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHamburgerMenu, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2571,7 +2571,7 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KHamburgerMenuobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHamburgerMenu, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

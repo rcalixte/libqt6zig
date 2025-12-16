@@ -136,7 +136,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowe: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, e: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnUnhandledShortcutOverride(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__MainWindow_Connect_UnhandledShortcutOverride(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -261,7 +261,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowview: QtC.KTextEditor__View) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnViewChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__MainWindow_Connect_ViewChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -285,7 +285,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowview: QtC.KTextEditor__View) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnViewCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__MainWindow_Connect_ViewCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -473,7 +473,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowname: [*:0]const u8, pluginView: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, name: [*:0]const u8, pluginView: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnPluginViewCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__MainWindow_Connect_PluginViewCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -503,7 +503,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowname: [*:0]const u8, pluginView: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, name: [*:0]const u8, pluginView: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnPluginViewDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__MainWindow_Connect_PluginViewDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -590,7 +590,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowwidget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnWidgetAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__MainWindow_Connect_WidgetAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -614,7 +614,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowwidget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnWidgetRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__MainWindow_Connect_WidgetRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1279,7 +1279,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1821,7 +1821,7 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindowobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__MainWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

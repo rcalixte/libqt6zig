@@ -2032,7 +2032,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
     ///
     pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2058,7 +2058,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
     ///
     pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2084,7 +2084,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
     ///
     pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2110,7 +2110,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
     ///
     pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2136,7 +2136,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
     ///
     pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2162,7 +2162,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void `
     ///
     pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2186,7 +2186,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemExpanded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemExpanded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2210,7 +2210,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetitem: QtC.QTreeWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemCollapsed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_ItemCollapsed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2236,7 +2236,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetcurrent: QtC.QTreeWidgetItem, previous: QtC.QTreeWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, current: QtC.QTreeWidgetItem, previous: QtC.QTreeWidgetItem) callconv(.c) void `
     ///
     pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTreeWidget_Connect_CurrentItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3343,7 +3343,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnExpanded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTreeView_Connect_Expanded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3371,7 +3371,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCollapsed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTreeView_Connect_Collapsed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4295,7 +4295,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4323,7 +4323,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4351,7 +4351,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4379,7 +4379,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4407,7 +4407,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4461,7 +4461,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8347,7 +8347,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8375,7 +8375,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8407,7 +8407,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8435,7 +8435,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9270,7 +9270,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -15312,7 +15312,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

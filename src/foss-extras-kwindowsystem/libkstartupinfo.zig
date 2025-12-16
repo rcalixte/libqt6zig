@@ -361,7 +361,7 @@ pub const kstartupinfo = struct {
     ///
     /// ` self: QtC.KStartupInfo `
     ///
-    /// ` callback: *const fn (self: QtC.KStartupInfoid: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStartupInfo, id: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
     ///
     pub fn OnGotNewStartup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KStartupInfo_Connect_GotNewStartup(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -387,7 +387,7 @@ pub const kstartupinfo = struct {
     ///
     /// ` self: QtC.KStartupInfo `
     ///
-    /// ` callback: *const fn (self: QtC.KStartupInfoid: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStartupInfo, id: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
     ///
     pub fn OnGotStartupChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KStartupInfo_Connect_GotStartupChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -413,7 +413,7 @@ pub const kstartupinfo = struct {
     ///
     /// ` self: QtC.KStartupInfo `
     ///
-    /// ` callback: *const fn (self: QtC.KStartupInfoid: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStartupInfo, id: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
     ///
     pub fn OnGotRemoveStartup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KStartupInfo_Connect_GotRemoveStartup(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1066,7 +1066,7 @@ pub const kstartupinfo = struct {
     ///
     /// ` self: QtC.KStartupInfo `
     ///
-    /// ` callback: *const fn (self: QtC.KStartupInfoparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStartupInfo, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1560,7 +1560,7 @@ pub const kstartupinfo = struct {
     ///
     /// ` self: QtC.KStartupInfo `
     ///
-    /// ` callback: *const fn (self: QtC.KStartupInfoobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStartupInfo, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

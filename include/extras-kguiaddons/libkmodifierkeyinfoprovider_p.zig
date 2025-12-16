@@ -282,7 +282,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderkey: qnamespace_enums.Key, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
     ///
     pub fn OnKeyLatched(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyLatched(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -308,7 +308,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderkey: qnamespace_enums.Key, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
     ///
     pub fn OnKeyLocked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyLocked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -334,7 +334,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderkey: qnamespace_enums.Key, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
     ///
     pub fn OnKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -360,7 +360,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderbutton: qnamespace_enums.MouseButton, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton, state: bool) callconv(.c) void `
     ///
     pub fn OnButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_ButtonPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -384,7 +384,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderkey: qnamespace_enums.Key) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void `
     ///
     pub fn OnKeyAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -408,7 +408,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderkey: qnamespace_enums.Key) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void `
     ///
     pub fn OnKeyRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1065,7 +1065,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1607,7 +1607,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` self: QtC.KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProviderobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

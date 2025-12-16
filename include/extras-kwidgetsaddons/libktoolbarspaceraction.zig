@@ -1048,7 +1048,7 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` self: QtC.KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerActionenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1076,7 +1076,7 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` self: QtC.KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerActioncheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1182,7 +1182,7 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` self: QtC.KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerActionparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1224,7 +1224,7 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` self: QtC.KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerActionchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1795,7 +1795,7 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` self: QtC.KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerActionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2443,7 +2443,7 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` self: QtC.KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -3872,7 +3872,7 @@ pub const kseparator = struct {
     ///
     /// ` self: QtC.KSeparator `
     ///
-    /// ` callback: *const fn (self: QtC.KSeparatortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSeparator, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3900,7 +3900,7 @@ pub const kseparator = struct {
     ///
     /// ` self: QtC.KSeparator `
     ///
-    /// ` callback: *const fn (self: QtC.KSeparatoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSeparator, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3932,7 +3932,7 @@ pub const kseparator = struct {
     ///
     /// ` self: QtC.KSeparator `
     ///
-    /// ` callback: *const fn (self: QtC.KSeparatoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSeparator, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3960,7 +3960,7 @@ pub const kseparator = struct {
     ///
     /// ` self: QtC.KSeparator `
     ///
-    /// ` callback: *const fn (self: QtC.KSeparatorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSeparator, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4795,7 +4795,7 @@ pub const kseparator = struct {
     ///
     /// ` self: QtC.KSeparator `
     ///
-    /// ` callback: *const fn (self: QtC.KSeparatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSeparator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7771,7 +7771,7 @@ pub const kseparator = struct {
     ///
     /// ` self: QtC.KSeparator `
     ///
-    /// ` callback: *const fn (self: QtC.KSeparatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSeparator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -159,7 +159,7 @@ pub const kxmessages = struct {
     ///
     /// ` self: QtC.KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessagesmessage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXMessages, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnGotMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KXMessages_Connect_GotMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -793,7 +793,7 @@ pub const kxmessages = struct {
     ///
     /// ` self: QtC.KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessagesparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXMessages, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1335,7 +1335,7 @@ pub const kxmessages = struct {
     ///
     /// ` self: QtC.KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessagesobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXMessages, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

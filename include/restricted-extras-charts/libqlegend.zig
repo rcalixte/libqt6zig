@@ -432,7 +432,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, visible: bool) callconv(.c) void `
     ///
     pub fn OnBackgroundVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegend_Connect_BackgroundVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -456,7 +456,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendcolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QLegend_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -480,7 +480,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendcolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QLegend_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -504,7 +504,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QFont) callconv(.c) void) void {
         qtc.QLegend_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -528,7 +528,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendcolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnLabelColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QLegend_Connect_LabelColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -552,7 +552,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendreverseMarkers: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, reverseMarkers: bool) callconv(.c) void `
     ///
     pub fn OnReverseMarkersChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegend_Connect_ReverseMarkersChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -576,7 +576,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendshowToolTips: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, showToolTips: bool) callconv(.c) void `
     ///
     pub fn OnShowToolTipsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegend_Connect_ShowToolTipsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -600,7 +600,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendshape: qlegend_enums.MarkerShape) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, shape: qlegend_enums.MarkerShape) callconv(.c) void `
     ///
     pub fn OnMarkerShapeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QLegend_Connect_MarkerShapeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -624,7 +624,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendattachedToChart: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, attachedToChart: bool) callconv(.c) void `
     ///
     pub fn OnAttachedToChartChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegend_Connect_AttachedToChartChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -648,7 +648,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendinteractive: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, interactive: bool) callconv(.c) void `
     ///
     pub fn OnInteractiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegend_Connect_InteractiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2583,7 +2583,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5517,7 +5517,7 @@ pub const qlegend = struct {
     ///
     /// ` self: QtC.QLegend `
     ///
-    /// ` callback: *const fn (self: QtC.QLegendobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLegend, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

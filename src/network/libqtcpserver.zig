@@ -493,7 +493,7 @@ pub const qtcpserver = struct {
     ///
     /// ` self: QtC.QTcpServer `
     ///
-    /// ` callback: *const fn (self: QtC.QTcpServersocketError: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTcpServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
     pub fn OnAcceptError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1158,7 +1158,7 @@ pub const qtcpserver = struct {
     ///
     /// ` self: QtC.QTcpServer `
     ///
-    /// ` callback: *const fn (self: QtC.QTcpServerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTcpServer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1714,7 +1714,7 @@ pub const qtcpserver = struct {
     ///
     /// ` self: QtC.QTcpServer `
     ///
-    /// ` callback: *const fn (self: QtC.QTcpServerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTcpServer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -652,7 +652,7 @@ pub const klocalizedqmlcontext = struct {
     ///
     /// ` self: QtC.KLocalizedQmlContext `
     ///
-    /// ` callback: *const fn (self: QtC.KLocalizedQmlContexttranslationDomain: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLocalizedQmlContext, translationDomain: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTranslationDomainChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLocalizedQmlContext_Connect_TranslationDomainChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8035,7 +8035,7 @@ pub const klocalizedqmlcontext = struct {
     ///
     /// ` self: QtC.KLocalizedQmlContext `
     ///
-    /// ` callback: *const fn (self: QtC.KLocalizedQmlContextparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLocalizedQmlContext, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8525,7 +8525,7 @@ pub const klocalizedqmlcontext = struct {
     ///
     /// ` self: QtC.KLocalizedQmlContext `
     ///
-    /// ` callback: *const fn (self: QtC.KLocalizedQmlContextobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLocalizedQmlContext, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

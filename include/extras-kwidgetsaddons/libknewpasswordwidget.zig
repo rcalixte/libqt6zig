@@ -3877,7 +3877,7 @@ pub const knewpasswordwidget = struct {
     ///
     /// ` self: QtC.KNewPasswordWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KNewPasswordWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNewPasswordWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3905,7 +3905,7 @@ pub const knewpasswordwidget = struct {
     ///
     /// ` self: QtC.KNewPasswordWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KNewPasswordWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNewPasswordWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3937,7 +3937,7 @@ pub const knewpasswordwidget = struct {
     ///
     /// ` self: QtC.KNewPasswordWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KNewPasswordWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNewPasswordWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3965,7 +3965,7 @@ pub const knewpasswordwidget = struct {
     ///
     /// ` self: QtC.KNewPasswordWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KNewPasswordWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNewPasswordWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4800,7 +4800,7 @@ pub const knewpasswordwidget = struct {
     ///
     /// ` self: QtC.KNewPasswordWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KNewPasswordWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNewPasswordWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7680,7 +7680,7 @@ pub const knewpasswordwidget = struct {
     ///
     /// ` self: QtC.KNewPasswordWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KNewPasswordWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNewPasswordWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

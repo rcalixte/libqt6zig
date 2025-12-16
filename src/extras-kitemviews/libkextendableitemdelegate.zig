@@ -305,7 +305,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateextender: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnExtenderCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KExtendableItemDelegate_Connect_ExtenderCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -331,7 +331,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateextender: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnExtenderDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KExtendableItemDelegate_Connect_ExtenderDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -627,7 +627,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateeditor: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -655,7 +655,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateeditor: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -683,7 +683,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateparam1: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, param1: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -713,7 +713,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateeditor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
     pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1284,7 +1284,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2392,7 +2392,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KExtendableItemDelegateobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KExtendableItemDelegate, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

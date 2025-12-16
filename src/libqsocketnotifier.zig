@@ -851,7 +851,7 @@ pub const qsocketnotifier = struct {
     ///
     /// ` self: QtC.QSocketNotifier `
     ///
-    /// ` callback: *const fn (self: QtC.QSocketNotifierparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSocketNotifier, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1343,7 +1343,7 @@ pub const qsocketnotifier = struct {
     ///
     /// ` self: QtC.QSocketNotifier `
     ///
-    /// ` callback: *const fn (self: QtC.QSocketNotifiersocket: QtC.QSocketDescriptor, activationEvent: qsocketnotifier_enums.Type) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSocketNotifier, socket: QtC.QSocketDescriptor, activationEvent: qsocketnotifier_enums.Type) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QSocketDescriptor, i32) callconv(.c) void) void {
         qtc.QSocketNotifier_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1359,7 +1359,7 @@ pub const qsocketnotifier = struct {
     ///
     /// ` self: QtC.QSocketNotifier `
     ///
-    /// ` callback: *const fn (self: QtC.QSocketNotifierobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSocketNotifier, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

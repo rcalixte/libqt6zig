@@ -323,7 +323,7 @@ pub const kglobalaccel = struct {
     ///
     /// ` self: QtC.KGlobalAccel `
     ///
-    /// ` callback: *const fn (self: QtC.KGlobalAccelaction: QtC.QAction, seq: QtC.QKeySequence) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGlobalAccel, action: QtC.QAction, seq: QtC.QKeySequence) callconv(.c) void `
     ///
     pub fn OnGlobalShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KGlobalAccel_Connect_GlobalShortcutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -349,7 +349,7 @@ pub const kglobalaccel = struct {
     ///
     /// ` self: QtC.KGlobalAccel `
     ///
-    /// ` callback: *const fn (self: QtC.KGlobalAccelaction: QtC.QAction, active: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGlobalAccel, action: QtC.QAction, active: bool) callconv(.c) void `
     ///
     pub fn OnGlobalShortcutActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KGlobalAccel_Connect_GlobalShortcutActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1067,7 +1067,7 @@ pub const kglobalaccel = struct {
     ///
     /// ` self: QtC.KGlobalAccel `
     ///
-    /// ` callback: *const fn (self: QtC.KGlobalAccelparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGlobalAccel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1083,7 +1083,7 @@ pub const kglobalaccel = struct {
     ///
     /// ` self: QtC.KGlobalAccel `
     ///
-    /// ` callback: *const fn (self: QtC.KGlobalAccelobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGlobalAccel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

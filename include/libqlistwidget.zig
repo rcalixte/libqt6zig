@@ -1518,7 +1518,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetitem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1542,7 +1542,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetitem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1566,7 +1566,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetitem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1590,7 +1590,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetitem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1614,7 +1614,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetitem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1638,7 +1638,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetitem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1664,7 +1664,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetcurrent: QtC.QListWidgetItem, previous: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, current: QtC.QListWidgetItem, previous: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QListWidget_Connect_CurrentItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1692,7 +1692,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetcurrentText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, currentText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCurrentTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QListWidget_Connect_CurrentTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1716,7 +1716,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetcurrentRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, currentRow: i32) callconv(.c) void `
     ///
     pub fn OnCurrentRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QListWidget_Connect_CurrentRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2518,7 +2518,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetindexes: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, indexes: [*]QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) void) void {
         qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3334,7 +3334,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3362,7 +3362,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3390,7 +3390,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3418,7 +3418,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3446,7 +3446,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3500,7 +3500,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7386,7 +7386,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7414,7 +7414,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7446,7 +7446,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7474,7 +7474,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8309,7 +8309,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -14035,7 +14035,7 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QListWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QListWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

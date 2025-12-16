@@ -301,7 +301,7 @@ pub const kparts__part = struct {
     ///
     /// ` self: QtC.KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Partcaption: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__Part, caption: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetWindowCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -329,7 +329,7 @@ pub const kparts__part = struct {
     ///
     /// ` self: QtC.KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Parttext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__Part, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1186,7 +1186,7 @@ pub const kparts__part = struct {
     ///
     /// ` self: QtC.KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Partparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__Part, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2893,7 +2893,7 @@ pub const kparts__part = struct {
     ///
     /// ` self: QtC.KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__Part, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

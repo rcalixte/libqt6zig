@@ -806,7 +806,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageprogress: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, progress: i32) callconv(.c) void `
     ///
     pub fn OnLoadProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LoadProgress(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -830,7 +830,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageok: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, ok: bool) callconv(.c) void `
     ///
     pub fn OnLoadFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LoadFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -854,7 +854,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageloadingInfo: QtC.QWebEngineLoadingInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, loadingInfo: QtC.QWebEngineLoadingInfo) callconv(.c) void `
     ///
     pub fn OnLoadingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LoadingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -882,7 +882,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageurl: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, url: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LinkHovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -928,7 +928,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagegeom: QtC.QRect) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, geom: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnGeometryChangeRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_GeometryChangeRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -976,7 +976,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagesecurityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void `
     ///
     pub fn OnFeaturePermissionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FeaturePermissionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1002,7 +1002,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagesecurityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void `
     ///
     pub fn OnFeaturePermissionRequestCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FeaturePermissionRequestCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1026,7 +1026,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagefullScreenRequest: QtC.QWebEngineFullScreenRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, fullScreenRequest: QtC.QWebEngineFullScreenRequest) callconv(.c) void `
     ///
     pub fn OnFullScreenRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineFullScreenRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FullScreenRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1050,7 +1050,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagepermissionRequest: QtC.QWebEnginePermission) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, permissionRequest: QtC.QWebEnginePermission) callconv(.c) void `
     ///
     pub fn OnPermissionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEnginePermission) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PermissionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1074,7 +1074,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagequotaRequest: QtC.QWebEngineQuotaRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, quotaRequest: QtC.QWebEngineQuotaRequest) callconv(.c) void `
     ///
     pub fn OnQuotaRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineQuotaRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_QuotaRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1098,7 +1098,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineRegisterProtocolHandlerRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineRegisterProtocolHandlerRequest) callconv(.c) void `
     ///
     pub fn OnRegisterProtocolHandlerRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineRegisterProtocolHandlerRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RegisterProtocolHandlerRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1122,7 +1122,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineFileSystemAccessRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineFileSystemAccessRequest) callconv(.c) void `
     ///
     pub fn OnFileSystemAccessRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineFileSystemAccessRequest) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FileSystemAccessRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1146,7 +1146,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageclientCertSelection: QtC.QWebEngineClientCertificateSelection) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, clientCertSelection: QtC.QWebEngineClientCertificateSelection) callconv(.c) void `
     ///
     pub fn OnSelectClientCertificate(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineClientCertificateSelection) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_SelectClientCertificate(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1172,7 +1172,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator) callconv(.c) void `
     ///
     pub fn OnAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_AuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1204,7 +1204,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1230,7 +1230,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageterminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void `
     ///
     pub fn OnRenderProcessTerminated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RenderProcessTerminated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1254,7 +1254,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineDesktopMediaRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineDesktopMediaRequest) callconv(.c) void `
     ///
     pub fn OnDesktopMediaRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_DesktopMediaRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1278,7 +1278,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagecertificateError: QtC.QWebEngineCertificateError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, certificateError: QtC.QWebEngineCertificateError) callconv(.c) void `
     ///
     pub fn OnCertificateError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_CertificateError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1302,7 +1302,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineNavigationRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineNavigationRequest) callconv(.c) void `
     ///
     pub fn OnNavigationRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_NavigationRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1326,7 +1326,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineNewWindowRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineNewWindowRequest) callconv(.c) void `
     ///
     pub fn OnNewWindowRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_NewWindowRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1354,7 +1354,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagetitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1378,7 +1378,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1402,7 +1402,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnIconUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_IconUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1426,7 +1426,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_IconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1450,7 +1450,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagefactor: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, factor: f64) callconv(.c) void `
     ///
     pub fn OnZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ZoomFactorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1474,7 +1474,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageposition: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, position: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnScrollPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ScrollPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1498,7 +1498,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagesize: QtC.QSizeF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, size: QtC.QSizeF) callconv(.c) void `
     ///
     pub fn OnContentsSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ContentsSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1522,7 +1522,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagemuted: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, muted: bool) callconv(.c) void `
     ///
     pub fn OnAudioMutedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_AudioMutedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1546,7 +1546,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerecentlyAudible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, recentlyAudible: bool) callconv(.c) void `
     ///
     pub fn OnRecentlyAudibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RecentlyAudibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1570,7 +1570,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagepid: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, pid: i64) callconv(.c) void `
     ///
     pub fn OnRenderProcessPidChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RenderProcessPidChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1600,7 +1600,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagefilePath: [*:0]const u8, success: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, filePath: [*:0]const u8, success: bool) callconv(.c) void `
     ///
     pub fn OnPdfPrintingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PdfPrintingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1646,7 +1646,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageframe: QtC.QWebEngineFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, frame: QtC.QWebEngineFrame) callconv(.c) void `
     ///
     pub fn OnPrintRequestedByFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineFrame) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PrintRequestedByFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1670,7 +1670,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagevisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, visible: bool) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1694,7 +1694,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagestate: qwebenginepage_enums.LifecycleState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState) callconv(.c) void `
     ///
     pub fn OnLifecycleStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LifecycleStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1718,7 +1718,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagestate: qwebenginepage_enums.LifecycleState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState) callconv(.c) void `
     ///
     pub fn OnRecommendedStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RecommendedStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1742,7 +1742,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageresult: QtC.QWebEngineFindTextResult) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, result: QtC.QWebEngineFindTextResult) callconv(.c) void `
     ///
     pub fn OnFindTextFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FindTextFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1788,7 +1788,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePagerequest: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void `
     ///
     pub fn OnWebAuthUxRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_WebAuthUxRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2943,7 +2943,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3437,7 +3437,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePageobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -2714,7 +2714,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirOperator_Connect_UrlEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2740,7 +2740,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorfiles: i32, dirs: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, files: i32, dirs: i32) callconv(.c) void `
     ///
     pub fn OnUpdateInformation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KDirOperator_Connect_UpdateInformation(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2768,7 +2768,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirOperator_Connect_Completion(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2814,7 +2814,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatornewView: QtC.QAbstractItemView) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, newView: QtC.QAbstractItemView) callconv(.c) void `
     ///
     pub fn OnViewChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirOperator_Connect_ViewChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2838,7 +2838,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatoritem: QtC.KFileItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void `
     ///
     pub fn OnFileHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirOperator_Connect_FileHighlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2862,7 +2862,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatoritem: QtC.KFileItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void `
     ///
     pub fn OnDirActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirOperator_Connect_DirActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2886,7 +2886,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatoritem: QtC.KFileItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void `
     ///
     pub fn OnFileSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirOperator_Connect_FileSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2918,7 +2918,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatoritem: QtC.KFileItem, event: QtC.QDropEvent, urls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem, event: QtC.QDropEvent, urls: [*]QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnDropped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
         qtc.KDirOperator_Connect_Dropped(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2944,7 +2944,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatoritem: QtC.KFileItem, menu: QtC.QMenu) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem, menu: QtC.QMenu) callconv(.c) void `
     ///
     pub fn OnContextMenuAboutToShow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirOperator_Connect_ContextMenuAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2968,7 +2968,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorsize: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, size: i32) callconv(.c) void `
     ///
     pub fn OnCurrentIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KDirOperator_Connect_CurrentIconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3018,7 +3018,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorurls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, urls: [*]QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnRenamingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
         qtc.KDirOperator_Connect_RenamingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6513,7 +6513,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6541,7 +6541,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6573,7 +6573,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6601,7 +6601,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7436,7 +7436,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -10168,7 +10168,7 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

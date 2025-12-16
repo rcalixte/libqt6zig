@@ -408,7 +408,7 @@ pub const qboxset = struct {
     ///
     /// ` self: QtC.QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSetstatus: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxSet, status: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QBoxSet_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -564,7 +564,7 @@ pub const qboxset = struct {
     ///
     /// ` self: QtC.QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSetindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxSet, index: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QBoxSet_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1199,7 +1199,7 @@ pub const qboxset = struct {
     ///
     /// ` self: QtC.QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxSet, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1741,7 +1741,7 @@ pub const qboxset = struct {
     ///
     /// ` self: QtC.QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxSet, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

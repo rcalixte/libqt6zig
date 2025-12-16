@@ -220,7 +220,7 @@ pub const ktexteditor__application = struct {
     ///
     /// ` self: QtC.KTextEditor__Application `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Applicationdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Application, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnDocumentCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Application_Connect_DocumentCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -244,7 +244,7 @@ pub const ktexteditor__application = struct {
     ///
     /// ` self: QtC.KTextEditor__Application `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Applicationdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Application, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnDocumentWillBeDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Application_Connect_DocumentWillBeDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -268,7 +268,7 @@ pub const ktexteditor__application = struct {
     ///
     /// ` self: QtC.KTextEditor__Application `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Applicationdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Application, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnDocumentDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Application_Connect_DocumentDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -314,7 +314,7 @@ pub const ktexteditor__application = struct {
     ///
     /// ` self: QtC.KTextEditor__Application `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Applicationname: [*:0]const u8, plugin: QtC.KTextEditor__Plugin) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Application, name: [*:0]const u8, plugin: QtC.KTextEditor__Plugin) callconv(.c) void `
     ///
     pub fn OnPluginCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Application_Connect_PluginCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -344,7 +344,7 @@ pub const ktexteditor__application = struct {
     ///
     /// ` self: QtC.KTextEditor__Application `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Applicationname: [*:0]const u8, plugin: QtC.KTextEditor__Plugin) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Application, name: [*:0]const u8, plugin: QtC.KTextEditor__Plugin) callconv(.c) void `
     ///
     pub fn OnPluginDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Application_Connect_PluginDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -975,7 +975,7 @@ pub const ktexteditor__application = struct {
     ///
     /// ` self: QtC.KTextEditor__Application `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Applicationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Application, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1517,7 +1517,7 @@ pub const ktexteditor__application = struct {
     ///
     /// ` self: QtC.KTextEditor__Application `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__ApplicationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Application, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

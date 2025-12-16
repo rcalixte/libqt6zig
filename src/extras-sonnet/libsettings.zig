@@ -1360,7 +1360,7 @@ pub const sonnet__settings = struct {
     ///
     /// ` self: QtC.Sonnet__Settings `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Settingsparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Settings, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1902,7 +1902,7 @@ pub const sonnet__settings = struct {
     ///
     /// ` self: QtC.Sonnet__Settings `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__SettingsobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Settings, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

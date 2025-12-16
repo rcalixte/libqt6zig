@@ -3217,7 +3217,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelitem: QtC.QStandardItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, item: QtC.QStandardItem) callconv(.c) void `
     ///
     pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QStandardItemModel_Connect_ItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3495,7 +3495,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModeltopLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3527,7 +3527,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelorientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3681,7 +3681,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModeltopLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
     ///
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3713,7 +3713,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
     ///
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3747,7 +3747,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3779,7 +3779,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3813,7 +3813,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4372,7 +4372,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6670,7 +6670,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6686,7 +6686,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6702,7 +6702,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6718,7 +6718,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6734,7 +6734,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6750,7 +6750,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6766,7 +6766,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6782,7 +6782,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelparent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6830,7 +6830,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelsourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6846,7 +6846,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelsourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6862,7 +6862,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelsourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6878,7 +6878,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelsourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6894,7 +6894,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ` self: QtC.QStandardItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QStandardItemModelobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStandardItemModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

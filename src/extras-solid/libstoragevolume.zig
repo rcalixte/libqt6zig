@@ -857,7 +857,7 @@ pub const solid__storagevolume = struct {
     ///
     /// ` self: QtC.Solid__StorageVolume `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageVolumeparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageVolume, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -873,7 +873,7 @@ pub const solid__storagevolume = struct {
     ///
     /// ` self: QtC.Solid__StorageVolume `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageVolumeobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageVolume, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

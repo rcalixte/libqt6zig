@@ -785,7 +785,7 @@ pub const qgraphicstransform = struct {
     ///
     /// ` self: QtC.QGraphicsTransform `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsTransformparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsTransform, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1327,7 +1327,7 @@ pub const qgraphicstransform = struct {
     ///
     /// ` self: QtC.QGraphicsTransform `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsTransformobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsTransform, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2289,7 +2289,7 @@ pub const qgraphicsscale = struct {
     ///
     /// ` self: QtC.QGraphicsScale `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsScaleparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScale, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2875,7 +2875,7 @@ pub const qgraphicsscale = struct {
     ///
     /// ` self: QtC.QGraphicsScale `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsScaleobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScale, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3783,7 +3783,7 @@ pub const qgraphicsrotation = struct {
     ///
     /// ` self: QtC.QGraphicsRotation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsRotationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsRotation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4369,7 +4369,7 @@ pub const qgraphicsrotation = struct {
     ///
     /// ` self: QtC.QGraphicsRotation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsRotationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsRotation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

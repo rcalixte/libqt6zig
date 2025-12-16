@@ -184,7 +184,7 @@ pub const qvideosink = struct {
     ///
     /// ` self: QtC.QVideoSink `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoSinkframe: QtC.QVideoFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVideoSink, frame: QtC.QVideoFrame) callconv(.c) void `
     ///
     pub fn OnVideoFrameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QVideoSink_Connect_VideoFrameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -212,7 +212,7 @@ pub const qvideosink = struct {
     ///
     /// ` self: QtC.QVideoSink `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoSinksubtitleText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVideoSink, subtitleText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSubtitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QVideoSink_Connect_SubtitleTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -847,7 +847,7 @@ pub const qvideosink = struct {
     ///
     /// ` self: QtC.QVideoSink `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoSinkparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVideoSink, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1389,7 +1389,7 @@ pub const qvideosink = struct {
     ///
     /// ` self: QtC.QVideoSink `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoSinkobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVideoSink, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

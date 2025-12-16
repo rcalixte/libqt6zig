@@ -195,7 +195,7 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidgetcut: [*]QtC.QKeySequence) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, cut: [*]QtC.QKeySequence) callconv(.c) void `
     ///
     pub fn OnShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QKeySequence) callconv(.c) void) void {
         qtc.KShortcutWidget_Connect_ShortcutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3752,7 +3752,7 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3780,7 +3780,7 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3812,7 +3812,7 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3840,7 +3840,7 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4675,7 +4675,7 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7555,7 +7555,7 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

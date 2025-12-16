@@ -296,7 +296,7 @@ pub const qvariantanimation = struct {
     ///
     /// ` self: QtC.QVariantAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QVariantAnimationvalue: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVariantAnimation, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QVariantAnimation_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -738,7 +738,7 @@ pub const qvariantanimation = struct {
     ///
     /// ` self: QtC.QVariantAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QVariantAnimationnewState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVariantAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -766,7 +766,7 @@ pub const qvariantanimation = struct {
     ///
     /// ` self: QtC.QVariantAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QVariantAnimationcurrentLoop: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVariantAnimation, currentLoop: i32) callconv(.c) void `
     ///
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -794,7 +794,7 @@ pub const qvariantanimation = struct {
     ///
     /// ` self: QtC.QVariantAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QVariantAnimationparam1: qabstractanimation_enums.Direction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVariantAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1455,7 +1455,7 @@ pub const qvariantanimation = struct {
     ///
     /// ` self: QtC.QVariantAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QVariantAnimationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVariantAnimation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1997,7 +1997,7 @@ pub const qvariantanimation = struct {
     ///
     /// ` self: QtC.QVariantAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QVariantAnimationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVariantAnimation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

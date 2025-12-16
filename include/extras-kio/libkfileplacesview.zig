@@ -890,7 +890,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnPlaceActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_PlaceActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -914,7 +914,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnTabRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_TabRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -938,7 +938,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnActiveTabRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_ActiveTabRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -962,7 +962,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnNewWindowRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_NewWindowRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -988,7 +988,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewindex: QtC.QModelIndex, menu: QtC.QMenu) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, index: QtC.QModelIndex, menu: QtC.QMenu) callconv(.c) void `
     ///
     pub fn OnContextMenuAboutToShow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_ContextMenuAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1012,7 +1012,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewallPlacesShown: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, allPlacesShown: bool) callconv(.c) void `
     ///
     pub fn OnAllPlacesShownChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_AllPlacesShownChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1036,7 +1036,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1064,7 +1064,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewdest: QtC.QUrl, event: QtC.QDropEvent, parent: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, dest: QtC.QUrl, event: QtC.QDropEvent, parent: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnUrlsDropped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_UrlsDropped(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1568,7 +1568,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewindexes: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, indexes: [*]QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) void) void {
         qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2380,7 +2380,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2408,7 +2408,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2436,7 +2436,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2464,7 +2464,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2492,7 +2492,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2546,7 +2546,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6432,7 +6432,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6460,7 +6460,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6492,7 +6492,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6520,7 +6520,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7355,7 +7355,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12485,7 +12485,7 @@ pub const kfileplacesview = struct {
     ///
     /// ` self: QtC.KFilePlacesView `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlacesViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlacesView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

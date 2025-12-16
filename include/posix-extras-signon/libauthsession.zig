@@ -161,7 +161,7 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthSessionerr: QtC.SignOn__Error) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, err: QtC.SignOn__Error) callconv(.c) void `
     ///
     pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -199,7 +199,7 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthSessionmechanisms: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, mechanisms: [*][*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMechanismsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_MechanismsAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -223,7 +223,7 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthSessionsessionData: QtC.SignOn__SessionData) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData) callconv(.c) void `
     ///
     pub fn OnResponse(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_Response(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -253,7 +253,7 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthSessionstate: authsession_enums.AuthSessionState, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, state: authsession_enums.AuthSessionState, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -994,7 +994,7 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthSessionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1010,7 +1010,7 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthSessionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

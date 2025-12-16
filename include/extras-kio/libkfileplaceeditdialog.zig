@@ -470,7 +470,7 @@ pub const kfileplaceeditdialog = struct {
     ///
     /// ` self: QtC.KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4001,7 +4001,7 @@ pub const kfileplaceeditdialog = struct {
     ///
     /// ` self: QtC.KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4029,7 +4029,7 @@ pub const kfileplaceeditdialog = struct {
     ///
     /// ` self: QtC.KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4061,7 +4061,7 @@ pub const kfileplaceeditdialog = struct {
     ///
     /// ` self: QtC.KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4089,7 +4089,7 @@ pub const kfileplaceeditdialog = struct {
     ///
     /// ` self: QtC.KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4924,7 +4924,7 @@ pub const kfileplaceeditdialog = struct {
     ///
     /// ` self: QtC.KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8076,7 +8076,7 @@ pub const kfileplaceeditdialog = struct {
     ///
     /// ` self: QtC.KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilePlaceEditDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

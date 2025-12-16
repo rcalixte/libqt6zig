@@ -459,7 +459,7 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ` self: QtC.QDataWidgetMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QDataWidgetMapperindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDataWidgetMapper_Connect_CurrentIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1072,7 +1072,7 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ` self: QtC.QDataWidgetMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QDataWidgetMapperparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1614,7 +1614,7 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ` self: QtC.QDataWidgetMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QDataWidgetMapperobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDataWidgetMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

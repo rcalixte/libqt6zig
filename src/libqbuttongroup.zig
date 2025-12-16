@@ -241,7 +241,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: QtC.QAbstractButton) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void `
     ///
     pub fn OnButtonClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -265,7 +265,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: QtC.QAbstractButton) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void `
     ///
     pub fn OnButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -289,7 +289,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: QtC.QAbstractButton) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void `
     ///
     pub fn OnButtonReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -315,7 +315,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: QtC.QAbstractButton, param2: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton, param2: bool) callconv(.c) void `
     ///
     pub fn OnButtonToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -339,7 +339,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void `
     ///
     pub fn OnIdClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -363,7 +363,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void `
     ///
     pub fn OnIdPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -387,7 +387,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void `
     ///
     pub fn OnIdReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -413,7 +413,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: i32, param2: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: i32, param2: bool) callconv(.c) void `
     ///
     pub fn OnIdToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1040,7 +1040,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1582,7 +1582,7 @@ pub const qbuttongroup = struct {
     ///
     /// ` self: QtC.QButtonGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QButtonGroupobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QButtonGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -758,7 +758,7 @@ pub const kauthorized = struct {
     ///
     /// ` self: QtC.KAuthorized `
     ///
-    /// ` callback: *const fn (self: QtC.KAuthorizedparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAuthorized, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -774,7 +774,7 @@ pub const kauthorized = struct {
     ///
     /// ` self: QtC.KAuthorized `
     ///
-    /// ` callback: *const fn (self: QtC.KAuthorizedobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAuthorized, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

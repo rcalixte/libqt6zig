@@ -477,7 +477,7 @@ pub const qpauseanimation = struct {
     ///
     /// ` self: QtC.QPauseAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QPauseAnimationnewState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPauseAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -505,7 +505,7 @@ pub const qpauseanimation = struct {
     ///
     /// ` self: QtC.QPauseAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QPauseAnimationcurrentLoop: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPauseAnimation, currentLoop: i32) callconv(.c) void `
     ///
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -533,7 +533,7 @@ pub const qpauseanimation = struct {
     ///
     /// ` self: QtC.QPauseAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QPauseAnimationparam1: qabstractanimation_enums.Direction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPauseAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1194,7 +1194,7 @@ pub const qpauseanimation = struct {
     ///
     /// ` self: QtC.QPauseAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QPauseAnimationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPauseAnimation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1788,7 +1788,7 @@ pub const qpauseanimation = struct {
     ///
     /// ` self: QtC.QPauseAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QPauseAnimationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPauseAnimation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

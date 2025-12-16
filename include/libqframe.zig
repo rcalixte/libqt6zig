@@ -4020,7 +4020,7 @@ pub const qframe = struct {
     ///
     /// ` self: QtC.QFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QFrametitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFrame, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4048,7 +4048,7 @@ pub const qframe = struct {
     ///
     /// ` self: QtC.QFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QFrameicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFrame, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4080,7 +4080,7 @@ pub const qframe = struct {
     ///
     /// ` self: QtC.QFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QFrameiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFrame, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4108,7 +4108,7 @@ pub const qframe = struct {
     ///
     /// ` self: QtC.QFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QFramepos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFrame, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4943,7 +4943,7 @@ pub const qframe = struct {
     ///
     /// ` self: QtC.QFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QFrameparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFrame, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7635,7 +7635,7 @@ pub const qframe = struct {
     ///
     /// ` self: QtC.QFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QFrameobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFrame, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

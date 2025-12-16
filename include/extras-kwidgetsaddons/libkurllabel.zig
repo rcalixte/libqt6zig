@@ -1326,7 +1326,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabellink: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, link: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLinkActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1358,7 +1358,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabellink: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, link: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkHovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4999,7 +4999,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabeltitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5027,7 +5027,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabelicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5059,7 +5059,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabeliconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5087,7 +5087,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabelpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5922,7 +5922,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabelparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8706,7 +8706,7 @@ pub const kurllabel = struct {
     ///
     /// ` self: QtC.KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabelobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlLabel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

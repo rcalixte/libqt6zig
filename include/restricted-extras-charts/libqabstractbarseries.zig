@@ -327,7 +327,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -355,7 +355,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesstatus: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, status: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -381,7 +381,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -407,7 +407,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -433,7 +433,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -505,7 +505,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesformat: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -529,7 +529,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesposition: qabstractbarseries_enums.LabelsPosition) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, position: qabstractbarseries_enums.LabelsPosition) callconv(.c) void `
     ///
     pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -553,7 +553,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesangle: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, angle: f64) callconv(.c) void `
     ///
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -577,7 +577,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesprecision: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, precision: i32) callconv(.c) void `
     ///
     pub fn OnLabelsPrecisionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsPrecisionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -605,7 +605,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriessets: [*]QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnBarsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -633,7 +633,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriessets: [*]QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnBarsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1629,7 +1629,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1645,7 +1645,7 @@ pub const qabstractbarseries = struct {
     ///
     /// ` self: QtC.QAbstractBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractBarSeriesobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractBarSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

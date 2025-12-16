@@ -353,7 +353,7 @@ pub const qaudiosource = struct {
     ///
     /// ` self: QtC.QAudioSource `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioSourcestate: qaudio_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioSource, state: qaudio_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAudioSource_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -966,7 +966,7 @@ pub const qaudiosource = struct {
     ///
     /// ` self: QtC.QAudioSource `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioSourceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioSource, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1508,7 +1508,7 @@ pub const qaudiosource = struct {
     ///
     /// ` self: QtC.QAudioSource `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioSourceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioSource, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

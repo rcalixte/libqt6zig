@@ -575,7 +575,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -599,7 +599,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatornewUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, newUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_UrlAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -623,7 +623,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatoreditable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, editable: bool) callconv(.c) void `
     ///
     pub fn OnEditableStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_EditableStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -671,7 +671,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatordestination: QtC.QUrl, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, destination: QtC.QUrl, event: QtC.QDropEvent) callconv(.c) void `
     ///
     pub fn OnUrlsDropped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_UrlsDropped(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -717,7 +717,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnTabRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_TabRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -741,7 +741,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnActiveTabRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_ActiveTabRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -765,7 +765,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnNewWindowRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_NewWindowRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -789,7 +789,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlSelectionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlNavigator_Connect_UrlSelectionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4714,7 +4714,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4742,7 +4742,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4774,7 +4774,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4802,7 +4802,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5637,7 +5637,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8081,7 +8081,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlNavigatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlNavigator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

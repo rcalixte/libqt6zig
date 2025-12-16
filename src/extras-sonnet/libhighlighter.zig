@@ -394,7 +394,7 @@ pub const sonnet__highlighter = struct {
     ///
     /// ` self: QtC.Sonnet__Highlighter `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Highlighterdescription: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Highlighter_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1409,7 +1409,7 @@ pub const sonnet__highlighter = struct {
     ///
     /// ` self: QtC.Sonnet__Highlighter `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Highlighterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2275,7 +2275,7 @@ pub const sonnet__highlighter = struct {
     ///
     /// ` self: QtC.Sonnet__Highlighter `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__HighlighterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

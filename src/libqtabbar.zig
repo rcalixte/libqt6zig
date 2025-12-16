@@ -931,7 +931,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTabBar_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -955,7 +955,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabCloseRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTabBar_Connect_TabCloseRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -981,7 +981,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarfrom: i32, to: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, from: i32, to: i32) callconv(.c) void `
     ///
     pub fn OnTabMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTabBar_Connect_TabMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1005,7 +1005,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabBarClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTabBar_Connect_TabBarClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1029,7 +1029,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabBarDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTabBar_Connect_TabBarDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5310,7 +5310,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBartitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5338,7 +5338,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBaricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5370,7 +5370,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBariconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5398,7 +5398,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6233,7 +6233,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8401,7 +8401,7 @@ pub const qtabbar = struct {
     ///
     /// ` self: QtC.QTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.QTabBarobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTabBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

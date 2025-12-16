@@ -260,7 +260,7 @@ pub const kxyselector = struct {
     ///
     /// ` self: QtC.KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelectorx: i32, y: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXYSelector, x: i32, y: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KXYSelector_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4069,7 +4069,7 @@ pub const kxyselector = struct {
     ///
     /// ` self: QtC.KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelectortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXYSelector, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4097,7 +4097,7 @@ pub const kxyselector = struct {
     ///
     /// ` self: QtC.KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelectoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXYSelector, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4129,7 +4129,7 @@ pub const kxyselector = struct {
     ///
     /// ` self: QtC.KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelectoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXYSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4157,7 +4157,7 @@ pub const kxyselector = struct {
     ///
     /// ` self: QtC.KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelectorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXYSelector, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4992,7 +4992,7 @@ pub const kxyselector = struct {
     ///
     /// ` self: QtC.KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelectorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXYSelector, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7636,7 +7636,7 @@ pub const kxyselector = struct {
     ///
     /// ` self: QtC.KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelectorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXYSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

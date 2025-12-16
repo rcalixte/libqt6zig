@@ -555,7 +555,7 @@ pub const qmediarecorder = struct {
     ///
     /// ` self: QtC.QMediaRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.QMediaRecorderstate: qmediarecorder_enums.RecorderState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMediaRecorder, state: qmediarecorder_enums.RecorderState) callconv(.c) void `
     ///
     pub fn OnRecorderStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_RecorderStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -579,7 +579,7 @@ pub const qmediarecorder = struct {
     ///
     /// ` self: QtC.QMediaRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.QMediaRecorderduration: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMediaRecorder, duration: i64) callconv(.c) void `
     ///
     pub fn OnDurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_DurationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -603,7 +603,7 @@ pub const qmediarecorder = struct {
     ///
     /// ` self: QtC.QMediaRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.QMediaRecorderlocation: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMediaRecorder, location: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnActualLocationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ActualLocationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -655,7 +655,7 @@ pub const qmediarecorder = struct {
     ///
     /// ` self: QtC.QMediaRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.QMediaRecordererrorVal: qmediarecorder_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMediaRecorder, errorVal: qmediarecorder_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1532,7 +1532,7 @@ pub const qmediarecorder = struct {
     ///
     /// ` self: QtC.QMediaRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.QMediaRecorderparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMediaRecorder, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2074,7 +2074,7 @@ pub const qmediarecorder = struct {
     ///
     /// ` self: QtC.QMediaRecorder `
     ///
-    /// ` callback: *const fn (self: QtC.QMediaRecorderobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMediaRecorder, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

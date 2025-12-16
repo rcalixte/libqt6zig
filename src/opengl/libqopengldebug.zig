@@ -575,7 +575,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLoggerdebugMessage: QtC.QOpenGLDebugMessage) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, debugMessage: QtC.QOpenGLDebugMessage) callconv(.c) void `
     ///
     pub fn OnMessageLogged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QOpenGLDebugLogger_Connect_MessageLogged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1398,7 +1398,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLoggerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1940,7 +1940,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLoggerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

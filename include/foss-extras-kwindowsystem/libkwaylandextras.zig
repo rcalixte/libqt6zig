@@ -136,7 +136,7 @@ pub const kwaylandextras = struct {
     ///
     /// ` self: QtC.KWaylandExtras `
     ///
-    /// ` callback: *const fn (self: QtC.KWaylandExtrasserial: i32, token: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWaylandExtras, serial: i32, token: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnXdgActivationTokenArrived(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.KWaylandExtras_Connect_XdgActivationTokenArrived(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -166,7 +166,7 @@ pub const kwaylandextras = struct {
     ///
     /// ` self: QtC.KWaylandExtras `
     ///
-    /// ` callback: *const fn (self: QtC.KWaylandExtraswindow: QtC.QWindow, handle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWaylandExtras, window: QtC.QWindow, handle: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowExported(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KWaylandExtras_Connect_WindowExported(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -809,7 +809,7 @@ pub const kwaylandextras = struct {
     ///
     /// ` self: QtC.KWaylandExtras `
     ///
-    /// ` callback: *const fn (self: QtC.KWaylandExtrasparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWaylandExtras, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -825,7 +825,7 @@ pub const kwaylandextras = struct {
     ///
     /// ` self: QtC.KWaylandExtras `
     ///
-    /// ` callback: *const fn (self: QtC.KWaylandExtrasobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWaylandExtras, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

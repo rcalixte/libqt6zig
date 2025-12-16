@@ -203,7 +203,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsEffectenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1252,7 +1252,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsEffectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1794,7 +1794,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsEffectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1973,7 +1973,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectcolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1997,7 +1997,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectstrength: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, strength: f64) callconv(.c) void `
     ///
     pub fn OnStrengthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_StrengthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2157,7 +2157,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2728,7 +2728,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3590,7 +3590,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3813,7 +3813,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectblurRadius: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, blurRadius: f64) callconv(.c) void `
     ///
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3837,7 +3837,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffecthints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void `
     ///
     pub fn OnBlurHintsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3997,7 +3997,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4568,7 +4568,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5382,7 +5382,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5693,7 +5693,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectoffset: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, offset: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnOffsetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_OffsetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5717,7 +5717,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectblurRadius: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, blurRadius: f64) callconv(.c) void `
     ///
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5741,7 +5741,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectcolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5901,7 +5901,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6472,7 +6472,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7286,7 +7286,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7465,7 +7465,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectopacity: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, opacity: f64) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7489,7 +7489,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectmask: QtC.QBrush) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnOpacityMaskChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityMaskChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7649,7 +7649,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8220,7 +8220,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9082,7 +9082,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

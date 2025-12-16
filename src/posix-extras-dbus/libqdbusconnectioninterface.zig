@@ -81,7 +81,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceservice: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnServiceRegistered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusConnectionInterface_Connect_ServiceRegistered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -109,7 +109,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceservice: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnServiceUnregistered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusConnectionInterface_Connect_ServiceUnregistered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -149,7 +149,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfacename: [*:0]const u8, oldOwner: [*:0]const u8, newOwner: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, name: [*:0]const u8, oldOwner: [*:0]const u8, newOwner: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnServiceOwnerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusConnectionInterface_Connect_ServiceOwnerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -175,7 +175,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceerrorVal: QtC.QDBusError, call: QtC.QDBusMessage) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, errorVal: QtC.QDBusError, call: QtC.QDBusMessage) callconv(.c) void `
     ///
     pub fn OnCallWithCallbackFailed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDBusConnectionInterface_Connect_CallWithCallbackFailed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -203,7 +203,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnNameAcquired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusConnectionInterface_Connect_NameAcquired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -231,7 +231,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnNameLost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusConnectionInterface_Connect_NameLost(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -271,7 +271,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceparam1: [*:0]const u8, param2: [*:0]const u8, param3: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8, param2: [*:0]const u8, param3: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnNameOwnerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusConnectionInterface_Connect_NameOwnerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1162,7 +1162,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1178,7 +1178,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` self: QtC.QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterfaceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

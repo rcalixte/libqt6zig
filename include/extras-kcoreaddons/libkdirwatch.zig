@@ -397,7 +397,7 @@ pub const kdirwatch = struct {
     ///
     /// ` self: QtC.KDirWatch `
     ///
-    /// ` callback: *const fn (self: QtC.KDirWatchpath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirWatch, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnDirty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Dirty(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -425,7 +425,7 @@ pub const kdirwatch = struct {
     ///
     /// ` self: QtC.KDirWatch `
     ///
-    /// ` callback: *const fn (self: QtC.KDirWatchpath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirWatch, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Created(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -453,7 +453,7 @@ pub const kdirwatch = struct {
     ///
     /// ` self: QtC.KDirWatch `
     ///
-    /// ` callback: *const fn (self: QtC.KDirWatchpath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirWatch, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Deleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1110,7 +1110,7 @@ pub const kdirwatch = struct {
     ///
     /// ` self: QtC.KDirWatch `
     ///
-    /// ` callback: *const fn (self: QtC.KDirWatchparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirWatch, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1604,7 +1604,7 @@ pub const kdirwatch = struct {
     ///
     /// ` self: QtC.KDirWatch `
     ///
-    /// ` callback: *const fn (self: QtC.KDirWatchobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirWatch, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -809,7 +809,7 @@ pub const qopengltimerquery = struct {
     ///
     /// ` self: QtC.QOpenGLTimerQuery `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLTimerQueryparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLTimerQuery, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1351,7 +1351,7 @@ pub const qopengltimerquery = struct {
     ///
     /// ` self: QtC.QOpenGLTimerQuery `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLTimerQueryobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLTimerQuery, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2208,7 +2208,7 @@ pub const qopengltimemonitor = struct {
     ///
     /// ` self: QtC.QOpenGLTimeMonitor `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLTimeMonitorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLTimeMonitor, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2750,7 +2750,7 @@ pub const qopengltimemonitor = struct {
     ///
     /// ` self: QtC.QOpenGLTimeMonitor `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLTimeMonitorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLTimeMonitor, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

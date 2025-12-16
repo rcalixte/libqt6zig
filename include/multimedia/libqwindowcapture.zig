@@ -240,7 +240,7 @@ pub const qwindowcapture = struct {
     ///
     /// ` self: QtC.QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCaptureparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWindowCapture, param1: bool) callconv(.c) void `
     ///
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWindowCapture_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -264,7 +264,7 @@ pub const qwindowcapture = struct {
     ///
     /// ` self: QtC.QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapturewindow: QtC.QCapturableWindow) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWindowCapture, window: QtC.QCapturableWindow) callconv(.c) void `
     ///
     pub fn OnWindowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QCapturableWindow) callconv(.c) void) void {
         qtc.QWindowCapture_Connect_WindowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -316,7 +316,7 @@ pub const qwindowcapture = struct {
     ///
     /// ` self: QtC.QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCaptureerrorVal: qwindowcapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWindowCapture, errorVal: qwindowcapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QWindowCapture_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -929,7 +929,7 @@ pub const qwindowcapture = struct {
     ///
     /// ` self: QtC.QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCaptureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWindowCapture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1471,7 +1471,7 @@ pub const qwindowcapture = struct {
     ///
     /// ` self: QtC.QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCaptureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWindowCapture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

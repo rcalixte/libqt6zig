@@ -242,7 +242,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionname: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, name: [*:0]u8) callconv(.c) void `
     ///
     pub fn OnCodecNameTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) void) void {
         qtc.KCodecAction_Connect_CodecNameTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -830,7 +830,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -858,7 +858,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, index: i32) callconv(.c) void `
     ///
     pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -890,7 +890,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActiontext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1804,7 +1804,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1832,7 +1832,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActioncheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1938,7 +1938,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1980,7 +1980,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2551,7 +2551,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3395,7 +3395,7 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

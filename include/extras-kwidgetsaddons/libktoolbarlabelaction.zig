@@ -208,7 +208,7 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// ` self: QtC.KToolBarLabelAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarLabelActionnewText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarLabelAction, newText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KToolBarLabelAction_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1208,7 +1208,7 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// ` self: QtC.KToolBarLabelAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarLabelActionenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarLabelAction, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1236,7 +1236,7 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// ` self: QtC.KToolBarLabelAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarLabelActioncheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarLabelAction, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1342,7 +1342,7 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// ` self: QtC.KToolBarLabelAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarLabelActionparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarLabelAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1384,7 +1384,7 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// ` self: QtC.KToolBarLabelAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarLabelActionchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarLabelAction, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1955,7 +1955,7 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// ` self: QtC.KToolBarLabelAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarLabelActionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarLabelAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2503,7 +2503,7 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// ` self: QtC.KToolBarLabelAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarLabelActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KToolBarLabelAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

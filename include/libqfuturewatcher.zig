@@ -380,7 +380,7 @@ pub const qfuturewatcherbase = struct {
     ///
     /// ` self: QtC.QFutureWatcherBase `
     ///
-    /// ` callback: *const fn (self: QtC.QFutureWatcherBaseresultIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFutureWatcherBase, resultIndex: i32) callconv(.c) void `
     ///
     pub fn OnResultReadyAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ResultReadyAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -406,7 +406,7 @@ pub const qfuturewatcherbase = struct {
     ///
     /// ` self: QtC.QFutureWatcherBase `
     ///
-    /// ` callback: *const fn (self: QtC.QFutureWatcherBasebeginIndex: i32, endIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFutureWatcherBase, beginIndex: i32, endIndex: i32) callconv(.c) void `
     ///
     pub fn OnResultsReadyAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ResultsReadyAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -432,7 +432,7 @@ pub const qfuturewatcherbase = struct {
     ///
     /// ` self: QtC.QFutureWatcherBase `
     ///
-    /// ` callback: *const fn (self: QtC.QFutureWatcherBaseminimum: i32, maximum: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFutureWatcherBase, minimum: i32, maximum: i32) callconv(.c) void `
     ///
     pub fn OnProgressRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressRangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -456,7 +456,7 @@ pub const qfuturewatcherbase = struct {
     ///
     /// ` self: QtC.QFutureWatcherBase `
     ///
-    /// ` callback: *const fn (self: QtC.QFutureWatcherBaseprogressValue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFutureWatcherBase, progressValue: i32) callconv(.c) void `
     ///
     pub fn OnProgressValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -484,7 +484,7 @@ pub const qfuturewatcherbase = struct {
     ///
     /// ` self: QtC.QFutureWatcherBase `
     ///
-    /// ` callback: *const fn (self: QtC.QFutureWatcherBaseprogressText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFutureWatcherBase, progressText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnProgressTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1197,7 +1197,7 @@ pub const qfuturewatcherbase = struct {
     ///
     /// ` self: QtC.QFutureWatcherBase `
     ///
-    /// ` callback: *const fn (self: QtC.QFutureWatcherBaseparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFutureWatcherBase, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1213,7 +1213,7 @@ pub const qfuturewatcherbase = struct {
     ///
     /// ` self: QtC.QFutureWatcherBase `
     ///
-    /// ` callback: *const fn (self: QtC.QFutureWatcherBaseobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFutureWatcherBase, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

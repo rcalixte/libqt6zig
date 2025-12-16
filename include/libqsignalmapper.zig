@@ -218,7 +218,7 @@ pub const qsignalmapper = struct {
     ///
     /// ` self: QtC.QSignalMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalMapperparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSignalMapper, param1: i32) callconv(.c) void `
     ///
     pub fn OnMappedInt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSignalMapper_Connect_MappedInt(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -246,7 +246,7 @@ pub const qsignalmapper = struct {
     ///
     /// ` self: QtC.QSignalMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalMapperparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSignalMapper, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMappedString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSignalMapper_Connect_MappedString(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -270,7 +270,7 @@ pub const qsignalmapper = struct {
     ///
     /// ` self: QtC.QSignalMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalMapperparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSignalMapper, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnMappedObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSignalMapper_Connect_MappedObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -905,7 +905,7 @@ pub const qsignalmapper = struct {
     ///
     /// ` self: QtC.QSignalMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalMapperparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSignalMapper, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1447,7 +1447,7 @@ pub const qsignalmapper = struct {
     ///
     /// ` self: QtC.QSignalMapper `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalMapperobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSignalMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

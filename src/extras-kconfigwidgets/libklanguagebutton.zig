@@ -308,7 +308,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtonlanguageCode: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, languageCode: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLanguageButton_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -336,7 +336,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtonlanguageCode: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, languageCode: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLanguageButton_Connect_Highlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3901,7 +3901,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtontitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3929,7 +3929,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtonicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3961,7 +3961,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtoniconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3989,7 +3989,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtonpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4824,7 +4824,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtonparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7704,7 +7704,7 @@ pub const klanguagebutton = struct {
     ///
     /// ` self: QtC.KLanguageButton `
     ///
-    /// ` callback: *const fn (self: QtC.KLanguageButtonobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLanguageButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -752,7 +752,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewindexes: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, indexes: [*]QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) void) void {
         qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1564,7 +1564,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1592,7 +1592,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1620,7 +1620,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1648,7 +1648,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1676,7 +1676,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1730,7 +1730,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5616,7 +5616,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5644,7 +5644,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5676,7 +5676,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5704,7 +5704,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6539,7 +6539,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12457,7 +12457,7 @@ pub const qundoview = struct {
     ///
     /// ` self: QtC.QUndoView `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

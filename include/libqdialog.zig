@@ -304,7 +304,7 @@ pub const qdialog = struct {
     ///
     /// ` self: QtC.QDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4337,7 +4337,7 @@ pub const qdialog = struct {
     ///
     /// ` self: QtC.QDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4365,7 +4365,7 @@ pub const qdialog = struct {
     ///
     /// ` self: QtC.QDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4397,7 +4397,7 @@ pub const qdialog = struct {
     ///
     /// ` self: QtC.QDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4425,7 +4425,7 @@ pub const qdialog = struct {
     ///
     /// ` self: QtC.QDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5260,7 +5260,7 @@ pub const qdialog = struct {
     ///
     /// ` self: QtC.QDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7712,7 +7712,7 @@ pub const qdialog = struct {
     ///
     /// ` self: QtC.QDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -711,7 +711,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackidx: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, idx: i32) callconv(.c) void `
     ///
     pub fn OnIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QUndoStack_Connect_IndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -735,7 +735,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackclean: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, clean: bool) callconv(.c) void `
     ///
     pub fn OnCleanChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoStack_Connect_CleanChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -759,7 +759,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackcanUndo: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, canUndo: bool) callconv(.c) void `
     ///
     pub fn OnCanUndoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoStack_Connect_CanUndoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -783,7 +783,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackcanRedo: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, canRedo: bool) callconv(.c) void `
     ///
     pub fn OnCanRedoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoStack_Connect_CanRedoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -811,7 +811,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackundoText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, undoText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnUndoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoStack_Connect_UndoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -839,7 +839,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackredoText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, redoText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRedoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoStack_Connect_RedoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1500,7 +1500,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2042,7 +2042,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoStackobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoStack, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

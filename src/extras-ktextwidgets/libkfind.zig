@@ -533,7 +533,7 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFindtext: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFind, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
     pub fn OnTextFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -561,7 +561,7 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFindid: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFind, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
     pub fn OnTextFoundAtId(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFoundAtId(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1362,7 +1362,7 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFindparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFind, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1904,7 +1904,7 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFindobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFind, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

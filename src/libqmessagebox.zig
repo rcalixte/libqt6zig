@@ -1339,7 +1339,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxbutton: QtC.QAbstractButton) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, button: QtC.QAbstractButton) callconv(.c) void `
     ///
     pub fn OnButtonClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMessageBox_Connect_ButtonClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2811,7 +2811,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6310,7 +6310,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6338,7 +6338,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6370,7 +6370,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6398,7 +6398,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7233,7 +7233,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -10097,7 +10097,7 @@ pub const qmessagebox = struct {
     ///
     /// ` self: QtC.QMessageBox `
     ///
-    /// ` callback: *const fn (self: QtC.QMessageBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMessageBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

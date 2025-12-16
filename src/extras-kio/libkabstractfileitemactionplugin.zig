@@ -176,7 +176,7 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// ` self: QtC.KAbstractFileItemActionPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPluginerrorMessage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, errorMessage: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KAbstractFileItemActionPlugin_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -789,7 +789,7 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// ` self: QtC.KAbstractFileItemActionPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPluginparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1331,7 +1331,7 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// ` self: QtC.KAbstractFileItemActionPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPluginobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -837,7 +837,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowiconSize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, iconSize: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMainWindow_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -861,7 +861,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowtoolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
     ///
     pub fn OnToolButtonStyleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMainWindow_Connect_ToolButtonStyleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -885,7 +885,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowdockWidget: QtC.QDockWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, dockWidget: QtC.QDockWidget) callconv(.c) void `
     ///
     pub fn OnTabifiedDockWidgetActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMainWindow_Connect_TabifiedDockWidgetActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4534,7 +4534,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4562,7 +4562,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4594,7 +4594,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4622,7 +4622,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5457,7 +5457,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8241,7 +8241,7 @@ pub const qmainwindow = struct {
     ///
     /// ` self: QtC.QMainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMainWindowobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMainWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

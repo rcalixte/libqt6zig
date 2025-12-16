@@ -353,7 +353,7 @@ pub const qaudiosink = struct {
     ///
     /// ` self: QtC.QAudioSink `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioSinkstate: qaudio_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioSink, state: qaudio_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAudioSink_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -966,7 +966,7 @@ pub const qaudiosink = struct {
     ///
     /// ` self: QtC.QAudioSink `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioSinkparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioSink, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1508,7 +1508,7 @@ pub const qaudiosink = struct {
     ///
     /// ` self: QtC.QAudioSink `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioSinkobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioSink, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

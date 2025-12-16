@@ -1364,7 +1364,7 @@ pub const qspatialsound = struct {
     ///
     /// ` self: QtC.QSpatialSound `
     ///
-    /// ` callback: *const fn (self: QtC.QSpatialSoundparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpatialSound, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1906,7 +1906,7 @@ pub const qspatialsound = struct {
     ///
     /// ` self: QtC.QSpatialSound `
     ///
-    /// ` callback: *const fn (self: QtC.QSpatialSoundobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpatialSound, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

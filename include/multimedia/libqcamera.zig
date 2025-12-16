@@ -794,7 +794,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: bool) callconv(.c) void `
     ///
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QCamera_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -846,7 +846,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraerrorVal: qcamera_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, errorVal: qcamera_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QCamera_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -958,7 +958,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
     ///
     pub fn OnZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ZoomFactorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -982,7 +982,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
     ///
     pub fn OnMinimumZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_MinimumZoomFactorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1006,7 +1006,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
     ///
     pub fn OnMaximumZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_MaximumZoomFactorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1030,7 +1030,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
     ///
     pub fn OnFocusDistanceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_FocusDistanceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1098,7 +1098,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: bool) callconv(.c) void `
     ///
     pub fn OnFlashReady(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QCamera_Connect_FlashReady(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1166,7 +1166,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraspeed: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, speed: f32) callconv(.c) void `
     ///
     pub fn OnExposureTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ExposureTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1190,7 +1190,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraspeed: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, speed: f32) callconv(.c) void `
     ///
     pub fn OnManualExposureTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ManualExposureTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1214,7 +1214,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: i32) callconv(.c) void `
     ///
     pub fn OnIsoSensitivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QCamera_Connect_IsoSensitivityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1238,7 +1238,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: i32) callconv(.c) void `
     ///
     pub fn OnManualIsoSensitivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QCamera_Connect_ManualIsoSensitivityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1262,7 +1262,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
     ///
     pub fn OnExposureCompensationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ExposureCompensationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2029,7 +2029,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2571,7 +2571,7 @@ pub const qcamera = struct {
     ///
     /// ` self: QtC.QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCameraobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCamera, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

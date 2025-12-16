@@ -395,7 +395,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectoritem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_Added(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -419,7 +419,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectoritem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_Removed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -443,7 +443,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectoritem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnMovedUp(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_MovedUp(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -467,7 +467,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectoritem: QtC.QListWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnMovedDown(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_MovedDown(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4082,7 +4082,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4110,7 +4110,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4142,7 +4142,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4170,7 +4170,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5005,7 +5005,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7785,7 +7785,7 @@ pub const kactionselector = struct {
     ///
     /// ` self: QtC.KActionSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KActionSelectorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

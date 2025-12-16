@@ -531,7 +531,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: bool) callconv(.c) void `
     ///
     pub fn OnBackwardAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextBrowser_Connect_BackwardAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -555,7 +555,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: bool) callconv(.c) void `
     ///
     pub fn OnForwardAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextBrowser_Connect_ForwardAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -601,7 +601,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextBrowser_Connect_SourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -625,7 +625,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextBrowser_Connect_Highlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -649,7 +649,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnAnchorClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextBrowser_Connect_AnchorClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2392,7 +2392,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserb: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, b: bool) callconv(.c) void `
     ///
     pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2420,7 +2420,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserb: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, b: bool) callconv(.c) void `
     ///
     pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2448,7 +2448,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserformat: QtC.QTextCharFormat) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, format: QtC.QTextCharFormat) callconv(.c) void `
     ///
     pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2476,7 +2476,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserb: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, b: bool) callconv(.c) void `
     ///
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6514,7 +6514,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowsertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6542,7 +6542,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowsericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6574,7 +6574,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowsericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6602,7 +6602,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7437,7 +7437,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -10561,7 +10561,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowserobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBrowser, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

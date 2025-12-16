@@ -406,7 +406,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QScatterSeries_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -430,7 +430,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QScatterSeries_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -454,7 +454,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesshape: qscatterseries_enums.MarkerShape) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, shape: qscatterseries_enums.MarkerShape) callconv(.c) void `
     ///
     pub fn OnMarkerShapeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScatterSeries_Connect_MarkerShapeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -478,7 +478,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriessize: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, size: f64) callconv(.c) void `
     ///
     pub fn OnMarkerSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QScatterSeries_Connect_MarkerSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1607,7 +1607,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1637,7 +1637,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriespoint: QtC.QPointF, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, point: QtC.QPointF, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1665,7 +1665,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1693,7 +1693,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1721,7 +1721,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1749,7 +1749,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1777,7 +1777,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1805,7 +1805,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1833,7 +1833,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnSelectedColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_SelectedColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1891,7 +1891,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesformat: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1919,7 +1919,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1947,7 +1947,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnPointLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1975,7 +1975,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnPointLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2003,7 +2003,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesclipping: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, clipping: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsClippingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsClippingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2033,7 +2033,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesindex: i32, count: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, index: i32, count: i32) callconv(.c) void `
     ///
     pub fn OnPointsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2061,7 +2061,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriespen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2115,7 +2115,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSerieslightMarker: QtC.QImage) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, lightMarker: QtC.QImage) callconv(.c) void `
     ///
     pub fn OnLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_LightMarkerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2143,7 +2143,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesselectedLightMarker: QtC.QImage) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, selectedLightMarker: QtC.QImage) callconv(.c) void `
     ///
     pub fn OnSelectedLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_SelectedLightMarkerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2171,7 +2171,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnBestFitLineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLineVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2199,7 +2199,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriespen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnBestFitLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2227,7 +2227,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBestFitLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2274,7 +2274,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesconfiguration: map_i32_mapi32qtcqvariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, configuration: map_i32_mapi32qtcqvariant) callconv(.c) void `
     ///
     pub fn OnPointsConfigurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_i32_mapi32qtcqvariant) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsConfigurationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3246,7 +3246,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3788,7 +3788,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeriesobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

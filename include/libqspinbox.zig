@@ -604,7 +604,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, param1: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSpinBox_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -632,7 +632,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSpinBox_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4539,7 +4539,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4567,7 +4567,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4599,7 +4599,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4627,7 +4627,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5462,7 +5462,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8578,7 +8578,7 @@ pub const qspinbox = struct {
     ///
     /// ` self: QtC.QSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QSpinBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSpinBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9151,7 +9151,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxparam1: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, param1: f64) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QDoubleSpinBox_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9179,7 +9179,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDoubleSpinBox_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13086,7 +13086,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13114,7 +13114,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13146,7 +13146,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13174,7 +13174,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -14009,7 +14009,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -17173,7 +17173,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ` self: QtC.QDoubleSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleSpinBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleSpinBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

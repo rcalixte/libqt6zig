@@ -873,7 +873,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEditdateTime: QtC.QDateTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void `
     ///
     pub fn OnDateTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -897,7 +897,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEdittime: QtC.QTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, time: QtC.QTime) callconv(.c) void `
     ///
     pub fn OnTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -921,7 +921,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEditdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5396,7 +5396,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEdittitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5424,7 +5424,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEditicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5456,7 +5456,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEditiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5484,7 +5484,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEditpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6319,7 +6319,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEditparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8911,7 +8911,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ` self: QtC.QDateTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateTimeEditobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateTimeEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9068,7 +9068,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEdittime: QtC.QTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, time: QtC.QTime) callconv(.c) void `
     ///
     pub fn OnUserTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
         qtc.QTimeEdit_Connect_UserTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9756,7 +9756,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEditdateTime: QtC.QDateTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void `
     ///
     pub fn OnDateTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9784,7 +9784,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEdittime: QtC.QTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, time: QtC.QTime) callconv(.c) void `
     ///
     pub fn OnTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9812,7 +9812,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEditdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13719,7 +13719,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEdittitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13747,7 +13747,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEditicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13779,7 +13779,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEditiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13807,7 +13807,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEditpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -14642,7 +14642,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEditparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -18046,7 +18046,7 @@ pub const qtimeedit = struct {
     ///
     /// ` self: QtC.QTimeEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeEditobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -18203,7 +18203,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnUserDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QDateEdit_Connect_UserDateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -18891,7 +18891,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditdateTime: QtC.QDateTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, dateTime: QtC.QDateTime) callconv(.c) void `
     ///
     pub fn OnDateTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -18919,7 +18919,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEdittime: QtC.QTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, time: QtC.QTime) callconv(.c) void `
     ///
     pub fn OnTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -18947,7 +18947,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -22854,7 +22854,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEdittitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -22882,7 +22882,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -22914,7 +22914,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -22942,7 +22942,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -23777,7 +23777,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -27181,7 +27181,7 @@ pub const qdateedit = struct {
     ///
     /// ` self: QtC.QDateEdit `
     ///
-    /// ` callback: *const fn (self: QtC.QDateEditobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDateEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

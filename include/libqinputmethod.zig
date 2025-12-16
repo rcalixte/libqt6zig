@@ -449,7 +449,7 @@ pub const qinputmethod = struct {
     ///
     /// ` self: QtC.QInputMethod `
     ///
-    /// ` callback: *const fn (self: QtC.QInputMethodnewDirection: qnamespace_enums.LayoutDirection) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputMethod, newDirection: qnamespace_enums.LayoutDirection) callconv(.c) void `
     ///
     pub fn OnInputDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QInputMethod_Connect_InputDirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1092,7 +1092,7 @@ pub const qinputmethod = struct {
     ///
     /// ` self: QtC.QInputMethod `
     ///
-    /// ` callback: *const fn (self: QtC.QInputMethodparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputMethod, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1108,7 +1108,7 @@ pub const qinputmethod = struct {
     ///
     /// ` self: QtC.QInputMethod `
     ///
-    /// ` callback: *const fn (self: QtC.QInputMethodobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputMethod, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

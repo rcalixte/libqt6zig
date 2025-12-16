@@ -471,7 +471,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreengeometry: QtC.QRect) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, geometry: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_GeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -495,7 +495,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreengeometry: QtC.QRect) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, geometry: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnAvailableGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_AvailableGeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -519,7 +519,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreensize: QtC.QSizeF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, size: QtC.QSizeF) callconv(.c) void `
     ///
     pub fn OnPhysicalSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_PhysicalSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -543,7 +543,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreendpi: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, dpi: f64) callconv(.c) void `
     ///
     pub fn OnPhysicalDotsPerInchChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QScreen_Connect_PhysicalDotsPerInchChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -567,7 +567,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreendpi: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, dpi: f64) callconv(.c) void `
     ///
     pub fn OnLogicalDotsPerInchChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QScreen_Connect_LogicalDotsPerInchChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -591,7 +591,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreenrect: QtC.QRect) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, rect: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnVirtualGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_VirtualGeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -615,7 +615,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreenorientation: qnamespace_enums.ScreenOrientation) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void `
     ///
     pub fn OnPrimaryOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScreen_Connect_PrimaryOrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -639,7 +639,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreenorientation: qnamespace_enums.ScreenOrientation) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void `
     ///
     pub fn OnOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScreen_Connect_OrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -663,7 +663,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreenrefreshRate: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, refreshRate: f64) callconv(.c) void `
     ///
     pub fn OnRefreshRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QScreen_Connect_RefreshRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1386,7 +1386,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreenparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1402,7 +1402,7 @@ pub const qscreen = struct {
     ///
     /// ` self: QtC.QScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QScreenobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScreen, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

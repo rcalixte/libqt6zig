@@ -195,7 +195,7 @@ pub const knotificationaction = struct {
     ///
     /// ` self: QtC.KNotificationAction `
     ///
-    /// ` callback: *const fn (self: QtC.KNotificationActionlabel: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNotificationAction, label: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNotificationAction_Connect_LabelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -808,7 +808,7 @@ pub const knotificationaction = struct {
     ///
     /// ` self: QtC.KNotificationAction `
     ///
-    /// ` callback: *const fn (self: QtC.KNotificationActionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNotificationAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1350,7 +1350,7 @@ pub const knotificationaction = struct {
     ///
     /// ` self: QtC.KNotificationAction `
     ///
-    /// ` callback: *const fn (self: QtC.KNotificationActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNotificationAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3521,7 +3521,7 @@ pub const knotification = struct {
     ///
     /// ` self: QtC.KNotification `
     ///
-    /// ` callback: *const fn (self: QtC.KNotificationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNotification, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4015,7 +4015,7 @@ pub const knotification = struct {
     ///
     /// ` self: QtC.KNotification `
     ///
-    /// ` callback: *const fn (self: QtC.KNotificationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNotification, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

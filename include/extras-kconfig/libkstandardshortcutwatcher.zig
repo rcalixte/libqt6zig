@@ -83,7 +83,7 @@ pub const kstandardshortcut__standardshortcutwatcher = struct {
     ///
     /// ` self: QtC.KStandardShortcut__StandardShortcutWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcherid: kstandardshortcut_enums.StandardShortcut, shortcut: [*]QtC.QKeySequence) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcher, id: kstandardshortcut_enums.StandardShortcut, shortcut: [*]QtC.QKeySequence) callconv(.c) void `
     ///
     pub fn OnShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*]QtC.QKeySequence) callconv(.c) void) void {
         qtc.KStandardShortcut__StandardShortcutWatcher_Connect_ShortcutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -726,7 +726,7 @@ pub const kstandardshortcut__standardshortcutwatcher = struct {
     ///
     /// ` self: QtC.KStandardShortcut__StandardShortcutWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcherparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcher, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -742,7 +742,7 @@ pub const kstandardshortcut__standardshortcutwatcher = struct {
     ///
     /// ` self: QtC.KStandardShortcut__StandardShortcutWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcherobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcher, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

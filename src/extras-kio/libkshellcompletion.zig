@@ -831,7 +831,7 @@ pub const kshellcompletion = struct {
     ///
     /// ` self: QtC.KShellCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KShellCompletionitem: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShellCompletion, item: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Match(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -873,7 +873,7 @@ pub const kshellcompletion = struct {
     ///
     /// ` self: QtC.KShellCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KShellCompletionmatchlist: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShellCompletion, matchlist: [*][*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Matches(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1470,7 +1470,7 @@ pub const kshellcompletion = struct {
     ///
     /// ` self: QtC.KShellCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KShellCompletionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShellCompletion, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2892,7 +2892,7 @@ pub const kshellcompletion = struct {
     ///
     /// ` self: QtC.KShellCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KShellCompletionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShellCompletion, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

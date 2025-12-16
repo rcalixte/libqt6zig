@@ -739,7 +739,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerproxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
     ///
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -765,7 +765,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerreply: QtC.QNetworkReply, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, authenticator: QtC.QAuthenticator) callconv(.c) void `
     ///
     pub fn OnAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_AuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -789,7 +789,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerreply: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -813,7 +813,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerreply: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply) callconv(.c) void `
     ///
     pub fn OnEncrypted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_Encrypted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -843,7 +843,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerreply: QtC.QNetworkReply, errors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, errors: [*]QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -869,7 +869,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerreply: QtC.QNetworkReply, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
     pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1694,7 +1694,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2236,7 +2236,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkAccessManagerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkAccessManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -200,7 +200,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccessaccessible: bool, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, accessible: bool, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAccessibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_AccessibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -232,7 +232,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccesserrorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetupDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_SetupDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -264,7 +264,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccesserrorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTeardownDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_TeardownDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -292,7 +292,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccessudi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetupRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_SetupRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -320,7 +320,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccessudi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTeardownRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_TeardownRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -348,7 +348,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccessudi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCheckRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_CheckRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -380,7 +380,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccesserrorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCheckDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_CheckDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -408,7 +408,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccessudi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRepairRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_RepairRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -440,7 +440,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccesserrorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRepairDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_RepairDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1151,7 +1151,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccessparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1167,7 +1167,7 @@ pub const solid__storageaccess = struct {
     ///
     /// ` self: QtC.Solid__StorageAccess `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__StorageAccessobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__StorageAccess, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

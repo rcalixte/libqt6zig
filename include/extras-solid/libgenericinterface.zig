@@ -174,7 +174,7 @@ pub const solid__genericinterface = struct {
     ///
     /// ` self: QtC.Solid__GenericInterface `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__GenericInterfacechanges: map_constu8_i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, changes: map_constu8_i32) callconv(.c) void `
     ///
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_constu8_i32) callconv(.c) void) void {
         qtc.Solid__GenericInterface_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -208,7 +208,7 @@ pub const solid__genericinterface = struct {
     ///
     /// ` self: QtC.Solid__GenericInterface `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__GenericInterfacecondition: [*:0]const u8, reason: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, condition: [*:0]const u8, reason: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnConditionRaised(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__GenericInterface_Connect_ConditionRaised(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -904,7 +904,7 @@ pub const solid__genericinterface = struct {
     ///
     /// ` self: QtC.Solid__GenericInterface `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__GenericInterfaceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -920,7 +920,7 @@ pub const solid__genericinterface = struct {
     ///
     /// ` self: QtC.Solid__GenericInterface `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__GenericInterfaceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

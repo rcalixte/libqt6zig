@@ -310,7 +310,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtonnewColor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, newColor: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KColorButton_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1158,7 +1158,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1186,7 +1186,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4665,7 +4665,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtontitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4693,7 +4693,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtonicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4725,7 +4725,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtoniconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4753,7 +4753,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtonpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5588,7 +5588,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtonparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8276,7 +8276,7 @@ pub const kcolorbutton = struct {
     ///
     /// ` self: QtC.KColorButton `
     ///
-    /// ` callback: *const fn (self: QtC.KColorButtonobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KColorButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

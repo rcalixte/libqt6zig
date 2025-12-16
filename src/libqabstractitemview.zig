@@ -1991,7 +1991,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2015,7 +2015,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2039,7 +2039,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2063,7 +2063,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2087,7 +2087,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2133,7 +2133,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7719,7 +7719,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7747,7 +7747,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7779,7 +7779,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7807,7 +7807,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8642,7 +8642,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -10954,7 +10954,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -315,7 +315,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnCurrentFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CurrentFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -339,7 +339,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectc: QtC.QChar) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, c: QtC.QChar) callconv(.c) void `
     ///
     pub fn OnCurrentCharChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CurrentCharChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -363,7 +363,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectcodePoint: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, codePoint: u32) callconv(.c) void `
     ///
     pub fn OnCurrentCodePointChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, u32) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CurrentCodePointChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -409,7 +409,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectc: QtC.QChar) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, c: QtC.QChar) callconv(.c) void `
     ///
     pub fn OnCharSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CharSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -433,7 +433,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectcodePoint: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, codePoint: u32) callconv(.c) void `
     ///
     pub fn OnCodePointSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, u32) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CodePointSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3954,7 +3954,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelecttitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3982,7 +3982,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelecticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4014,7 +4014,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelecticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4042,7 +4042,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4877,7 +4877,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7713,7 +7713,7 @@ pub const kcharselect = struct {
     ///
     /// ` self: QtC.KCharSelect `
     ///
-    /// ` callback: *const fn (self: QtC.KCharSelectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCharSelect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

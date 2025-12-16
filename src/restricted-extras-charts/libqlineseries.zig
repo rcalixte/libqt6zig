@@ -1312,7 +1312,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1342,7 +1342,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriespoint: QtC.QPointF, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1370,7 +1370,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1398,7 +1398,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1426,7 +1426,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1454,7 +1454,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1482,7 +1482,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1510,7 +1510,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1538,7 +1538,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QXYSeries_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1566,7 +1566,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnSelectedColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_SelectedColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1624,7 +1624,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesformat: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1652,7 +1652,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1680,7 +1680,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnPointLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1708,7 +1708,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnPointLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1736,7 +1736,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesclipping: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, clipping: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsClippingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsClippingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1766,7 +1766,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesindex: i32, count: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, index: i32, count: i32) callconv(.c) void `
     ///
     pub fn OnPointsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1794,7 +1794,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriespen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1848,7 +1848,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSerieslightMarker: QtC.QImage) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, lightMarker: QtC.QImage) callconv(.c) void `
     ///
     pub fn OnLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_LightMarkerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1876,7 +1876,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesselectedLightMarker: QtC.QImage) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, selectedLightMarker: QtC.QImage) callconv(.c) void `
     ///
     pub fn OnSelectedLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_SelectedLightMarkerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1904,7 +1904,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnBestFitLineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLineVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1932,7 +1932,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriespen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnBestFitLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1960,7 +1960,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBestFitLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2007,7 +2007,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesconfiguration: map_i32_mapi32qtcqvariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, configuration: map_i32_mapi32qtcqvariant) callconv(.c) void `
     ///
     pub fn OnPointsConfigurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_i32_mapi32qtcqvariant) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsConfigurationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2035,7 +2035,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriessize: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, size: f64) callconv(.c) void `
     ///
     pub fn OnMarkerSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QXYSeries_Connect_MarkerSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3007,7 +3007,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3737,7 +3737,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QLineSeriesobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLineSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

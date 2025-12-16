@@ -241,7 +241,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgetparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, param1: i32) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStackedWidget_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -265,7 +265,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgetindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, index: i32) callconv(.c) void `
     ///
     pub fn OnWidgetRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStackedWidget_Connect_WidgetRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4002,7 +4002,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4030,7 +4030,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4062,7 +4062,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4090,7 +4090,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4925,7 +4925,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7853,7 +7853,7 @@ pub const qstackedwidget = struct {
     ///
     /// ` self: QtC.QStackedWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

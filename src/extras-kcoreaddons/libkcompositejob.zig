@@ -713,7 +713,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -747,7 +747,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -777,7 +777,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -807,7 +807,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -837,7 +837,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, speed: u64) callconv(.c) void `
     ///
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1436,7 +1436,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2794,7 +2794,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2810,7 +2810,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2826,7 +2826,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2842,7 +2842,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2858,7 +2858,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2874,7 +2874,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2890,7 +2890,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobjob: QtC.KJob, percent: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, job: QtC.KJob, percent: u64) callconv(.c) void `
     ///
     pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2906,7 +2906,7 @@ pub const kcompositejob = struct {
     ///
     /// ` self: QtC.KCompositeJob `
     ///
-    /// ` callback: *const fn (self: QtC.KCompositeJobobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompositeJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

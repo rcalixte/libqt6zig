@@ -455,7 +455,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -481,7 +481,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriespoint: QtC.QPointF, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -505,7 +505,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -529,7 +529,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -553,7 +553,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriespoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -599,7 +599,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -623,7 +623,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -651,7 +651,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriesformat: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -675,7 +675,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriesvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -699,7 +699,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriesfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnPointLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_PointLabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -723,7 +723,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriescolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnPointLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_PointLabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -747,7 +747,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriesclipping: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, clipping: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsClippingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_PointLabelsClippingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1721,7 +1721,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriesparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2263,7 +2263,7 @@ pub const qareaseries = struct {
     ///
     /// ` self: QtC.QAreaSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QAreaSeriesobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAreaSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

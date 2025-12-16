@@ -1454,7 +1454,7 @@ pub const qchartview = struct {
     ///
     /// ` self: QtC.QChartView `
     ///
-    /// ` callback: *const fn (self: QtC.QChartViewviewportRect: QtC.QRect, fromScenePoint: QtC.QPointF, toScenePoint: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChartView, viewportRect: QtC.QRect, fromScenePoint: QtC.QPointF, toScenePoint: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnRubberBandChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QRect, QtC.QPointF, QtC.QPointF) callconv(.c) void) void {
         qtc.QGraphicsView_Connect_RubberBandChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5699,7 +5699,7 @@ pub const qchartview = struct {
     ///
     /// ` self: QtC.QChartView `
     ///
-    /// ` callback: *const fn (self: QtC.QChartViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChartView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5727,7 +5727,7 @@ pub const qchartview = struct {
     ///
     /// ` self: QtC.QChartView `
     ///
-    /// ` callback: *const fn (self: QtC.QChartViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChartView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5759,7 +5759,7 @@ pub const qchartview = struct {
     ///
     /// ` self: QtC.QChartView `
     ///
-    /// ` callback: *const fn (self: QtC.QChartViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChartView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5787,7 +5787,7 @@ pub const qchartview = struct {
     ///
     /// ` self: QtC.QChartView `
     ///
-    /// ` callback: *const fn (self: QtC.QChartViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChartView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6584,7 +6584,7 @@ pub const qchartview = struct {
     ///
     /// ` self: QtC.QChartView `
     ///
-    /// ` callback: *const fn (self: QtC.QChartViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChartView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9768,7 +9768,7 @@ pub const qchartview = struct {
     ///
     /// ` self: QtC.QChartView `
     ///
-    /// ` callback: *const fn (self: QtC.QChartViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChartView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

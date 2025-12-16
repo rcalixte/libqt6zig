@@ -514,7 +514,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintscursorFlashTime: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, cursorFlashTime: i32) callconv(.c) void `
     ///
     pub fn OnCursorFlashTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_CursorFlashTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -538,7 +538,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintskeyboardInputInterval: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, keyboardInputInterval: i32) callconv(.c) void `
     ///
     pub fn OnKeyboardInputIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_KeyboardInputIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -562,7 +562,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsmouseDoubleClickInterval: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, mouseDoubleClickInterval: i32) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_MouseDoubleClickIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -586,7 +586,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsmousePressAndHoldInterval: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, mousePressAndHoldInterval: i32) callconv(.c) void `
     ///
     pub fn OnMousePressAndHoldIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_MousePressAndHoldIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -610,7 +610,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsstartDragDistance: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, startDragDistance: i32) callconv(.c) void `
     ///
     pub fn OnStartDragDistanceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_StartDragDistanceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -634,7 +634,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsstartDragTime: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, startDragTime: i32) callconv(.c) void `
     ///
     pub fn OnStartDragTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_StartDragTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -658,7 +658,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintstabFocusBehavior: qnamespace_enums.TabFocusBehavior) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, tabFocusBehavior: qnamespace_enums.TabFocusBehavior) callconv(.c) void `
     ///
     pub fn OnTabFocusBehaviorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_TabFocusBehaviorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -682,7 +682,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsuseHoverEffects: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, useHoverEffects: bool) callconv(.c) void `
     ///
     pub fn OnUseHoverEffectsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QStyleHints_Connect_UseHoverEffectsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -706,7 +706,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, param1: bool) callconv(.c) void `
     ///
     pub fn OnShowShortcutsInContextMenusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QStyleHints_Connect_ShowShortcutsInContextMenusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -730,7 +730,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintscontextMenuTrigger: qnamespace_enums.ContextMenuTrigger) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger) callconv(.c) void `
     ///
     pub fn OnContextMenuTriggerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_ContextMenuTriggerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -754,7 +754,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsscrollLines: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, scrollLines: i32) callconv(.c) void `
     ///
     pub fn OnWheelScrollLinesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_WheelScrollLinesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -778,7 +778,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsthreshold: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, threshold: i32) callconv(.c) void `
     ///
     pub fn OnMouseQuickSelectionThresholdChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_MouseQuickSelectionThresholdChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -802,7 +802,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintscolorScheme: qnamespace_enums.ColorScheme) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, colorScheme: qnamespace_enums.ColorScheme) callconv(.c) void `
     ///
     pub fn OnColorSchemeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_ColorSchemeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1445,7 +1445,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1461,7 +1461,7 @@ pub const qstylehints = struct {
     ///
     /// ` self: QtC.QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHintsobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStyleHints, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

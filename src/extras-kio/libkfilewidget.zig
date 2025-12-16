@@ -797,7 +797,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgetparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnFileSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileWidget_Connect_FileSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -821,7 +821,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgetparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnFileHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileWidget_Connect_FileHighlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -867,7 +867,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgetfilter: QtC.KFileFilter) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, filter: QtC.KFileFilter) callconv(.c) void `
     ///
     pub fn OnFilterChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFileWidget_Connect_FilterChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4464,7 +4464,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4492,7 +4492,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4524,7 +4524,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4552,7 +4552,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5387,7 +5387,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8075,7 +8075,7 @@ pub const kfilewidget = struct {
     ///
     /// ` self: QtC.KFileWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KFileWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

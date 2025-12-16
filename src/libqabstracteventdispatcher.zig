@@ -996,7 +996,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ` self: QtC.QAbstractEventDispatcher `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcherparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcher, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1012,7 +1012,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ` self: QtC.QAbstractEventDispatcher `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcherobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcher, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2080,7 +2080,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ` self: QtC.QAbstractEventDispatcherV2 `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcherV2param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcherV2, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2096,7 +2096,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ` self: QtC.QAbstractEventDispatcherV2 `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcherV2objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractEventDispatcherV2, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

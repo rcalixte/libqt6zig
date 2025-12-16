@@ -912,7 +912,7 @@ pub const qaction = struct {
     ///
     /// ` self: QtC.QAction `
     ///
-    /// ` callback: *const fn (self: QtC.QActionenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAction, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -936,7 +936,7 @@ pub const qaction = struct {
     ///
     /// ` self: QtC.QAction `
     ///
-    /// ` callback: *const fn (self: QtC.QActioncheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAction, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1026,7 +1026,7 @@ pub const qaction = struct {
     ///
     /// ` self: QtC.QAction `
     ///
-    /// ` callback: *const fn (self: QtC.QActionparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1104,7 +1104,7 @@ pub const qaction = struct {
     ///
     /// ` self: QtC.QAction `
     ///
-    /// ` callback: *const fn (self: QtC.QActionchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAction, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1675,7 +1675,7 @@ pub const qaction = struct {
     ///
     /// ` self: QtC.QAction `
     ///
-    /// ` callback: *const fn (self: QtC.QActionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2169,7 +2169,7 @@ pub const qaction = struct {
     ///
     /// ` self: QtC.QAction `
     ///
-    /// ` callback: *const fn (self: QtC.QActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

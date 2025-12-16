@@ -480,7 +480,7 @@ pub const qboxplotlegendmarker = struct {
     ///
     /// ` self: QtC.QBoxPlotLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxPlotLegendMarkerstatus: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxPlotLegendMarker, status: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1233,7 +1233,7 @@ pub const qboxplotlegendmarker = struct {
     ///
     /// ` self: QtC.QBoxPlotLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxPlotLegendMarkerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxPlotLegendMarker, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1775,7 +1775,7 @@ pub const qboxplotlegendmarker = struct {
     ///
     /// ` self: QtC.QBoxPlotLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxPlotLegendMarkerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxPlotLegendMarker, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -170,7 +170,7 @@ pub const attica__putjob = struct {
     ///
     /// ` self: QtC.Attica__PutJob `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__PutJobjob: QtC.Attica__BaseJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__PutJob, job: QtC.Attica__BaseJob) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Attica__BaseJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -771,7 +771,7 @@ pub const attica__putjob = struct {
     ///
     /// ` self: QtC.Attica__PutJob `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__PutJobparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__PutJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -787,7 +787,7 @@ pub const attica__putjob = struct {
     ///
     /// ` self: QtC.Attica__PutJob `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__PutJobobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__PutJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

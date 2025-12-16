@@ -636,7 +636,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActionaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -660,7 +660,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActionindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, index: i32) callconv(.c) void `
     ///
     pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -688,7 +688,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActiontext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1884,7 +1884,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActionenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1912,7 +1912,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActioncheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2018,7 +2018,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActionparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2060,7 +2060,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActionchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2631,7 +2631,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3131,7 +3131,7 @@ pub const kselectaction = struct {
     ///
     /// ` self: QtC.KSelectAction `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelectAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -1349,7 +1349,7 @@ pub const qtexttable = struct {
     ///
     /// ` self: QtC.QTextTable `
     ///
-    /// ` callback: *const fn (self: QtC.QTextTableparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextTable, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1891,7 +1891,7 @@ pub const qtexttable = struct {
     ///
     /// ` self: QtC.QTextTable `
     ///
-    /// ` callback: *const fn (self: QtC.QTextTableobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextTable, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

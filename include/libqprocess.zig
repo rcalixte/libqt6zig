@@ -1273,7 +1273,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcessexitCode: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, exitCode: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1297,7 +1297,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcesserrorVal: qprocess_enums.ProcessError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, errorVal: qprocess_enums.ProcessError) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1814,7 +1814,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcessexitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void `
     ///
     pub fn OnFinished2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished2(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2322,7 +2322,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcesschannel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, channel: i32) callconv(.c) void `
     ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2350,7 +2350,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcessbytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2380,7 +2380,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcesschannel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, channel: i32, bytes: i64) callconv(.c) void `
     ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3023,7 +3023,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcessparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4095,7 +4095,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcessstate: qprocess_enums.ProcessState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, state: qprocess_enums.ProcessState) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4139,7 +4139,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` callback: *const fn (self: QtC.QProcessobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProcess, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

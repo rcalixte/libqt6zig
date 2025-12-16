@@ -82,7 +82,7 @@ pub const knscore__questionmanager = struct {
     ///
     /// ` self: QtC.KNSCore__QuestionManager `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__QuestionManagerquestion: QtC.KNSCore__Question) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__QuestionManager, question: QtC.KNSCore__Question) callconv(.c) void `
     ///
     pub fn OnAskQuestion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__QuestionManager_Connect_AskQuestion(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -725,7 +725,7 @@ pub const knscore__questionmanager = struct {
     ///
     /// ` self: QtC.KNSCore__QuestionManager `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__QuestionManagerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__QuestionManager, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -741,7 +741,7 @@ pub const knscore__questionmanager = struct {
     ///
     /// ` self: QtC.KNSCore__QuestionManager `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__QuestionManagerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__QuestionManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -3974,7 +3974,7 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` callback: *const fn (self: QtC.KImageFilePreviewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KImageFilePreview, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4002,7 +4002,7 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` callback: *const fn (self: QtC.KImageFilePreviewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KImageFilePreview, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4034,7 +4034,7 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` callback: *const fn (self: QtC.KImageFilePreviewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KImageFilePreview, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4062,7 +4062,7 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` callback: *const fn (self: QtC.KImageFilePreviewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KImageFilePreview, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4897,7 +4897,7 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` callback: *const fn (self: QtC.KImageFilePreviewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KImageFilePreview, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7761,7 +7761,7 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` callback: *const fn (self: QtC.KImageFilePreviewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KImageFilePreview, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

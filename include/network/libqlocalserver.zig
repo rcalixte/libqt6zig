@@ -1125,7 +1125,7 @@ pub const qlocalserver = struct {
     ///
     /// ` self: QtC.QLocalServer `
     ///
-    /// ` callback: *const fn (self: QtC.QLocalServerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLocalServer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1667,7 +1667,7 @@ pub const qlocalserver = struct {
     ///
     /// ` self: QtC.QLocalServer `
     ///
-    /// ` callback: *const fn (self: QtC.QLocalServerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QLocalServer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

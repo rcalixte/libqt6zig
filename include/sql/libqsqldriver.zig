@@ -1302,7 +1302,7 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    /// ` callback: *const fn (self: QtC.QSqlDrivername: [*:0]const u8, source: qsqldriver_enums.NotificationSource, payload: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSqlDriver, name: [*:0]const u8, source: qsqldriver_enums.NotificationSource, payload: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnNotification(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QSqlDriver_Connect_Notification(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2035,7 +2035,7 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    /// ` callback: *const fn (self: QtC.QSqlDriverparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSqlDriver, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2577,7 +2577,7 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    /// ` callback: *const fn (self: QtC.QSqlDriverobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSqlDriver, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

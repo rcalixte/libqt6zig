@@ -183,7 +183,7 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` self: QtC.QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRendererdocument: QtC.QPdfDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, document: QtC.QPdfDocument) callconv(.c) void `
     ///
     pub fn OnDocumentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPdfPageRenderer_Connect_DocumentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -207,7 +207,7 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` self: QtC.QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRendererrenderMode: qpdfpagerenderer_enums.RenderMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, renderMode: qpdfpagerenderer_enums.RenderMode) callconv(.c) void `
     ///
     pub fn OnRenderModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfPageRenderer_Connect_RenderModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -239,7 +239,7 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` self: QtC.QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRendererpageNumber: i32, imageSize: QtC.QSize, image: QtC.QImage, options: QtC.QPdfDocumentRenderOptions, requestId: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, pageNumber: i32, imageSize: QtC.QSize, image: QtC.QImage, options: QtC.QPdfDocumentRenderOptions, requestId: u64) callconv(.c) void `
     ///
     pub fn OnPageRendered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QSize, ?*anyopaque, QtC.QPdfDocumentRenderOptions, u64) callconv(.c) void) void {
         qtc.QPdfPageRenderer_Connect_PageRendered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -868,7 +868,7 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` self: QtC.QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRendererparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1410,7 +1410,7 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` self: QtC.QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRendererobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

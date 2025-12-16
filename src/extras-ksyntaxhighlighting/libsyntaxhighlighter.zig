@@ -1019,7 +1019,7 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__SyntaxHighlighterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__SyntaxHighlighter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1961,7 +1961,7 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__SyntaxHighlighterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__SyntaxHighlighter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

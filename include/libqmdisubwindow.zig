@@ -363,7 +363,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiSubWindowoldState: flag of qnamespace_enums.WindowState, newState: flag of qnamespace_enums.WindowState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiSubWindow, oldState: flag of qnamespace_enums.WindowState, newState: flag of qnamespace_enums.WindowState) callconv(.c) void `
     ///
     pub fn OnWindowStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QMdiSubWindow_Connect_WindowStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4744,7 +4744,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiSubWindowtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiSubWindow, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4772,7 +4772,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiSubWindowicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiSubWindow, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4804,7 +4804,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiSubWindowiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiSubWindow, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4832,7 +4832,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiSubWindowpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiSubWindow, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5667,7 +5667,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiSubWindowparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiSubWindow, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7495,7 +7495,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiSubWindowobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiSubWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

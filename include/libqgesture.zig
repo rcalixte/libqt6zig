@@ -807,7 +807,7 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QGestureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGesture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1349,7 +1349,7 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QGestureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2261,7 +2261,7 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QPanGestureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPanGesture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2803,7 +2803,7 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QPanGestureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPanGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3889,7 +3889,7 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QPinchGestureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPinchGesture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4431,7 +4431,7 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QPinchGestureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPinchGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5317,7 +5317,7 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QSwipeGestureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSwipeGesture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5859,7 +5859,7 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QSwipeGestureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSwipeGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6717,7 +6717,7 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QTapGestureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTapGesture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7259,7 +7259,7 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QTapGestureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTapGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8133,7 +8133,7 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QTapAndHoldGestureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTapAndHoldGesture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8675,7 +8675,7 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` callback: *const fn (self: QtC.QTapAndHoldGestureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTapAndHoldGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

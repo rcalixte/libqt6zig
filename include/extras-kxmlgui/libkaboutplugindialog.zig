@@ -269,7 +269,7 @@ pub const kaboutplugindialog = struct {
     ///
     /// ` self: QtC.KAboutPluginDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KAboutPluginDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAboutPluginDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3800,7 +3800,7 @@ pub const kaboutplugindialog = struct {
     ///
     /// ` self: QtC.KAboutPluginDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KAboutPluginDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAboutPluginDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3828,7 +3828,7 @@ pub const kaboutplugindialog = struct {
     ///
     /// ` self: QtC.KAboutPluginDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KAboutPluginDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAboutPluginDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3860,7 +3860,7 @@ pub const kaboutplugindialog = struct {
     ///
     /// ` self: QtC.KAboutPluginDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KAboutPluginDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAboutPluginDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3888,7 +3888,7 @@ pub const kaboutplugindialog = struct {
     ///
     /// ` self: QtC.KAboutPluginDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KAboutPluginDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAboutPluginDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4723,7 +4723,7 @@ pub const kaboutplugindialog = struct {
     ///
     /// ` self: QtC.KAboutPluginDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KAboutPluginDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAboutPluginDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7875,7 +7875,7 @@ pub const kaboutplugindialog = struct {
     ///
     /// ` self: QtC.KAboutPluginDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KAboutPluginDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAboutPluginDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

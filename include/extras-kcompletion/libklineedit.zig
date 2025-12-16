@@ -472,7 +472,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCompletionBoxActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_CompletionBoxActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -500,7 +500,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEdittext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnReturnKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_ReturnKeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -528,7 +528,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_Completion(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -556,7 +556,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSubstringCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_SubstringCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -580,7 +580,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: kcompletionbase_enums.KeyBindingType) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void `
     ///
     pub fn OnTextRotation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KLineEdit_Connect_TextRotation(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -604,7 +604,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: kcompletion_enums.CompletionMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
     pub fn OnCompletionModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KLineEdit_Connect_CompletionModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -628,7 +628,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditcontextMenu: QtC.QMenu) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, contextMenu: QtC.QMenu) callconv(.c) void `
     ///
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLineEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2392,7 +2392,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2424,7 +2424,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2454,7 +2454,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: i32, param2: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: i32, param2: i32) callconv(.c) void `
     ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6053,7 +6053,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEdittitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6081,7 +6081,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6113,7 +6113,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6141,7 +6141,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6976,7 +6976,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -10006,7 +10006,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KLineEditobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KLineEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

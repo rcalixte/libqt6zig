@@ -259,7 +259,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterfaceresult: jobuidelegateextension_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: jobuidelegateextension_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnAskUserRenameResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskUserRenameResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -285,7 +285,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterfaceresult: jobuidelegateextension_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: jobuidelegateextension_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnAskUserSkipResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskUserSkipResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -319,7 +319,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterfaceallowDelete: bool, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, allowDelete: bool, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*]QtC.QUrl, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskUserDeleteResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -343,7 +343,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterfaceresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: i32) callconv(.c) void `
     ///
     pub fn OnMessageBoxResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_MessageBoxResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -367,7 +367,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterfaceresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: i32) callconv(.c) void `
     ///
     pub fn OnAskIgnoreSslErrorsResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1010,7 +1010,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterfaceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1026,7 +1026,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterfaceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

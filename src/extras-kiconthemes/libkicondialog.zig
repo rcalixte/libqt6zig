@@ -257,7 +257,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogiconName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, iconName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnNewIconName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KIconDialog_Connect_NewIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -741,7 +741,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4272,7 +4272,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4300,7 +4300,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4332,7 +4332,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4360,7 +4360,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5195,7 +5195,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8299,7 +8299,7 @@ pub const kicondialog = struct {
     ///
     /// ` self: QtC.KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIconDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

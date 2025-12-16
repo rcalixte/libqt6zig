@@ -568,7 +568,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequesterparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -596,7 +596,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequesterparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextEdited(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -624,7 +624,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequestertext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnReturnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_ReturnPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -648,7 +648,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequesterparam1: QtC.KUrlRequester) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, param1: QtC.KUrlRequester) callconv(.c) void `
     ///
     pub fn OnOpenFileDialog(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_OpenFileDialog(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -672,7 +672,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequesterparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_UrlSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4277,7 +4277,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequestertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4305,7 +4305,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequestericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4337,7 +4337,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequestericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4365,7 +4365,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequesterpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5200,7 +5200,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequesterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7980,7 +7980,7 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequesterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8583,7 +8583,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequesterparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8615,7 +8615,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequesterparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextEdited(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8647,7 +8647,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequestertext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnReturnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_ReturnPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8675,7 +8675,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequesterparam1: QtC.KUrlRequester) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, param1: QtC.KUrlRequester) callconv(.c) void `
     ///
     pub fn OnOpenFileDialog(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_OpenFileDialog(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8703,7 +8703,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequesterparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_UrlSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12182,7 +12182,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequestertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12210,7 +12210,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequestericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12242,7 +12242,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequestericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12270,7 +12270,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequesterpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13105,7 +13105,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequesterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -16029,7 +16029,7 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequesterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

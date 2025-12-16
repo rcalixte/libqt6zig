@@ -292,7 +292,7 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    /// ` callback: *const fn (self: QtC.KCategoryDrawerindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCollapseOrExpandClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_Connect_CollapseOrExpandClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -318,7 +318,7 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    /// ` callback: *const fn (self: QtC.KCategoryDraweraction: i32, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, action: i32, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_Connect_ActionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1167,7 +1167,7 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    /// ` callback: *const fn (self: QtC.KCategoryDrawerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1709,7 +1709,7 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    /// ` callback: *const fn (self: QtC.KCategoryDrawerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategoryDrawer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

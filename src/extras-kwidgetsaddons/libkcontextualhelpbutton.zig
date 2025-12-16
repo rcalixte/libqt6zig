@@ -238,7 +238,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonnewContextualHelpText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, newContextualHelpText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnContextualHelpTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KContextualHelpButton_Connect_ContextualHelpTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -488,7 +488,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonparam1: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, param1: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QToolButton_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -938,7 +938,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -966,7 +966,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4445,7 +4445,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtontitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4473,7 +4473,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4505,7 +4505,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtoniconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4533,7 +4533,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5368,7 +5368,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8388,7 +8388,7 @@ pub const kcontextualhelpbutton = struct {
     ///
     /// ` self: QtC.KContextualHelpButton `
     ///
-    /// ` callback: *const fn (self: QtC.KContextualHelpButtonobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KContextualHelpButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

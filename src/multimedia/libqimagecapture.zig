@@ -404,7 +404,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureid: i32, errorVal: qimagecapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -428,7 +428,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureready: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, ready: bool) callconv(.c) void `
     ///
     pub fn OnReadyForCaptureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ReadyForCaptureChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -540,7 +540,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureid: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, id: i32) callconv(.c) void `
     ///
     pub fn OnImageExposed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageExposed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -566,7 +566,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureid: i32, preview: QtC.QImage) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, id: i32, preview: QtC.QImage) callconv(.c) void `
     ///
     pub fn OnImageCaptured(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageCaptured(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -592,7 +592,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureid: i32, metaData: QtC.QMediaMetaData) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, id: i32, metaData: QtC.QMediaMetaData) callconv(.c) void `
     ///
     pub fn OnImageMetadataAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageMetadataAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -618,7 +618,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureid: i32, frame: QtC.QVideoFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, id: i32, frame: QtC.QVideoFrame) callconv(.c) void `
     ///
     pub fn OnImageAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -648,7 +648,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureid: i32, fileName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, id: i32, fileName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnImageSaved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageSaved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1277,7 +1277,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1819,7 +1819,7 @@ pub const qimagecapture = struct {
     ///
     /// ` self: QtC.QImageCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QImageCaptureobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QImageCapture, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

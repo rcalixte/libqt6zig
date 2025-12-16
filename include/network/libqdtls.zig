@@ -803,7 +803,7 @@ pub const qdtlsclientverifier = struct {
     ///
     /// ` self: QtC.QDtlsClientVerifier `
     ///
-    /// ` callback: *const fn (self: QtC.QDtlsClientVerifierparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1345,7 +1345,7 @@ pub const qdtlsclientverifier = struct {
     ///
     /// ` self: QtC.QDtlsClientVerifier `
     ///
-    /// ` callback: *const fn (self: QtC.QDtlsClientVerifierobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1845,7 +1845,7 @@ pub const qdtls = struct {
     ///
     /// ` self: QtC.QDtls `
     ///
-    /// ` callback: *const fn (self: QtC.QDtlsauthenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDtls, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
     pub fn OnPskRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDtls_Connect_PskRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2518,7 +2518,7 @@ pub const qdtls = struct {
     ///
     /// ` self: QtC.QDtls `
     ///
-    /// ` callback: *const fn (self: QtC.QDtlsparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDtls, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3060,7 +3060,7 @@ pub const qdtls = struct {
     ///
     /// ` self: QtC.QDtls `
     ///
-    /// ` callback: *const fn (self: QtC.QDtlsobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDtls, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

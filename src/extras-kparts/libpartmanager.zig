@@ -562,7 +562,7 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartManagerpart: QtC.KParts__Part) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__PartManager, part: QtC.KParts__Part) callconv(.c) void `
     ///
     pub fn OnPartAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__PartManager_Connect_PartAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -586,7 +586,7 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartManagerpart: QtC.KParts__Part) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__PartManager, part: QtC.KParts__Part) callconv(.c) void `
     ///
     pub fn OnPartRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__PartManager_Connect_PartRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -610,7 +610,7 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartManagernewPart: QtC.KParts__Part) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__PartManager, newPart: QtC.KParts__Part) callconv(.c) void `
     ///
     pub fn OnActivePartChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__PartManager_Connect_ActivePartChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1371,7 +1371,7 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartManagerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__PartManager, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1861,7 +1861,7 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartManagerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__PartManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

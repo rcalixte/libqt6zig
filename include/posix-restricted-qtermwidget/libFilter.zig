@@ -864,7 +864,7 @@ pub const konsole__filter = struct {
     ///
     /// ` self: QtC.Konsole__Filter `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Filterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1462,7 +1462,7 @@ pub const konsole__filter = struct {
     ///
     /// ` self: QtC.Konsole__Filter `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__FilterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2280,7 +2280,7 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3038,7 +3038,7 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3215,7 +3215,7 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__UrlFilterurl: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3882,7 +3882,7 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__UrlFilterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4628,7 +4628,7 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__UrlFilterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4781,7 +4781,7 @@ pub const konsole__filterobject = struct {
     ///
     /// ` self: QtC.Konsole__FilterObject `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__FilterObjecturl: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5394,7 +5394,7 @@ pub const konsole__filterobject = struct {
     ///
     /// ` self: QtC.Konsole__FilterObject `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__FilterObjectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5936,7 +5936,7 @@ pub const konsole__filterobject = struct {
     ///
     /// ` self: QtC.Konsole__FilterObject `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__FilterObjectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

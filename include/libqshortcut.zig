@@ -1103,7 +1103,7 @@ pub const qshortcut = struct {
     ///
     /// ` self: QtC.QShortcut `
     ///
-    /// ` callback: *const fn (self: QtC.QShortcutparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QShortcut, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1597,7 +1597,7 @@ pub const qshortcut = struct {
     ///
     /// ` self: QtC.QShortcut `
     ///
-    /// ` callback: *const fn (self: QtC.QShortcutobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QShortcut, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

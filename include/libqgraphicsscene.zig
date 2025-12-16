@@ -2027,7 +2027,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsSceneregion: [*]QtC.QRectF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScene, region: [*]QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QRectF) callconv(.c) void) void {
         qtc.QGraphicsScene_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2051,7 +2051,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsScenerect: QtC.QRectF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScene, rect: QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnSceneRectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsScene_Connect_SceneRectChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2101,7 +2101,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsScenenewFocus: QtC.QGraphicsItem, oldFocus: QtC.QGraphicsItem, reason: qnamespace_enums.FocusReason) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScene, newFocus: QtC.QGraphicsItem, oldFocus: QtC.QGraphicsItem, reason: qnamespace_enums.FocusReason) callconv(.c) void `
     ///
     pub fn OnFocusItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsScene_Connect_FocusItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3430,7 +3430,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsSceneparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScene, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3872,7 +3872,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsSceneobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScene, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

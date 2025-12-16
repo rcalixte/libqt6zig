@@ -773,7 +773,7 @@ pub const qscilexersql = struct {
     ///
     /// ` self: QtC.QsciLexerSQL `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerSQLc: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerSQL, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -803,7 +803,7 @@ pub const qscilexersql = struct {
     ///
     /// ` self: QtC.QsciLexerSQL `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerSQLeolfilled: bool, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerSQL, eolfilled: bool, style: i32) callconv(.c) void `
     ///
     pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -833,7 +833,7 @@ pub const qscilexersql = struct {
     ///
     /// ` self: QtC.QsciLexerSQL `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerSQLf: QtC.QFont, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerSQL, f: QtC.QFont, style: i32) callconv(.c) void `
     ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -863,7 +863,7 @@ pub const qscilexersql = struct {
     ///
     /// ` self: QtC.QsciLexerSQL `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerSQLc: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerSQL, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -895,7 +895,7 @@ pub const qscilexersql = struct {
     ///
     /// ` self: QtC.QsciLexerSQL `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerSQLprop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerSQL, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1500,7 +1500,7 @@ pub const qscilexersql = struct {
     ///
     /// ` self: QtC.QsciLexerSQL `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerSQLparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerSQL, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3400,7 +3400,7 @@ pub const qscilexersql = struct {
     ///
     /// ` self: QtC.QsciLexerSQL `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerSQLobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerSQL, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

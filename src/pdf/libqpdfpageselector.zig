@@ -184,7 +184,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectordocument: QtC.QPdfDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, document: QtC.QPdfDocument) callconv(.c) void `
     ///
     pub fn OnDocumentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPdfPageSelector_Connect_DocumentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -208,7 +208,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectorindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentPageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfPageSelector_Connect_CurrentPageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -236,7 +236,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectorlabel: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, label: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCurrentPageLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QPdfPageSelector_Connect_CurrentPageLabelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3757,7 +3757,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3785,7 +3785,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3817,7 +3817,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3845,7 +3845,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4680,7 +4680,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7560,7 +7560,7 @@ pub const qpdfpageselector = struct {
     ///
     /// ` self: QtC.QPdfPageSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageSelectorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

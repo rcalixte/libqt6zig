@@ -506,7 +506,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutblock: QtC.QTextBlock) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock) callconv(.c) void `
     ///
     pub fn OnUpdateBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_UpdateBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -530,7 +530,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutnewSize: QtC.QSizeF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, newSize: QtC.QSizeF) callconv(.c) void `
     ///
     pub fn OnDocumentSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_DocumentSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -554,7 +554,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutnewPages: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, newPages: i32) callconv(.c) void `
     ///
     pub fn OnPageCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_PageCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -914,7 +914,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutparam1: QtC.QRectF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnUpdate1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_Update1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1485,7 +1485,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2027,7 +2027,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayoutobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

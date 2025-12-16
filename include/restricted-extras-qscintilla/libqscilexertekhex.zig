@@ -370,7 +370,7 @@ pub const qscilexertekhex = struct {
     ///
     /// ` self: QtC.QsciLexerTekHex `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerTekHexc: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerTekHex, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -400,7 +400,7 @@ pub const qscilexertekhex = struct {
     ///
     /// ` self: QtC.QsciLexerTekHex `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerTekHexeolfilled: bool, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerTekHex, eolfilled: bool, style: i32) callconv(.c) void `
     ///
     pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -430,7 +430,7 @@ pub const qscilexertekhex = struct {
     ///
     /// ` self: QtC.QsciLexerTekHex `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerTekHexf: QtC.QFont, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerTekHex, f: QtC.QFont, style: i32) callconv(.c) void `
     ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -460,7 +460,7 @@ pub const qscilexertekhex = struct {
     ///
     /// ` self: QtC.QsciLexerTekHex `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerTekHexc: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerTekHex, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -492,7 +492,7 @@ pub const qscilexertekhex = struct {
     ///
     /// ` self: QtC.QsciLexerTekHex `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerTekHexprop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerTekHex, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1097,7 +1097,7 @@ pub const qscilexertekhex = struct {
     ///
     /// ` self: QtC.QsciLexerTekHex `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerTekHexparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerTekHex, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3303,7 +3303,7 @@ pub const qscilexertekhex = struct {
     ///
     /// ` self: QtC.QsciLexerTekHex `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerTekHexobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerTekHex, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

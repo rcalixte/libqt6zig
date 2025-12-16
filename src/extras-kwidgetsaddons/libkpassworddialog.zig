@@ -533,7 +533,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogpassword: [*:0]const u8, keep: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, password: [*:0]const u8, keep: bool) callconv(.c) void `
     ///
     pub fn OnGotPassword(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.KPasswordDialog_Connect_GotPassword(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -569,7 +569,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogusername: [*:0]const u8, password: [*:0]const u8, keep: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, username: [*:0]const u8, password: [*:0]const u8, keep: bool) callconv(.c) void `
     ///
     pub fn OnGotUsernameAndPassword(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.KPasswordDialog_Connect_GotUsernameAndPassword(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -759,7 +759,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4290,7 +4290,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4318,7 +4318,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4350,7 +4350,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4378,7 +4378,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5213,7 +5213,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8321,7 +8321,7 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPasswordDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPasswordDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
