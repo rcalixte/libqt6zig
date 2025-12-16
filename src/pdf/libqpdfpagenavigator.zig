@@ -242,7 +242,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatorpage: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, page: i32) callconv(.c) void `
     ///
     pub fn OnCurrentPageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfPageNavigator_Connect_CurrentPageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -266,7 +266,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatorlocation: QtC.QPointF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, location: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnCurrentLocationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QPointF) callconv(.c) void) void {
         qtc.QPdfPageNavigator_Connect_CurrentLocationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -290,7 +290,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatorzoom: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, zoom: f64) callconv(.c) void `
     ///
     pub fn OnCurrentZoomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QPdfPageNavigator_Connect_CurrentZoomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -314,7 +314,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatoravailable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, available: bool) callconv(.c) void `
     ///
     pub fn OnBackAvailableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QPdfPageNavigator_Connect_BackAvailableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -338,7 +338,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatoravailable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, available: bool) callconv(.c) void `
     ///
     pub fn OnForwardAvailableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QPdfPageNavigator_Connect_ForwardAvailableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -362,7 +362,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatorcurrent: QtC.QPdfLink) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, current: QtC.QPdfLink) callconv(.c) void `
     ///
     pub fn OnJumped(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QPdfLink) callconv(.c) void) void {
         qtc.QPdfPageNavigator_Connect_Jumped(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1027,7 +1027,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1569,7 +1569,7 @@ pub const qpdfpagenavigator = struct {
     ///
     /// ` self: QtC.QPdfPageNavigator `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageNavigatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfPageNavigator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

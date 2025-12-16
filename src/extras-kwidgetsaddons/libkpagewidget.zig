@@ -259,7 +259,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetcurrent: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem) callconv(.c) void `
     ///
     pub fn OnCurrentPageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPageWidget_Connect_CurrentPageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -285,7 +285,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetpage: QtC.KPageWidgetItem, checked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, page: QtC.KPageWidgetItem, checked: bool) callconv(.c) void `
     ///
     pub fn OnPageToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KPageWidget_Connect_PageToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -309,7 +309,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetpage: QtC.KPageWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, page: QtC.KPageWidgetItem) callconv(.c) void `
     ///
     pub fn OnPageRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPageWidget_Connect_PageRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3978,7 +3978,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4006,7 +4006,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4038,7 +4038,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4066,7 +4066,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4901,7 +4901,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7921,7 +7921,7 @@ pub const kpagewidget = struct {
     ///
     /// ` self: QtC.KPageWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPageWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

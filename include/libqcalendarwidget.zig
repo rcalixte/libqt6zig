@@ -1056,7 +1056,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgetdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QCalendarWidget_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1080,7 +1080,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgetdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QCalendarWidget_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1106,7 +1106,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgetyear: i32, month: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, year: i32, month: i32) callconv(.c) void `
     ///
     pub fn OnCurrentPageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QCalendarWidget_Connect_CurrentPageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4627,7 +4627,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4655,7 +4655,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4687,7 +4687,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4715,7 +4715,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5550,7 +5550,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8098,7 +8098,7 @@ pub const qcalendarwidget = struct {
     ///
     /// ` self: QtC.QCalendarWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QCalendarWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCalendarWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

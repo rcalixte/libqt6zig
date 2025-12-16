@@ -547,7 +547,7 @@ pub const kbreadcrumbselectionmodel = struct {
     ///
     /// ` self: QtC.KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModelselected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModel, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
     ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -577,7 +577,7 @@ pub const kbreadcrumbselectionmodel = struct {
     ///
     /// ` self: QtC.KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModelcurrent: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -607,7 +607,7 @@ pub const kbreadcrumbselectionmodel = struct {
     ///
     /// ` self: QtC.KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModelcurrent: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -637,7 +637,7 @@ pub const kbreadcrumbselectionmodel = struct {
     ///
     /// ` self: QtC.KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModelcurrent: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -665,7 +665,7 @@ pub const kbreadcrumbselectionmodel = struct {
     ///
     /// ` self: QtC.KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModelmodel: QtC.QAbstractItemModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModel, model: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_ModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1342,7 +1342,7 @@ pub const kbreadcrumbselectionmodel = struct {
     ///
     /// ` self: QtC.KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModelparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2120,7 +2120,7 @@ pub const kbreadcrumbselectionmodel = struct {
     ///
     /// ` self: QtC.KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModelobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBreadcrumbSelectionModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

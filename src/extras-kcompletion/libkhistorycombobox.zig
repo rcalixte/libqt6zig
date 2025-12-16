@@ -769,7 +769,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxtext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnReturnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_ReturnPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -801,7 +801,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_Completion(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -833,7 +833,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSubstringCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_SubstringCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -861,7 +861,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: kcompletionbase_enums.KeyBindingType) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void `
     ///
     pub fn OnTextRotation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KComboBox_Connect_TextRotation(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -889,7 +889,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: kcompletion_enums.CompletionMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
     pub fn OnCompletionModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KComboBox_Connect_CompletionModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -917,7 +917,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxcontextMenu: QtC.QMenu) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, contextMenu: QtC.QMenu) callconv(.c) void `
     ///
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KComboBox_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1893,7 +1893,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnEditTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1921,7 +1921,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1953,7 +1953,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1981,7 +1981,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2013,7 +2013,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2041,7 +2041,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2073,7 +2073,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCurrentTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5742,7 +5742,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5770,7 +5770,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5802,7 +5802,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5830,7 +5830,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6665,7 +6665,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -10463,7 +10463,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

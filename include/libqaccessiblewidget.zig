@@ -229,9 +229,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 `
+    /// ` callback: *const fn (self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*]struct_qtcqaccessibleinterface_i64 `
     ///
-    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
+    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*]struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleWidget_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

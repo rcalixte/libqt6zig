@@ -187,7 +187,7 @@ pub const packagekit__offline = struct {
     ///
     /// ` self: QtC.PackageKit__Offline `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Offlineupdates: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Offline, updates: [*][*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPreparedUpdates(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Offline_Connect_PreparedUpdates(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -852,7 +852,7 @@ pub const packagekit__offline = struct {
     ///
     /// ` self: QtC.PackageKit__Offline `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Offlineparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Offline, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -868,7 +868,7 @@ pub const packagekit__offline = struct {
     ///
     /// ` self: QtC.PackageKit__Offline `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__OfflineobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Offline, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -1170,7 +1170,7 @@ pub const ksvg__framesvg = struct {
     ///
     /// ` self: QtC.KSvg__FrameSvg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__FrameSvgfromCurrentImageSet: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__FrameSvg, fromCurrentImageSet: bool) callconv(.c) void `
     ///
     pub fn OnFromCurrentImageSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_FromCurrentImageSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1198,7 +1198,7 @@ pub const ksvg__framesvg = struct {
     ///
     /// ` self: QtC.KSvg__FrameSvg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__FrameSvgstatus: svg_enums.Status) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__FrameSvg, status: svg_enums.Status) callconv(.c) void `
     ///
     pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_StatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1226,7 +1226,7 @@ pub const ksvg__framesvg = struct {
     ///
     /// ` self: QtC.KSvg__FrameSvg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__FrameSvgcolorSet: svg_enums.ColorSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__FrameSvg, colorSet: svg_enums.ColorSet) callconv(.c) void `
     ///
     pub fn OnColorSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_ColorSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1254,7 +1254,7 @@ pub const ksvg__framesvg = struct {
     ///
     /// ` self: QtC.KSvg__FrameSvg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__FrameSvgimageSet: QtC.KSvg__ImageSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__FrameSvg, imageSet: QtC.KSvg__ImageSet) callconv(.c) void `
     ///
     pub fn OnImageSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_ImageSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2009,7 +2009,7 @@ pub const ksvg__framesvg = struct {
     ///
     /// ` self: QtC.KSvg__FrameSvg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__FrameSvgparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__FrameSvg, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2499,7 +2499,7 @@ pub const ksvg__framesvg = struct {
     ///
     /// ` self: QtC.KSvg__FrameSvg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__FrameSvgobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__FrameSvg, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

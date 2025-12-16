@@ -825,7 +825,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickerdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -849,7 +849,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickerdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnDateSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -873,7 +873,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickerdate: QtC.QDate) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, date: QtC.QDate) callconv(.c) void `
     ///
     pub fn OnDateEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4606,7 +4606,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4634,7 +4634,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4666,7 +4666,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4694,7 +4694,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickerpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5529,7 +5529,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8313,7 +8313,7 @@ pub const kdatepicker = struct {
     ///
     /// ` self: QtC.KDatePicker `
     ///
-    /// ` callback: *const fn (self: QtC.KDatePickerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDatePicker, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -674,7 +674,7 @@ pub const qscilexerpov = struct {
     ///
     /// ` self: QtC.QsciLexerPOV `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerPOVc: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerPOV, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -704,7 +704,7 @@ pub const qscilexerpov = struct {
     ///
     /// ` self: QtC.QsciLexerPOV `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerPOVeolfilled: bool, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerPOV, eolfilled: bool, style: i32) callconv(.c) void `
     ///
     pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -734,7 +734,7 @@ pub const qscilexerpov = struct {
     ///
     /// ` self: QtC.QsciLexerPOV `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerPOVf: QtC.QFont, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerPOV, f: QtC.QFont, style: i32) callconv(.c) void `
     ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -764,7 +764,7 @@ pub const qscilexerpov = struct {
     ///
     /// ` self: QtC.QsciLexerPOV `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerPOVc: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerPOV, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -796,7 +796,7 @@ pub const qscilexerpov = struct {
     ///
     /// ` self: QtC.QsciLexerPOV `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerPOVprop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerPOV, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1401,7 +1401,7 @@ pub const qscilexerpov = struct {
     ///
     /// ` self: QtC.QsciLexerPOV `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerPOVparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerPOV, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3255,7 +3255,7 @@ pub const qscilexerpov = struct {
     ///
     /// ` self: QtC.QsciLexerPOV `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerPOVobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciLexerPOV, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

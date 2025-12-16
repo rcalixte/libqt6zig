@@ -959,7 +959,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialvalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, value: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1013,7 +1013,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialposition: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, position: i32) callconv(.c) void `
     ///
     pub fn OnSliderMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1069,7 +1069,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialmin: i32, max: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, min: i32, max: i32) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1097,7 +1097,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialaction: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, action: i32) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4576,7 +4576,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4604,7 +4604,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4636,7 +4636,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4664,7 +4664,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5499,7 +5499,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8103,7 +8103,7 @@ pub const qdial = struct {
     ///
     /// ` self: QtC.QDial `
     ///
-    /// ` callback: *const fn (self: QtC.QDialobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDial, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

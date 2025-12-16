@@ -730,7 +730,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardid: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
     ///
     pub fn OnCurrentIdChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWizard_Connect_CurrentIdChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -776,7 +776,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardwhich: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, which: i32) callconv(.c) void `
     ///
     pub fn OnCustomButtonClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWizard_Connect_CustomButtonClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -800,7 +800,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardid: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
     ///
     pub fn OnPageAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWizard_Connect_PageAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -824,7 +824,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardid: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
     ///
     pub fn OnPageRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWizard_Connect_PageRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1256,7 +1256,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4787,7 +4787,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4815,7 +4815,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4847,7 +4847,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4875,7 +4875,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5710,7 +5710,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8578,7 +8578,7 @@ pub const qwizard = struct {
     ///
     /// ` self: QtC.QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizard, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12892,7 +12892,7 @@ pub const qwizardpage = struct {
     ///
     /// ` self: QtC.QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPagetitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizardPage, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12920,7 +12920,7 @@ pub const qwizardpage = struct {
     ///
     /// ` self: QtC.QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPageicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizardPage, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12952,7 +12952,7 @@ pub const qwizardpage = struct {
     ///
     /// ` self: QtC.QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPageiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizardPage, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12980,7 +12980,7 @@ pub const qwizardpage = struct {
     ///
     /// ` self: QtC.QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPagepos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizardPage, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13815,7 +13815,7 @@ pub const qwizardpage = struct {
     ///
     /// ` self: QtC.QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPageparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizardPage, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -16695,7 +16695,7 @@ pub const qwizardpage = struct {
     ///
     /// ` self: QtC.QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPageobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWizardPage, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -207,7 +207,7 @@ pub const kidletime = struct {
     ///
     /// ` self: QtC.KIdleTime `
     ///
-    /// ` callback: *const fn (self: QtC.KIdleTimeidentifier: i32, msec: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIdleTime, identifier: i32, msec: i32) callconv(.c) void `
     ///
     pub fn OnTimeoutReached(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KIdleTime_Connect_TimeoutReached(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -850,7 +850,7 @@ pub const kidletime = struct {
     ///
     /// ` self: QtC.KIdleTime `
     ///
-    /// ` callback: *const fn (self: QtC.KIdleTimeparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIdleTime, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -866,7 +866,7 @@ pub const kidletime = struct {
     ///
     /// ` self: QtC.KIdleTime `
     ///
-    /// ` callback: *const fn (self: QtC.KIdleTimeobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIdleTime, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -176,7 +176,7 @@ pub const knscore__transaction = struct {
     ///
     /// ` self: QtC.KNSCore__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Transactionmessage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Transaction, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSignalMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNSCore__Transaction_Connect_SignalMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -202,7 +202,7 @@ pub const knscore__transaction = struct {
     ///
     /// ` self: QtC.KNSCore__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Transactionentry: QtC.KNSCore__Entry, event: entry_enums.EntryEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Transaction, entry: QtC.KNSCore__Entry, event: entry_enums.EntryEvent) callconv(.c) void `
     ///
     pub fn OnSignalEntryEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KNSCore__Transaction_Connect_SignalEntryEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -234,7 +234,7 @@ pub const knscore__transaction = struct {
     ///
     /// ` self: QtC.KNSCore__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__TransactionerrorCode: errorcode_enums.ErrorCode, message: [*:0]const u8, metadata: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Transaction, errorCode: errorcode_enums.ErrorCode, message: [*:0]const u8, metadata: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSignalErrorCode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Transaction_Connect_SignalErrorCode(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -891,7 +891,7 @@ pub const knscore__transaction = struct {
     ///
     /// ` self: QtC.KNSCore__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Transactionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Transaction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -907,7 +907,7 @@ pub const knscore__transaction = struct {
     ///
     /// ` self: QtC.KNSCore__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__TransactionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Transaction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

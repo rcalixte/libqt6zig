@@ -110,7 +110,8 @@ pub fn main() void {
     // Initialize Qt application
     const argc = std.os.argv.len;
     const argv = std.os.argv.ptr;
-    _ = qapplication.New(argc, argv);
+    const qapp = qapplication.New(argc, argv);
+    defer qapplication.QDelete(qapp);
 
     const text = "Hello world!";
     const widget = qwidget.New2();
@@ -198,7 +199,7 @@ The following are instructions for building this __full__ library and the exampl
 For dynamic linking with the Qt 6 system libraries:
 
 ```bash
-sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine kColorPicker-qt6 kf6-attica kf6-karchive kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kidletime kf6-kio kf6-kitemmodels kf6-kitemviews kf6-kjobwidgets kf6-knewstuff kf6-knotifications kf6-kparts kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-ksvg kf6-syntax-highlighting kf6-ktexteditor kf6-ktextwidgets kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui kImageAnnotator-qt6 libaccounts-qt6 plasma6-layer-shell-qt qcustomplot-qt6 qscintilla2-qt6 qtermwidget qtkeychain-qt6 PackageKit-Qt6 signon-qt6
+sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-positioning qt6-svg qt6-webchannel qt6-webengine kColorPicker-qt6 kf6-attica kf6-karchive kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kidletime kf6-kio kf6-kitemmodels kf6-kitemviews kf6-kjobwidgets kf6-knewstuff kf6-knotifications kf6-kparts kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-ksvg kf6-syntax-highlighting kf6-ktexteditor kf6-ktextwidgets kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui kImageAnnotator-qt6 libaccounts-qt6 plasma6-layer-shell-qt qcustomplot-qt6 qscintilla2-qt6 qtermwidget qtkeychain-qt6 PackageKit-Qt6 signon-qt6
 ```
 
 > [!NOTE]
@@ -213,7 +214,7 @@ For dynamic linking with the Qt 6 system libraries:
 #### Debian-based distributions
 
 ```bash
-sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libaccounts-qt6-dev libkcolorpicker-qt6-dev libkf6archive-dev libkf6attica-dev libkf6bookmarks-dev libkf6codecs-dev libkf6colorscheme-dev libkf6completion-dev libkf6config-dev libkf6configwidgets-dev libkf6coreaddons-dev libkf6crash-dev libkf6globalaccel-dev libkf6guiaddons-dev libkf6i18n-dev libkf6iconthemes-dev libkf6idletime-dev libkf6kio-dev libkf6itemmodels-dev libkf6itemviews-dev libkf6jobwidgets-dev libkf6newstuff-dev libkf6notifications-dev libkf6parts-dev libkf6plotting-dev libkf6service-dev libkf6solid-dev libkf6sonnet-dev libkf6svg-dev libkf6syntaxhighlighting-dev libkf6texteditor-dev libkf6textwidgets-dev libkf6widgetsaddons-dev libkf6windowsystem-dev libkf6xmlgui-dev libkimageannotator-qt6-dev liblayershellqtinterface-dev libpackagekitqt6-dev libqcustomplot-dev libqscintilla2-qt6-dev libqtermwidget-dev libsignon-qt6-dev qtkeychain-qt6-dev sonnet6-plugins
+sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-positioning-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libaccounts-qt6-dev libkcolorpicker-qt6-dev libkf6archive-dev libkf6attica-dev libkf6bookmarks-dev libkf6codecs-dev libkf6colorscheme-dev libkf6completion-dev libkf6config-dev libkf6configwidgets-dev libkf6coreaddons-dev libkf6crash-dev libkf6globalaccel-dev libkf6guiaddons-dev libkf6i18n-dev libkf6iconthemes-dev libkf6idletime-dev libkf6kio-dev libkf6itemmodels-dev libkf6itemviews-dev libkf6jobwidgets-dev libkf6newstuff-dev libkf6notifications-dev libkf6parts-dev libkf6plotting-dev libkf6service-dev libkf6solid-dev libkf6sonnet-dev libkf6svg-dev libkf6syntaxhighlighting-dev libkf6texteditor-dev libkf6textwidgets-dev libkf6widgetsaddons-dev libkf6windowsystem-dev libkf6xmlgui-dev libkimageannotator-qt6-dev liblayershellqtinterface-dev libpackagekitqt6-dev libqcustomplot-dev libqscintilla2-qt6-dev libqtermwidget-dev libsignon-qt6-dev qtkeychain-qt6-dev sonnet6-plugins
 ```
 
 > [!NOTE]
@@ -222,7 +223,7 @@ sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia
 #### Fedora-based distributions
 
 ```bash
-sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kcolorpicker-qt6-devel kf6-attica-devel kf6-karchive-devel kf6-kbookmarks-devel kf6-kcodecs-devel kf6-kcolorscheme-devel kf6-kcompletion-devel kf6-kconfig-devel kf6-kconfigwidgets-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kglobalaccel-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kiconthemes-devel kf6-kidletime-devel kf6-kio-devel kf6-kitemmodels-devel kf6-kitemviews-devel kf6-kjobwidgets-devel kf6-knewstuff-devel kf6-knotifications-devel kf6-kparts-devel kf6-kplotting-devel kf6-kservice-devel kf6-ksvg-devel kf6-ktexteditor-devel kf6-ktextwidgets-devel kf6-kwidgetsaddons-devel kf6-kwindowsystem-devel kf6-kxmlgui-devel kf6-solid-devel kf6-sonnet-devel kf6-syntax-highlighting-devel kimageannotator-qt6-devel layer-shell-qt-devel libaccounts-qt6-devel qcustomplot-qt6-devel qscintilla-qt6-devel qtermwidget-devel qtkeychain-qt6-devel kf6-sonnet-aspell PackageKit-Qt6-devel signon-qt6-devel
+sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtpositioning-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kcolorpicker-qt6-devel kf6-attica-devel kf6-karchive-devel kf6-kbookmarks-devel kf6-kcodecs-devel kf6-kcolorscheme-devel kf6-kcompletion-devel kf6-kconfig-devel kf6-kconfigwidgets-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kglobalaccel-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kiconthemes-devel kf6-kidletime-devel kf6-kio-devel kf6-kitemmodels-devel kf6-kitemviews-devel kf6-kjobwidgets-devel kf6-knewstuff-devel kf6-knotifications-devel kf6-kparts-devel kf6-kplotting-devel kf6-kservice-devel kf6-ksvg-devel kf6-ktexteditor-devel kf6-ktextwidgets-devel kf6-kwidgetsaddons-devel kf6-kwindowsystem-devel kf6-kxmlgui-devel kf6-solid-devel kf6-sonnet-devel kf6-syntax-highlighting-devel kimageannotator-qt6-devel layer-shell-qt-devel libaccounts-qt6-devel qcustomplot-qt6-devel qscintilla-qt6-devel qtermwidget-devel qtkeychain-qt6-devel kf6-sonnet-aspell PackageKit-Qt6-devel signon-qt6-devel
 ```
 
 > [!NOTE]
@@ -231,7 +232,7 @@ sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-
 #### Arch-based distributions
 
 ```bash
-sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine attica karchive kbookmarks kcodecs kcolorpicker kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kglobalaccel kguiaddons ki18n kiconthemes kidletime kimageannotator kio kitemmodels kitemviews kjobwidgets knewstuff knotifications kparts kplotting kservice ksvg ktexteditor ktextwidgets kwidgetsaddons kwindowsystem kxmlgui layer-shell-qt libaccounts-qt packagekit-qt6 qcustomplot-qt6 qscintilla-qt6 qtermwidget qtkeychain-qt6 signond solid sonnet syntax-highlighting
+sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-positioning qt6-svg qt6-webchannel qt6-webengine attica karchive kbookmarks kcodecs kcolorpicker kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kglobalaccel kguiaddons ki18n kiconthemes kidletime kimageannotator kio kitemmodels kitemviews kjobwidgets knewstuff knotifications kparts kplotting kservice ksvg ktexteditor ktextwidgets kwidgetsaddons kwindowsystem kxmlgui layer-shell-qt libaccounts-qt packagekit-qt6 qcustomplot-qt6 qscintilla-qt6 qtermwidget qtkeychain-qt6 signond solid sonnet syntax-highlighting
 ```
 
 > [!NOTE]

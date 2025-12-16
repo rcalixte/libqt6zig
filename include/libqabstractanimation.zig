@@ -293,7 +293,7 @@ pub const qabstractanimation = struct {
     ///
     /// ` self: QtC.QAbstractAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractAnimationnewState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -317,7 +317,7 @@ pub const qabstractanimation = struct {
     ///
     /// ` self: QtC.QAbstractAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractAnimationcurrentLoop: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractAnimation, currentLoop: i32) callconv(.c) void `
     ///
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -341,7 +341,7 @@ pub const qabstractanimation = struct {
     ///
     /// ` self: QtC.QAbstractAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractAnimationparam1: qabstractanimation_enums.Direction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1194,7 +1194,7 @@ pub const qabstractanimation = struct {
     ///
     /// ` self: QtC.QAbstractAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractAnimationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractAnimation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1688,7 +1688,7 @@ pub const qabstractanimation = struct {
     ///
     /// ` self: QtC.QAbstractAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractAnimationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractAnimation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2666,7 +2666,7 @@ pub const qanimationdriver = struct {
     ///
     /// ` self: QtC.QAnimationDriver `
     ///
-    /// ` callback: *const fn (self: QtC.QAnimationDriverparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAnimationDriver, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3208,7 +3208,7 @@ pub const qanimationdriver = struct {
     ///
     /// ` self: QtC.QAnimationDriver `
     ///
-    /// ` callback: *const fn (self: QtC.QAnimationDriverobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAnimationDriver, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

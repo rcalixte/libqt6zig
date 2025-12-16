@@ -329,7 +329,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` self: QtC.QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIconreason: qsystemtrayicon_enums.ActivationReason) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, reason: qsystemtrayicon_enums.ActivationReason) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSystemTrayIcon_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1080,7 +1080,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` self: QtC.QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIconparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1574,7 +1574,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` self: QtC.QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIconobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

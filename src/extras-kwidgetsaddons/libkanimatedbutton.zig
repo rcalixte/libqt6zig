@@ -403,7 +403,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtonparam1: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, param1: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QToolButton_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -853,7 +853,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -881,7 +881,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4360,7 +4360,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtontitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4388,7 +4388,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtonicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4420,7 +4420,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtoniconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4448,7 +4448,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtonpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5283,7 +5283,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtonparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8347,7 +8347,7 @@ pub const kanimatedbutton = struct {
     ///
     /// ` self: QtC.KAnimatedButton `
     ///
-    /// ` callback: *const fn (self: QtC.KAnimatedButtonobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KAnimatedButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

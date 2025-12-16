@@ -331,7 +331,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsVideoItemsize: QtC.QSizeF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, size: QtC.QSizeF) callconv(.c) void `
     ///
     pub fn OnNativeSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_Connect_NativeSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1384,7 +1384,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsVideoItemparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5912,7 +5912,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsVideoItemobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

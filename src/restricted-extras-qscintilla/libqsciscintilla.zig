@@ -5820,7 +5820,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaline: i32, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32) callconv(.c) void `
     ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5844,7 +5844,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillayes: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, yes: bool) callconv(.c) void `
     ///
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5872,7 +5872,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaline: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
     pub fn OnIndicatorClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5900,7 +5900,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaline: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
     pub fn OnIndicatorReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5950,7 +5950,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillamargin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
     pub fn OnMarginClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5978,7 +5978,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillamargin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
     pub fn OnMarginRightClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginRightClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6024,7 +6024,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillam: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, m: bool) callconv(.c) void `
     ///
     pub fn OnModificationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_ModificationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6098,7 +6098,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaid: i32, stringVal: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, id: i32, stringVal: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnUserListActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_UserListActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11345,7 +11345,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillatitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11373,7 +11373,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11405,7 +11405,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11433,7 +11433,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillapos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12268,7 +12268,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -15616,7 +15616,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintillaobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

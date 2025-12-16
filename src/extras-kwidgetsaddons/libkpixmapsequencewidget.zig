@@ -3723,7 +3723,7 @@ pub const kpixmapsequencewidget = struct {
     ///
     /// ` self: QtC.KPixmapSequenceWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3751,7 +3751,7 @@ pub const kpixmapsequencewidget = struct {
     ///
     /// ` self: QtC.KPixmapSequenceWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3783,7 +3783,7 @@ pub const kpixmapsequencewidget = struct {
     ///
     /// ` self: QtC.KPixmapSequenceWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3811,7 +3811,7 @@ pub const kpixmapsequencewidget = struct {
     ///
     /// ` self: QtC.KPixmapSequenceWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4646,7 +4646,7 @@ pub const kpixmapsequencewidget = struct {
     ///
     /// ` self: QtC.KPixmapSequenceWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7482,7 +7482,7 @@ pub const kpixmapsequencewidget = struct {
     ///
     /// ` self: QtC.KPixmapSequenceWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

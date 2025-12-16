@@ -338,7 +338,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGroupBox_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -804,7 +804,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGroupBox_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4283,7 +4283,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4311,7 +4311,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4343,7 +4343,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4371,7 +4371,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5206,7 +5206,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7610,7 +7610,7 @@ pub const qgroupbox = struct {
     ///
     /// ` self: QtC.QGroupBox `
     ///
-    /// ` callback: *const fn (self: QtC.QGroupBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGroupBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

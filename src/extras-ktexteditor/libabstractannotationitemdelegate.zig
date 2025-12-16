@@ -575,7 +575,7 @@ pub const ktexteditor__abstractannotationitemdelegate = struct {
     ///
     /// ` self: QtC.KTextEditor__AbstractAnnotationItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__AbstractAnnotationItemDelegatemodel: QtC.KTextEditor__AnnotationModel, line: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__AbstractAnnotationItemDelegate, model: QtC.KTextEditor__AnnotationModel, line: i32) callconv(.c) void `
     ///
     pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__AbstractAnnotationItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1218,7 +1218,7 @@ pub const ktexteditor__abstractannotationitemdelegate = struct {
     ///
     /// ` self: QtC.KTextEditor__AbstractAnnotationItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__AbstractAnnotationItemDelegateparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__AbstractAnnotationItemDelegate, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1234,7 +1234,7 @@ pub const ktexteditor__abstractannotationitemdelegate = struct {
     ///
     /// ` self: QtC.KTextEditor__AbstractAnnotationItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__AbstractAnnotationItemDelegateobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__AbstractAnnotationItemDelegate, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

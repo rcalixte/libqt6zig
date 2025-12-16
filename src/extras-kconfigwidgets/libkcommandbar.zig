@@ -3850,7 +3850,7 @@ pub const kcommandbar = struct {
     ///
     /// ` self: QtC.KCommandBar `
     ///
-    /// ` callback: *const fn (self: QtC.KCommandBartitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCommandBar, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3878,7 +3878,7 @@ pub const kcommandbar = struct {
     ///
     /// ` self: QtC.KCommandBar `
     ///
-    /// ` callback: *const fn (self: QtC.KCommandBaricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCommandBar, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3910,7 +3910,7 @@ pub const kcommandbar = struct {
     ///
     /// ` self: QtC.KCommandBar `
     ///
-    /// ` callback: *const fn (self: QtC.KCommandBariconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCommandBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3938,7 +3938,7 @@ pub const kcommandbar = struct {
     ///
     /// ` self: QtC.KCommandBar `
     ///
-    /// ` callback: *const fn (self: QtC.KCommandBarpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCommandBar, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4773,7 +4773,7 @@ pub const kcommandbar = struct {
     ///
     /// ` self: QtC.KCommandBar `
     ///
-    /// ` callback: *const fn (self: QtC.KCommandBarparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCommandBar, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7697,7 +7697,7 @@ pub const kcommandbar = struct {
     ///
     /// ` self: QtC.KCommandBar `
     ///
-    /// ` callback: *const fn (self: QtC.KCommandBarobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCommandBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

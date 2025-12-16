@@ -575,7 +575,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationold: QtC.QWidget, now: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, old: QtC.QWidget, now: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnFocusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QApplication_Connect_FocusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1332,7 +1332,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationscreen: QtC.QScreen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, screen: QtC.QScreen) callconv(.c) void `
     ///
     pub fn OnScreenAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_ScreenAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1360,7 +1360,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationscreen: QtC.QScreen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, screen: QtC.QScreen) callconv(.c) void `
     ///
     pub fn OnScreenRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_ScreenRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1388,7 +1388,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationscreen: QtC.QScreen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, screen: QtC.QScreen) callconv(.c) void `
     ///
     pub fn OnPrimaryScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_PrimaryScreenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1442,7 +1442,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationfocusObject: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, focusObject: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnFocusObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_FocusObjectChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1470,7 +1470,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationfocusWindow: QtC.QWindow) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, focusWindow: QtC.QWindow) callconv(.c) void `
     ///
     pub fn OnFocusWindowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_FocusWindowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1498,7 +1498,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationstate: qnamespace_enums.ApplicationState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, state: qnamespace_enums.ApplicationState) callconv(.c) void `
     ///
     pub fn OnApplicationStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_ApplicationStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1526,7 +1526,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationdirection: qnamespace_enums.LayoutDirection) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, direction: qnamespace_enums.LayoutDirection) callconv(.c) void `
     ///
     pub fn OnLayoutDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_LayoutDirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1554,7 +1554,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationsessionManager: QtC.QSessionManager) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, sessionManager: QtC.QSessionManager) callconv(.c) void `
     ///
     pub fn OnCommitDataRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_CommitDataRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1582,7 +1582,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationsessionManager: QtC.QSessionManager) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, sessionManager: QtC.QSessionManager) callconv(.c) void `
     ///
     pub fn OnSaveStateRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_SaveStateRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1636,7 +1636,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationpal: QtC.QPalette) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, pal: QtC.QPalette) callconv(.c) void `
     ///
     pub fn OnPaletteChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_PaletteChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1664,7 +1664,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGuiApplication_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2208,7 +2208,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationfilterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
     ///
     pub fn OnInstallNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_InstallNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2236,7 +2236,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationfilterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
     ///
     pub fn OnRemoveNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_RemoveNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3093,7 +3093,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3603,7 +3603,7 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplicationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QApplication, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

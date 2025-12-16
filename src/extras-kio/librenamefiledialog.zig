@@ -124,7 +124,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogurls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, urls: [*]QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnRenamingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
         qtc.KIO__RenameFileDialog_Connect_RenamingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -148,7 +148,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogerrorVal: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, errorVal: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__RenameFileDialog_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -284,7 +284,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3815,7 +3815,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3843,7 +3843,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3875,7 +3875,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3903,7 +3903,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4738,7 +4738,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7890,7 +7890,7 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

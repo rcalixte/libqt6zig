@@ -100,7 +100,7 @@ pub const knscore__resultsstream = struct {
     ///
     /// ` self: QtC.KNSCore__ResultsStream `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStreamentries: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStream, entries: [*]QtC.KNSCore__Entry) callconv(.c) void `
     ///
     pub fn OnEntriesFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
         qtc.KNSCore__ResultsStream_Connect_EntriesFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -765,7 +765,7 @@ pub const knscore__resultsstream = struct {
     ///
     /// ` self: QtC.KNSCore__ResultsStream `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStreamparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStream, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -781,7 +781,7 @@ pub const knscore__resultsstream = struct {
     ///
     /// ` self: QtC.KNSCore__ResultsStream `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStreamobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStream, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

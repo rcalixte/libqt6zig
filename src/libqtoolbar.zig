@@ -440,7 +440,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBaraction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QToolBar_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -464,7 +464,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBarmovable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, movable: bool) callconv(.c) void `
     ///
     pub fn OnMovableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QToolBar_Connect_MovableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -488,7 +488,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBarallowedAreas: flag of qnamespace_enums.ToolBarArea) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, allowedAreas: flag of qnamespace_enums.ToolBarArea) callconv(.c) void `
     ///
     pub fn OnAllowedAreasChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QToolBar_Connect_AllowedAreasChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -512,7 +512,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBarorientation: qnamespace_enums.Orientation) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, orientation: qnamespace_enums.Orientation) callconv(.c) void `
     ///
     pub fn OnOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QToolBar_Connect_OrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -536,7 +536,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBariconSize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, iconSize: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QToolBar_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -560,7 +560,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBartoolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
     ///
     pub fn OnToolButtonStyleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QToolBar_Connect_ToolButtonStyleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -584,7 +584,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBartopLevel: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, topLevel: bool) callconv(.c) void `
     ///
     pub fn OnTopLevelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QToolBar_Connect_TopLevelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -608,7 +608,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBarvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, visible: bool) callconv(.c) void `
     ///
     pub fn OnVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QToolBar_Connect_VisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4329,7 +4329,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBartitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4357,7 +4357,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBaricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4389,7 +4389,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBariconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4417,7 +4417,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBarpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5252,7 +5252,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBarparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7940,7 +7940,7 @@ pub const qtoolbar = struct {
     ///
     /// ` self: QtC.QToolBar `
     ///
-    /// ` callback: *const fn (self: QtC.QToolBarobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QToolBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -554,7 +554,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationdata: [*:0]const u8, lenVal: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, data: [*:0]const u8, lenVal: i32) callconv(.c) void `
     ///
     pub fn OnSendData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_SendData(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -578,7 +578,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__EmulationsuspendVal: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, suspendVal: bool) callconv(.c) void `
     ///
     pub fn OnLockPtyRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_LockPtyRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -602,7 +602,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, param1: bool) callconv(.c) void `
     ///
     pub fn OnUseUtf8Request(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_UseUtf8Request(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -626,7 +626,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationstate: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, state: i32) callconv(.c) void `
     ///
     pub fn OnStateSet(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_StateSet(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -672,7 +672,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationcolor: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, color: i32) callconv(.c) void `
     ///
     pub fn OnChangeTabTextColorRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ChangeTabTextColorRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -696,7 +696,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__EmulationusesMouse: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, usesMouse: bool) callconv(.c) void `
     ///
     pub fn OnProgramUsesMouseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ProgramUsesMouseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -720,7 +720,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__EmulationbracketedPasteMode: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, bracketedPasteMode: bool) callconv(.c) void `
     ///
     pub fn OnProgramBracketedPasteModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ProgramBracketedPasteModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -772,7 +772,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationtitle: i32, newTitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, title: i32, newTitle: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -798,7 +798,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__EmulationlineCount: i32, columnCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, lineCount: i32, columnCount: i32) callconv(.c) void `
     ///
     pub fn OnImageSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ImageSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -844,7 +844,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationsizz: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, sizz: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnImageResizeRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ImageResizeRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -872,7 +872,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationtext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnProfileChangeCommandReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ProfileChangeCommandReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -896,7 +896,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__EmulationsuspendKeyPressed: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, suspendKeyPressed: bool) callconv(.c) void `
     ///
     pub fn OnFlowControlKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_FlowControlKeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -922,7 +922,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__EmulationcursorShape: Emulation_enums.KeyboardCursorShape, blinkingCursorEnabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, cursorShape: Emulation_enums.KeyboardCursorShape, blinkingCursorEnabled: bool) callconv(.c) void `
     ///
     pub fn OnCursorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_CursorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -946,7 +946,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationcommand: KeyboardTranslator_enums.Command) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, command: KeyboardTranslator_enums.Command) callconv(.c) void `
     ///
     pub fn OnHandleCommandFromKeyboard(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_HandleCommandFromKeyboard(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1777,7 +1777,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__Emulationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2319,7 +2319,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: QtC.Konsole__EmulationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Konsole__Emulation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

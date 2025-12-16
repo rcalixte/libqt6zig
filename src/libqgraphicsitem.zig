@@ -4707,7 +4707,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsObjectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsObject, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9387,7 +9387,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsObjectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -40223,7 +40223,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsTextItemparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLinkActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QGraphicsTextItem_Connect_LinkActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -40251,7 +40251,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsTextItemparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QGraphicsTextItem_Connect_LinkHovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -42104,7 +42104,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsTextItemparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -45488,7 +45488,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsTextItemobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsTextItem, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

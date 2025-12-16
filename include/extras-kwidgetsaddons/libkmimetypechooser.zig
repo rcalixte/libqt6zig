@@ -3907,7 +3907,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` self: QtC.KMimeTypeChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChoosertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3935,7 +3935,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` self: QtC.KMimeTypeChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChoosericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3967,7 +3967,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` self: QtC.KMimeTypeChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChoosericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3995,7 +3995,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` self: QtC.KMimeTypeChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4830,7 +4830,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` self: QtC.KMimeTypeChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7710,7 +7710,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` self: QtC.KMimeTypeChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8374,7 +8374,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11905,7 +11905,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11933,7 +11933,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11965,7 +11965,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11993,7 +11993,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12828,7 +12828,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -15936,7 +15936,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

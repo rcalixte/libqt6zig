@@ -129,7 +129,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnUpdatePreviewWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QColumnView_Connect_UpdatePreviewWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1872,7 +1872,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1900,7 +1900,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1928,7 +1928,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1956,7 +1956,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1984,7 +1984,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2038,7 +2038,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5924,7 +5924,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5952,7 +5952,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5984,7 +5984,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6012,7 +6012,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6847,7 +6847,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11693,7 +11693,7 @@ pub const qcolumnview = struct {
     ///
     /// ` self: QtC.QColumnView `
     ///
-    /// ` callback: *const fn (self: QtC.QColumnViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColumnView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

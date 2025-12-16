@@ -469,7 +469,7 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// ` self: QtC.Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__BackgroundCheckerword: [*:0]const u8, start: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__BackgroundChecker, word: [*:0]const u8, start: i32) callconv(.c) void `
     ///
     pub fn OnMisspelling(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Sonnet__BackgroundChecker_Connect_Misspelling(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1224,7 +1224,7 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// ` self: QtC.Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__BackgroundCheckerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__BackgroundChecker, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1766,7 +1766,7 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// ` self: QtC.Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__BackgroundCheckerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__BackgroundChecker, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

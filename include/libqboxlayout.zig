@@ -2038,7 +2038,7 @@ pub const qboxlayout = struct {
     ///
     /// ` self: QtC.QBoxLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxLayoutparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3212,7 +3212,7 @@ pub const qboxlayout = struct {
     ///
     /// ` self: QtC.QBoxLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxLayoutobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4732,7 +4732,7 @@ pub const qhboxlayout = struct {
     ///
     /// ` self: QtC.QHBoxLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QHBoxLayoutparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6602,7 +6602,7 @@ pub const qhboxlayout = struct {
     ///
     /// ` self: QtC.QHBoxLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QHBoxLayoutobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHBoxLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8122,7 +8122,7 @@ pub const qvboxlayout = struct {
     ///
     /// ` self: QtC.QVBoxLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QVBoxLayoutparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9992,7 +9992,7 @@ pub const qvboxlayout = struct {
     ///
     /// ` self: QtC.QVBoxLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QVBoxLayoutobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QVBoxLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

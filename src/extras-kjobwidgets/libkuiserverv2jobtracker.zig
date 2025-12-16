@@ -735,7 +735,7 @@ pub const kuiserverv2jobtracker = struct {
     ///
     /// ` self: QtC.KUiServerV2JobTracker `
     ///
-    /// ` callback: *const fn (self: QtC.KUiServerV2JobTrackerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUiServerV2JobTracker, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -751,7 +751,7 @@ pub const kuiserverv2jobtracker = struct {
     ///
     /// ` self: QtC.KUiServerV2JobTracker `
     ///
-    /// ` callback: *const fn (self: QtC.KUiServerV2JobTrackerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUiServerV2JobTracker, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

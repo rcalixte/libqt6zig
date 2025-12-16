@@ -968,7 +968,7 @@ pub const kconfigviewstatesaver = struct {
     ///
     /// ` self: QtC.KConfigViewStateSaver `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigViewStateSaverparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KConfigViewStateSaver, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1630,7 +1630,7 @@ pub const kconfigviewstatesaver = struct {
     ///
     /// ` self: QtC.KConfigViewStateSaver `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigViewStateSaverobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KConfigViewStateSaver, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -171,7 +171,7 @@ pub const kparts__listingnotificationextension = struct {
     ///
     /// ` self: QtC.KParts__ListingNotificationExtension `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ListingNotificationExtensionparam1: listingnotificationextension_enums.NotificationEventType, param2: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ListingNotificationExtension, param1: listingnotificationextension_enums.NotificationEventType, param2: QtC.KFileItemList) callconv(.c) void `
     ///
     pub fn OnListingEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ListingNotificationExtension_Connect_ListingEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -784,7 +784,7 @@ pub const kparts__listingnotificationextension = struct {
     ///
     /// ` self: QtC.KParts__ListingNotificationExtension `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ListingNotificationExtensionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ListingNotificationExtension, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1326,7 +1326,7 @@ pub const kparts__listingnotificationextension = struct {
     ///
     /// ` self: QtC.KParts__ListingNotificationExtension `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ListingNotificationExtensionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ListingNotificationExtension, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

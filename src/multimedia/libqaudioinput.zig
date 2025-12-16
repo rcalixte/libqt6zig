@@ -230,7 +230,7 @@ pub const qaudioinput = struct {
     ///
     /// ` self: QtC.QAudioInput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioInputvolume: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioInput, volume: f32) callconv(.c) void `
     ///
     pub fn OnVolumeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QAudioInput_Connect_VolumeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -254,7 +254,7 @@ pub const qaudioinput = struct {
     ///
     /// ` self: QtC.QAudioInput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioInputmuted: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioInput, muted: bool) callconv(.c) void `
     ///
     pub fn OnMutedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAudioInput_Connect_MutedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -867,7 +867,7 @@ pub const qaudioinput = struct {
     ///
     /// ` self: QtC.QAudioInput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioInputparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioInput, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1409,7 +1409,7 @@ pub const qaudioinput = struct {
     ///
     /// ` self: QtC.QAudioInput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioInputobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioInput, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

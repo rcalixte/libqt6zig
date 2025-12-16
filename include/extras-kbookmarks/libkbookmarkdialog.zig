@@ -494,7 +494,7 @@ pub const kbookmarkdialog = struct {
     ///
     /// ` self: QtC.KBookmarkDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4025,7 +4025,7 @@ pub const kbookmarkdialog = struct {
     ///
     /// ` self: QtC.KBookmarkDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4053,7 +4053,7 @@ pub const kbookmarkdialog = struct {
     ///
     /// ` self: QtC.KBookmarkDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4085,7 +4085,7 @@ pub const kbookmarkdialog = struct {
     ///
     /// ` self: QtC.KBookmarkDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4113,7 +4113,7 @@ pub const kbookmarkdialog = struct {
     ///
     /// ` self: QtC.KBookmarkDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4948,7 +4948,7 @@ pub const kbookmarkdialog = struct {
     ///
     /// ` self: QtC.KBookmarkDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8056,7 +8056,7 @@ pub const kbookmarkdialog = struct {
     ///
     /// ` self: QtC.KBookmarkDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

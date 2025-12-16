@@ -856,7 +856,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectorvalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, value: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -910,7 +910,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectorposition: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, position: i32) callconv(.c) void `
     ///
     pub fn OnSliderMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -966,7 +966,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectormin: i32, max: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, min: i32, max: i32) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -994,7 +994,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectoraction: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, action: i32) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4461,7 +4461,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4489,7 +4489,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4521,7 +4521,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4549,7 +4549,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5384,7 +5384,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8172,7 +8172,7 @@ pub const kselector = struct {
     ///
     /// ` self: QtC.KSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KSelectorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9007,7 +9007,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectorvalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, value: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9061,7 +9061,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectorposition: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, position: i32) callconv(.c) void `
     ///
     pub fn OnSliderMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9117,7 +9117,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectormin: i32, max: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, min: i32, max: i32) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9145,7 +9145,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectoraction: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, action: i32) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12600,7 +12600,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectortitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12628,7 +12628,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectoricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12660,7 +12660,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectoriconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12688,7 +12688,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectorpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13523,7 +13523,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -16603,7 +16603,7 @@ pub const kgradientselector = struct {
     ///
     /// ` self: QtC.KGradientSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KGradientSelectorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KGradientSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

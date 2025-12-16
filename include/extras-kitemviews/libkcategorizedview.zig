@@ -440,7 +440,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewspacing: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, spacing: i32) callconv(.c) void `
     ///
     pub fn OnCategorySpacingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_CategorySpacingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -464,7 +464,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewenable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, enable: bool) callconv(.c) void `
     ///
     pub fn OnAlternatingBlockColorsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_AlternatingBlockColorsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -488,7 +488,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewenable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, enable: bool) callconv(.c) void `
     ///
     pub fn OnCollapsibleBlocksChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_CollapsibleBlocksChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1774,7 +1774,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewindexes: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, indexes: [*]QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) void) void {
         qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2586,7 +2586,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2614,7 +2614,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2642,7 +2642,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2670,7 +2670,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2698,7 +2698,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2752,7 +2752,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6638,7 +6638,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6666,7 +6666,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6698,7 +6698,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6726,7 +6726,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7561,7 +7561,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12387,7 +12387,7 @@ pub const kcategorizedview = struct {
     ///
     /// ` self: QtC.KCategorizedView `
     ///
-    /// ` callback: *const fn (self: QtC.KCategorizedViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCategorizedView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

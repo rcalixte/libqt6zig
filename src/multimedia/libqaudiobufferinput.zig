@@ -785,7 +785,7 @@ pub const qaudiobufferinput = struct {
     ///
     /// ` self: QtC.QAudioBufferInput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioBufferInputparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioBufferInput, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1327,7 +1327,7 @@ pub const qaudiobufferinput = struct {
     ///
     /// ` self: QtC.QAudioBufferInput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioBufferInputobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioBufferInput, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

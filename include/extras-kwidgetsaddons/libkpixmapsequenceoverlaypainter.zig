@@ -921,7 +921,7 @@ pub const kpixmapsequenceoverlaypainter = struct {
     ///
     /// ` self: QtC.KPixmapSequenceOverlayPainter `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceOverlayPainterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceOverlayPainter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1411,7 +1411,7 @@ pub const kpixmapsequenceoverlaypainter = struct {
     ///
     /// ` self: QtC.KPixmapSequenceOverlayPainter `
     ///
-    /// ` callback: *const fn (self: QtC.KPixmapSequenceOverlayPainterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPixmapSequenceOverlayPainter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

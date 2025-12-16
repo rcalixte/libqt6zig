@@ -1041,7 +1041,7 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    /// ` callback: *const fn (self: QtC.KCompressionDevicechannel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompressionDevice, channel: i32) callconv(.c) void `
     ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1069,7 +1069,7 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    /// ` callback: *const fn (self: QtC.KCompressionDevicebytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompressionDevice, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1099,7 +1099,7 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    /// ` callback: *const fn (self: QtC.KCompressionDevicechannel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompressionDevice, channel: i32, bytes: i64) callconv(.c) void `
     ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1742,7 +1742,7 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    /// ` callback: *const fn (self: QtC.KCompressionDeviceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompressionDevice, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2894,7 +2894,7 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    /// ` callback: *const fn (self: QtC.KCompressionDeviceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompressionDevice, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

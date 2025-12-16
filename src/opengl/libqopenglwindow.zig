@@ -2112,7 +2112,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowscreen: QtC.QScreen) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, screen: QtC.QScreen) callconv(.c) void `
     ///
     pub fn OnScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_ScreenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2140,7 +2140,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowmodality: qnamespace_enums.WindowModality) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void `
     ///
     pub fn OnModalityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ModalityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2168,7 +2168,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowwindowState: qnamespace_enums.WindowState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void `
     ///
     pub fn OnWindowStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2200,7 +2200,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2228,7 +2228,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2256,7 +2256,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2284,7 +2284,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2312,7 +2312,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2340,7 +2340,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnMinimumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2368,7 +2368,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnMinimumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumHeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2396,7 +2396,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnMaximumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2424,7 +2424,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: i32) callconv(.c) void `
     ///
     pub fn OnMaximumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumHeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2452,7 +2452,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowarg: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, arg: bool) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2480,7 +2480,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowvisibility: qwindow_enums.Visibility) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, visibility: qwindow_enums.Visibility) callconv(.c) void `
     ///
     pub fn OnVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2534,7 +2534,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindoworientation: qnamespace_enums.ScreenOrientation) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void `
     ///
     pub fn OnContentOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ContentOrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2562,7 +2562,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowobject: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, object: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnFocusObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_FocusObjectChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2590,7 +2590,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowopacity: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, opacity: f64) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QWindow_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2618,7 +2618,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowtransientParent: QtC.QWindow) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, transientParent: QtC.QWindow) callconv(.c) void `
     ///
     pub fn OnTransientParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_TransientParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3209,7 +3209,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5235,7 +5235,7 @@ pub const qopenglwindow = struct {
     ///
     /// ` self: QtC.QOpenGLWindow `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLWindowobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QOpenGLWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

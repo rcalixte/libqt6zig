@@ -629,7 +629,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtonparam1: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, param1: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QToolButton_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1079,7 +1079,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1107,7 +1107,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4586,7 +4586,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtontitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4614,7 +4614,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtonicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4646,7 +4646,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtoniconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4674,7 +4674,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtonpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5509,7 +5509,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtonparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8285,7 +8285,7 @@ pub const ksplittercollapserbutton = struct {
     ///
     /// ` self: QtC.KSplitterCollapserButton `
     ///
-    /// ` callback: *const fn (self: QtC.KSplitterCollapserButtonobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSplitterCollapserButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

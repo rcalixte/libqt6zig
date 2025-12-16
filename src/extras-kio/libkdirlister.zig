@@ -721,7 +721,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -775,7 +775,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnListingDirCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ListingDirCompleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -829,7 +829,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnListingDirCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ListingDirCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -859,7 +859,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListeroldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, oldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Redirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -913,7 +913,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerdirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnClearDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ClearDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -941,7 +941,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListeritems: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void `
     ///
     pub fn OnNewItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_NewItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -971,7 +971,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerdirectoryUrl: QtC.QUrl, items: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, directoryUrl: QtC.QUrl, items: QtC.KFileItemList) callconv(.c) void `
     ///
     pub fn OnItemsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ItemsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -999,7 +999,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListeritems: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void `
     ///
     pub fn OnItemsFilteredByMime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ItemsFilteredByMime(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1027,7 +1027,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListeritems: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void `
     ///
     pub fn OnItemsDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ItemsDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1059,7 +1059,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListermsg: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, msg: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1087,7 +1087,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerpercent: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, percent: i32) callconv(.c) void `
     ///
     pub fn OnPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Percent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1115,7 +1115,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListersize: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, size: u64) callconv(.c) void `
     ///
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1143,7 +1143,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListersize: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, size: u64) callconv(.c) void `
     ///
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1171,7 +1171,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerbytes_per_second: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, bytes_per_second: i32) callconv(.c) void `
     ///
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1199,7 +1199,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerjob: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, job: QtC.KIO__Job) callconv(.c) void `
     ///
     pub fn OnJobError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_JobError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1816,7 +1816,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2358,7 +2358,7 @@ pub const kdirlister = struct {
     ///
     /// ` self: QtC.KDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KDirListerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirLister, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

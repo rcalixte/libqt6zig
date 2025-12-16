@@ -1094,7 +1094,7 @@ pub const qtimeline = struct {
     ///
     /// ` self: QtC.QTimeLine `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeLineparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeLine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1586,7 +1586,7 @@ pub const qtimeline = struct {
     ///
     /// ` self: QtC.QTimeLine `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeLinex: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeLine, x: f64) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QTimeLine_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1600,7 +1600,7 @@ pub const qtimeline = struct {
     ///
     /// ` self: QtC.QTimeLine `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeLineparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeLine, param1: i32) callconv(.c) void `
     ///
     pub fn OnFrameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTimeLine_Connect_FrameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1614,7 +1614,7 @@ pub const qtimeline = struct {
     ///
     /// ` self: QtC.QTimeLine `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeLinenewState: qtimeline_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeLine, newState: qtimeline_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTimeLine_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1644,7 +1644,7 @@ pub const qtimeline = struct {
     ///
     /// ` self: QtC.QTimeLine `
     ///
-    /// ` callback: *const fn (self: QtC.QTimeLineobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTimeLine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

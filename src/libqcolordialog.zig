@@ -325,7 +325,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogcolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnCurrentColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QColorDialog_Connect_CurrentColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -349,7 +349,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogcolor: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QColorDialog_Connect_ColorSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -639,7 +639,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4170,7 +4170,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4198,7 +4198,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4230,7 +4230,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4258,7 +4258,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5093,7 +5093,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8101,7 +8101,7 @@ pub const qcolordialog = struct {
     ///
     /// ` self: QtC.QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QColorDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

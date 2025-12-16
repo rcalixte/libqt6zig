@@ -1787,7 +1787,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetitem: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1811,7 +1811,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetitem: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1835,7 +1835,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetitem: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1859,7 +1859,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetitem: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1883,7 +1883,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetitem: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1907,7 +1907,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetitem: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1933,7 +1933,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetcurrent: QtC.QTableWidgetItem, previous: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, current: QtC.QTableWidgetItem, previous: QtC.QTableWidgetItem) callconv(.c) void `
     ///
     pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CurrentItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1981,7 +1981,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetrow: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
     pub fn OnCellPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2007,7 +2007,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetrow: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
     pub fn OnCellClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2033,7 +2033,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetrow: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
     pub fn OnCellDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2059,7 +2059,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetrow: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
     pub fn OnCellActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2085,7 +2085,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetrow: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
     pub fn OnCellEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2111,7 +2111,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetrow: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
     pub fn OnCellChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2141,7 +2141,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetcurrentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) callconv(.c) void `
     ///
     pub fn OnCurrentCellChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CurrentCellChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3873,7 +3873,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3901,7 +3901,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3929,7 +3929,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3957,7 +3957,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3985,7 +3985,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4039,7 +4039,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7925,7 +7925,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7953,7 +7953,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7985,7 +7985,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8013,7 +8013,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8848,7 +8848,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -14754,7 +14754,7 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

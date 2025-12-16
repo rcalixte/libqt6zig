@@ -321,7 +321,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewdocument: QtC.QPdfDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, document: QtC.QPdfDocument) callconv(.c) void `
     ///
     pub fn OnDocumentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPdfView_Connect_DocumentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -345,7 +345,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewpageMode: qpdfview_enums.PageMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, pageMode: qpdfview_enums.PageMode) callconv(.c) void `
     ///
     pub fn OnPageModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfView_Connect_PageModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -369,7 +369,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewzoomMode: qpdfview_enums.ZoomMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, zoomMode: qpdfview_enums.ZoomMode) callconv(.c) void `
     ///
     pub fn OnZoomModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfView_Connect_ZoomModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -393,7 +393,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewzoomFactor: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, zoomFactor: f64) callconv(.c) void `
     ///
     pub fn OnZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QPdfView_Connect_ZoomFactorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -417,7 +417,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewpageSpacing: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, pageSpacing: i32) callconv(.c) void `
     ///
     pub fn OnPageSpacingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfView_Connect_PageSpacingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -441,7 +441,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewdocumentMargins: QtC.QMargins) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, documentMargins: QtC.QMargins) callconv(.c) void `
     ///
     pub fn OnDocumentMarginsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QMargins) callconv(.c) void) void {
         qtc.QPdfView_Connect_DocumentMarginsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -465,7 +465,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewsearchModel: QtC.QPdfSearchModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, searchModel: QtC.QPdfSearchModel) callconv(.c) void `
     ///
     pub fn OnSearchModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPdfView_Connect_SearchModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -489,7 +489,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewcurrentResult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, currentResult: i32) callconv(.c) void `
     ///
     pub fn OnCurrentSearchResultIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfView_Connect_CurrentSearchResultIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4673,7 +4673,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4701,7 +4701,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4733,7 +4733,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4761,7 +4761,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5596,7 +5596,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8576,7 +8576,7 @@ pub const qpdfview = struct {
     ///
     /// ` self: QtC.QPdfView `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -735,7 +735,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionparentId: [*:0]const u8, categoryId: [*:0]const u8, name: [*:0]const u8, summary: [*:0]const u8, icon: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, parentId: [*:0]const u8, categoryId: [*:0]const u8, name: [*:0]const u8, summary: [*:0]const u8, icon: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Category(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -771,7 +771,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactiontypeVal: transaction_enums.DistroUpgrade, name: [*:0]const u8, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.DistroUpgrade, name: [*:0]const u8, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnDistroUpgrade(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_DistroUpgrade(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -801,7 +801,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionerrorVal: transaction_enums.Error, details: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, errorVal: transaction_enums.Error, details: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorCode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_ErrorCode(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -847,7 +847,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactioneulaID: [*:0]const u8, packageID: [*:0]const u8, vendor: [*:0]const u8, licenseAgreement: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, eulaID: [*:0]const u8, packageID: [*:0]const u8, vendor: [*:0]const u8, licenseAgreement: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnEulaRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_EulaRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -883,7 +883,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactiontypeVal: transaction_enums.MediaType, id: [*:0]const u8, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.MediaType, id: [*:0]const u8, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMediaChangeRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_MediaChangeRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -915,7 +915,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionitemID: [*:0]const u8, status: transaction_enums.Status, percentage: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, itemID: [*:0]const u8, status: transaction_enums.Status, percentage: u32) callconv(.c) void `
     ///
     pub fn OnItemProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, u32) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_ItemProgress(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -959,7 +959,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionpackageID: [*:0]const u8, filenames: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, filenames: [*][*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Files(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -985,7 +985,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transactionstatus: transaction_enums.Exit, runtime: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, status: transaction_enums.Exit, runtime: u32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u32) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1021,7 +1021,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transactioninfo: transaction_enums.Info, packageID: [*:0]const u8, summary: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, info: transaction_enums.Info, packageID: [*:0]const u8, summary: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPackage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Package(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1045,7 +1045,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transactionvalues: QtC.PackageKit__Details) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, values: QtC.PackageKit__Details) callconv(.c) void `
     ///
     pub fn OnDetails(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Details(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1165,7 +1165,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionpackageID: [*:0]const u8, updates: [*][*:0]const u8, obsoletes: [*][*:0]const u8, vendorUrls: [*][*:0]const u8, bugzillaUrls: [*][*:0]const u8, cveUrls: [*][*:0]const u8, restart: transaction_enums.Restart, updateText: [*:0]const u8, changelog: [*:0]const u8, state: transaction_enums.UpdateState, issued: QtC.QDateTime, updated: QtC.QDateTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, updates: [*][*:0]const u8, obsoletes: [*][*:0]const u8, vendorUrls: [*][*:0]const u8, bugzillaUrls: [*][*:0]const u8, cveUrls: [*][*:0]const u8, restart: transaction_enums.Restart, updateText: [*:0]const u8, changelog: [*:0]const u8, state: transaction_enums.UpdateState, issued: QtC.QDateTime, updated: QtC.QDateTime) callconv(.c) void `
     ///
     pub fn OnUpdateDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, i32, [*:0]const u8, [*:0]const u8, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_UpdateDetail(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1201,7 +1201,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionrepoId: [*:0]const u8, description: [*:0]const u8, enabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, repoId: [*:0]const u8, description: [*:0]const u8, enabled: bool) callconv(.c) void `
     ///
     pub fn OnRepoDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RepoDetail(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1267,7 +1267,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionpackageID: [*:0]const u8, repoName: [*:0]const u8, keyUrl: [*:0]const u8, keyUserid: [*:0]const u8, keyId: [*:0]const u8, keyFingerprint: [*:0]const u8, keyTimestamp: [*:0]const u8, typeVal: transaction_enums.SigType) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, repoName: [*:0]const u8, keyUrl: [*:0]const u8, keyUserid: [*:0]const u8, keyId: [*:0]const u8, keyFingerprint: [*:0]const u8, keyTimestamp: [*:0]const u8, typeVal: transaction_enums.SigType) callconv(.c) void `
     ///
     pub fn OnRepoSignatureRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RepoSignatureRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1297,7 +1297,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactiontypeVal: transaction_enums.Restart, packageID: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.Restart, packageID: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRequireRestart(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RequireRestart(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1321,7 +1321,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transactiontransaction: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, transaction: QtC.PackageKit__Transaction) callconv(.c) void `
     ///
     pub fn OnTransaction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Transaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2070,7 +2070,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transactionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2516,7 +2516,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__TransactionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

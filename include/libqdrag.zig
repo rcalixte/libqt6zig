@@ -292,7 +292,7 @@ pub const qdrag = struct {
     ///
     /// ` self: QtC.QDrag `
     ///
-    /// ` callback: *const fn (self: QtC.QDragaction: qnamespace_enums.DropAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDrag, action: qnamespace_enums.DropAction) callconv(.c) void `
     ///
     pub fn OnActionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDrag_Connect_ActionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -316,7 +316,7 @@ pub const qdrag = struct {
     ///
     /// ` self: QtC.QDrag `
     ///
-    /// ` callback: *const fn (self: QtC.QDragnewTarget: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDrag, newTarget: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnTargetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDrag_Connect_TargetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -945,7 +945,7 @@ pub const qdrag = struct {
     ///
     /// ` self: QtC.QDrag `
     ///
-    /// ` callback: *const fn (self: QtC.QDragparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDrag, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1487,7 +1487,7 @@ pub const qdrag = struct {
     ///
     /// ` self: QtC.QDrag `
     ///
-    /// ` callback: *const fn (self: QtC.QDragobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDrag, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

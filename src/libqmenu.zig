@@ -722,7 +722,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenuaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMenu_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -746,7 +746,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenuaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMenu_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4973,7 +4973,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenutitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5001,7 +5001,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenuicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5033,7 +5033,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenuiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5061,7 +5061,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenupos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5896,7 +5896,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenuparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8060,7 +8060,7 @@ pub const qmenu = struct {
     ///
     /// ` self: QtC.QMenu `
     ///
-    /// ` callback: *const fn (self: QtC.QMenuobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMenu, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -1074,7 +1074,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulervalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, value: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1128,7 +1128,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulerposition: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, position: i32) callconv(.c) void `
     ///
     pub fn OnSliderMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1184,7 +1184,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulermin: i32, max: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, min: i32, max: i32) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1212,7 +1212,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRuleraction: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, action: i32) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4691,7 +4691,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4719,7 +4719,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4751,7 +4751,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4779,7 +4779,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulerpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5614,7 +5614,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8594,7 +8594,7 @@ pub const kruler = struct {
     ///
     /// ` self: QtC.KRuler `
     ///
-    /// ` callback: *const fn (self: QtC.KRulerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRuler, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

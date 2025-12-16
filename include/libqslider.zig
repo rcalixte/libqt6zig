@@ -874,7 +874,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSlidervalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, value: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -928,7 +928,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSliderposition: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, position: i32) callconv(.c) void `
     ///
     pub fn OnSliderMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -984,7 +984,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSlidermin: i32, max: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, min: i32, max: i32) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1012,7 +1012,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSlideraction: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, action: i32) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4491,7 +4491,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSlidertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4519,7 +4519,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSlidericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4551,7 +4551,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSlidericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4579,7 +4579,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSliderpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5414,7 +5414,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSliderparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8114,7 +8114,7 @@ pub const qslider = struct {
     ///
     /// ` self: QtC.QSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QSliderobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSlider, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

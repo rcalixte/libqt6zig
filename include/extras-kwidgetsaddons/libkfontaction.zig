@@ -740,7 +740,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActionaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -768,7 +768,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActionindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, index: i32) callconv(.c) void `
     ///
     pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -800,7 +800,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActiontext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1688,7 +1688,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActionenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1716,7 +1716,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActioncheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1822,7 +1822,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActionparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1864,7 +1864,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActionchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2435,7 +2435,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3279,7 +3279,7 @@ pub const kfontaction = struct {
     ///
     /// ` self: QtC.KFontAction `
     ///
-    /// ` callback: *const fn (self: QtC.KFontActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

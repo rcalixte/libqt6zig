@@ -342,7 +342,7 @@ pub const qinputdevice = struct {
     ///
     /// ` self: QtC.QInputDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDevicearea: QtC.QRect) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDevice, area: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnAvailableVirtualGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QRect) callconv(.c) void) void {
         qtc.QInputDevice_Connect_AvailableVirtualGeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -969,7 +969,7 @@ pub const qinputdevice = struct {
     ///
     /// ` self: QtC.QInputDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDeviceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDevice, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1511,7 +1511,7 @@ pub const qinputdevice = struct {
     ///
     /// ` self: QtC.QInputDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDeviceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDevice, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

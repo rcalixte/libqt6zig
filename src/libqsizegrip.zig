@@ -4055,7 +4055,7 @@ pub const qsizegrip = struct {
     ///
     /// ` self: QtC.QSizeGrip `
     ///
-    /// ` callback: *const fn (self: QtC.QSizeGriptitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSizeGrip, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4083,7 +4083,7 @@ pub const qsizegrip = struct {
     ///
     /// ` self: QtC.QSizeGrip `
     ///
-    /// ` callback: *const fn (self: QtC.QSizeGripicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSizeGrip, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4115,7 +4115,7 @@ pub const qsizegrip = struct {
     ///
     /// ` self: QtC.QSizeGrip `
     ///
-    /// ` callback: *const fn (self: QtC.QSizeGripiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSizeGrip, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4143,7 +4143,7 @@ pub const qsizegrip = struct {
     ///
     /// ` self: QtC.QSizeGrip `
     ///
-    /// ` callback: *const fn (self: QtC.QSizeGrippos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSizeGrip, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4978,7 +4978,7 @@ pub const qsizegrip = struct {
     ///
     /// ` self: QtC.QSizeGrip `
     ///
-    /// ` callback: *const fn (self: QtC.QSizeGripparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSizeGrip, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7330,7 +7330,7 @@ pub const qsizegrip = struct {
     ///
     /// ` self: QtC.QSizeGrip `
     ///
-    /// ` callback: *const fn (self: QtC.QSizeGripobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSizeGrip, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

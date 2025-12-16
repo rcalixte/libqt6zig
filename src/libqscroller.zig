@@ -390,7 +390,7 @@ pub const qscroller = struct {
     ///
     /// ` self: QtC.QScroller `
     ///
-    /// ` callback: *const fn (self: QtC.QScrollernewstate: qscroller_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScroller, newstate: qscroller_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScroller_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -414,7 +414,7 @@ pub const qscroller = struct {
     ///
     /// ` self: QtC.QScroller `
     ///
-    /// ` callback: *const fn (self: QtC.QScrollerparam1: QtC.QScrollerProperties) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScroller, param1: QtC.QScrollerProperties) callconv(.c) void `
     ///
     pub fn OnScrollerPropertiesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScroller_Connect_ScrollerPropertiesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1089,7 +1089,7 @@ pub const qscroller = struct {
     ///
     /// ` self: QtC.QScroller `
     ///
-    /// ` callback: *const fn (self: QtC.QScrollerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScroller, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1105,7 +1105,7 @@ pub const qscroller = struct {
     ///
     /// ` self: QtC.QScroller `
     ///
-    /// ` callback: *const fn (self: QtC.QScrollerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScroller, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

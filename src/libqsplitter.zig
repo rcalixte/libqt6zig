@@ -528,7 +528,7 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterpos: i32, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitter, pos: i32, index: i32) callconv(.c) void `
     ///
     pub fn OnSplitterMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QSplitter_Connect_SplitterMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4561,7 +4561,7 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplittertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitter, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4589,7 +4589,7 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplittericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitter, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4621,7 +4621,7 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplittericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitter, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4649,7 +4649,7 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitter, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5484,7 +5484,7 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8180,7 +8180,7 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12210,7 +12210,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ` self: QtC.QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandletitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitterHandle, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12238,7 +12238,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ` self: QtC.QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandleicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitterHandle, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12270,7 +12270,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ` self: QtC.QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandleiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitterHandle, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12298,7 +12298,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ` self: QtC.QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandlepos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitterHandle, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13133,7 +13133,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ` self: QtC.QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandleparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -15681,7 +15681,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ` self: QtC.QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandleobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplitterHandle, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

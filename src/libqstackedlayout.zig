@@ -561,7 +561,7 @@ pub const qstackedlayout = struct {
     ///
     /// ` self: QtC.QStackedLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedLayoutindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedLayout, index: i32) callconv(.c) void `
     ///
     pub fn OnWidgetRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStackedLayout_Connect_WidgetRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -585,7 +585,7 @@ pub const qstackedlayout = struct {
     ///
     /// ` self: QtC.QStackedLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedLayoutindex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedLayout, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStackedLayout_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1614,7 +1614,7 @@ pub const qstackedlayout = struct {
     ///
     /// ` self: QtC.QStackedLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedLayoutparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3024,7 +3024,7 @@ pub const qstackedlayout = struct {
     ///
     /// ` self: QtC.QStackedLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QStackedLayoutobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QStackedLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

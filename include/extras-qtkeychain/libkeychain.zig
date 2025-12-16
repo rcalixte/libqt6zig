@@ -259,7 +259,7 @@ pub const qkeychain__job = struct {
     ///
     /// ` self: QtC.QKeychain__Job `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__Jobparam1: QtC.QKeychain__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__Job, param1: QtC.QKeychain__Job) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QKeychain__Job_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -902,7 +902,7 @@ pub const qkeychain__job = struct {
     ///
     /// ` self: QtC.QKeychain__Job `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__Jobparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__Job, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -918,7 +918,7 @@ pub const qkeychain__job = struct {
     ///
     /// ` self: QtC.QKeychain__Job `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__JobobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__Job, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1357,7 +1357,7 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJobparam1: QtC.QKeychain__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJob, param1: QtC.QKeychain__Job) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QKeychain__Job_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1928,7 +1928,7 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJobparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2514,7 +2514,7 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJobobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__ReadPasswordJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2953,7 +2953,7 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJobparam1: QtC.QKeychain__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJob, param1: QtC.QKeychain__Job) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QKeychain__Job_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3524,7 +3524,7 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJobparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4110,7 +4110,7 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJobobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__WritePasswordJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4517,7 +4517,7 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJobparam1: QtC.QKeychain__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJob, param1: QtC.QKeychain__Job) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QKeychain__Job_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5088,7 +5088,7 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJobparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5674,7 +5674,7 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJobobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QKeychain__DeletePasswordJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

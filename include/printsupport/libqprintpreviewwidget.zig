@@ -456,7 +456,7 @@ pub const qprintpreviewwidget = struct {
     ///
     /// ` self: QtC.QPrintPreviewWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QPrintPreviewWidgetprinter: QtC.QPrinter) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPrintPreviewWidget, printer: QtC.QPrinter) callconv(.c) void `
     ///
     pub fn OnPaintRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPrintPreviewWidget_Connect_PaintRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4023,7 +4023,7 @@ pub const qprintpreviewwidget = struct {
     ///
     /// ` self: QtC.QPrintPreviewWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QPrintPreviewWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPrintPreviewWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4051,7 +4051,7 @@ pub const qprintpreviewwidget = struct {
     ///
     /// ` self: QtC.QPrintPreviewWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QPrintPreviewWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPrintPreviewWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4083,7 +4083,7 @@ pub const qprintpreviewwidget = struct {
     ///
     /// ` self: QtC.QPrintPreviewWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QPrintPreviewWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPrintPreviewWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4111,7 +4111,7 @@ pub const qprintpreviewwidget = struct {
     ///
     /// ` self: QtC.QPrintPreviewWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QPrintPreviewWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPrintPreviewWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4946,7 +4946,7 @@ pub const qprintpreviewwidget = struct {
     ///
     /// ` self: QtC.QPrintPreviewWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QPrintPreviewWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPrintPreviewWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7778,7 +7778,7 @@ pub const qprintpreviewwidget = struct {
     ///
     /// ` self: QtC.QPrintPreviewWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QPrintPreviewWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPrintPreviewWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

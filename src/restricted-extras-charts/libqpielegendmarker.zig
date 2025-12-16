@@ -494,7 +494,7 @@ pub const qpielegendmarker = struct {
     ///
     /// ` self: QtC.QPieLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QPieLegendMarkerstatus: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieLegendMarker, status: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1247,7 +1247,7 @@ pub const qpielegendmarker = struct {
     ///
     /// ` self: QtC.QPieLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QPieLegendMarkerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieLegendMarker, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1789,7 +1789,7 @@ pub const qpielegendmarker = struct {
     ///
     /// ` self: QtC.QPieLegendMarker `
     ///
-    /// ` callback: *const fn (self: QtC.QPieLegendMarkerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieLegendMarker, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

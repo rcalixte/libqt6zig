@@ -1239,7 +1239,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentfrom: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void `
     ///
     pub fn OnContentsChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QTextDocument_Connect_ContentsChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1285,7 +1285,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void `
     ///
     pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextDocument_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1309,7 +1309,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void `
     ///
     pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextDocument_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1355,7 +1355,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentm: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, m: bool) callconv(.c) void `
     ///
     pub fn OnModificationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextDocument_Connect_ModificationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1379,7 +1379,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentcursor: QtC.QTextCursor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, cursor: QtC.QTextCursor) callconv(.c) void `
     ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextDocument_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1403,7 +1403,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentnewBlockCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, newBlockCount: i32) callconv(.c) void `
     ///
     pub fn OnBlockCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTextDocument_Connect_BlockCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1427,7 +1427,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumenturl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnBaseUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextDocument_Connect_BaseUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2378,7 +2378,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2920,7 +2920,7 @@ pub const qtextdocument = struct {
     ///
     /// ` self: QtC.QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocumentobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextDocument, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

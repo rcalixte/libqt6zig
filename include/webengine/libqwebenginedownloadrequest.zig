@@ -363,7 +363,7 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ` self: QtC.QWebEngineDownloadRequest `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineDownloadRequeststate: qwebenginedownloadrequest_enums.DownloadState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineDownloadRequest, state: qwebenginedownloadrequest_enums.DownloadState) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1182,7 +1182,7 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ` self: QtC.QWebEngineDownloadRequest `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineDownloadRequestparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineDownloadRequest, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1198,7 +1198,7 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ` self: QtC.QWebEngineDownloadRequest `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineDownloadRequestobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineDownloadRequest, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

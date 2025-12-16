@@ -386,7 +386,7 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KFontChooserfont: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontChooser, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnFontSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontChooser_Connect_FontSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3895,7 +3895,7 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KFontChoosertitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontChooser, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3923,7 +3923,7 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KFontChoosericon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontChooser, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3955,7 +3955,7 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KFontChoosericonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontChooser, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3983,7 +3983,7 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KFontChooserpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontChooser, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4818,7 +4818,7 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KFontChooserparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontChooser, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7654,7 +7654,7 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` callback: *const fn (self: QtC.KFontChooserobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFontChooser, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

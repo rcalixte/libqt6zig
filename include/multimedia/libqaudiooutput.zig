@@ -230,7 +230,7 @@ pub const qaudiooutput = struct {
     ///
     /// ` self: QtC.QAudioOutput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioOutputvolume: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioOutput, volume: f32) callconv(.c) void `
     ///
     pub fn OnVolumeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
         qtc.QAudioOutput_Connect_VolumeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -254,7 +254,7 @@ pub const qaudiooutput = struct {
     ///
     /// ` self: QtC.QAudioOutput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioOutputmuted: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioOutput, muted: bool) callconv(.c) void `
     ///
     pub fn OnMutedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAudioOutput_Connect_MutedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -867,7 +867,7 @@ pub const qaudiooutput = struct {
     ///
     /// ` self: QtC.QAudioOutput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioOutputparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioOutput, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1409,7 +1409,7 @@ pub const qaudiooutput = struct {
     ///
     /// ` self: QtC.QAudioOutput `
     ///
-    /// ` callback: *const fn (self: QtC.QAudioOutputobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAudioOutput, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

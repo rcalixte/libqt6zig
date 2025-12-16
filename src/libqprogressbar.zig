@@ -499,7 +499,7 @@ pub const qprogressbar = struct {
     ///
     /// ` self: QtC.QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBarvalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProgressBar, value: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProgressBar_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4140,7 +4140,7 @@ pub const qprogressbar = struct {
     ///
     /// ` self: QtC.QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBartitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProgressBar, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4168,7 +4168,7 @@ pub const qprogressbar = struct {
     ///
     /// ` self: QtC.QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBaricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProgressBar, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4200,7 +4200,7 @@ pub const qprogressbar = struct {
     ///
     /// ` self: QtC.QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBariconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProgressBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4228,7 +4228,7 @@ pub const qprogressbar = struct {
     ///
     /// ` self: QtC.QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBarpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProgressBar, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5063,7 +5063,7 @@ pub const qprogressbar = struct {
     ///
     /// ` self: QtC.QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBarparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProgressBar, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7759,7 +7759,7 @@ pub const qprogressbar = struct {
     ///
     /// ` self: QtC.QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBarobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QProgressBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

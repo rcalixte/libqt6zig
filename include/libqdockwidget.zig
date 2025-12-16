@@ -328,7 +328,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgetfeatures: flag of qdockwidget_enums.DockWidgetFeature) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, features: flag of qdockwidget_enums.DockWidgetFeature) callconv(.c) void `
     ///
     pub fn OnFeaturesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDockWidget_Connect_FeaturesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -352,7 +352,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgettopLevel: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, topLevel: bool) callconv(.c) void `
     ///
     pub fn OnTopLevelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QDockWidget_Connect_TopLevelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -376,7 +376,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgetallowedAreas: flag of qnamespace_enums.DockWidgetArea) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, allowedAreas: flag of qnamespace_enums.DockWidgetArea) callconv(.c) void `
     ///
     pub fn OnAllowedAreasChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDockWidget_Connect_AllowedAreasChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -400,7 +400,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgetvisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, visible: bool) callconv(.c) void `
     ///
     pub fn OnVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QDockWidget_Connect_VisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -424,7 +424,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgetarea: qnamespace_enums.DockWidgetArea) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, area: qnamespace_enums.DockWidgetArea) callconv(.c) void `
     ///
     pub fn OnDockLocationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDockWidget_Connect_DockLocationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4145,7 +4145,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4173,7 +4173,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4205,7 +4205,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4233,7 +4233,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5068,7 +5068,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7756,7 +7756,7 @@ pub const qdockwidget = struct {
     ///
     /// ` self: QtC.QDockWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QDockWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDockWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

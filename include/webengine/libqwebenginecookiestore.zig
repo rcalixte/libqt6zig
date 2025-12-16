@@ -130,7 +130,7 @@ pub const qwebenginecookiestore = struct {
     ///
     /// ` self: QtC.QWebEngineCookieStore `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineCookieStorecookie: QtC.QNetworkCookie) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineCookieStore, cookie: QtC.QNetworkCookie) callconv(.c) void `
     ///
     pub fn OnCookieAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineCookieStore_Connect_CookieAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -154,7 +154,7 @@ pub const qwebenginecookiestore = struct {
     ///
     /// ` self: QtC.QWebEngineCookieStore `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineCookieStorecookie: QtC.QNetworkCookie) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineCookieStore, cookie: QtC.QNetworkCookie) callconv(.c) void `
     ///
     pub fn OnCookieRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineCookieStore_Connect_CookieRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -825,7 +825,7 @@ pub const qwebenginecookiestore = struct {
     ///
     /// ` self: QtC.QWebEngineCookieStore `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineCookieStoreparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineCookieStore, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -841,7 +841,7 @@ pub const qwebenginecookiestore = struct {
     ///
     /// ` self: QtC.QWebEngineCookieStore `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineCookieStoreobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineCookieStore, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

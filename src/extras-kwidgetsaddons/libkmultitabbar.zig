@@ -3982,7 +3982,7 @@ pub const kmultitabbar = struct {
     ///
     /// ` self: QtC.KMultiTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBartitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBar, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4010,7 +4010,7 @@ pub const kmultitabbar = struct {
     ///
     /// ` self: QtC.KMultiTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBaricon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBar, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4042,7 +4042,7 @@ pub const kmultitabbar = struct {
     ///
     /// ` self: QtC.KMultiTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBariconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4070,7 +4070,7 @@ pub const kmultitabbar = struct {
     ///
     /// ` self: QtC.KMultiTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBar, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4905,7 +4905,7 @@ pub const kmultitabbar = struct {
     ///
     /// ` self: QtC.KMultiTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBar, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7737,7 +7737,7 @@ pub const kmultitabbar = struct {
     ///
     /// ` self: QtC.KMultiTabBar `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7854,7 +7854,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtonid: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, id: i32) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KMultiTabBarButton_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8442,7 +8442,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8470,7 +8470,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtonchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12013,7 +12013,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtontitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12041,7 +12041,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtonicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12073,7 +12073,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtoniconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12101,7 +12101,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtonpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12966,7 +12966,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtonparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13136,7 +13136,7 @@ pub const kmultitabbarbutton = struct {
     ///
     /// ` self: QtC.KMultiTabBarButton `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarButtonobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13359,7 +13359,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabid: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, id: i32) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KMultiTabBarButton_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13881,7 +13881,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, checked: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -13909,7 +13909,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -17438,7 +17438,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -17466,7 +17466,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -17498,7 +17498,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -17526,7 +17526,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -18391,7 +18391,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -18561,7 +18561,7 @@ pub const kmultitabbartab = struct {
     ///
     /// ` self: QtC.KMultiTabBarTab `
     ///
-    /// ` callback: *const fn (self: QtC.KMultiTabBarTabobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KMultiTabBarTab, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

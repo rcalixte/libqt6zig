@@ -602,7 +602,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogoldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, oldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnSaveAs(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPropertiesDialog_Connect_SaveAs(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -992,7 +992,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogcurrent: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem) callconv(.c) void `
     ///
     pub fn OnCurrentPageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPageDialog_Connect_CurrentPageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1020,7 +1020,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogpage: QtC.KPageWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, page: QtC.KPageWidgetItem) callconv(.c) void `
     ///
     pub fn OnPageRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPageDialog_Connect_PageRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1114,7 +1114,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4645,7 +4645,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4673,7 +4673,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4705,7 +4705,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4733,7 +4733,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5568,7 +5568,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8816,7 +8816,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KPropertiesDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPropertiesDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -501,7 +501,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -533,7 +533,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesstatus: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, status: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -563,7 +563,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -593,7 +593,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -623,7 +623,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesindex: i32, barset: QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -707,7 +707,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesformat: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -735,7 +735,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesposition: qabstractbarseries_enums.LabelsPosition) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, position: qabstractbarseries_enums.LabelsPosition) callconv(.c) void `
     ///
     pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -763,7 +763,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesangle: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, angle: f64) callconv(.c) void `
     ///
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -791,7 +791,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesprecision: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, precision: i32) callconv(.c) void `
     ///
     pub fn OnLabelsPrecisionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsPrecisionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -823,7 +823,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriessets: [*]QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnBarsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -855,7 +855,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriessets: [*]QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnBarsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1765,7 +1765,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2307,7 +2307,7 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalPercentBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeriesobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalPercentBarSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

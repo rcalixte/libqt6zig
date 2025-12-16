@@ -927,7 +927,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogtext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QInputDialog_Connect_TextValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -955,7 +955,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogtext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextValueSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QInputDialog_Connect_TextValueSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -979,7 +979,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogvalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, value: i32) callconv(.c) void `
     ///
     pub fn OnIntValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QInputDialog_Connect_IntValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1003,7 +1003,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogvalue: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, value: i32) callconv(.c) void `
     ///
     pub fn OnIntValueSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QInputDialog_Connect_IntValueSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1027,7 +1027,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogvalue: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, value: f64) callconv(.c) void `
     ///
     pub fn OnDoubleValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QInputDialog_Connect_DoubleValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1051,7 +1051,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogvalue: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, value: f64) callconv(.c) void `
     ///
     pub fn OnDoubleValueSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QInputDialog_Connect_DoubleValueSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2199,7 +2199,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5730,7 +5730,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5758,7 +5758,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5790,7 +5790,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5818,7 +5818,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6653,7 +6653,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9621,7 +9621,7 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QInputDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

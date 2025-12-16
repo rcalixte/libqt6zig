@@ -1451,7 +1451,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketerrorVal: QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnPeerVerifyError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_PeerVerifyError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1479,7 +1479,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketerrors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QSslSocket_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1503,7 +1503,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketnewMode: qsslsocket_enums.SslMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, newMode: qsslsocket_enums.SslMode) callconv(.c) void `
     ///
     pub fn OnModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSslSocket_Connect_ModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1527,7 +1527,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSockettotalBytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, totalBytes: i64) callconv(.c) void `
     ///
     pub fn OnEncryptedBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QSslSocket_Connect_EncryptedBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1551,7 +1551,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketauthenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
     pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1605,7 +1605,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketlevel: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAlertSent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_Connect_AlertSent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1637,7 +1637,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketlevel: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAlertReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_Connect_AlertReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1661,7 +1661,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketerrorVal: QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnHandshakeInterruptedOnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_HandshakeInterruptedOnError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2558,7 +2558,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketparam1: qabstractsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2586,7 +2586,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketparam1: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2616,7 +2616,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketproxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
     ///
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3172,7 +3172,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketchannel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, channel: i32) callconv(.c) void `
     ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3200,7 +3200,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketbytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3230,7 +3230,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketchannel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, channel: i32, bytes: i64) callconv(.c) void `
     ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3873,7 +3873,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5289,7 +5289,7 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocketobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

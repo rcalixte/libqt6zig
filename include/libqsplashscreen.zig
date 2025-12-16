@@ -262,7 +262,7 @@ pub const qsplashscreen = struct {
     ///
     /// ` self: QtC.QSplashScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QSplashScreenmessage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplashScreen, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMessageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSplashScreen_Connect_MessageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3929,7 +3929,7 @@ pub const qsplashscreen = struct {
     ///
     /// ` self: QtC.QSplashScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QSplashScreentitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplashScreen, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3957,7 +3957,7 @@ pub const qsplashscreen = struct {
     ///
     /// ` self: QtC.QSplashScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QSplashScreenicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplashScreen, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3989,7 +3989,7 @@ pub const qsplashscreen = struct {
     ///
     /// ` self: QtC.QSplashScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QSplashScreeniconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplashScreen, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4017,7 +4017,7 @@ pub const qsplashscreen = struct {
     ///
     /// ` self: QtC.QSplashScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QSplashScreenpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplashScreen, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4852,7 +4852,7 @@ pub const qsplashscreen = struct {
     ///
     /// ` self: QtC.QSplashScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QSplashScreenparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplashScreen, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7636,7 +7636,7 @@ pub const qsplashscreen = struct {
     ///
     /// ` self: QtC.QSplashScreen `
     ///
-    /// ` callback: *const fn (self: QtC.QSplashScreenobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSplashScreen, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

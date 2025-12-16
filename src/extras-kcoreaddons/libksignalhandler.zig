@@ -94,7 +94,7 @@ pub const ksignalhandler = struct {
     ///
     /// ` self: QtC.KSignalHandler `
     ///
-    /// ` callback: *const fn (self: QtC.KSignalHandlersignal: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSignalHandler, signal: i32) callconv(.c) void `
     ///
     pub fn OnSignalReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSignalHandler_Connect_SignalReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -737,7 +737,7 @@ pub const ksignalhandler = struct {
     ///
     /// ` self: QtC.KSignalHandler `
     ///
-    /// ` callback: *const fn (self: QtC.KSignalHandlerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSignalHandler, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -753,7 +753,7 @@ pub const ksignalhandler = struct {
     ///
     /// ` self: QtC.KSignalHandler `
     ///
-    /// ` callback: *const fn (self: QtC.KSignalHandlerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSignalHandler, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

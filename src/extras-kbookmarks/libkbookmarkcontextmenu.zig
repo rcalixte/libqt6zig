@@ -1206,7 +1206,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenuaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMenu_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1234,7 +1234,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenuaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMenu_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4769,7 +4769,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenutitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4797,7 +4797,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenuicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4829,7 +4829,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenuiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4857,7 +4857,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenupos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5692,7 +5692,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenuparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8668,7 +8668,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkContextMenuobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkContextMenu, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

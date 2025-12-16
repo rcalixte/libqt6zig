@@ -769,7 +769,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketparam1: qabstractsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -797,7 +797,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketparam1: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -827,7 +827,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketproxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
     ///
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1383,7 +1383,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketchannel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, channel: i32) callconv(.c) void `
     ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1411,7 +1411,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketbytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1441,7 +1441,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketchannel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, channel: i32, bytes: i64) callconv(.c) void `
     ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2084,7 +2084,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4232,7 +4232,7 @@ pub const qsctpsocket = struct {
     ///
     /// ` self: QtC.QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocketobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSctpSocket, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

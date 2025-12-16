@@ -491,7 +491,7 @@ pub const kactioncollection = struct {
     ///
     /// ` self: QtC.KActionCollection `
     ///
-    /// ` callback: *const fn (self: QtC.KActionCollectionaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionCollection, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionCollection_Connect_Inserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -537,7 +537,7 @@ pub const kactioncollection = struct {
     ///
     /// ` self: QtC.KActionCollection `
     ///
-    /// ` callback: *const fn (self: QtC.KActionCollectionaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionCollection, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnActionHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionCollection_Connect_ActionHovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -561,7 +561,7 @@ pub const kactioncollection = struct {
     ///
     /// ` self: QtC.KActionCollection `
     ///
-    /// ` callback: *const fn (self: QtC.KActionCollectionaction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionCollection, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionCollection_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1465,7 +1465,7 @@ pub const kactioncollection = struct {
     ///
     /// ` self: QtC.KActionCollection `
     ///
-    /// ` callback: *const fn (self: QtC.KActionCollectionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionCollection, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1959,7 +1959,7 @@ pub const kactioncollection = struct {
     ///
     /// ` self: QtC.KActionCollection `
     ///
-    /// ` callback: *const fn (self: QtC.KActionCollectionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KActionCollection, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

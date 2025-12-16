@@ -473,7 +473,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplyparam1: qnetworkreply_enums.NetworkError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, param1: qnetworkreply_enums.NetworkError) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -523,7 +523,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplyerrors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, errors: [*]QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -547,7 +547,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplyauthenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
     pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -571,7 +571,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplyurl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_Redirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -619,7 +619,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplybytesSent: i64, bytesTotal: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, bytesSent: i64, bytesTotal: i64) callconv(.c) void `
     ///
     pub fn OnUploadProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, i64) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_UploadProgress(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -645,7 +645,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplybytesReceived: i64, bytesTotal: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, bytesReceived: i64, bytesTotal: i64) callconv(.c) void `
     ///
     pub fn OnDownloadProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, i64) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_DownloadProgress(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1335,7 +1335,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplychannel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, channel: i32) callconv(.c) void `
     ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1363,7 +1363,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplybytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1393,7 +1393,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplychannel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, channel: i32, bytes: i64) callconv(.c) void `
     ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2066,7 +2066,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplyparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2082,7 +2082,7 @@ pub const qnetworkreply = struct {
     ///
     /// ` self: QtC.QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReplyobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkReply, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -877,7 +877,7 @@ pub const solid__portablemediaplayer = struct {
     ///
     /// ` self: QtC.Solid__PortableMediaPlayer `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__PortableMediaPlayerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__PortableMediaPlayer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -893,7 +893,7 @@ pub const solid__portablemediaplayer = struct {
     ///
     /// ` self: QtC.Solid__PortableMediaPlayer `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__PortableMediaPlayerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__PortableMediaPlayer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

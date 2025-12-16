@@ -929,7 +929,7 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` self: QtC.QFileSystemWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSystemWatcherparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileSystemWatcher, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1469,7 +1469,7 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` self: QtC.QFileSystemWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSystemWatcherpath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileSystemWatcher, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFileChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemWatcher_Connect_FileChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1483,7 +1483,7 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` self: QtC.QFileSystemWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSystemWatcherpath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileSystemWatcher, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnDirectoryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemWatcher_Connect_DirectoryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1499,7 +1499,7 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` self: QtC.QFileSystemWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSystemWatcherobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileSystemWatcher, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

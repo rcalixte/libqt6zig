@@ -387,7 +387,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParthandled: *bool, abortClosing: *bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, handled: *bool, abortClosing: *bool) callconv(.c) void `
     ///
     pub fn OnSigQueryClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, *bool, *bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_Connect_SigQueryClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -711,7 +711,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartjob: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, job: QtC.KIO__Job) callconv(.c) void `
     ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -795,7 +795,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParterrMsg: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, errMsg: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -823,7 +823,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParturl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -907,7 +907,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartcaption: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, caption: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetWindowCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -939,7 +939,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWriteParttext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1510,7 +1510,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3949,7 +3949,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__ReadWritePartobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KParts__ReadWritePart, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

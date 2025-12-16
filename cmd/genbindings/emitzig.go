@@ -509,12 +509,13 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 	if isSlot {
 		// C calling convention limitations
 		ret = strings.ReplaceAll(ret, "[][]const u8", "[*][*:0]const u8")
+		ret = strings.ReplaceAll(ret, "[][]u8", "[*][*:0]u8")
 		ret = strings.ReplaceAll(ret, "[]const u8", "[*:0]const u8")
 		ret = strings.ReplaceAll(ret, "[]u8", "[*:0]u8")
 		ret = strings.ReplaceAll(ret, "[]i32", "[*:-1]i32")
 		ret = strings.ReplaceAll(ret, "[]f64", "[*:-1]f64")
 		ret = strings.ReplaceAll(ret, "[]QtC", "[*:null]QtC")
-		ret = strings.ReplaceAll(ret, "[]struct", "[*:null]struct")
+		ret = strings.ReplaceAll(ret, "[]struct", "[*]struct")
 	}
 
 	return ret
@@ -616,6 +617,7 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 			if isSlot {
 				// C calling convention limitations
 				paramType = strings.ReplaceAll(paramType, "[][]const u8", "[*][*:0]const u8")
+				paramType = strings.ReplaceAll(paramType, "[][]u8", "[*][*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]const u8", "[*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[]u8", "[*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]i32", "[*:-1]i32")
@@ -669,6 +671,7 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 			if isSlot {
 				// C calling convention limitations
 				paramType = strings.ReplaceAll(paramType, "[][]const u8", "[*][*:0]const u8")
+				paramType = strings.ReplaceAll(paramType, "[][]u8", "[*][*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]const u8", "[*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[]u8", "[*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]i32", "[*:-1]i32")
@@ -1796,11 +1799,13 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					addConnect = false
 				}
 
+				maybeComma = ifv(len(m.Parameters) != 0, ", ", "")
+
 				if addConnect {
 					ret.WriteString(inheritedFrom + docCommentUrl + "\n///\n/// ## Parameters:\n///\n/// ` self: QtC." + zigStructName + " `\n///\n/// ` callback: *const fn (self: QtC." +
-						zigStructName + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
+						zigStructName + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
 						"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
-						ifv(len(m.Parameters) != 0, ", ", "") + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
+						maybeComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
 						"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 				}
 			}
@@ -2044,11 +2049,12 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 
 			headerComment := "/// Wrapper to allow calling private signal\n///\n/// ## Parameters:\n///\n"
+			maybeComma := ifv(len(m.Parameters) != 0, ", ", "")
 
 			ret.WriteString(inheritedFrom + docCommentUrl + headerComment + "/// ` self: QtC." + zigStructName + " `\n///\n/// ` callback: *const fn (self: QtC." +
-				zigStructName + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
+				zigStructName + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
-				ifv(len(m.Parameters) != 0, ", ", "") + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
+				maybeComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
 				"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 		}
 

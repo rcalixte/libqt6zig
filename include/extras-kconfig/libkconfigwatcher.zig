@@ -92,9 +92,9 @@ pub const kconfigwatcher = struct {
     ///
     /// ` self: QtC.KConfigWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigWatchergroup: QtC.KConfigGroup, names: [][*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KConfigWatcher, group: QtC.KConfigGroup, names: [*][*:0]u8) callconv(.c) void `
     ///
-    pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [][*:0]u8) callconv(.c) void) void {
+    pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*][*:0]u8) callconv(.c) void) void {
         qtc.KConfigWatcher_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -735,7 +735,7 @@ pub const kconfigwatcher = struct {
     ///
     /// ` self: QtC.KConfigWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigWatcherparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KConfigWatcher, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -751,7 +751,7 @@ pub const kconfigwatcher = struct {
     ///
     /// ` self: QtC.KConfigWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigWatcherobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KConfigWatcher, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

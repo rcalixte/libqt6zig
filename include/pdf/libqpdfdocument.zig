@@ -403,7 +403,7 @@ pub const qpdfdocument = struct {
     ///
     /// ` self: QtC.QPdfDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfDocumentstatus: qpdfdocument_enums.Status) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfDocument, status: qpdfdocument_enums.Status) callconv(.c) void `
     ///
     pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfDocument_Connect_StatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -427,7 +427,7 @@ pub const qpdfdocument = struct {
     ///
     /// ` self: QtC.QPdfDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfDocumentpageCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfDocument, pageCount: i32) callconv(.c) void `
     ///
     pub fn OnPageCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfDocument_Connect_PageCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1078,7 +1078,7 @@ pub const qpdfdocument = struct {
     ///
     /// ` self: QtC.QPdfDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfDocumentparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfDocument, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1620,7 +1620,7 @@ pub const qpdfdocument = struct {
     ///
     /// ` self: QtC.QPdfDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfDocumentobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPdfDocument, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

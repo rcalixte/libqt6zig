@@ -162,7 +162,7 @@ pub const qwebchannelabstracttransport = struct {
     ///
     /// ` self: QtC.QWebChannelAbstractTransport `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannelAbstractTransportmessage: QtC.QJsonObject, transport: QtC.QWebChannelAbstractTransport) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebChannelAbstractTransport, message: QtC.QJsonObject, transport: QtC.QWebChannelAbstractTransport) callconv(.c) void `
     ///
     pub fn OnMessageReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebChannelAbstractTransport_Connect_MessageReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -775,7 +775,7 @@ pub const qwebchannelabstracttransport = struct {
     ///
     /// ` self: QtC.QWebChannelAbstractTransport `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannelAbstractTransportparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebChannelAbstractTransport, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1317,7 +1317,7 @@ pub const qwebchannelabstracttransport = struct {
     ///
     /// ` self: QtC.QWebChannelAbstractTransport `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannelAbstractTransportobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebChannelAbstractTransport, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

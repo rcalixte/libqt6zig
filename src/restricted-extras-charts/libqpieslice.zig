@@ -559,7 +559,7 @@ pub const qpieslice = struct {
     ///
     /// ` self: QtC.QPieSlice `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSlicestate: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSlice, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QPieSlice_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1570,7 +1570,7 @@ pub const qpieslice = struct {
     ///
     /// ` self: QtC.QPieSlice `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSliceparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSlice, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2112,7 +2112,7 @@ pub const qpieslice = struct {
     ///
     /// ` self: QtC.QPieSlice `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSliceobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSlice, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

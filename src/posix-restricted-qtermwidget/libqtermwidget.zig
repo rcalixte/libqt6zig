@@ -2952,7 +2952,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, param1: bool) callconv(.c) void `
     ///
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTermWidget_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3020,7 +3020,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetparam1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, param1: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnTermKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTermWidget_Connect_TermKeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3046,7 +3046,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetparam1: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, param1: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
     ///
     pub fn OnUrlActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTermWidget_Connect_UrlActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3074,7 +3074,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetmessage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnBell(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_Connect_Bell(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3145,7 +3145,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetparam1: [*:0]const u8, param2: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, param1: [*:0]const u8, param2: i32) callconv(.c) void `
     ///
     pub fn OnSendData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.QTermWidget_Connect_SendData(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3173,7 +3173,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetprofile: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, profile: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnProfileChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_Connect_ProfileChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3223,7 +3223,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgettext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnReceivedData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_Connect_ReceivedData(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6970,7 +6970,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgettitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6998,7 +6998,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgeticon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7030,7 +7030,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgeticonText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7058,7 +7058,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7893,7 +7893,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -10695,7 +10695,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidgetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

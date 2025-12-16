@@ -553,7 +553,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewprogress: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, progress: i32) callconv(.c) void `
     ///
     pub fn OnLoadProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_LoadProgress(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -577,7 +577,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, param1: bool) callconv(.c) void `
     ///
     pub fn OnLoadFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_LoadFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -605,7 +605,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -651,7 +651,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -675,7 +675,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewparam1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, param1: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnIconUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_IconUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -699,7 +699,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewparam1: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, param1: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_IconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -725,7 +725,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewterminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void `
     ///
     pub fn OnRenderProcessTerminated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_RenderProcessTerminated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -755,7 +755,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewfilePath: [*:0]const u8, success: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, filePath: [*:0]const u8, success: bool) callconv(.c) void `
     ///
     pub fn OnPdfPrintingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_PdfPrintingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -801,7 +801,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewframe: QtC.QWebEngineFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, frame: QtC.QWebEngineFrame) callconv(.c) void `
     ///
     pub fn OnPrintRequestedByFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QWebEngineFrame) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_PrintRequestedByFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -825,7 +825,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewsuccess: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, success: bool) callconv(.c) void `
     ///
     pub fn OnPrintFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_PrintFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4862,7 +4862,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4890,7 +4890,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4922,7 +4922,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4950,7 +4950,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5785,7 +5785,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8189,7 +8189,7 @@ pub const qwebengineview = struct {
     ///
     /// ` self: QtC.QWebEngineView `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -774,7 +774,7 @@ pub const knotificationjobuidelegate = struct {
     ///
     /// ` self: QtC.KNotificationJobUiDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KNotificationJobUiDelegateparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNotificationJobUiDelegate, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -790,7 +790,7 @@ pub const knotificationjobuidelegate = struct {
     ///
     /// ` self: QtC.KNotificationJobUiDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KNotificationJobUiDelegateobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNotificationJobUiDelegate, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

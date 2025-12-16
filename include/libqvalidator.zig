@@ -862,7 +862,7 @@ pub const qvalidator = struct {
     ///
     /// ` self: QtC.QValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QValidatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1404,7 +1404,7 @@ pub const qvalidator = struct {
     ///
     /// ` self: QtC.QValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QValidatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1731,7 +1731,7 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QIntValidatorbottom: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QIntValidator, bottom: i32) callconv(.c) void `
     ///
     pub fn OnBottomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIntValidator_Connect_BottomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1755,7 +1755,7 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QIntValidatortop: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QIntValidator, top: i32) callconv(.c) void `
     ///
     pub fn OnTopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIntValidator_Connect_TopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2420,7 +2420,7 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QIntValidatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QIntValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2962,7 +2962,7 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QIntValidatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QIntValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3357,7 +3357,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleValidatorbottom: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, bottom: f64) callconv(.c) void `
     ///
     pub fn OnBottomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_BottomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3381,7 +3381,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleValidatortop: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, top: f64) callconv(.c) void `
     ///
     pub fn OnTopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_TopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3405,7 +3405,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleValidatordecimals: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, decimals: i32) callconv(.c) void `
     ///
     pub fn OnDecimalsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_DecimalsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3429,7 +3429,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleValidatornotation: qvalidator_enums.Notation) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, notation: qvalidator_enums.Notation) callconv(.c) void `
     ///
     pub fn OnNotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_NotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4094,7 +4094,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleValidatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4636,7 +4636,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QDoubleValidatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4875,7 +4875,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QRegularExpressionValidatorre: QtC.QRegularExpression) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, re: QtC.QRegularExpression) callconv(.c) void `
     ///
     pub fn OnRegularExpressionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_Connect_RegularExpressionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5540,7 +5540,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QRegularExpressionValidatorparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6138,7 +6138,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    /// ` callback: *const fn (self: QtC.QRegularExpressionValidatorobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

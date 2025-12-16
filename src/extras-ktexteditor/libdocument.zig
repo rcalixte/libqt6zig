@@ -172,7 +172,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, view: QtC.KTextEditor__View) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnViewCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ViewCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -244,7 +244,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnDocumentNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -268,7 +268,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnDocumentUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -292,7 +292,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnModifiedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModifiedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -316,7 +316,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnReadWriteChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ReadWriteChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -414,7 +414,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, saveAs: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, saveAs: bool) callconv(.c) void `
     ///
     pub fn OnDocumentSavedOrUploaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentSavedOrUploaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -438,7 +438,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -462,7 +462,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnAboutToReload(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToReload(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -486,7 +486,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnReloaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_Reloaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -510,7 +510,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnAboutToSave(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToSave(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1066,7 +1066,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnEditingStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_EditingStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1090,7 +1090,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnEditingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_EditingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1116,7 +1116,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor) callconv(.c) void `
     ///
     pub fn OnLineWrapped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_LineWrapped(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1142,7 +1142,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, line: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, line: i32) callconv(.c) void `
     ///
     pub fn OnLineUnwrapped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_LineUnwrapped(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1174,7 +1174,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, position: QtC.KTextEditor__Cursor, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Cursor, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1206,7 +1206,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, range: QtC.KTextEditor__Range, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Range, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1230,7 +1230,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1469,7 +1469,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1493,7 +1493,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnHighlightingModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_HighlightingModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1639,7 +1639,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1795,7 +1795,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnAboutToDeleteMovingInterfaceContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToDeleteMovingInterfaceContent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1819,7 +1819,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnAboutToInvalidateMovingInterfaceContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToInvalidateMovingInterfaceContent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1932,7 +1932,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, isModified: bool, reason: document_enums.ModifiedOnDiskReason) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, isModified: bool, reason: document_enums.ModifiedOnDiskReason) callconv(.c) void `
     ///
     pub fn OnModifiedOnDisk(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModifiedOnDisk(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2148,7 +2148,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document) callconv(.c) void `
     ///
     pub fn OnMarksChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarksChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2176,7 +2176,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, action: document_enums.MarkChangeAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, action: document_enums.MarkChangeAction) callconv(.c) void `
     ///
     pub fn OnMarkChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2206,7 +2206,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, position: QtC.QPoint, handled: *bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, position: QtC.QPoint, handled: *bool) callconv(.c) void `
     ///
     pub fn OnMarkToolTipRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, QtC.QPoint, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkToolTipRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2236,7 +2236,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, pos: QtC.QPoint, handled: *bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, pos: QtC.QPoint, handled: *bool) callconv(.c) void `
     ///
     pub fn OnMarkContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, QtC.QPoint, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2264,7 +2264,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentdocument: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, handled: *bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, document: QtC.KTextEditor__Document, mark: QtC.KTextEditor__Mark, handled: *bool) callconv(.c) void `
     ///
     pub fn OnMarkClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.KTextEditor__Mark, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2489,7 +2489,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documenthandled: *bool, abortClosing: *bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, handled: *bool, abortClosing: *bool) callconv(.c) void `
     ///
     pub fn OnSigQueryClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, *bool, *bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_Connect_SigQueryClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2693,7 +2693,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentjob: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, job: QtC.KIO__Job) callconv(.c) void `
     ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2777,7 +2777,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__DocumenterrMsg: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, errMsg: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2805,7 +2805,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documenturl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2931,7 +2931,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentcaption: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, caption: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetWindowCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2963,7 +2963,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documenttext: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3564,7 +3564,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__Documentparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4121,7 +4121,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__DocumentobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KTextEditor__Document, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

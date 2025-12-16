@@ -1267,7 +1267,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLineparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1299,7 +1299,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLineparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1329,7 +1329,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLineparam1: i32, param2: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, param1: i32, param2: i32) callconv(.c) void `
     ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4928,7 +4928,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLinetitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4956,7 +4956,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLineicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4988,7 +4988,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLineiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5016,7 +5016,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLinepos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5851,7 +5851,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLineparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8775,7 +8775,7 @@ pub const klistwidgetsearchline = struct {
     ///
     /// ` self: QtC.KListWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KListWidgetSearchLineobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KListWidgetSearchLine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

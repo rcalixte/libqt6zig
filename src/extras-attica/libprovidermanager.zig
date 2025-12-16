@@ -293,7 +293,7 @@ pub const attica__providermanager = struct {
     ///
     /// ` self: QtC.Attica__ProviderManager `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__ProviderManagerprovider: QtC.Attica__Provider) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__ProviderManager, provider: QtC.Attica__Provider) callconv(.c) void `
     ///
     pub fn OnProviderAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Attica__ProviderManager_Connect_ProviderAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -339,7 +339,7 @@ pub const attica__providermanager = struct {
     ///
     /// ` self: QtC.Attica__ProviderManager `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__ProviderManagerprovider: QtC.Attica__Provider) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__ProviderManager, provider: QtC.Attica__Provider) callconv(.c) void `
     ///
     pub fn OnAuthenticationCredentialsMissing(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Attica__ProviderManager_Connect_AuthenticationCredentialsMissing(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -365,7 +365,7 @@ pub const attica__providermanager = struct {
     ///
     /// ` self: QtC.Attica__ProviderManager `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__ProviderManagerprovider: QtC.QUrl, errorVal: qnetworkreply_enums.NetworkError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__ProviderManager, provider: QtC.QUrl, errorVal: qnetworkreply_enums.NetworkError) callconv(.c) void `
     ///
     pub fn OnFailedToLoad(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.Attica__ProviderManager_Connect_FailedToLoad(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -978,7 +978,7 @@ pub const attica__providermanager = struct {
     ///
     /// ` self: QtC.Attica__ProviderManager `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__ProviderManagerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__ProviderManager, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1520,7 +1520,7 @@ pub const attica__providermanager = struct {
     ///
     /// ` self: QtC.Attica__ProviderManager `
     ///
-    /// ` callback: *const fn (self: QtC.Attica__ProviderManagerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Attica__ProviderManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

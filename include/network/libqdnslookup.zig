@@ -1409,7 +1409,7 @@ pub const qdnslookup = struct {
     ///
     /// ` self: QtC.QDnsLookup `
     ///
-    /// ` callback: *const fn (self: QtC.QDnsLookupname: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDnsLookup, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1433,7 +1433,7 @@ pub const qdnslookup = struct {
     ///
     /// ` self: QtC.QDnsLookup `
     ///
-    /// ` callback: *const fn (self: QtC.QDnsLookuptypeVal: qdnslookup_enums.Type) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDnsLookup, typeVal: qdnslookup_enums.Type) callconv(.c) void `
     ///
     pub fn OnTypeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_TypeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1457,7 +1457,7 @@ pub const qdnslookup = struct {
     ///
     /// ` self: QtC.QDnsLookup `
     ///
-    /// ` callback: *const fn (self: QtC.QDnsLookupnameserver: QtC.QHostAddress) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDnsLookup, nameserver: QtC.QHostAddress) callconv(.c) void `
     ///
     pub fn OnNameserverChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1481,7 +1481,7 @@ pub const qdnslookup = struct {
     ///
     /// ` self: QtC.QDnsLookup `
     ///
-    /// ` callback: *const fn (self: QtC.QDnsLookupport: u16) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDnsLookup, port: u16) callconv(.c) void `
     ///
     pub fn OnNameserverPortChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverPortChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1505,7 +1505,7 @@ pub const qdnslookup = struct {
     ///
     /// ` self: QtC.QDnsLookup `
     ///
-    /// ` callback: *const fn (self: QtC.QDnsLookupprotocol: qdnslookup_enums.Protocol) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol) callconv(.c) void `
     ///
     pub fn OnNameserverProtocolChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, u8) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverProtocolChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2134,7 +2134,7 @@ pub const qdnslookup = struct {
     ///
     /// ` self: QtC.QDnsLookup `
     ///
-    /// ` callback: *const fn (self: QtC.QDnsLookupparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDnsLookup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2676,7 +2676,7 @@ pub const qdnslookup = struct {
     ///
     /// ` self: QtC.QDnsLookup `
     ///
-    /// ` callback: *const fn (self: QtC.QDnsLookupobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDnsLookup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -260,7 +260,7 @@ pub const ksslinfodialog = struct {
     ///
     /// ` self: QtC.KSslInfoDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KSslInfoDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSslInfoDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3791,7 +3791,7 @@ pub const ksslinfodialog = struct {
     ///
     /// ` self: QtC.KSslInfoDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KSslInfoDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSslInfoDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3819,7 +3819,7 @@ pub const ksslinfodialog = struct {
     ///
     /// ` self: QtC.KSslInfoDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KSslInfoDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSslInfoDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3851,7 +3851,7 @@ pub const ksslinfodialog = struct {
     ///
     /// ` self: QtC.KSslInfoDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KSslInfoDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSslInfoDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3879,7 +3879,7 @@ pub const ksslinfodialog = struct {
     ///
     /// ` self: QtC.KSslInfoDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KSslInfoDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSslInfoDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4714,7 +4714,7 @@ pub const ksslinfodialog = struct {
     ///
     /// ` self: QtC.KSslInfoDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KSslInfoDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSslInfoDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7866,7 +7866,7 @@ pub const ksslinfodialog = struct {
     ///
     /// ` self: QtC.KSslInfoDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KSslInfoDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSslInfoDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

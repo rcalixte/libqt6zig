@@ -274,7 +274,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, param1: i32) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QCheckBox_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -298,7 +298,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxparam1: qnamespace_enums.CheckState) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, param1: qnamespace_enums.CheckState) callconv(.c) void `
     ///
     pub fn OnCheckStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QCheckBox_Connect_CheckStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1074,7 +1074,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, checked: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1102,7 +1102,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, checked: bool) callconv(.c) void `
     ///
     pub fn OnClicked1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4581,7 +4581,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4609,7 +4609,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4641,7 +4641,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4669,7 +4669,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5504,7 +5504,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8152,7 +8152,7 @@ pub const qcheckbox = struct {
     ///
     /// ` self: QtC.QCheckBox `
     ///
-    /// ` callback: *const fn (self: QtC.QCheckBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCheckBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

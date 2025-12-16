@@ -224,7 +224,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ` self: QtC.QNetworkInformation `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkInformationnewReachability: qnetworkinformation_enums.Reachability) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkInformation, newReachability: qnetworkinformation_enums.Reachability) callconv(.c) void `
     ///
     pub fn OnReachabilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_ReachabilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -248,7 +248,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ` self: QtC.QNetworkInformation `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkInformationstate: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkInformation, state: bool) callconv(.c) void `
     ///
     pub fn OnIsBehindCaptivePortalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_IsBehindCaptivePortalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -272,7 +272,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ` self: QtC.QNetworkInformation `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkInformationcurrent: qnetworkinformation_enums.TransportMedium) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkInformation, current: qnetworkinformation_enums.TransportMedium) callconv(.c) void `
     ///
     pub fn OnTransportMediumChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_TransportMediumChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -296,7 +296,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ` self: QtC.QNetworkInformation `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkInformationisMetered: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkInformation, isMetered: bool) callconv(.c) void `
     ///
     pub fn OnIsMeteredChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_IsMeteredChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -939,7 +939,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ` self: QtC.QNetworkInformation `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkInformationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkInformation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -955,7 +955,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ` self: QtC.QNetworkInformation `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkInformationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkInformation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

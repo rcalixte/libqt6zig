@@ -432,7 +432,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxparam1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, param1: i32) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSpinBox_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -464,7 +464,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSpinBox_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4329,7 +4329,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4357,7 +4357,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4389,7 +4389,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4417,7 +4417,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5252,7 +5252,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8656,7 +8656,7 @@ pub const kpluralhandlingspinbox = struct {
     ///
     /// ` self: QtC.KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBoxobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KPluralHandlingSpinBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

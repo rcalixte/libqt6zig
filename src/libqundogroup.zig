@@ -289,7 +289,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupstack: QtC.QUndoStack) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, stack: QtC.QUndoStack) callconv(.c) void `
     ///
     pub fn OnActiveStackChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_ActiveStackChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -313,7 +313,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupidx: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, idx: i32) callconv(.c) void `
     ///
     pub fn OnIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_IndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -337,7 +337,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupclean: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, clean: bool) callconv(.c) void `
     ///
     pub fn OnCleanChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_CleanChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -361,7 +361,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupcanUndo: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, canUndo: bool) callconv(.c) void `
     ///
     pub fn OnCanUndoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_CanUndoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -385,7 +385,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupcanRedo: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, canRedo: bool) callconv(.c) void `
     ///
     pub fn OnCanRedoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_CanRedoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -413,7 +413,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupundoText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, undoText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnUndoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_UndoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -441,7 +441,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupredoText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, redoText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRedoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_RedoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1090,7 +1090,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1632,7 +1632,7 @@ pub const qundogroup = struct {
     ///
     /// ` self: QtC.QUndoGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QUndoGroupobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QUndoGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

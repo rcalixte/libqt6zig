@@ -819,7 +819,7 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionitem: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletion, item: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Match(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -857,7 +857,7 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionmatchlist: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletion, matchlist: [*][*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Matches(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1640,7 +1640,7 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletion, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2182,7 +2182,7 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletion, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

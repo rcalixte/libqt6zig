@@ -1100,7 +1100,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1128,7 +1128,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32, oldSize: i32, newSize: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32) callconv(.c) void `
     ///
     pub fn OnSectionResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionResized(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1152,7 +1152,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1176,7 +1176,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1200,7 +1200,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1224,7 +1224,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1250,7 +1250,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewoldCount: i32, newCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
     pub fn OnSectionCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1274,7 +1274,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionHandleDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionHandleDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1322,7 +1322,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewlogicalIndex: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
     pub fn OnSortIndicatorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SortIndicatorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1346,7 +1346,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewclearable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, clearable: bool) callconv(.c) void `
     ///
     pub fn OnSortIndicatorClearableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SortIndicatorClearableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3532,7 +3532,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3560,7 +3560,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3588,7 +3588,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3616,7 +3616,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3644,7 +3644,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewindex: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3698,7 +3698,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewsize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7584,7 +7584,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7612,7 +7612,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7644,7 +7644,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7672,7 +7672,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8507,7 +8507,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -12913,7 +12913,7 @@ pub const qheaderview = struct {
     ///
     /// ` self: QtC.QHeaderView `
     ///
-    /// ` callback: *const fn (self: QtC.QHeaderViewobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHeaderView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

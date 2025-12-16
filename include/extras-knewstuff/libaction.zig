@@ -133,7 +133,7 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__ActionchangedEntries: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, changedEntries: [*]QtC.KNSCore__Entry) callconv(.c) void `
     ///
     pub fn OnDialogFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
         qtc.KNSWidgets__Action_Connect_DialogFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -995,7 +995,7 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__Actionenabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1023,7 +1023,7 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__Actioncheckable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1129,7 +1129,7 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__Actionparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1171,7 +1171,7 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__Actionchecked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1742,7 +1742,7 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__Actionparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2284,7 +2284,7 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__ActionobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

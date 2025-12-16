@@ -839,7 +839,7 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    /// ` callback: *const fn (self: QtC.QChartplotArea: QtC.QRectF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChart, plotArea: QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnPlotAreaChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QChart_Connect_PlotAreaChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2809,7 +2809,7 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    /// ` callback: *const fn (self: QtC.QChartparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChart, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -9207,7 +9207,7 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    /// ` callback: *const fn (self: QtC.QChartobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QChart, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

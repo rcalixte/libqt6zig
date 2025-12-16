@@ -454,9 +454,9 @@ pub const qaccessibleobject = struct {
     ///
     /// ` self: QtC.QAccessibleObject`
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 `
+    /// ` callback: *const fn (self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*]struct_qtcqaccessibleinterface_i64 `
     ///
-    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
+    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*]struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleObject_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1831,9 +1831,9 @@ pub const qaccessibleapplication = struct {
     ///
     /// ` self: QtC.QAccessibleApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 `
+    /// ` callback: *const fn (self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*]struct_qtcqaccessibleinterface_i64 `
     ///
-    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
+    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*]struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleApplication_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

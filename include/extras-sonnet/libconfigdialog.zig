@@ -226,7 +226,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialoglanguage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, language: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__ConfigDialog_Connect_LanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -384,7 +384,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3915,7 +3915,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3943,7 +3943,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3975,7 +3975,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4003,7 +4003,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4838,7 +4838,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7990,7 +7990,7 @@ pub const sonnet__configdialog = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigDialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

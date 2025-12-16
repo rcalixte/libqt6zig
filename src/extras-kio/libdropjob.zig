@@ -108,7 +108,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJoburl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnItemCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__DropJob_Connect_ItemCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -132,7 +132,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KIO__CopyJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KIO__CopyJob) callconv(.c) void `
     ///
     pub fn OnCopyJobStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__DropJob_Connect_CopyJobStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -156,7 +156,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobitemProps: QtC.KFileItemListProperties) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, itemProps: QtC.KFileItemListProperties) callconv(.c) void `
     ///
     pub fn OnPopupMenuAboutToShow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__DropJob_Connect_PopupMenuAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -509,7 +509,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KIO__Job) callconv(.c) void `
     ///
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__Job_Connect_Connected(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -853,7 +853,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -887,7 +887,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -917,7 +917,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -947,7 +947,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -977,7 +977,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, speed: u64) callconv(.c) void `
     ///
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1606,7 +1606,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1622,7 +1622,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1638,7 +1638,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1654,7 +1654,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1670,7 +1670,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1686,7 +1686,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1702,7 +1702,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1718,7 +1718,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobjob: QtC.KJob, percent: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, job: QtC.KJob, percent: u64) callconv(.c) void `
     ///
     pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1734,7 +1734,7 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DropJobobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DropJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

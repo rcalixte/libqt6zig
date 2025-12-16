@@ -257,7 +257,7 @@ pub const qclipboard = struct {
     ///
     /// ` self: QtC.QClipboard `
     ///
-    /// ` callback: *const fn (self: QtC.QClipboardmode: qclipboard_enums.Mode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QClipboard, mode: qclipboard_enums.Mode) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QClipboard_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1116,7 +1116,7 @@ pub const qclipboard = struct {
     ///
     /// ` self: QtC.QClipboard `
     ///
-    /// ` callback: *const fn (self: QtC.QClipboardparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QClipboard, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1132,7 +1132,7 @@ pub const qclipboard = struct {
     ///
     /// ` self: QtC.QClipboard `
     ///
-    /// ` callback: *const fn (self: QtC.QClipboardobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QClipboard, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

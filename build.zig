@@ -29,13 +29,9 @@ pub fn build(b: *std.Build) !void {
 
     const is_bsd_family = is_bsd_host or is_bsd_target;
 
-    var arena = std.heap.ArenaAllocator.init(b.allocator);
-    defer arena.deinit();
-    const allocator = arena.allocator();
-
     var dir = try b.build_root.handle.openDir("src", .{ .iterate = true });
     defer dir.close();
-    var walker = try dir.walk(allocator);
+    var walker = try dir.walk(b.allocator);
     defer walker.deinit();
 
     while (try walker.next()) |entry| {
@@ -70,7 +66,7 @@ pub fn build(b: *std.Build) !void {
                     }
                 }
 
-                try cpp_sources.append(allocator, b.fmt("{s}/{s}", .{ "src", entry.path }));
+                try cpp_sources.append(b.allocator, b.fmt("{s}/{s}", .{ "src", entry.path }));
             } else if (entry.kind == .directory) {
                 inline for (prefixes) |prefix| {
                     if (std.mem.startsWith(u8, entry.path, prefix)) {
@@ -85,7 +81,7 @@ pub fn build(b: *std.Build) !void {
                             is_enabled = false;
                         }
                         const map_value = if (option_value == null) is_enabled else option_value.?;
-                        try prefix_options.put(allocator, b.dupe(name), map_value);
+                        try prefix_options.put(b.allocator, b.dupe(name), map_value);
                     }
                 }
             }
@@ -102,23 +98,23 @@ pub fn build(b: *std.Build) !void {
             try stdout_writer.interface.flush();
             continue;
         };
-        try qt_include_path.append(allocator, b.dupe(inc_path));
+        try qt_include_path.append(b.allocator, b.dupe(inc_path));
     }
     for (os_include_path) |os_path| {
         std.fs.cwd().access(os_path, .{}) catch {
             continue;
         };
-        try qt_include_path.append(allocator, b.dupe(os_path));
+        try qt_include_path.append(b.allocator, b.dupe(os_path));
     }
 
     // Add base flags
     inline for (base_cpp_flags) |flag| {
-        try cpp_flags.append(allocator, b.dupe(flag));
+        try cpp_flags.append(b.allocator, b.dupe(flag));
     }
 
     // Add include paths
     for (qt_include_path.items) |qt_path| {
-        try cpp_flags.append(allocator, b.fmt("-I{s}", .{qt_path}));
+        try cpp_flags.append(b.allocator, b.fmt("-I{s}", .{qt_path}));
     }
 
     const translate_c = b.addTranslateC(.{
@@ -138,7 +134,7 @@ pub fn build(b: *std.Build) !void {
             std.fs.cwd().access(includePath, .{}) catch {
                 continue;
             };
-            try cpp_flags.append(allocator, b.fmt("-I{s}", .{includePath}));
+            try cpp_flags.append(b.allocator, b.fmt("-I{s}", .{includePath}));
             translate_c.addIncludePath(std.Build.LazyPath{ .cwd_relative = includePath });
         }
     }
@@ -276,6 +272,8 @@ const qt_modules = &.{
     // Qt 6 PDF
     "QtPdf",
     "QtPdfWidgets",
+    // Qt 6 Positioning
+    "QtPositioning",
     // Qt 6 Print Support
     "QtPrintSupport",
     // Qt 6 Spatial Audio

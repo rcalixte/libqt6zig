@@ -637,7 +637,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ` self: QtC.QParallelAnimationGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QParallelAnimationGroupnewState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QParallelAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -665,7 +665,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ` self: QtC.QParallelAnimationGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QParallelAnimationGroupcurrentLoop: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QParallelAnimationGroup, currentLoop: i32) callconv(.c) void `
     ///
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -693,7 +693,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ` self: QtC.QParallelAnimationGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QParallelAnimationGroupparam1: qabstractanimation_enums.Direction) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QParallelAnimationGroup, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1354,7 +1354,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ` self: QtC.QParallelAnimationGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QParallelAnimationGroupparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QParallelAnimationGroup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1848,7 +1848,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ` self: QtC.QParallelAnimationGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QParallelAnimationGroupobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QParallelAnimationGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

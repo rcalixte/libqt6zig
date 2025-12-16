@@ -477,7 +477,7 @@ pub const qmdiarea = struct {
     ///
     /// ` self: QtC.QMdiArea `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiAreaparam1: QtC.QMdiSubWindow) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiArea, param1: QtC.QMdiSubWindow) callconv(.c) void `
     ///
     pub fn OnSubWindowActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMdiArea_Connect_SubWindowActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4944,7 +4944,7 @@ pub const qmdiarea = struct {
     ///
     /// ` self: QtC.QMdiArea `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiAreatitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiArea, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4972,7 +4972,7 @@ pub const qmdiarea = struct {
     ///
     /// ` self: QtC.QMdiArea `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiAreaicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiArea, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5004,7 +5004,7 @@ pub const qmdiarea = struct {
     ///
     /// ` self: QtC.QMdiArea `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiAreaiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiArea, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5032,7 +5032,7 @@ pub const qmdiarea = struct {
     ///
     /// ` self: QtC.QMdiArea `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiAreapos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiArea, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5867,7 +5867,7 @@ pub const qmdiarea = struct {
     ///
     /// ` self: QtC.QMdiArea `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiAreaparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiArea, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8563,7 +8563,7 @@ pub const qmdiarea = struct {
     ///
     /// ` self: QtC.QMdiArea `
     ///
-    /// ` callback: *const fn (self: QtC.QMdiAreaobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QMdiArea, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

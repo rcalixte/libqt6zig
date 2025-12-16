@@ -601,7 +601,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditmode: krichtextedit_enums.Mode) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, mode: krichtextedit_enums.Mode) callconv(.c) void `
     ///
     pub fn OnTextModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KRichTextEdit_Connect_TextModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -825,7 +825,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditparam1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: bool) callconv(.c) void `
     ///
     pub fn OnCheckSpellingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTextEdit_Connect_CheckSpellingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -857,7 +857,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSpellCheckStatus(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckStatus(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -889,7 +889,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditlanguage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, language: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_LanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -917,7 +917,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditmenu: QtC.QMenu) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, menu: QtC.QMenu) callconv(.c) void `
     ///
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -955,7 +955,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditcurrentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckerAutoCorrect(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2382,7 +2382,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditb: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void `
     ///
     pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2410,7 +2410,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditb: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void `
     ///
     pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2438,7 +2438,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditformat: QtC.QTextCharFormat) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, format: QtC.QTextCharFormat) callconv(.c) void `
     ///
     pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2466,7 +2466,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditb: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void `
     ///
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6490,7 +6490,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEdittitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6518,7 +6518,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6550,7 +6550,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6578,7 +6578,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -7413,7 +7413,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11649,7 +11649,7 @@ pub const krichtextedit = struct {
     ///
     /// ` self: QtC.KRichTextEdit `
     ///
-    /// ` callback: *const fn (self: QtC.KRichTextEditobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KRichTextEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

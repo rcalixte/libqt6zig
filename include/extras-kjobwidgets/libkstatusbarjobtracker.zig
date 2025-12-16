@@ -347,7 +347,7 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` self: QtC.KStatusBarJobTracker `
     ///
-    /// ` callback: *const fn (self: QtC.KStatusBarJobTrackerjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStatusBarJobTracker, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnStopped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAbstractWidgetJobTracker_Connect_Stopped(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -375,7 +375,7 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` self: QtC.KStatusBarJobTracker `
     ///
-    /// ` callback: *const fn (self: QtC.KStatusBarJobTrackerjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStatusBarJobTracker, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnSuspend(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAbstractWidgetJobTracker_Connect_Suspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -403,7 +403,7 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` self: QtC.KStatusBarJobTracker `
     ///
-    /// ` callback: *const fn (self: QtC.KStatusBarJobTrackerjob: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStatusBarJobTracker, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResume(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAbstractWidgetJobTracker_Connect_Resume(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1004,7 +1004,7 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` self: QtC.KStatusBarJobTracker `
     ///
-    /// ` callback: *const fn (self: QtC.KStatusBarJobTrackerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStatusBarJobTracker, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1020,7 +1020,7 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` self: QtC.KStatusBarJobTracker `
     ///
-    /// ` callback: *const fn (self: QtC.KStatusBarJobTrackerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStatusBarJobTracker, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

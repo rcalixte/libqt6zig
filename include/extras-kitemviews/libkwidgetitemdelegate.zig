@@ -428,7 +428,7 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegateeditor: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -456,7 +456,7 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegateeditor: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -484,7 +484,7 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegateparam1: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, param1: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -514,7 +514,7 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegateeditor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
     pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1085,7 +1085,7 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegateparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2185,7 +2185,7 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegateobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

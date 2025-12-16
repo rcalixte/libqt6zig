@@ -226,7 +226,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__DialognewBuffer: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, newBuffer: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSpellCheckDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_SpellCheckDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -256,7 +256,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialogword: [*:0]const u8, start: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, word: [*:0]const u8, start: i32) callconv(.c) void `
     ///
     pub fn OnMisspelling(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_Misspelling(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -292,7 +292,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__DialogoldWord: [*:0]const u8, start: i32, newWord: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, oldWord: [*:0]const u8, start: i32, newWord: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnReplace(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_Replace(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -370,7 +370,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__DialogcurrentWord: [*:0]const u8, replaceWord: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, currentWord: [*:0]const u8, replaceWord: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAutoCorrect(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_AutoCorrect(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -398,7 +398,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialogparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSpellCheckStatus(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_SpellCheckStatus(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -426,7 +426,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialoglanguage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, language: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_LanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -586,7 +586,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialogresult: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, result: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4105,7 +4105,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialogtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4133,7 +4133,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialogicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4165,7 +4165,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__DialogiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -4193,7 +4193,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialogpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5028,7 +5028,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__Dialogparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -8180,7 +8180,7 @@ pub const sonnet__dialog = struct {
     ///
     /// ` self: QtC.Sonnet__Dialog `
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__DialogobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Sonnet__Dialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

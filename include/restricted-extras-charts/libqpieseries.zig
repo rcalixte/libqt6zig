@@ -477,7 +477,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesslices: [*]QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slices: [*]QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Added(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -505,7 +505,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesslices: [*]QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slices: [*]QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Removed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -529,7 +529,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesslice: QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -555,7 +555,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesslice: QtC.QPieSlice, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -579,7 +579,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesslice: QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -603,7 +603,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesslice: QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -627,7 +627,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesslice: QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1621,7 +1621,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2163,7 +2163,7 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeriesobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

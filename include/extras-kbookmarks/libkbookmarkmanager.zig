@@ -266,7 +266,7 @@ pub const kbookmarkmanager = struct {
     ///
     /// ` self: QtC.KBookmarkManager `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkManagergroupAddress: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkManager, groupAddress: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KBookmarkManager_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -294,7 +294,7 @@ pub const kbookmarkmanager = struct {
     ///
     /// ` self: QtC.KBookmarkManager `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkManagererrorMessage: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkManager, errorMessage: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KBookmarkManager_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -937,7 +937,7 @@ pub const kbookmarkmanager = struct {
     ///
     /// ` self: QtC.KBookmarkManager `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkManagerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkManager, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1479,7 +1479,7 @@ pub const kbookmarkmanager = struct {
     ///
     /// ` self: QtC.KBookmarkManager `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkManagerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KBookmarkManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

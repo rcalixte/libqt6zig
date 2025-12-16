@@ -140,7 +140,7 @@ pub const ksyntaxhighlighting__definitiondownloader = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__DefinitionDownloader `
     ///
-    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__DefinitionDownloadermsg: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__DefinitionDownloader, msg: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnInformationMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSyntaxHighlighting__DefinitionDownloader_Connect_InformationMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -775,7 +775,7 @@ pub const ksyntaxhighlighting__definitiondownloader = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__DefinitionDownloader `
     ///
-    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__DefinitionDownloaderparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__DefinitionDownloader, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1317,7 +1317,7 @@ pub const ksyntaxhighlighting__definitiondownloader = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__DefinitionDownloader `
     ///
-    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__DefinitionDownloaderobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSyntaxHighlighting__DefinitionDownloader, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

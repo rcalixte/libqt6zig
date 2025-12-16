@@ -172,7 +172,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QSslServer_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -198,7 +198,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnPeerVerifyError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslServer_Connect_PeerVerifyError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -224,7 +224,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket, errorVal: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSslServer_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -250,7 +250,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
     pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslServer_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -284,7 +284,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAlertSent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslServer_Connect_AlertSent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -318,7 +318,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAlertReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslServer_Connect_AlertReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -344,7 +344,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnHandshakeInterruptedOnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslServer_Connect_HandshakeInterruptedOnError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -368,7 +368,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocket: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket) callconv(.c) void `
     ///
     pub fn OnStartedEncryptionHandshake(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslServer_Connect_StartedEncryptionHandshake(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -738,7 +738,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServersocketError: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
     pub fn OnAcceptError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1369,7 +1369,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2063,7 +2063,7 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

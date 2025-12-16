@@ -1016,7 +1016,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Provider) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider) callconv(.c) void `
     ///
     pub fn OnProviderInitialized(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_ProviderInitialized(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1046,7 +1046,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Provider__SearchRequest, param2: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest, param2: [*]QtC.KNSCore__Entry) callconv(.c) void `
     ///
     pub fn OnLoadingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_LoadingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1070,7 +1070,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Provider__SearchRequest) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest) callconv(.c) void `
     ///
     pub fn OnLoadingFailed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_LoadingFailed(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1094,7 +1094,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void `
     ///
     pub fn OnEntryDetailsLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_EntryDetailsLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1118,7 +1118,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Entry) callconv(.c) void `
     ///
     pub fn OnPayloadLinkLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_PayloadLinkLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1168,7 +1168,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerpresets: [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, presets: [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void `
     ///
     pub fn OnSearchPresetsLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SearchPresetsLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1196,7 +1196,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSignalInformation(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SignalInformation(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1224,7 +1224,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSignalError(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SignalError(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1256,7 +1256,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidererrorCode: errorcode_enums.ErrorCode, message: [*:0]const u8, metadata: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, errorCode: errorcode_enums.ErrorCode, message: [*:0]const u8, metadata: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSignalErrorCode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SignalErrorCode(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1284,7 +1284,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providercategories: [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, categories: [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void `
     ///
     pub fn OnCategoriesMetadataLoded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_CategoriesMetadataLoded(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2029,7 +2029,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Providerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2571,7 +2571,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProviderobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

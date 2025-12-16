@@ -1948,7 +1948,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowiconSize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, iconSize: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMainWindow_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1976,7 +1976,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowtoolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
     ///
     pub fn OnToolButtonStyleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMainWindow_Connect_ToolButtonStyleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2004,7 +2004,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowdockWidget: QtC.QDockWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, dockWidget: QtC.QDockWidget) callconv(.c) void `
     ///
     pub fn OnTabifiedDockWidgetActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMainWindow_Connect_TabifiedDockWidgetActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5537,7 +5537,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowtitle: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5565,7 +5565,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowicon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5597,7 +5597,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowiconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -5625,7 +5625,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowpos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -6460,7 +6460,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -11433,7 +11433,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KXmlGuiWindowobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KXmlGuiWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

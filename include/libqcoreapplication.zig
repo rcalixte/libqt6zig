@@ -673,7 +673,7 @@ pub const qcoreapplication = struct {
     ///
     /// ` self: QtC.QCoreApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QCoreApplicationfilterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCoreApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
     ///
     pub fn OnInstallNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_InstallNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -697,7 +697,7 @@ pub const qcoreapplication = struct {
     ///
     /// ` self: QtC.QCoreApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QCoreApplicationfilterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCoreApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
     ///
     pub fn OnRemoveNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_RemoveNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1594,7 +1594,7 @@ pub const qcoreapplication = struct {
     ///
     /// ` self: QtC.QCoreApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QCoreApplicationparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCoreApplication, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2102,7 +2102,7 @@ pub const qcoreapplication = struct {
     ///
     /// ` self: QtC.QCoreApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QCoreApplicationobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCoreApplication, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

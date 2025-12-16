@@ -735,7 +735,7 @@ pub const qtextobject = struct {
     ///
     /// ` self: QtC.QTextObject `
     ///
-    /// ` callback: *const fn (self: QtC.QTextObjectparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextObject, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -751,7 +751,7 @@ pub const qtextobject = struct {
     ///
     /// ` self: QtC.QTextObject `
     ///
-    /// ` callback: *const fn (self: QtC.QTextObjectobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1497,7 +1497,7 @@ pub const qtextblockgroup = struct {
     ///
     /// ` self: QtC.QTextBlockGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBlockGroupparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBlockGroup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1513,7 +1513,7 @@ pub const qtextblockgroup = struct {
     ///
     /// ` self: QtC.QTextBlockGroup `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBlockGroupobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextBlockGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -2425,7 +2425,7 @@ pub const qtextframe = struct {
     ///
     /// ` self: QtC.QTextFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QTextFrameparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextFrame, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -3015,7 +3015,7 @@ pub const qtextframe = struct {
     ///
     /// ` self: QtC.QTextFrame `
     ///
-    /// ` callback: *const fn (self: QtC.QTextFrameobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTextFrame, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

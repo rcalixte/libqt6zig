@@ -457,7 +457,7 @@ pub const accounts__manager = struct {
     ///
     /// ` self: QtC.Accounts__Manager `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__Managerid: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Accounts__Manager, id: u32) callconv(.c) void `
     ///
     pub fn OnAccountCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, u32) callconv(.c) void) void {
         qtc.Accounts__Manager_Connect_AccountCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -481,7 +481,7 @@ pub const accounts__manager = struct {
     ///
     /// ` self: QtC.Accounts__Manager `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__Managerid: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Accounts__Manager, id: u32) callconv(.c) void `
     ///
     pub fn OnAccountRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, u32) callconv(.c) void) void {
         qtc.Accounts__Manager_Connect_AccountRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -505,7 +505,7 @@ pub const accounts__manager = struct {
     ///
     /// ` self: QtC.Accounts__Manager `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__Managerid: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Accounts__Manager, id: u32) callconv(.c) void `
     ///
     pub fn OnAccountUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, u32) callconv(.c) void) void {
         qtc.Accounts__Manager_Connect_AccountUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -529,7 +529,7 @@ pub const accounts__manager = struct {
     ///
     /// ` self: QtC.Accounts__Manager `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__Managerid: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Accounts__Manager, id: u32) callconv(.c) void `
     ///
     pub fn OnEnabledEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u32) callconv(.c) void) void {
         qtc.Accounts__Manager_Connect_EnabledEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1211,7 +1211,7 @@ pub const accounts__manager = struct {
     ///
     /// ` self: QtC.Accounts__Manager `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__Managerparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Accounts__Manager, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1753,7 +1753,7 @@ pub const accounts__manager = struct {
     ///
     /// ` self: QtC.Accounts__Manager `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__ManagerobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Accounts__Manager, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));

@@ -404,7 +404,7 @@ pub const ksvg__imageset = struct {
     ///
     /// ` self: QtC.KSvg__ImageSet `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__ImageSetbasePath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__ImageSet, basePath: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnImageSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSvg__ImageSet_Connect_ImageSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -432,7 +432,7 @@ pub const ksvg__imageset = struct {
     ///
     /// ` self: QtC.KSvg__ImageSet `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__ImageSetbasePath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__ImageSet, basePath: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnBasePathChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSvg__ImageSet_Connect_BasePathChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1045,7 +1045,7 @@ pub const ksvg__imageset = struct {
     ///
     /// ` self: QtC.KSvg__ImageSet `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__ImageSetparam1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__ImageSet, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
@@ -1587,7 +1587,7 @@ pub const ksvg__imageset = struct {
     ///
     /// ` self: QtC.KSvg__ImageSet `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__ImageSetobjectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KSvg__ImageSet, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
