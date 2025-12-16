@@ -113,6 +113,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PdfWidgets"),
 		},
 
+		// Qt 6 Positioning
+		// Depends on Qt Core
+		{
+			path: "positioning",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtPositioning",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Positioning"),
+		},
+
 		// Qt 6 Print Support
 		// Depends on Qt Core, GUI, Widgets
 		{
