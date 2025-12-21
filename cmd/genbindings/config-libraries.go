@@ -1,15 +1,30 @@
 package main
 
 import (
+	"log"
 	"os"
 	"path/filepath"
 	"runtime"
+	"slices"
 	"sort"
 	"strings"
+	"time"
 )
 
 func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	AllowAllHeaders := func(string) bool { return true }
+
+	ExceptHeaders := func(s ...string) func(fullpath string) bool {
+		return func(fullpath string) bool {
+			return !slices.Contains(s, filepath.Base(fullpath))
+		}
+	}
+
+	OnlyHeaders := func(s ...string) func(fullpath string) bool {
+		return func(fullpath string) bool {
+			return slices.Contains(s, filepath.Base(fullpath))
+		}
+	}
 
 	InsertTypedefs()
 
@@ -63,6 +78,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags: "--std=c++20 " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// Qt 6 Designer
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "designer",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtDesigner",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Designer"),
+		},
+
 		// Qt 6 Multimedia
 		// Depends on Qt Core, GUI, Widgets
 		{
@@ -82,11 +108,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			dirs: []string{
 				"/usr/include/" + arch + "-linux-gnu/qt6/QtNetwork",
 			},
-			allowHeader: func(fullpath string) bool {
-				fname := filepath.Base(fullpath)
-				return fname != "qtnetwork-config.h"
-			},
-			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Network"),
+			allowHeader: ExceptHeaders("qtnetwork-config.h"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Network"),
 		},
 
 		// Qt 6 OpenGL
@@ -169,6 +192,28 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SvgWidgets"),
 		},
 
+		// Qt 6 UI Plugin
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "uiplugin",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtUiPlugin",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6UiPlugin"),
+		},
+
+		// Qt 6 UI Tools
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "uitools",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtUiTools",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6UiTools"),
+		},
+
 		// Qt 6 XML
 		// Depends on Qt Core
 		{
@@ -199,11 +244,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebEngineCore",
 				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebEngineWidgets",
 			},
-			allowHeader: func(fullpath string) bool {
-				baseName := filepath.Base(fullpath)
-				return baseName != "qtwebenginewidgets-config.h"
-			},
-			cflags: "--std=c++17 " + pkgConfigCflags("Qt6WebEngineWidgets"),
+			allowHeader: ExceptHeaders("qtwebenginewidgets-config.h"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebEngineWidgets"),
 		},
 
 		// extras
@@ -593,11 +635,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			dirs: []string{
 				"/usr/include/KF6/KWindowSystem",
 			},
-			allowHeader: func(fullpath string) bool {
-				baseName := filepath.Base(fullpath)
-				return baseName != "kx11extras.h"
-			},
-			cflags: "--std=c++17 -I/usr/include/KF6/KWindowSystem " + pkgConfigCflags("Qt6Widgets"),
+			allowHeader: ExceptHeaders("kx11extras.h"),
+			cflags:      "--std=c++17 -I/usr/include/KF6/KWindowSystem " + pkgConfigCflags("Qt6Widgets"),
 		},
 
 		// PackageKit-Qt
@@ -620,11 +659,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			dirs: []string{
 				"/usr/include/accounts-qt6/Accounts",
 			},
-			allowHeader: func(fullpath string) bool {
-				baseName := filepath.Base(fullpath)
-				return baseName != "manager_p.h" && baseName != "utils.h"
-			},
-			cflags: "--std=c++17 -I/usr/include/accounts-qt6 -I/usr/include/accounts-qt6/Accounts " + pkgConfigCflags("Qt6Xml"),
+			allowHeader: ExceptHeaders("manager_p.h", "utils.h"),
+			cflags:      "--std=c++17 -I/usr/include/accounts-qt6 -I/usr/include/accounts-qt6/Accounts " + pkgConfigCflags("Qt6Xml"),
 		},
 
 		// Qt 6 D-Bus
@@ -726,10 +762,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			dirs: []string{
 				"/usr/include/",
 			},
-			allowHeader: func(fullpath string) bool {
-				return filepath.Base(fullpath) == "qcustomplot.h"
-			},
-			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Widgets"),
+			allowHeader: OnlyHeaders("qcustomplot.h"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Widgets"),
 		},
 
 		// Qt 6 QScintilla
@@ -743,6 +777,10 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
 		},
 	}
+
+	startTime := time.Now()
+
+	log.Printf("Starting at %s", startTime.Format(time.RFC1123Z))
 
 	// PASS 1: Gather all types across all modules
 	for _, mod := range modules {
@@ -771,11 +809,18 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		allBatches = append(allBatches, batch)
 	}
 
+	log.Printf("\nFinished processing all modules in %s", time.Since(startTime).String())
+
+	startFormattingTime := time.Now()
+
 	for _, batch := range allBatches {
 		if err := processFormatBatch(batch); err != nil {
 			panic(err)
 		}
 	}
+
+	log.Printf("Finished formatting all batches in %s", time.Since(startFormattingTime).String())
+	log.Printf("Finished total execution in %s\n", time.Since(startTime).String())
 
 	// Post-processing to generate auxiliary files
 	structdefs := make([]string, 0, len(qtstructdefs))
