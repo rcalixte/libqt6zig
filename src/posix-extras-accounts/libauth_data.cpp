@@ -5,8 +5,8 @@
 #include <cstring>
 #include <QVariant>
 #include <auth-data.h>
-#include "libauth-data.h"
-#include "libauth-data.hxx"
+#include "libauth_data.h"
+#include "libauth_data.hxx"
 
 Accounts__AuthData* Accounts__AuthData_new(const Accounts__AuthData* other) {
     return new Accounts::AuthData(*other);

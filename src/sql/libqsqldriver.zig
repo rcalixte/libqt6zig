@@ -291,6 +291,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QSqlDriver `
@@ -452,6 +454,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QSqlDriver `
@@ -511,6 +515,8 @@ pub const qsqldriver = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -579,6 +585,8 @@ pub const qsqldriver = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -1005,6 +1013,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QSqlDriver `
@@ -1123,6 +1133,8 @@ pub const qsqldriver = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

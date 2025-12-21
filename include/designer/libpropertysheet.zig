@@ -1,0 +1,724 @@
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
+const std = @import("std");
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html)
+pub const qdesignerpropertysheetextension = struct {
+    /// New constructs a new QDesignerPropertySheetExtension object.
+    ///
+    pub fn New() QtC.QDesignerPropertySheetExtension {
+        return qtc.QDesignerPropertySheetExtension_new();
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#count)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    pub fn Count(self: ?*anyopaque) i32 {
+        return qtc.QDesignerPropertySheetExtension_Count(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#count)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
+    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDesignerPropertySheetExtension_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#count)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    pub fn QBaseCount(self: ?*anyopaque) i32 {
+        return qtc.QDesignerPropertySheetExtension_QBaseCount(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#indexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` name: []const u8 `
+    ///
+    pub fn IndexOf(self: ?*anyopaque, name: []const u8) i32 {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QDesignerPropertySheetExtension_IndexOf(@ptrCast(self), name_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#indexOf)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, name: [*:0]const u8) callconv(.c) i32 `
+    ///
+    pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QDesignerPropertySheetExtension_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#indexOf)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` name: []const u8 `
+    ///
+    pub fn QBaseIndexOf(self: ?*anyopaque, name: []const u8) i32 {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QDesignerPropertySheetExtension_QBaseIndexOf(@ptrCast(self), name_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn PropertyName(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerPropertySheetExtension_PropertyName(@ptrCast(self), @intCast(index));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyName)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) [*:0]const u8 `
+    ///
+    pub fn OnPropertyName(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QDesignerPropertySheetExtension_OnPropertyName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyName)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBasePropertyName(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerPropertySheetExtension_QBasePropertyName(@ptrCast(self), @intCast(index));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyGroup)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn PropertyGroup(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerPropertySheetExtension_PropertyGroup(@ptrCast(self), @intCast(index));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyGroup: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyGroup)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) [*:0]const u8 `
+    ///
+    pub fn OnPropertyGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QDesignerPropertySheetExtension_OnPropertyGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyGroup)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBasePropertyGroup(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerPropertySheetExtension_QBasePropertyGroup(@ptrCast(self), @intCast(index));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyGroup: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` group: []const u8 `
+    ///
+    pub fn SetPropertyGroup(self: ?*anyopaque, index: i32, group: []const u8) void {
+        const group_str = qtc.libqt_string{
+            .len = group.len,
+            .data = group.ptr,
+        };
+        qtc.QDesignerPropertySheetExtension_SetPropertyGroup(@ptrCast(self), @intCast(index), group_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, group: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn OnSetPropertyGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerPropertySheetExtension_OnSetPropertyGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` group: []const u8 `
+    ///
+    pub fn QBaseSetPropertyGroup(self: ?*anyopaque, index: i32, group: []const u8) void {
+        const group_str = qtc.libqt_string{
+            .len = group.len,
+            .data = group.ptr,
+        };
+        qtc.QDesignerPropertySheetExtension_QBaseSetPropertyGroup(@ptrCast(self), @intCast(index), group_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn HasReset(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_HasReset(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
+    ///
+    pub fn OnHasReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QDesignerPropertySheetExtension_OnHasReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn QBaseHasReset(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_QBaseHasReset(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn Reset(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_Reset(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
+    ///
+    pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QDesignerPropertySheetExtension_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn QBaseReset(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_QBaseReset(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn IsVisible(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_IsVisible(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
+    ///
+    pub fn OnIsVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QDesignerPropertySheetExtension_OnIsVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn QBaseIsVisible(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_QBaseIsVisible(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` b: bool `
+    ///
+    pub fn SetVisible(self: ?*anyopaque, index: i32, b: bool) void {
+        qtc.QDesignerPropertySheetExtension_SetVisible(@ptrCast(self), @intCast(index), b);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, b: bool) callconv(.c) void `
+    ///
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
+        qtc.QDesignerPropertySheetExtension_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` b: bool `
+    ///
+    pub fn QBaseSetVisible(self: ?*anyopaque, index: i32, b: bool) void {
+        qtc.QDesignerPropertySheetExtension_QBaseSetVisible(@ptrCast(self), @intCast(index), b);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn IsAttribute(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_IsAttribute(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
+    ///
+    pub fn OnIsAttribute(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QDesignerPropertySheetExtension_OnIsAttribute(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn QBaseIsAttribute(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_QBaseIsAttribute(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` b: bool `
+    ///
+    pub fn SetAttribute(self: ?*anyopaque, index: i32, b: bool) void {
+        qtc.QDesignerPropertySheetExtension_SetAttribute(@ptrCast(self), @intCast(index), b);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, b: bool) callconv(.c) void `
+    ///
+    pub fn OnSetAttribute(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
+        qtc.QDesignerPropertySheetExtension_OnSetAttribute(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` b: bool `
+    ///
+    pub fn QBaseSetAttribute(self: ?*anyopaque, index: i32, b: bool) void {
+        qtc.QDesignerPropertySheetExtension_QBaseSetAttribute(@ptrCast(self), @intCast(index), b);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn Property(self: ?*anyopaque, index: i32) QtC.QVariant {
+        return qtc.QDesignerPropertySheetExtension_Property(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) QtC.QVariant `
+    ///
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
+        qtc.QDesignerPropertySheetExtension_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn QBaseProperty(self: ?*anyopaque, index: i32) QtC.QVariant {
+        return qtc.QDesignerPropertySheetExtension_QBaseProperty(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
+    pub fn SetProperty(self: ?*anyopaque, index: i32, value: ?*anyopaque) void {
+        qtc.QDesignerPropertySheetExtension_SetProperty(@ptrCast(self), @intCast(index), @ptrCast(value));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, value: QtC.QVariant) callconv(.c) void `
+    ///
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDesignerPropertySheetExtension_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` value: QtC.QVariant `
+    ///
+    pub fn QBaseSetProperty(self: ?*anyopaque, index: i32, value: ?*anyopaque) void {
+        qtc.QDesignerPropertySheetExtension_QBaseSetProperty(@ptrCast(self), @intCast(index), @ptrCast(value));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn IsChanged(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_IsChanged(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
+    ///
+    pub fn OnIsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QDesignerPropertySheetExtension_OnIsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn QBaseIsChanged(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_QBaseIsChanged(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` changed: bool `
+    ///
+    pub fn SetChanged(self: ?*anyopaque, index: i32, changed: bool) void {
+        qtc.QDesignerPropertySheetExtension_SetChanged(@ptrCast(self), @intCast(index), changed);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, changed: bool) callconv(.c) void `
+    ///
+    pub fn OnSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
+        qtc.QDesignerPropertySheetExtension_OnSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` changed: bool `
+    ///
+    pub fn QBaseSetChanged(self: ?*anyopaque, index: i32, changed: bool) void {
+        qtc.QDesignerPropertySheetExtension_QBaseSetChanged(@ptrCast(self), @intCast(index), changed);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn IsEnabled(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_IsEnabled(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
+    ///
+    pub fn OnIsEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QDesignerPropertySheetExtension_OnIsEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    /// ` index: i32 `
+    ///
+    pub fn QBaseIsEnabled(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerPropertySheetExtension_QBaseIsEnabled(@ptrCast(self), @intCast(index));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#dtor.QDesignerPropertySheetExtension)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QDesignerPropertySheetExtension `
+    ///
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QDesignerPropertySheetExtension_Delete(@ptrCast(self));
+    }
+};

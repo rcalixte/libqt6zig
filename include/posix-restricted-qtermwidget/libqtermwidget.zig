@@ -822,6 +822,8 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QTermWidget `
@@ -996,6 +998,8 @@ pub const qtermwidget = struct {
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -1476,6 +1480,8 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QTermWidget `
@@ -1850,6 +1856,8 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QTermWidget `
@@ -2048,6 +2056,8 @@ pub const qtermwidget = struct {
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -2304,6 +2314,8 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QTermWidget `
@@ -2351,6 +2363,8 @@ pub const qtermwidget = struct {
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -2795,6 +2809,8 @@ pub const qtermwidget = struct {
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

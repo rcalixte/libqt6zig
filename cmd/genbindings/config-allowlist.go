@@ -249,34 +249,29 @@ func AllowVirtual(mm CppMethod) bool {
 }
 
 func AllowVirtualForClass(className string) bool {
-	// Pure virtual method futureInterface() returns an unprojectable template type
-	if className == "QFutureWatcherBase" {
-		return false
-	}
-
-	// Pure virtual dtor (should be possible to support)
-	if className == "QObjectData" {
+	switch className {
+	case "KAbstractWidgetJobTracker", // Qt 6 KJobWidgets, this vtable cause linker errors
+		"KDialogJobUiDelegate",            // Qt 6 KJobWidgets, this vtable cause linker errors
+		"KJobTrackerInterface",            // Qt 6 KCoreAddons, the vtable causes a linker error
+		"KNotificationJobUiDelegate",      // Qt 6 KJobWidgets, this vtable cause linker errors
+		"KStatusBarJobTracker",            // Qt 6 KJobWidgets, this vtable cause linker errors
+		"KUiServerJobTracker",             // Qt 6 KJobWidgets, this vtable cause linker errors
+		"KUiServerV2JobTracker",           // Qt 6 KJobWidgets, this vtable cause linker errors
+		"KWidgetJobTracker",               // Qt 6 KJobWidgets, this vtable cause linker errors
+		"QDesignerDnDItemInterface",       // Qt 6 Designer
+		"QDesignerExtraInfoExtension",     // Qt 6 Designer
+		"QDesignerFormWindowInterface",    // Qt 6 Designer
+		"QDesignerLanguageExtension",      // Qt 6 Designer
+		"QDesignerNewFormWidgetInterface", // Qt 6 Designer
+		"QDesignerPromotionInterface",     // Qt 6 Designer
+		"QFutureWatcherBase",              // Pure virtual method futureInterface() returns an unprojectable template type
+		"QObjectData":                     // Pure virtual dtor (should be possible to support)
 		return false
 	}
 
 	// Pure virtual method registerEventNotifier takes a QWinEventNotifier* on Windows
 	// which is platform-specific
 	if strings.HasPrefix(className, "QAbstractEventDispatcher") {
-		return false
-	}
-
-	// Qt 6 KCoreAddons
-	// the vtable causes a linker error
-	if className == "KJobTrackerInterface" {
-		return false
-	}
-
-	// Qt 6 KJobWidgets
-	// these vtables cause linker errors
-	if className == "KAbstractWidgetJobTracker" || className == "KDialogJobUiDelegate" ||
-		className == "KNotificationJobUiDelegate" || className == "KStatusBarJobTracker" ||
-		className == "KUiServerJobTracker" || className == "KUiServerV2JobTracker" ||
-		className == "KWidgetJobTracker" {
 		return false
 	}
 
@@ -615,6 +610,9 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	if strings.Contains(p.ParameterType, "QJSValue") { // callback function pointer
 		return ErrTooComplex // e.g. QWebEngineFrame_RunJavaScript2
 	}
+	if strings.HasPrefix(p.ParameterType, "Dom") {
+		return ErrTooComplex // e.g. Qt UI forward declarations for internal use
+	}
 	if strings.HasPrefix(p.ParameterType, "QDBusPendingReply<") || strings.HasPrefix(p.ParameterType, "QDBusReply<") {
 		return ErrTooComplex // Qt 6 qdbusconnectioninterface.h, this could probably be made to work
 	}
@@ -825,6 +823,14 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QTextStreamFunction",             // e.g. qdebug.h
 		"QFactoryInterface",               // qfactoryinterface.h
 		"QTextEngine",                     // used by qtextlayout.h, also blocked in ImportHeaderForClass above
+		"QDesignerDialogGuiInterface",     // Qt 6 Designer
+		"QDesignerIntrospectionInterface", // Qt 6 Designer
+		"QDesignerPluginManager",          // Qt 6 Designer
+		"QResourceBuilder",                // Qt 6 Designer
+		"QTextBuilder",                    // Qt 6 Designer
+		"QtGradientManager",               // Qt 6 Designer
+		"QtResourceModel",                 // Qt 6 Designer
+		"QtResourceSet",                   // Qt 6 Designer
 		"QVulkanInstance",                 // e.g. qwindow.h. Not tackling vulkan yet
 		"QPlatformNativeInterface",        // e.g. QGuiApplication::platformNativeInterface(). Private type, could probably expose as uintptr. n.b. Changes in Qt6
 		"QPlatformBackingStore",           // e.g. qbackingstore.h, as below

@@ -1546,6 +1546,8 @@ pub const kio__deleteortrashjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KIO__DeleteOrTrashJob`
@@ -1987,6 +1989,8 @@ pub const kio__deleteortrashjob = struct {
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

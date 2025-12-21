@@ -1396,6 +1396,8 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QSqlTableModel `
@@ -1443,6 +1445,8 @@ pub const qsqltablemodel = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -3528,6 +3532,8 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QSqlTableModel`
@@ -4005,6 +4011,8 @@ pub const qsqltablemodel = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -5591,6 +5599,8 @@ pub const qsqltablemodel = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

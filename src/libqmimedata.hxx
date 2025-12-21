@@ -178,6 +178,7 @@ class VirtualQMimeData final : public QMimeData {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QMimeData::formats();

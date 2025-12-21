@@ -1900,6 +1900,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel`
@@ -3170,6 +3172,8 @@ pub const krearrangecolumnsproxymodel = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#mimeTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -4946,6 +4950,8 @@ pub const krearrangecolumnsproxymodel = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

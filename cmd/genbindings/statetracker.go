@@ -141,9 +141,9 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	for _, en := range parsed.Enums {
 		if parsed.Filename != "" && en.EnumName != "" {
 			// enum classes... in Qt 6, these are found in qcborcommon.h, qdtls.h, qlogging.h, qmetatype.h, qocspresponse.h
-			f := filepath.Base(parsed.Filename)
+			f := strings.ReplaceAll(filepath.Base(parsed.Filename), "-", "_")
 			filename := f[:len(f)-2]
-			KnownImports[en.EnumName] = lookupResultImport{packageName, filepath.Base(filename)}
+			KnownImports[en.EnumName] = lookupResultImport{packageName, filename}
 		}
 
 		enumCABI := en.UnderlyingType.RenderTypeCabi(false)
@@ -167,7 +167,7 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	}
 
 	if len(parsed.Enums) != 0 && parsed.Filename != "" {
-		f := filepath.Base(parsed.Filename)
+		f := strings.ReplaceAll(filepath.Base(parsed.Filename), "-", "_")
 		extensionIndex := strings.LastIndex(f, ".")
 		filename := f[:extensionIndex]
 

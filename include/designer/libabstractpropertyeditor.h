@@ -1,0 +1,261 @@
+#pragma once
+#ifndef SRC_DESIGNERC_LIBABSTRACTPROPERTYEDITOR_H
+#define SRC_DESIGNERC_LIBABSTRACTPROPERTYEDITOR_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDesignerFormEditorInterface QDesignerFormEditorInterface;
+typedef struct QDesignerPropertyEditorInterface QDesignerPropertyEditorInterface;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+QDesignerPropertyEditorInterface* QDesignerPropertyEditorInterface_new(QWidget* parent);
+QDesignerPropertyEditorInterface* QDesignerPropertyEditorInterface_new2(QWidget* parent, int flags);
+QMetaObject* QDesignerPropertyEditorInterface_MetaObject(const QDesignerPropertyEditorInterface* self);
+void* QDesignerPropertyEditorInterface_Metacast(QDesignerPropertyEditorInterface* self, const char* param1);
+int QDesignerPropertyEditorInterface_Metacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3);
+QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_Core(const QDesignerPropertyEditorInterface* self);
+bool QDesignerPropertyEditorInterface_IsReadOnly(const QDesignerPropertyEditorInterface* self);
+QObject* QDesignerPropertyEditorInterface_Object(const QDesignerPropertyEditorInterface* self);
+libqt_string QDesignerPropertyEditorInterface_CurrentPropertyName(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_PropertyChanged(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value);
+void QDesignerPropertyEditorInterface_Connect_PropertyChanged(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_SetObject(QDesignerPropertyEditorInterface* self, QObject* object);
+void QDesignerPropertyEditorInterface_SetPropertyValue(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value, bool changed);
+void QDesignerPropertyEditorInterface_SetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly);
+void QDesignerPropertyEditorInterface_OnMetacall(QDesignerPropertyEditorInterface* self, intptr_t slot);
+int QDesignerPropertyEditorInterface_QBaseMetacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3);
+void QDesignerPropertyEditorInterface_OnCore(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_QBaseCore(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnIsReadOnly(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseIsReadOnly(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnObject(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QObject* QDesignerPropertyEditorInterface_QBaseObject(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnCurrentPropertyName(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+libqt_string QDesignerPropertyEditorInterface_QBaseCurrentPropertyName(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnSetObject(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseSetObject(QDesignerPropertyEditorInterface* self, QObject* object);
+void QDesignerPropertyEditorInterface_OnSetPropertyValue(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseSetPropertyValue(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value, bool changed);
+void QDesignerPropertyEditorInterface_OnSetReadOnly(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseSetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly);
+int QDesignerPropertyEditorInterface_DevType(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnDevType(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+int QDesignerPropertyEditorInterface_QBaseDevType(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_SetVisible(QDesignerPropertyEditorInterface* self, bool visible);
+void QDesignerPropertyEditorInterface_OnSetVisible(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseSetVisible(QDesignerPropertyEditorInterface* self, bool visible);
+QSize* QDesignerPropertyEditorInterface_SizeHint(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnSizeHint(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QSize* QDesignerPropertyEditorInterface_QBaseSizeHint(const QDesignerPropertyEditorInterface* self);
+QSize* QDesignerPropertyEditorInterface_MinimumSizeHint(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnMinimumSizeHint(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QSize* QDesignerPropertyEditorInterface_QBaseMinimumSizeHint(const QDesignerPropertyEditorInterface* self);
+int QDesignerPropertyEditorInterface_HeightForWidth(const QDesignerPropertyEditorInterface* self, int param1);
+void QDesignerPropertyEditorInterface_OnHeightForWidth(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+int QDesignerPropertyEditorInterface_QBaseHeightForWidth(const QDesignerPropertyEditorInterface* self, int param1);
+bool QDesignerPropertyEditorInterface_HasHeightForWidth(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnHasHeightForWidth(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseHasHeightForWidth(const QDesignerPropertyEditorInterface* self);
+QPaintEngine* QDesignerPropertyEditorInterface_PaintEngine(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnPaintEngine(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QPaintEngine* QDesignerPropertyEditorInterface_QBasePaintEngine(const QDesignerPropertyEditorInterface* self);
+bool QDesignerPropertyEditorInterface_Event(QDesignerPropertyEditorInterface* self, QEvent* event);
+void QDesignerPropertyEditorInterface_OnEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseEvent(QDesignerPropertyEditorInterface* self, QEvent* event);
+void QDesignerPropertyEditorInterface_MousePressEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_OnMousePressEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseMousePressEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_MouseReleaseEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_OnMouseReleaseEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseMouseReleaseEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_MouseDoubleClickEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_OnMouseDoubleClickEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseMouseDoubleClickEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_MouseMoveEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_OnMouseMoveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseMouseMoveEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event);
+void QDesignerPropertyEditorInterface_WheelEvent(QDesignerPropertyEditorInterface* self, QWheelEvent* event);
+void QDesignerPropertyEditorInterface_OnWheelEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseWheelEvent(QDesignerPropertyEditorInterface* self, QWheelEvent* event);
+void QDesignerPropertyEditorInterface_KeyPressEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event);
+void QDesignerPropertyEditorInterface_OnKeyPressEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseKeyPressEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event);
+void QDesignerPropertyEditorInterface_KeyReleaseEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event);
+void QDesignerPropertyEditorInterface_OnKeyReleaseEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseKeyReleaseEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event);
+void QDesignerPropertyEditorInterface_FocusInEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event);
+void QDesignerPropertyEditorInterface_OnFocusInEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseFocusInEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event);
+void QDesignerPropertyEditorInterface_FocusOutEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event);
+void QDesignerPropertyEditorInterface_OnFocusOutEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseFocusOutEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event);
+void QDesignerPropertyEditorInterface_EnterEvent(QDesignerPropertyEditorInterface* self, QEnterEvent* event);
+void QDesignerPropertyEditorInterface_OnEnterEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseEnterEvent(QDesignerPropertyEditorInterface* self, QEnterEvent* event);
+void QDesignerPropertyEditorInterface_LeaveEvent(QDesignerPropertyEditorInterface* self, QEvent* event);
+void QDesignerPropertyEditorInterface_OnLeaveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseLeaveEvent(QDesignerPropertyEditorInterface* self, QEvent* event);
+void QDesignerPropertyEditorInterface_PaintEvent(QDesignerPropertyEditorInterface* self, QPaintEvent* event);
+void QDesignerPropertyEditorInterface_OnPaintEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBasePaintEvent(QDesignerPropertyEditorInterface* self, QPaintEvent* event);
+void QDesignerPropertyEditorInterface_MoveEvent(QDesignerPropertyEditorInterface* self, QMoveEvent* event);
+void QDesignerPropertyEditorInterface_OnMoveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseMoveEvent(QDesignerPropertyEditorInterface* self, QMoveEvent* event);
+void QDesignerPropertyEditorInterface_ResizeEvent(QDesignerPropertyEditorInterface* self, QResizeEvent* event);
+void QDesignerPropertyEditorInterface_OnResizeEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseResizeEvent(QDesignerPropertyEditorInterface* self, QResizeEvent* event);
+void QDesignerPropertyEditorInterface_CloseEvent(QDesignerPropertyEditorInterface* self, QCloseEvent* event);
+void QDesignerPropertyEditorInterface_OnCloseEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseCloseEvent(QDesignerPropertyEditorInterface* self, QCloseEvent* event);
+void QDesignerPropertyEditorInterface_ContextMenuEvent(QDesignerPropertyEditorInterface* self, QContextMenuEvent* event);
+void QDesignerPropertyEditorInterface_OnContextMenuEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseContextMenuEvent(QDesignerPropertyEditorInterface* self, QContextMenuEvent* event);
+void QDesignerPropertyEditorInterface_TabletEvent(QDesignerPropertyEditorInterface* self, QTabletEvent* event);
+void QDesignerPropertyEditorInterface_OnTabletEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseTabletEvent(QDesignerPropertyEditorInterface* self, QTabletEvent* event);
+void QDesignerPropertyEditorInterface_ActionEvent(QDesignerPropertyEditorInterface* self, QActionEvent* event);
+void QDesignerPropertyEditorInterface_OnActionEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseActionEvent(QDesignerPropertyEditorInterface* self, QActionEvent* event);
+void QDesignerPropertyEditorInterface_DragEnterEvent(QDesignerPropertyEditorInterface* self, QDragEnterEvent* event);
+void QDesignerPropertyEditorInterface_OnDragEnterEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseDragEnterEvent(QDesignerPropertyEditorInterface* self, QDragEnterEvent* event);
+void QDesignerPropertyEditorInterface_DragMoveEvent(QDesignerPropertyEditorInterface* self, QDragMoveEvent* event);
+void QDesignerPropertyEditorInterface_OnDragMoveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseDragMoveEvent(QDesignerPropertyEditorInterface* self, QDragMoveEvent* event);
+void QDesignerPropertyEditorInterface_DragLeaveEvent(QDesignerPropertyEditorInterface* self, QDragLeaveEvent* event);
+void QDesignerPropertyEditorInterface_OnDragLeaveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseDragLeaveEvent(QDesignerPropertyEditorInterface* self, QDragLeaveEvent* event);
+void QDesignerPropertyEditorInterface_DropEvent(QDesignerPropertyEditorInterface* self, QDropEvent* event);
+void QDesignerPropertyEditorInterface_OnDropEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseDropEvent(QDesignerPropertyEditorInterface* self, QDropEvent* event);
+void QDesignerPropertyEditorInterface_ShowEvent(QDesignerPropertyEditorInterface* self, QShowEvent* event);
+void QDesignerPropertyEditorInterface_OnShowEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseShowEvent(QDesignerPropertyEditorInterface* self, QShowEvent* event);
+void QDesignerPropertyEditorInterface_HideEvent(QDesignerPropertyEditorInterface* self, QHideEvent* event);
+void QDesignerPropertyEditorInterface_OnHideEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseHideEvent(QDesignerPropertyEditorInterface* self, QHideEvent* event);
+bool QDesignerPropertyEditorInterface_NativeEvent(QDesignerPropertyEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result);
+void QDesignerPropertyEditorInterface_OnNativeEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseNativeEvent(QDesignerPropertyEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result);
+void QDesignerPropertyEditorInterface_ChangeEvent(QDesignerPropertyEditorInterface* self, QEvent* param1);
+void QDesignerPropertyEditorInterface_OnChangeEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseChangeEvent(QDesignerPropertyEditorInterface* self, QEvent* param1);
+int QDesignerPropertyEditorInterface_Metric(const QDesignerPropertyEditorInterface* self, int param1);
+void QDesignerPropertyEditorInterface_OnMetric(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+int QDesignerPropertyEditorInterface_QBaseMetric(const QDesignerPropertyEditorInterface* self, int param1);
+void QDesignerPropertyEditorInterface_InitPainter(const QDesignerPropertyEditorInterface* self, QPainter* painter);
+void QDesignerPropertyEditorInterface_OnInitPainter(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseInitPainter(const QDesignerPropertyEditorInterface* self, QPainter* painter);
+QPaintDevice* QDesignerPropertyEditorInterface_Redirected(const QDesignerPropertyEditorInterface* self, QPoint* offset);
+void QDesignerPropertyEditorInterface_OnRedirected(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QPaintDevice* QDesignerPropertyEditorInterface_QBaseRedirected(const QDesignerPropertyEditorInterface* self, QPoint* offset);
+QPainter* QDesignerPropertyEditorInterface_SharedPainter(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnSharedPainter(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QPainter* QDesignerPropertyEditorInterface_QBaseSharedPainter(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_InputMethodEvent(QDesignerPropertyEditorInterface* self, QInputMethodEvent* param1);
+void QDesignerPropertyEditorInterface_OnInputMethodEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseInputMethodEvent(QDesignerPropertyEditorInterface* self, QInputMethodEvent* param1);
+QVariant* QDesignerPropertyEditorInterface_InputMethodQuery(const QDesignerPropertyEditorInterface* self, int param1);
+void QDesignerPropertyEditorInterface_OnInputMethodQuery(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QVariant* QDesignerPropertyEditorInterface_QBaseInputMethodQuery(const QDesignerPropertyEditorInterface* self, int param1);
+bool QDesignerPropertyEditorInterface_FocusNextPrevChild(QDesignerPropertyEditorInterface* self, bool next);
+void QDesignerPropertyEditorInterface_OnFocusNextPrevChild(QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseFocusNextPrevChild(QDesignerPropertyEditorInterface* self, bool next);
+bool QDesignerPropertyEditorInterface_EventFilter(QDesignerPropertyEditorInterface* self, QObject* watched, QEvent* event);
+void QDesignerPropertyEditorInterface_OnEventFilter(QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseEventFilter(QDesignerPropertyEditorInterface* self, QObject* watched, QEvent* event);
+void QDesignerPropertyEditorInterface_TimerEvent(QDesignerPropertyEditorInterface* self, QTimerEvent* event);
+void QDesignerPropertyEditorInterface_OnTimerEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseTimerEvent(QDesignerPropertyEditorInterface* self, QTimerEvent* event);
+void QDesignerPropertyEditorInterface_ChildEvent(QDesignerPropertyEditorInterface* self, QChildEvent* event);
+void QDesignerPropertyEditorInterface_OnChildEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseChildEvent(QDesignerPropertyEditorInterface* self, QChildEvent* event);
+void QDesignerPropertyEditorInterface_CustomEvent(QDesignerPropertyEditorInterface* self, QEvent* event);
+void QDesignerPropertyEditorInterface_OnCustomEvent(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseCustomEvent(QDesignerPropertyEditorInterface* self, QEvent* event);
+void QDesignerPropertyEditorInterface_ConnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal);
+void QDesignerPropertyEditorInterface_OnConnectNotify(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseConnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal);
+void QDesignerPropertyEditorInterface_DisconnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal);
+void QDesignerPropertyEditorInterface_OnDisconnectNotify(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseDisconnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal);
+void QDesignerPropertyEditorInterface_UpdateMicroFocus(QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnUpdateMicroFocus(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseUpdateMicroFocus(QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_Create(QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnCreate(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseCreate(QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_Destroy(QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnDestroy(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void QDesignerPropertyEditorInterface_QBaseDestroy(QDesignerPropertyEditorInterface* self);
+bool QDesignerPropertyEditorInterface_FocusNextChild(QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnFocusNextChild(QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseFocusNextChild(QDesignerPropertyEditorInterface* self);
+bool QDesignerPropertyEditorInterface_FocusPreviousChild(QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnFocusPreviousChild(QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseFocusPreviousChild(QDesignerPropertyEditorInterface* self);
+QObject* QDesignerPropertyEditorInterface_Sender(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnSender(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QObject* QDesignerPropertyEditorInterface_QBaseSender(const QDesignerPropertyEditorInterface* self);
+int QDesignerPropertyEditorInterface_SenderSignalIndex(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnSenderSignalIndex(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+int QDesignerPropertyEditorInterface_QBaseSenderSignalIndex(const QDesignerPropertyEditorInterface* self);
+int QDesignerPropertyEditorInterface_Receivers(const QDesignerPropertyEditorInterface* self, const char* signal);
+void QDesignerPropertyEditorInterface_OnReceivers(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+int QDesignerPropertyEditorInterface_QBaseReceivers(const QDesignerPropertyEditorInterface* self, const char* signal);
+bool QDesignerPropertyEditorInterface_IsSignalConnected(const QDesignerPropertyEditorInterface* self, const QMetaMethod* signal);
+void QDesignerPropertyEditorInterface_OnIsSignalConnected(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+bool QDesignerPropertyEditorInterface_QBaseIsSignalConnected(const QDesignerPropertyEditorInterface* self, const QMetaMethod* signal);
+double QDesignerPropertyEditorInterface_GetDecodedMetricF(const QDesignerPropertyEditorInterface* self, int metricA, int metricB);
+void QDesignerPropertyEditorInterface_OnGetDecodedMetricF(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+double QDesignerPropertyEditorInterface_QBaseGetDecodedMetricF(const QDesignerPropertyEditorInterface* self, int metricA, int metricB);
+void QDesignerPropertyEditorInterface_Delete(QDesignerPropertyEditorInterface* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

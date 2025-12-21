@@ -731,6 +731,7 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QAbstractItemModel::mimeTypes();
@@ -2475,6 +2476,7 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QAbstractTableModel::mimeTypes();
@@ -4123,6 +4125,7 @@ class VirtualQAbstractListModel : public QAbstractListModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QAbstractListModel::mimeTypes();

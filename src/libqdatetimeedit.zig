@@ -1301,6 +1301,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QDateTimeEdit `
@@ -15408,6 +15410,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QTimeEdit`
@@ -24542,6 +24546,8 @@ pub const qdateedit = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeedit.html#textFromDateTime)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

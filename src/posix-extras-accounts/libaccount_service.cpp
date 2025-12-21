@@ -14,8 +14,8 @@
 #include <QTimerEvent>
 #include <QVariant>
 #include <account-service.h>
-#include "libaccount-service.h"
-#include "libaccount-service.hxx"
+#include "libaccount_service.h"
+#include "libaccount_service.hxx"
 
 Accounts__AccountService* Accounts__AccountService_new(Accounts__Account* account, const Accounts__Service* service) {
     return new VirtualAccountsAccountService(account, *service);

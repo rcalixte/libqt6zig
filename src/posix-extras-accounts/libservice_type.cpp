@@ -5,8 +5,8 @@
 #include <QByteArray>
 #include <cstring>
 #include <service-type.h>
-#include "libservice-type.h"
-#include "libservice-type.hxx"
+#include "libservice_type.h"
+#include "libservice_type.hxx"
 
 Accounts__ServiceType* Accounts__ServiceType_new() {
     return new Accounts::ServiceType();

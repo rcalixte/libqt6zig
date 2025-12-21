@@ -14,6 +14,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"sort"
+	"strconv"
 	"strings"
 	"sync"
 )
@@ -201,7 +202,7 @@ func cleanGeneratedFilesInDir(dirpath string) {
 func pkgConfigCflags(packageName string) string {
 	stdout, err := exec.Command("pkg-config", "--cflags", packageName).Output()
 	if err != nil {
-		panic(err)
+		log.Fatalln("Missing pkg-config dependency for: " + packageName)
 	}
 
 	return string(stdout)
@@ -347,8 +348,8 @@ var allHeaders = make(map[string]int)
 
 func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool, outDir string, headerList *[]string, zigIncs map[string]string, qtstructdefs map[string]struct{}) *FormatBatch {
 
-	packageName := "src" + ifv(srcName != "", "/"+srcName, "")
-	includePath := "include" + ifv(srcName != "", "/"+srcName, "")
+	packageName := filepath.Join("src", srcName)
+	includePath := filepath.Join("include", srcName)
 
 	var includeFiles []string
 	for _, srcDir := range srcDirs {
@@ -456,13 +457,9 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 		}
 
 		// Emit 3 code files from the intermediate format
-		libName := "lib" + strings.TrimSuffix(filepath.Base(parsed.Filename), ".h")
+		libName := "lib" + strings.ReplaceAll(strings.TrimSuffix(filepath.Base(parsed.Filename), ".h"), "-", "_")
 		outputName := filepath.Join(outDir, libName)
-		dirName := strings.TrimPrefix(packageName, "src/")
-		dirName = strings.TrimPrefix(dirName, "src")
-		if dirName != "" {
-			dirName += "/"
-		}
+		dirName := ifv(packageName == "src", "", strings.TrimPrefix(packageName, "src/"))
 
 		// For packages where we scan multiple directories, it's possible that
 		// there are filename collisions (e.g. Qt 6 has QtWidgets/qaction.h include
@@ -476,23 +473,25 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 		}
 		allHeaders[libName] = counter + 1
 
+		var counterSuffix string
+
 		for {
-			testName := outputName
 			if counter > 0 {
-				testName += fmt.Sprintf("_%d", counter)
-				*headerList = append(*headerList, dirName+filepath.Base(testName)+".h")
-				outputName = testName
+				counterSuffix = "_" + strconv.Itoa(counter)
+				outputName += counterSuffix
+				*headerList = append(*headerList, filepath.Join(dirName, libName+counterSuffix+".h"))
 				break
-			} else if _, err := os.Stat(testName + ".zig"); err != nil && os.IsNotExist(err) {
-				outputName = testName // Safe
-				*headerList = append(*headerList, dirName+libName+".h")
+			} else if _, err := os.Stat(outputName + ".zig"); err != nil && os.IsNotExist(err) {
+				*headerList = append(*headerList, filepath.Join(dirName, libName+".h"))
 				break
 			}
 
 			counter++
 		}
 
-		bindingCppSrc, err := emitBindingCpp(parsed, filepath.Base(outputName+".h"))
+		headerName := libName + counterSuffix + ".h"
+
+		bindingCppSrc, err := emitBindingCpp(parsed, headerName)
 		if err != nil {
 			panic(err)
 		}
@@ -516,7 +515,7 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 			panic(err)
 		}
 
-		zigSrc, zigInc, err := emitZig(parsed, filepath.Base(outputName+".h"), packageName)
+		zigSrc, zigInc, err := emitZig(parsed, headerName, packageName)
 		if err != nil {
 			panic(err)
 		}
@@ -546,7 +545,7 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 
 		// Record copy operations
 		zigIncludeFile := filepath.Join(includeDir, filepath.Base(outputName+".zig"))
-		headerInclude := filepath.Join(includeDir, filepath.Base(outputName+".h"))
+		headerInclude := filepath.Join(includeDir, headerName)
 		batch.zigCopies[outputName+".zig"] = zigIncludeFile
 		batch.headerCopies[outputName+".h"] = headerInclude
 	}
@@ -628,6 +627,8 @@ func main() {
 	extraLibsDir := flag.String("extralibs", "/usr/local/src/", "Base directory to find extra library checkouts")
 
 	flag.Parse()
+
+	log.SetFlags(0)
 
 	ProcessLibraries(*clang, *outDir, *extraLibsDir)
 }
