@@ -283,6 +283,12 @@ const qt_modules = &.{
     // Qt 6 SVG
     "QtSvg",
     "QtSvgWidgets",
+    // Qt 6 UI Plugin
+    "QtUiPlugin",
+    // Qt 6 UI Tools
+    "QtUiTools",
+    // Qt 6 Designer
+    "QtDesigner",
     // Qt 6 WebChannel
     "QtWebChannel",
     "QtWebChannelQuick",
