@@ -1,4 +1,8 @@
 
+### 6.8.2 rev50 (21 December 2025)
+
+* **BREAKING CHANGE:** Add [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html), [Qt UI Plugin](https://doc.qt.io/qt-6/qtdesigner-customwidgetplugin-example.html), and [Qt UI Tools](https://doc.qt.io/qt-6/qtuitools-index.html) (#96)
+
 ### 6.8.2 rev49 (16 December 2025)
 
 * Add [Qt Positioning](https://doc.qt.io/qt-6/qtpositioning-index.html) (#95)
