@@ -431,6 +431,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
                 callback_ret_QList.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return KWidgetItemDelegate::paintingRoles();
@@ -579,6 +580,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
                 callback_ret_QList.push_back(static_cast<QEvent::Type>(*ptr));
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return KWidgetItemDelegate::blockedEventTypes(widget);

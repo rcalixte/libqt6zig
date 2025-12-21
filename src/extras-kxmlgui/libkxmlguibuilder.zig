@@ -77,6 +77,8 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KXMLGUIBuilder `
@@ -250,6 +252,8 @@ pub const kxmlguibuilder = struct {
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// Allows for overriding the related default method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

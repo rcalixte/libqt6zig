@@ -174,6 +174,7 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
                 callback_ret_QList.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return {};

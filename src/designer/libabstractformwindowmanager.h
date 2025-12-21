@@ -1,0 +1,151 @@
+#pragma once
+#ifndef SRC_DESIGNERC_LIBABSTRACTFORMWINDOWMANAGER_H
+#define SRC_DESIGNERC_LIBABSTRACTFORMWINDOWMANAGER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct QAction QAction;
+typedef struct QActionGroup QActionGroup;
+typedef struct QChildEvent QChildEvent;
+typedef struct QDesignerDnDItemInterface QDesignerDnDItemInterface;
+typedef struct QDesignerFormEditorInterface QDesignerFormEditorInterface;
+typedef struct QDesignerFormWindowInterface QDesignerFormWindowInterface;
+typedef struct QDesignerFormWindowManagerInterface QDesignerFormWindowManagerInterface;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QPixmap QPixmap;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QWidget QWidget;
+#endif
+
+QDesignerFormWindowManagerInterface* QDesignerFormWindowManagerInterface_new();
+QDesignerFormWindowManagerInterface* QDesignerFormWindowManagerInterface_new2(QObject* parent);
+QMetaObject* QDesignerFormWindowManagerInterface_MetaObject(const QDesignerFormWindowManagerInterface* self);
+void* QDesignerFormWindowManagerInterface_Metacast(QDesignerFormWindowManagerInterface* self, const char* param1);
+int QDesignerFormWindowManagerInterface_Metacall(QDesignerFormWindowManagerInterface* self, int param1, int param2, void** param3);
+QAction* QDesignerFormWindowManagerInterface_Action(const QDesignerFormWindowManagerInterface* self, int action);
+QActionGroup* QDesignerFormWindowManagerInterface_ActionGroup(const QDesignerFormWindowManagerInterface* self, int actionGroup);
+QAction* QDesignerFormWindowManagerInterface_ActionCut(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionCopy(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionPaste(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionDelete(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionSelectAll(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionLower(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionRaise(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionUndo(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionRedo(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionHorizontalLayout(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionVerticalLayout(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionSplitHorizontal(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionSplitVertical(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionGridLayout(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionFormLayout(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionBreakLayout(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionAdjustSize(const QDesignerFormWindowManagerInterface* self);
+QAction* QDesignerFormWindowManagerInterface_ActionSimplifyLayout(const QDesignerFormWindowManagerInterface* self);
+QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_ActiveFormWindow(const QDesignerFormWindowManagerInterface* self);
+int QDesignerFormWindowManagerInterface_FormWindowCount(const QDesignerFormWindowManagerInterface* self);
+QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_FormWindow(const QDesignerFormWindowManagerInterface* self, int index);
+QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_CreateFormWindow(QDesignerFormWindowManagerInterface* self, QWidget* parentWidget, int flags);
+QDesignerFormEditorInterface* QDesignerFormWindowManagerInterface_Core(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_DragItems(QDesignerFormWindowManagerInterface* self, const libqt_list /* of QDesignerDnDItemInterface* */ item_list);
+QPixmap* QDesignerFormWindowManagerInterface_CreatePreviewPixmap(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_FormWindowAdded(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_Connect_FormWindowAdded(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_FormWindowRemoved(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_Connect_FormWindowRemoved(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_ActiveFormWindowChanged(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_Connect_ActiveFormWindowChanged(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_FormWindowSettingsChanged(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* fw);
+void QDesignerFormWindowManagerInterface_Connect_FormWindowSettingsChanged(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_AddFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_RemoveFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_SetActiveFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_ShowPreview(QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_CloseAllPreviews(QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_ShowPluginDialog(QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnMetacall(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+int QDesignerFormWindowManagerInterface_QBaseMetacall(QDesignerFormWindowManagerInterface* self, int param1, int param2, void** param3);
+void QDesignerFormWindowManagerInterface_OnAction(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QAction* QDesignerFormWindowManagerInterface_QBaseAction(const QDesignerFormWindowManagerInterface* self, int action);
+void QDesignerFormWindowManagerInterface_OnActionGroup(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QActionGroup* QDesignerFormWindowManagerInterface_QBaseActionGroup(const QDesignerFormWindowManagerInterface* self, int actionGroup);
+void QDesignerFormWindowManagerInterface_OnActiveFormWindow(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_QBaseActiveFormWindow(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnFormWindowCount(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+int QDesignerFormWindowManagerInterface_QBaseFormWindowCount(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnFormWindow(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_QBaseFormWindow(const QDesignerFormWindowManagerInterface* self, int index);
+void QDesignerFormWindowManagerInterface_OnCreateFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_QBaseCreateFormWindow(QDesignerFormWindowManagerInterface* self, QWidget* parentWidget, int flags);
+void QDesignerFormWindowManagerInterface_OnCore(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QDesignerFormEditorInterface* QDesignerFormWindowManagerInterface_QBaseCore(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnDragItems(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseDragItems(QDesignerFormWindowManagerInterface* self, const libqt_list /* of QDesignerDnDItemInterface* */ item_list);
+void QDesignerFormWindowManagerInterface_OnCreatePreviewPixmap(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QPixmap* QDesignerFormWindowManagerInterface_QBaseCreatePreviewPixmap(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnAddFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseAddFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_OnRemoveFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseRemoveFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_OnSetActiveFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseSetActiveFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerFormWindowManagerInterface_OnShowPreview(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseShowPreview(QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnCloseAllPreviews(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseCloseAllPreviews(QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnShowPluginDialog(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseShowPluginDialog(QDesignerFormWindowManagerInterface* self);
+bool QDesignerFormWindowManagerInterface_Event(QDesignerFormWindowManagerInterface* self, QEvent* event);
+void QDesignerFormWindowManagerInterface_OnEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+bool QDesignerFormWindowManagerInterface_QBaseEvent(QDesignerFormWindowManagerInterface* self, QEvent* event);
+bool QDesignerFormWindowManagerInterface_EventFilter(QDesignerFormWindowManagerInterface* self, QObject* watched, QEvent* event);
+void QDesignerFormWindowManagerInterface_OnEventFilter(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+bool QDesignerFormWindowManagerInterface_QBaseEventFilter(QDesignerFormWindowManagerInterface* self, QObject* watched, QEvent* event);
+void QDesignerFormWindowManagerInterface_TimerEvent(QDesignerFormWindowManagerInterface* self, QTimerEvent* event);
+void QDesignerFormWindowManagerInterface_OnTimerEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseTimerEvent(QDesignerFormWindowManagerInterface* self, QTimerEvent* event);
+void QDesignerFormWindowManagerInterface_ChildEvent(QDesignerFormWindowManagerInterface* self, QChildEvent* event);
+void QDesignerFormWindowManagerInterface_OnChildEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseChildEvent(QDesignerFormWindowManagerInterface* self, QChildEvent* event);
+void QDesignerFormWindowManagerInterface_CustomEvent(QDesignerFormWindowManagerInterface* self, QEvent* event);
+void QDesignerFormWindowManagerInterface_OnCustomEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseCustomEvent(QDesignerFormWindowManagerInterface* self, QEvent* event);
+void QDesignerFormWindowManagerInterface_ConnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+void QDesignerFormWindowManagerInterface_OnConnectNotify(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseConnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+void QDesignerFormWindowManagerInterface_DisconnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+void QDesignerFormWindowManagerInterface_OnDisconnectNotify(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void QDesignerFormWindowManagerInterface_QBaseDisconnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+QObject* QDesignerFormWindowManagerInterface_Sender(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnSender(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QObject* QDesignerFormWindowManagerInterface_QBaseSender(const QDesignerFormWindowManagerInterface* self);
+int QDesignerFormWindowManagerInterface_SenderSignalIndex(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnSenderSignalIndex(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+int QDesignerFormWindowManagerInterface_QBaseSenderSignalIndex(const QDesignerFormWindowManagerInterface* self);
+int QDesignerFormWindowManagerInterface_Receivers(const QDesignerFormWindowManagerInterface* self, const char* signal);
+void QDesignerFormWindowManagerInterface_OnReceivers(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+int QDesignerFormWindowManagerInterface_QBaseReceivers(const QDesignerFormWindowManagerInterface* self, const char* signal);
+bool QDesignerFormWindowManagerInterface_IsSignalConnected(const QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+void QDesignerFormWindowManagerInterface_OnIsSignalConnected(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+bool QDesignerFormWindowManagerInterface_QBaseIsSignalConnected(const QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+void QDesignerFormWindowManagerInterface_Delete(QDesignerFormWindowManagerInterface* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -450,6 +450,8 @@ pub const qaccessibleobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QAccessibleObject`
@@ -737,6 +739,8 @@ pub const qaccessibleobject = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -1287,6 +1291,8 @@ pub const qaccessibleapplication = struct {
     ///
     /// Allows for overriding the related default method
     ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QAccessibleApplication `
@@ -1826,6 +1832,8 @@ pub const qaccessibleapplication = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

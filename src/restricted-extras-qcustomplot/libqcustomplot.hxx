@@ -4190,6 +4190,7 @@ class VirtualQCPLayout : public QCPLayout {
             for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
                 callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPLayout::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -5330,6 +5331,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
                 callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPLayoutGrid::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -6394,6 +6396,7 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
                 callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPLayoutInset::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -6595,8 +6598,8 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
     using QCPAxisTicker_GetTickStep_Callback = double (*)(QCPAxisTicker*, QCPRange*);
     using QCPAxisTicker_GetSubTickCount_Callback = int (*)(QCPAxisTicker*, double);
     using QCPAxisTicker_GetTickLabel_Callback = const char* (*)(QCPAxisTicker*, double, QLocale*, QChar*, int);
-    using QCPAxisTicker_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTicker*, double, QCPRange*);
-    using QCPAxisTicker_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTicker*, int, libqt_list /* of double */);
+    using QCPAxisTicker_CreateTickVector_Callback = double* (*)(QCPAxisTicker*, double, QCPRange*);
+    using QCPAxisTicker_CreateSubTickVector_Callback = double* (*)(QCPAxisTicker*, int, libqt_list /* of double */);
     using QCPAxisTicker_CreateLabelVector_Callback = const char** (*)(QCPAxisTicker*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTicker_TrimTicks_Callback = void (*)(const QCPAxisTicker*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTicker_PickClosest_Callback = double (*)(const QCPAxisTicker*, double, libqt_list /* of double */);
@@ -6802,13 +6805,12 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            libqt_list /* of double */ callback_ret = qcpaxisticker_createtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxisticker_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createTickVector(tickStep, range);
@@ -6833,13 +6835,12 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            libqt_list /* of double */ callback_ret = qcpaxisticker_createsubtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxisticker_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createSubTickVector(subTickCount, ticks);
@@ -6877,6 +6878,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createLabelVector(ticks, locale, formatChar, precision);
@@ -7018,9 +7020,9 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
     using QCPAxisTickerDateTime_GetTickStep_Callback = double (*)(QCPAxisTickerDateTime*, QCPRange*);
     using QCPAxisTickerDateTime_GetSubTickCount_Callback = int (*)(QCPAxisTickerDateTime*, double);
     using QCPAxisTickerDateTime_GetTickLabel_Callback = const char* (*)(QCPAxisTickerDateTime*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerDateTime_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerDateTime*, double, QCPRange*);
+    using QCPAxisTickerDateTime_CreateTickVector_Callback = double* (*)(QCPAxisTickerDateTime*, double, QCPRange*);
     using QCPAxisTickerDateTime_Generate_Callback = void (*)(QCPAxisTickerDateTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerDateTime_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerDateTime*, int, libqt_list /* of double */);
+    using QCPAxisTickerDateTime_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerDateTime*, int, libqt_list /* of double */);
     using QCPAxisTickerDateTime_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerDateTime*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerDateTime_TrimTicks_Callback = void (*)(const QCPAxisTickerDateTime*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerDateTime_PickClosest_Callback = double (*)(const QCPAxisTickerDateTime*, double, libqt_list /* of double */);
@@ -7161,13 +7163,12 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerdatetime_createtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerdatetime_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createTickVector(tickStep, range);
@@ -7251,13 +7252,12 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerdatetime_createsubtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerdatetime_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createSubTickVector(subTickCount, ticks);
@@ -7295,6 +7295,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createLabelVector(ticks, locale, formatChar, precision);
@@ -7418,8 +7419,8 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
     using QCPAxisTickerTime_GetSubTickCount_Callback = int (*)(QCPAxisTickerTime*, double);
     using QCPAxisTickerTime_GetTickLabel_Callback = const char* (*)(QCPAxisTickerTime*, double, QLocale*, QChar*, int);
     using QCPAxisTickerTime_Generate_Callback = void (*)(QCPAxisTickerTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerTime_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerTime*, double, QCPRange*);
-    using QCPAxisTickerTime_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerTime*, int, libqt_list /* of double */);
+    using QCPAxisTickerTime_CreateTickVector_Callback = double* (*)(QCPAxisTickerTime*, double, QCPRange*);
+    using QCPAxisTickerTime_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerTime*, int, libqt_list /* of double */);
     using QCPAxisTickerTime_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerTime*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerTime_ReplaceUnit_Callback = void (*)(const QCPAxisTickerTime*, libqt_string, int, int);
     using QCPAxisTickerTime_TrimTicks_Callback = void (*)(const QCPAxisTickerTime*, QCPRange*, libqt_list /* of double */, bool);
@@ -7625,13 +7626,12 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            libqt_list /* of double */ callback_ret = qcpaxistickertime_createtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickertime_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createTickVector(tickStep, range);
@@ -7656,13 +7656,12 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            libqt_list /* of double */ callback_ret = qcpaxistickertime_createsubtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickertime_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createSubTickVector(subTickCount, ticks);
@@ -7700,6 +7699,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createLabelVector(ticks, locale, formatChar, precision);
@@ -7849,8 +7849,8 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
     using QCPAxisTickerFixed_Generate_Callback = void (*)(QCPAxisTickerFixed*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
     using QCPAxisTickerFixed_GetSubTickCount_Callback = int (*)(QCPAxisTickerFixed*, double);
     using QCPAxisTickerFixed_GetTickLabel_Callback = const char* (*)(QCPAxisTickerFixed*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerFixed_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerFixed*, double, QCPRange*);
-    using QCPAxisTickerFixed_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerFixed*, int, libqt_list /* of double */);
+    using QCPAxisTickerFixed_CreateTickVector_Callback = double* (*)(QCPAxisTickerFixed*, double, QCPRange*);
+    using QCPAxisTickerFixed_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerFixed*, int, libqt_list /* of double */);
     using QCPAxisTickerFixed_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerFixed*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerFixed_TrimTicks_Callback = void (*)(const QCPAxisTickerFixed*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerFixed_PickClosest_Callback = double (*)(const QCPAxisTickerFixed*, double, libqt_list /* of double */);
@@ -8050,13 +8050,12 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerfixed_createtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerfixed_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createTickVector(tickStep, range);
@@ -8081,13 +8080,12 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerfixed_createsubtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerfixed_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createSubTickVector(subTickCount, ticks);
@@ -8125,6 +8123,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createLabelVector(ticks, locale, formatChar, precision);
@@ -8247,9 +8246,9 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
     using QCPAxisTickerText_GetTickStep_Callback = double (*)(QCPAxisTickerText*, QCPRange*);
     using QCPAxisTickerText_GetSubTickCount_Callback = int (*)(QCPAxisTickerText*, double);
     using QCPAxisTickerText_GetTickLabel_Callback = const char* (*)(QCPAxisTickerText*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerText_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerText*, double, QCPRange*);
+    using QCPAxisTickerText_CreateTickVector_Callback = double* (*)(QCPAxisTickerText*, double, QCPRange*);
     using QCPAxisTickerText_Generate_Callback = void (*)(QCPAxisTickerText*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerText_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerText*, int, libqt_list /* of double */);
+    using QCPAxisTickerText_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerText*, int, libqt_list /* of double */);
     using QCPAxisTickerText_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerText*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerText_TrimTicks_Callback = void (*)(const QCPAxisTickerText*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerText_PickClosest_Callback = double (*)(const QCPAxisTickerText*, double, libqt_list /* of double */);
@@ -8390,13 +8389,12 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            libqt_list /* of double */ callback_ret = qcpaxistickertext_createtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickertext_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createTickVector(tickStep, range);
@@ -8480,13 +8478,12 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            libqt_list /* of double */ callback_ret = qcpaxistickertext_createsubtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickertext_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createSubTickVector(subTickCount, ticks);
@@ -8524,6 +8521,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createLabelVector(ticks, locale, formatChar, precision);
@@ -8647,8 +8645,8 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
     using QCPAxisTickerPi_GetSubTickCount_Callback = int (*)(QCPAxisTickerPi*, double);
     using QCPAxisTickerPi_GetTickLabel_Callback = const char* (*)(QCPAxisTickerPi*, double, QLocale*, QChar*, int);
     using QCPAxisTickerPi_Generate_Callback = void (*)(QCPAxisTickerPi*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerPi_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerPi*, double, QCPRange*);
-    using QCPAxisTickerPi_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerPi*, int, libqt_list /* of double */);
+    using QCPAxisTickerPi_CreateTickVector_Callback = double* (*)(QCPAxisTickerPi*, double, QCPRange*);
+    using QCPAxisTickerPi_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerPi*, int, libqt_list /* of double */);
     using QCPAxisTickerPi_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerPi*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerPi_SimplifyFraction_Callback = void (*)(const QCPAxisTickerPi*, int*, int*);
     using QCPAxisTickerPi_FractionToString_Callback = const char* (*)(const QCPAxisTickerPi*, int, int);
@@ -8878,13 +8876,12 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerpi_createtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerpi_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createTickVector(tickStep, range);
@@ -8909,13 +8906,12 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerpi_createsubtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerpi_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createSubTickVector(subTickCount, ticks);
@@ -8953,6 +8949,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createLabelVector(ticks, locale, formatChar, precision);
@@ -9164,11 +9161,11 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
 
     // Virtual class public types (including callbacks)
     using QCPAxisTickerLog_GetSubTickCount_Callback = int (*)(QCPAxisTickerLog*, double);
-    using QCPAxisTickerLog_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerLog*, double, QCPRange*);
+    using QCPAxisTickerLog_CreateTickVector_Callback = double* (*)(QCPAxisTickerLog*, double, QCPRange*);
     using QCPAxisTickerLog_Generate_Callback = void (*)(QCPAxisTickerLog*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
     using QCPAxisTickerLog_GetTickStep_Callback = double (*)(QCPAxisTickerLog*, QCPRange*);
     using QCPAxisTickerLog_GetTickLabel_Callback = const char* (*)(QCPAxisTickerLog*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerLog_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerLog*, int, libqt_list /* of double */);
+    using QCPAxisTickerLog_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerLog*, int, libqt_list /* of double */);
     using QCPAxisTickerLog_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerLog*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerLog_TrimTicks_Callback = void (*)(const QCPAxisTickerLog*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerLog_PickClosest_Callback = double (*)(const QCPAxisTickerLog*, double, libqt_list /* of double */);
@@ -9271,13 +9268,12 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerlog_createtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerlog_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createTickVector(tickStep, range);
@@ -9399,13 +9395,12 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            libqt_list /* of double */ callback_ret = qcpaxistickerlog_createsubtickvector_callback(this, cbval1, cbval2);
+            double* callback_ret = qcpaxistickerlog_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            callback_ret_QVector.reserve(callback_ret.len);
-            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
+            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
+                callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createSubTickVector(subTickCount, ticks);
@@ -9443,6 +9438,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createLabelVector(ticks, locale, formatChar, precision);
@@ -18697,6 +18693,7 @@ class VirtualQCPLegend final : public QCPLegend {
             for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
                 callback_ret_QVector.push_back(*ptr);
             }
+            free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPLegend::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);

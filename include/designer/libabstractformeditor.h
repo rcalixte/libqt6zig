@@ -1,0 +1,131 @@
+#pragma once
+#ifndef SRC_DESIGNERC_LIBABSTRACTFORMEDITOR_H
+#define SRC_DESIGNERC_LIBABSTRACTFORMEDITOR_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QDesignerActionEditorInterface QDesignerActionEditorInterface;
+typedef struct QDesignerFormEditorInterface QDesignerFormEditorInterface;
+typedef struct QDesignerFormWindowManagerInterface QDesignerFormWindowManagerInterface;
+typedef struct QDesignerIntegrationInterface QDesignerIntegrationInterface;
+typedef struct QDesignerMetaDataBaseInterface QDesignerMetaDataBaseInterface;
+typedef struct QDesignerObjectInspectorInterface QDesignerObjectInspectorInterface;
+typedef struct QDesignerOptionsPageInterface QDesignerOptionsPageInterface;
+typedef struct QDesignerPromotionInterface QDesignerPromotionInterface;
+typedef struct QDesignerPropertyEditorInterface QDesignerPropertyEditorInterface;
+typedef struct QDesignerSettingsInterface QDesignerSettingsInterface;
+typedef struct QDesignerWidgetBoxInterface QDesignerWidgetBoxInterface;
+typedef struct QDesignerWidgetDataBaseInterface QDesignerWidgetDataBaseInterface;
+typedef struct QDesignerWidgetFactoryInterface QDesignerWidgetFactoryInterface;
+typedef struct QEvent QEvent;
+typedef struct QExtensionManager QExtensionManager;
+typedef struct QIcon QIcon;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QWidget QWidget;
+#endif
+
+QDesignerFormEditorInterface* QDesignerFormEditorInterface_new();
+QDesignerFormEditorInterface* QDesignerFormEditorInterface_new2(QObject* parent);
+QMetaObject* QDesignerFormEditorInterface_MetaObject(const QDesignerFormEditorInterface* self);
+void* QDesignerFormEditorInterface_Metacast(QDesignerFormEditorInterface* self, const char* param1);
+int QDesignerFormEditorInterface_Metacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3);
+QExtensionManager* QDesignerFormEditorInterface_ExtensionManager(const QDesignerFormEditorInterface* self);
+QWidget* QDesignerFormEditorInterface_TopLevel(const QDesignerFormEditorInterface* self);
+QDesignerWidgetBoxInterface* QDesignerFormEditorInterface_WidgetBox(const QDesignerFormEditorInterface* self);
+QDesignerPropertyEditorInterface* QDesignerFormEditorInterface_PropertyEditor(const QDesignerFormEditorInterface* self);
+QDesignerObjectInspectorInterface* QDesignerFormEditorInterface_ObjectInspector(const QDesignerFormEditorInterface* self);
+QDesignerFormWindowManagerInterface* QDesignerFormEditorInterface_FormWindowManager(const QDesignerFormEditorInterface* self);
+QDesignerWidgetDataBaseInterface* QDesignerFormEditorInterface_WidgetDataBase(const QDesignerFormEditorInterface* self);
+QDesignerMetaDataBaseInterface* QDesignerFormEditorInterface_MetaDataBase(const QDesignerFormEditorInterface* self);
+QDesignerPromotionInterface* QDesignerFormEditorInterface_Promotion(const QDesignerFormEditorInterface* self);
+QDesignerWidgetFactoryInterface* QDesignerFormEditorInterface_WidgetFactory(const QDesignerFormEditorInterface* self);
+QDesignerActionEditorInterface* QDesignerFormEditorInterface_ActionEditor(const QDesignerFormEditorInterface* self);
+QDesignerIntegrationInterface* QDesignerFormEditorInterface_Integration(const QDesignerFormEditorInterface* self);
+QDesignerSettingsInterface* QDesignerFormEditorInterface_SettingsManager(const QDesignerFormEditorInterface* self);
+libqt_string QDesignerFormEditorInterface_ResourceLocation(const QDesignerFormEditorInterface* self);
+libqt_list /* of QDesignerOptionsPageInterface* */ QDesignerFormEditorInterface_OptionsPages(const QDesignerFormEditorInterface* self);
+void QDesignerFormEditorInterface_SetTopLevel(QDesignerFormEditorInterface* self, QWidget* topLevel);
+void QDesignerFormEditorInterface_SetWidgetBox(QDesignerFormEditorInterface* self, QDesignerWidgetBoxInterface* widgetBox);
+void QDesignerFormEditorInterface_SetPropertyEditor(QDesignerFormEditorInterface* self, QDesignerPropertyEditorInterface* propertyEditor);
+void QDesignerFormEditorInterface_SetObjectInspector(QDesignerFormEditorInterface* self, QDesignerObjectInspectorInterface* objectInspector);
+void QDesignerFormEditorInterface_SetActionEditor(QDesignerFormEditorInterface* self, QDesignerActionEditorInterface* actionEditor);
+void QDesignerFormEditorInterface_SetIntegration(QDesignerFormEditorInterface* self, QDesignerIntegrationInterface* integration);
+void QDesignerFormEditorInterface_SetSettingsManager(QDesignerFormEditorInterface* self, QDesignerSettingsInterface* settingsManager);
+void QDesignerFormEditorInterface_SetOptionsPages(QDesignerFormEditorInterface* self, const libqt_list /* of QDesignerOptionsPageInterface* */ optionsPages);
+libqt_list /* of QObject* */ QDesignerFormEditorInterface_PluginInstances(const QDesignerFormEditorInterface* self);
+QIcon* QDesignerFormEditorInterface_CreateIcon(const libqt_string name);
+void QDesignerFormEditorInterface_OnMetacall(QDesignerFormEditorInterface* self, intptr_t slot);
+int QDesignerFormEditorInterface_QBaseMetacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3);
+bool QDesignerFormEditorInterface_Event(QDesignerFormEditorInterface* self, QEvent* event);
+void QDesignerFormEditorInterface_OnEvent(QDesignerFormEditorInterface* self, intptr_t slot);
+bool QDesignerFormEditorInterface_QBaseEvent(QDesignerFormEditorInterface* self, QEvent* event);
+bool QDesignerFormEditorInterface_EventFilter(QDesignerFormEditorInterface* self, QObject* watched, QEvent* event);
+void QDesignerFormEditorInterface_OnEventFilter(QDesignerFormEditorInterface* self, intptr_t slot);
+bool QDesignerFormEditorInterface_QBaseEventFilter(QDesignerFormEditorInterface* self, QObject* watched, QEvent* event);
+void QDesignerFormEditorInterface_TimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event);
+void QDesignerFormEditorInterface_OnTimerEvent(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseTimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event);
+void QDesignerFormEditorInterface_ChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event);
+void QDesignerFormEditorInterface_OnChildEvent(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event);
+void QDesignerFormEditorInterface_CustomEvent(QDesignerFormEditorInterface* self, QEvent* event);
+void QDesignerFormEditorInterface_OnCustomEvent(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseCustomEvent(QDesignerFormEditorInterface* self, QEvent* event);
+void QDesignerFormEditorInterface_ConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+void QDesignerFormEditorInterface_OnConnectNotify(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+void QDesignerFormEditorInterface_DisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+void QDesignerFormEditorInterface_OnDisconnectNotify(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseDisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+void QDesignerFormEditorInterface_SetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager);
+void QDesignerFormEditorInterface_OnSetFormManager(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseSetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager);
+void QDesignerFormEditorInterface_SetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase);
+void QDesignerFormEditorInterface_OnSetMetaDataBase(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseSetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase);
+void QDesignerFormEditorInterface_SetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase);
+void QDesignerFormEditorInterface_OnSetWidgetDataBase(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseSetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase);
+void QDesignerFormEditorInterface_SetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion);
+void QDesignerFormEditorInterface_OnSetPromotion(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseSetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion);
+void QDesignerFormEditorInterface_SetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory);
+void QDesignerFormEditorInterface_OnSetWidgetFactory(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseSetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory);
+void QDesignerFormEditorInterface_SetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager);
+void QDesignerFormEditorInterface_OnSetExtensionManager(QDesignerFormEditorInterface* self, intptr_t slot);
+void QDesignerFormEditorInterface_QBaseSetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager);
+QObject* QDesignerFormEditorInterface_Sender(const QDesignerFormEditorInterface* self);
+void QDesignerFormEditorInterface_OnSender(const QDesignerFormEditorInterface* self, intptr_t slot);
+QObject* QDesignerFormEditorInterface_QBaseSender(const QDesignerFormEditorInterface* self);
+int QDesignerFormEditorInterface_SenderSignalIndex(const QDesignerFormEditorInterface* self);
+void QDesignerFormEditorInterface_OnSenderSignalIndex(const QDesignerFormEditorInterface* self, intptr_t slot);
+int QDesignerFormEditorInterface_QBaseSenderSignalIndex(const QDesignerFormEditorInterface* self);
+int QDesignerFormEditorInterface_Receivers(const QDesignerFormEditorInterface* self, const char* signal);
+void QDesignerFormEditorInterface_OnReceivers(const QDesignerFormEditorInterface* self, intptr_t slot);
+int QDesignerFormEditorInterface_QBaseReceivers(const QDesignerFormEditorInterface* self, const char* signal);
+bool QDesignerFormEditorInterface_IsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+void QDesignerFormEditorInterface_OnIsSignalConnected(const QDesignerFormEditorInterface* self, intptr_t slot);
+bool QDesignerFormEditorInterface_QBaseIsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+void QDesignerFormEditorInterface_Delete(QDesignerFormEditorInterface* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

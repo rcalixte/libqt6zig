@@ -1,0 +1,188 @@
+#pragma once
+#ifndef SRC_DESIGNERC_LIBABSTRACTWIDGETDATABASE_H
+#define SRC_DESIGNERC_LIBABSTRACTWIDGETDATABASE_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QDesignerFormEditorInterface QDesignerFormEditorInterface;
+typedef struct QDesignerWidgetDataBaseInterface QDesignerWidgetDataBaseInterface;
+typedef struct QDesignerWidgetDataBaseItemInterface QDesignerWidgetDataBaseItemInterface;
+typedef struct QEvent QEvent;
+typedef struct QIcon QIcon;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+#endif
+
+QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseItemInterface_new();
+libqt_string QDesignerWidgetDataBaseItemInterface_Name(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetName(QDesignerWidgetDataBaseItemInterface* self, const libqt_string name);
+libqt_string QDesignerWidgetDataBaseItemInterface_Group(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetGroup(QDesignerWidgetDataBaseItemInterface* self, const libqt_string group);
+libqt_string QDesignerWidgetDataBaseItemInterface_ToolTip(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetToolTip(QDesignerWidgetDataBaseItemInterface* self, const libqt_string toolTip);
+libqt_string QDesignerWidgetDataBaseItemInterface_WhatsThis(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetWhatsThis(QDesignerWidgetDataBaseItemInterface* self, const libqt_string whatsThis);
+libqt_string QDesignerWidgetDataBaseItemInterface_IncludeFile(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetIncludeFile(QDesignerWidgetDataBaseItemInterface* self, const libqt_string includeFile);
+QIcon* QDesignerWidgetDataBaseItemInterface_Icon(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetIcon(QDesignerWidgetDataBaseItemInterface* self, const QIcon* icon);
+bool QDesignerWidgetDataBaseItemInterface_IsCompat(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetCompat(QDesignerWidgetDataBaseItemInterface* self, bool compat);
+bool QDesignerWidgetDataBaseItemInterface_IsContainer(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetContainer(QDesignerWidgetDataBaseItemInterface* self, bool container);
+bool QDesignerWidgetDataBaseItemInterface_IsCustom(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetCustom(QDesignerWidgetDataBaseItemInterface* self, bool custom);
+libqt_string QDesignerWidgetDataBaseItemInterface_PluginPath(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetPluginPath(QDesignerWidgetDataBaseItemInterface* self, const libqt_string path);
+bool QDesignerWidgetDataBaseItemInterface_IsPromoted(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetPromoted(QDesignerWidgetDataBaseItemInterface* self, bool b);
+libqt_string QDesignerWidgetDataBaseItemInterface_Extends(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_SetExtends(QDesignerWidgetDataBaseItemInterface* self, const libqt_string s);
+void QDesignerWidgetDataBaseItemInterface_SetDefaultPropertyValues(QDesignerWidgetDataBaseItemInterface* self, const libqt_list /* of QVariant* */ list);
+libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_DefaultPropertyValues(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnName(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseItemInterface_QBaseName(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetName(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetName(QDesignerWidgetDataBaseItemInterface* self, const libqt_string name);
+void QDesignerWidgetDataBaseItemInterface_OnGroup(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseItemInterface_QBaseGroup(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetGroup(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetGroup(QDesignerWidgetDataBaseItemInterface* self, const libqt_string group);
+void QDesignerWidgetDataBaseItemInterface_OnToolTip(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseItemInterface_QBaseToolTip(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetToolTip(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetToolTip(QDesignerWidgetDataBaseItemInterface* self, const libqt_string toolTip);
+void QDesignerWidgetDataBaseItemInterface_OnWhatsThis(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseItemInterface_QBaseWhatsThis(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetWhatsThis(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetWhatsThis(QDesignerWidgetDataBaseItemInterface* self, const libqt_string whatsThis);
+void QDesignerWidgetDataBaseItemInterface_OnIncludeFile(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseItemInterface_QBaseIncludeFile(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetIncludeFile(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetIncludeFile(QDesignerWidgetDataBaseItemInterface* self, const libqt_string includeFile);
+void QDesignerWidgetDataBaseItemInterface_OnIcon(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+QIcon* QDesignerWidgetDataBaseItemInterface_QBaseIcon(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetIcon(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetIcon(QDesignerWidgetDataBaseItemInterface* self, const QIcon* icon);
+void QDesignerWidgetDataBaseItemInterface_OnIsCompat(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseItemInterface_QBaseIsCompat(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetCompat(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetCompat(QDesignerWidgetDataBaseItemInterface* self, bool compat);
+void QDesignerWidgetDataBaseItemInterface_OnIsContainer(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseItemInterface_QBaseIsContainer(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetContainer(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetContainer(QDesignerWidgetDataBaseItemInterface* self, bool container);
+void QDesignerWidgetDataBaseItemInterface_OnIsCustom(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseItemInterface_QBaseIsCustom(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetCustom(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetCustom(QDesignerWidgetDataBaseItemInterface* self, bool custom);
+void QDesignerWidgetDataBaseItemInterface_OnPluginPath(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseItemInterface_QBasePluginPath(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetPluginPath(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetPluginPath(QDesignerWidgetDataBaseItemInterface* self, const libqt_string path);
+void QDesignerWidgetDataBaseItemInterface_OnIsPromoted(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseItemInterface_QBaseIsPromoted(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetPromoted(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetPromoted(QDesignerWidgetDataBaseItemInterface* self, bool b);
+void QDesignerWidgetDataBaseItemInterface_OnExtends(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseItemInterface_QBaseExtends(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_OnSetExtends(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetExtends(QDesignerWidgetDataBaseItemInterface* self, const libqt_string s);
+void QDesignerWidgetDataBaseItemInterface_OnSetDefaultPropertyValues(QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseItemInterface_QBaseSetDefaultPropertyValues(QDesignerWidgetDataBaseItemInterface* self, const libqt_list /* of QVariant* */ list);
+void QDesignerWidgetDataBaseItemInterface_OnDefaultPropertyValues(const QDesignerWidgetDataBaseItemInterface* self, intptr_t slot);
+libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_QBaseDefaultPropertyValues(const QDesignerWidgetDataBaseItemInterface* self);
+void QDesignerWidgetDataBaseItemInterface_Delete(QDesignerWidgetDataBaseItemInterface* self);
+
+QDesignerWidgetDataBaseInterface* QDesignerWidgetDataBaseInterface_new();
+QDesignerWidgetDataBaseInterface* QDesignerWidgetDataBaseInterface_new2(QObject* parent);
+QMetaObject* QDesignerWidgetDataBaseInterface_MetaObject(const QDesignerWidgetDataBaseInterface* self);
+void* QDesignerWidgetDataBaseInterface_Metacast(QDesignerWidgetDataBaseInterface* self, const char* param1);
+int QDesignerWidgetDataBaseInterface_Metacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3);
+int QDesignerWidgetDataBaseInterface_Count(const QDesignerWidgetDataBaseInterface* self);
+QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseInterface_Item(const QDesignerWidgetDataBaseInterface* self, int index);
+int QDesignerWidgetDataBaseInterface_IndexOf(const QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item);
+void QDesignerWidgetDataBaseInterface_Insert(QDesignerWidgetDataBaseInterface* self, int index, QDesignerWidgetDataBaseItemInterface* item);
+void QDesignerWidgetDataBaseInterface_Append(QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item);
+int QDesignerWidgetDataBaseInterface_IndexOfObject(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
+int QDesignerWidgetDataBaseInterface_IndexOfClassName(const QDesignerWidgetDataBaseInterface* self, const libqt_string className, bool resolveName);
+QDesignerFormEditorInterface* QDesignerWidgetDataBaseInterface_Core(const QDesignerWidgetDataBaseInterface* self);
+bool QDesignerWidgetDataBaseInterface_IsContainer(const QDesignerWidgetDataBaseInterface* self, QObject* object);
+bool QDesignerWidgetDataBaseInterface_IsCustom(const QDesignerWidgetDataBaseInterface* self, QObject* object);
+void QDesignerWidgetDataBaseInterface_Changed(QDesignerWidgetDataBaseInterface* self);
+void QDesignerWidgetDataBaseInterface_Connect_Changed(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseInterface_IsContainer2(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
+bool QDesignerWidgetDataBaseInterface_IsCustom2(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
+void QDesignerWidgetDataBaseInterface_OnMetacall(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+int QDesignerWidgetDataBaseInterface_QBaseMetacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3);
+void QDesignerWidgetDataBaseInterface_OnCount(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+int QDesignerWidgetDataBaseInterface_QBaseCount(const QDesignerWidgetDataBaseInterface* self);
+void QDesignerWidgetDataBaseInterface_OnItem(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseInterface_QBaseItem(const QDesignerWidgetDataBaseInterface* self, int index);
+void QDesignerWidgetDataBaseInterface_OnIndexOf(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+int QDesignerWidgetDataBaseInterface_QBaseIndexOf(const QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item);
+void QDesignerWidgetDataBaseInterface_OnInsert(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseInterface_QBaseInsert(QDesignerWidgetDataBaseInterface* self, int index, QDesignerWidgetDataBaseItemInterface* item);
+void QDesignerWidgetDataBaseInterface_OnAppend(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseInterface_QBaseAppend(QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item);
+void QDesignerWidgetDataBaseInterface_OnIndexOfObject(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+int QDesignerWidgetDataBaseInterface_QBaseIndexOfObject(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
+void QDesignerWidgetDataBaseInterface_OnIndexOfClassName(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+int QDesignerWidgetDataBaseInterface_QBaseIndexOfClassName(const QDesignerWidgetDataBaseInterface* self, const libqt_string className, bool resolveName);
+void QDesignerWidgetDataBaseInterface_OnCore(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+QDesignerFormEditorInterface* QDesignerWidgetDataBaseInterface_QBaseCore(const QDesignerWidgetDataBaseInterface* self);
+bool QDesignerWidgetDataBaseInterface_Event(QDesignerWidgetDataBaseInterface* self, QEvent* event);
+void QDesignerWidgetDataBaseInterface_OnEvent(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseInterface_QBaseEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event);
+bool QDesignerWidgetDataBaseInterface_EventFilter(QDesignerWidgetDataBaseInterface* self, QObject* watched, QEvent* event);
+void QDesignerWidgetDataBaseInterface_OnEventFilter(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseInterface_QBaseEventFilter(QDesignerWidgetDataBaseInterface* self, QObject* watched, QEvent* event);
+void QDesignerWidgetDataBaseInterface_TimerEvent(QDesignerWidgetDataBaseInterface* self, QTimerEvent* event);
+void QDesignerWidgetDataBaseInterface_OnTimerEvent(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseInterface_QBaseTimerEvent(QDesignerWidgetDataBaseInterface* self, QTimerEvent* event);
+void QDesignerWidgetDataBaseInterface_ChildEvent(QDesignerWidgetDataBaseInterface* self, QChildEvent* event);
+void QDesignerWidgetDataBaseInterface_OnChildEvent(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseInterface_QBaseChildEvent(QDesignerWidgetDataBaseInterface* self, QChildEvent* event);
+void QDesignerWidgetDataBaseInterface_CustomEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event);
+void QDesignerWidgetDataBaseInterface_OnCustomEvent(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseInterface_QBaseCustomEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event);
+void QDesignerWidgetDataBaseInterface_ConnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+void QDesignerWidgetDataBaseInterface_OnConnectNotify(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseInterface_QBaseConnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+void QDesignerWidgetDataBaseInterface_DisconnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+void QDesignerWidgetDataBaseInterface_OnDisconnectNotify(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void QDesignerWidgetDataBaseInterface_QBaseDisconnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+QObject* QDesignerWidgetDataBaseInterface_Sender(const QDesignerWidgetDataBaseInterface* self);
+void QDesignerWidgetDataBaseInterface_OnSender(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+QObject* QDesignerWidgetDataBaseInterface_QBaseSender(const QDesignerWidgetDataBaseInterface* self);
+int QDesignerWidgetDataBaseInterface_SenderSignalIndex(const QDesignerWidgetDataBaseInterface* self);
+void QDesignerWidgetDataBaseInterface_OnSenderSignalIndex(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+int QDesignerWidgetDataBaseInterface_QBaseSenderSignalIndex(const QDesignerWidgetDataBaseInterface* self);
+int QDesignerWidgetDataBaseInterface_Receivers(const QDesignerWidgetDataBaseInterface* self, const char* signal);
+void QDesignerWidgetDataBaseInterface_OnReceivers(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+int QDesignerWidgetDataBaseInterface_QBaseReceivers(const QDesignerWidgetDataBaseInterface* self, const char* signal);
+bool QDesignerWidgetDataBaseInterface_IsSignalConnected(const QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+void QDesignerWidgetDataBaseInterface_OnIsSignalConnected(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+bool QDesignerWidgetDataBaseInterface_QBaseIsSignalConnected(const QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+void QDesignerWidgetDataBaseInterface_Delete(QDesignerWidgetDataBaseInterface* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
