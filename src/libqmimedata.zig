@@ -428,9 +428,9 @@ pub const qmimedata = struct {
     ///
     /// ` self: QtC.QMimeData `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnFormats(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnFormats(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QMimeData_OnFormats(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

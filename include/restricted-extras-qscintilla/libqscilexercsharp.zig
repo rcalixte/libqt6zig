@@ -1826,9 +1826,9 @@ pub const qscilexercsharp = struct {
     ///
     /// ` self: QtC.QsciLexerCSharp`
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QsciLexerCSharp_OnAutoCompletionWordSeparators(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

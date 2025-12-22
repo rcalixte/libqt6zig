@@ -153,9 +153,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32) callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnApiContext(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) [*][*:0]const u8) void {
+    pub fn OnApiContext(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QsciScintilla_OnApiContext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

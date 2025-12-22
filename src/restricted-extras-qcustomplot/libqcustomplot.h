@@ -1494,7 +1494,6 @@ double QCPAxisTickerFixed_QBaseCleanMantissa(const QCPAxisTickerFixed* self, dou
 void QCPAxisTickerFixed_Delete(QCPAxisTickerFixed* self);
 
 QCPAxisTickerText* QCPAxisTickerText_new();
-libqt_map /* of double to libqt_string */ QCPAxisTickerText_Ticks(QCPAxisTickerText* self);
 int QCPAxisTickerText_SubTickCount(const QCPAxisTickerText* self);
 void QCPAxisTickerText_SetTicks(QCPAxisTickerText* self, const libqt_map /* of double to libqt_string */ ticks);
 void QCPAxisTickerText_SetTicks2(QCPAxisTickerText* self, const libqt_list /* of double */ positions, const libqt_list /* of libqt_string */ labels);
@@ -2818,7 +2817,6 @@ QCPColorGradient* QCPColorGradient_new3(const QCPColorGradient* param1);
 bool QCPColorGradient_OperatorEqual(const QCPColorGradient* self, const QCPColorGradient* other);
 bool QCPColorGradient_OperatorNotEqual(const QCPColorGradient* self, const QCPColorGradient* other);
 int QCPColorGradient_LevelCount(const QCPColorGradient* self);
-libqt_map /* of double to QColor* */ QCPColorGradient_ColorStops(const QCPColorGradient* self);
 int QCPColorGradient_ColorInterpolation(const QCPColorGradient* self);
 int QCPColorGradient_NanHandling(const QCPColorGradient* self);
 QColor* QCPColorGradient_NanColor(const QCPColorGradient* self);

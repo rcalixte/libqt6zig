@@ -3644,9 +3644,9 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel`
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KCategorizedSortFilterProxyModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3817,7 +3817,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("kcategorizedsortfilterproxymodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kcategorizedsortfilterproxymodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }

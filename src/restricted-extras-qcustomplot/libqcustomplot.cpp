@@ -12259,32 +12259,6 @@ QCPAxisTickerText* QCPAxisTickerText_new() {
     return new VirtualQCPAxisTickerText();
 }
 
-libqt_map /* of double to libqt_string */ QCPAxisTickerText_Ticks(QCPAxisTickerText* self) {
-    QMap<double, QString>& _ret = self->ticks();
-    // Convert QMap<> from C++ memory to manually-managed C memory
-    double* _karr = static_cast<double*>(malloc(sizeof(double) * _ret.size()));
-    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    int _ctr = 0;
-    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        _karr[_ctr] = _itr->first;
-        QString _mapval_ret = _itr->second;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _mapval_b = _mapval_ret.toUtf8();
-        libqt_string _mapval_str;
-        _mapval_str.len = _mapval_b.length();
-        _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
-        memcpy((void*)_mapval_str.data, _mapval_b.data(), _mapval_str.len);
-        ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
-        _varr[_ctr] = _mapval_str;
-        _ctr++;
-    }
-    libqt_map _out;
-    _out.len = _ret.size();
-    _out.keys = static_cast<void*>(_karr);
-    _out.values = static_cast<void*>(_varr);
-    return _out;
-}
-
 int QCPAxisTickerText_SubTickCount(const QCPAxisTickerText* self) {
     return self->subTickCount();
 }
@@ -23215,24 +23189,6 @@ bool QCPColorGradient_OperatorNotEqual(const QCPColorGradient* self, const QCPCo
 
 int QCPColorGradient_LevelCount(const QCPColorGradient* self) {
     return self->levelCount();
-}
-
-libqt_map /* of double to QColor* */ QCPColorGradient_ColorStops(const QCPColorGradient* self) {
-    QMap<double, QColor> _ret = self->colorStops();
-    // Convert QMap<> from C++ memory to manually-managed C memory
-    double* _karr = static_cast<double*>(malloc(sizeof(double) * _ret.size()));
-    QColor** _varr = static_cast<QColor**>(malloc(sizeof(QColor*) * _ret.size()));
-    int _ctr = 0;
-    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        _karr[_ctr] = _itr->first;
-        _varr[_ctr] = new QColor(_itr->second);
-        _ctr++;
-    }
-    libqt_map _out;
-    _out.len = _ret.size();
-    _out.keys = static_cast<void*>(_karr);
-    _out.values = static_cast<void*>(_varr);
-    return _out;
 }
 
 int QCPColorGradient_ColorInterpolation(const QCPColorGradient* self) {

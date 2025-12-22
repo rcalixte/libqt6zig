@@ -356,43 +356,6 @@ void KSycoca_OnDisconnectNotify(KSycoca* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QDataStream** KSycoca_Stream(KSycoca* self) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        QDataStream*& _ret = vksycoca->stream();
-        // Cast returned reference into pointer
-        return &_ret;
-    } else {
-        QDataStream*& _ret = ((VirtualKSycoca*)self)->stream();
-        // Cast returned reference into pointer
-        return &_ret;
-    }
-}
-
-// Base class handler implementation
-QDataStream** KSycoca_QBaseStream(KSycoca* self) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_Stream_IsBase(true);
-        QDataStream*& _ret = vksycoca->stream();
-        // Cast returned reference into pointer
-        return &_ret;
-    } else {
-        QDataStream*& _ret = ((VirtualKSycoca*)self)->stream();
-        // Cast returned reference into pointer
-        return &_ret;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSycoca_OnStream(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_Stream_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Stream_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QObject* KSycoca_Sender(const KSycoca* self) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
     if (vksycoca && vksycoca->isVirtualKSycoca) {

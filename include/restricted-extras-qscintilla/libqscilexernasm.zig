@@ -1491,9 +1491,9 @@ pub const qscilexernasm = struct {
     ///
     /// ` self: QtC.QsciLexerNASM`
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QsciLexerNASM_OnAutoCompletionWordSeparators(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -642,9 +642,9 @@ pub const qcompleter = struct {
     ///
     /// ` self: QtC.QCompleter `
     ///
-    /// ` callback: *const fn (self: QtC.QCompleter, path: [*:0]const u8) callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.QCompleter, path: [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnSplitPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*][*:0]const u8) void {
+    pub fn OnSplitPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QCompleter_OnSplitPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

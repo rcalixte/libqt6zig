@@ -1512,7 +1512,7 @@ pub const qscatterseries = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qscatterseries.PointConfiguration: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qscatterseries.PointConfiguration: Memory allocation failed");
         }
         return _ret;
     }

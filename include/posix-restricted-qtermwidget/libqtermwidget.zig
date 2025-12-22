@@ -1005,9 +1005,9 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnGetAvailableColorSchemes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnGetAvailableColorSchemes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QTermWidget_OnGetAvailableColorSchemes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -83,9 +83,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` self: QtC.KXMLGUIBuilder `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnContainerTags(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnContainerTags(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXMLGUIBuilder_OnContainerTags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -259,9 +259,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` self: QtC.KXMLGUIBuilder `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnCustomTags(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnCustomTags(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXMLGUIBuilder_OnCustomTags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
