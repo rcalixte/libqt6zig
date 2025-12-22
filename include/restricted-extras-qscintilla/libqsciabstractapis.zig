@@ -312,9 +312,9 @@ pub const qsciabstractapis = struct {
     ///
     /// ` self: QtC.QsciAbstractAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAbstractAPIs, context: [*][*:0]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: [*:-1]i32) callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.QsciAbstractAPIs, context: [*][*:0]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: [*:-1]i32) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnCallTips(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8, i32, i32, [*:-1]i32) callconv(.c) [*][*:0]const u8) void {
+    pub fn OnCallTips(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8, i32, i32, [*:-1]i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QsciAbstractAPIs_OnCallTips(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

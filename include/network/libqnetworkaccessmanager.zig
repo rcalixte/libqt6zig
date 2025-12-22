@@ -141,9 +141,9 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnSupportedSchemes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnSupportedSchemes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QNetworkAccessManager_OnSupportedSchemes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -962,9 +962,9 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ` self: QtC.QNetworkAccessManager `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnSupportedSchemesImplementation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnSupportedSchemesImplementation(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QNetworkAccessManager_OnSupportedSchemesImplementation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

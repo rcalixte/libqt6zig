@@ -2020,12 +2020,12 @@ pub const ktexteditor__document = struct {
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*anyopaque = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.KTextEditor__Mark = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("ktexteditor::document.Marks: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("ktexteditor::document.Marks: Memory allocation failed");
         }
         return _ret;
     }

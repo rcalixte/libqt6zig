@@ -1821,9 +1821,9 @@ pub const qlistwidget = struct {
     ///
     /// ` self: QtC.QListWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QListWidget_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

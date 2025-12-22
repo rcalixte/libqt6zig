@@ -1901,9 +1901,9 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [*][*:0]const u8, acceptedMimeTypes: [*][*:0]const u8) callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [*][*:0]const u8, acceptedMimeTypes: [*][*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnChooseFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*][*:0]const u8, [*][*:0]const u8) callconv(.c) [*][*:0]const u8) void {
+    pub fn OnChooseFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*][*:0]const u8, [*][*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QWebEnginePage_OnChooseFiles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

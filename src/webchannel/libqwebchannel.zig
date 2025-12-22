@@ -158,7 +158,7 @@ pub const qwebchannel = struct {
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*anyopaque = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QObject = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];

@@ -341,9 +341,9 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnGroupList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnGroupList(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KConfigGroup_OnGroupList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

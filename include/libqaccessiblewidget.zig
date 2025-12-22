@@ -696,9 +696,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnActionNames(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnActionNames(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QAccessibleWidget_OnActionNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -822,9 +822,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnKeyBindingsForAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*][*:0]const u8) void {
+    pub fn OnKeyBindingsForAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

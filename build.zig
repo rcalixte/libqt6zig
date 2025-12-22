@@ -261,6 +261,8 @@ const qt_modules = &.{
     "QtCharts",
     // Qt 6 D-Bus
     "QtDBus",
+    // Qt 6 Location
+    "QtLocation",
     // Qt 6 Multimedia
     "QtMultimedia",
     "QtMultimediaWidgets",

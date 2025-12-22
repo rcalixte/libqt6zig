@@ -631,9 +631,9 @@ pub const kselectionproxymodel = struct {
     ///
     /// ` self: QtC.KSelectionProxyModel `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KSelectionProxyModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2292,7 +2292,7 @@ pub const kselectionproxymodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("kselectionproxymodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kselectionproxymodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }

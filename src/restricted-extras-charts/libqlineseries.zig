@@ -1217,7 +1217,7 @@ pub const qlineseries = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qlineseries.PointConfiguration: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qlineseries.PointConfiguration: Memory allocation failed");
         }
         return _ret;
     }

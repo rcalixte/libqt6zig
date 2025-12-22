@@ -89,6 +89,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Designer"),
 		},
 
+		// Qt 6 Location
+		// Depends on Qt Core, Positioning
+		{
+			path: "location",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtLocation",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Location"),
+		},
+
 		// Qt 6 Multimedia
 		// Depends on Qt Core, GUI, Widgets
 		{

@@ -252,42 +252,6 @@ pub const ksycoca = struct {
         qtc.KSycoca_DatabaseChanged(@ptrCast(self));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/ksycoca.html#stream)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KSycoca `
-    ///
-    pub fn Stream(self: ?*anyopaque) QtC.QDataStream {
-        return qtc.KSycoca_Stream(@ptrCast(self));
-    }
-
-    /// ### [Upstream resources](https://api.kde.org/ksycoca.html#stream)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QtC.KSycoca `
-    ///
-    /// ` callback: *const fn () callconv(.c) QtC.QDataStream `
-    ///
-    pub fn OnStream(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDataStream) void {
-        qtc.KSycoca_OnStream(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// ### [Upstream resources](https://api.kde.org/ksycoca.html#stream)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KSycoca `
-    ///
-    pub fn QBaseStream(self: ?*anyopaque) QtC.QDataStream {
-        return qtc.KSycoca_QBaseStream(@ptrCast(self));
-    }
-
     /// ### [Upstream resources](https://api.kde.org/ksycoca.html#connectNotify)
     ///
     /// ## Parameter(s):

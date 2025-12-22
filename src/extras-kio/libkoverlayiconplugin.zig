@@ -141,9 +141,9 @@ pub const koverlayiconplugin = struct {
     ///
     /// ` self: QtC.KOverlayIconPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.KOverlayIconPlugin, item: QtC.QUrl) callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.KOverlayIconPlugin, item: QtC.QUrl) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnGetOverlays(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*][*:0]const u8) void {
+    pub fn OnGetOverlays(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KOverlayIconPlugin_OnGetOverlays(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

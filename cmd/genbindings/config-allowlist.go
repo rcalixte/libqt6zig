@@ -405,12 +405,21 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	// Qt 6 QCustomPlot
 	if strings.HasPrefix(className, "QCP") && (mm.MethodName == "getFinalMinimumOuterSize" || mm.MethodName == "getFinalMaximumOuterSize") {
 		// Qt 6 qcustomplot.h: broken method
 		return ErrTooComplex
 	}
 	if className == "QCPPolarAxisAngular" && mm.MethodName == "setLabelPosition" {
 		// Qt 6 qcustomplot.h: undefined symbol error during compilation
+		return ErrTooComplex
+	}
+	if className == "QCPAxisTickerText" && mm.MethodName == "ticks" {
+		// Qt 6 qcustomplot.h: uses a floating point as the key in a map
+		return ErrTooComplex
+	}
+	if className == "QCPColorGradient" && mm.MethodName == "colorStops" {
+		// Qt 6 qcustomplot.h: uses a floating point as the key in a map
 		return ErrTooComplex
 	}
 
@@ -505,6 +514,12 @@ func AllowMethod(className string, mm CppMethod) error {
 	// Qt 6 KParts
 	if (className == "KXMLGUIBuilder" || className == "KXMLGUIClient") && mm.MethodName == "virtual_hook" {
 		// Qt 6 mainwindow.h: found in multiple base classes of different types leading to ambiguous name lookup
+		return ErrTooComplex
+	}
+
+	// Qt 6 KService
+	if className == "KSycoca" && mm.MethodName == "stream" {
+		// Qt 6 ksycoca.h: internal method not meant to be called
 		return ErrTooComplex
 	}
 
@@ -823,6 +838,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QTextStreamFunction",             // e.g. qdebug.h
 		"QFactoryInterface",               // qfactoryinterface.h
 		"QTextEngine",                     // used by qtextlayout.h, also blocked in ImportHeaderForClass above
+		"QGeoMappingManager",              // Qt 6 Location, undocumented and broken
 		"QDesignerDialogGuiInterface",     // Qt 6 Designer
 		"QDesignerIntrospectionInterface", // Qt 6 Designer
 		"QDesignerPluginManager",          // Qt 6 Designer

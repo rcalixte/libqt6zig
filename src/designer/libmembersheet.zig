@@ -605,9 +605,9 @@ pub const qdesignermembersheetextension = struct {
     ///
     /// ` self: QtC.QDesignerMemberSheetExtension `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerMemberSheetExtension, index: i32) callconv(.c) [*][*:0]u8 `
+    /// ` callback: *const fn (self: QtC.QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]u8 `
     ///
-    pub fn OnParameterTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*][*:0]u8) void {
+    pub fn OnParameterTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
         qtc.QDesignerMemberSheetExtension_OnParameterTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -681,9 +681,9 @@ pub const qdesignermembersheetextension = struct {
     ///
     /// ` self: QtC.QDesignerMemberSheetExtension `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerMemberSheetExtension, index: i32) callconv(.c) [*][*:0]u8 `
+    /// ` callback: *const fn (self: QtC.QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]u8 `
     ///
-    pub fn OnParameterNames(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*][*:0]u8) void {
+    pub fn OnParameterNames(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
         qtc.QDesignerMemberSheetExtension_OnParameterNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

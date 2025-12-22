@@ -489,7 +489,7 @@ pub const qtextformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtextformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtextformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -2024,7 +2024,7 @@ pub const qtextcharformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtextcharformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtextcharformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -3089,7 +3089,7 @@ pub const qtextblockformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtextblockformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtextblockformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -3953,7 +3953,7 @@ pub const qtextlistformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtextlistformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtextlistformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -5810,7 +5810,7 @@ pub const qtextimageformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtextimageformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtextimageformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -6862,7 +6862,7 @@ pub const qtextframeformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtextframeformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtextframeformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -8149,7 +8149,7 @@ pub const qtexttableformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtexttableformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtexttableformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -10292,7 +10292,7 @@ pub const qtexttablecellformat = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qtexttablecellformat.Properties: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtexttablecellformat.Properties: Memory allocation failed");
         }
         return _ret;
     }

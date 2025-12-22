@@ -511,8 +511,8 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 		// C calling convention limitations
 		origRet := ret
 
-		ret = strings.ReplaceAll(ret, "[][]const u8", "[*][*:0]const u8")
-		ret = strings.ReplaceAll(ret, "[][]u8", "[*][*:0]u8")
+		ret = strings.ReplaceAll(ret, "[][]const u8", "?[*:null]?[*:0]const u8")
+		ret = strings.ReplaceAll(ret, "[][]u8", "?[*:null]?[*:0]u8")
 		ret = strings.ReplaceAll(ret, "[]const u8", "[*:0]const u8")
 		ret = strings.ReplaceAll(ret, "[]u8", "[*:0]u8")
 		ret = strings.ReplaceAll(ret, "[]i32", "[*:-1]i32")
@@ -1209,14 +1209,26 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			keyParam = e.EnumTypeZig
 		}
 
-		keyType := kParam
+		var keyType, maybeKeyCast, maybeKeyCastClose, maybeValCast, maybeValCastClose, valType string
+
 		if _, ok := KnownClassnames[kType.ParameterType]; ok {
-			keyType = "QtC." + kType.ParameterType
+			keyType = kType.RenderTypeZig(zfs, true, true)
+			maybeKeyCast = "@ptrCast("
+			maybeKeyCastClose = ")"
+		} else if kType.IntType() {
+			keyType = kType.RenderTypeZig(zfs, true, false)
+		} else {
+			keyType = kParam
 		}
 
-		vParam := vType.RenderTypeZig(zfs, false, true)
-		if _, ok := KnownClassnames[vParam]; ok {
-			vParam = "QtC." + vParam
+		if _, ok := KnownClassnames[vType.ParameterType]; ok {
+			valType = vType.RenderTypeZig(zfs, true, true)
+			maybeValCast = "@ptrCast("
+			maybeValCastClose = ")"
+		} else if vType.IntType() {
+			valType = vType.RenderTypeZig(zfs, true, false)
+		} else {
+			valType = vType.RenderTypeZig(zfs, true, true)
 		}
 
 		afterword += "var " + namePrefix + "_ret: map_" + keyParam + "_" + vType.RenderTypeMapZig(zfs, false) + "= .empty;\n"
@@ -1233,7 +1245,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += "}\n"
 
 		afterword += "const " + namePrefix + "_keys: [*]" + keyType + " = @ptrCast(@alignCast(" + namePrefix + "_map.keys));\n"
-		afterword += "const " + namePrefix + "_values: [*]" + vParam + " = @ptrCast(@alignCast(" + namePrefix + "_map.values));\n"
+		afterword += "const " + namePrefix + "_values: [*]" + valType + " = @ptrCast(@alignCast(" + namePrefix + "_map.values));\n"
 
 		afterword += "var i: usize = 0;\n"
 		afterword += "while (i < " + namePrefix + "_map.len) : (i += 1) {\n"
@@ -1244,7 +1256,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += namePrefix + "_ret.put(allocator, " + namePrefix + "_entry_slice, " + namePrefix + `_value) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		} else {
 			afterword += "const " + namePrefix + "_value = " + namePrefix + "_values[i];\n"
-			afterword += namePrefix + "_ret.put(allocator, " + namePrefix + "_key, " + namePrefix + `_value) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			afterword += namePrefix + "_ret.put(allocator, " + maybeKeyCast + namePrefix + "_key" + maybeKeyCastClose + ", " + maybeValCast + namePrefix + "_value" + maybeValCastClose + `) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		}
 
 		afterword += "}\n"
@@ -2085,7 +2097,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			pageUrl := getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
 			ret.WriteString(ifv(pageUrl != "", pageUrl+"\n///\n", "\n") +
 				"/// Delete this object from C++ memory.\n///\n" +
-				"/// ## Parameter: \n///\n" +
+				"/// ## Parameter:\n///\n" +
 				"/// ` self: QtC." + zigStructName + " `\n///\n" +
 				"    pub fn QDelete(self: ?*anyopaque) void {\n" +
 				"qtc." + zigStructName + "_Delete(@ptrCast(self));\n}")

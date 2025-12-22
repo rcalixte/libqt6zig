@@ -297,9 +297,9 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    /// ` callback: *const fn (self: QtC.QSqlDriver, tableType: qtsqlglobal_enums.TableType) callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.QSqlDriver, tableType: qtsqlglobal_enums.TableType) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnTables(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*][*:0]const u8) void {
+    pub fn OnTables(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QSqlDriver_OnTables(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1019,9 +1019,9 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    /// ` callback: *const fn () callconv(.c) [*][*:0]const u8 `
+    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnSubscribedToNotifications(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+    pub fn OnSubscribedToNotifications(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QSqlDriver_OnSubscribedToNotifications(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
