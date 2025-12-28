@@ -1,4 +1,10 @@
 
+### 6.8.2 rev52 (28 December 2025)
+
+* **MAJOR BREAKING CHANGE:** Switch Linux to GNU C++ ABI and fix map/hash implementations (#101)
+  * The README contains updated platform-specific system dependencies and steps.
+  * The examples and demo contain build system updates and implementation details.
+
 ### 6.8.2 rev51 (22 December 2025)
 
 * **BREAKING CHANGE:** Add [Qt Location](https://doc.qt.io/qt-6/qtlocation-index.html) and update some callback return values (#97)
