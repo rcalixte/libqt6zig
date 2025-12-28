@@ -36,14 +36,13 @@ pub const signon__sessiondata = struct {
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| {
+        while (data_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             data_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const data_map = qtc.libqt_map{
             .len = data.count(),
@@ -172,9 +171,10 @@ pub const signon__sessiondata = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("signon::sessiondata.ToMap: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("signon::sessiondata.ToMap: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("signon::sessiondata.ToMap: Memory allocation failed");
         }
         return _ret;
     }

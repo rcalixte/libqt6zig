@@ -200,16 +200,22 @@ pub const kdatecombobox = struct {
         const _map: qtc.libqt_map = qtc.KDateComboBox_DateMap(@ptrCast(self));
         var _ret: map_qtcqdate_constu8 = .empty;
         defer {
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_values[i].data);
+            }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]QtC.QDate = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]const u8 = @ptrCast(@alignCast(_map.values));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, @ptrCast(_key), _value) catch @panic("kdatecombobox.DateMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kdatecombobox.DateMap: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, @ptrCast(_key), _value_slice) catch @panic("kdatecombobox.DateMap: Memory allocation failed");
         }
         return _ret;
     }
@@ -407,11 +413,10 @@ pub const kdatecombobox = struct {
         defer allocator.free(dateMap_values);
         var i: usize = 0;
         var dateMap_it = dateMap.iterator();
-        while (dateMap_it.next()) |entry| {
+        while (dateMap_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             dateMap_keys[i] = @ptrCast(key);
             dateMap_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const dateMap_map = qtc.libqt_map{
             .len = dateMap.count(),

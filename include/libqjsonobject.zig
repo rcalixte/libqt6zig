@@ -60,14 +60,13 @@ pub const qjsonobject = struct {
         defer allocator.free(mapVal_values);
         var i: usize = 0;
         var mapVal_it = mapVal.iterator();
-        while (mapVal_it.next()) |entry| {
+        while (mapVal_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             mapVal_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             mapVal_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const mapVal_map = qtc.libqt_map{
             .len = mapVal.count(),
@@ -101,9 +100,10 @@ pub const qjsonobject = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qjsonobject.ToVariantMap: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("qjsonobject.ToVariantMap: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qjsonobject.ToVariantMap: Memory allocation failed");
         }
         return _ret;
     }
@@ -123,14 +123,13 @@ pub const qjsonobject = struct {
         defer allocator.free(mapVal_values);
         var i: usize = 0;
         var mapVal_it = mapVal.iterator();
-        while (mapVal_it.next()) |entry| {
+        while (mapVal_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             mapVal_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             mapVal_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const mapVal_map = qtc.libqt_map{
             .len = mapVal.count(),
@@ -164,9 +163,10 @@ pub const qjsonobject = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qjsonobject.ToVariantHash: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("qjsonobject.ToVariantHash: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qjsonobject.ToVariantHash: Memory allocation failed");
         }
         return _ret;
     }

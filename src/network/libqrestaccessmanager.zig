@@ -234,14 +234,13 @@ pub const qrestaccessmanager = struct {
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| {
+        while (data_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             data_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const data_map = qtc.libqt_map{
             .len = data.count(),
@@ -330,14 +329,13 @@ pub const qrestaccessmanager = struct {
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| {
+        while (data_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             data_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const data_map = qtc.libqt_map{
             .len = data.count(),
@@ -426,14 +424,13 @@ pub const qrestaccessmanager = struct {
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| {
+        while (data_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             data_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const data_map = qtc.libqt_map{
             .len = data.count(),

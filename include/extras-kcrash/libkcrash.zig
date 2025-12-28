@@ -78,14 +78,13 @@ pub const kcrash = struct {
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |entry| {
+        while (param1_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param1_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param1_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param1_map = qtc.libqt_map{
             .len = param1.count(),
@@ -110,14 +109,13 @@ pub const kcrash = struct {
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |entry| {
+        while (param1_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param1_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param1_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param1_map = qtc.libqt_map{
             .len = param1.count(),
@@ -142,14 +140,13 @@ pub const kcrash = struct {
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |entry| {
+        while (param1_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param1_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param1_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param1_map = qtc.libqt_map{
             .len = param1.count(),

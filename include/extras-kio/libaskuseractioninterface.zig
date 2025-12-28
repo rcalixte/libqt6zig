@@ -220,14 +220,13 @@ pub const kio__askuseractioninterface = struct {
         defer allocator.free(sslErrorData_values);
         var i: usize = 0;
         var sslErrorData_it = sslErrorData.iterator();
-        while (sslErrorData_it.next()) |entry| {
+        while (sslErrorData_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             sslErrorData_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             sslErrorData_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const sslErrorData_map = qtc.libqt_map{
             .len = sslErrorData.count(),

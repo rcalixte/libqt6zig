@@ -3,7 +3,6 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_anyopaque = std.StringHashMapUnmanaged(?*anyopaque);
 pub const map_constu8_qtcqobject = std.StringHashMapUnmanaged(QtC.QObject);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html)
@@ -114,21 +113,20 @@ pub const qwebchannel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RegisterObjects(self: ?*anyopaque, objects: map_constu8_anyopaque, allocator: std.mem.Allocator) void {
+    pub fn RegisterObjects(self: ?*anyopaque, objects: map_constu8_qtcqobject, allocator: std.mem.Allocator) void {
         const objects_keys = allocator.alloc(qtc.libqt_string, objects.count()) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
         defer allocator.free(objects_keys);
         const objects_values = allocator.alloc(QtC.QObject, objects.count()) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
         defer allocator.free(objects_values);
         var i: usize = 0;
         var objects_it = objects.iterator();
-        while (objects_it.next()) |entry| {
+        while (objects_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             objects_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             objects_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const objects_map = qtc.libqt_map{
             .len = objects.count(),
@@ -162,9 +160,10 @@ pub const qwebchannel = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebchannel.RegisteredObjects: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("qwebchannel.RegisteredObjects: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qwebchannel.RegisteredObjects: Memory allocation failed");
         }
         return _ret;
     }

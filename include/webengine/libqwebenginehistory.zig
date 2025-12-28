@@ -214,16 +214,22 @@ pub const qwebenginehistorymodel = struct {
         const _map: qtc.libqt_map = qtc.QWebEngineHistoryModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_values[i].data);
+            }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qwebenginehistorymodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qwebenginehistorymodel.RoleNames: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _key, _value_slice) catch @panic("qwebenginehistorymodel.RoleNames: Memory allocation failed");
         }
         return _ret;
     }
@@ -521,11 +527,10 @@ pub const qwebenginehistorymodel = struct {
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| {
+        while (roles_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             roles_keys[i] = @intCast(key);
             roles_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const roles_map = qtc.libqt_map{
             .len = roles.count(),

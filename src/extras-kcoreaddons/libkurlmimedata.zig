@@ -55,14 +55,13 @@ pub const kurlmimedata = struct {
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |entry| {
+        while (param1_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param1_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param1_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param1_map = qtc.libqt_map{
             .len = param1.count(),
@@ -116,21 +115,20 @@ pub const kurlmimedata = struct {
         defer allocator.free(param3_values);
         var i: usize = 0;
         var param3_it = param3.iterator();
-        while (param3_it.next()) |entry| {
+        while (param3_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param3_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param3_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
-        const param3_map = &qtc.libqt_map{
+        var param3_map = qtc.libqt_map{
             .len = param3.count(),
             .keys = @ptrCast(param3_keys.ptr),
             .values = @ptrCast(param3_values.ptr),
         };
-        const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(param1), @intCast(param2), param3_map);
+        const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(param1), @intCast(param2), &param3_map);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));

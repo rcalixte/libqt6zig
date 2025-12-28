@@ -111,9 +111,10 @@ pub const solid__genericinterface = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("solid::genericinterface.AllProperties: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("solid::genericinterface.AllProperties: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("solid::genericinterface.AllProperties: Memory allocation failed");
         }
         return _ret;
     }
@@ -151,14 +152,13 @@ pub const solid__genericinterface = struct {
         defer allocator.free(changes_values);
         var i: usize = 0;
         var changes_it = changes.iterator();
-        while (changes_it.next()) |entry| {
+        while (changes_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             changes_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
-            changes_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
+            changes_values[i] = entry.value_ptr.*;
         }
         const changes_map = qtc.libqt_map{
             .len = changes.count(),

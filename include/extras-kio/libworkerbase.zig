@@ -454,14 +454,13 @@ pub const kio__workerbase = struct {
         defer allocator.free(sslData_values);
         var i: usize = 0;
         var sslData_it = sslData.iterator();
-        while (sslData_it.next()) |entry| {
+        while (sslData_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             sslData_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             sslData_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const sslData_map = qtc.libqt_map{
             .len = sslData.count(),
@@ -565,9 +564,10 @@ pub const kio__workerbase = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kio::workerbase.MapConfig: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("kio::workerbase.MapConfig: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("kio::workerbase.MapConfig: Memory allocation failed");
         }
         return _ret;
     }

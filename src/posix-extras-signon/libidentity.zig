@@ -182,14 +182,13 @@ pub const signon__identity = struct {
         defer allocator.free(params_values);
         var i: usize = 0;
         var params_it = params.iterator();
-        while (params_it.next()) |entry| {
+        while (params_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             params_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             params_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const params_map = qtc.libqt_map{
             .len = params.count(),

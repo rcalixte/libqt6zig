@@ -637,14 +637,13 @@ pub const ktexteditor__mainwindow = struct {
         defer allocator.free(message_values);
         var i: usize = 0;
         var message_it = message.iterator();
-        while (message_it.next()) |entry| {
+        while (message_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             message_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             message_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const message_map = qtc.libqt_map{
             .len = message.count(),

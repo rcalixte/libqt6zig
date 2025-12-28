@@ -1016,11 +1016,10 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
@@ -1057,11 +1056,10 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
@@ -1098,14 +1096,13 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
@@ -1142,14 +1139,13 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
@@ -1186,11 +1182,10 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
@@ -1227,14 +1222,13 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
@@ -1271,11 +1265,10 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
@@ -1312,14 +1305,13 @@ pub const kmacroexpander = struct {
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| {
+        while (param2_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             param2_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const param2_map = qtc.libqt_map{
             .len = param2.count(),
