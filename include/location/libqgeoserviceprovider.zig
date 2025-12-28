@@ -44,14 +44,13 @@ pub const qgeoserviceprovider = struct {
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
-        while (parameters_it.next()) |entry| {
+        while (parameters_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             parameters_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters.count(),
@@ -85,14 +84,13 @@ pub const qgeoserviceprovider = struct {
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
-        while (parameters_it.next()) |entry| {
+        while (parameters_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             parameters_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters.count(),
@@ -505,14 +503,13 @@ pub const qgeoserviceprovider = struct {
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
-        while (parameters_it.next()) |entry| {
+        while (parameters_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             parameters_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters.count(),

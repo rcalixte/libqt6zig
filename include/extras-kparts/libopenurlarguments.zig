@@ -166,20 +166,25 @@ pub const kparts__openurlarguments = struct {
         var _ret: map_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
+                qtc.libqt_free(_values[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]const u8 = @ptrCast(@alignCast(_map.values));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts::openurlarguments.MetaData: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("kparts::openurlarguments.MetaData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts::openurlarguments.MetaData: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kparts::openurlarguments.MetaData: Memory allocation failed");
         }
         return _ret;
     }
@@ -197,20 +202,25 @@ pub const kparts__openurlarguments = struct {
         var _ret: map_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
+                qtc.libqt_free(_values[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]const u8 = @ptrCast(@alignCast(_map.values));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts::openurlarguments.MetaData2: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("kparts::openurlarguments.MetaData2: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts::openurlarguments.MetaData2: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kparts::openurlarguments.MetaData2: Memory allocation failed");
         }
         return _ret;
     }

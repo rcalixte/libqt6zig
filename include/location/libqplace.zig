@@ -259,11 +259,10 @@ pub const qplace = struct {
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
-        while (content_it.next()) |entry| {
+        while (content_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             content_keys[i] = @intCast(key);
             content_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const content_map = qtc.libqt_map{
             .len = content.count(),
@@ -292,11 +291,10 @@ pub const qplace = struct {
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
-        while (content_it.next()) |entry| {
+        while (content_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             content_keys[i] = @intCast(key);
             content_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const content_map = qtc.libqt_map{
             .len = content.count(),

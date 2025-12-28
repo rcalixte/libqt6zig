@@ -382,14 +382,13 @@ pub const kpassworddialog = struct {
         defer allocator.free(knownLogins_values);
         var i: usize = 0;
         var knownLogins_it = knownLogins.iterator();
-        while (knownLogins_it.next()) |entry| {
+        while (knownLogins_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             knownLogins_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             knownLogins_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const knownLogins_map = qtc.libqt_map{
             .len = knownLogins.count(),

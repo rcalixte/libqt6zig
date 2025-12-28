@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const identityinfo_enums = enums;
 const std = @import("std");
-pub const map_constu8_qtcsignonmechanismslist = std.StringHashMapUnmanaged(QtC.SignOn__MechanismsList);
+pub const map_constu8_sliceconstu8 = std.StringHashMapUnmanaged([][]const u8);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
 pub const signon__identityinfo = struct {
@@ -30,11 +30,11 @@ pub const signon__identityinfo = struct {
     ///
     /// ` userName: []const u8 `
     ///
-    /// ` methods: map_constu8_qtcsignonmechanismslist `
+    /// ` methods: map_constu8_sliceconstu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(caption: []const u8, userName: []const u8, methods: map_constu8_qtcsignonmechanismslist, allocator: std.mem.Allocator) QtC.SignOn__IdentityInfo {
+    pub fn New3(caption: []const u8, userName: []const u8, methods: map_constu8_sliceconstu8, allocator: std.mem.Allocator) QtC.SignOn__IdentityInfo {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -45,18 +45,17 @@ pub const signon__identityinfo = struct {
         };
         const methods_keys = allocator.alloc(qtc.libqt_string, methods.count()) catch @panic("signon::identityinfo.New3: Memory allocation failed");
         defer allocator.free(methods_keys);
-        const methods_values = allocator.alloc(QtC.SignOn__MechanismsList, methods.count()) catch @panic("signon::identityinfo.New3: Memory allocation failed");
+        const methods_values = allocator.alloc([][]const u8, methods.count()) catch @panic("signon::identityinfo.New3: Memory allocation failed");
         defer allocator.free(methods_values);
         var i: usize = 0;
         var methods_it = methods.iterator();
-        while (methods_it.next()) |entry| {
+        while (methods_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             methods_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             methods_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const methods_map = qtc.libqt_map{
             .len = methods.count(),

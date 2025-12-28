@@ -324,14 +324,13 @@ pub const qgeoroute = struct {
         defer allocator.free(extendedAttributes_values);
         var i: usize = 0;
         var extendedAttributes_it = extendedAttributes.iterator();
-        while (extendedAttributes_it.next()) |entry| {
+        while (extendedAttributes_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             extendedAttributes_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             extendedAttributes_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const extendedAttributes_map = qtc.libqt_map{
             .len = extendedAttributes.count(),
@@ -365,9 +364,10 @@ pub const qgeoroute = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qgeoroute.ExtendedAttributes: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("qgeoroute.ExtendedAttributes: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qgeoroute.ExtendedAttributes: Memory allocation failed");
         }
         return _ret;
     }

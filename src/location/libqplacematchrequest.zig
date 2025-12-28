@@ -118,9 +118,10 @@ pub const qplacematchrequest = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qplacematchrequest.Parameters: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("qplacematchrequest.Parameters: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qplacematchrequest.Parameters: Memory allocation failed");
         }
         return _ret;
     }
@@ -142,14 +143,13 @@ pub const qplacematchrequest = struct {
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
-        while (parameters_it.next()) |entry| {
+        while (parameters_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             parameters_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters.count(),

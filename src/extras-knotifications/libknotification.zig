@@ -2299,9 +2299,10 @@ pub const knotification = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("knotification.Hints: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("knotification.Hints: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("knotification.Hints: Memory allocation failed");
         }
         return _ret;
     }
@@ -2323,14 +2324,13 @@ pub const knotification = struct {
         defer allocator.free(hints_values);
         var i: usize = 0;
         var hints_it = hints.iterator();
-        while (hints_it.next()) |entry| {
+        while (hints_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             hints_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             hints_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const hints_map = qtc.libqt_map{
             .len = hints.count(),

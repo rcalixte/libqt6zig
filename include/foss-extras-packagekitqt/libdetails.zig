@@ -27,14 +27,13 @@ pub const packagekit__details = struct {
         defer allocator.free(other_values);
         var i: usize = 0;
         var other_it = other.iterator();
-        while (other_it.next()) |entry| {
+        while (other_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             other_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             other_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const other_map = qtc.libqt_map{
             .len = other.count(),

@@ -73,14 +73,13 @@ pub const qwebenginehttprequest = struct {
         defer allocator.free(postData_values);
         var i: usize = 0;
         var postData_it = postData.iterator();
-        while (postData_it.next()) |entry| {
+        while (postData_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             postData_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             postData_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const postData_map = qtc.libqt_map{
             .len = postData.count(),

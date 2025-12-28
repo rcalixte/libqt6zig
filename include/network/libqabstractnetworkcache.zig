@@ -263,11 +263,10 @@ pub const qnetworkcachemetadata = struct {
         defer allocator.free(attributes_values);
         var i: usize = 0;
         var attributes_it = attributes.iterator();
-        while (attributes_it.next()) |entry| {
+        while (attributes_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             attributes_keys[i] = @intCast(key);
             attributes_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const attributes_map = qtc.libqt_map{
             .len = attributes.count(),

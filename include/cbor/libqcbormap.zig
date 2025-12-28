@@ -690,14 +690,13 @@ pub const qcbormap = struct {
         defer allocator.free(mapVal_values);
         var i: usize = 0;
         var mapVal_it = mapVal.iterator();
-        while (mapVal_it.next()) |entry| {
+        while (mapVal_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             mapVal_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             mapVal_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const mapVal_map = qtc.libqt_map{
             .len = mapVal.count(),
@@ -722,14 +721,13 @@ pub const qcbormap = struct {
         defer allocator.free(hash_values);
         var i: usize = 0;
         var hash_it = hash.iterator();
-        while (hash_it.next()) |entry| {
+        while (hash_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             hash_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             hash_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const hash_map = qtc.libqt_map{
             .len = hash.count(),
@@ -773,9 +771,10 @@ pub const qcbormap = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qcbormap.ToVariantMap: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("qcbormap.ToVariantMap: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qcbormap.ToVariantMap: Memory allocation failed");
         }
         return _ret;
     }
@@ -804,9 +803,10 @@ pub const qcbormap = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = std.mem.span(_key.data);
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qcbormap.ToVariantHash: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, _value) catch @panic("qcbormap.ToVariantHash: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qcbormap.ToVariantHash: Memory allocation failed");
         }
         return _ret;
     }

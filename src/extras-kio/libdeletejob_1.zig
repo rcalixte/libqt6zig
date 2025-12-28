@@ -418,14 +418,13 @@ pub const kio__deletejob = struct {
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
-        while (values_it.next()) |entry| {
+        while (values_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             values_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             values_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const values_map = qtc.libqt_map{
             .len = values.count(),
@@ -454,14 +453,13 @@ pub const kio__deletejob = struct {
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
-        while (values_it.next()) |entry| {
+        while (values_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             values_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             values_values[i] = @ptrCast(entry.value_ptr.*);
-            i += 1;
         }
         const values_map = qtc.libqt_map{
             .len = values.count(),
