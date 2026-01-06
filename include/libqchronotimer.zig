@@ -112,6 +112,20 @@ pub const qchronotimer = struct {
         return qtc.QChronoTimer_IsActive(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qchronotimer.html#id)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChronoTimer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qnamespace_enums.TimerId `
+    ///
+    pub fn Id(self: ?*anyopaque) i32 {
+        return qtc.QChronoTimer_Id(@ptrCast(self));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchronotimer.html#setTimerType)
     ///
     /// ## Parameter(s):

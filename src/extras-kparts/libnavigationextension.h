@@ -51,6 +51,7 @@ bool KParts__NavigationExtension_IsURLDropHandlingEnabled(const KParts__Navigati
 void KParts__NavigationExtension_SetURLDropHandlingEnabled(KParts__NavigationExtension* self, bool enable);
 bool KParts__NavigationExtension_IsActionEnabled(const KParts__NavigationExtension* self, const char* name);
 libqt_string KParts__NavigationExtension_ActionText(const KParts__NavigationExtension* self, const char* name);
+libqt_map* /* of libqt_string to libqt_string */ KParts__NavigationExtension_ActionSlotMap();
 KParts__NavigationExtension* KParts__NavigationExtension_ChildObject(QObject* obj);
 void KParts__NavigationExtension_PasteRequest(KParts__NavigationExtension* self);
 void KParts__NavigationExtension_EnableAction(KParts__NavigationExtension* self, const char* name, bool enabled);

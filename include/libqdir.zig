@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qdir_enums = enums;
+const qfiledevice_enums = @import("libqfiledevice.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html)
@@ -712,6 +713,40 @@ pub const qdir = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#mkdir)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDir `
+    ///
+    /// ` dirName: []const u8 `
+    ///
+    pub fn Mkdir(self: ?*anyopaque, dirName: []const u8) bool {
+        const dirName_str = qtc.libqt_string{
+            .len = dirName.len,
+            .data = dirName.ptr,
+        };
+        return qtc.QDir_Mkdir(@ptrCast(self), dirName_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#mkdir)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDir `
+    ///
+    /// ` dirName: []const u8 `
+    ///
+    /// ` permissions: flag of qfiledevice_enums.Permission `
+    ///
+    pub fn Mkdir2(self: ?*anyopaque, dirName: []const u8, permissions: i32) bool {
+        const dirName_str = qtc.libqt_string{
+            .len = dirName.len,
+            .data = dirName.ptr,
+        };
+        return qtc.QDir_Mkdir2(@ptrCast(self), dirName_str, @intCast(permissions));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rmdir)
     ///
     /// ## Parameter(s):
@@ -726,6 +761,22 @@ pub const qdir = struct {
             .data = dirName.ptr,
         };
         return qtc.QDir_Rmdir(@ptrCast(self), dirName_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#mkpath)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDir `
+    ///
+    /// ` dirPath: []const u8 `
+    ///
+    pub fn Mkpath(self: ?*anyopaque, dirPath: []const u8) bool {
+        const dirPath_str = qtc.libqt_string{
+            .len = dirPath.len,
+            .data = dirPath.ptr,
+        };
+        return qtc.QDir_Mkpath(@ptrCast(self), dirPath_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rmpath)

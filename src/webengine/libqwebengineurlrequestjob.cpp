@@ -1,5 +1,6 @@
 #include <QByteArray>
 #include <QIODevice>
+#include <QMap>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
@@ -40,6 +41,36 @@ libqt_string QWebEngineUrlRequestJob_RequestMethod(const QWebEngineUrlRequestJob
 
 QUrl* QWebEngineUrlRequestJob_Initiator(const QWebEngineUrlRequestJob* self) {
     return new QUrl(self->initiator());
+}
+
+libqt_map /* of libqt_string to libqt_string */ QWebEngineUrlRequestJob_RequestHeaders(const QWebEngineUrlRequestJob* self) {
+    QMap<QByteArray, QByteArray> _ret = self->requestHeaders();
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        QByteArray _mapkey_qb = _itr->first;
+        libqt_string _mapkey_str;
+        _mapkey_str.len = _mapkey_qb.length();
+        _mapkey_str.data = static_cast<const char*>(malloc(_mapkey_str.len + 1));
+        memcpy((void*)_mapkey_str.data, _mapkey_qb.data(), _mapkey_str.len);
+        ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
+        _karr[_ctr] = _mapkey_str;
+        QByteArray _mapval_qb = _itr->second;
+        libqt_string _mapval_str;
+        _mapval_str.len = _mapval_qb.length();
+        _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
+        memcpy((void*)_mapval_str.data, _mapval_qb.data(), _mapval_str.len);
+        ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
+        _varr[_ctr] = _mapval_str;
+        _ctr++;
+    }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 QIODevice* QWebEngineUrlRequestJob_RequestBody(const QWebEngineUrlRequestJob* self) {

@@ -5,6 +5,7 @@ const qsslcertificate_enums = @import("libqsslcertificate.zig").enums;
 const qsslconfiguration_enums = enums;
 const qsslsocket_enums = @import("libqsslsocket.zig").enums;
 const std = @import("std");
+pub const map_u8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html)
 pub const qsslconfiguration = struct {
@@ -620,6 +621,38 @@ pub const qsslconfiguration = struct {
         qtc.QSslConfiguration_SetDiffieHellmanParameters(@ptrCast(self), @ptrCast(dhparams));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#backendConfiguration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslConfiguration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn BackendConfiguration(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_qtcqvariant {
+        const _map: qtc.libqt_map = qtc.QSslConfiguration_BackendConfiguration(@ptrCast(self));
+        var _ret: map_u8_qtcqvariant = .empty;
+        defer {
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qsslconfiguration.BackendConfiguration: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
+            const _value = _values[i];
+            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qsslconfiguration.BackendConfiguration: Memory allocation failed");
+        }
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setBackendConfigurationOption)
     ///
     /// ## Parameter(s):
@@ -887,6 +920,39 @@ pub const qsslconfiguration = struct {
             .data = path.ptr,
         };
         return qtc.QSslConfiguration_AddCaCertificates3(@ptrCast(self), path_str, @intCast(format), @intCast(syntax));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setBackendConfiguration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslConfiguration `
+    ///
+    /// ` backendConfiguration: map_u8_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn SetBackendConfiguration1(self: ?*anyopaque, backendConfiguration: map_u8_qtcqvariant, allocator: std.mem.Allocator) void {
+        const backendConfiguration_keys = allocator.alloc(qtc.libqt_string, backendConfiguration.count()) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
+        defer allocator.free(backendConfiguration_keys);
+        const backendConfiguration_values = allocator.alloc(QtC.QVariant, backendConfiguration.count()) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
+        defer allocator.free(backendConfiguration_values);
+        var i: usize = 0;
+        var backendConfiguration_it = backendConfiguration.iterator();
+        while (backendConfiguration_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            backendConfiguration_keys[i] = qtc.libqt_string{
+                .len = key.len,
+                .data = key.ptr,
+            };
+            backendConfiguration_values[i] = @ptrCast(entry.value_ptr.*);
+        }
+        const backendConfiguration_map = qtc.libqt_map{
+            .len = backendConfiguration.count(),
+            .keys = @ptrCast(backendConfiguration_keys.ptr),
+            .values = @ptrCast(backendConfiguration_values.ptr),
+        };
+        qtc.QSslConfiguration_SetBackendConfiguration1(@ptrCast(self), backendConfiguration_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#dtor.QSslConfiguration)

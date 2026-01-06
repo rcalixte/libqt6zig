@@ -513,6 +513,22 @@ pub const qgradient = struct {
         qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setStops)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGradient `
+    ///
+    /// ` stops: []struct_f64_qtcqcolor `
+    ///
+    pub fn SetStops(self: ?*anyopaque, stops: []struct_f64_qtcqcolor) void {
+        const stops_list = qtc.libqt_list{
+            .len = stops.len,
+            .data = stops.ptr,
+        };
+        qtc.QGradient_SetStops(@ptrCast(self), stops_list);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
     ///
     /// ## Parameter(s):
@@ -804,6 +820,24 @@ pub const qlineargradient = struct {
     ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
         qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
+    }
+
+    /// Inherited from QGradient
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setStops)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLinearGradient `
+    ///
+    /// ` stops: []struct_f64_qtcqcolor `
+    ///
+    pub fn SetStops(self: ?*anyopaque, stops: []struct_f64_qtcqcolor) void {
+        const stops_list = qtc.libqt_list{
+            .len = stops.len,
+            .data = stops.ptr,
+        };
+        qtc.QGradient_SetStops(@ptrCast(self), stops_list);
     }
 
     /// Inherited from QGradient
@@ -1247,6 +1281,24 @@ pub const qradialgradient = struct {
 
     /// Inherited from QGradient
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setStops)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRadialGradient `
+    ///
+    /// ` stops: []struct_f64_qtcqcolor `
+    ///
+    pub fn SetStops(self: ?*anyopaque, stops: []struct_f64_qtcqcolor) void {
+        const stops_list = qtc.libqt_list{
+            .len = stops.len,
+            .data = stops.ptr,
+        };
+        qtc.QGradient_SetStops(@ptrCast(self), stops_list);
+    }
+
+    /// Inherited from QGradient
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
     ///
     /// ## Parameter(s):
@@ -1534,6 +1586,24 @@ pub const qconicalgradient = struct {
     ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
         qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
+    }
+
+    /// Inherited from QGradient
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setStops)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QConicalGradient `
+    ///
+    /// ` stops: []struct_f64_qtcqcolor `
+    ///
+    pub fn SetStops(self: ?*anyopaque, stops: []struct_f64_qtcqcolor) void {
+        const stops_list = qtc.libqt_list{
+            .len = stops.len,
+            .data = stops.ptr,
+        };
+        qtc.QGradient_SetStops(@ptrCast(self), stops_list);
     }
 
     /// Inherited from QGradient

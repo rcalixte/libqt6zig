@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qwebengineurlrequestinfo_enums = enums;
 const std = @import("std");
+pub const map_u8_u8 = std.StringHashMapUnmanaged([]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html)
 pub const qwebengineurlrequestinfo = struct {
@@ -143,6 +144,42 @@ pub const qwebengineurlrequestinfo = struct {
             .data = value.ptr,
         };
         qtc.QWebEngineUrlRequestInfo_SetHttpHeader(@ptrCast(self), name_str, value_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#httpHeaders)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlRequestInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn HttpHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_u8 {
+        const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestInfo_HttpHeaders(@ptrCast(self));
+        var _ret: map_u8_u8 = .empty;
+        defer {
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
+                qtc.libqt_free(_values[i].data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
+            const _value = _values[i];
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Memory allocation failed");
+        }
+        return _ret;
     }
 };
 

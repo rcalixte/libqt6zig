@@ -34,39 +34,39 @@ void KCrash_SetErrorMessage(const libqt_string param1) {
 }
 
 void KCrash_SetErrorTags(const libqt_map /* of libqt_string to libqt_string */ param1) {
-    QHash<QString, QString> param1_QMap;
-    param1_QMap.reserve(param1.len);
+    QHash<QString, QString> param1_QHash;
+    param1_QHash.reserve(param1.len);
     libqt_string* param1_karr = static_cast<libqt_string*>(param1.keys);
     libqt_string* param1_varr = static_cast<libqt_string*>(param1.values);
     for (size_t i = 0; i < param1.len; ++i) {
         QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
         QString param1_varr_i_QString = QString::fromUtf8(param1_varr[i].data, param1_varr[i].len);
-        param1_QMap[param1_karr_i_QString] = param1_varr_i_QString;
+        param1_QHash[param1_karr_i_QString] = param1_varr_i_QString;
     }
-    KCrash::setErrorTags(param1_QMap);
+    KCrash::setErrorTags(param1_QHash);
 }
 
 void KCrash_SetErrorExtraData(const libqt_map /* of libqt_string to libqt_string */ param1) {
-    QHash<QString, QString> param1_QMap;
-    param1_QMap.reserve(param1.len);
+    QHash<QString, QString> param1_QHash;
+    param1_QHash.reserve(param1.len);
     libqt_string* param1_karr = static_cast<libqt_string*>(param1.keys);
     libqt_string* param1_varr = static_cast<libqt_string*>(param1.values);
     for (size_t i = 0; i < param1.len; ++i) {
         QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
         QString param1_varr_i_QString = QString::fromUtf8(param1_varr[i].data, param1_varr[i].len);
-        param1_QMap[param1_karr_i_QString] = param1_varr_i_QString;
+        param1_QHash[param1_karr_i_QString] = param1_varr_i_QString;
     }
-    KCrash::setErrorExtraData(param1_QMap);
+    KCrash::setErrorExtraData(param1_QHash);
 }
 
 void KCrash_SetGPUData(const libqt_map /* of libqt_string to QVariant* */ param1) {
-    QHash<QString, QVariant> param1_QMap;
-    param1_QMap.reserve(param1.len);
+    QHash<QString, QVariant> param1_QHash;
+    param1_QHash.reserve(param1.len);
     libqt_string* param1_karr = static_cast<libqt_string*>(param1.keys);
     QVariant** param1_varr = static_cast<QVariant**>(param1.values);
     for (size_t i = 0; i < param1.len; ++i) {
         QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
-        param1_QMap[param1_karr_i_QString] = *(param1_varr[i]);
+        param1_QHash[param1_karr_i_QString] = *(param1_varr[i]);
     }
-    KCrash::setGPUData(param1_QMap);
+    KCrash::setGPUData(param1_QHash);
 }

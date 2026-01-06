@@ -70,6 +70,7 @@ libqt_string QSslConfiguration_PreSharedKeyIdentityHint(const QSslConfiguration*
 void QSslConfiguration_SetPreSharedKeyIdentityHint(QSslConfiguration* self, const libqt_string hint);
 QSslDiffieHellmanParameters* QSslConfiguration_DiffieHellmanParameters(const QSslConfiguration* self);
 void QSslConfiguration_SetDiffieHellmanParameters(QSslConfiguration* self, const QSslDiffieHellmanParameters* dhparams);
+libqt_map /* of libqt_string to QVariant* */ QSslConfiguration_BackendConfiguration(const QSslConfiguration* self);
 void QSslConfiguration_SetBackendConfigurationOption(QSslConfiguration* self, const libqt_string name, const QVariant* value);
 void QSslConfiguration_SetBackendConfiguration(QSslConfiguration* self);
 QSslConfiguration* QSslConfiguration_DefaultConfiguration();
@@ -90,6 +91,7 @@ libqt_string QSslConfiguration_NextNegotiatedProtocol(const QSslConfiguration* s
 int QSslConfiguration_NextProtocolNegotiationStatus(const QSslConfiguration* self);
 bool QSslConfiguration_AddCaCertificates22(QSslConfiguration* self, const libqt_string path, int format);
 bool QSslConfiguration_AddCaCertificates3(QSslConfiguration* self, const libqt_string path, int format, int syntax);
+void QSslConfiguration_SetBackendConfiguration1(QSslConfiguration* self, const libqt_map /* of libqt_string to QVariant* */ backendConfiguration);
 void QSslConfiguration_Delete(QSslConfiguration* self);
 
 #ifdef __cplusplus

@@ -470,6 +470,24 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#setKeyValues)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPropertyAnimation `
+    ///
+    /// ` values: []struct_f64_qtcqvariant `
+    ///
+    pub fn SetKeyValues(self: ?*anyopaque, values: []struct_f64_qtcqvariant) void {
+        const values_list = qtc.libqt_list{
+            .len = values.len,
+            .data = values.ptr,
+        };
+        qtc.QVariantAnimation_SetKeyValues(@ptrCast(self), values_list);
+    }
+
+    /// Inherited from QVariantAnimation
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#currentValue)
     ///
     /// ## Parameter(s):

@@ -29,6 +29,7 @@ int QWebEngineUrlRequestJob_Metacall(QWebEngineUrlRequestJob* self, int param1, 
 QUrl* QWebEngineUrlRequestJob_RequestUrl(const QWebEngineUrlRequestJob* self);
 libqt_string QWebEngineUrlRequestJob_RequestMethod(const QWebEngineUrlRequestJob* self);
 QUrl* QWebEngineUrlRequestJob_Initiator(const QWebEngineUrlRequestJob* self);
+libqt_map /* of libqt_string to libqt_string */ QWebEngineUrlRequestJob_RequestHeaders(const QWebEngineUrlRequestJob* self);
 QIODevice* QWebEngineUrlRequestJob_RequestBody(const QWebEngineUrlRequestJob* self);
 void QWebEngineUrlRequestJob_Reply(QWebEngineUrlRequestJob* self, const libqt_string contentType, QIODevice* device);
 void QWebEngineUrlRequestJob_Fail(QWebEngineUrlRequestJob* self, int errorVal);

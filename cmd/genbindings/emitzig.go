@@ -253,10 +253,10 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		switch t1.ParameterType {
 		case "QString", "SignOn::MethodName":
 			k = "constu8"
-			hashMapType = "StringHashMap,,"
+			hashMapType = "StringHashMap,constu8,"
 		case "QByteArray":
 			k = "u8"
-			hashMapType = "AutoHashMap,u8,"
+			hashMapType = "StringHashMap,u8,"
 		default:
 			k = t1.RenderTypeZig(zfs, true, false)
 			if e, ok := KnownEnums[t1.ParameterType]; ok {
@@ -867,10 +867,10 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		switch kType.ParameterType {
 		case "QString", "SignOn::MethodName":
-			hashMapType = "StringHashMap,,"
+			hashMapType = "StringHashMap,constu8,"
 			k = "constu8"
 		case "QByteArray":
-			hashMapType = "AutoHashMap,u8,"
+			hashMapType = "StringHashMap,u8,"
 			k = "u8"
 		default:
 			k = kType.RenderTypeZig(zfs, false, true)
@@ -909,7 +909,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		preamble += "while (" + nameprefix + "_it.next()) |entry| : (i += 1) {\n"
 		preamble += "const key = entry.key_ptr.*;\n"
 
-		if k == "constu8" {
+		if k == "constu8" || k == "u8" {
 			preamble += nameprefix + "_keys[i] = qtc.libqt_string{\n"
 			preamble += "    .len = key.len,\n"
 			preamble += "    .data = key.ptr,\n"
@@ -2268,20 +2268,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				keyType := kSplit[1]
 				valueType := kSplit[2]
 
-				var autoKeyType string
-				switch keyType {
-				case "constu8":
-					autoKeyType = "[]const u8"
-				case "u8":
-					autoKeyType = "[]u8"
-				default:
-					autoKeyType = keyType
-				}
-
 				switch mapType {
 				case "StringHashMap":
-					structDef = append(structDef, "pub const map_constu8_"+mapParamToString(valueType)+" = std.StringHashMapUnmanaged("+valueType+");")
+					structDef = append(structDef, "pub const map_"+keyType+"_"+mapParamToString(valueType)+" = std.StringHashMapUnmanaged("+valueType+");")
 				case "AutoHashMap":
+					autoKeyType := keyType
 					keyType = mapParamToString(strings.ToLower(keyType))
 					structDef = append(structDef, "pub const map_"+keyType+"_"+mapParamToString(valueType)+" = std.AutoHashMapUnmanaged("+autoKeyType+", "+valueType+");")
 				}

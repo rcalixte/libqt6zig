@@ -4,6 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qwebengineurlrequestjob_enums = enums;
 const std = @import("std");
+pub const map_u8_u8 = std.StringHashMapUnmanaged([]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestjob.html)
 pub const qwebengineurlrequestjob = struct {
@@ -93,6 +94,42 @@ pub const qwebengineurlrequestjob = struct {
     ///
     pub fn Initiator(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineUrlRequestJob_Initiator(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestjob.html#requestHeaders)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlRequestJob `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn RequestHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_u8 {
+        const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestJob_RequestHeaders(@ptrCast(self));
+        var _ret: map_u8_u8 = .empty;
+        defer {
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
+                qtc.libqt_free(_values[i].data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebengineurlrequestjob.RequestHeaders: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
+            const _value = _values[i];
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qwebengineurlrequestjob.RequestHeaders: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("qwebengineurlrequestjob.RequestHeaders: Memory allocation failed");
+        }
+        return _ret;
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestjob.html#requestBody)

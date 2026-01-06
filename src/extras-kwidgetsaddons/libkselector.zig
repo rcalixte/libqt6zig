@@ -8311,6 +8311,22 @@ pub const kgradientselector = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setStops)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KGradientSelector `
+    ///
+    /// ` stops: []struct_f64_qtcqcolor `
+    ///
+    pub fn SetStops(self: ?*anyopaque, stops: []struct_f64_qtcqcolor) void {
+        const stops_list = qtc.libqt_list{
+            .len = stops.len,
+            .data = stops.ptr,
+        };
+        qtc.KGradientSelector_SetStops(@ptrCast(self), stops_list);
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#stops)
     ///
     /// ## Parameter(s):

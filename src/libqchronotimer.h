@@ -30,6 +30,7 @@ QMetaObject* QChronoTimer_MetaObject(const QChronoTimer* self);
 void* QChronoTimer_Metacast(QChronoTimer* self, const char* param1);
 int QChronoTimer_Metacall(QChronoTimer* self, int param1, int param2, void** param3);
 bool QChronoTimer_IsActive(const QChronoTimer* self);
+int QChronoTimer_Id(const QChronoTimer* self);
 void QChronoTimer_SetTimerType(QChronoTimer* self, int atype);
 int QChronoTimer_TimerType(const QChronoTimer* self);
 void QChronoTimer_SetSingleShot(QChronoTimer* self, bool singleShot);

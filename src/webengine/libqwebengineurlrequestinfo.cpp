@@ -1,4 +1,5 @@
 #include <QByteArray>
+#include <QHash>
 #include <QIODevice>
 #include <QUrl>
 #include <QWebEngineUrlRequestInfo>
@@ -56,4 +57,34 @@ void QWebEngineUrlRequestInfo_SetHttpHeader(QWebEngineUrlRequestInfo* self, cons
     QByteArray name_QByteArray(name.data, name.len);
     QByteArray value_QByteArray(value.data, value.len);
     self->setHttpHeader(name_QByteArray, value_QByteArray);
+}
+
+libqt_map /* of libqt_string to libqt_string */ QWebEngineUrlRequestInfo_HttpHeaders(const QWebEngineUrlRequestInfo* self) {
+    QHash<QByteArray, QByteArray> _ret = self->httpHeaders();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        QByteArray _hashkey_qb = _itr->first;
+        libqt_string _hashkey_str;
+        _hashkey_str.len = _hashkey_qb.length();
+        _hashkey_str.data = static_cast<const char*>(malloc(_hashkey_str.len + 1));
+        memcpy((void*)_hashkey_str.data, _hashkey_qb.data(), _hashkey_str.len);
+        ((char*)_hashkey_str.data)[_hashkey_str.len] = '\0';
+        _karr[_ctr] = _hashkey_str;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
+    }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }

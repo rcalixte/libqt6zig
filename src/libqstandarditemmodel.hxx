@@ -718,15 +718,15 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             return QStandardItemModel::roleNames();
         } else if (qstandarditemmodel_rolenames_callback != nullptr) {
             libqt_map /* of int to libqt_string */ callback_ret = qstandarditemmodel_rolenames_callback();
-            QHash<int, QByteArray> callback_ret_QMap;
-            callback_ret_QMap.reserve(callback_ret.len);
+            QHash<int, QByteArray> callback_ret_QHash;
+            callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QByteArray callback_ret_varr_i_QByteArray(callback_ret_varr[i].data, callback_ret_varr[i].len);
-                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
+                callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
-            return callback_ret_QMap;
+            return callback_ret_QHash;
         } else {
             return QStandardItemModel::roleNames();
         }

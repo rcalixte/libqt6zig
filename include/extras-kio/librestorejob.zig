@@ -61,6 +61,23 @@ pub const kio__restorejob = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kio-restorejob.html#trashUrls)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__RestoreJob `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn TrashUrls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
+        const _arr: qtc.libqt_list = qtc.KIO__RestoreJob_TrashUrls(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("kio::restorejob.TrashUrls: Memory allocation failed");
+        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):

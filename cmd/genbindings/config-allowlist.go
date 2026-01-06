@@ -314,21 +314,6 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
-	if className == "QBitArray" && mm.MethodName == "operator~" {
-		return ErrTooComplex // Present in Qt 5.15 and 6.4, missing in Qt 6.7
-	}
-
-	if className == "QTimeZone" && (mm.MethodName == "operator==" || mm.MethodName == "operator!=") {
-		return ErrTooComplex // Present in Qt 5.15 and 6.4, missing in Qt 6.7
-	}
-
-	if className == "QDir" && (mm.MethodName == "mkdir" || mm.MethodName == "mkpath") {
-		// Qt 6.10: Both methods were converted from regular enum parameters to
-		// std::optional enum parameters, resulting in linker errors
-		// @ref https://github.com/qt/qtbase/commit/4275dfb7bfa78999bb8edf27ab18433f97cd3490
-		return ErrTooComplex
-	}
-
 	if className == "QThreadStorageData" && mm.MethodName == "finish" {
 		return ErrTooComplex // Removed in Qt 6.10
 	}
@@ -337,49 +322,11 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex // Removed in Qt 6.10
 	}
 
-	if className == "QWaveDecoder" && mm.MethodName == "setIODevice" {
-		return ErrTooComplex // Qt 6: Present in header, but no-op method was not included in compiled library
-	}
-
-	if className == "QDeadlineTimer" && mm.MethodName == "_q_data" {
-		// Qt 6.4: Present in header with "not a public method" comment, not present in Qt 6.6
-		// @ref https://github.com/qt/qtbase/blob/v6.4.0/src/corelib/kernel/qdeadlinetimer.h#L156C29-L156C36
-		return ErrTooComplex
-	}
-
-	if className == "QNetworkCacheMetaData" && mm.MethodName == "setRawHeaders" {
-		// Qt 6: undefined symbol error during compilation
-		return ErrTooComplex
-	}
-
-	if className == "QHttpHeaders" && mm.MethodName == "fromListOfPairs" {
-		// Qt 6: undefined symbol error during compilation
-		return ErrTooComplex
-	}
-
 	if className == "QDBusPendingReplyTypes" && mm.MethodName == "metaTypeFor" {
 		return ErrTooComplex // Qt 6.8: qdbuspendingreply.h, templated method
 	}
 
-	if (className == "KGradientSelector" || className == "QGradient") && mm.MethodName == "setStops" {
-		return ErrTooComplex // Qt 6: undefined symbol error during compilation
-	}
-
-	if className == "QVariantAnimation" && mm.MethodName == "setKeyValues" {
-		return ErrTooComplex // Qt 6: undefined symbol error during compilation
-	}
-
-	if className == "QXmlStreamEntityResolver" && mm.MethodName == "operator=" {
-		// Present in Qt 6.7, but marked as =delete by Q_DISABLE_COPY_MOVE in Qt 6.8
-		return ErrTooComplex
-	}
-
 	if className == "QAbstractVideoBuffer" && mm.MethodName == "map" {
-		// Present in Qt 6.8 but the return type is not properly handled yet
-		return ErrTooComplex
-	}
-
-	if className == "QChronoTimer" && mm.MethodName == "id" {
 		// Present in Qt 6.8 but the return type is not properly handled yet
 		return ErrTooComplex
 	}
@@ -412,14 +359,6 @@ func AllowMethod(className string, mm CppMethod) error {
 	}
 	if className == "QCPPolarAxisAngular" && mm.MethodName == "setLabelPosition" {
 		// Qt 6 qcustomplot.h: undefined symbol error during compilation
-		return ErrTooComplex
-	}
-	if className == "QCPAxisTickerText" && mm.MethodName == "ticks" {
-		// Qt 6 qcustomplot.h: uses a floating point as the key in a map
-		return ErrTooComplex
-	}
-	if className == "QCPColorGradient" && mm.MethodName == "colorStops" {
-		// Qt 6 qcustomplot.h: uses a floating point as the key in a map
 		return ErrTooComplex
 	}
 
@@ -492,10 +431,6 @@ func AllowMethod(className string, mm CppMethod) error {
 		// Qt 6 ksslinfodialog.h: this has a parameter/return type that is not in the binding yet:
 		// const QList<QList<QSslError::SslError>>
 		// this can be implemented at some point
-		return ErrTooComplex
-	}
-	if className == "KIO::RestoreJob" && mm.MethodName == "trashUrls" {
-		// Qt 6 restorejob.h: linker error
 		return ErrTooComplex
 	}
 	if className == "KRecentDocument" && mm.MethodName == "clearEntriesOldestEntries" {
@@ -597,11 +532,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		if err := AllowType(vType, isReturnType); err != nil {
 			return err
 		}
-		// Additionally, Go maps do not support []byte keys
-		// This affects qnetwork qsslconfiguration BackendConfiguration
-		if kType.ParameterType == "QByteArray" {
-			return ErrTooComplex
-		}
 	}
 	if kType, vType, ok := p.QPairOf(); ok {
 		if err := AllowType(kType, isReturnType); err != nil {
@@ -671,7 +601,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // e.g. Qt 6 qstringconverter.h
 	}
 	if strings.HasPrefix(p.ParameterType, "QQmlListProperty<") {
-		return ErrTooComplex // e.g. Qt 5 QWebChannel qmlwebchannel.h . Supporting this will be required for QML in future
+		return ErrTooComplex // e.g. Qt 6 QWebChannel qmlwebchannel.h, supporting this is required for QML
 	}
 	if strings.HasPrefix(p.ParameterType, "QWebEngineCallback<") {
 		return ErrTooComplex // Function pointer types in QtWebEngine
