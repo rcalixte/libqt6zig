@@ -146,18 +146,15 @@ pub fn build(b: *std.Build) !void {
         }
     }
 
-    // Add include paths
-    for (qt_include_path.items) |qt_path| {
-        try cpp_flags.append(b.allocator, b.fmt("-I{s}", .{qt_path}));
-    }
-
     const translate_c = b.addTranslateC(.{
         .root_source_file = b.path("include/libqt6c.h"),
         .target = target,
         .optimize = optimize,
     });
 
+    // Add include paths
     for (qt_include_path.items) |qt_path| {
+        try cpp_flags.append(b.allocator, b.fmt("-I{s}", .{qt_path}));
         translate_c.addIncludePath(.{ .cwd_relative = qt_path });
     }
 
