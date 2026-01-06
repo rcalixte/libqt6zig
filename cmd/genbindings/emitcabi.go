@@ -390,7 +390,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			return preamble, maybePointer + nameprefix + "_" + containerType
 		}
 
-	} else if kType, vType, _, ok := p.QMapOf(); ok {
+	} else if kType, vType, containerType, ok := p.QMapOf(); ok {
 		var maybeDerefOpen, maybeDerefClose, maybePointer string
 		methodDeref := "."
 		if p.Pointer {
@@ -400,12 +400,12 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			maybePointer = "*"
 		}
 
-		preamble += indent + p.GetQtCppType().ParameterType + maybePointer + " " + nameprefix + "_QMap;\n"
+		preamble += indent + p.GetQtCppType().ParameterType + maybePointer + " " + nameprefix + "_" + containerType + ";\n"
 
 		// This container may be a QMap or a QHash
 		// QHash supports .reserve(), but QMap doesn't
-		if strings.HasPrefix(p.ParameterType, "QHash<") {
-			preamble += indent + nameprefix + "_QMap.reserve(" + p.ParameterName + ".len);\n"
+		if containerType == "QHash" {
+			preamble += indent + nameprefix + "_" + containerType + ".reserve(" + p.ParameterName + ".len);\n"
 		}
 
 		preamble += indent + kType.RenderTypeCabi(false) + "* " + nameprefix + "_karr = static_cast<" + kType.RenderTypeCabi(false) + "*>(" + p.ParameterName + methodDeref + "keys);\n"
@@ -420,10 +420,10 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		addPreV, addFwdV := emitCABI2CppForwarding(vType, indent+"\t", currentClass, false)
 		preamble += addPreV
 
-		preamble += indent + "\t" + maybeDerefOpen + nameprefix + "_QMap" + maybeDerefClose + "[" + addFwdK + "] = " + addFwdV + ";\n"
+		preamble += indent + "\t" + maybeDerefOpen + nameprefix + "_" + containerType + maybeDerefClose + "[" + addFwdK + "] = " + addFwdV + ";\n"
 
 		preamble += indent + "}\n"
-		return preamble, nameprefix + "_QMap"
+		return preamble, nameprefix + "_" + containerType
 
 	} else if kType, vType, ok := p.QPairOf(); ok {
 		preamble += indent + p.GetQtCppType().ParameterType + " " + nameprefix + "_QPair;\n"
@@ -1642,9 +1642,10 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		ret.WriteString("#include <PackageKit/Transaction>\n")
 	}
 
-	seenRefs := map[string]struct{}{}
-	for _, ref := range getReferencedTypes(src) {
+	referencedTypes := getReferencedTypes(src)
+	seenRefs := make([]string, 0, len(referencedTypes))
 
+	for _, ref := range referencedTypes {
 		if ref == "QString" {
 			ret.WriteString("#include <QString>\n")
 			ret.WriteString("#include <QByteArray>\n")
@@ -1668,10 +1669,10 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		ref = strings.TrimSuffix(ref, "*")
 		ref = strings.TrimPrefix(ref, "const ")
 
-		if _, ok := seenRefs[ref]; ok {
+		if slices.Contains(seenRefs, ref) {
 			continue
 		}
-		seenRefs[ref] = struct{}{}
+		seenRefs = append(seenRefs, ref)
 		ret.WriteString("#include <" + ref + ">\n")
 	}
 
