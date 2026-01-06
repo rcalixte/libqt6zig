@@ -14,14 +14,14 @@ QIcon* KIconUtils_AddOverlay(const QIcon* param1, const QIcon* param2, int param
 }
 
 QIcon* KIconUtils_AddOverlays(const QIcon* param1, const libqt_map /* of int to QIcon* */ param2) {
-    QHash<Qt::Corner, QIcon> param2_QMap;
-    param2_QMap.reserve(param2.len);
+    QHash<Qt::Corner, QIcon> param2_QHash;
+    param2_QHash.reserve(param2.len);
     int* param2_karr = static_cast<int*>(param2.keys);
     QIcon** param2_varr = static_cast<QIcon**>(param2.values);
     for (size_t i = 0; i < param2.len; ++i) {
-        param2_QMap[static_cast<Qt::Corner>(param2_karr[i])] = *(param2_varr[i]);
+        param2_QHash[static_cast<Qt::Corner>(param2_karr[i])] = *(param2_varr[i]);
     }
-    return new QIcon(KIconUtils::addOverlays(*param1, param2_QMap));
+    return new QIcon(KIconUtils::addOverlays(*param1, param2_QHash));
 }
 
 QIcon* KIconUtils_AddOverlays2(const QIcon* param1, const libqt_list /* of libqt_string */ param2) {

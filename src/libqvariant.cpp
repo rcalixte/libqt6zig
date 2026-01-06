@@ -104,15 +104,15 @@ QVariant* QVariant_new16(const QDateTime* datetime) {
 }
 
 QVariant* QVariant_new17(const libqt_map /* of libqt_string to QVariant* */ hash) {
-    QHash<QString, QVariant> hash_QMap;
-    hash_QMap.reserve(hash.len);
+    QHash<QString, QVariant> hash_QHash;
+    hash_QHash.reserve(hash.len);
     libqt_string* hash_karr = static_cast<libqt_string*>(hash.keys);
     QVariant** hash_varr = static_cast<QVariant**>(hash.values);
     for (size_t i = 0; i < hash.len; ++i) {
         QString hash_karr_i_QString = QString::fromUtf8(hash_karr[i].data, hash_karr[i].len);
-        hash_QMap[hash_karr_i_QString] = *(hash_varr[i]);
+        hash_QHash[hash_karr_i_QString] = *(hash_varr[i]);
     }
-    return new QVariant(hash_QMap);
+    return new QVariant(hash_QHash);
 }
 
 QVariant* QVariant_new18(const QJsonArray* jsonArray) {

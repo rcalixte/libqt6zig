@@ -793,15 +793,15 @@ int QStandardItemModel_Metacall(QStandardItemModel* self, int param1, int param2
 }
 
 void QStandardItemModel_SetItemRoleNames(QStandardItemModel* self, const libqt_map /* of int to libqt_string */ roleNames) {
-    QHash<int, QByteArray> roleNames_QMap;
-    roleNames_QMap.reserve(roleNames.len);
+    QHash<int, QByteArray> roleNames_QHash;
+    roleNames_QHash.reserve(roleNames.len);
     int* roleNames_karr = static_cast<int*>(roleNames.keys);
     libqt_string* roleNames_varr = static_cast<libqt_string*>(roleNames.values);
     for (size_t i = 0; i < roleNames.len; ++i) {
         QByteArray roleNames_varr_i_QByteArray(roleNames_varr[i].data, roleNames_varr[i].len);
-        roleNames_QMap[static_cast<int>(roleNames_karr[i])] = roleNames_varr_i_QByteArray;
+        roleNames_QHash[static_cast<int>(roleNames_karr[i])] = roleNames_varr_i_QByteArray;
     }
-    self->setItemRoleNames(roleNames_QMap);
+    self->setItemRoleNames(roleNames_QHash);
 }
 
 libqt_map /* of int to libqt_string */ QStandardItemModel_RoleNames(const QStandardItemModel* self) {

@@ -132,6 +132,22 @@ pub const qnetworkcachemetadata = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setRawHeaders)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkCacheMetaData `
+    ///
+    /// ` headers: []struct_u8_u8 `
+    ///
+    pub fn SetRawHeaders(self: ?*anyopaque, headers: []struct_u8_u8) void {
+        const headers_list = qtc.libqt_list{
+            .len = headers.len,
+            .data = headers.ptr,
+        };
+        qtc.QNetworkCacheMetaData_SetRawHeaders(@ptrCast(self), headers_list);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#headers)
     ///
     /// ## Parameter(s):

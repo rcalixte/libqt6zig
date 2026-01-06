@@ -1,5 +1,6 @@
 #include <QByteArray>
 #include <QList>
+#include <QMap>
 #include <QSslCertificate>
 #include <QSslCipher>
 #include <QSslConfiguration>
@@ -316,6 +317,30 @@ void QSslConfiguration_SetDiffieHellmanParameters(QSslConfiguration* self, const
     self->setDiffieHellmanParameters(*dhparams);
 }
 
+libqt_map /* of libqt_string to QVariant* */ QSslConfiguration_BackendConfiguration(const QSslConfiguration* self) {
+    QMap<QByteArray, QVariant> _ret = self->backendConfiguration();
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        QByteArray _mapkey_qb = _itr->first;
+        libqt_string _mapkey_str;
+        _mapkey_str.len = _mapkey_qb.length();
+        _mapkey_str.data = static_cast<const char*>(malloc(_mapkey_str.len + 1));
+        memcpy((void*)_mapkey_str.data, _mapkey_qb.data(), _mapkey_str.len);
+        ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
+        _karr[_ctr] = _mapkey_str;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
+    }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
+}
+
 void QSslConfiguration_SetBackendConfigurationOption(QSslConfiguration* self, const libqt_string name, const QVariant* value) {
     QByteArray name_QByteArray(name.data, name.len);
     self->setBackendConfigurationOption(name_QByteArray, *value);
@@ -425,6 +450,17 @@ bool QSslConfiguration_AddCaCertificates22(QSslConfiguration* self, const libqt_
 bool QSslConfiguration_AddCaCertificates3(QSslConfiguration* self, const libqt_string path, int format, int syntax) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return self->addCaCertificates(path_QString, static_cast<QSsl::EncodingFormat>(format), static_cast<QSslCertificate::PatternSyntax>(syntax));
+}
+
+void QSslConfiguration_SetBackendConfiguration1(QSslConfiguration* self, const libqt_map /* of libqt_string to QVariant* */ backendConfiguration) {
+    QMap<QByteArray, QVariant> backendConfiguration_QMap;
+    libqt_string* backendConfiguration_karr = static_cast<libqt_string*>(backendConfiguration.keys);
+    QVariant** backendConfiguration_varr = static_cast<QVariant**>(backendConfiguration.values);
+    for (size_t i = 0; i < backendConfiguration.len; ++i) {
+        QByteArray backendConfiguration_karr_i_QByteArray(backendConfiguration_karr[i].data, backendConfiguration_karr[i].len);
+        backendConfiguration_QMap[backendConfiguration_karr_i_QByteArray] = *(backendConfiguration_varr[i]);
+    }
+    self->setBackendConfiguration(backendConfiguration_QMap);
 }
 
 void QSslConfiguration_Delete(QSslConfiguration* self) {

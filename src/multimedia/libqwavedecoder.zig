@@ -323,6 +323,18 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_QBasePos(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#setIODevice)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWaveDecoder `
+    ///
+    /// ` device: QtC.QIODevice `
+    ///
+    pub fn SetIODevice(self: ?*anyopaque, device: ?*anyopaque) void {
+        qtc.QWaveDecoder_SetIODevice(@ptrCast(self), @ptrCast(device));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#size)
     ///
     /// ## Parameter(s):

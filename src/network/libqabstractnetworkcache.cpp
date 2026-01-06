@@ -89,6 +89,23 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetwork
     return _out;
 }
 
+void QNetworkCacheMetaData_SetRawHeaders(QNetworkCacheMetaData* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers) {
+    QList<QPair<QByteArray, QByteArray>> headers_QList;
+    headers_QList.reserve(headers.len);
+    libqt_pair /* tuple of libqt_string and libqt_string */* headers_arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(headers.data);
+    for (size_t i = 0; i < headers.len; ++i) {
+        QPair<QByteArray, QByteArray> headers_arr_i_QPair;
+        libqt_string* headers_arr_i_first = static_cast<libqt_string*>(headers_arr[i].first);
+        libqt_string* headers_arr_i_second = static_cast<libqt_string*>(headers_arr[i].second);
+        QByteArray headers_arr_i_first_0_QByteArray(headers_arr_i_first[0].data, headers_arr_i_first[0].len);
+        QByteArray headers_arr_i_second_0_QByteArray(headers_arr_i_second[0].data, headers_arr_i_second[0].len);
+        headers_arr_i_QPair.first = headers_arr_i_first_0_QByteArray;
+        headers_arr_i_QPair.second = headers_arr_i_second_0_QByteArray;
+        headers_QList.push_back(headers_arr_i_QPair);
+    }
+    self->setRawHeaders(headers_QList);
+}
+
 QHttpHeaders* QNetworkCacheMetaData_Headers(const QNetworkCacheMetaData* self) {
     return new QHttpHeaders(self->headers());
 }
@@ -140,14 +157,14 @@ libqt_map /* of int to QVariant* */ QNetworkCacheMetaData_Attributes(const QNetw
 }
 
 void QNetworkCacheMetaData_SetAttributes(QNetworkCacheMetaData* self, const libqt_map /* of int to QVariant* */ attributes) {
-    QHash<QNetworkRequest::Attribute, QVariant> attributes_QMap;
-    attributes_QMap.reserve(attributes.len);
+    QHash<QNetworkRequest::Attribute, QVariant> attributes_QHash;
+    attributes_QHash.reserve(attributes.len);
     int* attributes_karr = static_cast<int*>(attributes.keys);
     QVariant** attributes_varr = static_cast<QVariant**>(attributes.values);
     for (size_t i = 0; i < attributes.len; ++i) {
-        attributes_QMap[static_cast<QNetworkRequest::Attribute>(attributes_karr[i])] = *(attributes_varr[i]);
+        attributes_QHash[static_cast<QNetworkRequest::Attribute>(attributes_karr[i])] = *(attributes_varr[i]);
     }
-    self->setAttributes(attributes_QMap);
+    self->setAttributes(attributes_QHash);
 }
 
 void QNetworkCacheMetaData_Delete(QNetworkCacheMetaData* self) {

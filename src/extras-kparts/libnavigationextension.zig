@@ -5,6 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const map_constu8_qtcqaction = std.StringHashMapUnmanaged([]QtC.QAction);
+pub const map_u8_u8 = std.StringHashMapUnmanaged([]u8);
 
 /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html)
 pub const kparts__navigationextension = struct {
@@ -301,6 +302,40 @@ pub const kparts__navigationextension = struct {
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::navigationextension.ActionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#actionSlotMap)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn ActionSlotMap(allocator: std.mem.Allocator) *map_u8_u8 {
+        const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap();
+        var _ret: map_u8_u8 = .empty;
+        defer {
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
+                qtc.libqt_free(_values[i].data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts::navigationextension.ActionSlotMap: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
+            const _value = _values[i];
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts::navigationextension.ActionSlotMap: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kparts::navigationextension.ActionSlotMap: Memory allocation failed");
+        }
         return _ret;
     }
 

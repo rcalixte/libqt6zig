@@ -269,15 +269,15 @@ QCborMap* QCborMap_FromVariantMap(const libqt_map /* of libqt_string to QVariant
 }
 
 QCborMap* QCborMap_FromVariantHash(const libqt_map /* of libqt_string to QVariant* */ hash) {
-    QHash<QString, QVariant> hash_QMap;
-    hash_QMap.reserve(hash.len);
+    QHash<QString, QVariant> hash_QHash;
+    hash_QHash.reserve(hash.len);
     libqt_string* hash_karr = static_cast<libqt_string*>(hash.keys);
     QVariant** hash_varr = static_cast<QVariant**>(hash.values);
     for (size_t i = 0; i < hash.len; ++i) {
         QString hash_karr_i_QString = QString::fromUtf8(hash_karr[i].data, hash_karr[i].len);
-        hash_QMap[hash_karr_i_QString] = *(hash_varr[i]);
+        hash_QHash[hash_karr_i_QString] = *(hash_varr[i]);
     }
-    return new QCborMap(QCborMap::fromVariantHash(hash_QMap));
+    return new QCborMap(QCborMap::fromVariantHash(hash_QHash));
 }
 
 QCborMap* QCborMap_FromJsonObject(const QJsonObject* o) {

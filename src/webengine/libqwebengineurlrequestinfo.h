@@ -31,6 +31,7 @@ bool QWebEngineUrlRequestInfo_Changed(const QWebEngineUrlRequestInfo* self);
 void QWebEngineUrlRequestInfo_Block(QWebEngineUrlRequestInfo* self, bool shouldBlock);
 void QWebEngineUrlRequestInfo_Redirect(QWebEngineUrlRequestInfo* self, const QUrl* url);
 void QWebEngineUrlRequestInfo_SetHttpHeader(QWebEngineUrlRequestInfo* self, const libqt_string name, const libqt_string value);
+libqt_map /* of libqt_string to libqt_string */ QWebEngineUrlRequestInfo_HttpHeaders(const QWebEngineUrlRequestInfo* self);
 
 #ifdef __cplusplus
 } /* extern C */

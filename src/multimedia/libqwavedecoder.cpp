@@ -100,6 +100,10 @@ long long QWaveDecoder_Pos(const QWaveDecoder* self) {
     }
 }
 
+void QWaveDecoder_SetIODevice(QWaveDecoder* self, QIODevice* device) {
+    self->setIODevice(device);
+}
+
 long long QWaveDecoder_Size(const QWaveDecoder* self) {
     auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {

@@ -500,6 +500,20 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#fromListOfPairs)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` headers: []struct_u8_u8 `
+    ///
+    pub fn FromListOfPairs(headers: []struct_u8_u8) QtC.QHttpHeaders {
+        const headers_list = qtc.libqt_list{
+            .len = headers.len,
+            .data = headers.ptr,
+        };
+        return qtc.QHttpHeaders_FromListOfPairs(headers_list);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toListOfPairs)
     ///
     /// ## Parameter(s):

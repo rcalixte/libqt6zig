@@ -393,14 +393,14 @@ void QXYSeries_ClearPointsConfiguration2(QXYSeries* self, const int key) {
 }
 
 void QXYSeries_SetPointConfiguration(QXYSeries* self, const int index, const libqt_map /* of int to QVariant* */ configuration) {
-    QHash<QXYSeries::PointConfiguration, QVariant> configuration_QMap;
-    configuration_QMap.reserve(configuration.len);
+    QHash<QXYSeries::PointConfiguration, QVariant> configuration_QHash;
+    configuration_QHash.reserve(configuration.len);
     int* configuration_karr = static_cast<int*>(configuration.keys);
     QVariant** configuration_varr = static_cast<QVariant**>(configuration.values);
     for (size_t i = 0; i < configuration.len; ++i) {
-        configuration_QMap[static_cast<QXYSeries::PointConfiguration>(configuration_karr[i])] = *(configuration_varr[i]);
+        configuration_QHash[static_cast<QXYSeries::PointConfiguration>(configuration_karr[i])] = *(configuration_varr[i]);
     }
-    self->setPointConfiguration(static_cast<const int>(index), configuration_QMap);
+    self->setPointConfiguration(static_cast<const int>(index), configuration_QHash);
 }
 
 void QXYSeries_SetPointConfiguration2(QXYSeries* self, const int index, const int key, const QVariant* value) {
@@ -408,21 +408,21 @@ void QXYSeries_SetPointConfiguration2(QXYSeries* self, const int index, const in
 }
 
 void QXYSeries_SetPointsConfiguration(QXYSeries* self, const libqt_map /* of int to libqt_map  of int to QVariant*  */ pointsConfiguration) {
-    QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> pointsConfiguration_QMap;
-    pointsConfiguration_QMap.reserve(pointsConfiguration.len);
+    QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> pointsConfiguration_QHash;
+    pointsConfiguration_QHash.reserve(pointsConfiguration.len);
     int* pointsConfiguration_karr = static_cast<int*>(pointsConfiguration.keys);
     libqt_map /* of int to QVariant* */* pointsConfiguration_varr = static_cast<libqt_map /* of int to QVariant* */*>(pointsConfiguration.values);
     for (size_t i = 0; i < pointsConfiguration.len; ++i) {
-        QHash<QXYSeries::PointConfiguration, QVariant> pointsConfiguration_varr_i_QMap;
-        pointsConfiguration_varr_i_QMap.reserve(pointsConfiguration_varr[i].len);
+        QHash<QXYSeries::PointConfiguration, QVariant> pointsConfiguration_varr_i_QHash;
+        pointsConfiguration_varr_i_QHash.reserve(pointsConfiguration_varr[i].len);
         int* pointsConfiguration_varr_i_karr = static_cast<int*>(pointsConfiguration_varr[i].keys);
         QVariant** pointsConfiguration_varr_i_varr = static_cast<QVariant**>(pointsConfiguration_varr[i].values);
         for (size_t i = 0; i < pointsConfiguration_varr[i].len; ++i) {
-            pointsConfiguration_varr_i_QMap[static_cast<QXYSeries::PointConfiguration>(pointsConfiguration_varr_i_karr[i])] = *(pointsConfiguration_varr_i_varr[i]);
+            pointsConfiguration_varr_i_QHash[static_cast<QXYSeries::PointConfiguration>(pointsConfiguration_varr_i_karr[i])] = *(pointsConfiguration_varr_i_varr[i]);
         }
-        pointsConfiguration_QMap[static_cast<int>(pointsConfiguration_karr[i])] = pointsConfiguration_varr_i_QMap;
+        pointsConfiguration_QHash[static_cast<int>(pointsConfiguration_karr[i])] = pointsConfiguration_varr_i_QHash;
     }
-    self->setPointsConfiguration(pointsConfiguration_QMap);
+    self->setPointsConfiguration(pointsConfiguration_QHash);
 }
 
 libqt_map /* of int to QVariant* */ QXYSeries_PointConfiguration(const QXYSeries* self, const int index) {
@@ -818,21 +818,21 @@ void QXYSeries_Connect_BestFitLineColorChanged(QXYSeries* self, intptr_t slot) {
 }
 
 void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of int to libqt_map  of int to QVariant*  */ configuration) {
-    QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> configuration_QMap;
-    configuration_QMap.reserve(configuration.len);
+    QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> configuration_QHash;
+    configuration_QHash.reserve(configuration.len);
     int* configuration_karr = static_cast<int*>(configuration.keys);
     libqt_map /* of int to QVariant* */* configuration_varr = static_cast<libqt_map /* of int to QVariant* */*>(configuration.values);
     for (size_t i = 0; i < configuration.len; ++i) {
-        QHash<QXYSeries::PointConfiguration, QVariant> configuration_varr_i_QMap;
-        configuration_varr_i_QMap.reserve(configuration_varr[i].len);
+        QHash<QXYSeries::PointConfiguration, QVariant> configuration_varr_i_QHash;
+        configuration_varr_i_QHash.reserve(configuration_varr[i].len);
         int* configuration_varr_i_karr = static_cast<int*>(configuration_varr[i].keys);
         QVariant** configuration_varr_i_varr = static_cast<QVariant**>(configuration_varr[i].values);
         for (size_t i = 0; i < configuration_varr[i].len; ++i) {
-            configuration_varr_i_QMap[static_cast<QXYSeries::PointConfiguration>(configuration_varr_i_karr[i])] = *(configuration_varr_i_varr[i]);
+            configuration_varr_i_QHash[static_cast<QXYSeries::PointConfiguration>(configuration_varr_i_karr[i])] = *(configuration_varr_i_varr[i]);
         }
-        configuration_QMap[static_cast<int>(configuration_karr[i])] = configuration_varr_i_QMap;
+        configuration_QHash[static_cast<int>(configuration_karr[i])] = configuration_varr_i_QHash;
     }
-    self->pointsConfigurationChanged(configuration_QMap);
+    self->pointsConfigurationChanged(configuration_QHash);
 }
 
 void QXYSeries_Connect_PointsConfigurationChanged(QXYSeries* self, intptr_t slot) {
