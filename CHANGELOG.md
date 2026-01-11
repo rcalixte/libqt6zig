@@ -1,4 +1,9 @@
 
+### 6.8.2 rev53 (11 January 2026)
+
+* Add support for QMultiHash and QMultiMap (#103)
+* Unblock some previously blocked methods (#102)
+
 ### 6.8.2 rev52 (28 December 2025)
 
 * **MAJOR BREAKING CHANGE:** Switch Linux to GNU C++ ABI and fix map/hash implementations (#101)
