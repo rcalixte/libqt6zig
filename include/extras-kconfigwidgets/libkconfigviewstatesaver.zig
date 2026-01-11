@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
+const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
 /// ### [Upstream resources](https://api.kde.org/kconfigviewstatesaver.html)
 pub const kconfigviewstatesaver = struct {

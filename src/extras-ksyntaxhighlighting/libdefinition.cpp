@@ -380,7 +380,7 @@ libqt_pair /* tuple of libqt_string and libqt_string */ KSyntaxHighlighting__Def
     return _out;
 }
 
-libqt_list /* of libqt_pair  tuple of QChar* and libqt_string  */ KSyntaxHighlighting__Definition_CharacterEncodings(const KSyntaxHighlighting__Definition* self) {
+libqt_list /* of libqt_pair tuple of QChar* and libqt_string */ KSyntaxHighlighting__Definition_CharacterEncodings(const KSyntaxHighlighting__Definition* self) {
     QList<QPair<QChar, QString>> _ret = self->characterEncodings();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of QChar* and libqt_string */* _arr = static_cast<libqt_pair /* tuple of QChar* and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of QChar* and libqt_string */) * (_ret.size() + 1)));

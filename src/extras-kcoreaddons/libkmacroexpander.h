@@ -67,10 +67,10 @@ libqt_string KMacroExpander_ExpandMacros(const libqt_string param1, const libqt_
 libqt_string KMacroExpander_ExpandMacrosShellQuote(const libqt_string param1, const libqt_map /* of QChar* to libqt_string */ param2, QChar* param3);
 libqt_string KMacroExpander_ExpandMacros2(const libqt_string param1, const libqt_map /* of libqt_string to libqt_string */ param2, QChar* param3);
 libqt_string KMacroExpander_ExpandMacrosShellQuote2(const libqt_string param1, const libqt_map /* of libqt_string to libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list  of libqt_string  */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list  of libqt_string  */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list  of libqt_string  */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list  of libqt_string  */ param2, QChar* param3);
+libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3);
+libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3);
+libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3);
+libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3);
 
 #ifdef __cplusplus
 } /* extern C */

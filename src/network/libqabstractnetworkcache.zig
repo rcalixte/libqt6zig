@@ -4,8 +4,8 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
-pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
+const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const struct_u8_u8 = struct { first: []u8, second: []u8 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html)
 pub const qnetworkcachemetadata = struct {
@@ -244,6 +244,10 @@ pub const qnetworkcachemetadata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
+    /// ## Returns:
+    ///
+    /// ` map_i32_qtcqvariant (key: qnetworkrequest_enums.Attribute) `
+    ///
     pub fn Attributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QNetworkCacheMetaData_Attributes(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
@@ -268,7 +272,7 @@ pub const qnetworkcachemetadata = struct {
     ///
     /// ` self: QtC.QNetworkCacheMetaData `
     ///
-    /// ` attributes: map_i32_qtcqvariant `
+    /// ` attributes: map_i32_qtcqvariant (key: qnetworkrequest_enums.Attribute) `
     ///
     /// ` allocator: std.mem.Allocator `
     ///

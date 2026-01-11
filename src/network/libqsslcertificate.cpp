@@ -2,6 +2,7 @@
 #include <QDateTime>
 #include <QIODevice>
 #include <QList>
+#include <QMultiMap>
 #include <QSslCertificate>
 #include <QSslCertificateExtension>
 #include <QSslError>
@@ -246,6 +247,36 @@ libqt_list /* of libqt_string */ QSslCertificate_IssuerInfoAttributes(const QSsl
     libqt_list _out;
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_map /* of int to libqt_list of libqt_string */ QSslCertificate_SubjectAlternativeNames(const QSslCertificate* self) {
+    QMultiMap<QSsl::AlternativeNameEntryType, QString> _ret = self->subjectAlternativeNames();
+    // Convert QMultiMap<> from C++ memory to manually-managed C memory
+    auto _uniqueKeys = _ret.uniqueKeys();
+    auto _numUniqueKeys = _uniqueKeys.size();
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _numUniqueKeys));
+    libqt_list* _varr = static_cast<libqt_list*>(malloc(sizeof(libqt_list) * _numUniqueKeys));
+    for (auto i = 0; i < _numUniqueKeys; ++i) {
+        QSsl::AlternativeNameEntryType key = _uniqueKeys[i];
+        _karr[i] = static_cast<int>(key);
+        QList<QString> values = _ret.values(key);
+        size_t numValues = values.size();
+        libqt_string* _array = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * numValues));
+        for (size_t j = 0; j < numValues; ++j) {
+            QByteArray _qb = values[j].toUtf8();
+            _array[j].len = _qb.length();
+            _array[j].data = static_cast<const char*>(malloc(_array[j].len + 1));
+            memcpy((void*)_array[j].data, _qb.data(), _array[j].len);
+            ((char*)_array[j].data)[_array[j].len] = '\0';
+        }
+        _varr[i].len = numValues;
+        _varr[i].data = static_cast<void*>(_array);
+    }
+    libqt_map _out;
+    _out.len = _numUniqueKeys;
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
     return _out;
 }
 

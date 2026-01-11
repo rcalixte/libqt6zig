@@ -8,7 +8,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-pub const struct_f64_qtcqcolor = extern struct { first: f64, second: QtC.QColor };
+const struct_f64_qtcqcolor = extern struct { first: f64, second: QtC.QColor };
 
 /// ### [Upstream resources](https://api.kde.org/kselector.html)
 pub const kselector = struct {

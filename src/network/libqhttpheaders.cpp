@@ -3,6 +3,8 @@
 #include <QByteArrayView>
 #include <QHttpHeaders>
 #include <QList>
+#include <QMultiHash>
+#include <QMultiMap>
 #include <QPair>
 #include <qhttpheaders.h>
 #include "libqhttpheaders.h"
@@ -207,7 +209,7 @@ libqt_string QHttpHeaders_WellKnownHeaderName(int name) {
     return _str;
 }
 
-QHttpHeaders* QHttpHeaders_FromListOfPairs(const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers) {
+QHttpHeaders* QHttpHeaders_FromListOfPairs(const libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ headers) {
     QList<QPair<QByteArray, QByteArray>> headers_QList;
     headers_QList.reserve(headers.len);
     libqt_pair /* tuple of libqt_string and libqt_string */* headers_arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(headers.data);
@@ -224,7 +226,40 @@ QHttpHeaders* QHttpHeaders_FromListOfPairs(const libqt_list /* of libqt_pair  tu
     return new QHttpHeaders(QHttpHeaders::fromListOfPairs(headers_QList));
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QHttpHeaders_ToListOfPairs(const QHttpHeaders* self) {
+QHttpHeaders* QHttpHeaders_FromMultiMap(const libqt_map /* of libqt_string to libqt_list of libqt_string */ headers) {
+    QMultiMap<QByteArray, QByteArray> headers_QMultiMap;
+    libqt_string* headers_karr = static_cast<libqt_string*>(headers.keys);
+    libqt_list* /* of libqt_string */ headers_varr = static_cast<libqt_list*>(headers.values);
+    for (size_t i = 0; i < headers.len; ++i) {
+        QByteArray headers_karr_i_QByteArray(headers_karr[i].data, headers_karr[i].len);
+        libqt_list headers_QMultiMap_list = headers_varr[i];
+        libqt_string* headers_varr_list = static_cast<libqt_string*>(headers_QMultiMap_list.data);
+        for (size_t j = 0; j < headers_QMultiMap_list.len; ++j) {
+            QByteArray headers_varr_i_QByteArray(headers_varr_list[j].data, headers_varr_list[j].len);
+            headers_QMultiMap.insert(headers_karr_i_QByteArray, headers_varr_i_QByteArray);
+        }
+    }
+    return new QHttpHeaders(QHttpHeaders::fromMultiMap(headers_QMultiMap));
+}
+
+QHttpHeaders* QHttpHeaders_FromMultiHash(const libqt_map /* of libqt_string to libqt_list of libqt_string */ headers) {
+    QMultiHash<QByteArray, QByteArray> headers_QMultiHash;
+    headers_QMultiHash.reserve(headers.len);
+    libqt_string* headers_karr = static_cast<libqt_string*>(headers.keys);
+    libqt_list* /* of libqt_string */ headers_varr = static_cast<libqt_list*>(headers.values);
+    for (size_t i = 0; i < headers.len; ++i) {
+        QByteArray headers_karr_i_QByteArray(headers_karr[i].data, headers_karr[i].len);
+        libqt_list headers_QMultiHash_list = headers_varr[i];
+        libqt_string* headers_varr_list = static_cast<libqt_string*>(headers_QMultiHash_list.data);
+        for (size_t j = 0; j < headers_QMultiHash_list.len; ++j) {
+            QByteArray headers_varr_i_QByteArray(headers_varr_list[j].data, headers_varr_list[j].len);
+            headers_QMultiHash.insert(headers_karr_i_QByteArray, headers_varr_i_QByteArray);
+        }
+    }
+    return new QHttpHeaders(QHttpHeaders::fromMultiHash(headers_QMultiHash));
+}
+
+libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QHttpHeaders_ToListOfPairs(const QHttpHeaders* self) {
     QList<QPair<QByteArray, QByteArray>> _ret = self->toListOfPairs();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));
@@ -255,6 +290,70 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QHttpHea
     libqt_list _out;
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_map /* of libqt_string to libqt_list of libqt_string */ QHttpHeaders_ToMultiMap(const QHttpHeaders* self) {
+    QMultiMap<QByteArray, QByteArray> _ret = self->toMultiMap();
+    // Convert QMultiMap<> from C++ memory to manually-managed C memory
+    auto _uniqueKeys = _ret.uniqueKeys();
+    auto _numUniqueKeys = _uniqueKeys.size();
+    libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _numUniqueKeys));
+    libqt_list* _varr = static_cast<libqt_list*>(malloc(sizeof(libqt_list) * _numUniqueKeys));
+    for (auto i = 0; i < _numUniqueKeys; ++i) {
+        QByteArray key = _uniqueKeys[i];
+        _karr[i].len = key.length();
+        _karr[i].data = static_cast<const char*>(malloc(_karr[i].len + 1));
+        memcpy((void*)_karr[i].data, key.data(), _karr[i].len);
+        ((char*)_karr[i].data)[_karr[i].len] = '\0';
+        QList<QByteArray> values = _ret.values(key);
+        size_t numValues = values.size();
+        libqt_string* _array = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * numValues));
+        for (size_t j = 0; j < numValues; ++j) {
+            _array[j].len = values[j].length();
+            _array[j].data = static_cast<const char*>(malloc(_array[j].len + 1));
+            memcpy((void*)_array[j].data, values[j].data(), _array[j].len);
+            ((char*)_array[j].data)[_array[j].len] = '\0';
+        }
+        _varr[i].len = numValues;
+        _varr[i].data = static_cast<void*>(_array);
+    }
+    libqt_map _out;
+    _out.len = _numUniqueKeys;
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
+}
+
+libqt_map /* of libqt_string to libqt_list of libqt_string */ QHttpHeaders_ToMultiHash(const QHttpHeaders* self) {
+    QMultiHash<QByteArray, QByteArray> _ret = self->toMultiHash();
+    // Convert QMultiHash<> from C++ memory to manually-managed C memory
+    auto _uniqueKeys = _ret.uniqueKeys();
+    auto _numUniqueKeys = _uniqueKeys.size();
+    libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _numUniqueKeys));
+    libqt_list* _varr = static_cast<libqt_list*>(malloc(sizeof(libqt_list) * _numUniqueKeys));
+    for (auto i = 0; i < _numUniqueKeys; ++i) {
+        QByteArray key = _uniqueKeys[i];
+        _karr[i].len = key.length();
+        _karr[i].data = static_cast<const char*>(malloc(_karr[i].len + 1));
+        memcpy((void*)_karr[i].data, key.data(), _karr[i].len);
+        ((char*)_karr[i].data)[_karr[i].len] = '\0';
+        QList<QByteArray> values = _ret.values(key);
+        size_t numValues = values.size();
+        libqt_string* _array = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * numValues));
+        for (size_t j = 0; j < numValues; ++j) {
+            _array[j].len = values[j].length();
+            _array[j].data = static_cast<const char*>(malloc(_array[j].len + 1));
+            memcpy((void*)_array[j].data, values[j].data(), _array[j].len);
+            ((char*)_array[j].data)[_array[j].len] = '\0';
+        }
+        _varr[i].len = numValues;
+        _varr[i].data = static_cast<void*>(_array);
+    }
+    libqt_map _out;
+    _out.len = _numUniqueKeys;
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
     return _out;
 }
 

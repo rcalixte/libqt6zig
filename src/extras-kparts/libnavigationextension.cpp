@@ -241,7 +241,7 @@ void KParts__NavigationExtension_PopupMenu4(KParts__NavigationExtension* self, c
     self->popupMenu(*global, *items, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags));
 }
 
-void KParts__NavigationExtension_PopupMenu5(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list  of QAction*  */ actionGroups) {
+void KParts__NavigationExtension_PopupMenu5(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list of QAction* */ actionGroups) {
     QMap<QString, QList<QAction*>> actionGroups_QMap;
     libqt_string* actionGroups_karr = static_cast<libqt_string*>(actionGroups.keys);
     libqt_list /* of QAction* */* actionGroups_varr = static_cast<libqt_list /* of QAction* */*>(actionGroups.values);
@@ -270,7 +270,7 @@ void KParts__NavigationExtension_PopupMenu52(KParts__NavigationExtension* self, 
     self->popupMenu(*global, *url, mode, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags));
 }
 
-void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list  of QAction*  */ actionGroups) {
+void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list of QAction* */ actionGroups) {
     QMap<QString, QList<QAction*>> actionGroups_QMap;
     libqt_string* actionGroups_karr = static_cast<libqt_string*>(actionGroups.keys);
     libqt_list /* of QAction* */* actionGroups_varr = static_cast<libqt_list /* of QAction* */*>(actionGroups.values);

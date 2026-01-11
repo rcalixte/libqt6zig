@@ -104,7 +104,7 @@ void Attica__Metadata_SetResultingId(Attica__Metadata* self, const libqt_string 
     self->setResultingId(id_QString);
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ Attica__Metadata_Headers(const Attica__Metadata* self) {
+libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ Attica__Metadata_Headers(const Attica__Metadata* self) {
     QList<QPair<QByteArray, QByteArray>> _ret = self->headers();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));

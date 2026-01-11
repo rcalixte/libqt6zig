@@ -34,6 +34,7 @@ QIODevice* QWebEngineUrlRequestJob_RequestBody(const QWebEngineUrlRequestJob* se
 void QWebEngineUrlRequestJob_Reply(QWebEngineUrlRequestJob* self, const libqt_string contentType, QIODevice* device);
 void QWebEngineUrlRequestJob_Fail(QWebEngineUrlRequestJob* self, int errorVal);
 void QWebEngineUrlRequestJob_Redirect(QWebEngineUrlRequestJob* self, const QUrl* url);
+void QWebEngineUrlRequestJob_SetAdditionalResponseHeaders(const QWebEngineUrlRequestJob* self, const libqt_map /* of libqt_string to libqt_list of libqt_string */ additionalResponseHeaders);
 void QWebEngineUrlRequestJob_Delete(QWebEngineUrlRequestJob* self);
 
 #ifdef __cplusplus

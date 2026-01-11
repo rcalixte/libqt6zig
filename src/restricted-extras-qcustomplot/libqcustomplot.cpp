@@ -33342,7 +33342,7 @@ void QCPGraph_OnGetNonNanSegments(const QCPGraph* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData) {
+libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPDataRange> thisSegments_QVector;
     thisSegments_QVector.reserve(thisSegments.len);
@@ -33412,7 +33412,7 @@ libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ QCPGra
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData) {
+libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPDataRange> thisSegments_QVector;
     thisSegments_QVector.reserve(thisSegments.len);

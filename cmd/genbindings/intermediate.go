@@ -175,33 +175,32 @@ func (p CppParameter) QListOf() (CppParameter, string, bool) {
 	return CppParameter{}, "", false
 }
 
-func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
-	// n.b. Need to block QMap<k,v>::const_terator
-
-	if strings.HasPrefix(p.ParameterType, "QMap<") && strings.HasSuffix(p.ParameterType, ">") {
-		interior := tokenizeMultipleParameters(p.ParameterType[5 : len(p.ParameterType)-1])
-		if len(interior) != 2 {
-			panic("QMap<> has unexpected number of template arguments")
-		}
-
-		first := parseSingleTypeString(interior[0], "")
-		first.ParameterName = p.ParameterName + "_mapkey"
-		second := parseSingleTypeString(interior[1], "")
-		second.ParameterName = p.ParameterName + "_mapval"
-		return first, second, "QMap", true
+var (
+	qtMapTypes = []string{
+		"QHash",
+		"QMap",
+		"QMultiHash",
+		"QMultiMap",
 	}
+)
 
-	if strings.HasPrefix(p.ParameterType, "QHash<") && strings.HasSuffix(p.ParameterType, ">") {
-		interior := tokenizeMultipleParameters(p.ParameterType[6 : len(p.ParameterType)-1])
-		if len(interior) != 2 {
-			panic("QHash<> has unexpected number of template arguments")
+func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
+	// n.b. Need to block QMap<k,v>::const_iterator
+
+	for _, qtMapType := range qtMapTypes {
+		if strings.HasPrefix(p.ParameterType, qtMapType+"<") && strings.HasSuffix(p.ParameterType, ">") {
+			interior := tokenizeMultipleParameters(p.ParameterType[len(qtMapType)+1 : len(p.ParameterType)-1])
+			if len(interior) != 2 {
+				panic(qtMapType + "<> has unexpected number of template arguments")
+			}
+
+			parameterSuffixPrefix := "_" + strings.ToLower(qtMapType[1:])
+			first := parseSingleTypeString(interior[0], "")
+			first.ParameterName = p.ParameterName + parameterSuffixPrefix + "key"
+			second := parseSingleTypeString(interior[1], "")
+			second.ParameterName = p.ParameterName + parameterSuffixPrefix + "val"
+			return first, second, qtMapType, true
 		}
-
-		first := parseSingleTypeString(interior[0], "")
-		first.ParameterName = p.ParameterName + "_hashkey"
-		second := parseSingleTypeString(interior[1], "")
-		second.ParameterName = p.ParameterName + "_hashval"
-		return first, second, "QHash", true
 	}
 
 	return CppParameter{}, CppParameter{}, "", false
@@ -237,15 +236,6 @@ func (p CppParameter) QSetOf() (CppParameter, bool) {
 	}
 
 	return CppParameter{}, false
-}
-
-func (p CppParameter) QMultiMapOf() bool {
-	if strings.HasPrefix(p.ParameterType, "QMultiMap<") ||
-		strings.HasPrefix(p.ParameterType, "QMultiHash<") {
-		return true
-	}
-
-	return false
 }
 
 func (p CppParameter) IntType() bool {

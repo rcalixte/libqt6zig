@@ -2359,7 +2359,7 @@ void KComboBox_OnGetDecodedMetricF(const KComboBox* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KComboBox_KeyBindingMap(const KComboBox* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KComboBox_KeyBindingMap(const KComboBox* self) {
     auto* vkcombobox = const_cast<VirtualKComboBox*>(dynamic_cast<const VirtualKComboBox*>(self));
     if (vkcombobox && vkcombobox->isVirtualKComboBox) {
         QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vkcombobox->keyBindingMap();
@@ -2415,7 +2415,7 @@ libqt_map /* of int to libqt_list  of QKeySequence*  */ KComboBox_KeyBindingMap(
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KComboBox_QBaseKeyBindingMap(const KComboBox* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KComboBox_QBaseKeyBindingMap(const KComboBox* self) {
     auto* vkcombobox = const_cast<VirtualKComboBox*>(dynamic_cast<const VirtualKComboBox*>(self));
     if (vkcombobox && vkcombobox->isVirtualKComboBox) {
         vkcombobox->setKComboBox_KeyBindingMap_IsBase(true);
@@ -2480,7 +2480,7 @@ void KComboBox_OnKeyBindingMap(const KComboBox* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void KComboBox_SetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KComboBox_SetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2502,7 +2502,7 @@ void KComboBox_SetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_li
 }
 
 // Base class handler implementation
-void KComboBox_QBaseSetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KComboBox_QBaseSetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);

@@ -48,7 +48,7 @@ QWindow* QAccessibleInterface_Window(const QAccessibleInterface* self) {
     return self->window();
 }
 
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleInterface_Relations(const QAccessibleInterface* self, int match) {
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleInterface_Relations(const QAccessibleInterface* self, int match) {
     QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = self->relations(static_cast<QAccessible::Relation>(match));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * (_ret.size() + 1)));

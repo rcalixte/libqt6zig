@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const kstandardguiitem_enums = enums;
 const std = @import("std");
-pub const struct_qtckguiitem_qtckguiitem = extern struct { first: QtC.KGuiItem, second: QtC.KGuiItem };
+const struct_qtckguiitem_qtckguiitem = extern struct { first: QtC.KGuiItem, second: QtC.KGuiItem };
 
 /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html)
 pub const kstandardguiitem = struct {

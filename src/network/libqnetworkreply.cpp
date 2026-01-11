@@ -119,7 +119,7 @@ libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, libqt_string hea
     return _str;
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkReply_RawHeaderPairs(const QNetworkReply* self) {
+libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QNetworkReply_RawHeaderPairs(const QNetworkReply* self) {
     const QList<QPair<QByteArray, QByteArray>>& _ret = self->rawHeaderPairs();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));

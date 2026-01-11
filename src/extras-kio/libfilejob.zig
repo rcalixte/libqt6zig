@@ -5,7 +5,7 @@ const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kio-filejob.html)
 pub const kio__filejob = struct {
@@ -629,7 +629,7 @@ pub const kio__filejob = struct {
     pub fn AddMetaData2(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
         const values_keys = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::filejob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_keys);
-        const values_values = allocator.alloc([]const u8, values.count()) catch @panic("kio::filejob.AddMetaData2: Memory allocation failed");
+        const values_values = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::filejob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
@@ -639,7 +639,11 @@ pub const kio__filejob = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            values_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            values_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const values_map = qtc.libqt_map{
             .len = values.count(),
@@ -664,7 +668,7 @@ pub const kio__filejob = struct {
     pub fn MergeMetaData(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
         const values_keys = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::filejob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_keys);
-        const values_values = allocator.alloc([]const u8, values.count()) catch @panic("kio::filejob.MergeMetaData: Memory allocation failed");
+        const values_values = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::filejob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
@@ -674,7 +678,11 @@ pub const kio__filejob = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            values_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            values_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const values_map = qtc.libqt_map{
             .len = values.count(),

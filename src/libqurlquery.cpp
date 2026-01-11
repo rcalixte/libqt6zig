@@ -88,7 +88,7 @@ QChar* QUrlQuery_QueryPairDelimiter(const QUrlQuery* self) {
     return new QChar(self->queryPairDelimiter());
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems(const QUrlQuery* self) {
+libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QUrlQuery_QueryItems(const QUrlQuery* self) {
     QList<QPair<QString, QString>> _ret = self->queryItems();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));
@@ -206,7 +206,7 @@ libqt_string QUrlQuery_ToString1(const QUrlQuery* self, unsigned int encoding) {
     return _str;
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems1(const QUrlQuery* self, unsigned int encoding) {
+libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QUrlQuery_QueryItems1(const QUrlQuery* self, unsigned int encoding) {
     QList<QPair<QString, QString>> _ret = self->queryItems(static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));

@@ -55,7 +55,7 @@ void QNetworkCacheMetaData_SetUrl(QNetworkCacheMetaData* self, const QUrl* url) 
     self->setUrl(*url);
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkCacheMetaData_RawHeaders(const QNetworkCacheMetaData* self) {
+libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QNetworkCacheMetaData_RawHeaders(const QNetworkCacheMetaData* self) {
     QList<QPair<QByteArray, QByteArray>> _ret = self->rawHeaders();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));
@@ -89,7 +89,7 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetwork
     return _out;
 }
 
-void QNetworkCacheMetaData_SetRawHeaders(QNetworkCacheMetaData* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers) {
+void QNetworkCacheMetaData_SetRawHeaders(QNetworkCacheMetaData* self, const libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ headers) {
     QList<QPair<QByteArray, QByteArray>> headers_QList;
     headers_QList.reserve(headers.len);
     libqt_pair /* tuple of libqt_string and libqt_string */* headers_arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(headers.data);

@@ -2,7 +2,8 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qhttpheaders_enums = enums;
 const std = @import("std");
-pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
+const map_u8_sliceu8 = std.StringHashMapUnmanaged([][]u8);
+const struct_u8_u8 = struct { first: []u8, second: []u8 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html)
 pub const qhttpheaders = struct {
@@ -514,6 +515,86 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_FromListOfPairs(headers_list);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#fromMultiMap)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` headers: map_u8_sliceu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn FromMultiMap(headers: map_u8_sliceu8, allocator: std.mem.Allocator) QtC.QHttpHeaders {
+        const headers_keys = allocator.alloc(qtc.libqt_string, headers.count()) catch @panic("qhttpheaders.FromMultiMap: Memory allocation failed");
+        defer allocator.free(headers_keys);
+        const headers_values = allocator.alloc(qtc.libqt_list, headers.count()) catch @panic("qhttpheaders.FromMultiMap: Memory allocation failed");
+        defer allocator.free(headers_values);
+        var i: usize = 0;
+        var headers_it = headers.iterator();
+        while (headers_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            headers_keys[i] = qtc.libqt_string{
+                .len = key.len,
+                .data = key.ptr,
+            };
+            headers_values[i].len = entry.value_ptr.*.len;
+            const headers_val = allocator.alloc(qtc.libqt_string, entry.value_ptr.len) catch @panic("qhttpheaders.FromMultiMap: Memory allocation failed");
+            defer allocator.free(headers_val);
+            for (entry.value_ptr.*, 0..) |value, j| {
+                headers_val[j] = qtc.libqt_string{
+                    .len = value.len,
+                    .data = value.ptr,
+                };
+            }
+            headers_values[i].data = @ptrCast(headers_val.ptr);
+        }
+        const headers_map = qtc.libqt_map{
+            .len = headers.count(),
+            .keys = @ptrCast(headers_keys.ptr),
+            .values = @ptrCast(headers_values.ptr),
+        };
+        return qtc.QHttpHeaders_FromMultiMap(headers_map);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#fromMultiHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` headers: map_u8_sliceu8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn FromMultiHash(headers: map_u8_sliceu8, allocator: std.mem.Allocator) QtC.QHttpHeaders {
+        const headers_keys = allocator.alloc(qtc.libqt_string, headers.count()) catch @panic("qhttpheaders.FromMultiHash: Memory allocation failed");
+        defer allocator.free(headers_keys);
+        const headers_values = allocator.alloc(qtc.libqt_list, headers.count()) catch @panic("qhttpheaders.FromMultiHash: Memory allocation failed");
+        defer allocator.free(headers_values);
+        var i: usize = 0;
+        var headers_it = headers.iterator();
+        while (headers_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            headers_keys[i] = qtc.libqt_string{
+                .len = key.len,
+                .data = key.ptr,
+            };
+            headers_values[i].len = entry.value_ptr.*.len;
+            const headers_val = allocator.alloc(qtc.libqt_string, entry.value_ptr.len) catch @panic("qhttpheaders.FromMultiHash: Memory allocation failed");
+            defer allocator.free(headers_val);
+            for (entry.value_ptr.*, 0..) |value, j| {
+                headers_val[j] = qtc.libqt_string{
+                    .len = value.len,
+                    .data = value.ptr,
+                };
+            }
+            headers_values[i].data = @ptrCast(headers_val.ptr);
+        }
+        const headers_map = qtc.libqt_map{
+            .len = headers.count(),
+            .keys = @ptrCast(headers_keys.ptr),
+            .values = @ptrCast(headers_values.ptr),
+        };
+        return qtc.QHttpHeaders_FromMultiHash(headers_map);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toListOfPairs)
     ///
     /// ## Parameter(s):
@@ -538,6 +619,98 @@ pub const qhttpheaders = struct {
         const _ret = allocator.alloc(struct_u8_u8, _arr.len) catch @panic("qhttpheaders.ToListOfPairs: Memory allocation failed");
         const _data: [*]struct_u8_u8 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toMultiMap)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn ToMultiMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_sliceu8 {
+        const _map: qtc.libqt_map = qtc.QHttpHeaders_ToMultiMap(@ptrCast(self));
+        var _ret: map_u8_sliceu8 = .empty;
+        defer {
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
+                const _value_list = _values[i];
+                const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value_list.data));
+                for (0.._value_list.len) |j| {
+                    qtc.libqt_free(_value_strings[j].data);
+                }
+                qtc.libqt_free(_value_list.data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qhttpheaders.ToMultiMap: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
+            const _value = _values[i];
+            const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
+            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("qhttpheaders.ToMultiMap: Memory allocation failed");
+            for (0.._value.len) |j| {
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("qhttpheaders.ToMultiMap: Memory allocation failed");
+                @memcpy(_vslice, _value_strings[j].data);
+                _value_slice[j] = _vslice;
+            }
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("qhttpheaders.ToMultiMap: Memory allocation failed");
+        }
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toMultiHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QHttpHeaders `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn ToMultiHash(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_sliceu8 {
+        const _map: qtc.libqt_map = qtc.QHttpHeaders_ToMultiHash(@ptrCast(self));
+        var _ret: map_u8_sliceu8 = .empty;
+        defer {
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
+                const _value_list = _values[i];
+                const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value_list.data));
+                for (0.._value_list.len) |j| {
+                    qtc.libqt_free(_value_strings[j].data);
+                }
+                qtc.libqt_free(_value_list.data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qhttpheaders.ToMultiHash: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
+            const _value = _values[i];
+            const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
+            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("qhttpheaders.ToMultiHash: Memory allocation failed");
+            for (0.._value.len) |j| {
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("qhttpheaders.ToMultiHash: Memory allocation failed");
+                @memcpy(_vslice, _value_strings[j].data);
+                _value_slice[j] = _vslice;
+            }
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("qhttpheaders.ToMultiHash: Memory allocation failed");
+        }
         return _ret;
     }
 

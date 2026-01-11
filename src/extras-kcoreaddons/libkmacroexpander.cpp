@@ -496,7 +496,7 @@ libqt_string KMacroExpander_ExpandMacrosShellQuote2(const libqt_string param1, c
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list  of libqt_string  */ param2, QChar* param3) {
+libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QHash<QChar, QList<QString>> param2_QHash;
     param2_QHash.reserve(param2.len);
@@ -523,7 +523,7 @@ libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list  of libqt_string  */ param2, QChar* param3) {
+libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QHash<QString, QList<QString>> param2_QHash;
     param2_QHash.reserve(param2.len);
@@ -551,7 +551,7 @@ libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list  of libqt_string  */ param2, QChar* param3) {
+libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QHash<QChar, QList<QString>> param2_QHash;
     param2_QHash.reserve(param2.len);
@@ -578,7 +578,7 @@ libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, c
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list  of libqt_string  */ param2, QChar* param3) {
+libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QHash<QString, QList<QString>> param2_QHash;
     param2_QHash.reserve(param2.len);

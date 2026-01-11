@@ -407,7 +407,7 @@ void QXYSeries_SetPointConfiguration2(QXYSeries* self, const int index, const in
     self->setPointConfiguration(static_cast<const int>(index), static_cast<const QXYSeries::PointConfiguration>(key), *value);
 }
 
-void QXYSeries_SetPointsConfiguration(QXYSeries* self, const libqt_map /* of int to libqt_map  of int to QVariant*  */ pointsConfiguration) {
+void QXYSeries_SetPointsConfiguration(QXYSeries* self, const libqt_map /* of int to libqt_map of int to QVariant* */ pointsConfiguration) {
     QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> pointsConfiguration_QHash;
     pointsConfiguration_QHash.reserve(pointsConfiguration.len);
     int* pointsConfiguration_karr = static_cast<int*>(pointsConfiguration.keys);
@@ -443,7 +443,7 @@ libqt_map /* of int to QVariant* */ QXYSeries_PointConfiguration(const QXYSeries
     return _out;
 }
 
-libqt_map /* of int to libqt_map  of int to QVariant*  */ QXYSeries_PointsConfiguration(const QXYSeries* self) {
+libqt_map /* of int to libqt_map of int to QVariant* */ QXYSeries_PointsConfiguration(const QXYSeries* self) {
     QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> _ret = self->pointsConfiguration();
     // Convert QHash<> from C++ memory to manually-managed C memory
     int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
@@ -817,7 +817,7 @@ void QXYSeries_Connect_BestFitLineColorChanged(QXYSeries* self, intptr_t slot) {
     });
 }
 
-void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of int to libqt_map  of int to QVariant*  */ configuration) {
+void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of int to libqt_map of int to QVariant* */ configuration) {
     QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> configuration_QHash;
     configuration_QHash.reserve(configuration.len);
     int* configuration_karr = static_cast<int*>(configuration.keys);
@@ -836,7 +836,7 @@ void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of
 }
 
 void QXYSeries_Connect_PointsConfigurationChanged(QXYSeries* self, intptr_t slot) {
-    void (*slotFunc)(QXYSeries*, libqt_map /* of int to libqt_map  of int to QVariant*  */) = reinterpret_cast<void (*)(QXYSeries*, libqt_map /* of int to libqt_map  of int to QVariant*  */)>(slot);
+    void (*slotFunc)(QXYSeries*, libqt_map /* of int to libqt_map of int to QVariant* */) = reinterpret_cast<void (*)(QXYSeries*, libqt_map /* of int to libqt_map of int to QVariant* */)>(slot);
     QXYSeries::connect(self, &QXYSeries::pointsConfigurationChanged, [self, slotFunc](const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration) {
         const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration_ret = configuration;
         // Convert QHash<> from C++ memory to manually-managed C memory
@@ -866,7 +866,7 @@ void QXYSeries_Connect_PointsConfigurationChanged(QXYSeries* self, intptr_t slot
         configuration_out.len = configuration_ret.size();
         configuration_out.keys = static_cast<void*>(configuration_karr);
         configuration_out.values = static_cast<void*>(configuration_varr);
-        libqt_map /* of int to libqt_map  of int to QVariant*  */ sigval1 = configuration_out;
+        libqt_map /* of int to libqt_map of int to QVariant* */ sigval1 = configuration_out;
         slotFunc(self, sigval1);
     });
 }

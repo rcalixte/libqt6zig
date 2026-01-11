@@ -6,9 +6,9 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qscatterseries_enums = enums;
 const qxyseries_enums = @import("libqxyseries.zig").enums;
 const std = @import("std");
-pub const map_i32_map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, map_i32_qtcqvariant);
-pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
-pub const struct_f64_f64 = extern struct { first: f64, second: f64 };
+const map_i32_map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, map_i32_qtcqvariant);
+const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const struct_f64_f64 = extern struct { first: f64, second: f64 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html)
 pub const qscatterseries = struct {
@@ -1411,7 +1411,7 @@ pub const qscatterseries = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` configuration: map_i32_qtcqvariant `
+    /// ` configuration: map_i32_qtcqvariant (key: qxyseries_enums.PointConfiguration) `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
@@ -1496,6 +1496,10 @@ pub const qscatterseries = struct {
     /// ` index: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` map_i32_qtcqvariant (key: qxyseries_enums.PointConfiguration) `
     ///
     pub fn PointConfiguration(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) map_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self), @intCast(index));
@@ -2271,9 +2275,9 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QScatterSeries, configuration: map_i32_map_i32_qtcqvariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QScatterSeries, configuration: qtc.libqt_map (map_i32_map_i32_qtcqvariant)) callconv(.c) void `
     ///
-    pub fn OnPointsConfigurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_i32_map_i32_qtcqvariant) callconv(.c) void) void {
+    pub fn OnPointsConfigurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsConfigurationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

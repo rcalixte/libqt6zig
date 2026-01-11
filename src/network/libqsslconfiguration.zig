@@ -5,7 +5,7 @@ const qsslcertificate_enums = @import("libqsslcertificate.zig").enums;
 const qsslconfiguration_enums = enums;
 const qsslsocket_enums = @import("libqsslsocket.zig").enums;
 const std = @import("std");
-pub const map_u8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_u8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html)
 pub const qsslconfiguration = struct {

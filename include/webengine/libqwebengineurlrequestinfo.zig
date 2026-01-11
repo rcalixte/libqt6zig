@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qwebengineurlrequestinfo_enums = enums;
 const std = @import("std");
-pub const map_u8_u8 = std.StringHashMapUnmanaged([]u8);
+const map_u8_u8 = std.StringHashMapUnmanaged([]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html)
 pub const qwebengineurlrequestinfo = struct {

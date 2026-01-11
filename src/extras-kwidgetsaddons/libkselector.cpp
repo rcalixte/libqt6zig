@@ -1933,7 +1933,7 @@ int KGradientSelector_Metacall(KGradientSelector* self, int param1, int param2, 
     }
 }
 
-void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of libqt_pair  tuple of double and QColor*  */ stops) {
+void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of libqt_pair tuple of double and QColor* */ stops) {
     QList<QPair<double, QColor>> stops_QList;
     stops_QList.reserve(stops.len);
     libqt_pair /* tuple of double and QColor* */* stops_arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(stops.data);
@@ -1948,7 +1948,7 @@ void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of 
     self->setStops(stops_QList);
 }
 
-libqt_list /* of libqt_pair  tuple of double and QColor*  */ KGradientSelector_Stops(const KGradientSelector* self) {
+libqt_list /* of libqt_pair tuple of double and QColor* */ KGradientSelector_Stops(const KGradientSelector* self) {
     QList<QPair<double, QColor>> _ret = self->stops();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and QColor* */* _arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(malloc(sizeof(libqt_pair /* tuple of double and QColor* */) * (_ret.size() + 1)));

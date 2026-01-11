@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/attica-project.html)
 pub const attica__project = struct {

@@ -5,7 +5,7 @@ const jobuidelegateextension_enums = @import("libjobuidelegateextension.zig").en
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html)
 pub const kio__askuseractioninterface = struct {

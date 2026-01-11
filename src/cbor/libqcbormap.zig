@@ -1,8 +1,8 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
-pub const struct_qtcqcborvalue_qtcqcborvalue = extern struct { first: QtC.QCborValue, second: QtC.QCborValue };
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const struct_qtcqcborvalue_qtcqcborvalue = extern struct { first: QtC.QCborValue, second: QtC.QCborValue };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html)
 pub const qcbormap = struct {

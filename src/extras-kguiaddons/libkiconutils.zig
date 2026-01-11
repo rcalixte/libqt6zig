@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const std = @import("std");
-pub const map_i32_qtcqicon = std.AutoHashMapUnmanaged(i32, QtC.QIcon);
+const map_i32_qtcqicon = std.AutoHashMapUnmanaged(i32, QtC.QIcon);
 
 /// ### [Upstream resources](https://api.kde.org/kiconutils.html)
 pub const kiconutils = struct {
@@ -26,7 +26,7 @@ pub const kiconutils = struct {
     ///
     /// ` param1: QtC.QIcon `
     ///
-    /// ` param2: map_i32_qtcqicon `
+    /// ` param2: map_i32_qtcqicon (key: qnamespace_enums.Corner) `
     ///
     /// ` allocator: std.mem.Allocator `
     ///

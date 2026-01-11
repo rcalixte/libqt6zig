@@ -2472,7 +2472,7 @@ void KLineEdit_OnGetDecodedMetricF(const KLineEdit* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KLineEdit_KeyBindingMap(const KLineEdit* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_KeyBindingMap(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vklineedit->keyBindingMap();
@@ -2528,7 +2528,7 @@ libqt_map /* of int to libqt_list  of QKeySequence*  */ KLineEdit_KeyBindingMap(
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KLineEdit_QBaseKeyBindingMap(const KLineEdit* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_QBaseKeyBindingMap(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_KeyBindingMap_IsBase(true);
@@ -2593,7 +2593,7 @@ void KLineEdit_OnKeyBindingMap(const KLineEdit* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2615,7 +2615,7 @@ void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_li
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KLineEdit_QBaseSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);

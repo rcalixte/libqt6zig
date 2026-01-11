@@ -51,7 +51,7 @@ QVariant* QNetworkReply_Header(const QNetworkReply* self, int header);
 bool QNetworkReply_HasRawHeader(const QNetworkReply* self, libqt_string headerName);
 libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply* self);
 libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, libqt_string headerName);
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkReply_RawHeaderPairs(const QNetworkReply* self);
+libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QNetworkReply_RawHeaderPairs(const QNetworkReply* self);
 QHttpHeaders* QNetworkReply_Headers(const QNetworkReply* self);
 QVariant* QNetworkReply_Attribute(const QNetworkReply* self, int code);
 QSslConfiguration* QNetworkReply_SslConfiguration(const QNetworkReply* self);

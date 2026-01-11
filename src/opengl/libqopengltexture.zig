@@ -1,8 +1,8 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qopengltexture_enums = enums;
-pub const struct_f32_f32 = extern struct { first: f32, second: f32 };
-pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
+const struct_f32_f32 = extern struct { first: f32, second: f32 };
+const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html)
 pub const qopengltexture = struct {
@@ -1107,6 +1107,10 @@ pub const qopengltexture = struct {
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QOpenGLTexture `
+    ///
+    /// ## Returns:
+    ///
+    /// ` struct_i32_i32 (first: qopengltexture_enums.Filter) (second: qopengltexture_enums.Filter) `
     ///
     pub fn MinMagFilters(self: ?*anyopaque) struct_i32_i32 {
         const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_MinMagFilters(@ptrCast(self));

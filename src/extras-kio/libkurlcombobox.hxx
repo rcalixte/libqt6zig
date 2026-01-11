@@ -88,8 +88,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     using KUrlComboBox_Receivers_Callback = int (*)(const KUrlComboBox*, const char*);
     using KUrlComboBox_IsSignalConnected_Callback = bool (*)(const KUrlComboBox*, QMetaMethod*);
     using KUrlComboBox_GetDecodedMetricF_Callback = double (*)(const KUrlComboBox*, int, int);
-    using KUrlComboBox_KeyBindingMap_Callback = libqt_map /* of int to libqt_list  of QKeySequence*  */ (*)();
-    using KUrlComboBox_SetKeyBindingMap_Callback = void (*)(KUrlComboBox*, libqt_map /* of int to libqt_list  of QKeySequence*  */);
+    using KUrlComboBox_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
+    using KUrlComboBox_SetKeyBindingMap_Callback = void (*)(KUrlComboBox*, libqt_map /* of int to libqt_list of QKeySequence* */);
     using KUrlComboBox_SetDelegate_Callback = void (*)(KUrlComboBox*, KCompletionBase*);
     using KUrlComboBox_Delegate_Callback = KCompletionBase* (*)();
 
@@ -1533,7 +1533,7 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             kurlcombobox_keybindingmap_isbase = false;
             return KUrlComboBox::keyBindingMap();
         } else if (kurlcombobox_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ callback_ret = kurlcombobox_keybindingmap_callback();
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = kurlcombobox_keybindingmap_callback();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1581,7 +1581,7 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             keyBindingMap_out.len = keyBindingMap_ret.size();
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ cbval1 = keyBindingMap_out;
+            libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
             kurlcombobox_setkeybindingmap_callback(this, cbval1);
         } else {
@@ -1717,10 +1717,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     friend bool KUrlComboBox_QBaseIsSignalConnected(const KUrlComboBox* self, const QMetaMethod* signal);
     friend double KUrlComboBox_GetDecodedMetricF(const KUrlComboBox* self, int metricA, int metricB);
     friend double KUrlComboBox_QBaseGetDecodedMetricF(const KUrlComboBox* self, int metricA, int metricB);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KUrlComboBox_KeyBindingMap(const KUrlComboBox* self);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KUrlComboBox_QBaseKeyBindingMap(const KUrlComboBox* self);
-    friend void KUrlComboBox_SetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
-    friend void KUrlComboBox_QBaseSetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_KeyBindingMap(const KUrlComboBox* self);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_QBaseKeyBindingMap(const KUrlComboBox* self);
+    friend void KUrlComboBox_SetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
+    friend void KUrlComboBox_QBaseSetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
     friend void KUrlComboBox_SetDelegate(KUrlComboBox* self, KCompletionBase* delegate);
     friend void KUrlComboBox_QBaseSetDelegate(KUrlComboBox* self, KCompletionBase* delegate);
     friend KCompletionBase* KUrlComboBox_Delegate(const KUrlComboBox* self);

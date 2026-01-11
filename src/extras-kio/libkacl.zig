@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-pub const struct_constu8_u16 = extern struct { first: []const u8, second: u16 };
+const struct_constu8_u16 = struct { first: []const u8, second: u16 };
 
 /// ### [Upstream resources](https://api.kde.org/kacl.html)
 pub const kacl = struct {

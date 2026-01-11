@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
 pub const signon__identity = struct {

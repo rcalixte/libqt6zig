@@ -3,6 +3,7 @@
 #include <QMap>
 #include <QMetaMethod>
 #include <QMetaObject>
+#include <QMultiMap>
 #include <QObject>
 #include <QString>
 #include <QByteArray>
@@ -88,6 +89,22 @@ void QWebEngineUrlRequestJob_Fail(QWebEngineUrlRequestJob* self, int errorVal) {
 
 void QWebEngineUrlRequestJob_Redirect(QWebEngineUrlRequestJob* self, const QUrl* url) {
     self->redirect(*url);
+}
+
+void QWebEngineUrlRequestJob_SetAdditionalResponseHeaders(const QWebEngineUrlRequestJob* self, const libqt_map /* of libqt_string to libqt_list of libqt_string */ additionalResponseHeaders) {
+    QMultiMap<QByteArray, QByteArray> additionalResponseHeaders_QMultiMap;
+    libqt_string* additionalResponseHeaders_karr = static_cast<libqt_string*>(additionalResponseHeaders.keys);
+    libqt_list* /* of libqt_string */ additionalResponseHeaders_varr = static_cast<libqt_list*>(additionalResponseHeaders.values);
+    for (size_t i = 0; i < additionalResponseHeaders.len; ++i) {
+        QByteArray additionalResponseHeaders_karr_i_QByteArray(additionalResponseHeaders_karr[i].data, additionalResponseHeaders_karr[i].len);
+        libqt_list additionalResponseHeaders_QMultiMap_list = additionalResponseHeaders_varr[i];
+        libqt_string* additionalResponseHeaders_varr_list = static_cast<libqt_string*>(additionalResponseHeaders_QMultiMap_list.data);
+        for (size_t j = 0; j < additionalResponseHeaders_QMultiMap_list.len; ++j) {
+            QByteArray additionalResponseHeaders_varr_i_QByteArray(additionalResponseHeaders_varr_list[j].data, additionalResponseHeaders_varr_list[j].len);
+            additionalResponseHeaders_QMultiMap.insert(additionalResponseHeaders_karr_i_QByteArray, additionalResponseHeaders_varr_i_QByteArray);
+        }
+    }
+    self->setAdditionalResponseHeaders(additionalResponseHeaders_QMultiMap);
 }
 
 void QWebEngineUrlRequestJob_Delete(QWebEngineUrlRequestJob* self) {

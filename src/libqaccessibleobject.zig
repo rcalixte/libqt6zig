@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const std = @import("std");
-pub const struct_qtcqaccessibleinterface_i64 = extern struct { first: QtC.QAccessibleInterface, second: i64 };
+const struct_qtcqaccessibleinterface_i64 = extern struct { first: QtC.QAccessibleInterface, second: i64 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html)
 pub const qaccessibleobject = struct {

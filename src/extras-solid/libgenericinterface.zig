@@ -4,8 +4,8 @@ const deviceinterface_enums = @import("libdeviceinterface.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_i32 = std.StringHashMapUnmanaged(i32);
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_i32 = std.StringHashMapUnmanaged(i32);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/solid-genericinterface.html)
 pub const solid__genericinterface = struct {
@@ -174,9 +174,9 @@ pub const solid__genericinterface = struct {
     ///
     /// ` self: QtC.Solid__GenericInterface `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, changes: map_constu8_i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, changes: qtc.libqt_map (map_constu8_i32)) callconv(.c) void `
     ///
-    pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_constu8_i32) callconv(.c) void) void {
+    pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
         qtc.Solid__GenericInterface_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

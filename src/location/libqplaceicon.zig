@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html)
 pub const qplaceicon = struct {

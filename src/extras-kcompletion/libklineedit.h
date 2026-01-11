@@ -324,12 +324,12 @@ bool KLineEdit_QBaseIsSignalConnected(const KLineEdit* self, const QMetaMethod* 
 double KLineEdit_GetDecodedMetricF(const KLineEdit* self, int metricA, int metricB);
 void KLineEdit_OnGetDecodedMetricF(const KLineEdit* self, intptr_t slot);
 double KLineEdit_QBaseGetDecodedMetricF(const KLineEdit* self, int metricA, int metricB);
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KLineEdit_KeyBindingMap(const KLineEdit* self);
+libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_KeyBindingMap(const KLineEdit* self);
 void KLineEdit_OnKeyBindingMap(const KLineEdit* self, intptr_t slot);
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KLineEdit_QBaseKeyBindingMap(const KLineEdit* self);
-void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_QBaseKeyBindingMap(const KLineEdit* self);
+void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
 void KLineEdit_OnSetKeyBindingMap(KLineEdit* self, intptr_t slot);
-void KLineEdit_QBaseSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+void KLineEdit_QBaseSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
 void KLineEdit_SetDelegate(KLineEdit* self, KCompletionBase* delegate);
 void KLineEdit_OnSetDelegate(KLineEdit* self, intptr_t slot);
 void KLineEdit_QBaseSetDelegate(KLineEdit* self, KCompletionBase* delegate);

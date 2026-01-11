@@ -10,7 +10,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-pub const map_i32_qtcqkeysequence = std.AutoHashMapUnmanaged(i32, []QtC.QKeySequence);
+const map_i32_sliceqtcqkeysequence = std.AutoHashMapUnmanaged(i32, []QtC.QKeySequence);
 
 /// ### [Upstream resources](https://api.kde.org/kcombobox.html)
 pub const kcombobox = struct {
@@ -10033,9 +10033,13 @@ pub const kcombobox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqkeysequence {
+    /// ## Returns:
+    ///
+    /// ` map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
+    ///
+    pub fn KeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceqtcqkeysequence {
         const _map: qtc.libqt_map = qtc.KComboBox_KeyBindingMap(@ptrCast(self));
-        var _ret: map_i32_qtcqkeysequence = .empty;
+        var _ret: map_i32_sliceqtcqkeysequence = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -10060,6 +10064,67 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
+    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KComboBox `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
+    ///
+    pub fn QBaseKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceqtcqkeysequence {
+        const _map: qtc.libqt_map = qtc.KComboBox_QBaseKeyBindingMap(@ptrCast(self));
+        var _ret: map_i32_sliceqtcqkeysequence = .empty;
+        defer {
+            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_values[i].data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
+            const _value_slice = allocator.alloc(QtC.QKeySequence, _value.len) catch @panic("kcombobox.KeyBindingMap: Memory allocation failed");
+            const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
+            @memcpy(_value_slice, _value_data);
+            _ret.put(allocator, _key, _value_slice) catch @panic("kcombobox.KeyBindingMap: Memory allocation failed");
+        }
+        return _ret;
+    }
+
+    /// Inherited from KCompletionBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KComboBox`
+    ///
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    ///
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of map_i32_sliceqtcqkeysequence `
+    ///
+    pub fn OnKeyBindingMap(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KComboBox_OnKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from KCompletionBase
+    ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -10068,11 +10133,11 @@ pub const kcombobox = struct {
     ///
     /// ` self: QtC.KComboBox `
     ///
-    /// ` keyBindingMap: map_i32_qtcqkeysequence `
+    /// ` keyBindingMap: map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator) void {
+    pub fn SetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
         const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("kcombobox.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
         const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap.count()) catch @panic("kcombobox.SetKeyBindingMap: Memory allocation failed");
@@ -10085,7 +10150,7 @@ pub const kcombobox = struct {
             const value = entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
-                .data = @ptrCast(value),
+                .data = @ptrCast(value.ptr),
             };
         }
         const keyBindingMap_map = qtc.libqt_map{
@@ -10094,6 +10159,60 @@ pub const kcombobox = struct {
             .values = @ptrCast(keyBindingMap_values.ptr),
         };
         qtc.KComboBox_SetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
+    }
+
+    /// Inherited from KCompletionBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KComboBox `
+    ///
+    /// ` keyBindingMap: map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("kcombobox.SetKeyBindingMap: Memory allocation failed");
+        defer allocator.free(keyBindingMap_keys);
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap.count()) catch @panic("kcombobox.SetKeyBindingMap: Memory allocation failed");
+        defer allocator.free(keyBindingMap_values);
+        var i: usize = 0;
+        var keyBindingMap_it = keyBindingMap.iterator();
+        while (keyBindingMap_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            keyBindingMap_keys[i] = @intCast(key);
+            const value = entry.value_ptr.*;
+            keyBindingMap_values[i] = qtc.libqt_list{
+                .len = value.len,
+                .data = @ptrCast(value.ptr),
+            };
+        }
+        const keyBindingMap_map = qtc.libqt_map{
+            .len = keyBindingMap.count(),
+            .keys = @ptrCast(keyBindingMap_keys.ptr),
+            .values = @ptrCast(keyBindingMap_values.ptr),
+        };
+        qtc.KComboBox_QBaseSetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
+    }
+
+    /// Inherited from KCompletionBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KComboBox`
+    ///
+    /// ` callback: *const fn (self: QtC.KComboBox, keyBindingMap: qtc.libqt_map (map_i32_sliceqtcqkeysequence)) callconv(.c) void `
+    ///
+    pub fn OnSetKeyBindingMap(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
+        qtc.KComboBox_OnSetKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase

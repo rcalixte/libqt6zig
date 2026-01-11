@@ -226,6 +226,10 @@ pub const solid__predicate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
+    /// ## Returns:
+    ///
+    /// ` set_i32 of deviceinterface_enums.Type `
+    ///
     pub fn UsedTypes(self: ?*anyopaque, allocator: std.mem.Allocator) set_i32 {
         const _set: qtc.libqt_list = qtc.Solid__Predicate_UsedTypes(@ptrCast(self));
         var _ret: set_i32 = .empty;

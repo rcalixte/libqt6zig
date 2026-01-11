@@ -8,7 +8,7 @@ const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
-pub const map_qtcqdate_qtcqtextcharformat = std.AutoHashMapUnmanaged(QtC.QDate, QtC.QTextCharFormat);
+const map_qtcqdate_qtcqtextcharformat = std.AutoHashMapUnmanaged(QtC.QDate, QtC.QTextCharFormat);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html)
 pub const qcalendarwidget = struct {

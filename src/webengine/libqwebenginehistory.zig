@@ -4,8 +4,8 @@ const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
-pub const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html)
 pub const qwebenginehistoryitem = struct {

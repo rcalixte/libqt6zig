@@ -2207,7 +2207,7 @@ void KFileFilterCombo_OnGetDecodedMetricF(const KFileFilterCombo* self, intptr_t
 }
 
 // Derived class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KFileFilterCombo_KeyBindingMap(const KFileFilterCombo* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_KeyBindingMap(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vkfilefiltercombo->keyBindingMap();
@@ -2263,7 +2263,7 @@ libqt_map /* of int to libqt_list  of QKeySequence*  */ KFileFilterCombo_KeyBind
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KFileFilterCombo_QBaseKeyBindingMap(const KFileFilterCombo* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_QBaseKeyBindingMap(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_KeyBindingMap_IsBase(true);
@@ -2328,7 +2328,7 @@ void KFileFilterCombo_OnKeyBindingMap(const KFileFilterCombo* self, intptr_t slo
 }
 
 // Derived class handler implementation
-void KFileFilterCombo_SetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KFileFilterCombo_SetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2350,7 +2350,7 @@ void KFileFilterCombo_SetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of i
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KFileFilterCombo_QBaseSetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);

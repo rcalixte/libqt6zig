@@ -90,8 +90,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     using KHistoryComboBox_Receivers_Callback = int (*)(const KHistoryComboBox*, const char*);
     using KHistoryComboBox_IsSignalConnected_Callback = bool (*)(const KHistoryComboBox*, QMetaMethod*);
     using KHistoryComboBox_GetDecodedMetricF_Callback = double (*)(const KHistoryComboBox*, int, int);
-    using KHistoryComboBox_KeyBindingMap_Callback = libqt_map /* of int to libqt_list  of QKeySequence*  */ (*)();
-    using KHistoryComboBox_SetKeyBindingMap_Callback = void (*)(KHistoryComboBox*, libqt_map /* of int to libqt_list  of QKeySequence*  */);
+    using KHistoryComboBox_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
+    using KHistoryComboBox_SetKeyBindingMap_Callback = void (*)(KHistoryComboBox*, libqt_map /* of int to libqt_list of QKeySequence* */);
     using KHistoryComboBox_SetDelegate_Callback = void (*)(KHistoryComboBox*, KCompletionBase*);
     using KHistoryComboBox_Delegate_Callback = KCompletionBase* (*)();
 
@@ -1589,7 +1589,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             khistorycombobox_keybindingmap_isbase = false;
             return KHistoryComboBox::keyBindingMap();
         } else if (khistorycombobox_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ callback_ret = khistorycombobox_keybindingmap_callback();
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = khistorycombobox_keybindingmap_callback();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1637,7 +1637,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             keyBindingMap_out.len = keyBindingMap_ret.size();
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ cbval1 = keyBindingMap_out;
+            libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
             khistorycombobox_setkeybindingmap_callback(this, cbval1);
         } else {
@@ -1777,10 +1777,10 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     friend bool KHistoryComboBox_QBaseIsSignalConnected(const KHistoryComboBox* self, const QMetaMethod* signal);
     friend double KHistoryComboBox_GetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB);
     friend double KHistoryComboBox_QBaseGetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KHistoryComboBox_QBaseKeyBindingMap(const KHistoryComboBox* self);
-    friend void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
-    friend void KHistoryComboBox_QBaseSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_QBaseKeyBindingMap(const KHistoryComboBox* self);
+    friend void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
+    friend void KHistoryComboBox_QBaseSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
     friend void KHistoryComboBox_SetDelegate(KHistoryComboBox* self, KCompletionBase* delegate);
     friend void KHistoryComboBox_QBaseSetDelegate(KHistoryComboBox* self, KCompletionBase* delegate);
     friend KCompletionBase* KHistoryComboBox_Delegate(const KHistoryComboBox* self);

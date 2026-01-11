@@ -66,7 +66,7 @@ int QAccessibleWidget_IndexOfChild(const QAccessibleWidget* self, const QAccessi
     }
 }
 
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleWidget_Relations(const QAccessibleWidget* self, int match) {
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleWidget_Relations(const QAccessibleWidget* self, int match) {
     auto* vqaccessiblewidget = dynamic_cast<const VirtualQAccessibleWidget*>(self);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = self->relations(static_cast<QAccessible::Relation>(match));
@@ -391,7 +391,7 @@ void QAccessibleWidget_OnIndexOfChild(const QAccessibleWidget* self, intptr_t sl
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleWidget_QBaseRelations(const QAccessibleWidget* self, int match) {
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleWidget_QBaseRelations(const QAccessibleWidget* self, int match) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Relations_IsBase(true);

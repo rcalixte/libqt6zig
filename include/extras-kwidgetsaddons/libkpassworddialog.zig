@@ -9,7 +9,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kpassworddialog.html)
 pub const kpassworddialog = struct {
@@ -378,7 +378,7 @@ pub const kpassworddialog = struct {
     pub fn SetKnownLogins(self: ?*anyopaque, knownLogins: map_constu8_constu8, allocator: std.mem.Allocator) void {
         const knownLogins_keys = allocator.alloc(qtc.libqt_string, knownLogins.count()) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
         defer allocator.free(knownLogins_keys);
-        const knownLogins_values = allocator.alloc([]const u8, knownLogins.count()) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
+        const knownLogins_values = allocator.alloc(qtc.libqt_string, knownLogins.count()) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
         defer allocator.free(knownLogins_values);
         var i: usize = 0;
         var knownLogins_it = knownLogins.iterator();
@@ -388,7 +388,11 @@ pub const kpassworddialog = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            knownLogins_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            knownLogins_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const knownLogins_map = qtc.libqt_map{
             .len = knownLogins.count(),

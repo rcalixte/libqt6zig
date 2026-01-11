@@ -23,8 +23,8 @@ class VirtualKCompletionBase : public KCompletionBase {
     using KCompletionBase_SetCompletedText_Callback = void (*)(KCompletionBase*, libqt_string);
     using KCompletionBase_SetCompletedItems_Callback = void (*)(KCompletionBase*, libqt_list /* of libqt_string */, bool);
     using KCompletionBase_VirtualHook_Callback = void (*)(KCompletionBase*, int, void*);
-    using KCompletionBase_KeyBindingMap_Callback = libqt_map /* of int to libqt_list  of QKeySequence*  */ (*)();
-    using KCompletionBase_SetKeyBindingMap_Callback = void (*)(KCompletionBase*, libqt_map /* of int to libqt_list  of QKeySequence*  */);
+    using KCompletionBase_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
+    using KCompletionBase_SetKeyBindingMap_Callback = void (*)(KCompletionBase*, libqt_map /* of int to libqt_list of QKeySequence* */);
     using KCompletionBase_SetDelegate_Callback = void (*)(KCompletionBase*, KCompletionBase*);
     using KCompletionBase_Delegate_Callback = KCompletionBase* (*)();
 
@@ -201,7 +201,7 @@ class VirtualKCompletionBase : public KCompletionBase {
             kcompletionbase_keybindingmap_isbase = false;
             return KCompletionBase::keyBindingMap();
         } else if (kcompletionbase_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ callback_ret = kcompletionbase_keybindingmap_callback();
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = kcompletionbase_keybindingmap_callback();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -249,7 +249,7 @@ class VirtualKCompletionBase : public KCompletionBase {
             keyBindingMap_out.len = keyBindingMap_ret.size();
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ cbval1 = keyBindingMap_out;
+            libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
             kcompletionbase_setkeybindingmap_callback(this, cbval1);
         } else {
@@ -287,10 +287,10 @@ class VirtualKCompletionBase : public KCompletionBase {
     // Friend functions
     friend void KCompletionBase_VirtualHook(KCompletionBase* self, int id, void* data);
     friend void KCompletionBase_QBaseVirtualHook(KCompletionBase* self, int id, void* data);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KCompletionBase_KeyBindingMap(const KCompletionBase* self);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KCompletionBase_QBaseKeyBindingMap(const KCompletionBase* self);
-    friend void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
-    friend void KCompletionBase_QBaseSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_KeyBindingMap(const KCompletionBase* self);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_QBaseKeyBindingMap(const KCompletionBase* self);
+    friend void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
+    friend void KCompletionBase_QBaseSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
     friend void KCompletionBase_SetDelegate(KCompletionBase* self, KCompletionBase* delegate);
     friend void KCompletionBase_QBaseSetDelegate(KCompletionBase* self, KCompletionBase* delegate);
     friend KCompletionBase* KCompletionBase_Delegate(const KCompletionBase* self);

@@ -24,7 +24,7 @@ libqt_string KCharsets_ToEntity(const QChar* ch);
 libqt_string KCharsets_ResolveEntities(const libqt_string text);
 libqt_list /* of libqt_string */ KCharsets_AvailableEncodingNames(const KCharsets* self);
 libqt_list /* of libqt_string */ KCharsets_DescriptiveEncodingNames(const KCharsets* self);
-libqt_list /* of libqt_list  of libqt_string  */ KCharsets_EncodingsByScript(const KCharsets* self);
+libqt_list /* of libqt_list of libqt_string */ KCharsets_EncodingsByScript(const KCharsets* self);
 libqt_string KCharsets_EncodingForName(const KCharsets* self, const libqt_string descriptiveName);
 void KCharsets_Delete(KCharsets* self);
 

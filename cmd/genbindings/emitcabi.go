@@ -13,7 +13,7 @@ import (
 func cppComment(s string) string {
 	// Remove nested comments
 	uncomment := strings.NewReplacer("/*", "", "*/", "")
-	return "/* " + uncomment.Replace(s) + " */"
+	return " /* " + strings.TrimSpace(strings.ReplaceAll(uncomment.Replace(s), "  ", " ")) + " */"
 }
 
 func (p CppParameter) cParameterName() string {
@@ -53,16 +53,17 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 			}
 		}
 
-		return "libqt_list " + cppComment("of "+innerType)
+		return "libqt_list" + cppComment("of "+strings.TrimSpace(innerType))
 
 	} else if inner, ok := p.QSetOf(); ok {
-		return "libqt_list " + cppComment("set of "+inner.RenderTypeCabi(false))
+		return "libqt_list" + cppComment("set of "+strings.TrimSpace(inner.RenderTypeCabi(false)))
 
-	} else if inner1, inner2, _, ok := p.QMapOf(); ok {
-		return "libqt_map" + ifv(p.Pointer, "* ", " ") + cppComment("of "+inner1.RenderTypeCabi(false)+" to "+inner2.RenderTypeCabi(false))
+	} else if inner1, inner2, containerType, ok := p.QMapOf(); ok {
+		maybeQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", "libqt_list of ", "")
+		return "libqt_map" + ifv(p.Pointer, "*", "") + cppComment("of "+strings.TrimSpace(inner1.RenderTypeCabi(false))+" to "+maybeQMulti+strings.TrimSpace(inner2.RenderTypeCabi(false)))
 
 	} else if inner1, inner2, ok := p.QPairOf(); ok {
-		return "libqt_pair " + cppComment("tuple of "+inner1.RenderTypeCabi(false)+" and "+inner2.RenderTypeCabi(false))
+		return "libqt_pair" + cppComment("tuple of "+strings.TrimSpace(inner1.RenderTypeCabi(false))+" and "+strings.TrimSpace(inner2.RenderTypeCabi(false)))
 
 	} else if (p.Pointer || p.ByRef) && p.QtClassType() {
 		maybeSecondPointer := ifv(p.ByRef && p.Pointer, "*", "")
@@ -400,16 +401,24 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			maybePointer = "*"
 		}
 
+		isQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", true, false)
+
 		preamble += indent + p.GetQtCppType().ParameterType + maybePointer + " " + nameprefix + "_" + containerType + ";\n"
 
-		// This container may be a QMap or a QHash
-		// QHash supports .reserve(), but QMap doesn't
-		if containerType == "QHash" {
+		// This container may be a Q*Map or a Q*Hash
+		// Q*Hash supports .reserve(), but Q*Map doesn't
+		if containerType == "QHash" || containerType == "QMultiHash" {
 			preamble += indent + nameprefix + "_" + containerType + ".reserve(" + p.ParameterName + ".len);\n"
 		}
 
 		preamble += indent + kType.RenderTypeCabi(false) + "* " + nameprefix + "_karr = static_cast<" + kType.RenderTypeCabi(false) + "*>(" + p.ParameterName + methodDeref + "keys);\n"
-		preamble += indent + vType.RenderTypeCabi(false) + "* " + nameprefix + "_varr = static_cast<" + vType.RenderTypeCabi(false) + "*>(" + p.ParameterName + methodDeref + "values);\n"
+
+		if isQMulti {
+			preamble += indent + "libqt_list* /* of " + vType.RenderTypeCabi(false) + " */ " + nameprefix + "_varr = static_cast<libqt_list*>(" + p.ParameterName + methodDeref + "values);\n"
+		} else {
+			preamble += indent + vType.RenderTypeCabi(false) + "* " + nameprefix + "_varr = static_cast<" + vType.RenderTypeCabi(false) + "*>(" + p.ParameterName + methodDeref + "values);\n"
+		}
+
 		preamble += indent + "for(size_t i = 0; i < " + p.ParameterName + methodDeref + "len; ++i) {\n"
 
 		kType.ParameterName = nameprefix + "_karr[i]"
@@ -418,9 +427,25 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 
 		vType.ParameterName = nameprefix + "_varr[i]"
 		addPreV, addFwdV := emitCABI2CppForwarding(vType, indent+"\t", currentClass, false)
-		preamble += addPreV
 
-		preamble += indent + "\t" + maybeDerefOpen + nameprefix + "_" + containerType + maybeDerefClose + "[" + addFwdK + "] = " + addFwdV + ";\n"
+		if isQMulti {
+			preamble += indent + "\tlibqt_list " + nameprefix + "_" + containerType + "_list = " + vType.ParameterName + ";\n"
+
+			if vType.ParameterType == "QByteArray" || vType.ParameterType == "QString" {
+				preamble += indent + "\t" + vType.RenderTypeCabi(false) + "* " + nameprefix + "_varr_list = static_cast<" + vType.RenderTypeCabi(false) + "*>(" + nameprefix + "_" + containerType + "_list.data);\n"
+			} else {
+				panic("UNHANDLED " + strings.ToUpper(containerType) + " VALUE TYPE: " + vType.ParameterType)
+			}
+
+			preamble += indent + "\tfor (size_t j = 0; j < " + nameprefix + "_" + containerType + "_list.len; ++j) {\n"
+			preamble += indent + "\t" + vType.ParameterType + " " + addFwdV + "(" + nameprefix + "_varr_list[j].data, " + nameprefix + "_varr_list[j].len);\n"
+			preamble += indent + "\t" + nameprefix + "_" + containerType + ".insert(" + addFwdK + ", " + addFwdV + ");\n"
+			preamble += indent + "\t}\n"
+
+		} else {
+			preamble += addPreV
+			preamble += indent + "\t" + maybeDerefOpen + nameprefix + "_" + containerType + maybeDerefClose + "[" + addFwdK + "] = " + addFwdV + ";\n"
+		}
 
 		preamble += indent + "}\n"
 		return preamble, nameprefix + "_" + containerType
@@ -562,7 +587,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 			afterCall += indent + "const char* " + namePrefix + "_str = static_cast<const char*>(malloc(" + namePrefix + "_b.length() + 1));\n"
 			afterCall += indent + "memcpy((void*)" + namePrefix + "_str, " + namePrefix + "_b.data(), " + namePrefix + "_b.length());\n"
-			afterCall += indent + "((char*)" + namePrefix + "_str)[" + namePrefix + "_b.length()] = '\\0';\n"
+			afterCall += indent + "((char*)" + namePrefix + "_str)[" + namePrefix + `_b.length()] = '\0'` + ";\n"
 			afterCall += indent + assignExpression + namePrefix + "_str;\n"
 
 			cleanupType = QStringFree
@@ -587,7 +612,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_b.length();\n"
 			afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc(" + namePrefix + "_str.len + 1));\n"
 			afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_b.data(), " + namePrefix + "_str.len);\n"
-			afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + "_str.len] = '\\0';\n"
+			afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + `_str.len] = '\0'` + ";\n"
 			afterCall += indent + assignExpression + namePrefix + "_str;\n"
 		}
 
@@ -606,7 +631,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_b.length();\n"
 		afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc(" + namePrefix + "_str.len + 1));\n"
 		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_b.data(), " + namePrefix + "_str.len);\n"
-		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + "_str.len] = '\\0';\n"
+		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + `_str.len] = '\0'` + ";\n"
 		afterCall += indent + assignExpression + namePrefix + "_str;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
 
@@ -623,7 +648,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_qb.length();\n"
 		afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc(" + namePrefix + "_str.len + 1));\n"
 		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_qb.data(), " + namePrefix + "_str.len);\n"
-		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + "_str.len] = '\\0';\n"
+		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + `_str.len] = '\0'` + ";\n"
 		afterCall += indent + assignExpression + namePrefix + "_str" + maybeField + ";\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
 
@@ -656,7 +681,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret[i]" + maybeMethod + ";\n"
 			afterCall += indent + "char* " + namePrefix + "_str = static_cast<char*>(malloc(" + namePrefix + "_b.length() + 1));\n"
 			afterCall += indent + "memcpy(" + namePrefix + "_str, " + namePrefix + "_b.data(), " + namePrefix + "_b.length());\n"
-			afterCall += indent + namePrefix + "_str[" + namePrefix + "_b.length()] = '\\0';\n"
+			afterCall += indent + namePrefix + "_str[" + namePrefix + `_b.length()] = '\0'` + ";\n"
 			afterCall += indent + namePrefix + "_arr[i] = " + namePrefix + "_str;\n"
 			afterCall += indent + "}\n"
 			afterCall += indent + "// Append sentinel null terminator to the list\n"
@@ -740,31 +765,84 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		// QMap<K,V>
 		kTypeC := kType.RenderTypeCabi(false)
 		vTypeC := vType.RenderTypeCabi(false)
+		vParamC := vTypeC
 
+		var cleanupType, valueCleanupType CleanupType
 		memberRef := ifv(p.Pointer, "->", ".")
 		maybePointer := ifv(p.Pointer, "*", "")
+		isQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", true, false)
+		mallocSize := namePrefix + "_ret" + memberRef + "size()"
 
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		afterCall += indent + "// Convert " + containerType + "<> from C++ memory to manually-managed C memory\n"
-		afterCall += indent + kTypeC + "* " + namePrefix + "_karr = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ") * " + namePrefix + "_ret" + memberRef + "size()));\n"
-		afterCall += indent + vTypeC + "* " + namePrefix + "_varr = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ") * " + namePrefix + "_ret" + memberRef + "size()));\n"
+		if isQMulti {
+			afterCall += indent + "auto " + namePrefix + "_uniqueKeys = " + namePrefix + "_ret" + memberRef + "uniqueKeys();\n"
+			afterCall += indent + "auto " + namePrefix + "_numUniqueKeys = " + namePrefix + "_uniqueKeys.size();\n"
+			mallocSize = namePrefix + "_numUniqueKeys"
+			vParamC = "libqt_list"
+		}
+		afterCall += indent + kTypeC + "* " + namePrefix + "_karr = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ") * " + mallocSize + "));\n"
+		afterCall += indent + vParamC + "* " + namePrefix + "_varr = static_cast<" + vParamC + "*>(malloc(sizeof(" + vParamC + ") * " + mallocSize + "));\n"
 
-		afterCall += indent + "int " + namePrefix + "_ctr = 0;\n"
-		afterCall += indent + "for (auto " + namePrefix + "_itr = " + namePrefix + "_ret" + memberRef + "keyValueBegin(); " + namePrefix + "_itr != " + namePrefix + "_ret" + memberRef + "keyValueEnd(); ++" + namePrefix + "_itr) {\n"
+		if isQMulti {
+			afterCall += "for (auto i = 0; i < " + namePrefix + "_numUniqueKeys; ++i) {\n"
+			afterCall += kType.ParameterType + " key = " + namePrefix + "_uniqueKeys[i];\n"
 
-		retExpr, cleanupType = emitAssignCppToCabi(indent+"\t"+namePrefix+"_karr["+namePrefix+"_ctr] = ", kType, namePrefix+"_itr->first")
-		afterCall += retExpr
+			if kType.ParameterType == "QByteArray" {
+				afterCall += namePrefix + "_karr[i].len = key.length();\n"
+				afterCall += namePrefix + "_karr[i].data = static_cast<" + kType.RenderTypeCabi(true) + ">(malloc(" + namePrefix + "_karr[i].len + 1));\n"
+				afterCall += "memcpy((void*)" + namePrefix + "_karr[i].data, key.data(), " + namePrefix + "_karr[i].len);\n"
+				afterCall += "((char*)" + namePrefix + "_karr[i].data)[" + namePrefix + `_karr[i].len] = '\0'` + ";\n"
+			} else if kType.IntType() {
+				afterCall += namePrefix + "_karr[i] = static_cast<" + kType.RenderTypeCabi(true) + ">(key);\n"
+			} else {
+				panic("UNHANDLED " + strings.ToUpper(containerType) + " KEY PARAMETER TYPE: " + kType.ParameterType)
+			}
 
-		valueCleanupType := NoFree
-		retExpr, valueCleanupType = emitAssignCppToCabi(indent+"\t"+namePrefix+"_varr["+namePrefix+"_ctr] = ", vType, namePrefix+"_itr->second")
-		afterCall += retExpr
-		afterCall += indent + "\t" + namePrefix + "_ctr++;\n"
+			afterCall += "QList<" + vType.ParameterType + "> values = " + namePrefix + "_ret" + memberRef + "values(key);\n"
+			afterCall += "size_t numValues = values.size();\n"
+			afterCall += vTypeC + "* " + namePrefix + "_array = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ") * numValues));\n"
+			afterCall += "for (size_t j = 0; j < numValues; ++j) {\n"
+
+			if vType.ParameterType == "QString" {
+				afterCall += "QByteArray " + namePrefix + "_qb = values[j].toUtf8();\n"
+				afterCall += namePrefix + "_array[j].len = " + namePrefix + "_qb.length();\n"
+				afterCall += namePrefix + "_array[j].data = static_cast<" + vType.RenderTypeCabi(true) + ">(malloc(" + namePrefix + "_array[j].len + 1));\n"
+				afterCall += "memcpy((void*)" + namePrefix + "_array[j].data, " + namePrefix + "_qb.data(), " + namePrefix + "_array[j].len);\n"
+				afterCall += "((char*)" + namePrefix + "_array[j].data)[" + namePrefix + `_array[j].len] = '\0'` + ";\n"
+			} else if vType.ParameterType == "QByteArray" {
+				afterCall += namePrefix + "_array[j].len = values[j].length();\n"
+				afterCall += namePrefix + "_array[j].data = static_cast<" + vType.RenderTypeCabi(true) + ">(malloc(" + namePrefix + "_array[j].len + 1));\n"
+				afterCall += "memcpy((void*)" + namePrefix + "_array[j].data, values[j].data(), " + namePrefix + "_array[j].len);\n"
+				afterCall += "((char*)" + namePrefix + "_array[j].data)[" + namePrefix + `_array[j].len] = '\0'` + ";\n"
+			} else if IsKnownClass(vType.ParameterType) {
+				afterCall += namePrefix + "_array[j] = new " + vType.ParameterType + "(values[j]);\n"
+			} else {
+				panic("UNHANDLED " + strings.ToUpper(containerType) + " VALUE PARAMETER TYPE: " + vType.ParameterType)
+			}
+
+			afterCall += "}\n"
+			afterCall += namePrefix + "_varr[i].len = numValues;\n"
+			afterCall += namePrefix + "_varr[i].data = static_cast<void*>(" + namePrefix + "_array);\n"
+
+		} else {
+			afterCall += indent + "int " + namePrefix + "_ctr = 0;\n"
+			afterCall += indent + "for (auto " + namePrefix + "_itr = " + namePrefix + "_ret" + memberRef + "keyValueBegin(); " + namePrefix + "_itr != " + namePrefix + "_ret" + memberRef + "keyValueEnd(); ++" + namePrefix + "_itr) {\n"
+
+			retExpr, cleanupType = emitAssignCppToCabi(indent+"\t"+namePrefix+"_karr["+namePrefix+"_ctr] = ", kType, namePrefix+"_itr->first")
+			afterCall += retExpr
+
+			valueCleanupType = NoFree
+			retExpr, valueCleanupType = emitAssignCppToCabi(indent+"\t"+namePrefix+"_varr["+namePrefix+"_ctr] = ", vType, namePrefix+"_itr->second")
+			afterCall += retExpr
+			afterCall += indent + "\t" + namePrefix + "_ctr++;\n"
+		}
 
 		afterCall += indent + "}\n"
 
 		afterCall += indent + "libqt_map" + maybePointer + " " + namePrefix + "_out;\n"
-		afterCall += indent + namePrefix + "_out" + memberRef + "len = " + namePrefix + "_ret" + memberRef + "size();\n"
+		afterCall += indent + namePrefix + "_out" + memberRef + "len = " + mallocSize + ";\n"
 		afterCall += indent + namePrefix + "_out" + memberRef + "keys = static_cast<void*>(" + namePrefix + "_karr);\n"
 		afterCall += indent + namePrefix + "_out" + memberRef + "values = static_cast<void*>(" + namePrefix + "_varr);\n"
 
@@ -1004,7 +1082,8 @@ func cabiPreventStructDeclaration(className string) bool {
 	}
 
 	switch className {
-	case "QList", "QString", "QSet", "QMap", "QHash", "QPair", "QVector", "QByteArray", "QSpan":
+	case "QList", "QString", "QSet", "QMap", "QMultiMap", "QHash", "QMultiHash",
+		"QPair", "QVector", "QByteArray", "QSpan":
 		return true // These types are reprojected
 	default:
 		return false

@@ -7,7 +7,7 @@ const qnetworkreply_enums = enums;
 const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
+const struct_u8_u8 = struct { first: []u8, second: []u8 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html)
 pub const qnetworkreply = struct {

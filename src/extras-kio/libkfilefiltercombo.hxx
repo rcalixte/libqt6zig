@@ -88,8 +88,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     using KFileFilterCombo_Receivers_Callback = int (*)(const KFileFilterCombo*, const char*);
     using KFileFilterCombo_IsSignalConnected_Callback = bool (*)(const KFileFilterCombo*, QMetaMethod*);
     using KFileFilterCombo_GetDecodedMetricF_Callback = double (*)(const KFileFilterCombo*, int, int);
-    using KFileFilterCombo_KeyBindingMap_Callback = libqt_map /* of int to libqt_list  of QKeySequence*  */ (*)();
-    using KFileFilterCombo_SetKeyBindingMap_Callback = void (*)(KFileFilterCombo*, libqt_map /* of int to libqt_list  of QKeySequence*  */);
+    using KFileFilterCombo_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
+    using KFileFilterCombo_SetKeyBindingMap_Callback = void (*)(KFileFilterCombo*, libqt_map /* of int to libqt_list of QKeySequence* */);
     using KFileFilterCombo_SetDelegate_Callback = void (*)(KFileFilterCombo*, KCompletionBase*);
     using KFileFilterCombo_Delegate_Callback = KCompletionBase* (*)();
 
@@ -1531,7 +1531,7 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             kfilefiltercombo_keybindingmap_isbase = false;
             return KFileFilterCombo::keyBindingMap();
         } else if (kfilefiltercombo_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ callback_ret = kfilefiltercombo_keybindingmap_callback();
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = kfilefiltercombo_keybindingmap_callback();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1579,7 +1579,7 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             keyBindingMap_out.len = keyBindingMap_ret.size();
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ cbval1 = keyBindingMap_out;
+            libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
             kfilefiltercombo_setkeybindingmap_callback(this, cbval1);
         } else {
@@ -1717,10 +1717,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     friend bool KFileFilterCombo_QBaseIsSignalConnected(const KFileFilterCombo* self, const QMetaMethod* signal);
     friend double KFileFilterCombo_GetDecodedMetricF(const KFileFilterCombo* self, int metricA, int metricB);
     friend double KFileFilterCombo_QBaseGetDecodedMetricF(const KFileFilterCombo* self, int metricA, int metricB);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KFileFilterCombo_KeyBindingMap(const KFileFilterCombo* self);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KFileFilterCombo_QBaseKeyBindingMap(const KFileFilterCombo* self);
-    friend void KFileFilterCombo_SetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
-    friend void KFileFilterCombo_QBaseSetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_KeyBindingMap(const KFileFilterCombo* self);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_QBaseKeyBindingMap(const KFileFilterCombo* self);
+    friend void KFileFilterCombo_SetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
+    friend void KFileFilterCombo_QBaseSetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
     friend void KFileFilterCombo_SetDelegate(KFileFilterCombo* self, KCompletionBase* delegate);
     friend void KFileFilterCombo_QBaseSetDelegate(KFileFilterCombo* self, KCompletionBase* delegate);
     friend KCompletionBase* KFileFilterCombo_Delegate(const KFileFilterCombo* self);

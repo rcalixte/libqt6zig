@@ -541,10 +541,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 			return err
 		}
 	}
-	if p.QMultiMapOf() {
-		return ErrTooComplex // e.g. Qt5 QNetwork qsslcertificate.h has a QMultiMap<QSsl::AlternativeNameEntryType, QString>
-	}
-
 	if !AllowClass(p.ParameterType) {
 		return ErrTooComplex // This whole class type has been blocked, not only as a parameter/return type
 	}

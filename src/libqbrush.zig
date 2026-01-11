@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qbrush_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
-pub const struct_f64_qtcqcolor = extern struct { first: f64, second: QtC.QColor };
+const struct_f64_qtcqcolor = extern struct { first: f64, second: QtC.QColor };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html)
 pub const qbrush = struct {

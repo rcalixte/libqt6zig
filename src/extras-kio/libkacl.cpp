@@ -91,7 +91,7 @@ bool KACL_SetNamedUserPermissions(KACL* self, const libqt_string name, uint16_t 
     return self->setNamedUserPermissions(name_QString, static_cast<unsigned short>(param2));
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and uint16_t  */ KACL_AllUserPermissions(const KACL* self) {
+libqt_list /* of libqt_pair tuple of libqt_string and uint16_t */ KACL_AllUserPermissions(const KACL* self) {
     QList<QPair<QString, unsigned short>> _ret = self->allUserPermissions();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and uint16_t */* _arr = static_cast<libqt_pair /* tuple of libqt_string and uint16_t */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and uint16_t */) * (_ret.size() + 1)));
@@ -131,7 +131,7 @@ bool KACL_SetNamedGroupPermissions(KACL* self, const libqt_string name, uint16_t
     return self->setNamedGroupPermissions(name_QString, static_cast<unsigned short>(param2));
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and uint16_t  */ KACL_AllGroupPermissions(const KACL* self) {
+libqt_list /* of libqt_pair tuple of libqt_string and uint16_t */ KACL_AllGroupPermissions(const KACL* self) {
     QList<QPair<QString, unsigned short>> _ret = self->allGroupPermissions();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and uint16_t */* _arr = static_cast<libqt_pair /* tuple of libqt_string and uint16_t */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and uint16_t */) * (_ret.size() + 1)));
