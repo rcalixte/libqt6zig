@@ -346,7 +346,7 @@ func gatherTypes(name string, dirs []string, allowHeader func(string) bool, clan
 
 var allHeaders = make(map[string]int)
 
-func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool, outDir string, headerList *[]string, zigIncs map[string]string, qtstructdefs map[string]struct{}) *FormatBatch {
+func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool, outDir string, headerList *[]string, zigIncs map[string]string, zigTotalTypes map[string]string, qtstructdefs map[string]struct{}) *FormatBatch {
 
 	packageName := filepath.Join("src", srcName)
 	includePath := filepath.Join("include", srcName)
@@ -515,12 +515,13 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 			panic(err)
 		}
 
-		zigSrc, zigInc, err := emitZig(parsed, headerName, packageName)
+		zigSrc, zigInc, zigTypes, err := emitZig(parsed, headerName, packageName)
 		if err != nil {
 			panic(err)
 		}
 
 		maps.Copy(zigIncs, zigInc)
+		maps.Copy(zigTotalTypes, zigTypes)
 
 		err = os.WriteFile(outputName+".zig", []byte(zigSrc), 0644)
 		if err != nil {
