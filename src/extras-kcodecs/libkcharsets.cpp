@@ -79,7 +79,7 @@ libqt_list /* of libqt_string */ KCharsets_DescriptiveEncodingNames(const KChars
     return _out;
 }
 
-libqt_list /* of libqt_list  of libqt_string  */ KCharsets_EncodingsByScript(const KCharsets* self) {
+libqt_list /* of libqt_list of libqt_string */ KCharsets_EncodingsByScript(const KCharsets* self) {
     QList<QList<QString>> _ret = self->encodingsByScript();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_list /* of libqt_string */* _arr = static_cast<libqt_list /* of libqt_string */*>(malloc(sizeof(libqt_list /* of libqt_string */) * (_ret.size() + 1)));

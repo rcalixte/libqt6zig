@@ -2290,7 +2290,7 @@ void KHistoryComboBox_OnGetDecodedMetricF(const KHistoryComboBox* self, intptr_t
 }
 
 // Derived class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vkhistorycombobox->keyBindingMap();
@@ -2346,7 +2346,7 @@ libqt_map /* of int to libqt_list  of QKeySequence*  */ KHistoryComboBox_KeyBind
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KHistoryComboBox_QBaseKeyBindingMap(const KHistoryComboBox* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_QBaseKeyBindingMap(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_KeyBindingMap_IsBase(true);
@@ -2411,7 +2411,7 @@ void KHistoryComboBox_OnKeyBindingMap(const KHistoryComboBox* self, intptr_t slo
 }
 
 // Derived class handler implementation
-void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2433,7 +2433,7 @@ void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of i
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KHistoryComboBox_QBaseSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);

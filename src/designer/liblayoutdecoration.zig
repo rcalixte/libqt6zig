@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const layoutdecoration_enums = enums;
 const std = @import("std");
-pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
+const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html)
 pub const qdesignerlayoutdecorationextension = struct {

@@ -23,7 +23,7 @@ class VirtualQAccessibleObject : public QAccessibleObject {
     using QAccessibleObject_SetText_Callback = void (*)(QAccessibleObject*, int, libqt_string);
     using QAccessibleObject_ChildAt_Callback = QAccessibleInterface* (*)(const QAccessibleObject*, int, int);
     using QAccessibleObject_Window_Callback = QWindow* (*)();
-    using QAccessibleObject_Relations_Callback = libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ (*)(const QAccessibleObject*, int);
+    using QAccessibleObject_Relations_Callback = libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ (*)(const QAccessibleObject*, int);
     using QAccessibleObject_FocusChild_Callback = QAccessibleInterface* (*)();
     using QAccessibleObject_Parent_Callback = QAccessibleInterface* (*)();
     using QAccessibleObject_Child_Callback = QAccessibleInterface* (*)(const QAccessibleObject*, int);
@@ -248,7 +248,7 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         } else if (qaccessibleobject_relations_callback != nullptr) {
             int cbval1 = static_cast<int>(match);
 
-            libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ callback_ret = qaccessibleobject_relations_callback(this, cbval1);
+            libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ callback_ret = qaccessibleobject_relations_callback(this, cbval1);
             QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_pair /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
@@ -435,7 +435,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
     using QAccessibleApplication_Rect_Callback = QRect* (*)();
     using QAccessibleApplication_SetText_Callback = void (*)(QAccessibleApplication*, int, libqt_string);
     using QAccessibleApplication_ChildAt_Callback = QAccessibleInterface* (*)(const QAccessibleApplication*, int, int);
-    using QAccessibleApplication_Relations_Callback = libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ (*)(const QAccessibleApplication*, int);
+    using QAccessibleApplication_Relations_Callback = libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ (*)(const QAccessibleApplication*, int);
     using QAccessibleApplication_ForegroundColor_Callback = QColor* (*)();
     using QAccessibleApplication_BackgroundColor_Callback = QColor* (*)();
     using QAccessibleApplication_VirtualHook_Callback = void (*)(QAccessibleApplication*, int, void*);
@@ -761,7 +761,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         } else if (qaccessibleapplication_relations_callback != nullptr) {
             int cbval1 = static_cast<int>(match);
 
-            libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ callback_ret = qaccessibleapplication_relations_callback(this, cbval1);
+            libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ callback_ret = qaccessibleapplication_relations_callback(this, cbval1);
             QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_pair /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);

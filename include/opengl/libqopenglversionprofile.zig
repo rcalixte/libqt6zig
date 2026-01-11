@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qsurfaceformat_enums = @import("../libqsurfaceformat.zig").enums;
-pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
+const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html)
 pub const qopenglversionprofile = struct {

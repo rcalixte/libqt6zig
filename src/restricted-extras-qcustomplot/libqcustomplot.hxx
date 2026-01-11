@@ -20632,7 +20632,7 @@ class VirtualQCPGraph final : public QCPGraph {
     using QCPGraph_DataToStepCenterLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
     using QCPGraph_DataToImpulseLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
     using QCPGraph_GetNonNanSegments_Callback = QCPDataRange** (*)(const QCPGraph*, libqt_list /* of QPointF* */, int);
-    using QCPGraph_GetOverlappingSegments_Callback = libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ (*)(const QCPGraph*, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */);
+    using QCPGraph_GetOverlappingSegments_Callback = libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ (*)(const QCPGraph*, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */);
     using QCPGraph_SegmentsIntersect_Callback = bool (*)(const QCPGraph*, double, double, double, double, int*);
     using QCPGraph_GetFillBasePoint_Callback = QPointF* (*)(const QCPGraph*, QPointF*);
     using QCPGraph_FindIndexBelowX_Callback = int (*)(const QCPGraph*, libqt_list /* of QPointF* */, double);
@@ -21874,7 +21874,7 @@ class VirtualQCPGraph final : public QCPGraph {
             otherData_out.data = static_cast<void*>(otherData_arr);
             libqt_list /* of QPointF* */ cbval4 = otherData_out;
 
-            libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ callback_ret = qcpgraph_getoverlappingsegments_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ callback_ret = qcpgraph_getoverlappingsegments_callback(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QPair<QCPDataRange, QCPDataRange>> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
             libqt_pair /* tuple of QCPDataRange* and QCPDataRange* */* callback_ret_arr = static_cast<libqt_pair /* tuple of QCPDataRange* and QCPDataRange* */*>(callback_ret.data);
@@ -22233,8 +22233,8 @@ class VirtualQCPGraph final : public QCPGraph {
     friend libqt_list /* of QPointF* */ QCPGraph_QBaseDataToImpulseLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data);
     friend libqt_list /* of QCPDataRange* */ QCPGraph_GetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation);
     friend libqt_list /* of QCPDataRange* */ QCPGraph_QBaseGetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation);
-    friend libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
-    friend libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
+    friend libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
+    friend libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
     friend bool QCPGraph_SegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence);
     friend bool QCPGraph_QBaseSegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence);
     friend QPointF* QCPGraph_GetFillBasePoint(const QCPGraph* self, QPointF* matchingDataPoint);

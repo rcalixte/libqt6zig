@@ -4,6 +4,7 @@ const qcryptographichash_enums = @import("../libqcryptographichash.zig").enums;
 const qssl_enums = @import("libqssl.zig").enums;
 const qsslcertificate_enums = enums;
 const std = @import("std");
+const map_i32_sliceconstu8 = std.AutoHashMapUnmanaged(i32, [][]const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html)
 pub const qsslcertificate = struct {
@@ -419,6 +420,52 @@ pub const qsslcertificate = struct {
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslcertificate.IssuerInfoAttributes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
+        }
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#subjectAlternativeNames)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSslCertificate `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ## Returns:
+    ///
+    /// ` map_i32_sliceconstu8 (key: qssl_enums.AlternativeNameEntryType) `
+    ///
+    pub fn SubjectAlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceconstu8 {
+        const _map: qtc.libqt_map = qtc.QSslCertificate_SubjectAlternativeNames(@ptrCast(self));
+        var _ret: map_i32_sliceconstu8 = .empty;
+        defer {
+            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                const _value_list = _values[i];
+                const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value_list.data));
+                for (0.._value_list.len) |j| {
+                    qtc.libqt_free(_value_strings[j].data);
+                }
+                qtc.libqt_free(_value_list.data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
+            const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
+            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("qsslcertificate.SubjectAlternativeNames: Memory allocation failed");
+            for (0.._value.len) |j| {
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("qsslcertificate.SubjectAlternativeNames: Memory allocation failed");
+                @memcpy(_vslice, _value_strings[j].data);
+                _value_slice[j] = _vslice;
+            }
+            _ret.put(allocator, _key, _value_slice) catch @panic("qsslcertificate.SubjectAlternativeNames: Memory allocation failed");
         }
         return _ret;
     }

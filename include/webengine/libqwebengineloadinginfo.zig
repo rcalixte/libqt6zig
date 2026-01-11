@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qwebengineloadinginfo_enums = enums;
 const std = @import("std");
+const map_u8_sliceu8 = std.StringHashMapUnmanaged([][]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html)
 pub const qwebengineloadinginfo = struct {
@@ -99,6 +100,52 @@ pub const qwebengineloadinginfo = struct {
     ///
     pub fn ErrorCode(self: ?*anyopaque) i32 {
         return qtc.QWebEngineLoadingInfo_ErrorCode(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#responseHeaders)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineLoadingInfo `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn ResponseHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_sliceu8 {
+        const _map: qtc.libqt_map = qtc.QWebEngineLoadingInfo_ResponseHeaders(@ptrCast(self));
+        var _ret: map_u8_sliceu8 = .empty;
+        defer {
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
+                const _value_list = _values[i];
+                const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value_list.data));
+                for (0.._value_list.len) |j| {
+                    qtc.libqt_free(_value_strings[j].data);
+                }
+                qtc.libqt_free(_value_list.data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+            @memcpy(_entry_slice, _key.data);
+            const _value = _values[i];
+            const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
+            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+            for (0.._value.len) |j| {
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+                @memcpy(_vslice, _value_strings[j].data);
+                _value_slice[j] = _vslice;
+            }
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+        }
+        return _ret;
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#dtor.QWebEngineLoadingInfo)

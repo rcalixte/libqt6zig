@@ -56,7 +56,7 @@ libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Defini
 libqt_string KSyntaxHighlighting__Definition_SingleLineCommentMarker(const KSyntaxHighlighting__Definition* self);
 int KSyntaxHighlighting__Definition_SingleLineCommentPosition(const KSyntaxHighlighting__Definition* self);
 libqt_pair /* tuple of libqt_string and libqt_string */ KSyntaxHighlighting__Definition_MultiLineCommentMarker(const KSyntaxHighlighting__Definition* self);
-libqt_list /* of libqt_pair  tuple of QChar* and libqt_string  */ KSyntaxHighlighting__Definition_CharacterEncodings(const KSyntaxHighlighting__Definition* self);
+libqt_list /* of libqt_pair tuple of QChar* and libqt_string */ KSyntaxHighlighting__Definition_CharacterEncodings(const KSyntaxHighlighting__Definition* self);
 void KSyntaxHighlighting__Definition_Delete(KSyntaxHighlighting__Definition* self);
 
 #ifdef __cplusplus

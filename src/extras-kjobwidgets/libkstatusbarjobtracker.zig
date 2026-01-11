@@ -5,7 +5,7 @@ const kstatusbarjobtracker_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
+const struct_constu8_constu8 = struct { first: []const u8, second: []const u8 };
 
 /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html)
 pub const kstatusbarjobtracker = struct {

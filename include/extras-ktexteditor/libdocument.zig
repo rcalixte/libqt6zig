@@ -7,8 +7,8 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const theme_enums = @import("../extras-ksyntaxhighlighting/libtheme.zig").enums;
+const map_i32_qtcktexteditormark = std.AutoHashMapUnmanaged(i32, QtC.KTextEditor__Mark);
 const set_constu8 = std.StringHashMapUnmanaged(void);
-pub const map_i32_qtcktexteditormark = std.AutoHashMapUnmanaged(i32, QtC.KTextEditor__Mark);
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html)
 pub const ktexteditor__mark = struct {

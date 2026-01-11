@@ -264,7 +264,7 @@ void KCompletionBase_OnVirtualHook(KCompletionBase* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KCompletionBase_KeyBindingMap(const KCompletionBase* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_KeyBindingMap(const KCompletionBase* self) {
     auto* vkcompletionbase = const_cast<VirtualKCompletionBase*>(dynamic_cast<const VirtualKCompletionBase*>(self));
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vkcompletionbase->keyBindingMap();
@@ -320,7 +320,7 @@ libqt_map /* of int to libqt_list  of QKeySequence*  */ KCompletionBase_KeyBindi
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KCompletionBase_QBaseKeyBindingMap(const KCompletionBase* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_QBaseKeyBindingMap(const KCompletionBase* self) {
     auto* vkcompletionbase = const_cast<VirtualKCompletionBase*>(dynamic_cast<const VirtualKCompletionBase*>(self));
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_KeyBindingMap_IsBase(true);
@@ -385,7 +385,7 @@ void KCompletionBase_OnKeyBindingMap(const KCompletionBase* self, intptr_t slot)
 }
 
 // Derived class handler implementation
-void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -407,7 +407,7 @@ void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap) {
+void KCompletionBase_QBaseSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);

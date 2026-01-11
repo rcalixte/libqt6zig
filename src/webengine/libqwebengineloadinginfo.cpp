@@ -1,3 +1,5 @@
+#include <QByteArray>
+#include <QMultiMap>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -45,6 +47,38 @@ int QWebEngineLoadingInfo_ErrorDomain(const QWebEngineLoadingInfo* self) {
 
 int QWebEngineLoadingInfo_ErrorCode(const QWebEngineLoadingInfo* self) {
     return self->errorCode();
+}
+
+libqt_map /* of libqt_string to libqt_list of libqt_string */ QWebEngineLoadingInfo_ResponseHeaders(const QWebEngineLoadingInfo* self) {
+    QMultiMap<QByteArray, QByteArray> _ret = self->responseHeaders();
+    // Convert QMultiMap<> from C++ memory to manually-managed C memory
+    auto _uniqueKeys = _ret.uniqueKeys();
+    auto _numUniqueKeys = _uniqueKeys.size();
+    libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _numUniqueKeys));
+    libqt_list* _varr = static_cast<libqt_list*>(malloc(sizeof(libqt_list) * _numUniqueKeys));
+    for (auto i = 0; i < _numUniqueKeys; ++i) {
+        QByteArray key = _uniqueKeys[i];
+        _karr[i].len = key.length();
+        _karr[i].data = static_cast<const char*>(malloc(_karr[i].len + 1));
+        memcpy((void*)_karr[i].data, key.data(), _karr[i].len);
+        ((char*)_karr[i].data)[_karr[i].len] = '\0';
+        QList<QByteArray> values = _ret.values(key);
+        size_t numValues = values.size();
+        libqt_string* _array = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * numValues));
+        for (size_t j = 0; j < numValues; ++j) {
+            _array[j].len = values[j].length();
+            _array[j].data = static_cast<const char*>(malloc(_array[j].len + 1));
+            memcpy((void*)_array[j].data, values[j].data(), _array[j].len);
+            ((char*)_array[j].data)[_array[j].len] = '\0';
+        }
+        _varr[i].len = numValues;
+        _varr[i].data = static_cast<void*>(_array);
+    }
+    libqt_map _out;
+    _out.len = _numUniqueKeys;
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 void QWebEngineLoadingInfo_Delete(QWebEngineLoadingInfo* self) {

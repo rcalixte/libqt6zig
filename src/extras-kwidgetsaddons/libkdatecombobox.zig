@@ -10,7 +10,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-pub const map_qtcqdate_constu8 = std.AutoHashMapUnmanaged(QtC.QDate, []const u8);
+const map_qtcqdate_constu8 = std.AutoHashMapUnmanaged(QtC.QDate, []const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html)
 pub const kdatecombobox = struct {
@@ -409,14 +409,18 @@ pub const kdatecombobox = struct {
     pub fn SetDateMap(self: ?*anyopaque, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator) void {
         const dateMap_keys = allocator.alloc(?*anyopaque, dateMap.count()) catch @panic("kdatecombobox.SetDateMap: Memory allocation failed");
         defer allocator.free(dateMap_keys);
-        const dateMap_values = allocator.alloc([]const u8, dateMap.count()) catch @panic("kdatecombobox.SetDateMap: Memory allocation failed");
+        const dateMap_values = allocator.alloc(qtc.libqt_string, dateMap.count()) catch @panic("kdatecombobox.SetDateMap: Memory allocation failed");
         defer allocator.free(dateMap_values);
         var i: usize = 0;
         var dateMap_it = dateMap.iterator();
         while (dateMap_it.next()) |entry| : (i += 1) {
             const key = entry.key_ptr.*;
             dateMap_keys[i] = @ptrCast(key);
-            dateMap_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            dateMap_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const dateMap_map = qtc.libqt_map{
             .len = dateMap.count(),

@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_u8 = std.StringHashMapUnmanaged([]u8);
+const map_constu8_u8 = std.StringHashMapUnmanaged([]u8);
 
 /// ### [Upstream resources](https://api.kde.org/kconfigdialogmanager.html)
 pub const kconfigdialogmanager = struct {

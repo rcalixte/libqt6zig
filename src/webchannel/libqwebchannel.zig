@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_qtcqobject = std.StringHashMapUnmanaged(QtC.QObject);
+const map_constu8_qtcqobject = std.StringHashMapUnmanaged(QtC.QObject);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html)
 pub const qwebchannel = struct {

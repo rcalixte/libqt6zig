@@ -89,8 +89,8 @@ class VirtualKComboBox final : public KComboBox {
     using KComboBox_Receivers_Callback = int (*)(const KComboBox*, const char*);
     using KComboBox_IsSignalConnected_Callback = bool (*)(const KComboBox*, QMetaMethod*);
     using KComboBox_GetDecodedMetricF_Callback = double (*)(const KComboBox*, int, int);
-    using KComboBox_KeyBindingMap_Callback = libqt_map /* of int to libqt_list  of QKeySequence*  */ (*)();
-    using KComboBox_SetKeyBindingMap_Callback = void (*)(KComboBox*, libqt_map /* of int to libqt_list  of QKeySequence*  */);
+    using KComboBox_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
+    using KComboBox_SetKeyBindingMap_Callback = void (*)(KComboBox*, libqt_map /* of int to libqt_list of QKeySequence* */);
     using KComboBox_SetDelegate_Callback = void (*)(KComboBox*, KCompletionBase*);
     using KComboBox_Delegate_Callback = KCompletionBase* (*)();
 
@@ -1562,7 +1562,7 @@ class VirtualKComboBox final : public KComboBox {
             kcombobox_keybindingmap_isbase = false;
             return KComboBox::keyBindingMap();
         } else if (kcombobox_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ callback_ret = kcombobox_keybindingmap_callback();
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = kcombobox_keybindingmap_callback();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1610,7 +1610,7 @@ class VirtualKComboBox final : public KComboBox {
             keyBindingMap_out.len = keyBindingMap_ret.size();
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ cbval1 = keyBindingMap_out;
+            libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
             kcombobox_setkeybindingmap_callback(this, cbval1);
         } else {
@@ -1748,10 +1748,10 @@ class VirtualKComboBox final : public KComboBox {
     friend bool KComboBox_QBaseIsSignalConnected(const KComboBox* self, const QMetaMethod* signal);
     friend double KComboBox_GetDecodedMetricF(const KComboBox* self, int metricA, int metricB);
     friend double KComboBox_QBaseGetDecodedMetricF(const KComboBox* self, int metricA, int metricB);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KComboBox_KeyBindingMap(const KComboBox* self);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KComboBox_QBaseKeyBindingMap(const KComboBox* self);
-    friend void KComboBox_SetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
-    friend void KComboBox_QBaseSetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KComboBox_KeyBindingMap(const KComboBox* self);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KComboBox_QBaseKeyBindingMap(const KComboBox* self);
+    friend void KComboBox_SetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
+    friend void KComboBox_QBaseSetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
     friend void KComboBox_SetDelegate(KComboBox* self, KCompletionBase* delegate);
     friend void KComboBox_QBaseSetDelegate(KComboBox* self, KCompletionBase* delegate);
     friend KCompletionBase* KComboBox_Delegate(const KComboBox* self);

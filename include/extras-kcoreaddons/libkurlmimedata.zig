@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const kurlmimedata_enums = enums;
 const std = @import("std");
-pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html)
 pub const kurlmimedata = struct {
@@ -51,7 +51,7 @@ pub const kurlmimedata = struct {
     pub fn SetMetaData(param1: map_constu8_constu8, param2: ?*anyopaque, allocator: std.mem.Allocator) void {
         const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
         defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc([]const u8, param1.count()) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
+        const param1_values = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
@@ -61,7 +61,11 @@ pub const kurlmimedata = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            param1_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            param1_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const param1_map = qtc.libqt_map{
             .len = param1.count(),
@@ -111,7 +115,7 @@ pub const kurlmimedata = struct {
     pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: *map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
         const param3_keys = allocator.alloc(qtc.libqt_string, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(param3_keys);
-        const param3_values = allocator.alloc([]const u8, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
+        const param3_values = allocator.alloc(qtc.libqt_string, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(param3_values);
         var i: usize = 0;
         var param3_it = param3.iterator();
@@ -121,7 +125,11 @@ pub const kurlmimedata = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            param3_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            param3_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         var param3_map = qtc.libqt_map{
             .len = param3.count(),

@@ -93,8 +93,8 @@ class VirtualKLineEdit final : public KLineEdit {
     using KLineEdit_Receivers_Callback = int (*)(const KLineEdit*, const char*);
     using KLineEdit_IsSignalConnected_Callback = bool (*)(const KLineEdit*, QMetaMethod*);
     using KLineEdit_GetDecodedMetricF_Callback = double (*)(const KLineEdit*, int, int);
-    using KLineEdit_KeyBindingMap_Callback = libqt_map /* of int to libqt_list  of QKeySequence*  */ (*)();
-    using KLineEdit_SetKeyBindingMap_Callback = void (*)(KLineEdit*, libqt_map /* of int to libqt_list  of QKeySequence*  */);
+    using KLineEdit_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
+    using KLineEdit_SetKeyBindingMap_Callback = void (*)(KLineEdit*, libqt_map /* of int to libqt_list of QKeySequence* */);
     using KLineEdit_SetDelegate_Callback = void (*)(KLineEdit*, KCompletionBase*);
     using KLineEdit_Delegate_Callback = KCompletionBase* (*)();
 
@@ -1658,7 +1658,7 @@ class VirtualKLineEdit final : public KLineEdit {
             klineedit_keybindingmap_isbase = false;
             return KLineEdit::keyBindingMap();
         } else if (klineedit_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ callback_ret = klineedit_keybindingmap_callback();
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = klineedit_keybindingmap_callback();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1706,7 +1706,7 @@ class VirtualKLineEdit final : public KLineEdit {
             keyBindingMap_out.len = keyBindingMap_ret.size();
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
-            libqt_map /* of int to libqt_list  of QKeySequence*  */ cbval1 = keyBindingMap_out;
+            libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
             klineedit_setkeybindingmap_callback(this, cbval1);
         } else {
@@ -1854,10 +1854,10 @@ class VirtualKLineEdit final : public KLineEdit {
     friend bool KLineEdit_QBaseIsSignalConnected(const KLineEdit* self, const QMetaMethod* signal);
     friend double KLineEdit_GetDecodedMetricF(const KLineEdit* self, int metricA, int metricB);
     friend double KLineEdit_QBaseGetDecodedMetricF(const KLineEdit* self, int metricA, int metricB);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KLineEdit_KeyBindingMap(const KLineEdit* self);
-    friend libqt_map /* of int to libqt_list  of QKeySequence*  */ KLineEdit_QBaseKeyBindingMap(const KLineEdit* self);
-    friend void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
-    friend void KLineEdit_QBaseSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_KeyBindingMap(const KLineEdit* self);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_QBaseKeyBindingMap(const KLineEdit* self);
+    friend void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
+    friend void KLineEdit_QBaseSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
     friend void KLineEdit_SetDelegate(KLineEdit* self, KCompletionBase* delegate);
     friend void KLineEdit_QBaseSetDelegate(KLineEdit* self, KCompletionBase* delegate);
     friend KCompletionBase* KLineEdit_Delegate(const KLineEdit* self);

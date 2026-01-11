@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qplacereply_enums = @import("libqplacereply.zig").enums;
 const std = @import("std");
-pub const map_i32_qtcqplacecontent = std.AutoHashMapUnmanaged(i32, QtC.QPlaceContent);
+const map_i32_qtcqplacecontent = std.AutoHashMapUnmanaged(i32, QtC.QPlaceContent);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html)
 pub const qplacecontentreply = struct {
@@ -242,6 +242,52 @@ pub const qplacecontentreply = struct {
             .values = @ptrCast(content_values.ptr),
         };
         qtc.QPlaceContentReply_SetContent(@ptrCast(self), content_map);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setContent)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPlaceContentReply `
+    ///
+    /// ` callback: *const fn (self: QtC.QPlaceContentReply, content: qtc.libqt_map (map_i32_qtcqplacecontent)) callconv(.c) void `
+    ///
+    pub fn OnSetContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
+        qtc.QPlaceContentReply_OnSetContent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setContent)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPlaceContentReply `
+    ///
+    /// ` content: map_i32_qtcqplacecontent `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseSetContent(self: ?*anyopaque, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
+        const content_keys = allocator.alloc(i32, content.count()) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        defer allocator.free(content_keys);
+        const content_values = allocator.alloc(QtC.QPlaceContent, content.count()) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        defer allocator.free(content_values);
+        var i: usize = 0;
+        var content_it = content.iterator();
+        while (content_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            content_keys[i] = @intCast(key);
+            content_values[i] = @ptrCast(entry.value_ptr.*);
+        }
+        const content_map = qtc.libqt_map{
+            .len = content.count(),
+            .keys = @ptrCast(content_keys.ptr),
+            .values = @ptrCast(content_values.ptr),
+        };
+        qtc.QPlaceContentReply_QBaseSetContent(@ptrCast(self), content_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setTotalCount)

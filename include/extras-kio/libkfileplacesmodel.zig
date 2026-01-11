@@ -6,8 +6,8 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const solidnamespace_enums = @import("../extras-solid/libsolidnamespace.zig").enums;
 const std = @import("std");
-pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
-pub const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html)
 pub const kfileplacesmodel = struct {
@@ -680,6 +680,58 @@ pub const kfileplacesmodel = struct {
     ///
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFilePlacesModel_RoleNames(@ptrCast(self));
+        var _ret: map_i32_u8 = .empty;
+        defer {
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_values[i].data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kfileplacesmodel.RoleNames: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _key, _value_slice) catch @panic("kfileplacesmodel.RoleNames: Memory allocation failed");
+        }
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#roleNames)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFilePlacesModel `
+    ///
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    ///
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of map_i32_u8 `
+    ///
+    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KFilePlacesModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#roleNames)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFilePlacesModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KFilePlacesModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -2816,6 +2868,58 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFilePlacesModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.libqt_map = qtc.KFilePlacesModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+        var _ret: map_i32_qtcqvariant = .empty;
+        defer {
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kfileplacesmodel.ItemData: Memory allocation failed");
+        }
+        return _ret;
+    }
+
+    /// Inherited from QAbstractItemModel
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFilePlacesModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    ///
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of map_i32_qtcqvariant `
+    ///
+    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
+        qtc.KFilePlacesModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QAbstractItemModel
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -2848,6 +2952,58 @@ pub const kfileplacesmodel = struct {
             .values = @ptrCast(roles_values.ptr),
         };
         return qtc.KFilePlacesModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+    }
+
+    /// Inherited from QAbstractItemModel
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFilePlacesModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` roles: map_i32_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("kfileplacesmodel.SetItemData: Memory allocation failed");
+        defer allocator.free(roles_keys);
+        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("kfileplacesmodel.SetItemData: Memory allocation failed");
+        defer allocator.free(roles_values);
+        var i: usize = 0;
+        var roles_it = roles.iterator();
+        while (roles_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = @ptrCast(entry.value_ptr.*);
+        }
+        const roles_map = qtc.libqt_map{
+            .len = roles.count(),
+            .keys = @ptrCast(roles_keys.ptr),
+            .values = @ptrCast(roles_values.ptr),
+        };
+        return qtc.KFilePlacesModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+    }
+
+    /// Inherited from QAbstractItemModel
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KFilePlacesModel`
+    ///
+    /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
+    ///
+    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.KFilePlacesModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel

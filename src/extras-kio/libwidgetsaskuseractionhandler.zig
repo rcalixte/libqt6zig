@@ -5,7 +5,7 @@ const jobuidelegateextension_enums = @import("libjobuidelegateextension.zig").en
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html)
 pub const kio__widgetsaskuseractionhandler = struct {
@@ -482,6 +482,57 @@ pub const kio__widgetsaskuseractionhandler = struct {
             .values = @ptrCast(sslErrorData_values.ptr),
         };
         qtc.KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(@ptrCast(self), sslErrorData_map, @ptrCast(parent));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, sslErrorData: qtc.libqt_map (map_constu8_qtcqvariant), parent: QtC.QWidget) callconv(.c) void `
+    ///
+    pub fn OnAskIgnoreSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnAskIgnoreSslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
+    ///
+    /// ` sslErrorData: map_constu8_qtcqvariant `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseAskIgnoreSslErrors(self: ?*anyopaque, sslErrorData: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) void {
+        const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData.count()) catch @panic("kio::widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
+        defer allocator.free(sslErrorData_keys);
+        const sslErrorData_values = allocator.alloc(QtC.QVariant, sslErrorData.count()) catch @panic("kio::widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
+        defer allocator.free(sslErrorData_values);
+        var i: usize = 0;
+        var sslErrorData_it = sslErrorData.iterator();
+        while (sslErrorData_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            sslErrorData_keys[i] = qtc.libqt_string{
+                .len = key.len,
+                .data = key.ptr,
+            };
+            sslErrorData_values[i] = @ptrCast(entry.value_ptr.*);
+        }
+        const sslErrorData_map = qtc.libqt_map{
+            .len = sslErrorData.count(),
+            .keys = @ptrCast(sslErrorData_keys.ptr),
+            .values = @ptrCast(sslErrorData_values.ptr),
+        };
+        qtc.KIO__WidgetsAskUserActionHandler_QBaseAskIgnoreSslErrors(@ptrCast(self), sslErrorData_map, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#setWindow)

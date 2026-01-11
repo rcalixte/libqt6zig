@@ -1,8 +1,8 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-metadata.html)
 pub const kio__metadata = struct {
@@ -23,7 +23,7 @@ pub const kio__metadata = struct {
     pub fn New2(metaData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.New2: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc([]const u8, metaData.count()) catch @panic("kio::metadata.New2: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.New2: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -33,7 +33,11 @@ pub const kio__metadata = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            metaData_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            metaData_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const metaData_map = qtc.libqt_map{
             .len = metaData.count(),
@@ -99,7 +103,7 @@ pub const kio__metadata = struct {
     pub fn OperatorPlusAssign(self: ?*anyopaque, metaData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.OperatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc([]const u8, metaData.count()) catch @panic("kio::metadata.OperatorPlusAssign: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData.count()) catch @panic("kio::metadata.OperatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -109,7 +113,11 @@ pub const kio__metadata = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            metaData_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            metaData_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const metaData_map = qtc.libqt_map{
             .len = metaData.count(),

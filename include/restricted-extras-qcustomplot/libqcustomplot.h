@@ -3950,9 +3950,9 @@ libqt_list /* of QPointF* */ QCPGraph_QBaseDataToImpulseLines(const QCPGraph* se
 libqt_list /* of QCPDataRange* */ QCPGraph_GetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation);
 void QCPGraph_OnGetNonNanSegments(const QCPGraph* self, intptr_t slot);
 libqt_list /* of QCPDataRange* */ QCPGraph_QBaseGetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation);
-libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
+libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
 void QCPGraph_OnGetOverlappingSegments(const QCPGraph* self, intptr_t slot);
-libqt_list /* of libqt_pair  tuple of QCPDataRange* and QCPDataRange*  */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
+libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
 bool QCPGraph_SegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence);
 void QCPGraph_OnSegmentsIntersect(const QCPGraph* self, intptr_t slot);
 bool QCPGraph_QBaseSegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence);

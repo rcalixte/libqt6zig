@@ -27,6 +27,7 @@ int QWebEngineLoadingInfo_Status(const QWebEngineLoadingInfo* self);
 libqt_string QWebEngineLoadingInfo_ErrorString(const QWebEngineLoadingInfo* self);
 int QWebEngineLoadingInfo_ErrorDomain(const QWebEngineLoadingInfo* self);
 int QWebEngineLoadingInfo_ErrorCode(const QWebEngineLoadingInfo* self);
+libqt_map /* of libqt_string to libqt_list of libqt_string */ QWebEngineLoadingInfo_ResponseHeaders(const QWebEngineLoadingInfo* self);
 void QWebEngineLoadingInfo_Delete(QWebEngineLoadingInfo* self);
 
 #ifdef __cplusplus

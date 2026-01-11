@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qwebenginehttprequest_enums = enums;
 const std = @import("std");
-pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html)
 pub const qwebenginehttprequest = struct {
@@ -69,7 +69,7 @@ pub const qwebenginehttprequest = struct {
     pub fn PostRequest(url: ?*anyopaque, postData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.QWebEngineHttpRequest {
         const postData_keys = allocator.alloc(qtc.libqt_string, postData.count()) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
         defer allocator.free(postData_keys);
-        const postData_values = allocator.alloc([]const u8, postData.count()) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
+        const postData_values = allocator.alloc(qtc.libqt_string, postData.count()) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
         defer allocator.free(postData_values);
         var i: usize = 0;
         var postData_it = postData.iterator();
@@ -79,7 +79,11 @@ pub const qwebenginehttprequest = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            postData_values[i] = @ptrCast(entry.value_ptr.*);
+            const value = entry.value_ptr.*;
+            postData_values[i] = qtc.libqt_string{
+                .len = value.len,
+                .data = value.ptr,
+            };
         }
         const postData_map = qtc.libqt_map{
             .len = postData.count(),

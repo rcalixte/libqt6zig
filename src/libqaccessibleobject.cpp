@@ -191,7 +191,7 @@ void QAccessibleObject_OnWindow(const QAccessibleObject* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleObject_Relations(const QAccessibleObject* self, int match) {
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleObject_Relations(const QAccessibleObject* self, int match) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = vqaccessibleobject->relations(static_cast<QAccessible::Relation>(match));
@@ -237,7 +237,7 @@ libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessi
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleObject_QBaseRelations(const QAccessibleObject* self, int match) {
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleObject_QBaseRelations(const QAccessibleObject* self, int match) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Relations_IsBase(true);
@@ -1107,7 +1107,7 @@ void QAccessibleApplication_OnChildAt(const QAccessibleApplication* self, intptr
 }
 
 // Derived class handler implementation
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleApplication_Relations(const QAccessibleApplication* self, int match) {
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleApplication_Relations(const QAccessibleApplication* self, int match) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = vqaccessibleapplication->relations(static_cast<QAccessible::Relation>(match));
@@ -1153,7 +1153,7 @@ libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessi
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleApplication_QBaseRelations(const QAccessibleApplication* self, int match) {
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleApplication_QBaseRelations(const QAccessibleApplication* self, int match) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Relations_IsBase(true);

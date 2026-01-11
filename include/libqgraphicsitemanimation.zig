@@ -3,8 +3,8 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_f64_f64 = extern struct { first: f64, second: f64 };
-pub const struct_f64_qtcqpointf = extern struct { first: f64, second: QtC.QPointF };
+const struct_f64_f64 = extern struct { first: f64, second: f64 };
+const struct_f64_qtcqpointf = extern struct { first: f64, second: QtC.QPointF };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html)
 pub const qgraphicsitemanimation = struct {

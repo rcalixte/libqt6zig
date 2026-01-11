@@ -292,12 +292,12 @@ bool KHistoryComboBox_QBaseIsSignalConnected(const KHistoryComboBox* self, const
 double KHistoryComboBox_GetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB);
 void KHistoryComboBox_OnGetDecodedMetricF(const KHistoryComboBox* self, intptr_t slot);
 double KHistoryComboBox_QBaseGetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB);
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self);
+libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self);
 void KHistoryComboBox_OnKeyBindingMap(const KHistoryComboBox* self, intptr_t slot);
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KHistoryComboBox_QBaseKeyBindingMap(const KHistoryComboBox* self);
-void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_QBaseKeyBindingMap(const KHistoryComboBox* self);
+void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
 void KHistoryComboBox_OnSetKeyBindingMap(KHistoryComboBox* self, intptr_t slot);
-void KHistoryComboBox_QBaseSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+void KHistoryComboBox_QBaseSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
 void KHistoryComboBox_SetDelegate(KHistoryComboBox* self, KCompletionBase* delegate);
 void KHistoryComboBox_OnSetDelegate(KHistoryComboBox* self, intptr_t slot);
 void KHistoryComboBox_QBaseSetDelegate(KHistoryComboBox* self, KCompletionBase* delegate);

@@ -4,7 +4,7 @@ const qfont_enums = @import("libqfont.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qtextformat_enums = enums;
 const std = @import("std");
-pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html)
 pub const qtextlength = struct {

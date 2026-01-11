@@ -8,7 +8,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const workerbase_enums = @import("libworkerbase.zig").enums;
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html)
 pub const kio__forwardingworkerbase = struct {

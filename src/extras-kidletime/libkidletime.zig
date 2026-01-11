@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_i32_i32 = std.AutoHashMapUnmanaged(i32, i32);
+const map_i32_i32 = std.AutoHashMapUnmanaged(i32, i32);
 
 /// ### [Upstream resources](https://api.kde.org/kidletime.html)
 pub const kidletime = struct {

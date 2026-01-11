@@ -48,6 +48,7 @@ libqt_string QSslCertificate_IssuerDisplayName(const QSslCertificate* self);
 libqt_string QSslCertificate_SubjectDisplayName(const QSslCertificate* self);
 libqt_list /* of libqt_string */ QSslCertificate_SubjectInfoAttributes(const QSslCertificate* self);
 libqt_list /* of libqt_string */ QSslCertificate_IssuerInfoAttributes(const QSslCertificate* self);
+libqt_map /* of int to libqt_list of libqt_string */ QSslCertificate_SubjectAlternativeNames(const QSslCertificate* self);
 QDateTime* QSslCertificate_EffectiveDate(const QSslCertificate* self);
 QDateTime* QSslCertificate_ExpiryDate(const QSslCertificate* self);
 QSslKey* QSslCertificate_PublicKey(const QSslCertificate* self);

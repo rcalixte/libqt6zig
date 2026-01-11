@@ -294,12 +294,12 @@ bool KUrlComboBox_QBaseIsSignalConnected(const KUrlComboBox* self, const QMetaMe
 double KUrlComboBox_GetDecodedMetricF(const KUrlComboBox* self, int metricA, int metricB);
 void KUrlComboBox_OnGetDecodedMetricF(const KUrlComboBox* self, intptr_t slot);
 double KUrlComboBox_QBaseGetDecodedMetricF(const KUrlComboBox* self, int metricA, int metricB);
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KUrlComboBox_KeyBindingMap(const KUrlComboBox* self);
+libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_KeyBindingMap(const KUrlComboBox* self);
 void KUrlComboBox_OnKeyBindingMap(const KUrlComboBox* self, intptr_t slot);
-libqt_map /* of int to libqt_list  of QKeySequence*  */ KUrlComboBox_QBaseKeyBindingMap(const KUrlComboBox* self);
-void KUrlComboBox_SetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_QBaseKeyBindingMap(const KUrlComboBox* self);
+void KUrlComboBox_SetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
 void KUrlComboBox_OnSetKeyBindingMap(KUrlComboBox* self, intptr_t slot);
-void KUrlComboBox_QBaseSetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list  of QKeySequence*  */ keyBindingMap);
+void KUrlComboBox_QBaseSetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
 void KUrlComboBox_SetDelegate(KUrlComboBox* self, KCompletionBase* delegate);
 void KUrlComboBox_OnSetDelegate(KUrlComboBox* self, intptr_t slot);
 void KUrlComboBox_QBaseSetDelegate(KUrlComboBox* self, KCompletionBase* delegate);

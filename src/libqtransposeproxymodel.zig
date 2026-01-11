@@ -4,8 +4,8 @@ const qabstractitemmodel_enums = @import("libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
-pub const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransposeproxymodel.html)
 pub const qtransposeproxymodel = struct {
@@ -357,6 +357,54 @@ pub const qtransposeproxymodel = struct {
         return qtc.QTransposeProxyModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransposeproxymodel.html#setItemData)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTransposeProxyModel `
+    ///
+    /// ` callback: *const fn (self: QtC.QTransposeProxyModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
+    ///
+    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.QTransposeProxyModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransposeproxymodel.html#setItemData)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTransposeProxyModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` roles: map_i32_qtcqvariant `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("qtransposeproxymodel.SetItemData: Memory allocation failed");
+        defer allocator.free(roles_keys);
+        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qtransposeproxymodel.SetItemData: Memory allocation failed");
+        defer allocator.free(roles_values);
+        var i: usize = 0;
+        var roles_it = roles.iterator();
+        while (roles_it.next()) |entry| : (i += 1) {
+            const key = entry.key_ptr.*;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = @ptrCast(entry.value_ptr.*);
+        }
+        const roles_map = qtc.libqt_map{
+            .len = roles.count(),
+            .keys = @ptrCast(roles_keys.ptr),
+            .values = @ptrCast(roles_values.ptr),
+        };
+        return qtc.QTransposeProxyModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransposeproxymodel.html#span)
     ///
     /// ## Parameter(s):
@@ -409,6 +457,54 @@ pub const qtransposeproxymodel = struct {
     ///
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTransposeProxyModel_ItemData(@ptrCast(self), @ptrCast(index));
+        var _ret: map_i32_qtcqvariant = .empty;
+        defer {
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qtransposeproxymodel.ItemData: Memory allocation failed");
+        }
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransposeproxymodel.html#itemData)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTransposeProxyModel `
+    ///
+    /// ` callback: *const fn (self: QtC.QTransposeProxyModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    ///
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of map_i32_qtcqvariant `
+    ///
+    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
+        qtc.QTransposeProxyModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransposeproxymodel.html#itemData)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTransposeProxyModel `
+    ///
+    /// ` index: QtC.QModelIndex `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.libqt_map = qtc.QTransposeProxyModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -3106,6 +3202,62 @@ pub const qtransposeproxymodel = struct {
             _ret.put(allocator, _key, _value_slice) catch @panic("qtransposeproxymodel.RoleNames: Memory allocation failed");
         }
         return _ret;
+    }
+
+    /// Inherited from QAbstractProxyModel
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#roleNames)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTransposeProxyModel `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.QTransposeProxyModel_QBaseRoleNames(@ptrCast(self));
+        var _ret: map_i32_u8 = .empty;
+        defer {
+            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_values[i].data);
+            }
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
+        }
+        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
+        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qtransposeproxymodel.RoleNames: Memory allocation failed");
+            @memcpy(_value_slice, _value.data);
+            _ret.put(allocator, _key, _value_slice) catch @panic("qtransposeproxymodel.RoleNames: Memory allocation failed");
+        }
+        return _ret;
+    }
+
+    /// Inherited from QAbstractProxyModel
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#roleNames)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QTransposeProxyModel`
+    ///
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    ///
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of map_i32_u8 `
+    ///
+    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.QTransposeProxyModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel

@@ -52,7 +52,7 @@ typedef struct QWindow QWindow;
 bool QAccessibleInterface_IsValid(const QAccessibleInterface* self);
 QObject* QAccessibleInterface_Object(const QAccessibleInterface* self);
 QWindow* QAccessibleInterface_Window(const QAccessibleInterface* self);
-libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleInterface_Relations(const QAccessibleInterface* self, int match);
+libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleInterface_Relations(const QAccessibleInterface* self, int match);
 QAccessibleInterface* QAccessibleInterface_FocusChild(const QAccessibleInterface* self);
 QAccessibleInterface* QAccessibleInterface_ChildAt(const QAccessibleInterface* self, int x, int y);
 QAccessibleInterface* QAccessibleInterface_Parent(const QAccessibleInterface* self);

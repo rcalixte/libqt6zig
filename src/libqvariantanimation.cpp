@@ -66,7 +66,7 @@ void QVariantAnimation_SetKeyValueAt(QVariantAnimation* self, double step, const
     self->setKeyValueAt(static_cast<qreal>(step), *value);
 }
 
-libqt_list /* of libqt_pair  tuple of double and QVariant*  */ QVariantAnimation_KeyValues(const QVariantAnimation* self) {
+libqt_list /* of libqt_pair tuple of double and QVariant* */ QVariantAnimation_KeyValues(const QVariantAnimation* self) {
     QList<QPair<double, QVariant>> _ret = self->keyValues();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and QVariant* */* _arr = static_cast<libqt_pair /* tuple of double and QVariant* */*>(malloc(sizeof(libqt_pair /* tuple of double and QVariant* */) * (_ret.size() + 1)));
@@ -88,7 +88,7 @@ libqt_list /* of libqt_pair  tuple of double and QVariant*  */ QVariantAnimation
     return _out;
 }
 
-void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of libqt_pair  tuple of double and QVariant*  */ values) {
+void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of libqt_pair tuple of double and QVariant* */ values) {
     QList<QPair<double, QVariant>> values_QList;
     values_QList.reserve(values.len);
     libqt_pair /* tuple of double and QVariant* */* values_arr = static_cast<libqt_pair /* tuple of double and QVariant* */*>(values.data);

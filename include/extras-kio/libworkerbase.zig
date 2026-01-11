@@ -5,7 +5,7 @@ const job_base_enums = @import("libjob_base.zig").enums;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const std = @import("std");
 const workerbase_enums = enums;
-pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-workerresult.html)
 pub const kio__workerresult = struct {
