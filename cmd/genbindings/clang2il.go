@@ -355,11 +355,6 @@ func processClassType(node map[string]interface{}, addNamePrefix string) (CppCla
 		// We produce a type named 'Connection' instead of 'QMetaObject::Connection' as expected, not sure why
 		nodename = "QMetaObject::Connection"
 	}
-	if nodename == "QBrushData" {
-		// TODO This is a hack to prevent QBrushData from being deleted
-		// until the library is built against Qt 6.10+
-		ret.CanDelete = false
-	}
 
 	ret.ClassName = nodename
 
@@ -670,9 +665,7 @@ nextMethod:
 			}
 
 			// Check if this is `= delete`
-			// TODO This is a hack to prevent QBrushData from generating operator methods
-			// until the library is built against Qt 6.10+
-			if isExplicitlyDeleted(node) || ret.ClassName == "QBrushData" {
+			if isExplicitlyDeleted(node) {
 				continue
 			}
 
