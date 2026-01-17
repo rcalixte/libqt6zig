@@ -192,31 +192,43 @@ func AllowClass(className string) bool {
 
 	switch className {
 	case
-		"QTextStreamManipulator",     // Only seems to contain garbage methods
-		"QException",                 // Extends std::exception, too hard
-		"QGenericRunnable",           // Qt 6, Unavailable class header in Qt 6.8
-		"QUnhandledException",        // As above (child class)
-		"QPolygon",                   // Extends a QVector<QPoint> template class, too hard
-		"QPolygonF",                  // Extends a QVector<QPoint> template class, too hard
-		"QAssociativeIterator",       // Qt 6. Extends a QIterator<>, too hard
-		"QAssociativeConstIterator",  // Qt 6. Extends a QIterator<>, too hard
-		"QAssociativeIterable",       // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialIterator",        // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialConstIterator",   // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialIterable",        // Qt 6. Extends a QIterator<>, too hard
-		"QBrushDataPointerDeleter",   // Qt 6 qbrush.h. Appears in header but cannot be linked
-		"QPropertyBindingPrivatePtr", // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
-		"KCompletionMatchesWrapper",  // Qt 6 kcompletionmatches.h, incomplete forward declaration
-		"KGroupId",                   // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
-		"KUserId",                    // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
-		"KQuickIconProvider",         // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
-		"KBookmarkGroupTraverser",    // Qt 6 kbookmark.h, a legacy class
-		"KLocalization::Internal",    // Qt 6 klocalizedqmlcontext.h
-		"KSycocaFactory",             // Qt 6 ksycoca.h, a legacy class
-		"KSycocaFactoryList",         // Qt 6 ksycoca.h, a legacy class
-		"NETWinInfo",                 // Qt 6 kwindowsystem.h
-		"NETRootInfo",                // Qt 6 kwindowsystem.h
-		"OrgKdeKDirNotifyInterface",  // Qt 6 kdirnotify.h
+		"QArrayData",                     // internal Qt classes that should not be projected
+		"QBrushData",                     // internal Qt classes that should not be projected
+		"QContiguousCacheData",           // internal Qt classes that should not be projected
+		"QObjectData",                    // internal Qt classes that should not be projected
+		"QPluginMetaData",                // internal Qt classes that should not be projected
+		"QPluginMetaData::ElfNoteHeader", // internal Qt classes that should not be projected
+		"QPluginMetaData::Header",        // internal Qt classes that should not be projected
+		"QPluginMetaData::MagicHeader",   // internal Qt classes that should not be projected
+		"QPropertyProxyBindingData",      // internal Qt classes that should not be projected
+		"QTextFrameLayoutData",           // internal Qt classes that should not be projected
+		"QThreadStorageData",             // internal Qt classes that should not be projected
+		"QWidgetData",                    // internal Qt classes that should not be projected
+		"QTextStreamManipulator",         // Only seems to contain garbage methods
+		"QException",                     // Extends std::exception, too hard
+		"QGenericRunnable",               // Qt 6, Unavailable class header in Qt 6.8
+		"QUnhandledException",            // As above (child class)
+		"QPolygon",                       // Extends a QVector<QPoint> template class, too hard
+		"QPolygonF",                      // Extends a QVector<QPoint> template class, too hard
+		"QAssociativeIterator",           // Qt 6. Extends a QIterator<>, too hard
+		"QAssociativeConstIterator",      // Qt 6. Extends a QIterator<>, too hard
+		"QAssociativeIterable",           // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialIterator",            // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialConstIterator",       // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialIterable",            // Qt 6. Extends a QIterator<>, too hard
+		"QBrushDataPointerDeleter",       // Qt 6 qbrush.h. Appears in header but cannot be linked
+		"QPropertyBindingPrivatePtr",     // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
+		"KCompletionMatchesWrapper",      // Qt 6 kcompletionmatches.h, incomplete forward declaration
+		"KGroupId",                       // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
+		"KUserId",                        // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
+		"KQuickIconProvider",             // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
+		"KBookmarkGroupTraverser",        // Qt 6 kbookmark.h, a legacy class
+		"KLocalization::Internal",        // Qt 6 klocalizedqmlcontext.h
+		"KSycocaFactory",                 // Qt 6 ksycoca.h, a legacy class
+		"KSycocaFactoryList",             // Qt 6 ksycoca.h, a legacy class
+		"NETWinInfo",                     // Qt 6 kwindowsystem.h
+		"NETRootInfo",                    // Qt 6 kwindowsystem.h
+		"OrgKdeKDirNotifyInterface",      // Qt 6 kdirnotify.h
 		"____last____":
 		return false
 	}
@@ -264,8 +276,7 @@ func AllowVirtualForClass(className string) bool {
 		"QDesignerLanguageExtension",      // Qt 6 Designer
 		"QDesignerNewFormWidgetInterface", // Qt 6 Designer
 		"QDesignerPromotionInterface",     // Qt 6 Designer
-		"QFutureWatcherBase",              // Pure virtual method futureInterface() returns an unprojectable template type
-		"QObjectData":                     // Pure virtual dtor (should be possible to support)
+		"QFutureWatcherBase":              // Pure virtual method futureInterface() returns an unprojectable template type
 		return false
 	}
 
@@ -312,10 +323,6 @@ func AllowMethod(className string, mm CppMethod) error {
 	if mm.IsReceiverMethod() {
 		// Non-projectable receiver pattern parameters
 		return ErrTooComplex
-	}
-
-	if className == "QThreadStorageData" && mm.MethodName == "finish" {
-		return ErrTooComplex // Removed in Qt 6.10
 	}
 
 	if className == "QWebEngineClientHints" && mm.MethodName == "qt_qmlMarker_uncreatable" {
@@ -467,12 +474,6 @@ func AllowCtor(className string) bool {
 		// @ref https://github.com/qt/qtbase/commit/41679e0b4398c0de38a8107642dc643fe2c3554f
 		// @ref https://github.com/mappu/miqt/issues/168
 		// Block both ctors from generation
-		return false
-	}
-
-	if className == "QBrushData" {
-		// Both the main ctor and the copy constructor were changed from public to protected in Qt 6.10
-		// @ref https://github.com/qt/qtbase/commit/3bbc9e29ef59683351cf35c19a8bd4a030615c64
 		return false
 	}
 
@@ -961,7 +962,4 @@ func FossCompatCheck(p CppParameter) bool {
 }
 
 func ApplyQuirks(className string, mm *CppMethod) {
-	if className == "QObjectData" && mm.MethodName == "dynamicMetaObject" {
-		mm.ReturnType.BecomesConstInVersion = addr("6.9")
-	}
 }
