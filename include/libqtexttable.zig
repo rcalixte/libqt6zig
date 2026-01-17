@@ -669,32 +669,6 @@ pub const qtexttable = struct {
 
     /// Inherited from QTextFrame
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#layoutData)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QTextTable `
-    ///
-    pub fn LayoutData(self: ?*anyopaque) QtC.QTextFrameLayoutData {
-        return qtc.QTextFrame_LayoutData(@ptrCast(self));
-    }
-
-    /// Inherited from QTextFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#setLayoutData)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QTextTable `
-    ///
-    /// ` data: QtC.QTextFrameLayoutData `
-    ///
-    pub fn SetLayoutData(self: ?*anyopaque, data: ?*anyopaque) void {
-        qtc.QTextFrame_SetLayoutData(@ptrCast(self), @ptrCast(data));
-    }
-
-    /// Inherited from QTextFrame
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#childFrames)
     ///
     /// ## Parameter(s):

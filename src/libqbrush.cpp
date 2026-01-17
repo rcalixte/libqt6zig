@@ -1,5 +1,4 @@
 #include <QBrush>
-#include <QBrushData>
 #include <QColor>
 #include <QConicalGradient>
 #include <QGradient>
@@ -145,30 +144,6 @@ bool QBrush_IsDetached(const QBrush* self) {
 
 void QBrush_Delete(QBrush* self) {
     delete self;
-}
-
-int QBrushData_Style(const QBrushData* self) {
-    return static_cast<int>(self->style);
-}
-
-void QBrushData_SetStyle(QBrushData* self, int style) {
-    self->style = static_cast<Qt::BrushStyle>(style);
-}
-
-QColor* QBrushData_Color(const QBrushData* self) {
-    return new QColor(self->color);
-}
-
-void QBrushData_SetColor(QBrushData* self, QColor* color) {
-    self->color = *color;
-}
-
-QTransform* QBrushData_Transform(const QBrushData* self) {
-    return new QTransform(self->transform);
-}
-
-void QBrushData_SetTransform(QBrushData* self, QTransform* transform) {
-    self->transform = *transform;
 }
 
 QGradient* QGradient_new() {

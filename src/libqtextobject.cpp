@@ -21,7 +21,6 @@
 #include <QTextFrame>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QTextFrame__iterator
 #include <QTextFrameFormat>
-#include <QTextFrameLayoutData>
 #include <QTextLayout>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QTextLayout__FormatRange
 #include <QTextList>
@@ -71,14 +70,6 @@ int QTextBlockGroup_Metacall(QTextBlockGroup* self, int param1, int param2, void
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-void QTextFrameLayoutData_OperatorAssign(QTextFrameLayoutData* self, const QTextFrameLayoutData* param1) {
-    self->operator=(*param1);
-}
-
-void QTextFrameLayoutData_Delete(QTextFrameLayoutData* self) {
-    delete self;
-}
-
 QTextFrame* QTextFrame_new(QTextDocument* doc) {
     return new VirtualQTextFrame(doc);
 }
@@ -122,14 +113,6 @@ int QTextFrame_FirstPosition(const QTextFrame* self) {
 
 int QTextFrame_LastPosition(const QTextFrame* self) {
     return self->lastPosition();
-}
-
-QTextFrameLayoutData* QTextFrame_LayoutData(const QTextFrame* self) {
-    return self->layoutData();
-}
-
-void QTextFrame_SetLayoutData(QTextFrame* self, QTextFrameLayoutData* data) {
-    self->setLayoutData(data);
 }
 
 libqt_list /* of QTextFrame* */ QTextFrame_ChildFrames(const QTextFrame* self) {

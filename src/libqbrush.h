@@ -19,7 +19,6 @@ typedef QGradient::QGradientData QGradient__QGradientData;
 #endif
 #else
 typedef struct QBrush QBrush;
-typedef struct QBrushData QBrushData;
 typedef struct QColor QColor;
 typedef struct QConicalGradient QConicalGradient;
 typedef struct QGradient QGradient;
@@ -65,13 +64,6 @@ bool QBrush_OperatorEqual(const QBrush* self, const QBrush* b);
 bool QBrush_OperatorNotEqual(const QBrush* self, const QBrush* b);
 bool QBrush_IsDetached(const QBrush* self);
 void QBrush_Delete(QBrush* self);
-
-int QBrushData_Style(const QBrushData* self);
-void QBrushData_SetStyle(QBrushData* self, int style);
-QColor* QBrushData_Color(const QBrushData* self);
-void QBrushData_SetColor(QBrushData* self, QColor* color);
-QTransform* QBrushData_Transform(const QBrushData* self);
-void QBrushData_SetTransform(QBrushData* self, QTransform* transform);
 
 QGradient* QGradient_new();
 QGradient* QGradient_new2(int param1);
