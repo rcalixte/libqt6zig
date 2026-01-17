@@ -1,4 +1,3 @@
-#include <QPropertyProxyBindingData>
 #include <QUntypedPropertyData>
 #include <qpropertyprivate.h>
 #include "libqpropertyprivate.h"
@@ -21,25 +20,5 @@ void QUntypedPropertyData_MoveAssign(QUntypedPropertyData* self, QUntypedPropert
 }
 
 void QUntypedPropertyData_Delete(QUntypedPropertyData* self) {
-    delete self;
-}
-
-uintptr_t QPropertyProxyBindingData_DPtr(const QPropertyProxyBindingData* self) {
-    return static_cast<uintptr_t>(self->d_ptr);
-}
-
-void QPropertyProxyBindingData_SetDPtr(QPropertyProxyBindingData* self, uintptr_t d_ptr) {
-    self->d_ptr = static_cast<quintptr>(d_ptr);
-}
-
-QUntypedPropertyData* QPropertyProxyBindingData_PropertyData(const QPropertyProxyBindingData* self) {
-    return self->propertyData;
-}
-
-void QPropertyProxyBindingData_SetPropertyData(QPropertyProxyBindingData* self, QUntypedPropertyData* propertyData) {
-    self->propertyData = propertyData;
-}
-
-void QPropertyProxyBindingData_Delete(QPropertyProxyBindingData* self) {
     delete self;
 }

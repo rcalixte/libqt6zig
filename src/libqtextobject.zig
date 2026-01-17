@@ -1520,33 +1520,6 @@ pub const qtextblockgroup = struct {
     }
 };
 
-/// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframelayoutdata.html)
-pub const qtextframelayoutdata = struct {
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframelayoutdata.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QTextFrameLayoutData `
-    ///
-    /// ` param1: QtC.QTextFrameLayoutData `
-    ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextFrameLayoutData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframelayoutdata.html#dtor.QTextFrameLayoutData)
-    ///
-    /// Delete this object from C++ memory.
-    ///
-    /// ## Parameter:
-    ///
-    /// ` self: QtC.QTextFrameLayoutData `
-    ///
-    pub fn QDelete(self: ?*anyopaque) void {
-        qtc.QTextFrameLayoutData_Delete(@ptrCast(self));
-    }
-};
-
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html)
 pub const qtextframe = struct {
     /// New constructs a new QTextFrame object.
@@ -1699,28 +1672,6 @@ pub const qtextframe = struct {
     ///
     pub fn LastPosition(self: ?*anyopaque) i32 {
         return qtc.QTextFrame_LastPosition(@ptrCast(self));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#layoutData)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QTextFrame `
-    ///
-    pub fn LayoutData(self: ?*anyopaque) QtC.QTextFrameLayoutData {
-        return qtc.QTextFrame_LayoutData(@ptrCast(self));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#setLayoutData)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QTextFrame `
-    ///
-    /// ` data: QtC.QTextFrameLayoutData `
-    ///
-    pub fn SetLayoutData(self: ?*anyopaque, data: ?*anyopaque) void {
-        qtc.QTextFrame_SetLayoutData(@ptrCast(self), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#childFrames)
