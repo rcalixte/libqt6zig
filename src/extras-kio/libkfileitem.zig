@@ -1095,7 +1095,7 @@ pub const kfileitem__mostlocalurlresult = struct {
 /// ### [Upstream resources](https://api.kde.org/kfileitem.html#public-types)
 pub const enums = struct {
     pub const KFileItem = enum {
-        pub const Unknown: i64 = 4294967295;
+        pub const Unknown: i32 = -1;
     };
 
     pub const FileTimes = enum {

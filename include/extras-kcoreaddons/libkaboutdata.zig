@@ -1594,7 +1594,7 @@ pub const kaboutdata = struct {
     ///
     /// ` self: QtC.KAboutData `
     ///
-    pub fn InternalProductName(self: ?*anyopaque) []const u8 {
+    pub fn InternalProductName(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.KAboutData_InternalProductName(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1637,7 +1637,7 @@ pub const kaboutdata = struct {
     ///
     /// ` self: QtC.KAboutData `
     ///
-    pub fn InternalProgramName(self: ?*anyopaque) []const u8 {
+    pub fn InternalProgramName(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.KAboutData_InternalProgramName(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1674,7 +1674,7 @@ pub const kaboutdata = struct {
     ///
     /// ` self: QtC.KAboutData `
     ///
-    pub fn InternalVersion(self: ?*anyopaque) []const u8 {
+    pub fn InternalVersion(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.KAboutData_InternalVersion(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1733,7 +1733,7 @@ pub const kaboutdata = struct {
     ///
     /// ` self: QtC.KAboutData `
     ///
-    pub fn InternalBugAddress(self: ?*anyopaque) []const u8 {
+    pub fn InternalBugAddress(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.KAboutData_InternalBugAddress(@ptrCast(self));
         return std.mem.span(_ret);
     }

@@ -142,11 +142,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` returnMethod: []const u8 `
+    /// ` returnMethod: [:0]const u8 `
     ///
-    /// ` errorMethod: []const u8 `
+    /// ` errorMethod: [:0]const u8 `
     ///
-    pub fn CallWithCallback(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, returnMethod: []const u8, errorMethod: []const u8) bool {
+    pub fn CallWithCallback(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, returnMethod: [:0]const u8, errorMethod: [:0]const u8) bool {
         const returnMethod_Cstring = returnMethod.ptr;
         const errorMethod_Cstring = errorMethod.ptr;
         return qtc.QDBusConnection_CallWithCallback(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), returnMethod_Cstring, errorMethod_Cstring);
@@ -162,9 +162,9 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
-    pub fn CallWithCallback2(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, slot: []const u8) bool {
+    pub fn CallWithCallback2(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, slot: [:0]const u8) bool {
         const slot_Cstring = slot.ptr;
         return qtc.QDBusConnection_CallWithCallback2(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), slot_Cstring);
     }
@@ -209,9 +209,9 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
-    pub fn Connect(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: ?*anyopaque, slot: []const u8) bool {
+    pub fn Connect(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -250,9 +250,9 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: ?*anyopaque, slot: []const u8) bool {
+    pub fn Connect2(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -297,11 +297,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Connect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: [][]const u8, signature: []const u8, receiver: ?*anyopaque, slot: []const u8, allocator: std.mem.Allocator) bool {
+    pub fn Connect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: [][]const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -354,9 +354,9 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
-    pub fn Disconnect(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: ?*anyopaque, slot: []const u8) bool {
+    pub fn Disconnect(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -395,9 +395,9 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
-    pub fn Disconnect2(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: ?*anyopaque, slot: []const u8) bool {
+    pub fn Disconnect2(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -442,11 +442,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Disconnect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: [][]const u8, signature: []const u8, receiver: ?*anyopaque, slot: []const u8, allocator: std.mem.Allocator) bool {
+    pub fn Disconnect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: [][]const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -747,13 +747,13 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` returnMethod: []const u8 `
+    /// ` returnMethod: [:0]const u8 `
     ///
-    /// ` errorMethod: []const u8 `
+    /// ` errorMethod: [:0]const u8 `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn CallWithCallback5(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, returnMethod: []const u8, errorMethod: []const u8, timeout: i32) bool {
+    pub fn CallWithCallback5(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, returnMethod: [:0]const u8, errorMethod: [:0]const u8, timeout: i32) bool {
         const returnMethod_Cstring = returnMethod.ptr;
         const errorMethod_Cstring = errorMethod.ptr;
         return qtc.QDBusConnection_CallWithCallback5(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), returnMethod_Cstring, errorMethod_Cstring, @intCast(timeout));
@@ -769,11 +769,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` slot: []const u8 `
+    /// ` slot: [:0]const u8 `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn CallWithCallback4(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, slot: []const u8, timeout: i32) bool {
+    pub fn CallWithCallback4(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, slot: [:0]const u8, timeout: i32) bool {
         const slot_Cstring = slot.ptr;
         return qtc.QDBusConnection_CallWithCallback4(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), slot_Cstring, @intCast(timeout));
     }

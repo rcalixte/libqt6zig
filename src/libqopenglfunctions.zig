@@ -779,9 +779,9 @@ pub const qopenglfunctions = struct {
     ///
     /// ` index: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlBindAttribLocation(self: ?*anyopaque, program: u32, index: u32, name: []const u8) void {
+    pub fn GlBindAttribLocation(self: ?*anyopaque, program: u32, index: u32, name: [:0]const u8) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLFunctions_GlBindAttribLocation(@ptrCast(self), @intCast(program), @intCast(index), name_Cstring);
     }
@@ -1262,9 +1262,9 @@ pub const qopenglfunctions = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetAttribLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
+    pub fn GlGetAttribLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
         const name_Cstring = name.ptr;
         return qtc.QOpenGLFunctions_GlGetAttribLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
@@ -1331,9 +1331,9 @@ pub const qopenglfunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infolog: []u8 `
+    /// ` infolog: [:0]u8 `
     ///
-    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufsize: i32, length: []i32, infolog: []u8) void {
+    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufsize: i32, length: []i32, infolog: [:0]u8) void {
         const infolog_Cstring = infolog.ptr;
         qtc.QOpenGLFunctions_GlGetProgramInfoLog(@ptrCast(self), @intCast(program), @intCast(bufsize), length.ptr, infolog_Cstring);
     }
@@ -1382,9 +1382,9 @@ pub const qopenglfunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infolog: []u8 `
+    /// ` infolog: [:0]u8 `
     ///
-    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufsize: i32, length: []i32, infolog: []u8) void {
+    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufsize: i32, length: []i32, infolog: [:0]u8) void {
         const infolog_Cstring = infolog.ptr;
         qtc.QOpenGLFunctions_GlGetShaderInfoLog(@ptrCast(self), @intCast(shader), @intCast(bufsize), length.ptr, infolog_Cstring);
     }
@@ -1419,9 +1419,9 @@ pub const qopenglfunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` source: []u8 `
+    /// ` source: [:0]u8 `
     ///
-    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufsize: i32, length: []i32, source: []u8) void {
+    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufsize: i32, length: []i32, source: [:0]u8) void {
         const source_Cstring = source.ptr;
         qtc.QOpenGLFunctions_GlGetShaderSource(@ptrCast(self), @intCast(shader), @intCast(bufsize), length.ptr, source_Cstring);
     }
@@ -1466,9 +1466,9 @@ pub const qopenglfunctions = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetUniformLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
+    pub fn GlGetUniformLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
         const name_Cstring = name.ptr;
         return qtc.QOpenGLFunctions_GlGetUniformLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
@@ -1665,13 +1665,13 @@ pub const qopenglfunctions = struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` stringVal: [][]const u8 `
+    /// ` stringVal: [][:0]const u8 `
     ///
     /// ` length: []const i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: [][]const u8, length: []const i32, allocator: std.mem.Allocator) void {
+    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: [][:0]const u8, length: []const i32, allocator: std.mem.Allocator) void {
         var stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions.GlShaderSource: Memory allocation failed");
         defer allocator.free(stringVal_chararr);
         for (stringVal, 0..stringVal.len) |str, i| {

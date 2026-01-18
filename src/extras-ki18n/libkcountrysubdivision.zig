@@ -126,20 +126,20 @@ pub const kcountrysubdivision = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TimeZoneIds(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn TimeZoneIds(self: ?*anyopaque, allocator: std.mem.Allocator) [][:0]const u8 {
         const _arr: qtc.libqt_list = qtc.KCountrySubdivision_TimeZoneIds(@ptrCast(self));
         const _str: [*]?[*:0]const u8 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcountrysubdivision.TimeZoneIds: Memory allocation failed");
+        const _ret = allocator.alloc([:0]const u8, _arr.len) catch @panic("kcountrysubdivision.TimeZoneIds: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _cstr = _str[i];
             if (_cstr) |cstr| {
                 const cstr_len = std.mem.len(cstr);
-                const _buf = allocator.alloc(u8, cstr_len) catch @panic("kcountrysubdivision.TimeZoneIds: Buffer allocation failed");
+                const _buf = allocator.allocSentinel(u8, cstr_len, 0) catch @panic("kcountrysubdivision.TimeZoneIds: Buffer allocation failed");
                 @memcpy(_buf, cstr[0..cstr_len]);
                 _ret[i] = _buf;
             } else {
-                _ret[i] = &[_]u8{};
+                _ret[i] = &[_:0]u8{};
             }
         }
         return _ret;
@@ -166,9 +166,9 @@ pub const kcountrysubdivision = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` code: []const u8 `
+    /// ` code: [:0]const u8 `
     ///
-    pub fn FromCode2(code: []const u8) QtC.KCountrySubdivision {
+    pub fn FromCode2(code: [:0]const u8) QtC.KCountrySubdivision {
         const code_Cstring = code.ptr;
         return qtc.KCountrySubdivision_FromCode2(code_Cstring);
     }

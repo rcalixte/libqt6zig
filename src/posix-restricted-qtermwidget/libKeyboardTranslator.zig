@@ -105,7 +105,7 @@ pub const konsole__keyboardtranslator = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn FindEntry(self: ?*anyopaque, keyCode: i32, modifiers: i64) QtC.Konsole__KeyboardTranslator__Entry {
+    pub fn FindEntry(self: ?*anyopaque, keyCode: i32, modifiers: i32) QtC.Konsole__KeyboardTranslator__Entry {
         return qtc.Konsole__KeyboardTranslator_FindEntry(@ptrCast(self), @intCast(keyCode), @intCast(modifiers));
     }
 
@@ -176,7 +176,7 @@ pub const konsole__keyboardtranslator = struct {
     ///
     /// ` state: flag of KeyboardTranslator_enums.State `
     ///
-    pub fn FindEntry3(self: ?*anyopaque, keyCode: i32, modifiers: i64, state: i32) QtC.Konsole__KeyboardTranslator__Entry {
+    pub fn FindEntry3(self: ?*anyopaque, keyCode: i32, modifiers: i32, state: i32) QtC.Konsole__KeyboardTranslator__Entry {
         return qtc.Konsole__KeyboardTranslator_FindEntry3(@ptrCast(self), @intCast(keyCode), @intCast(modifiers), @intCast(state));
     }
 
@@ -584,7 +584,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: ?*anyopaque) i64 {
+    pub fn Modifiers(self: ?*anyopaque) i32 {
         return qtc.Konsole__KeyboardTranslator__Entry_Modifiers(@ptrCast(self));
     }
 
@@ -598,7 +598,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn ModifierMask(self: ?*anyopaque) i64 {
+    pub fn ModifierMask(self: ?*anyopaque) i32 {
         return qtc.Konsole__KeyboardTranslator__Entry_ModifierMask(@ptrCast(self));
     }
 
@@ -610,7 +610,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
+    pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
@@ -622,7 +622,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifierMask(self: ?*anyopaque, modifiers: i64) void {
+    pub fn SetModifierMask(self: ?*anyopaque, modifiers: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetModifierMask(@ptrCast(self), @intCast(modifiers));
     }
 
@@ -722,7 +722,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` flags: flag of KeyboardTranslator_enums.State `
     ///
-    pub fn Matches(self: ?*anyopaque, keyCode: i32, modifiers: i64, flags: i32) bool {
+    pub fn Matches(self: ?*anyopaque, keyCode: i32, modifiers: i32, flags: i32) bool {
         return qtc.Konsole__KeyboardTranslator__Entry_Matches(@ptrCast(self), @intCast(keyCode), @intCast(modifiers), @intCast(flags));
     }
 
@@ -768,7 +768,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text2(self: ?*anyopaque, expandWildCards: bool, modifiers: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Text2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_Text2(@ptrCast(self), expandWildCards, @intCast(modifiers));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.Text2: Memory allocation failed");
@@ -806,7 +806,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EscapedText2(self: ?*anyopaque, expandWildCards: bool, modifiers: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn EscapedText2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_EscapedText2(@ptrCast(self), expandWildCards, @intCast(modifiers));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.EscapedText2: Memory allocation failed");
@@ -844,7 +844,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResultToString2(self: ?*anyopaque, expandWildCards: bool, modifiers: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ResultToString2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslator__Entry_ResultToString2(@ptrCast(self), expandWildCards, @intCast(modifiers));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslator::entry.ResultToString2: Memory allocation failed");

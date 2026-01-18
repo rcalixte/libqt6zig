@@ -14,15 +14,15 @@ pub const qmessagelogcontext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` fileName: [:0]const u8 `
     ///
     /// ` lineNumber: i32 `
     ///
-    /// ` functionName: []const u8 `
+    /// ` functionName: [:0]const u8 `
     ///
-    /// ` categoryName: []const u8 `
+    /// ` categoryName: [:0]const u8 `
     ///
-    pub fn New2(fileName: []const u8, lineNumber: i32, functionName: []const u8, categoryName: []const u8) QtC.QMessageLogContext {
+    pub fn New2(fileName: [:0]const u8, lineNumber: i32, functionName: [:0]const u8, categoryName: [:0]const u8) QtC.QMessageLogContext {
         const fileName_Cstring = fileName.ptr;
         const functionName_Cstring = functionName.ptr;
         const categoryName_Cstring = categoryName.ptr;
@@ -80,7 +80,7 @@ pub const qmessagelogcontext = struct {
     ///
     /// ` self: QtC.QMessageLogContext `
     ///
-    pub fn File(self: ?*anyopaque) []const u8 {
+    pub fn File(self: ?*anyopaque) [:0]const u8 {
         const file_ret = qtc.QMessageLogContext_File(@ptrCast(self));
         return std.mem.span(file_ret);
     }
@@ -91,9 +91,9 @@ pub const qmessagelogcontext = struct {
     ///
     /// ` self: QtC.QMessageLogContext `
     ///
-    /// ` file: []const u8 `
+    /// ` file: [:0]const u8 `
     ///
-    pub fn SetFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SetFile(self: ?*anyopaque, file: [:0]const u8) void {
         const file_Cstring = file.ptr;
         qtc.QMessageLogContext_SetFile(@ptrCast(self), file_Cstring);
     }
@@ -104,7 +104,7 @@ pub const qmessagelogcontext = struct {
     ///
     /// ` self: QtC.QMessageLogContext `
     ///
-    pub fn Function(self: ?*anyopaque) []const u8 {
+    pub fn Function(self: ?*anyopaque) [:0]const u8 {
         const function_ret = qtc.QMessageLogContext_Function(@ptrCast(self));
         return std.mem.span(function_ret);
     }
@@ -115,9 +115,9 @@ pub const qmessagelogcontext = struct {
     ///
     /// ` self: QtC.QMessageLogContext `
     ///
-    /// ` function: []const u8 `
+    /// ` function: [:0]const u8 `
     ///
-    pub fn SetFunction(self: ?*anyopaque, function: []const u8) void {
+    pub fn SetFunction(self: ?*anyopaque, function: [:0]const u8) void {
         const function_Cstring = function.ptr;
         qtc.QMessageLogContext_SetFunction(@ptrCast(self), function_Cstring);
     }
@@ -128,7 +128,7 @@ pub const qmessagelogcontext = struct {
     ///
     /// ` self: QtC.QMessageLogContext `
     ///
-    pub fn Category(self: ?*anyopaque) []const u8 {
+    pub fn Category(self: ?*anyopaque) [:0]const u8 {
         const category_ret = qtc.QMessageLogContext_Category(@ptrCast(self));
         return std.mem.span(category_ret);
     }
@@ -139,9 +139,9 @@ pub const qmessagelogcontext = struct {
     ///
     /// ` self: QtC.QMessageLogContext `
     ///
-    /// ` category: []const u8 `
+    /// ` category: [:0]const u8 `
     ///
-    pub fn SetCategory(self: ?*anyopaque, category: []const u8) void {
+    pub fn SetCategory(self: ?*anyopaque, category: [:0]const u8) void {
         const category_Cstring = category.ptr;
         qtc.QMessageLogContext_SetCategory(@ptrCast(self), category_Cstring);
     }
@@ -171,13 +171,13 @@ pub const qmessagelogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` file: []const u8 `
+    /// ` file: [:0]const u8 `
     ///
     /// ` line: i32 `
     ///
-    /// ` function: []const u8 `
+    /// ` function: [:0]const u8 `
     ///
-    pub fn New2(file: []const u8, line: i32, function: []const u8) QtC.QMessageLogger {
+    pub fn New2(file: [:0]const u8, line: i32, function: [:0]const u8) QtC.QMessageLogger {
         const file_Cstring = file.ptr;
         const function_Cstring = function.ptr;
 
@@ -188,15 +188,15 @@ pub const qmessagelogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` file: []const u8 `
+    /// ` file: [:0]const u8 `
     ///
     /// ` line: i32 `
     ///
-    /// ` function: []const u8 `
+    /// ` function: [:0]const u8 `
     ///
-    /// ` category: []const u8 `
+    /// ` category: [:0]const u8 `
     ///
-    pub fn New3(file: []const u8, line: i32, function: []const u8, category: []const u8) QtC.QMessageLogger {
+    pub fn New3(file: [:0]const u8, line: i32, function: [:0]const u8, category: [:0]const u8) QtC.QMessageLogger {
         const file_Cstring = file.ptr;
         const function_Cstring = function.ptr;
         const category_Cstring = category.ptr;

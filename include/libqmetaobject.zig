@@ -105,7 +105,7 @@ pub const qmetamethod = struct {
     ///
     /// ` self: QtC.QMetaMethod `
     ///
-    pub fn TypeName(self: ?*anyopaque) []const u8 {
+    pub fn TypeName(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaMethod_TypeName(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -254,7 +254,7 @@ pub const qmetamethod = struct {
     ///
     /// ` self: QtC.QMetaMethod `
     ///
-    pub fn Tag(self: ?*anyopaque) []const u8 {
+    pub fn Tag(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaMethod_Tag(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1962,7 +1962,7 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    pub fn Name(self: ?*anyopaque) []const u8 {
+    pub fn Name(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaEnum_Name(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1973,7 +1973,7 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    pub fn EnumName(self: ?*anyopaque) []const u8 {
+    pub fn EnumName(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaEnum_EnumName(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -2026,7 +2026,7 @@ pub const qmetaenum = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Key(self: ?*anyopaque, index: i32) []const u8 {
+    pub fn Key(self: ?*anyopaque, index: i32) [:0]const u8 {
         const _ret = qtc.QMetaEnum_Key(@ptrCast(self), @intCast(index));
         return std.mem.span(_ret);
     }
@@ -2049,7 +2049,7 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    pub fn Scope(self: ?*anyopaque) []const u8 {
+    pub fn Scope(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaEnum_Scope(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -2060,9 +2060,9 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    pub fn KeyToValue(self: ?*anyopaque, key: []const u8) i32 {
+    pub fn KeyToValue(self: ?*anyopaque, key: [:0]const u8) i32 {
         const key_Cstring = key.ptr;
         return qtc.QMetaEnum_KeyToValue(@ptrCast(self), key_Cstring);
     }
@@ -2075,7 +2075,7 @@ pub const qmetaenum = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn ValueToKey(self: ?*anyopaque, value: i32) []const u8 {
+    pub fn ValueToKey(self: ?*anyopaque, value: i32) [:0]const u8 {
         const _ret = qtc.QMetaEnum_ValueToKey(@ptrCast(self), @intCast(value));
         return std.mem.span(_ret);
     }
@@ -2086,9 +2086,9 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    /// ` keys: []const u8 `
+    /// ` keys: [:0]const u8 `
     ///
-    pub fn KeysToValue(self: ?*anyopaque, keys: []const u8) i32 {
+    pub fn KeysToValue(self: ?*anyopaque, keys: [:0]const u8) i32 {
         const keys_Cstring = keys.ptr;
         return qtc.QMetaEnum_KeysToValue(@ptrCast(self), keys_Cstring);
     }
@@ -2137,11 +2137,11 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` ok: *bool `
     ///
-    pub fn KeyToValue2(self: ?*anyopaque, key: []const u8, ok: *bool) i32 {
+    pub fn KeyToValue2(self: ?*anyopaque, key: [:0]const u8, ok: *bool) i32 {
         const key_Cstring = key.ptr;
         return qtc.QMetaEnum_KeyToValue2(@ptrCast(self), key_Cstring, @ptrCast(ok));
     }
@@ -2152,11 +2152,11 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    /// ` keys: []const u8 `
+    /// ` keys: [:0]const u8 `
     ///
     /// ` ok: *bool `
     ///
-    pub fn KeysToValue2(self: ?*anyopaque, keys: []const u8, ok: *bool) i32 {
+    pub fn KeysToValue2(self: ?*anyopaque, keys: [:0]const u8, ok: *bool) i32 {
         const keys_Cstring = keys.ptr;
         return qtc.QMetaEnum_KeysToValue2(@ptrCast(self), keys_Cstring, @ptrCast(ok));
     }
@@ -2232,7 +2232,7 @@ pub const qmetaproperty = struct {
     ///
     /// ` self: QtC.QMetaProperty `
     ///
-    pub fn Name(self: ?*anyopaque) []const u8 {
+    pub fn Name(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaProperty_Name(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -2243,7 +2243,7 @@ pub const qmetaproperty = struct {
     ///
     /// ` self: QtC.QMetaProperty `
     ///
-    pub fn TypeName(self: ?*anyopaque) []const u8 {
+    pub fn TypeName(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaProperty_TypeName(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -2258,7 +2258,7 @@ pub const qmetaproperty = struct {
     ///
     /// ` qvariant_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QMetaProperty_Type(@ptrCast(self));
     }
 
@@ -2701,7 +2701,7 @@ pub const qmetaclassinfo = struct {
     ///
     /// ` self: QtC.QMetaClassInfo `
     ///
-    pub fn Name(self: ?*anyopaque) []const u8 {
+    pub fn Name(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaClassInfo_Name(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -2712,7 +2712,7 @@ pub const qmetaclassinfo = struct {
     ///
     /// ` self: QtC.QMetaClassInfo `
     ///
-    pub fn Value(self: ?*anyopaque) []const u8 {
+    pub fn Value(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaClassInfo_Value(@ptrCast(self));
         return std.mem.span(_ret);
     }

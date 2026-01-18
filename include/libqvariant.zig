@@ -480,9 +480,9 @@ pub const qvariant = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` str: []const u8 `
+    /// ` str: [:0]const u8 `
     ///
-    pub fn New41(str: []const u8) QtC.QVariant {
+    pub fn New41(str: [:0]const u8) QtC.QVariant {
         const str_Cstring = str.ptr;
 
         return qtc.QVariant_new41(str_Cstring);
@@ -494,7 +494,7 @@ pub const qvariant = struct {
     ///
     /// ` typeVal: qvariant_enums.Type `
     ///
-    pub fn New42(typeVal: i64) QtC.QVariant {
+    pub fn New42(typeVal: i32) QtC.QVariant {
         return qtc.QVariant_new42(@intCast(typeVal));
     }
 
@@ -560,7 +560,7 @@ pub const qvariant = struct {
     ///
     /// ` self: QtC.QVariant `
     ///
-    pub fn TypeName(self: ?*anyopaque) []const u8 {
+    pub fn TypeName(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QVariant_TypeName(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1179,7 +1179,7 @@ pub const qvariant = struct {
     ///
     /// ` qvariant_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QVariant_Type(@ptrCast(self));
     }
 
@@ -1189,7 +1189,7 @@ pub const qvariant = struct {
     ///
     /// ` typeId: i32 `
     ///
-    pub fn TypeToName(typeId: i32) []const u8 {
+    pub fn TypeToName(typeId: i32) [:0]const u8 {
         const _ret = qtc.QVariant_TypeToName(@intCast(typeId));
         return std.mem.span(_ret);
     }
@@ -1198,13 +1198,13 @@ pub const qvariant = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ## Returns:
     ///
     /// ` qvariant_enums.Type `
     ///
-    pub fn NameToType(name: []const u8) i64 {
+    pub fn NameToType(name: [:0]const u8) i32 {
         const name_Cstring = name.ptr;
         return qtc.QVariant_NameToType(name_Cstring);
     }
@@ -1511,6 +1511,6 @@ pub const enums = struct {
         pub const LastGuiType: i32 = 4119;
         pub const SizePolicy: i32 = 8192;
         pub const UserType: i32 = 65536;
-        pub const LastType: i64 = 4294967295;
+        pub const LastType: i32 = -1;
     };
 };

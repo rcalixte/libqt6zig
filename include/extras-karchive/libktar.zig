@@ -65,11 +65,11 @@ pub const ktar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: []const u8 `
+    /// ` sourceText: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(sourceText: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -578,13 +578,13 @@ pub const ktar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: []const u8 `
+    /// ` sourceText: [:0]const u8 `
     ///
-    /// ` disambiguation: []const u8 `
+    /// ` disambiguation: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(sourceText: [:0]const u8, disambiguation: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
@@ -598,15 +598,15 @@ pub const ktar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: []const u8 `
+    /// ` sourceText: [:0]const u8 `
     ///
-    /// ` disambiguation: []const u8 `
+    /// ` disambiguation: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
@@ -858,11 +858,11 @@ pub const ktar = struct {
     ///
     /// ` self: QtC.KTar `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` size: i64 `
     ///
-    pub fn WriteData(self: ?*anyopaque, data: []const u8, size: i64) bool {
+    pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
         return qtc.KArchive_WriteData(@ptrCast(self), data_Cstring, @intCast(size));
     }
@@ -1839,11 +1839,11 @@ pub const ktar = struct {
     ///
     /// ` self: QtC.KTar `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` size: i64 `
     ///
-    pub fn DoWriteData(self: ?*anyopaque, data: []const u8, size: i64) bool {
+    pub fn DoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
         return qtc.KTar_DoWriteData(@ptrCast(self), data_Cstring, @intCast(size));
     }
@@ -1858,11 +1858,11 @@ pub const ktar = struct {
     ///
     /// ` self: QtC.KTar `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` size: i64 `
     ///
-    pub fn QBaseDoWriteData(self: ?*anyopaque, data: []const u8, size: i64) bool {
+    pub fn QBaseDoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
         return qtc.KTar_QBaseDoWriteData(@ptrCast(self), data_Cstring, @intCast(size));
     }

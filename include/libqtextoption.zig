@@ -130,7 +130,7 @@ pub const qtextoption = struct {
     ///
     /// ` flags: flag of qtextoption_enums.Flag `
     ///
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QTextOption_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -144,7 +144,7 @@ pub const qtextoption = struct {
     ///
     /// ` flag of qtextoption_enums.Flag `
     ///
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QTextOption_Flags(@ptrCast(self));
     }
 
@@ -477,6 +477,6 @@ pub const enums = struct {
         pub const AddSpaceForLineAndParagraphSeparators: i32 = 4;
         pub const SuppressColors: i32 = 8;
         pub const ShowDocumentTerminator: i32 = 16;
-        pub const IncludeTrailingSpaces: i64 = 2147483648;
+        pub const IncludeTrailingSpaces: i32 = -2147483648;
     };
 };

@@ -83,9 +83,9 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__Document_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -108,11 +108,11 @@ pub const ktexteditor__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -2056,7 +2056,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetMarkDescription(self: ?*anyopaque, mark: i64, text: []const u8) void {
+    pub fn SetMarkDescription(self: ?*anyopaque, mark: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2074,7 +2074,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MarkDescription(self: ?*anyopaque, mark: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn MarkDescription(self: ?*anyopaque, mark: i32, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Document_MarkDescription(@ptrCast(self), @intCast(mark));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::document.MarkDescription: Memory allocation failed");
@@ -2114,7 +2114,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` icon: QtC.QIcon `
     ///
-    pub fn SetMarkIcon(self: ?*anyopaque, markType: i64, icon: ?*anyopaque) void {
+    pub fn SetMarkIcon(self: ?*anyopaque, markType: i32, icon: ?*anyopaque) void {
         qtc.KTextEditor__Document_SetMarkIcon(@ptrCast(self), @intCast(markType), @ptrCast(icon));
     }
 
@@ -2126,7 +2126,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` markType: document_enums.MarkTypes `
     ///
-    pub fn MarkIcon(self: ?*anyopaque, markType: i64) QtC.QIcon {
+    pub fn MarkIcon(self: ?*anyopaque, markType: i32) QtC.QIcon {
         return qtc.KTextEditor__Document_MarkIcon(@ptrCast(self), @intCast(markType));
     }
 
@@ -2296,13 +2296,13 @@ pub const ktexteditor__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -2316,15 +2316,15 @@ pub const ktexteditor__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -2348,7 +2348,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchText3(self: ?*anyopaque, range: QtC.KTextEditor__Range, pattern: []const u8, options: i64, allocator: std.mem.Allocator) []QtC.KTextEditor__Range {
+    pub fn SearchText3(self: ?*anyopaque, range: QtC.KTextEditor__Range, pattern: []const u8, options: i32, allocator: std.mem.Allocator) []QtC.KTextEditor__Range {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -3254,11 +3254,11 @@ pub const ktexteditor__document = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -3326,11 +3326,11 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -3343,9 +3343,9 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -3449,9 +3449,9 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -3530,13 +3530,13 @@ pub const ktexteditor__document = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4232,7 +4232,7 @@ pub const enums = struct {
         pub const MarkType29: i32 = 268435456;
         pub const MarkType30: i32 = 536870912;
         pub const MarkType31: i32 = 1073741824;
-        pub const MarkType32: i64 = 2147483648;
+        pub const MarkType32: i32 = -2147483648;
         pub const Bookmark: i32 = 1;
         pub const BreakpointActive: i32 = 2;
         pub const BreakpointReached: i32 = 4;
@@ -4240,7 +4240,7 @@ pub const enums = struct {
         pub const Execution: i32 = 16;
         pub const Warning: i32 = 32;
         pub const Error: i32 = 64;
-        pub const SearchMatch: i64 = 2147483648;
+        pub const SearchMatch: i32 = -2147483648;
     };
 
     pub const MarkChangeAction = enum {

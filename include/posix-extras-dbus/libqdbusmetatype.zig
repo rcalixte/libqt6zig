@@ -96,9 +96,9 @@ pub const qdbusmetatype = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` signature: []const u8 `
+    /// ` signature: [:0]const u8 `
     ///
-    pub fn SignatureToMetaType(signature: []const u8) QtC.QMetaType {
+    pub fn SignatureToMetaType(signature: [:0]const u8) QtC.QMetaType {
         const signature_Cstring = signature.ptr;
         return qtc.QDBusMetaType_SignatureToMetaType(signature_Cstring);
     }
@@ -109,7 +109,7 @@ pub const qdbusmetatype = struct {
     ///
     /// ` typeVal: QtC.QMetaType `
     ///
-    pub fn TypeToSignature(typeVal: QtC.QMetaType) []const u8 {
+    pub fn TypeToSignature(typeVal: QtC.QMetaType) [:0]const u8 {
         const _ret = qtc.QDBusMetaType_TypeToSignature(@ptrCast(typeVal));
         return std.mem.span(_ret);
     }

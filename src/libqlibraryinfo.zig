@@ -51,7 +51,7 @@ pub const qlibraryinfo = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#build)
     ///
-    pub fn Build() []const u8 {
+    pub fn Build() [:0]const u8 {
         const _ret = qtc.QLibraryInfo_Build();
         return std.mem.span(_ret);
     }

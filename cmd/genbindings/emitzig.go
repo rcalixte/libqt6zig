@@ -219,7 +219,7 @@ func mapParamToString(param string) string {
 
 func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumName bool) string {
 	if p.Pointer && p.ParameterType == "char" {
-		return strings.Repeat("[]", p.PointerCount) + ifv(p.Const, "const ", "") + "u8"
+		return strings.Repeat("[]", p.PointerCount-1) + "[:0]" + ifv(p.Const, "const ", "") + "u8"
 	}
 	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" ||
 		p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" ||
@@ -523,7 +523,9 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 		ret = strings.ReplaceAll(ret, "[][]const u8", "?[*:null]?[*:0]const u8")
 		ret = strings.ReplaceAll(ret, "[][]u8", "?[*:null]?[*:0]u8")
 		ret = strings.ReplaceAll(ret, "[]const u8", "[*:0]const u8")
+		ret = strings.ReplaceAll(ret, "[:0]const u8", "[*:0]const u8")
 		ret = strings.ReplaceAll(ret, "[]u8", "[*:0]u8")
+		ret = strings.ReplaceAll(ret, "[:0]u8", "[*:0]u8")
 		ret = strings.ReplaceAll(ret, "[]i32", "[*:-1]i32")
 		ret = strings.ReplaceAll(ret, "[]i64", "[*:-1]i64")
 		ret = strings.ReplaceAll(ret, "[]f32", "[*:-1.0]f32")
@@ -621,7 +623,8 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 	for i := 0; i < len(params); i++ {
 		p := params[i]
 		if IsArgcArgv(params, i) {
-			tmp = append(tmp, "argc: usize, argv: [*][*:0]u8")
+			tmp = append(tmp, "argc: usize")
+			tmp = append(tmp, "argv: [*][*:0]u8")
 			i++ // Skip the next parameter, already handled
 		} else {
 			// Ordinary parameter
@@ -642,7 +645,9 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				paramType = strings.ReplaceAll(paramType, "[][]const u8", "[*][*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[][]u8", "[*][*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]const u8", "[*:0]const u8")
+				paramType = strings.ReplaceAll(paramType, "[:0]const u8", "[*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[]u8", "[*:0]u8")
+				paramType = strings.ReplaceAll(paramType, "[:0]u8", "[*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]i32", "[*:-1]i32")
 				paramType = strings.ReplaceAll(paramType, "[]i64", "[*:-1]i64")
 				paramType = strings.ReplaceAll(paramType, "[]f32", "[*:-1.0]f32")
@@ -752,7 +757,9 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 				paramType = strings.ReplaceAll(paramType, "[][]const u8", "[*][*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[][]u8", "[*][*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]const u8", "[*:0]const u8")
+				paramType = strings.ReplaceAll(paramType, "[:0]const u8", "[*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[]u8", "[*:0]u8")
+				paramType = strings.ReplaceAll(paramType, "[:0]u8", "[*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]i32", "[*:-1]i32")
 				paramType = strings.ReplaceAll(paramType, "[]i64", "[*:-1]i64")
 				paramType = strings.ReplaceAll(paramType, "[]f32", "[*:-1.0]f32")
@@ -1169,7 +1176,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			// Single char** argument
 			zfs.imports["std"] = struct{}{}
 
-			preamble += "var " + nameprefix + "_chararr = allocator.alloc([*c]const u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "var " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_chararr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |str, i| {\n"
 			preamble += "    " + nameprefix + "_chararr[i] = @ptrCast(str.ptr);\n"
@@ -1178,7 +1185,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			rvalue = nameprefix + "_chararr.ptr"
 
 		default:
-			panic("char** argument with " + strconv.Itoa(p.PointerCount) + " pointers")
+			panic("char argument with " + strconv.Itoa(p.PointerCount) + " pointers")
 		}
 
 	} else if p.QtClassType() {
@@ -1265,7 +1272,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if t, containerType, ok := rt.QListOf(); ok {
+	} else if t, _, ok := rt.QListOf(); ok {
 		// In the simplest QList case, the list is a slice of the inner type
 		// e.g. QList<double>
 		// In the intermediate case, the list is a slice of a struct
@@ -1312,15 +1319,15 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "    const " + namePrefix + "_cstr = " + namePrefix + "_str[i];\n"
 			afterword += "    if (" + namePrefix + "_cstr) |cstr| {\n"
 			afterword += "        const cstr_len = std.mem.len(cstr);\n"
-			afterword += "        const " + namePrefix + "_buf = allocator.alloc(u8, cstr_len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Buffer allocation failed\");\n"
+			afterword += "        const " + namePrefix + "_buf = allocator.allocSentinel(u8, cstr_len, 0) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Buffer allocation failed\");\n"
 			afterword += "        @memcpy(" + namePrefix + "_buf, cstr[0..cstr_len]);\n"
 			afterword += "        " + namePrefix + "_ret[i] = " + namePrefix + "_buf;\n"
 			afterword += "    } else {\n"
-			afterword += "        " + namePrefix + "_ret[i] = &[_]u8{};\n"
+			afterword += "        " + namePrefix + "_ret[i] = &[_:0]u8{};\n"
 			afterword += "    }\n"
 			afterword += "}\n"
 
-		} else if strings.Contains(rt.ParameterType, "<QString>") || strings.Contains(rt.ParameterType, "<QByteArray>") {
+		} else if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
 			afterword += "var " + namePrefix + "_str: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 			afterword += "defer {\n"
 			afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
@@ -1336,11 +1343,9 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "    " + namePrefix + "_ret[i] = " + namePrefix + "_buf;\n"
 			afterword += "}\n"
 
-		} else if strings.Contains(rt.ParameterType, "<QPair<") {
-			pair := rt.ParameterType[len(containerType)+7 : len(rt.ParameterType)-2]
-
-			switch pair {
-			case "QByteArray, QByteArray", "QString, QString":
+		} else if f, s, ok := t.QPairOf(); ok {
+			// QList<QPair<F,S>>
+			if (f.ParameterType == "QString" || f.ParameterType == "QByteArray") && (s.ParameterType == "QString" || s.ParameterType == "QByteArray") {
 				afterword += "defer {\n"
 				afterword += "var " + namePrefix + "_pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
@@ -1351,7 +1356,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "}\n"
 				afterword += "qtc.libqt_free(" + namePrefix + "_arr.data);\n"
 				afterword += "}\n"
-			default:
+			} else {
 				afterword += "defer {\n"
 				afterword += "const " + namePrefix + "_pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
@@ -1365,6 +1370,52 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "const " + namePrefix + "_data: [*]" + arrType + " = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 			afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_data[0.." + namePrefix + "_arr.len]);\n"
+
+		} else if p, _, ok := t.QListOf(); ok {
+			// QList<QList<P>>
+			if p.ParameterType == "QString" || p.ParameterType == "QByteArray" {
+				afterword += "const " + namePrefix + "_str: [*]qtc.libqt_list = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
+				afterword += "defer {\n"
+				afterword += "    for (0.." + namePrefix + "_arr.len) |i| {\n"
+				afterword += "        var " + namePrefix + "_strlist: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_str[i].data));\n"
+				afterword += "        for (0.." + namePrefix + "_str[i].len) |j| {\n"
+				afterword += "            qtc.libqt_string_free(@ptrCast(&" + namePrefix + "_strlist[j]));\n"
+				afterword += "        }\n"
+				afterword += "        qtc.libqt_free(" + namePrefix + "_str[i].data);\n"
+				afterword += "    }\n"
+				afterword += "    qtc.libqt_free(" + namePrefix + "_arr.data);\n"
+				afterword += "}\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
+				afterword += "    const " + namePrefix + "_data = " + namePrefix + "_str[i];\n"
+				afterword += "    const " + namePrefix + "_strlist = allocator.alloc(" + arrType[2:] + ", " + namePrefix + `_data.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "    var " + namePrefix + "_strdata: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_data.data));\n"
+				afterword += "    for (0.." + namePrefix + "_data.len) |j| {\n"
+				afterword += "        const " + namePrefix + "_buf = allocator.alloc(u8, " + namePrefix + `_strdata[j].len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "        @memcpy(" + namePrefix + "_buf, " + namePrefix + "_strdata[j].data[0.." + namePrefix + "_strdata[j].len]);\n"
+				afterword += "        " + namePrefix + "_strlist[j] = " + namePrefix + "_buf;\n"
+				afterword += "    }\n"
+				afterword += "    " + namePrefix + "_ret[i] = " + namePrefix + "_strlist;\n"
+				afterword += "}\n"
+
+			} else if IsKnownClass(p.ParameterType) {
+				afterword += "const " + namePrefix + "_list: [*]qtc.libqt_list = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
+				afterword += "defer {\n"
+				afterword += "    for (0.." + namePrefix + "_arr.len) |i| {\n"
+				afterword += "        qtc.libqt_free(" + namePrefix + "_list[i].data);\n"
+				afterword += "    }\n"
+				afterword += "    qtc.libqt_free(" + namePrefix + "_list);\n"
+				afterword += "}\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
+				afterword += "    const _data: [*]QtC." + p.ParameterType + " = @ptrCast(@alignCast(" + namePrefix + "_list[i].data));\n"
+				afterword += "    " + namePrefix + "_ret[i] = allocator.alloc(QtC." + p.ParameterType + ", " + namePrefix + `_list[i].len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "    @memcpy(" + namePrefix + "_ret[i], _data[0.." + namePrefix + "_list[i].len]);\n"
+				afterword += "}\n"
+
+			} else {
+				panic("*UNHANDLED INNER QLIST TYPE*\trt:" + rt.ParameterType + "\tarrType: " + arrType + "\tt: " + t.ParameterType)
+			}
 
 		} else {
 			panic("*UNHANDLED QLIST TYPE*\trt:" + rt.ParameterType + "\tarrType: " + arrType + "\tt: " + t.ParameterType)
@@ -2442,14 +2493,17 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			for _, ee := range e.Entries {
 				enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, false)
+				entry := ee.EntryValue
 				num, err := strconv.Atoi(ee.EntryValue)
 				if err == nil {
 					if float64(num) > math.MaxInt32 || float64(num) < math.MinInt32 {
-						// need to use i64 to avoid overflow
-						enumType = "i64"
+						// if needed, store wraparound value as opposed to overflow
+						if enumType[0] != 'u' {
+							entry = strconv.Itoa(int(int32(num)))
+						}
 					}
 				}
-				ret.WriteString("        pub const " + titleCase(cabiClassName(ee.EntryName)) + ": " + enumType + " = " + ee.EntryValue + ";\n")
+				ret.WriteString("        pub const " + titleCase(cabiClassName(ee.EntryName)) + ": " + enumType + " = " + entry + ";\n")
 			}
 
 		} else {

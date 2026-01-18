@@ -44,9 +44,9 @@ pub const qbytearraymatcher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` pattern: []const u8 `
+    /// ` pattern: [:0]const u8 `
     ///
-    pub fn New4(pattern: []const u8) QtC.QByteArrayMatcher {
+    pub fn New4(pattern: [:0]const u8) QtC.QByteArrayMatcher {
         const pattern_Cstring = pattern.ptr;
 
         return qtc.QByteArrayMatcher_new4(pattern_Cstring);
@@ -66,11 +66,11 @@ pub const qbytearraymatcher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` pattern: []const u8 `
+    /// ` pattern: [:0]const u8 `
     ///
     /// ` length: i64 `
     ///
-    pub fn New6(pattern: []const u8, length: i64) QtC.QByteArrayMatcher {
+    pub fn New6(pattern: [:0]const u8, length: i64) QtC.QByteArrayMatcher {
         const pattern_Cstring = pattern.ptr;
 
         return qtc.QByteArrayMatcher_new6(pattern_Cstring, @intCast(length));
@@ -110,11 +110,11 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` self: QtC.QByteArrayMatcher `
     ///
-    /// ` str: []const u8 `
+    /// ` str: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn IndexIn(self: ?*anyopaque, str: []const u8, lenVal: i64) i64 {
+    pub fn IndexIn(self: ?*anyopaque, str: [:0]const u8, lenVal: i64) i64 {
         const str_Cstring = str.ptr;
         return qtc.QByteArrayMatcher_IndexIn(@ptrCast(self), str_Cstring, @intCast(lenVal));
     }
@@ -157,13 +157,13 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` self: QtC.QByteArrayMatcher `
     ///
-    /// ` str: []const u8 `
+    /// ` str: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
     /// ` from: i64 `
     ///
-    pub fn IndexIn3(self: ?*anyopaque, str: []const u8, lenVal: i64, from: i64) i64 {
+    pub fn IndexIn3(self: ?*anyopaque, str: [:0]const u8, lenVal: i64, from: i64) i64 {
         const str_Cstring = str.ptr;
         return qtc.QByteArrayMatcher_IndexIn3(@ptrCast(self), str_Cstring, @intCast(lenVal), @intCast(from));
     }

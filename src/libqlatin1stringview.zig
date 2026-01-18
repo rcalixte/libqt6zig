@@ -15,9 +15,9 @@ pub const qlatin1string = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    pub fn New2(s: []const u8) QtC.QLatin1String {
+    pub fn New2(s: [:0]const u8) QtC.QLatin1String {
         const s_Cstring = s.ptr;
 
         return qtc.QLatin1String_new2(s_Cstring);
@@ -27,11 +27,11 @@ pub const qlatin1string = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` f: []const u8 `
+    /// ` f: [:0]const u8 `
     ///
-    /// ` l: []const u8 `
+    /// ` l: [:0]const u8 `
     ///
-    pub fn New3(f: []const u8, l: []const u8) QtC.QLatin1String {
+    pub fn New3(f: [:0]const u8, l: [:0]const u8) QtC.QLatin1String {
         const f_Cstring = f.ptr;
         const l_Cstring = l.ptr;
 
@@ -42,11 +42,11 @@ pub const qlatin1string = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` sz: i64 `
     ///
-    pub fn New4(s: []const u8, sz: i64) QtC.QLatin1String {
+    pub fn New4(s: [:0]const u8, sz: i64) QtC.QLatin1String {
         const s_Cstring = s.ptr;
 
         return qtc.QLatin1String_new4(s_Cstring, @intCast(sz));
@@ -128,7 +128,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn Latin1(self: ?*anyopaque) []const u8 {
+    pub fn Latin1(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_Latin1(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -149,7 +149,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn Data(self: ?*anyopaque) []const u8 {
+    pub fn Data(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_Data(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -160,7 +160,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn ConstData(self: ?*anyopaque) []const u8 {
+    pub fn ConstData(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_ConstData(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -171,7 +171,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn ConstBegin(self: ?*anyopaque) []const u8 {
+    pub fn ConstBegin(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_ConstBegin(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -182,7 +182,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn ConstEnd(self: ?*anyopaque) []const u8 {
+    pub fn ConstEnd(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_ConstEnd(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -537,7 +537,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn Begin(self: ?*anyopaque) []const u8 {
+    pub fn Begin(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_Begin(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -548,7 +548,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn Cbegin(self: ?*anyopaque) []const u8 {
+    pub fn Cbegin(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_Cbegin(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -559,7 +559,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn End(self: ?*anyopaque) []const u8 {
+    pub fn End(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_End(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -570,7 +570,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn Cend(self: ?*anyopaque) []const u8 {
+    pub fn Cend(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLatin1String_Cend(@ptrCast(self));
         return std.mem.span(_ret);
     }

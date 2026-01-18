@@ -36,9 +36,9 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QsciLexerCSS_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -89,11 +89,11 @@ pub const qscilexercss = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -108,7 +108,7 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    pub fn Language(self: ?*anyopaque) []const u8 {
+    pub fn Language(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_Language(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -119,7 +119,7 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    pub fn Lexer(self: ?*anyopaque) []const u8 {
+    pub fn Lexer(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_Lexer(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -130,7 +130,7 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    pub fn BlockEnd(self: ?*anyopaque) []const u8 {
+    pub fn BlockEnd(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_BlockEnd(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -141,7 +141,7 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    pub fn BlockStart(self: ?*anyopaque) []const u8 {
+    pub fn BlockStart(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_BlockStart(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -152,7 +152,7 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    pub fn WordCharacters(self: ?*anyopaque) []const u8 {
+    pub fn WordCharacters(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_WordCharacters(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -189,7 +189,7 @@ pub const qscilexercss = struct {
     ///
     /// ` set: i32 `
     ///
-    pub fn Keywords(self: ?*anyopaque, set: i32) []const u8 {
+    pub fn Keywords(self: ?*anyopaque, set: i32) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_Keywords(@ptrCast(self), @intCast(set));
         return std.mem.span(_ret);
     }
@@ -496,13 +496,13 @@ pub const qscilexercss = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -516,15 +516,15 @@ pub const qscilexercss = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -542,7 +542,7 @@ pub const qscilexercss = struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockEnd1(self: ?*anyopaque, style: *i32) []const u8 {
+    pub fn BlockEnd1(self: ?*anyopaque, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_BlockEnd1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
@@ -555,7 +555,7 @@ pub const qscilexercss = struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockStart1(self: ?*anyopaque, style: *i32) []const u8 {
+    pub fn BlockStart1(self: ?*anyopaque, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_BlockStart1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
@@ -820,11 +820,11 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` prop: []const u8 `
+    /// ` prop: [:0]const u8 `
     ///
-    /// ` val: []const u8 `
+    /// ` val: [:0]const u8 `
     ///
-    pub fn PropertyChanged(self: ?*anyopaque, prop: []const u8, val: []const u8) void {
+    pub fn PropertyChanged(self: ?*anyopaque, prop: [:0]const u8, val: [:0]const u8) void {
         const prop_Cstring = prop.ptr;
         const val_Cstring = val.ptr;
         qtc.QsciLexer_PropertyChanged(@ptrCast(self), prop_Cstring, val_Cstring);
@@ -854,9 +854,9 @@ pub const qscilexercss = struct {
     ///
     /// ` qs: QtC.QSettings `
     ///
-    /// ` prefix: []const u8 `
+    /// ` prefix: [:0]const u8 `
     ///
-    pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: [:0]const u8) bool {
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
@@ -871,9 +871,9 @@ pub const qscilexercss = struct {
     ///
     /// ` qs: QtC.QSettings `
     ///
-    /// ` prefix: []const u8 `
+    /// ` prefix: [:0]const u8 `
     ///
-    pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: [:0]const u8) bool {
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
@@ -1133,11 +1133,11 @@ pub const qscilexercss = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -1205,11 +1205,11 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -1222,9 +1222,9 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -1328,9 +1328,9 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -1409,13 +1409,13 @@ pub const qscilexercss = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -1503,7 +1503,7 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    pub fn AutoCompletionFillups(self: ?*anyopaque) []const u8 {
+    pub fn AutoCompletionFillups(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_AutoCompletionFillups(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1518,7 +1518,7 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    pub fn QBaseAutoCompletionFillups(self: ?*anyopaque) []const u8 {
+    pub fn QBaseAutoCompletionFillups(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_QBaseAutoCompletionFillups(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -1677,7 +1677,7 @@ pub const qscilexercss = struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
+    pub fn BlockStartKeyword(self: ?*anyopaque, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_BlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
@@ -1694,7 +1694,7 @@ pub const qscilexercss = struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn QBaseBlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
+    pub fn QBaseBlockStartKeyword(self: ?*anyopaque, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerCSS_QBaseBlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
@@ -3045,13 +3045,13 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` bytes: []const u8 `
+    /// ` bytes: [:0]const u8 `
     ///
     /// ` size: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn BytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
         var _str = qtc.QsciLexerCSS_BytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
         defer qtc.libqt_string_free(&_str);
@@ -3070,13 +3070,13 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` bytes: []const u8 `
+    /// ` bytes: [:0]const u8 `
     ///
     /// ` size: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
         var _str = qtc.QsciLexerCSS_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
         defer qtc.libqt_string_free(&_str);
@@ -3201,9 +3201,9 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciLexerCSS_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -3218,9 +3218,9 @@ pub const qscilexercss = struct {
     ///
     /// ` self: QtC.QsciLexerCSS `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciLexerCSS_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }

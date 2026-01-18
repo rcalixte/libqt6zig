@@ -65,9 +65,9 @@ pub const qdesktopservices = struct {
     ///
     /// ` receiver: QtC.QObject `
     ///
-    /// ` method: []const u8 `
+    /// ` method: [:0]const u8 `
     ///
-    pub fn SetUrlHandler(scheme: []const u8, receiver: ?*anyopaque, method: []const u8) void {
+    pub fn SetUrlHandler(scheme: []const u8, receiver: ?*anyopaque, method: [:0]const u8) void {
         const scheme_str = qtc.libqt_string{
             .len = scheme.len,
             .data = scheme.ptr,

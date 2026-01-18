@@ -341,7 +341,7 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    pub fn Bits(self: ?*anyopaque) []const u8 {
+    pub fn Bits(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QBitArray_Bits(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -350,11 +350,11 @@ pub const qbitarray = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn FromBits(data: []const u8, lenVal: i64) QtC.QBitArray {
+    pub fn FromBits(data: [:0]const u8, lenVal: i64) QtC.QBitArray {
         const data_Cstring = data.ptr;
         return qtc.QBitArray_FromBits(data_Cstring, @intCast(lenVal));
     }

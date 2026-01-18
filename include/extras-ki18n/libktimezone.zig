@@ -12,7 +12,7 @@ pub const ktimezone = struct {
     ///
     /// ` param2: f32 `
     ///
-    pub fn FromLocation(param1: f32, param2: f32) []const u8 {
+    pub fn FromLocation(param1: f32, param2: f32) [:0]const u8 {
         const _ret = qtc.KTimeZone_FromLocation(@floatCast(param1), @floatCast(param2));
         return std.mem.span(_ret);
     }
@@ -21,9 +21,9 @@ pub const ktimezone = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Country(param1: []const u8) QtC.KCountry {
+    pub fn Country(param1: [:0]const u8) QtC.KCountry {
         const param1_Cstring = param1.ptr;
         return qtc.KTimeZone_Country(param1_Cstring);
     }

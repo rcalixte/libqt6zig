@@ -357,9 +357,9 @@ pub const qdebug = struct {
     ///
     /// ` self: QtC.QDebug `
     ///
-    /// ` t: []const u8 `
+    /// ` t: [:0]const u8 `
     ///
-    pub fn OperatorShiftLeft17(self: ?*anyopaque, t: []const u8) QtC.QDebug {
+    pub fn OperatorShiftLeft17(self: ?*anyopaque, t: [:0]const u8) QtC.QDebug {
         const t_Cstring = t.ptr;
         return qtc.QDebug_OperatorShiftLeft17(@ptrCast(self), t_Cstring);
     }

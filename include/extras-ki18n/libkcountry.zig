@@ -9,9 +9,9 @@ pub const ktimezone = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Country(param1: []const u8) QtC.KCountry {
+    pub fn Country(param1: [:0]const u8) QtC.KCountry {
         const param1_Cstring = param1.ptr;
         return qtc.KTimeZone_Country(param1_Cstring);
     }
@@ -167,20 +167,20 @@ pub const kcountry = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TimeZoneIds(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn TimeZoneIds(self: ?*anyopaque, allocator: std.mem.Allocator) [][:0]const u8 {
         const _arr: qtc.libqt_list = qtc.KCountry_TimeZoneIds(@ptrCast(self));
         const _str: [*]?[*:0]const u8 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcountry.TimeZoneIds: Memory allocation failed");
+        const _ret = allocator.alloc([:0]const u8, _arr.len) catch @panic("kcountry.TimeZoneIds: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _cstr = _str[i];
             if (_cstr) |cstr| {
                 const cstr_len = std.mem.len(cstr);
-                const _buf = allocator.alloc(u8, cstr_len) catch @panic("kcountry.TimeZoneIds: Buffer allocation failed");
+                const _buf = allocator.allocSentinel(u8, cstr_len, 0) catch @panic("kcountry.TimeZoneIds: Buffer allocation failed");
                 @memcpy(_buf, cstr[0..cstr_len]);
                 _ret[i] = _buf;
             } else {
-                _ret[i] = &[_]u8{};
+                _ret[i] = &[_:0]u8{};
             }
         }
         return _ret;
@@ -223,9 +223,9 @@ pub const kcountry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` alpha2Code: []const u8 `
+    /// ` alpha2Code: [:0]const u8 `
     ///
-    pub fn FromAlpha22(alpha2Code: []const u8) QtC.KCountry {
+    pub fn FromAlpha22(alpha2Code: [:0]const u8) QtC.KCountry {
         const alpha2Code_Cstring = alpha2Code.ptr;
         return qtc.KCountry_FromAlpha22(alpha2Code_Cstring);
     }
@@ -234,9 +234,9 @@ pub const kcountry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` alpha3Code: []const u8 `
+    /// ` alpha3Code: [:0]const u8 `
     ///
-    pub fn FromAlpha32(alpha3Code: []const u8) QtC.KCountry {
+    pub fn FromAlpha32(alpha3Code: [:0]const u8) QtC.KCountry {
         const alpha3Code_Cstring = alpha3Code.ptr;
         return qtc.KCountry_FromAlpha32(alpha3Code_Cstring);
     }

@@ -16,11 +16,11 @@ pub const qcborstreamreader = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn New2(data: []const u8, lenVal: i64) QtC.QCborStreamReader {
+    pub fn New2(data: [:0]const u8, lenVal: i64) QtC.QCborStreamReader {
         const data_Cstring = data.ptr;
 
         return qtc.QCborStreamReader_new2(data_Cstring, @intCast(lenVal));
@@ -107,11 +107,11 @@ pub const qcborstreamreader = struct {
     ///
     /// ` self: QtC.QCborStreamReader `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn AddData2(self: ?*anyopaque, data: []const u8, lenVal: i64) void {
+    pub fn AddData2(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) void {
         const data_Cstring = data.ptr;
         qtc.QCborStreamReader_AddData2(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }

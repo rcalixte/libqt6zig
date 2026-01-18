@@ -1280,7 +1280,7 @@ pub const enums = struct {
         pub const Described: i32 = 32;
         pub const FlowsFrom: i32 = 64;
         pub const FlowsTo: i32 = 128;
-        pub const AllRelations: i64 = 4294967295;
+        pub const AllRelations: i32 = -1;
     };
 
     pub const InterfaceType = enum {

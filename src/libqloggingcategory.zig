@@ -8,9 +8,9 @@ pub const qloggingcategory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` category: []const u8 `
+    /// ` category: [:0]const u8 `
     ///
-    pub fn New(category: []const u8) QtC.QLoggingCategory {
+    pub fn New(category: [:0]const u8) QtC.QLoggingCategory {
         const category_Cstring = category.ptr;
 
         return qtc.QLoggingCategory_new(category_Cstring);
@@ -62,7 +62,7 @@ pub const qloggingcategory = struct {
     ///
     /// ` self: QtC.QLoggingCategory `
     ///
-    pub fn CategoryName(self: ?*anyopaque) []const u8 {
+    pub fn CategoryName(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QLoggingCategory_CategoryName(@ptrCast(self));
         return std.mem.span(_ret);
     }

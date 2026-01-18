@@ -107,7 +107,7 @@ pub const qtextitem = struct {
     ///
     /// ` flag of qpaintengine_enums.RenderFlag `
     ///
-    pub fn RenderFlags(self: ?*anyopaque) i64 {
+    pub fn RenderFlags(self: ?*anyopaque) i32 {
         return qtc.QTextItem_RenderFlags(@ptrCast(self));
     }
 
@@ -164,7 +164,7 @@ pub const qpaintengine = struct {
     ///
     /// ` features: flag of qpaintengine_enums.PaintEngineFeature `
     ///
-    pub fn New2(features: i64) QtC.QPaintEngine {
+    pub fn New2(features: i32) QtC.QPaintEngine {
         return qtc.QPaintEngine_new2(@intCast(features));
     }
 
@@ -1186,7 +1186,7 @@ pub const qpaintengine = struct {
     ///
     /// ` feature: flag of qpaintengine_enums.PaintEngineFeature `
     ///
-    pub fn HasFeature(self: ?*anyopaque, feature: i64) bool {
+    pub fn HasFeature(self: ?*anyopaque, feature: i32) bool {
         return qtc.QPaintEngine_HasFeature(@ptrCast(self), @intCast(feature));
     }
 
@@ -1583,7 +1583,7 @@ pub const enums = struct {
         pub const Overline: i32 = 16;
         pub const Underline: i32 = 32;
         pub const StrikeOut: i32 = 64;
-        pub const Dummy: i64 = 4294967295;
+        pub const Dummy: i32 = -1;
     };
 
     pub const PaintEngineFeature = enum {
@@ -1606,7 +1606,7 @@ pub const enums = struct {
         pub const ObjectBoundingModeGradients: i32 = 65536;
         pub const RasterOpModes: i32 = 131072;
         pub const PaintOutsidePaintEvent: i32 = 536870912;
-        pub const AllFeatures: i64 = 4294967295;
+        pub const AllFeatures: i32 = -1;
     };
 
     pub const DirtyFlag = enum {

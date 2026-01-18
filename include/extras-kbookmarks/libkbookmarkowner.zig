@@ -288,7 +288,7 @@ pub const kbookmarkowner = struct {
     ///
     /// ` km: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn OpenBookmark(self: ?*anyopaque, bm: ?*anyopaque, mb: i64, km: i64) void {
+    pub fn OpenBookmark(self: ?*anyopaque, bm: ?*anyopaque, mb: i32, km: i32) void {
         qtc.KBookmarkOwner_OpenBookmark(@ptrCast(self), @ptrCast(bm), @intCast(mb), @intCast(km));
     }
 
@@ -302,7 +302,7 @@ pub const kbookmarkowner = struct {
     ///
     /// ` callback: *const fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmark, mb: flag of qnamespace_enums.MouseButton, km: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnOpenBookmark(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i64, i64) callconv(.c) void) void {
+    pub fn OnOpenBookmark(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KBookmarkOwner_OnOpenBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -320,7 +320,7 @@ pub const kbookmarkowner = struct {
     ///
     /// ` km: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn QBaseOpenBookmark(self: ?*anyopaque, bm: ?*anyopaque, mb: i64, km: i64) void {
+    pub fn QBaseOpenBookmark(self: ?*anyopaque, bm: ?*anyopaque, mb: i32, km: i32) void {
         qtc.KBookmarkOwner_QBaseOpenBookmark(@ptrCast(self), @ptrCast(bm), @intCast(mb), @intCast(km));
     }
 

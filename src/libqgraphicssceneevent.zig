@@ -377,7 +377,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` button: qnamespace_enums.MouseButton `
     ///
-    pub fn ButtonDownPos(self: ?*anyopaque, button: i64) QtC.QPointF {
+    pub fn ButtonDownPos(self: ?*anyopaque, button: i32) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_ButtonDownPos(@ptrCast(self), @intCast(button));
     }
 
@@ -391,7 +391,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` pos: QtC.QPointF `
     ///
-    pub fn SetButtonDownPos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
+    pub fn SetButtonDownPos(self: ?*anyopaque, button: i32, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetButtonDownPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
@@ -403,7 +403,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` button: qnamespace_enums.MouseButton `
     ///
-    pub fn ButtonDownScenePos(self: ?*anyopaque, button: i64) QtC.QPointF {
+    pub fn ButtonDownScenePos(self: ?*anyopaque, button: i32) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_ButtonDownScenePos(@ptrCast(self), @intCast(button));
     }
 
@@ -417,7 +417,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` pos: QtC.QPointF `
     ///
-    pub fn SetButtonDownScenePos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
+    pub fn SetButtonDownScenePos(self: ?*anyopaque, button: i32, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetButtonDownScenePos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
@@ -429,7 +429,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` button: qnamespace_enums.MouseButton `
     ///
-    pub fn ButtonDownScreenPos(self: ?*anyopaque, button: i64) QtC.QPoint {
+    pub fn ButtonDownScreenPos(self: ?*anyopaque, button: i32) QtC.QPoint {
         return qtc.QGraphicsSceneMouseEvent_ButtonDownScreenPos(@ptrCast(self), @intCast(button));
     }
 
@@ -443,7 +443,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` pos: QtC.QPoint `
     ///
-    pub fn SetButtonDownScreenPos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
+    pub fn SetButtonDownScreenPos(self: ?*anyopaque, button: i32, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetButtonDownScreenPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
@@ -523,7 +523,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn Buttons(self: ?*anyopaque) i64 {
+    pub fn Buttons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneMouseEvent_Buttons(@ptrCast(self));
     }
 
@@ -535,7 +535,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsSceneMouseEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -549,7 +549,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` qnamespace_enums.MouseButton `
     ///
-    pub fn Button(self: ?*anyopaque) i64 {
+    pub fn Button(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneMouseEvent_Button(@ptrCast(self));
     }
 
@@ -561,7 +561,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` button: qnamespace_enums.MouseButton `
     ///
-    pub fn SetButton(self: ?*anyopaque, button: i64) void {
+    pub fn SetButton(self: ?*anyopaque, button: i32) void {
         qtc.QGraphicsSceneMouseEvent_SetButton(@ptrCast(self), @intCast(button));
     }
 
@@ -575,7 +575,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: ?*anyopaque) i64 {
+    pub fn Modifiers(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneMouseEvent_Modifiers(@ptrCast(self));
     }
 
@@ -587,7 +587,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
+    pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
         qtc.QGraphicsSceneMouseEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
@@ -1014,7 +1014,7 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn Buttons(self: ?*anyopaque) i64 {
+    pub fn Buttons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneWheelEvent_Buttons(@ptrCast(self));
     }
 
@@ -1026,7 +1026,7 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -1040,7 +1040,7 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: ?*anyopaque) i64 {
+    pub fn Modifiers(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneWheelEvent_Modifiers(@ptrCast(self));
     }
 
@@ -1052,7 +1052,7 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
+    pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
@@ -1545,7 +1545,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: ?*anyopaque) i64 {
+    pub fn Modifiers(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneContextMenuEvent_Modifiers(@ptrCast(self));
     }
 
@@ -1557,7 +1557,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
+    pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
         qtc.QGraphicsSceneContextMenuEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
@@ -2024,7 +2024,7 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: ?*anyopaque) i64 {
+    pub fn Modifiers(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneHoverEvent_Modifiers(@ptrCast(self));
     }
 
@@ -2036,7 +2036,7 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
+    pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
         qtc.QGraphicsSceneHoverEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
@@ -2750,7 +2750,7 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn Buttons(self: ?*anyopaque) i64 {
+    pub fn Buttons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneDragDropEvent_Buttons(@ptrCast(self));
     }
 
@@ -2762,7 +2762,7 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -2776,7 +2776,7 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: ?*anyopaque) i64 {
+    pub fn Modifiers(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneDragDropEvent_Modifiers(@ptrCast(self));
     }
 
@@ -2788,7 +2788,7 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
+    pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 

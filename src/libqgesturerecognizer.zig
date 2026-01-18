@@ -157,7 +157,7 @@ pub const qgesturerecognizer = struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn RegisterRecognizer(recognizer: ?*anyopaque) i64 {
+    pub fn RegisterRecognizer(recognizer: ?*anyopaque) i32 {
         return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer));
     }
 
@@ -167,7 +167,7 @@ pub const qgesturerecognizer = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UnregisterRecognizer(typeVal: i64) void {
+    pub fn UnregisterRecognizer(typeVal: i32) void {
         qtc.QGestureRecognizer_UnregisterRecognizer(@intCast(typeVal));
     }
 

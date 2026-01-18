@@ -14,11 +14,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param2: QtC.QObject `
     ///
-    /// ` param3: []const u8 `
+    /// ` param3: [:0]const u8 `
     ///
     /// ` param4: QtC.QObject `
     ///
-    pub fn Create(param1: i32, param2: ?*anyopaque, param3: []const u8, param4: ?*anyopaque) QtC.QAction {
+    pub fn Create(param1: i32, param2: ?*anyopaque, param3: [:0]const u8, param4: ?*anyopaque) QtC.QAction {
         const param3_Cstring = param3.ptr;
         return qtc.KStandardAction_Create(@intCast(param1), @ptrCast(param2), param3_Cstring, @ptrCast(param4));
     }
@@ -115,11 +115,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn OpenNew(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn OpenNew(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_OpenNew(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -130,11 +130,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Open(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Open(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Open(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -145,11 +145,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn OpenRecent(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.KRecentFilesAction {
+    pub fn OpenRecent(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KRecentFilesAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_OpenRecent(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -160,11 +160,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Save(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Save(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Save(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -175,11 +175,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn SaveAs(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn SaveAs(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_SaveAs(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -190,11 +190,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Revert(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Revert(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Revert(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -205,11 +205,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Close(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Close(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Close(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -220,11 +220,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Print(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Print(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Print(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -235,11 +235,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn PrintPreview(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn PrintPreview(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_PrintPreview(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -250,11 +250,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Mail(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Mail(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Mail(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -265,11 +265,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Quit(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Quit(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Quit(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -280,11 +280,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Undo(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Undo(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Undo(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -295,11 +295,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Redo(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Redo(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Redo(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -360,11 +360,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Cut2(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Cut2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Cut2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -375,11 +375,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Copy2(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Copy2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Copy2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -390,11 +390,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Paste2(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Paste2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Paste2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -405,11 +405,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Clear2(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Clear2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Clear2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -420,11 +420,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn SelectAll2(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn SelectAll2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_SelectAll2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -435,11 +435,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Deselect(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Deselect(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Deselect(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -450,11 +450,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Find(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Find(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Find(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -465,11 +465,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn FindNext(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FindNext(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_FindNext(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -480,11 +480,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn FindPrev(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FindPrev(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_FindPrev(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -495,11 +495,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Replace(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Replace(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Replace(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -510,11 +510,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ActualSize(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ActualSize(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ActualSize(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -525,11 +525,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn FitToPage(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FitToPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_FitToPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -540,11 +540,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn FitToWidth(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FitToWidth(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_FitToWidth(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -555,11 +555,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn FitToHeight(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FitToHeight(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_FitToHeight(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -570,11 +570,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ZoomIn(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ZoomIn(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ZoomIn(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -585,11 +585,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ZoomOut(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ZoomOut(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ZoomOut(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -600,11 +600,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Zoom(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Zoom(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Zoom(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -615,11 +615,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Redisplay(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Redisplay(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Redisplay(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -630,11 +630,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Up(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Up(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Up(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -645,11 +645,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Back(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Back(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Back(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -660,11 +660,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Forward(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Forward(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Forward(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -675,11 +675,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Home(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Home(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Home(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -690,11 +690,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Prior(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Prior(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Prior(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -705,11 +705,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Next(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Next(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Next(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -720,11 +720,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn GoTo(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn GoTo(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_GoTo(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -735,11 +735,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn GotoPage(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn GotoPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_GotoPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -750,11 +750,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn GotoLine(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn GotoLine(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_GotoLine(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -765,11 +765,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn FirstPage(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FirstPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_FirstPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -780,11 +780,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn LastPage(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn LastPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_LastPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -795,11 +795,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn DocumentBack(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn DocumentBack(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_DocumentBack(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -810,11 +810,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn DocumentForward(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn DocumentForward(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_DocumentForward(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -825,11 +825,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn AddBookmark(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn AddBookmark(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_AddBookmark(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -840,11 +840,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn EditBookmarks(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn EditBookmarks(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_EditBookmarks(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -855,11 +855,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Spelling(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Spelling(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Spelling(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -870,11 +870,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ShowMenubar(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.KToggleAction {
+    pub fn ShowMenubar(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KToggleAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ShowMenubar(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -885,11 +885,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ShowStatusbar(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.KToggleAction {
+    pub fn ShowStatusbar(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KToggleAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ShowStatusbar(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -900,13 +900,13 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QWidget `
     ///
     /// ` param4: QtC.QObject `
     ///
-    pub fn FullScreen(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque, param4: ?*anyopaque) QtC.KToggleFullScreenAction {
+    pub fn FullScreen(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque, param4: ?*anyopaque) QtC.KToggleFullScreenAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_FullScreen(@ptrCast(param1), param2_Cstring, @ptrCast(param3), @ptrCast(param4));
     }
@@ -917,11 +917,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn KeyBindings(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn KeyBindings(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_KeyBindings(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -932,11 +932,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Preferences(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Preferences(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Preferences(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -947,11 +947,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ConfigureToolbars(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ConfigureToolbars(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ConfigureToolbars(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -962,11 +962,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ConfigureNotifications(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ConfigureNotifications(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ConfigureNotifications(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -977,11 +977,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn SwitchApplicationLanguage(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn SwitchApplicationLanguage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_SwitchApplicationLanguage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -992,11 +992,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn HelpContents(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn HelpContents(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_HelpContents(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1007,11 +1007,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn WhatsThis(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn WhatsThis(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_WhatsThis(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1022,11 +1022,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn ReportBug(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ReportBug(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_ReportBug(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1037,11 +1037,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn AboutApp(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn AboutApp(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_AboutApp(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1052,11 +1052,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn AboutKDE(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn AboutKDE(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_AboutKDE(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1067,11 +1067,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn DeleteFile(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn DeleteFile(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_DeleteFile(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1082,11 +1082,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn RenameFile(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn RenameFile(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_RenameFile(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1097,11 +1097,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn MoveToTrash(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn MoveToTrash(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_MoveToTrash(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1112,11 +1112,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn Donate(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Donate(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_Donate(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }
@@ -1127,11 +1127,11 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` param2: [:0]const u8 `
     ///
     /// ` param3: QtC.QObject `
     ///
-    pub fn HamburgerMenu(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.KHamburgerMenu {
+    pub fn HamburgerMenu(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KHamburgerMenu {
         const param2_Cstring = param2.ptr;
         return qtc.KStandardAction_HamburgerMenu(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
     }

@@ -14,9 +14,9 @@ pub const kremoteencoding = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn New2(name: []const u8) QtC.KRemoteEncoding {
+    pub fn New2(name: [:0]const u8) QtC.KRemoteEncoding {
         const name_Cstring = name.ptr;
 
         return qtc.KRemoteEncoding_new2(name_Cstring);
@@ -126,7 +126,7 @@ pub const kremoteencoding = struct {
     ///
     /// ` self: QtC.KRemoteEncoding `
     ///
-    pub fn Encoding(self: ?*anyopaque) []const u8 {
+    pub fn Encoding(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.KRemoteEncoding_Encoding(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -137,9 +137,9 @@ pub const kremoteencoding = struct {
     ///
     /// ` self: QtC.KRemoteEncoding `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn SetEncoding(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetEncoding(self: ?*anyopaque, name: [:0]const u8) void {
         const name_Cstring = name.ptr;
         qtc.KRemoteEncoding_SetEncoding(@ptrCast(self), name_Cstring);
     }

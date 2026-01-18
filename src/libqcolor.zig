@@ -95,9 +95,9 @@ pub const qcolor = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` aname: []const u8 `
+    /// ` aname: [:0]const u8 `
     ///
-    pub fn New9(aname: []const u8) QtC.QColor {
+    pub fn New9(aname: [:0]const u8) QtC.QColor {
         const aname_Cstring = aname.ptr;
 
         return qtc.QColor_new9(aname_Cstring);

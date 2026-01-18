@@ -41,7 +41,7 @@ pub const qstringconverter = struct {
     ///
     /// ` self: QtC.QStringConverter `
     ///
-    pub fn Name(self: ?*anyopaque) []const u8 {
+    pub fn Name(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QStringConverter_Name(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -52,7 +52,7 @@ pub const qstringconverter = struct {
     ///
     /// ` e: qstringconverter_base_enums.Encoding `
     ///
-    pub fn NameForEncoding(e: i32) []const u8 {
+    pub fn NameForEncoding(e: i32) [:0]const u8 {
         const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
         return std.mem.span(_ret);
     }

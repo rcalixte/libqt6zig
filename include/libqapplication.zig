@@ -11,7 +11,9 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` argc: usize, argv: [*][*:0]u8 `
+    /// ` argc: usize `
+    ///
+    /// ` argv: [*][*:0]u8 `
     ///
     pub fn New(argc: usize, argv: [*][*:0]u8) QtC.QApplication {
         var argc_param: c_int = @intCast(argc);
@@ -24,7 +26,9 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` argc: usize, argv: [*][*:0]u8 `
+    /// ` argc: usize `
+    ///
+    /// ` argv: [*][*:0]u8 `
     ///
     /// ` param3: i32 `
     ///
@@ -49,9 +53,9 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QApplication_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -102,11 +106,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -159,9 +163,9 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` className: []const u8 `
+    /// ` className: [:0]const u8 `
     ///
-    pub fn Palette2(className: []const u8) QtC.QPalette {
+    pub fn Palette2(className: [:0]const u8) QtC.QPalette {
         const className_Cstring = className.ptr;
         return qtc.QApplication_Palette2(className_Cstring);
     }
@@ -196,9 +200,9 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` className: []const u8 `
+    /// ` className: [:0]const u8 `
     ///
-    pub fn Font3(className: []const u8) QtC.QFont {
+    pub fn Font3(className: [:0]const u8) QtC.QFont {
         const className_Cstring = className.ptr;
         return qtc.QApplication_Font3(className_Cstring);
     }
@@ -515,11 +519,11 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` revision: i32 `
     ///
-    pub fn ResolveInterface(self: ?*anyopaque, name: []const u8, revision: i32) ?*anyopaque {
+    pub fn ResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
         return qtc.QApplication_ResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
@@ -546,11 +550,11 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` revision: i32 `
     ///
-    pub fn QBaseResolveInterface(self: ?*anyopaque, name: []const u8, revision: i32) ?*anyopaque {
+    pub fn QBaseResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
         return qtc.QApplication_QBaseResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
@@ -691,13 +695,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -711,15 +715,15 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -735,9 +739,9 @@ pub const qapplication = struct {
     ///
     /// ` param1: QtC.QPalette `
     ///
-    /// ` className: []const u8 `
+    /// ` className: [:0]const u8 `
     ///
-    pub fn SetPalette2(param1: ?*anyopaque, className: []const u8) void {
+    pub fn SetPalette2(param1: ?*anyopaque, className: [:0]const u8) void {
         const className_Cstring = className.ptr;
         qtc.QApplication_SetPalette2(@ptrCast(param1), className_Cstring);
     }
@@ -748,9 +752,9 @@ pub const qapplication = struct {
     ///
     /// ` param1: QtC.QFont `
     ///
-    /// ` className: []const u8 `
+    /// ` className: [:0]const u8 `
     ///
-    pub fn SetFont2(param1: ?*anyopaque, className: []const u8) void {
+    pub fn SetFont2(param1: ?*anyopaque, className: [:0]const u8) void {
         const className_Cstring = className.ptr;
         qtc.QApplication_SetFont2(@ptrCast(param1), className_Cstring);
     }
@@ -1056,7 +1060,7 @@ pub const qapplication = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn KeyboardModifiers() i64 {
+    pub fn KeyboardModifiers() i32 {
         return qtc.QGuiApplication_KeyboardModifiers();
     }
 
@@ -1068,7 +1072,7 @@ pub const qapplication = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn QueryKeyboardModifiers() i64 {
+    pub fn QueryKeyboardModifiers() i32 {
         return qtc.QGuiApplication_QueryKeyboardModifiers();
     }
 
@@ -1080,7 +1084,7 @@ pub const qapplication = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn MouseButtons() i64 {
+    pub fn MouseButtons() i32 {
         return qtc.QGuiApplication_MouseButtons();
     }
 
@@ -2170,13 +2174,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` context: []const u8 `
+    /// ` context: [:0]const u8 `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Translate(context: []const u8, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Translate(context: [:0]const u8, key: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const context_Cstring = context.ptr;
         const key_Cstring = key.ptr;
         var _str = qtc.QCoreApplication_Translate(context_Cstring, key_Cstring);
@@ -2470,15 +2474,15 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` context: []const u8 `
+    /// ` context: [:0]const u8 `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    /// ` disambiguation: []const u8 `
+    /// ` disambiguation: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Translate3(context: []const u8, key: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Translate3(context: [:0]const u8, key: [:0]const u8, disambiguation: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const context_Cstring = context.ptr;
         const key_Cstring = key.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
@@ -2495,17 +2499,17 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` context: []const u8 `
+    /// ` context: [:0]const u8 `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    /// ` disambiguation: []const u8 `
+    /// ` disambiguation: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Translate4(context: []const u8, key: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Translate4(context: [:0]const u8, key: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const context_Cstring = context.ptr;
         const key_Cstring = key.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
@@ -2783,11 +2787,11 @@ pub const qapplication = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -2855,11 +2859,11 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2872,9 +2876,9 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -2978,9 +2982,9 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -3059,13 +3063,13 @@ pub const qapplication = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -3489,9 +3493,9 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QApplication_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -3506,9 +3510,9 @@ pub const qapplication = struct {
     ///
     /// ` self: QtC.QApplication `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QApplication_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
